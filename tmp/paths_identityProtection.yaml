@@ -1,0 +1,1437 @@
+paths:
+  /identityProtection:
+    description: Provides operations to manage the identityProtectionRoot singleton.
+    get:
+      tags:
+        - identityProtection.identityProtectionRoot
+      summary: Get identityProtection
+      operationId: identityProtection.identityProtectionRoot.GetIdentityProtectionRoot
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.identityProtectionRoot'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - identityProtection.identityProtectionRoot
+      summary: Update identityProtection
+      operationId: identityProtection.identityProtectionRoot.UpdateIdentityProtectionRoot
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.identityProtectionRoot'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.identityProtectionRoot'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /identityProtection/riskDetections:
+    description: Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.riskDetection
+      summary: List riskDetections
+      description: Get a list of the riskDetection objects and their properties.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0
+      operationId: identityProtection.ListRiskDetections
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.riskDetectionCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - identityProtection.riskDetection
+      summary: Create new navigation property to riskDetections for identityProtection
+      operationId: identityProtection.CreateRiskDetections
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskDetection'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskDetection'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/identityProtection/riskDetections/{riskDetection-id}':
+    description: Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.riskDetection
+      summary: Get riskDetection
+      description: Read the properties and relationships of a riskDetection object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0
+      operationId: identityProtection.GetRiskDetections
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskDetection'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - identityProtection.riskDetection
+      summary: Update the navigation property riskDetections in identityProtection
+      operationId: identityProtection.UpdateRiskDetections
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskDetection'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskDetection'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - identityProtection.riskDetection
+      summary: Delete navigation property riskDetections for identityProtection
+      operationId: identityProtection.DeleteRiskDetections
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: riskDetection-id
+        in: path
+        description: The unique identifier of riskDetection
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskDetection
+  /identityProtection/riskDetections/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - identityProtection.riskDetection
+      summary: Get the number of the resource
+      operationId: identityProtection.riskDetections.GetCount-ee19
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /identityProtection/riskyServicePrincipals:
+    description: Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: List riskyServicePrincipals
+      description: Retrieve the properties and relationships of riskyServicePrincipal objects.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0
+      operationId: identityProtection.ListRiskyServicePrincipals
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.riskyServicePrincipalCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Create new navigation property to riskyServicePrincipals for identityProtection
+      operationId: identityProtection.CreateRiskyServicePrincipals
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipal'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipal'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/identityProtection/riskyServicePrincipals/{riskyServicePrincipal-id}':
+    description: Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Get riskyServicePrincipal
+      description: Read the properties and relationships of a riskyServicePrincipal object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyserviceprincipal-get?view=graph-rest-1.0
+      operationId: identityProtection.GetRiskyServicePrincipals
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipal'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Update the navigation property riskyServicePrincipals in identityProtection
+      operationId: identityProtection.UpdateRiskyServicePrincipals
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipal'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipal'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Delete navigation property riskyServicePrincipals for identityProtection
+      operationId: identityProtection.DeleteRiskyServicePrincipals
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: riskyServicePrincipal-id
+        in: path
+        description: The unique identifier of riskyServicePrincipal
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyServicePrincipal
+  '/identityProtection/riskyServicePrincipals/{riskyServicePrincipal-id}/history':
+    description: Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
+    get:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: List history (risk history of riskyServicePrincipal)
+      description: Get the risk history of a riskyServicePrincipal object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-1.0
+      operationId: identityProtection.riskyServicePrincipals.ListHistory
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.riskyServicePrincipalHistoryItemCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Create new navigation property to history for identityProtection
+      operationId: identityProtection.riskyServicePrincipals.CreateHistory
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipalHistoryItem'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipalHistoryItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: riskyServicePrincipal-id
+        in: path
+        description: The unique identifier of riskyServicePrincipal
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyServicePrincipal
+  '/identityProtection/riskyServicePrincipals/{riskyServicePrincipal-id}/history/{riskyServicePrincipalHistoryItem-id}':
+    description: Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
+    get:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Get history from identityProtection
+      description: Represents the risk history of Microsoft Entra service principals.
+      operationId: identityProtection.riskyServicePrincipals.GetHistory
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipalHistoryItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Update the navigation property history in identityProtection
+      operationId: identityProtection.riskyServicePrincipals.UpdateHistory
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipalHistoryItem'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyServicePrincipalHistoryItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Delete navigation property history for identityProtection
+      operationId: identityProtection.riskyServicePrincipals.DeleteHistory
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: riskyServicePrincipal-id
+        in: path
+        description: The unique identifier of riskyServicePrincipal
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyServicePrincipal
+      - name: riskyServicePrincipalHistoryItem-id
+        in: path
+        description: The unique identifier of riskyServicePrincipalHistoryItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyServicePrincipalHistoryItem
+  '/identityProtection/riskyServicePrincipals/{riskyServicePrincipal-id}/history/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Get the number of the resource
+      operationId: identityProtection.riskyServicePrincipals.history.GetCount-818f
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: riskyServicePrincipal-id
+        in: path
+        description: The unique identifier of riskyServicePrincipal
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyServicePrincipal
+  /identityProtection/riskyServicePrincipals/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Get the number of the resource
+      operationId: identityProtection.riskyServicePrincipals.GetCount-d335
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /identityProtection/riskyServicePrincipals/confirmCompromised:
+    description: Provides operations to call the confirmCompromised method.
+    post:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Invoke action confirmCompromised
+      description: Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to high.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyserviceprincipal-confirmcompromised?view=graph-rest-1.0
+      operationId: identityProtection.riskyServicePrincipals.confirmCompromised
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                servicePrincipalIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    x-ms-docs-grouped-path:
+      - /identityProtection/riskyUsers/confirmCompromised
+  /identityProtection/riskyServicePrincipals/dismiss:
+    description: Provides operations to call the dismiss method.
+    post:
+      tags:
+        - identityProtection.riskyServicePrincipal
+      summary: Invoke action dismiss
+      description: Dismiss the risk of one or more riskyServicePrincipal objects. This action sets the targeted service principal account's risk level to none. You can dismiss up to 60 service principal accounts in one request.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyserviceprincipal-dismiss?view=graph-rest-1.0
+      operationId: identityProtection.riskyServicePrincipals.dismiss
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                servicePrincipalIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    x-ms-docs-grouped-path:
+      - /identityProtection/riskyUsers/dismiss
+  /identityProtection/riskyUsers:
+    description: Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.riskyUser
+      summary: List riskyUsers
+      description: Get a list of the riskyUser objects and their properties.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyuser-list?view=graph-rest-1.0
+      operationId: identityProtection.ListRiskyUsers
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.riskyUserCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - identityProtection.riskyUser
+      summary: Create new navigation property to riskyUsers for identityProtection
+      operationId: identityProtection.CreateRiskyUsers
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyUser'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyUser'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/identityProtection/riskyUsers/{riskyUser-id}':
+    description: Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.riskyUser
+      summary: Get riskyUser
+      description: Read the properties and relationships of a riskyUser object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0
+      operationId: identityProtection.GetRiskyUsers
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyUser'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - identityProtection.riskyUser
+      summary: Update the navigation property riskyUsers in identityProtection
+      operationId: identityProtection.UpdateRiskyUsers
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyUser'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyUser'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - identityProtection.riskyUser
+      summary: Delete navigation property riskyUsers for identityProtection
+      operationId: identityProtection.DeleteRiskyUsers
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: riskyUser-id
+        in: path
+        description: The unique identifier of riskyUser
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyUser
+  '/identityProtection/riskyUsers/{riskyUser-id}/history':
+    description: Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
+    get:
+      tags:
+        - identityProtection.riskyUser
+      summary: List history of riskyUser
+      description: Get the riskyUserHistoryItems from the history navigation property.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0
+      operationId: identityProtection.riskyUsers.ListHistory
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.riskyUserHistoryItemCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - identityProtection.riskyUser
+      summary: Create new navigation property to history for identityProtection
+      operationId: identityProtection.riskyUsers.CreateHistory
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyUserHistoryItem'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyUserHistoryItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: riskyUser-id
+        in: path
+        description: The unique identifier of riskyUser
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyUser
+  '/identityProtection/riskyUsers/{riskyUser-id}/history/{riskyUserHistoryItem-id}':
+    description: Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
+    get:
+      tags:
+        - identityProtection.riskyUser
+      summary: Get history from identityProtection
+      description: The activity related to user risk level change
+      operationId: identityProtection.riskyUsers.GetHistory
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyUserHistoryItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - identityProtection.riskyUser
+      summary: Update the navigation property history in identityProtection
+      operationId: identityProtection.riskyUsers.UpdateHistory
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.riskyUserHistoryItem'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.riskyUserHistoryItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - identityProtection.riskyUser
+      summary: Delete navigation property history for identityProtection
+      operationId: identityProtection.riskyUsers.DeleteHistory
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: riskyUser-id
+        in: path
+        description: The unique identifier of riskyUser
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyUser
+      - name: riskyUserHistoryItem-id
+        in: path
+        description: The unique identifier of riskyUserHistoryItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyUserHistoryItem
+  '/identityProtection/riskyUsers/{riskyUser-id}/history/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - identityProtection.riskyUser
+      summary: Get the number of the resource
+      operationId: identityProtection.riskyUsers.history.GetCount-33a2
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: riskyUser-id
+        in: path
+        description: The unique identifier of riskyUser
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: riskyUser
+  /identityProtection/riskyUsers/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - identityProtection.riskyUser
+      summary: Get the number of the resource
+      operationId: identityProtection.riskyUsers.GetCount-2b7d
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /identityProtection/riskyUsers/confirmCompromised:
+    description: Provides operations to call the confirmCompromised method.
+    post:
+      tags:
+        - identityProtection.riskyUser
+      summary: Invoke action confirmCompromised
+      description: Confirm one or more riskyUser objects as compromised. This action sets the targeted user's risk level to high.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0
+      operationId: identityProtection.riskyUsers.confirmCompromised
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    x-ms-docs-grouped-path:
+      - /identityProtection/riskyServicePrincipals/confirmCompromised
+  /identityProtection/riskyUsers/confirmSafe:
+    description: Provides operations to call the confirmSafe method.
+    post:
+      tags:
+        - identityProtection.riskyUser
+      summary: Invoke action confirmSafe
+      description: Confirm one or more riskyUser objects as safe. This action sets the targeted user's risk level to none.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyuser-confirmsafe?view=graph-rest-1.0
+      operationId: identityProtection.riskyUsers.confirmSafe
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /identityProtection/riskyUsers/dismiss:
+    description: Provides operations to call the dismiss method.
+    post:
+      tags:
+        - identityProtection.riskyUser
+      summary: Invoke action dismiss
+      description: Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/riskyuser-dismiss?view=graph-rest-1.0
+      operationId: identityProtection.riskyUsers.dismiss
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    x-ms-docs-grouped-path:
+      - /identityProtection/riskyServicePrincipals/dismiss
+  /identityProtection/servicePrincipalRiskDetections:
+    description: Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.servicePrincipalRiskDetection
+      summary: List servicePrincipalRiskDetections
+      description: Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-1.0
+      operationId: identityProtection.ListServicePrincipalRiskDetections
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.servicePrincipalRiskDetectionCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - identityProtection.servicePrincipalRiskDetection
+      summary: Create new navigation property to servicePrincipalRiskDetections for identityProtection
+      operationId: identityProtection.CreateServicePrincipalRiskDetections
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.servicePrincipalRiskDetection'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.servicePrincipalRiskDetection'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/identityProtection/servicePrincipalRiskDetections/{servicePrincipalRiskDetection-id}':
+    description: Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+    get:
+      tags:
+        - identityProtection.servicePrincipalRiskDetection
+      summary: Get servicePrincipalRiskDetection
+      description: Read the properties and relationships of a servicePrincipalRiskDetection object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-1.0
+      operationId: identityProtection.GetServicePrincipalRiskDetections
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.servicePrincipalRiskDetection'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - identityProtection.servicePrincipalRiskDetection
+      summary: Update the navigation property servicePrincipalRiskDetections in identityProtection
+      operationId: identityProtection.UpdateServicePrincipalRiskDetections
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.servicePrincipalRiskDetection'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.servicePrincipalRiskDetection'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - identityProtection.servicePrincipalRiskDetection
+      summary: Delete navigation property servicePrincipalRiskDetections for identityProtection
+      operationId: identityProtection.DeleteServicePrincipalRiskDetections
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: servicePrincipalRiskDetection-id
+        in: path
+        description: The unique identifier of servicePrincipalRiskDetection
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: servicePrincipalRiskDetection
+  /identityProtection/servicePrincipalRiskDetections/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - identityProtection.servicePrincipalRiskDetection
+      summary: Get the number of the resource
+      operationId: identityProtection.servicePrincipalRiskDetections.GetCount-1bc5
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'

@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\Models;
+
+/**
+ * {{MODEL_NAME}}
+ */
+class {{MODEL_NAME}}
+{
+{{PROPERTIES}}
+
+{{GETTERS_SETTERS}}
+}

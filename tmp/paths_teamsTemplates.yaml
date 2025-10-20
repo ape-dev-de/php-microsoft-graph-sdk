@@ -1,0 +1,187 @@
+paths:
+  /teamsTemplates:
+    description: Provides operations to manage the collection of teamsTemplate entities.
+    get:
+      tags:
+        - teamsTemplates.teamsTemplate
+      summary: Get entities from teamsTemplates
+      operationId: teamsTemplates.teamsTemplate.ListTeamsTemplate
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.teamsTemplateCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - teamsTemplates.teamsTemplate
+      summary: Add new entity to teamsTemplates
+      operationId: teamsTemplates.teamsTemplate.CreateTeamsTemplate
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+        required: true
+      responses:
+        2XX:
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/teamsTemplates/{teamsTemplate-id}':
+    description: Provides operations to manage the collection of teamsTemplate entities.
+    get:
+      tags:
+        - teamsTemplates.teamsTemplate
+      summary: Get entity from teamsTemplates by key
+      operationId: teamsTemplates.teamsTemplate.GetTeamsTemplate
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - teamsTemplates.teamsTemplate
+      summary: Update entity in teamsTemplates
+      operationId: teamsTemplates.teamsTemplate.UpdateTeamsTemplate
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - teamsTemplates.teamsTemplate
+      summary: Delete entity from teamsTemplates
+      operationId: teamsTemplates.teamsTemplate.DeleteTeamsTemplate
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: teamsTemplate-id
+        in: path
+        description: The unique identifier of teamsTemplate
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: teamsTemplate
+  /teamsTemplates/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - teamsTemplates.teamsTemplate
+      summary: Get the number of the resource
+      operationId: teamsTemplates.GetCount-3b4a
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'

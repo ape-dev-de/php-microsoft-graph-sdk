@@ -1,0 +1,2129 @@
+paths:
+  /employeeExperience:
+    description: Provides operations to manage the employeeExperience singleton.
+    get:
+      tags:
+        - employeeExperience.employeeExperience
+      summary: Get employeeExperience
+      operationId: employeeExperience.employeeExperience.GetEmployeeExperience
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.employeeExperience'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.employeeExperience
+      summary: Update employeeExperience
+      operationId: employeeExperience.employeeExperience.UpdateEmployeeExperience
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.employeeExperience'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.employeeExperience'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /employeeExperience/communities:
+    description: Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: List communities
+      description: Get a list of the Viva Engage community objects and their properties.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/employeeexperience-list-communities?view=graph-rest-1.0
+      operationId: employeeExperience.ListCommunities
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.communityCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - employeeExperience.community
+      summary: Create community
+      description: Create a new community in Viva Engage.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/employeeexperience-post-communities?view=graph-rest-1.0
+      operationId: employeeExperience.CreateCommunities
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.community'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.community'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/employeeExperience/communities/{community-id}':
+    description: Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get community
+      description: Read the properties and relationships of a community object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/community-get?view=graph-rest-1.0
+      operationId: employeeExperience.GetCommunities
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.community'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.community
+      summary: Update community
+      description: Update the properties of an existing Viva Engage community.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/community-update?view=graph-rest-1.0
+      operationId: employeeExperience.UpdateCommunities
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.community'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.community'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.community
+      summary: Delete community
+      description: 'Delete a Viva Engage community along with all associated Microsoft 365 content, including the connected Microsoft 365 group, OneNote notebook, and Planner plans. For more information, see What happens if I delete a Viva Engage community connected to Microsoft 365 groups.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/community-delete?view=graph-rest-1.0
+      operationId: employeeExperience.DeleteCommunities
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+  '/employeeExperience/communities/{community-id}/group':
+    description: Provides operations to manage the group property of the microsoft.graph.community entity.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get group from employeeExperience
+      description: The Microsoft 365 group that manages the membership of this community.
+      operationId: employeeExperience.communities.GetGroup
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.group'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+  '/employeeExperience/communities/{community-id}/group/serviceProvisioningErrors':
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a group object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: employeeExperience.communities.group.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+  '/employeeExperience/communities/{community-id}/group/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get the number of the resource
+      operationId: employeeExperience.communities.group.ServiceProvisioningErrors.GetCount-d8ef
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+  '/employeeExperience/communities/{community-id}/owners':
+    description: Provides operations to manage the owners property of the microsoft.graph.community entity.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get owners from employeeExperience
+      description: 'The admins of the community. Limited to 100 users. If this property isn''t specified when you create the community, the calling user is automatically assigned as the community owner.'
+      operationId: employeeExperience.communities.ListOwners
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.userCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+  '/employeeExperience/communities/{community-id}/owners/{user-id}':
+    description: Provides operations to manage the owners property of the microsoft.graph.community entity.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get owners from employeeExperience
+      description: 'The admins of the community. Limited to 100 users. If this property isn''t specified when you create the community, the calling user is automatically assigned as the community owner.'
+      operationId: employeeExperience.communities.GetOwners
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+      - name: user-id
+        in: path
+        description: The unique identifier of user
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: user
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/communities/{community-id}/owners(userPrincipalName=''{userPrincipalName}'')'
+  '/employeeExperience/communities/{community-id}/owners/{user-id}/mailboxSettings':
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: employeeExperience.communities.owners.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - employeeExperience.community
+      summary: Update property mailboxSettings value.
+      operationId: employeeExperience.communities.owners.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+      - name: user-id
+        in: path
+        description: The unique identifier of user
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: user
+  '/employeeExperience/communities/{community-id}/owners/{user-id}/serviceProvisioningErrors':
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: employeeExperience.communities.owners.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+      - name: user-id
+        in: path
+        description: The unique identifier of user
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: user
+  '/employeeExperience/communities/{community-id}/owners/{user-id}/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get the number of the resource
+      operationId: employeeExperience.communities.owners.ServiceProvisioningErrors.GetCount-6b17
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+      - name: user-id
+        in: path
+        description: The unique identifier of user
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: user
+  '/employeeExperience/communities/{community-id}/owners(userPrincipalName=''{userPrincipalName}'')':
+    description: Provides operations to manage the owners property of the microsoft.graph.community entity.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get owners from employeeExperience
+      description: 'The admins of the community. Limited to 100 users. If this property isn''t specified when you create the community, the calling user is automatically assigned as the community owner.'
+      operationId: employeeExperience.communities.owners.GetByUserPrincipalName
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+      - name: userPrincipalName
+        in: path
+        description: Alternate key of user
+        required: true
+        schema:
+          type: string
+          nullable: true
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/communities/{community-id}/owners/{user-id}'
+  '/employeeExperience/communities/{community-id}/owners/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get the number of the resource
+      operationId: employeeExperience.communities.owners.GetCount-1d4e
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: community-id
+        in: path
+        description: The unique identifier of community
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: community
+  /employeeExperience/communities/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.community
+      summary: Get the number of the resource
+      operationId: employeeExperience.communities.GetCount-6b75
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /employeeExperience/engagementAsyncOperations:
+    description: Provides operations to manage the engagementAsyncOperations property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.engagementAsyncOperation
+      summary: Get engagementAsyncOperation
+      description: Get an engagementAsyncOperation to track a long-running operation request.
+      operationId: employeeExperience.ListEngagementAsyncOperations
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.engagementAsyncOperationCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - employeeExperience.engagementAsyncOperation
+      summary: Create new navigation property to engagementAsyncOperations for employeeExperience
+      operationId: employeeExperience.CreateEngagementAsyncOperations
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.engagementAsyncOperation'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.engagementAsyncOperation'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/employeeExperience/engagementAsyncOperations/{engagementAsyncOperation-id}':
+    description: Provides operations to manage the engagementAsyncOperations property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.engagementAsyncOperation
+      summary: Get engagementAsyncOperation
+      description: Get an engagementAsyncOperation to track a long-running operation request.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/engagementasyncoperation-get?view=graph-rest-1.0
+      operationId: employeeExperience.GetEngagementAsyncOperations
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.engagementAsyncOperation'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.engagementAsyncOperation
+      summary: Update the navigation property engagementAsyncOperations in employeeExperience
+      operationId: employeeExperience.UpdateEngagementAsyncOperations
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.engagementAsyncOperation'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.engagementAsyncOperation'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.engagementAsyncOperation
+      summary: Delete navigation property engagementAsyncOperations for employeeExperience
+      operationId: employeeExperience.DeleteEngagementAsyncOperations
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: engagementAsyncOperation-id
+        in: path
+        description: The unique identifier of engagementAsyncOperation
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: engagementAsyncOperation
+  /employeeExperience/engagementAsyncOperations/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.engagementAsyncOperation
+      summary: Get the number of the resource
+      operationId: employeeExperience.engagementAsyncOperations.GetCount-6cef
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /employeeExperience/learningCourseActivities:
+    description: Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Get learningCourseActivity
+      description: 'Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.'
+      operationId: employeeExperience.ListLearningCourseActivities
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.learningCourseActivityCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Create new navigation property to learningCourseActivities for employeeExperience
+      operationId: employeeExperience.CreateLearningCourseActivities
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/employeeExperience/learningCourseActivities/{learningCourseActivity-id}':
+    description: Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Get learningCourseActivity
+      description: 'Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0
+      operationId: employeeExperience.GetLearningCourseActivities
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Update the navigation property learningCourseActivities in employeeExperience
+      operationId: employeeExperience.UpdateLearningCourseActivities
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Delete navigation property learningCourseActivities for employeeExperience
+      operationId: employeeExperience.DeleteLearningCourseActivities
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningCourseActivity-id
+        in: path
+        description: The unique identifier of learningCourseActivity
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningCourseActivity
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/learningCourseActivities(externalcourseActivityId=''{externalcourseActivityId}'')'
+  '/employeeExperience/learningCourseActivities(externalcourseActivityId=''{externalcourseActivityId}'')':
+    description: Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Get learningCourseActivity
+      description: 'Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0
+      operationId: employeeExperience.learningCourseActivities.GetByExternalcourseActivityId
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Update the navigation property learningCourseActivities in employeeExperience
+      operationId: employeeExperience.learningCourseActivities.UpdateByExternalcourseActivityId
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Delete navigation property learningCourseActivities for employeeExperience
+      operationId: employeeExperience.learningCourseActivities.DeleteByExternalcourseActivityId
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: externalcourseActivityId
+        in: path
+        description: Alternate key of learningCourseActivity
+        required: true
+        schema:
+          type: string
+          nullable: true
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/learningCourseActivities/{learningCourseActivity-id}'
+  /employeeExperience/learningCourseActivities/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.learningCourseActivity
+      summary: Get the number of the resource
+      operationId: employeeExperience.learningCourseActivities.GetCount-b347
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /employeeExperience/learningProviders:
+    description: Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: List learningProviders
+      description: Get a list of the learningProvider resources registered in Viva Learning for a tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/employeeexperience-list-learningproviders?view=graph-rest-1.0
+      operationId: employeeExperience.ListLearningProviders
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.learningProviderCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Create learningProvider
+      description: Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/employeeexperience-post-learningproviders?view=graph-rest-1.0
+      operationId: employeeExperience.CreateLearningProviders
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningProvider'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningProvider'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/employeeExperience/learningProviders/{learningProvider-id}':
+    description: Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get learningProvider
+      description: Read the properties and relationships of a learningProvider object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0
+      operationId: employeeExperience.GetLearningProviders
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningProvider'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Update learningProvider
+      description: Update the properties of a learningProvider object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningprovider-update?view=graph-rest-1.0
+      operationId: employeeExperience.UpdateLearningProviders
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningProvider'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningProvider'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Delete learningProvider
+      description: Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0
+      operationId: employeeExperience.DeleteLearningProviders
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningContents':
+    description: Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: List learningContents
+      description: Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningprovider-list-learningcontents?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.ListLearningContents
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.learningContentCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Create new navigation property to learningContents for employeeExperience
+      operationId: employeeExperience.learningProviders.CreateLearningContents
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningContent'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningContent'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningContents/{learningContent-id}':
+    description: Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get learningContent
+      description: Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.GetLearningContents
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningContent'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Update the navigation property learningContents in employeeExperience
+      operationId: employeeExperience.learningProviders.UpdateLearningContents
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningContent'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningContent'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Delete learningContent
+      description: Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.DeleteLearningContents
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+      - name: learningContent-id
+        in: path
+        description: The unique identifier of learningContent
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningContent
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/learningProviders/{learningProvider-id}/learningContents(externalId=''{externalId}'')'
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningContents(externalId=''{externalId}'')':
+    description: Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get learningContent
+      description: Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.learningContents.GetByExternalId
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningContent'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Update the navigation property learningContents in employeeExperience
+      operationId: employeeExperience.learningProviders.learningContents.UpdateByExternalId
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningContent'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningContent'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Delete learningContent
+      description: Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.learningContents.DeleteByExternalId
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+      - name: externalId
+        in: path
+        description: Alternate key of learningContent
+        required: true
+        schema:
+          type: string
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/learningProviders/{learningProvider-id}/learningContents/{learningContent-id}'
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningContents/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get the number of the resource
+      operationId: employeeExperience.learningProviders.learningContents.GetCount-2b22
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningCourseActivities':
+    description: Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get learningCourseActivity
+      description: 'Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.ListLearningCourseActivities
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.learningCourseActivityCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Create learningCourseActivity
+      description: "Create a new learningCourseActivity object. A learning course activity can be one of two types: \n- Assignment\n- Self-initiated Use this method to create either type of activity."
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/employeeexperienceuser-post-learningcourseactivities?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.CreateLearningCourseActivities
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningCourseActivities/{learningCourseActivity-id}':
+    description: Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get learningCourseActivities from employeeExperience
+      operationId: employeeExperience.learningProviders.GetLearningCourseActivities
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Update learningCourseActivity
+      description: 'Update the properties of a learningCourseActivity object. '
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.UpdateLearningCourseActivities
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Delete learningCourseActivity
+      description: Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.DeleteLearningCourseActivities
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+      - name: learningCourseActivity-id
+        in: path
+        description: The unique identifier of learningCourseActivity
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningCourseActivity
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/learningProviders/{learningProvider-id}/learningCourseActivities(externalcourseActivityId=''{externalcourseActivityId}'')'
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningCourseActivities(externalcourseActivityId=''{externalcourseActivityId}'')':
+    description: Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get learningCourseActivities from employeeExperience
+      operationId: employeeExperience.learningProviders.learningCourseActivities.GetByExternalcourseActivityId
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Update learningCourseActivity
+      description: 'Update the properties of a learningCourseActivity object. '
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.learningCourseActivities.UpdateByExternalcourseActivityId
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.learningCourseActivity'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Delete learningCourseActivity
+      description: Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0
+      operationId: employeeExperience.learningProviders.learningCourseActivities.DeleteByExternalcourseActivityId
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+      - name: externalcourseActivityId
+        in: path
+        description: Alternate key of learningCourseActivity
+        required: true
+        schema:
+          type: string
+          nullable: true
+    x-ms-docs-grouped-path:
+      - '/employeeExperience/learningProviders/{learningProvider-id}/learningCourseActivities/{learningCourseActivity-id}'
+  '/employeeExperience/learningProviders/{learningProvider-id}/learningCourseActivities/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get the number of the resource
+      operationId: employeeExperience.learningProviders.learningCourseActivities.GetCount-abe5
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: learningProvider-id
+        in: path
+        description: The unique identifier of learningProvider
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: learningProvider
+  /employeeExperience/learningProviders/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - employeeExperience.learningProvider
+      summary: Get the number of the resource
+      operationId: employeeExperience.learningProviders.GetCount-4d87
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'

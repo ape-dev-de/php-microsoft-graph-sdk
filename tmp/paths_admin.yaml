@@ -1,0 +1,3372 @@
+paths:
+  /admin:
+    description: Provides operations to manage the admin singleton.
+    get:
+      tags:
+        - admin.admin
+      summary: Get admin
+      operationId: admin.admin.GetAdmin
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.admin'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.admin
+      summary: Update admin
+      operationId: admin.admin.UpdateAdmin
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.admin'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.admin'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/edge:
+    description: Provides operations to manage the edge property of the microsoft.graph.admin entity.
+    get:
+      tags:
+        - admin.edge
+      summary: Get edge from admin
+      description: A container for Microsoft Edge resources. Read-only.
+      operationId: admin.GetEdge
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.edge'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.edge
+      summary: Update the navigation property edge in admin
+      operationId: admin.UpdateEdge
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.edge'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.edge'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.edge
+      summary: Delete navigation property edge for admin
+      operationId: admin.DeleteEdge
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/edge/internetExplorerMode:
+    description: Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.
+    get:
+      tags:
+        - admin.edge
+      summary: Get internetExplorerMode from admin
+      description: A container for Internet Explorer mode resources.
+      operationId: admin.edge.GetInternetExplorerMode
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.internetExplorerMode'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.edge
+      summary: Update the navigation property internetExplorerMode in admin
+      operationId: admin.edge.UpdateInternetExplorerMode
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.internetExplorerMode'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.internetExplorerMode'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.edge
+      summary: Delete navigation property internetExplorerMode for admin
+      operationId: admin.edge.DeleteInternetExplorerMode
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/edge/internetExplorerMode/siteLists:
+    description: Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+    get:
+      tags:
+        - admin.edge
+      summary: List browserSiteLists
+      description: Get a list of the browserSiteList objects and their properties.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.ListSiteLists
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.browserSiteListCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.edge
+      summary: Create browserSiteList
+      description: Create a new browserSiteList object to support Internet Explorer mode.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.CreateSiteLists
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.browserSiteList'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSiteList'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}':
+    description: Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+    get:
+      tags:
+        - admin.edge
+      summary: Get browserSiteList
+      description: Get a browserSiteList that contains browserSite and browserSharedCookie resources.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.GetSiteLists
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSiteList'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.edge
+      summary: Update browserSiteList
+      description: Update the properties of a browserSiteList object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.UpdateSiteLists
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.browserSiteList'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSiteList'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.edge
+      summary: Delete browserSiteList
+      description: Delete a browserSiteList object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.DeleteSiteLists
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}/publish':
+    description: Provides operations to call the publish method.
+    post:
+      tags:
+        - admin.edge
+      summary: Invoke action publish
+      description: Publish the specified browserSiteList for devices to download.
+      operationId: admin.edge.internetExplorerMode.siteLists.browserSiteList.publish
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                revision:
+                  type: string
+                sites:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/microsoft.graph.browserSite'
+                sharedCookies:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/microsoft.graph.browserSharedCookie'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - $ref: '#/components/schemas/microsoft.graph.browserSiteList'
+                  - type: object
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}/sharedCookies':
+    description: Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+    get:
+      tags:
+        - admin.edge
+      summary: List browserSharedCookies
+      description: Get a list of the browserSharedCookie objects and their properties.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.ListSharedCookies
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.browserSharedCookieCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.edge
+      summary: Create browserSharedCookie
+      description: Create a new browserSharedCookie object in a browserSiteList.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-post-sharedcookies?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.CreateSharedCookies
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.browserSharedCookie'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSharedCookie'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}/sharedCookies/{browserSharedCookie-id}':
+    description: Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+    get:
+      tags:
+        - admin.edge
+      summary: Get browserSharedCookie
+      description: 'Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersharedcookie-get?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.GetSharedCookies
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSharedCookie'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.edge
+      summary: Update browserSharedCookie
+      description: Update the properties of a browserSharedCookie object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersharedcookie-update?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.UpdateSharedCookies
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.browserSharedCookie'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSharedCookie'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.edge
+      summary: Delete browserSharedCookie
+      description: Delete a browserSharedCookie from a browserSiteList.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-delete-sharedcookies?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.DeleteSharedCookies
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+      - name: browserSharedCookie-id
+        in: path
+        description: The unique identifier of browserSharedCookie
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSharedCookie
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}/sharedCookies/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.edge
+      summary: Get the number of the resource
+      operationId: admin.edge.internetExplorerMode.siteLists.sharedCookies.GetCount-0de2
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}/sites':
+    description: Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+    get:
+      tags:
+        - admin.edge
+      summary: List browserSites
+      description: Get a list of the browserSite objects and their properties.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-list-sites?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.ListSites
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.browserSiteCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.edge
+      summary: Create browserSite
+      description: Create a new browserSite object in a browserSiteList.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-post-sites?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.CreateSites
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.browserSite'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSite'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}/sites/{browserSite-id}':
+    description: Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+    get:
+      tags:
+        - admin.edge
+      summary: Get browserSite
+      description: Get a browserSite that resides on a browserSiteList.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersite-get?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.GetSites
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSite'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.edge
+      summary: Update browserSite
+      description: Update the properties of a browserSite object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersite-update?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.UpdateSites
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.browserSite'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.browserSite'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.edge
+      summary: Delete browserSite
+      description: Delete a browserSite from a browserSiteList.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-1.0
+      operationId: admin.edge.internetExplorerMode.siteLists.DeleteSites
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+      - name: browserSite-id
+        in: path
+        description: The unique identifier of browserSite
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSite
+  '/admin/edge/internetExplorerMode/siteLists/{browserSiteList-id}/sites/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.edge
+      summary: Get the number of the resource
+      operationId: admin.edge.internetExplorerMode.siteLists.sites.GetCount-da97
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: browserSiteList-id
+        in: path
+        description: The unique identifier of browserSiteList
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: browserSiteList
+  /admin/edge/internetExplorerMode/siteLists/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.edge
+      summary: Get the number of the resource
+      operationId: admin.edge.internetExplorerMode.siteLists.GetCount-d3d6
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /admin/microsoft365Apps:
+    description: Provides operations to manage the microsoft365Apps property of the microsoft.graph.admin entity.
+    get:
+      tags:
+        - admin.adminMicrosoft365Apps
+      summary: Get microsoft365Apps from admin
+      description: A container for the Microsoft 365 apps admin functionality.
+      operationId: admin.GetMicrosoft365Apps
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.adminMicrosoft365Apps'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.adminMicrosoft365Apps
+      summary: Update the navigation property microsoft365Apps in admin
+      operationId: admin.UpdateMicrosoft365Apps
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.adminMicrosoft365Apps'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.adminMicrosoft365Apps'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.adminMicrosoft365Apps
+      summary: Delete navigation property microsoft365Apps for admin
+      operationId: admin.DeleteMicrosoft365Apps
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/microsoft365Apps/installationOptions:
+    description: Provides operations to manage the installationOptions property of the microsoft.graph.adminMicrosoft365Apps entity.
+    get:
+      tags:
+        - admin.adminMicrosoft365Apps
+      summary: Get m365AppsInstallationOptions
+      description: Read the properties and relationships of an m365AppsInstallationOptions object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/m365appsinstallationoptions-get?view=graph-rest-1.0
+      operationId: admin.microsoft365Apps.GetInstallationOptions
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.m365AppsInstallationOptions'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.adminMicrosoft365Apps
+      summary: Update m365AppsInstallationOptions
+      description: Update the properties of an m365AppsInstallationOptions object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/m365appsinstallationoptions-update?view=graph-rest-1.0
+      operationId: admin.microsoft365Apps.UpdateInstallationOptions
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.m365AppsInstallationOptions'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.m365AppsInstallationOptions'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.adminMicrosoft365Apps
+      summary: Delete navigation property installationOptions for admin
+      operationId: admin.microsoft365Apps.DeleteInstallationOptions
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/people:
+    description: Provides operations to manage the people property of the microsoft.graph.admin entity.
+    get:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Get peopleAdminSettings
+      description: Retrieve the properties and relationships of a peopleAdminSettings object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-1.0
+      operationId: admin.GetPeople
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.peopleAdminSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/people/itemInsights:
+    description: Provides operations to manage the itemInsights property of the microsoft.graph.peopleAdminSettings entity.
+    get:
+      tags:
+        - admin.peopleAdminSettings
+      summary: List itemInsights
+      description: 'Get the properties of an insightsSettings object to display or return item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy in Microsoft Graph.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/peopleadminsettings-list-iteminsights?view=graph-rest-1.0
+      operationId: admin.people.GetItemInsights
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.insightsSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Update insightsSettings
+      description: 'Update privacy settings to display or return the specified type of insights in an organization. Currently, itemInsights is the only supported type of settings. To learn more about customizing insights privacy for your organization, see Customize item insights privacy in Microsoft Graph.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/insightssettings-update?view=graph-rest-1.0
+      operationId: admin.people.UpdateItemInsights
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.insightsSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.insightsSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Delete navigation property itemInsights for admin
+      operationId: admin.people.DeleteItemInsights
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/people/profileCardProperties:
+    description: Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
+    get:
+      tags:
+        - admin.peopleAdminSettings
+      summary: List profileCardProperties
+      description: Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-1.0
+      operationId: admin.people.ListProfileCardProperties
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.profileCardPropertyCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Create profileCardProperty
+      description: 'Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/peopleadminsettings-post-profilecardproperties?view=graph-rest-1.0
+      operationId: admin.people.CreateProfileCardProperties
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.profileCardProperty'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.profileCardProperty'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/admin/people/profileCardProperties/{profileCardProperty-id}':
+    description: Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
+    get:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Get profileCardProperty
+      description: Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/profilecardproperty-get?view=graph-rest-1.0
+      operationId: admin.people.GetProfileCardProperties
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.profileCardProperty'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Update profileCardProperty
+      description: 'Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/profilecardproperty-update?view=graph-rest-1.0
+      operationId: admin.people.UpdateProfileCardProperties
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.profileCardProperty'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.profileCardProperty'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Delete profileCardProperty
+      description: 'Delete the profileCardProperty object specified by its directoryPropertyName from the organization''s profile card, and remove any localized customizations for that property.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/profilecardproperty-delete?view=graph-rest-1.0
+      operationId: admin.people.DeleteProfileCardProperties
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: profileCardProperty-id
+        in: path
+        description: The unique identifier of profileCardProperty
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: profileCardProperty
+  /admin/people/profileCardProperties/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Get the number of the resource
+      operationId: admin.people.profileCardProperties.GetCount-9f88
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /admin/people/pronouns:
+    description: Provides operations to manage the pronouns property of the microsoft.graph.peopleAdminSettings entity.
+    get:
+      tags:
+        - admin.peopleAdminSettings
+      summary: List pronounsSettings
+      description: 'Get the properties of the pronounsSettings resource for an organization.  For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/peopleadminsettings-list-pronouns?view=graph-rest-1.0
+      operationId: admin.people.GetPronouns
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.pronounsSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.peopleAdminSettings
+      summary: Update pronounsSettings
+      description: 'Update the properties of a pronounsSettings object in an organization. For more information on settings to manage pronouns support, see Manage pronouns settings for an organization using the Microsoft Graph API.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/pronounssettings-update?view=graph-rest-1.0
+      operationId: admin.people.UpdatePronouns
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.pronounsSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.pronounsSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/reportSettings:
+    description: Provides operations to manage the reportSettings property of the microsoft.graph.admin entity.
+    get:
+      tags:
+        - admin.adminReportSettings
+      summary: Get adminReportSettings
+      description: Get the tenant-level settings for Microsoft 365 reports.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/adminreportsettings-get?view=graph-rest-1.0
+      operationId: admin.GetReportSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.adminReportSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.adminReportSettings
+      summary: Update adminReportSettings
+      description: Update tenant-level settings for Microsoft 365 reports.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/adminreportsettings-update?view=graph-rest-1.0
+      operationId: admin.UpdateReportSettings
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.adminReportSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.adminReportSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.adminReportSettings
+      summary: Delete navigation property reportSettings for admin
+      operationId: admin.DeleteReportSettings
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/serviceAnnouncement:
+    description: Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get serviceAnnouncement from admin
+      description: A container for service communications resources. Read-only.
+      operationId: admin.GetServiceAnnouncement
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceAnnouncement'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update the navigation property serviceAnnouncement in admin
+      operationId: admin.UpdateServiceAnnouncement
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceAnnouncement'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceAnnouncement'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete navigation property serviceAnnouncement for admin
+      operationId: admin.DeleteServiceAnnouncement
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/serviceAnnouncement/healthOverviews:
+    description: Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: List healthOverviews
+      description: Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceannouncement-list-healthoverviews?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.ListHealthOverviews
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceHealthCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Create new navigation property to healthOverviews for admin
+      operationId: admin.serviceAnnouncement.CreateHealthOverviews
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceHealth'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealth'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/admin/serviceAnnouncement/healthOverviews/{serviceHealth-id}':
+    description: Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get serviceHealth
+      description: Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/servicehealth-get?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.GetHealthOverviews
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealth'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update the navigation property healthOverviews in admin
+      operationId: admin.serviceAnnouncement.UpdateHealthOverviews
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceHealth'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealth'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete navigation property healthOverviews for admin
+      operationId: admin.serviceAnnouncement.DeleteHealthOverviews
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceHealth-id
+        in: path
+        description: The unique identifier of serviceHealth
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealth
+  '/admin/serviceAnnouncement/healthOverviews/{serviceHealth-id}/issues':
+    description: Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get issues from admin
+      description: 'A collection of issues that happened on the service, with detailed information for each issue.'
+      operationId: admin.serviceAnnouncement.healthOverviews.ListIssues
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceHealthIssueCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Create new navigation property to issues for admin
+      operationId: admin.serviceAnnouncement.healthOverviews.CreateIssues
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceHealth-id
+        in: path
+        description: The unique identifier of serviceHealth
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealth
+  '/admin/serviceAnnouncement/healthOverviews/{serviceHealth-id}/issues/{serviceHealthIssue-id}':
+    description: Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get issues from admin
+      description: 'A collection of issues that happened on the service, with detailed information for each issue.'
+      operationId: admin.serviceAnnouncement.healthOverviews.GetIssues
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update the navigation property issues in admin
+      operationId: admin.serviceAnnouncement.healthOverviews.UpdateIssues
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete navigation property issues for admin
+      operationId: admin.serviceAnnouncement.healthOverviews.DeleteIssues
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceHealth-id
+        in: path
+        description: The unique identifier of serviceHealth
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealth
+      - name: serviceHealthIssue-id
+        in: path
+        description: The unique identifier of serviceHealthIssue
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealthIssue
+  '/admin/serviceAnnouncement/healthOverviews/{serviceHealth-id}/issues/{serviceHealthIssue-id}/incidentReport()':
+    description: Provides operations to call the incidentReport method.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke function incidentReport
+      description: Provide the Post-Incident Review (PIR) document of a specified service issue for tenant.  An issue only with status of PostIncidentReviewPublished indicates that the PIR document exists for the issue. The operation returns an error if the specified issue doesn't exist for the tenant or if PIR document does not exist for the issue.
+      operationId: admin.serviceAnnouncement.healthOverviews.serviceHealth.issues.serviceHealthIssue.incidentReport
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/octet-stream:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    format: base64url
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: function
+    parameters:
+      - name: serviceHealth-id
+        in: path
+        description: The unique identifier of serviceHealth
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealth
+      - name: serviceHealthIssue-id
+        in: path
+        description: The unique identifier of serviceHealthIssue
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealthIssue
+    x-ms-docs-grouped-path:
+      - '/admin/serviceAnnouncement/issues/{serviceHealthIssue-id}/incidentReport()'
+  '/admin/serviceAnnouncement/healthOverviews/{serviceHealth-id}/issues/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get the number of the resource
+      operationId: admin.serviceAnnouncement.healthOverviews.issues.GetCount-fd80
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: serviceHealth-id
+        in: path
+        description: The unique identifier of serviceHealth
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealth
+  /admin/serviceAnnouncement/healthOverviews/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get the number of the resource
+      operationId: admin.serviceAnnouncement.healthOverviews.GetCount-51c2
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /admin/serviceAnnouncement/issues:
+    description: Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: List issues
+      description: Retrieve serviceHealthIssue resources from the issues navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceannouncement-list-issues?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.ListIssues
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceHealthIssueCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Create new navigation property to issues for admin
+      operationId: admin.serviceAnnouncement.CreateIssues
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/admin/serviceAnnouncement/issues/{serviceHealthIssue-id}':
+    description: Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get serviceHealthIssue
+      description: Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/servicehealthissue-get?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.GetIssues
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update the navigation property issues in admin
+      operationId: admin.serviceAnnouncement.UpdateIssues
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceHealthIssue'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete navigation property issues for admin
+      operationId: admin.serviceAnnouncement.DeleteIssues
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceHealthIssue-id
+        in: path
+        description: The unique identifier of serviceHealthIssue
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealthIssue
+  '/admin/serviceAnnouncement/issues/{serviceHealthIssue-id}/incidentReport()':
+    description: Provides operations to call the incidentReport method.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke function incidentReport
+      description: Provide the Post-Incident Review (PIR) document of a specified service issue for tenant.  An issue only with status of PostIncidentReviewPublished indicates that the PIR document exists for the issue. The operation returns an error if the specified issue doesn't exist for the tenant or if PIR document does not exist for the issue.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/servicehealthissue-incidentreport?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.issues.serviceHealthIssue.incidentReport
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/octet-stream:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    format: base64url
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: function
+    parameters:
+      - name: serviceHealthIssue-id
+        in: path
+        description: The unique identifier of serviceHealthIssue
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceHealthIssue
+    x-ms-docs-grouped-path:
+      - '/admin/serviceAnnouncement/healthOverviews/{serviceHealth-id}/issues/{serviceHealthIssue-id}/incidentReport()'
+  /admin/serviceAnnouncement/issues/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get the number of the resource
+      operationId: admin.serviceAnnouncement.issues.GetCount-e140
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /admin/serviceAnnouncement/messages:
+    description: Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: List serviceAnnouncement messages
+      description: Retrieve the serviceUpdateMessage resources from the messages navigation property. This operation retrieves all service update messages that exist for the tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceannouncement-list-messages?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.ListMessages
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceUpdateMessageCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Create new navigation property to messages for admin
+      operationId: admin.serviceAnnouncement.CreateMessages
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceUpdateMessage'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceUpdateMessage'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/admin/serviceAnnouncement/messages/{serviceUpdateMessage-id}':
+    description: Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get serviceUpdateMessage
+      description: Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.GetMessages
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceUpdateMessage'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update the navigation property messages in admin
+      operationId: admin.serviceAnnouncement.UpdateMessages
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceUpdateMessage'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceUpdateMessage'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete navigation property messages for admin
+      operationId: admin.serviceAnnouncement.DeleteMessages
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceUpdateMessage-id
+        in: path
+        description: The unique identifier of serviceUpdateMessage
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceUpdateMessage
+  '/admin/serviceAnnouncement/messages/{serviceUpdateMessage-id}/attachments':
+    description: Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: List attachments
+      description: Get the list of attachments associated with a service message.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.ListAttachments
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceAnnouncementAttachmentCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Create new navigation property to attachments for admin
+      operationId: admin.serviceAnnouncement.messages.CreateAttachments
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceAnnouncementAttachment'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceAnnouncementAttachment'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceUpdateMessage-id
+        in: path
+        description: The unique identifier of serviceUpdateMessage
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceUpdateMessage
+  '/admin/serviceAnnouncement/messages/{serviceUpdateMessage-id}/attachments/{serviceAnnouncementAttachment-id}':
+    description: Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get serviceAnnouncementAttachment
+      description: Read the properties and relationships of a serviceAnnouncementAttachment object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.GetAttachments
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceAnnouncementAttachment'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update the navigation property attachments in admin
+      operationId: admin.serviceAnnouncement.messages.UpdateAttachments
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceAnnouncementAttachment'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceAnnouncementAttachment'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete navigation property attachments for admin
+      operationId: admin.serviceAnnouncement.messages.DeleteAttachments
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceUpdateMessage-id
+        in: path
+        description: The unique identifier of serviceUpdateMessage
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceUpdateMessage
+      - name: serviceAnnouncementAttachment-id
+        in: path
+        description: The unique identifier of serviceAnnouncementAttachment
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceAnnouncementAttachment
+  '/admin/serviceAnnouncement/messages/{serviceUpdateMessage-id}/attachments/{serviceAnnouncementAttachment-id}/content':
+    description: Provides operations to manage the media for the admin entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get serviceAnnouncementAttachment
+      description: Read the properties and relationships of a serviceAnnouncementAttachment object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.GetAttachmentsContent
+      responses:
+        2XX:
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    put:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update content for the navigation property attachments in admin
+      description: The attachment content.
+      operationId: admin.serviceAnnouncement.messages.UpdateAttachmentsContent
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceAnnouncementAttachment'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete content for the navigation property attachments in admin
+      description: The attachment content.
+      operationId: admin.serviceAnnouncement.messages.DeleteAttachmentsContent
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: serviceUpdateMessage-id
+        in: path
+        description: The unique identifier of serviceUpdateMessage
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceUpdateMessage
+      - name: serviceAnnouncementAttachment-id
+        in: path
+        description: The unique identifier of serviceAnnouncementAttachment
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceAnnouncementAttachment
+  '/admin/serviceAnnouncement/messages/{serviceUpdateMessage-id}/attachments/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get the number of the resource
+      operationId: admin.serviceAnnouncement.messages.attachments.GetCount-e0ef
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: serviceUpdateMessage-id
+        in: path
+        description: The unique identifier of serviceUpdateMessage
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceUpdateMessage
+  '/admin/serviceAnnouncement/messages/{serviceUpdateMessage-id}/attachmentsArchive':
+    description: Provides operations to manage the media for the admin entity.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: List attachments
+      description: Get the list of attachments associated with a service message.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.GetMessagesAttachmentsArchive
+      responses:
+        2XX:
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    put:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Update attachmentsArchive for the navigation property messages in admin
+      description: The zip file that contains all attachments for a message.
+      operationId: admin.serviceAnnouncement.UpdateMessagesAttachmentsArchive
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        2XX:
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    delete:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Delete attachmentsArchive for the navigation property messages in admin
+      description: The zip file that contains all attachments for a message.
+      operationId: admin.serviceAnnouncement.DeleteMessagesAttachmentsArchive
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: serviceUpdateMessage-id
+        in: path
+        description: The unique identifier of serviceUpdateMessage
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceUpdateMessage
+  /admin/serviceAnnouncement/messages/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Get the number of the resource
+      operationId: admin.serviceAnnouncement.messages.GetCount-0cc9
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /admin/serviceAnnouncement/messages/archive:
+    description: Provides operations to call the archive method.
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke action archive
+      description: Archive a list of serviceUpdateMessages for the signed in user.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.archive
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    default: false
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /admin/serviceAnnouncement/messages/favorite:
+    description: Provides operations to call the favorite method.
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke action favorite
+      description: Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-favorite?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.favorite
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    default: false
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /admin/serviceAnnouncement/messages/markRead:
+    description: Provides operations to call the markRead method.
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke action markRead
+      description: Mark a list of serviceUpdateMessages as read for the signed in user.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.markRead
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    default: false
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /admin/serviceAnnouncement/messages/markUnread:
+    description: Provides operations to call the markUnread method.
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke action markUnread
+      description: Mark a list of serviceUpdateMessages as unread for the signed in user.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-markunread?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.markUnread
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    default: false
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /admin/serviceAnnouncement/messages/unarchive:
+    description: Provides operations to call the unarchive method.
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke action unarchive
+      description: Unarchive a list of serviceUpdateMessages for the signed in user.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-unarchive?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.unarchive
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    default: false
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /admin/serviceAnnouncement/messages/unfavorite:
+    description: Provides operations to call the unfavorite method.
+    post:
+      tags:
+        - admin.serviceAnnouncement
+      summary: Invoke action unfavorite
+      description: Remove the favorite status of serviceUpdateMessages for the signed in user.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/serviceupdatemessage-unfavorite?view=graph-rest-1.0
+      operationId: admin.serviceAnnouncement.messages.unfavorite
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    default: false
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /admin/sharepoint:
+    description: Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
+    get:
+      tags:
+        - admin.sharepoint
+      summary: Get sharepoint from admin
+      operationId: admin.GetSharepoint
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.sharepoint'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.sharepoint
+      summary: Update the navigation property sharepoint in admin
+      operationId: admin.UpdateSharepoint
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.sharepoint'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.sharepoint'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.sharepoint
+      summary: Delete navigation property sharepoint for admin
+      operationId: admin.DeleteSharepoint
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /admin/sharepoint/settings:
+    description: Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
+    get:
+      tags:
+        - admin.sharepoint
+      summary: Get settings
+      description: Get the tenant-level settings for SharePoint and OneDrive.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/sharepointsettings-get?view=graph-rest-1.0
+      operationId: admin.sharepoint.GetSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.sharepointSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - admin.sharepoint
+      summary: Update settings
+      description: Update one or more tenant-level settings for SharePoint and OneDrive.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/sharepointsettings-update?view=graph-rest-1.0
+      operationId: admin.sharepoint.UpdateSettings
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.sharepointSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.sharepointSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - admin.sharepoint
+      summary: Delete navigation property settings for admin
+      operationId: admin.sharepoint.DeleteSettings
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation

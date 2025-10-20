@@ -1,0 +1,187 @@
+paths:
+  /scopedRoleMemberships:
+    description: Provides operations to manage the collection of scopedRoleMembership entities.
+    get:
+      tags:
+        - scopedRoleMemberships.scopedRoleMembership
+      summary: Get entities from scopedRoleMemberships
+      operationId: scopedRoleMemberships.scopedRoleMembership.ListScopedRoleMembership
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.scopedRoleMembershipCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - scopedRoleMemberships.scopedRoleMembership
+      summary: Add new entity to scopedRoleMemberships
+      operationId: scopedRoleMemberships.scopedRoleMembership.CreateScopedRoleMembership
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.scopedRoleMembership'
+        required: true
+      responses:
+        2XX:
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.scopedRoleMembership'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/scopedRoleMemberships/{scopedRoleMembership-id}':
+    description: Provides operations to manage the collection of scopedRoleMembership entities.
+    get:
+      tags:
+        - scopedRoleMemberships.scopedRoleMembership
+      summary: Get entity from scopedRoleMemberships by key
+      operationId: scopedRoleMemberships.scopedRoleMembership.GetScopedRoleMembership
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.scopedRoleMembership'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - scopedRoleMemberships.scopedRoleMembership
+      summary: Update entity in scopedRoleMemberships
+      operationId: scopedRoleMemberships.scopedRoleMembership.UpdateScopedRoleMembership
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.scopedRoleMembership'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.scopedRoleMembership'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - scopedRoleMemberships.scopedRoleMembership
+      summary: Delete entity from scopedRoleMemberships
+      operationId: scopedRoleMemberships.scopedRoleMembership.DeleteScopedRoleMembership
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: scopedRoleMembership-id
+        in: path
+        description: The unique identifier of scopedRoleMembership
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: scopedRoleMembership
+  /scopedRoleMemberships/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - scopedRoleMemberships.scopedRoleMembership
+      summary: Get the number of the resource
+      operationId: scopedRoleMemberships.GetCount-dcc4
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'

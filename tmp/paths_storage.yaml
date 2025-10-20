@@ -1,0 +1,4787 @@
+paths:
+  /storage:
+    description: Provides operations to manage the storage singleton.
+    get:
+      tags:
+        - storage.storage
+      summary: Get storage
+      operationId: storage.storage.GetStorage
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.storage'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.storage
+      summary: Update storage
+      operationId: storage.storage.UpdateStorage
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.storage'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.storage'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /storage/fileStorage:
+    description: Provides operations to manage the fileStorage property of the microsoft.graph.storage entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get fileStorage from storage
+      operationId: storage.GetFileStorage
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorage'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property fileStorage in storage
+      operationId: storage.UpdateFileStorage
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.fileStorage'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorage'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property fileStorage for storage
+      operationId: storage.DeleteFileStorage
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /storage/fileStorage/containers:
+    description: Provides operations to manage the containers property of the microsoft.graph.fileStorage entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: List containers
+      description: Get a list of fileStorageContainer objects that are accessible to a caller. The containerTypeId filter parameter is required.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/filestorage-list-containers?view=graph-rest-1.0
+      operationId: storage.fileStorage.ListContainers
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.fileStorageContainerCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create fileStorageContainer
+      description: 'Create a new fileStorageContainer object.  The container type identified by containerTypeId must be registered in the tenant.  For delegated calls, the calling user is set as the owner of the fileStorageContainer. '
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/filestoragecontainer-post?view=graph-rest-1.0
+      operationId: storage.fileStorage.CreateContainers
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/storage/fileStorage/containers/{fileStorageContainer-id}':
+    description: Provides operations to manage the containers property of the microsoft.graph.fileStorage entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get containers from storage
+      operationId: storage.fileStorage.GetContainers
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property containers in storage
+      operationId: storage.fileStorage.UpdateContainers
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property containers for storage
+      operationId: storage.fileStorage.DeleteContainers
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/columns':
+    description: Provides operations to manage the columns property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get columns from storage
+      operationId: storage.fileStorage.containers.ListColumns
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.columnDefinitionCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create new navigation property to columns for storage
+      operationId: storage.fileStorage.containers.CreateColumns
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/columns'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/columns/{columnDefinition-id}':
+    description: Provides operations to manage the columns property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get columns from storage
+      operationId: storage.fileStorage.containers.GetColumns
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property columns in storage
+      operationId: storage.fileStorage.containers.UpdateColumns
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property columns for storage
+      operationId: storage.fileStorage.containers.DeleteColumns
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: columnDefinition-id
+        in: path
+        description: The unique identifier of columnDefinition
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: columnDefinition
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/columns/{columnDefinition-id}'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/columns/{columnDefinition-id}/sourceColumn':
+    description: Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get sourceColumn from storage
+      description: The source column for the content type column.
+      operationId: storage.fileStorage.containers.columns.GetSourceColumn
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: columnDefinition-id
+        in: path
+        description: The unique identifier of columnDefinition
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: columnDefinition
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/columns/{columnDefinition-id}/sourceColumn'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/columns/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.columns.GetCount-67bd
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/drive':
+    description: Provides operations to manage the drive property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get drive from storage
+      description: The drive of the resource fileStorageContainer. Read-only.
+      operationId: storage.fileStorage.containers.GetDrive
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.drive'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/drive'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/activate':
+    description: Provides operations to call the activate method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action activate
+      operationId: storage.fileStorage.containers.fileStorageContainer.activate
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/activate'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/lock':
+    description: Provides operations to call the lock method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action lock
+      operationId: storage.fileStorage.containers.fileStorageContainer.lock
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lockState:
+                  anyOf:
+                    - $ref: '#/components/schemas/microsoft.graph.siteLockState'
+                    - type: object
+                      nullable: true
+        required: true
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/lock'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/permanentDelete':
+    description: Provides operations to call the permanentDelete method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action permanentDelete
+      operationId: storage.fileStorage.containers.fileStorageContainer.permanentDelete
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permanentDelete'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/restore':
+    description: Provides operations to call the restore method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action restore
+      operationId: storage.fileStorage.containers.fileStorageContainer.restore
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+                  - type: object
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/restore'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/unlock':
+    description: Provides operations to call the unlock method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action unlock
+      operationId: storage.fileStorage.containers.fileStorageContainer.unlock
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/unlock'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/permissions':
+    description: Provides operations to manage the permissions property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get permissions from storage
+      description: 'The set of permissions for users in the fileStorageContainer. Permission for each user is set by the roles property. The possible values are: reader, writer, manager, and owner. Read-write.'
+      operationId: storage.fileStorage.containers.ListPermissions
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.permissionCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create new navigation property to permissions for storage
+      operationId: storage.fileStorage.containers.CreatePermissions
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.permission'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permissions'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/permissions/{permission-id}':
+    description: Provides operations to manage the permissions property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get permissions from storage
+      description: 'The set of permissions for users in the fileStorageContainer. Permission for each user is set by the roles property. The possible values are: reader, writer, manager, and owner. Read-write.'
+      operationId: storage.fileStorage.containers.GetPermissions
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property permissions in storage
+      operationId: storage.fileStorage.containers.UpdatePermissions
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.permission'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property permissions for storage
+      operationId: storage.fileStorage.containers.DeletePermissions
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: permission-id
+        in: path
+        description: The unique identifier of permission
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: permission
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permissions/{permission-id}'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/permissions/{permission-id}/grant':
+    description: Provides operations to call the grant method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action grant
+      description: Grant users access to a link represented by a permission.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0
+      operationId: storage.fileStorage.containers.fileStorageContainer.permissions.permission.grant
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roles:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+                recipients:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/microsoft.graph.driveRecipient'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                title: Collection of permission
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/BaseCollectionPaginationCountResponse'
+                  - type: object
+                    properties:
+                      value:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: permission-id
+        in: path
+        description: The unique identifier of permission
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: permission
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permissions/{permission-id}/grant'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/permissions/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.permissions.GetCount-b191
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin':
+    description: Provides operations to manage the recycleBin property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get recycleBin from storage
+      description: Recycle bin of the fileStorageContainer. Read-only.
+      operationId: storage.fileStorage.containers.GetRecycleBin
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBin'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property recycleBin in storage
+      operationId: storage.fileStorage.containers.UpdateRecycleBin
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.recycleBin'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBin'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property recycleBin for storage
+      operationId: storage.fileStorage.containers.DeleteRecycleBin
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/createdByUser':
+    description: Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get createdByUser from storage
+      description: Identity of the user who created the item. Read-only.
+      operationId: storage.fileStorage.containers.recycleBin.GetCreatedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/createdByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/createdByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.containers.recycleBin.createdByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.containers.recycleBin.createdByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/createdByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.containers.recycleBin.createdByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/createdByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.recycleBin.createdByUser.ServiceProvisioningErrors.GetCount-fb3f
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items':
+    description: Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: List items
+      description: Get a collection of recycleBinItem resources in the recycleBin of the specified SharePoint Embedded fileStorageContainer.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/recyclebin-list-items?view=graph-rest-1.0
+      operationId: storage.fileStorage.containers.recycleBin.ListItems
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.recycleBinItemCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create new navigation property to items for storage
+      operationId: storage.fileStorage.containers.recycleBin.CreateItems
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}':
+    description: Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get items from storage
+      description: List of the recycleBinItems deleted by a user.
+      operationId: storage.fileStorage.containers.recycleBin.GetItems
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property items in storage
+      operationId: storage.fileStorage.containers.recycleBin.UpdateItems
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property items for storage
+      operationId: storage.fileStorage.containers.recycleBin.DeleteItems
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser':
+    description: Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get createdByUser from storage
+      description: Identity of the user who created the item. Read-only.
+      operationId: storage.fileStorage.containers.recycleBin.items.GetCreatedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/createdByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/createdByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.containers.recycleBin.items.createdByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.containers.recycleBin.items.createdByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.containers.recycleBin.items.createdByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.recycleBin.items.createdByUser.ServiceProvisioningErrors.GetCount-6a04
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser':
+    description: Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get lastModifiedByUser from storage
+      description: Identity of the user who last modified the item. Read-only.
+      operationId: storage.fileStorage.containers.recycleBin.items.GetLastModifiedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.containers.recycleBin.items.lastModifiedByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.containers.recycleBin.items.lastModifiedByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.containers.recycleBin.items.lastModifiedByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.recycleBin.items.lastModifiedByUser.ServiceProvisioningErrors.GetCount-e1b9
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.recycleBin.items.GetCount-d505
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser':
+    description: Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get lastModifiedByUser from storage
+      description: Identity of the user who last modified the item. Read-only.
+      operationId: storage.fileStorage.containers.recycleBin.GetLastModifiedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser'
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.containers.recycleBin.lastModifiedByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.containers.recycleBin.lastModifiedByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.containers.recycleBin.lastModifiedByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.recycleBin.lastModifiedByUser.ServiceProvisioningErrors.GetCount-7559
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  /storage/fileStorage/containers/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.containers.GetCount-4ea4
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /storage/fileStorage/deletedContainers:
+    description: Provides operations to manage the deletedContainers property of the microsoft.graph.fileStorage entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get deletedContainers from storage
+      operationId: storage.fileStorage.ListDeletedContainers
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.fileStorageContainerCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create new navigation property to deletedContainers for storage
+      operationId: storage.fileStorage.CreateDeletedContainers
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}':
+    description: Provides operations to manage the deletedContainers property of the microsoft.graph.fileStorage entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get deletedContainers from storage
+      operationId: storage.fileStorage.GetDeletedContainers
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property deletedContainers in storage
+      operationId: storage.fileStorage.UpdateDeletedContainers
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property deletedContainers for storage
+      operationId: storage.fileStorage.DeleteDeletedContainers
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/columns':
+    description: Provides operations to manage the columns property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get columns from storage
+      operationId: storage.fileStorage.deletedContainers.ListColumns
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.columnDefinitionCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create new navigation property to columns for storage
+      operationId: storage.fileStorage.deletedContainers.CreateColumns
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/columns'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/columns/{columnDefinition-id}':
+    description: Provides operations to manage the columns property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get columns from storage
+      operationId: storage.fileStorage.deletedContainers.GetColumns
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property columns in storage
+      operationId: storage.fileStorage.deletedContainers.UpdateColumns
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property columns for storage
+      operationId: storage.fileStorage.deletedContainers.DeleteColumns
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: columnDefinition-id
+        in: path
+        description: The unique identifier of columnDefinition
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: columnDefinition
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/columns/{columnDefinition-id}'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/columns/{columnDefinition-id}/sourceColumn':
+    description: Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get sourceColumn from storage
+      description: The source column for the content type column.
+      operationId: storage.fileStorage.deletedContainers.columns.GetSourceColumn
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.columnDefinition'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: columnDefinition-id
+        in: path
+        description: The unique identifier of columnDefinition
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: columnDefinition
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/columns/{columnDefinition-id}/sourceColumn'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/columns/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.columns.GetCount-b2c3
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/drive':
+    description: Provides operations to manage the drive property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get drive from storage
+      description: The drive of the resource fileStorageContainer. Read-only.
+      operationId: storage.fileStorage.deletedContainers.GetDrive
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.drive'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/drive'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/activate':
+    description: Provides operations to call the activate method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action activate
+      operationId: storage.fileStorage.deletedContainers.fileStorageContainer.activate
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/activate'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/lock':
+    description: Provides operations to call the lock method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action lock
+      operationId: storage.fileStorage.deletedContainers.fileStorageContainer.lock
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lockState:
+                  anyOf:
+                    - $ref: '#/components/schemas/microsoft.graph.siteLockState'
+                    - type: object
+                      nullable: true
+        required: true
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/lock'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permanentDelete':
+    description: Provides operations to call the permanentDelete method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action permanentDelete
+      operationId: storage.fileStorage.deletedContainers.fileStorageContainer.permanentDelete
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/permanentDelete'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/restore':
+    description: Provides operations to call the restore method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action restore
+      operationId: storage.fileStorage.deletedContainers.fileStorageContainer.restore
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - $ref: '#/components/schemas/microsoft.graph.fileStorageContainer'
+                  - type: object
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/restore'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/unlock':
+    description: Provides operations to call the unlock method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action unlock
+      operationId: storage.fileStorage.deletedContainers.fileStorageContainer.unlock
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/unlock'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permissions':
+    description: Provides operations to manage the permissions property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get permissions from storage
+      description: 'The set of permissions for users in the fileStorageContainer. Permission for each user is set by the roles property. The possible values are: reader, writer, manager, and owner. Read-write.'
+      operationId: storage.fileStorage.deletedContainers.ListPermissions
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.permissionCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create new navigation property to permissions for storage
+      operationId: storage.fileStorage.deletedContainers.CreatePermissions
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.permission'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/permissions'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permissions/{permission-id}':
+    description: Provides operations to manage the permissions property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get permissions from storage
+      description: 'The set of permissions for users in the fileStorageContainer. Permission for each user is set by the roles property. The possible values are: reader, writer, manager, and owner. Read-write.'
+      operationId: storage.fileStorage.deletedContainers.GetPermissions
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property permissions in storage
+      operationId: storage.fileStorage.deletedContainers.UpdatePermissions
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.permission'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property permissions for storage
+      operationId: storage.fileStorage.deletedContainers.DeletePermissions
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: permission-id
+        in: path
+        description: The unique identifier of permission
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: permission
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/permissions/{permission-id}'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permissions/{permission-id}/grant':
+    description: Provides operations to call the grant method.
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Invoke action grant
+      description: Grant users access to a link represented by a permission.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0
+      operationId: storage.fileStorage.deletedContainers.fileStorageContainer.permissions.permission.grant
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roles:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+                recipients:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/microsoft.graph.driveRecipient'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                title: Collection of permission
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/BaseCollectionPaginationCountResponse'
+                  - type: object
+                    properties:
+                      value:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/microsoft.graph.permission'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: permission-id
+        in: path
+        description: The unique identifier of permission
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: permission
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/permissions/{permission-id}/grant'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/permissions/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.permissions.GetCount-b182
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin':
+    description: Provides operations to manage the recycleBin property of the microsoft.graph.fileStorageContainer entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get recycleBin from storage
+      description: Recycle bin of the fileStorageContainer. Read-only.
+      operationId: storage.fileStorage.deletedContainers.GetRecycleBin
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBin'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property recycleBin in storage
+      operationId: storage.fileStorage.deletedContainers.UpdateRecycleBin
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.recycleBin'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBin'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property recycleBin for storage
+      operationId: storage.fileStorage.deletedContainers.DeleteRecycleBin
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/createdByUser':
+    description: Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get createdByUser from storage
+      description: Identity of the user who created the item. Read-only.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.GetCreatedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/createdByUser'
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/createdByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.createdByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.createdByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/createdByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.createdByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/createdByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.recycleBin.createdByUser.ServiceProvisioningErrors.GetCount-dadf
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items':
+    description: Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get items from storage
+      description: List of the recycleBinItems deleted by a user.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.ListItems
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.recycleBinItemCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.fileStorage
+      summary: Create new navigation property to items for storage
+      operationId: storage.fileStorage.deletedContainers.recycleBin.CreateItems
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}':
+    description: Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get items from storage
+      description: List of the recycleBinItems deleted by a user.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.GetItems
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update the navigation property items in storage
+      operationId: storage.fileStorage.deletedContainers.recycleBin.UpdateItems
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.recycleBinItem'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.fileStorage
+      summary: Delete navigation property items for storage
+      operationId: storage.fileStorage.deletedContainers.recycleBin.DeleteItems
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser':
+    description: Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get createdByUser from storage
+      description: Identity of the user who created the item. Read-only.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.GetCreatedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/createdByUser'
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/createdByUser'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.createdByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.createdByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.createdByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/createdByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.createdByUser.ServiceProvisioningErrors.GetCount-b810
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser':
+    description: Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get lastModifiedByUser from storage
+      description: Identity of the user who last modified the item. Read-only.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.GetLastModifiedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser'
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.lastModifiedByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.lastModifiedByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.lastModifiedByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.lastModifiedByUser.ServiceProvisioningErrors.GetCount-3aa0
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+      - name: recycleBinItem-id
+        in: path
+        description: The unique identifier of recycleBinItem
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: recycleBinItem
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.recycleBin.items.GetCount-3459
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser':
+    description: Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get lastModifiedByUser from storage
+      description: Identity of the user who last modified the item. Read-only.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.GetLastModifiedByUser
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.user'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+    x-ms-docs-grouped-path:
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser'
+      - '/storage/fileStorage/containers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser'
+      - '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/items/{recycleBinItem-id}/lastModifiedByUser'
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser/mailboxSettings':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get mailboxSettings property value
+      description: 'Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.lastModifiedByUser.GetMailboxSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Entity result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - storage.fileStorage
+      summary: Update property mailboxSettings value.
+      operationId: storage.fileStorage.deletedContainers.recycleBin.lastModifiedByUser.UpdateMailboxSettings
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.mailboxSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser/serviceProvisioningErrors':
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get serviceProvisioningErrors property value
+      description: 'Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).'
+      operationId: storage.fileStorage.deletedContainers.recycleBin.lastModifiedByUser.ListServiceProvisioningErrors
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceProvisioningErrorCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  '/storage/fileStorage/deletedContainers/{fileStorageContainer-id}/recycleBin/lastModifiedByUser/serviceProvisioningErrors/$count':
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.recycleBin.lastModifiedByUser.ServiceProvisioningErrors.GetCount-e2c8
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+    parameters:
+      - name: fileStorageContainer-id
+        in: path
+        description: The unique identifier of fileStorageContainer
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: fileStorageContainer
+  /storage/fileStorage/deletedContainers/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.fileStorage
+      summary: Get the number of the resource
+      operationId: storage.fileStorage.deletedContainers.GetCount-3f95
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+  /storage/settings:
+    description: Provides operations to manage the settings property of the microsoft.graph.storage entity.
+    get:
+      tags:
+        - storage.storageSettings
+      summary: Get settings from storage
+      operationId: storage.GetSettings
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.storageSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.storageSettings
+      summary: Update the navigation property settings in storage
+      operationId: storage.UpdateSettings
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.storageSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.storageSettings'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.storageSettings
+      summary: Delete navigation property settings for storage
+      operationId: storage.DeleteSettings
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /storage/settings/quota:
+    description: Provides operations to manage the quota property of the microsoft.graph.storageSettings entity.
+    get:
+      tags:
+        - storage.storageSettings
+      summary: Get quota from storage
+      operationId: storage.settings.GetQuota
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.unifiedStorageQuota'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.storageSettings
+      summary: Update the navigation property quota in storage
+      operationId: storage.settings.UpdateQuota
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.unifiedStorageQuota'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.unifiedStorageQuota'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.storageSettings
+      summary: Delete navigation property quota for storage
+      operationId: storage.settings.DeleteQuota
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /storage/settings/quota/services:
+    description: Provides operations to manage the services property of the microsoft.graph.unifiedStorageQuota entity.
+    get:
+      tags:
+        - storage.storageSettings
+      summary: Get services from storage
+      operationId: storage.settings.quota.ListServices
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.serviceStorageQuotaBreakdownCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - storage.storageSettings
+      summary: Create new navigation property to services for storage
+      operationId: storage.settings.quota.CreateServices
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceStorageQuotaBreakdown'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceStorageQuotaBreakdown'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/storage/settings/quota/services/{serviceStorageQuotaBreakdown-id}':
+    description: Provides operations to manage the services property of the microsoft.graph.unifiedStorageQuota entity.
+    get:
+      tags:
+        - storage.storageSettings
+      summary: Get services from storage
+      operationId: storage.settings.quota.GetServices
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceStorageQuotaBreakdown'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - storage.storageSettings
+      summary: Update the navigation property services in storage
+      operationId: storage.settings.quota.UpdateServices
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.serviceStorageQuotaBreakdown'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.serviceStorageQuotaBreakdown'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - storage.storageSettings
+      summary: Delete navigation property services for storage
+      operationId: storage.settings.quota.DeleteServices
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: serviceStorageQuotaBreakdown-id
+        in: path
+        description: The unique identifier of serviceStorageQuotaBreakdown
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: serviceStorageQuotaBreakdown
+  /storage/settings/quota/services/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - storage.storageSettings
+      summary: Get the number of the resource
+      operationId: storage.settings.quota.services.GetCount-3385
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'

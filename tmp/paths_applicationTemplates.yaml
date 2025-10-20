@@ -1,0 +1,176 @@
+paths:
+  /applicationTemplates:
+    description: Provides operations to manage the collection of applicationTemplate entities.
+    get:
+      tags:
+        - applicationTemplates.applicationTemplate
+      summary: List applicationTemplates
+      description: Retrieve a list of applicationTemplate objects from the Microsoft Entra application gallery.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-1.0
+      operationId: applicationTemplates.applicationTemplate.ListApplicationTemplate
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.applicationTemplateCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+  '/applicationTemplates/{applicationTemplate-id}':
+    description: Provides operations to manage the collection of applicationTemplate entities.
+    get:
+      tags:
+        - applicationTemplates.applicationTemplate
+      summary: Get applicationTemplate
+      description: Retrieve the properties of an applicationTemplate object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-1.0
+      operationId: applicationTemplates.applicationTemplate.GetApplicationTemplate
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.applicationTemplate'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: applicationTemplate-id
+        in: path
+        description: The unique identifier of applicationTemplate
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: applicationTemplate
+  '/applicationTemplates/{applicationTemplate-id}/instantiate':
+    description: Provides operations to call the instantiate method.
+    post:
+      tags:
+        - applicationTemplates.applicationTemplate.Actions
+      summary: Invoke action instantiate
+      description: 'Add an instance of an application from the Microsoft Entra application gallery into your directory. For non-gallery apps, use an application template with one of the following IDs to configure different single sign-on (SSO) modes like SAML SSO and password-based SSO.'
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-1.0
+      operationId: applicationTemplates.applicationTemplate.instantiate
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                  nullable: true
+                serviceManagementReference:
+                  type: string
+                  nullable: true
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - $ref: '#/components/schemas/microsoft.graph.applicationServicePrincipal'
+                  - type: object
+                    nullable: true
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+    parameters:
+      - name: applicationTemplate-id
+        in: path
+        description: The unique identifier of applicationTemplate
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: applicationTemplate
+  /applicationTemplates/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - applicationTemplates.applicationTemplate
+      summary: Get the number of the resource
+      operationId: applicationTemplates.GetCount-d1a3
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'

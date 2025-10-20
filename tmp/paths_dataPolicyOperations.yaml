@@ -1,0 +1,192 @@
+paths:
+  /dataPolicyOperations:
+    description: Provides operations to manage the collection of dataPolicyOperation entities.
+    get:
+      tags:
+        - dataPolicyOperations.dataPolicyOperation
+      summary: Get dataPolicyOperation
+      description: Retrieve the properties of a dataPolicyOperation object.
+      operationId: dataPolicyOperations.dataPolicyOperation.ListDataPolicyOperation
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.dataPolicyOperationCollectionResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - dataPolicyOperations.dataPolicyOperation
+      summary: Add new entity to dataPolicyOperations
+      operationId: dataPolicyOperations.dataPolicyOperation.CreateDataPolicyOperation
+      requestBody:
+        description: New entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.dataPolicyOperation'
+        required: true
+      responses:
+        2XX:
+          description: Created entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.dataPolicyOperation'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/dataPolicyOperations/{dataPolicyOperation-id}':
+    description: Provides operations to manage the collection of dataPolicyOperation entities.
+    get:
+      tags:
+        - dataPolicyOperations.dataPolicyOperation
+      summary: Get dataPolicyOperation
+      description: Retrieve the properties of a dataPolicyOperation object.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-1.0
+      operationId: dataPolicyOperations.dataPolicyOperation.GetDataPolicyOperation
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.dataPolicyOperation'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - dataPolicyOperations.dataPolicyOperation
+      summary: Update entity in dataPolicyOperations
+      operationId: dataPolicyOperations.dataPolicyOperation.UpdateDataPolicyOperation
+      requestBody:
+        description: New property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.dataPolicyOperation'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.dataPolicyOperation'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - dataPolicyOperations.dataPolicyOperation
+      summary: Delete entity from dataPolicyOperations
+      operationId: dataPolicyOperations.dataPolicyOperation.DeleteDataPolicyOperation
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Success
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    parameters:
+      - name: dataPolicyOperation-id
+        in: path
+        description: The unique identifier of dataPolicyOperation
+        required: true
+        schema:
+          type: string
+        x-ms-docs-key-type: dataPolicyOperation
+  /dataPolicyOperations/$count:
+    description: Provides operations to count the resources in the collection.
+    get:
+      tags:
+        - dataPolicyOperations.dataPolicyOperation
+      summary: Get the number of the resource
+      operationId: dataPolicyOperations.GetCount-b129
+      parameters:
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        4XX:
+          $ref: '#/components/responses/error'
+        5XX:
+          $ref: '#/components/responses/error'
