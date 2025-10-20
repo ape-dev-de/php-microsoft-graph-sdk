@@ -6,8 +6,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
  * Collection response for {{MODEL_NAME}}
+ * 
+ * Implements ArrayAccess, Countable, and IteratorAggregate for array-like behavior
  */
-class {{COLLECTION_NAME}}
+class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregate
 {
     /**
      * @var {{MODEL_NAME}}[]
@@ -28,14 +30,23 @@ class {{COLLECTION_NAME}}
     }
 
     /**
-     * Set the collection items (type-safe with variadic parameters)
+     * Set the collection items
      * 
-     * @param {{MODEL_NAME}} ...$items Variable number of {{MODEL_NAME}} items
+     * Accepts either an array or variadic parameters for flexibility
+     * 
+     * @param {{MODEL_NAME}}[]|{{MODEL_NAME}} $items Array of items or first item
+     * @param {{MODEL_NAME}} ...$moreItems Additional items (variadic)
      * @return self
      */
-    public function setValue({{MODEL_NAME}} ...$items): self
+    public function setValue(array|{{MODEL_NAME}} $items, {{MODEL_NAME}} ...$moreItems): self
     {
-        $this->value = $items;
+        if (is_array($items)) {
+            // Called with array (e.g., from deserializer)
+            $this->value = $items;
+        } else {
+            // Called with variadic parameters
+            $this->value = array_merge([$items], $moreItems);
+        }
         return $this;
     }
 
@@ -119,16 +130,6 @@ class {{COLLECTION_NAME}}
     }
 
     /**
-     * Get the number of items in the current page
-     * 
-     * @return int
-     */
-    public function count(): int
-    {
-        return count($this->value);
-    }
-
-    /**
      * Check if the collection is empty
      * 
      * @return bool
@@ -136,5 +137,90 @@ class {{COLLECTION_NAME}}
     public function isEmpty(): bool
     {
         return empty($this->value);
+    }
+
+    // ========================================================================
+    // ArrayAccess Implementation
+    // ========================================================================
+
+    /**
+     * Check if offset exists
+     * 
+     * @param mixed $offset
+     * @return bool
+     */
+    public function offsetExists(mixed $offset): bool
+    {
+        return isset($this->value[$offset]);
+    }
+
+    /**
+     * Get value at offset
+     * 
+     * @param mixed $offset
+     * @return {{MODEL_NAME}}|null
+     */
+    public function offsetGet(mixed $offset): mixed
+    {
+        return $this->value[$offset] ?? null;
+    }
+
+    /**
+     * Set value at offset
+     * 
+     * @param mixed $offset
+     * @param mixed $value
+     * @return void
+     */
+    public function offsetSet(mixed $offset, mixed $value): void
+    {
+        if ($offset === null) {
+            $this->value[] = $value;
+        } else {
+            $this->value[$offset] = $value;
+        }
+    }
+
+    /**
+     * Unset value at offset
+     * 
+     * @param mixed $offset
+     * @return void
+     */
+    public function offsetUnset(mixed $offset): void
+    {
+        unset($this->value[$offset]);
+    }
+
+    // ========================================================================
+    // Countable Implementation
+    // ========================================================================
+
+    /**
+     * Count elements (Countable interface)
+     * 
+     * Note: This returns the count of items in the current page,
+     * use getOdataCount() for the total count across all pages
+     * 
+     * @return int
+     */
+    #[\ReturnTypeWillChange]
+    public function count(): int
+    {
+        return count($this->value);
+    }
+
+    // ========================================================================
+    // IteratorAggregate Implementation
+    // ========================================================================
+
+    /**
+     * Get iterator for foreach loops
+     * 
+     * @return \ArrayIterator<int, {{MODEL_NAME}}>
+     */
+    public function getIterator(): \ArrayIterator
+    {
+        return new \ArrayIterator($this->value);
     }
 }

@@ -1,5 +1,52 @@
 # Quick Start Guide
 
+## Super Easy Setup (NO App Registration Needed!)
+
+```bash
+# 1. Install dependencies
+composer install
+
+# 2. Zero-config authentication (works with MFA!)
+php auth-setup.php
+# Choose option 1 (Quick Start)
+# Login in browser
+# Done!
+
+# 3. Generate SDK
+php generate-chunked.php
+
+# 4. Generate tests
+php generate-tests.php
+
+# 5. Run tests
+composer test
+
+# 6. Start coding!
+```
+
+## Zero-Config Authentication ⭐
+
+The `auth-setup.php` script with **Quick Start** option:
+- ✅ **No app registration needed!**
+- ✅ **Auto-detects tenant ID**
+- ✅ **Auto-detects user**
+- ✅ Works with MFA
+- ✅ Interactive browser login
+- ✅ Automatically saves to `.env`
+
+**Just run it and choose option 1!**
+
+### How It Works
+
+1. Uses Microsoft Graph Explorer's public client ID
+2. You login with your Microsoft account
+3. Script auto-detects your tenant from the token
+4. Everything saved to `.env` automatically
+
+**No Azure Portal, no app registration, no configuration!**
+
+See `ZERO_CONFIG_AUTH.md` for details.
+
 Get started with the Microsoft Graph SDK for PHP in minutes.
 
 ## Installation

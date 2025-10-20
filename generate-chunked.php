@@ -46,11 +46,7 @@ generateIndividualModels($schemas, $output);
 $output->writeln('<info>Generating collection response models...</info>');
 generateAllCollectionModels($schemas, $output);
 
-// Step 5.5: Copy base QueryOptions class
-$output->writeln('<info>Copying base QueryOptions class...</info>');
-copyBaseQueryOptions();
-
-// Step 5.6: Generate QueryOptions classes
+// Step 5.5: Generate QueryOptions classes (base class is in src/)
 $output->writeln('<info>Generating QueryOptions classes...</info>');
 generateAllQueryOptions($schemas, $output);
 
@@ -61,17 +57,13 @@ $output->writeln("<info>✓ Created {$namespaceCount} namespace chunks</info>");
 
 // Step 7: Process namespace chunks and generate request builders
 $output->writeln('<info>Processing namespace chunks...</info>');
-processNamespaceChunks($output);
+$rootNamespaces = processNamespaceChunks($output);
 
-// Step 8: Generate base classes
-$output->writeln('<info>Generating base classes...</info>');
-generateBaseClasses(BUILD_DIR);
-generateAuthenticationLayer(BUILD_DIR);
-$output->writeln('<info>✓ Base classes generated</info>');
+// Step 8: Base classes are in src/ (no generation needed)
 
 // Step 9: Generate root request builder
 $output->writeln('<info>Generating root request builder...</info>');
-generateRootRequestBuilder(BUILD_DIR);
+generateRootRequestBuilder(BUILD_DIR, $rootNamespaces);
 $output->writeln('<info>✓ Root request builder generated</info>');
 
 $output->writeln('');
@@ -221,6 +213,7 @@ function parseSimpleYaml(string $content): array
     $inProperties = false;
     $inAllOf = false;
     $currentProperty = null;
+    $inItems = false;
     $depth = 0;
     
     foreach ($lines as $line) {
@@ -241,9 +234,10 @@ function parseSimpleYaml(string $content): array
             // Exit properties if we go back to lower indentation
             if (preg_match('/^(\s+)\S/', $line, $matches)) {
                 $lineDepth = strlen($matches[1]);
-                if ($lineDepth <= $depth && !preg_match('/^\s+type:/', $line) && !preg_match('/^\s+format:/', $line) && !preg_match('/^\s+description:/', $line)) {
+                if ($lineDepth <= $depth && !preg_match('/^\s+type:/', $line) && !preg_match('/^\s+format:/', $line) && !preg_match('/^\s+description:/', $line) && !preg_match('/^\s+items:/', $line)) {
                     $inProperties = false;
                     $currentProperty = null;
+                    $inItems = false;
                 }
             }
             
@@ -251,8 +245,19 @@ function parseSimpleYaml(string $content): array
             if (preg_match('/^' . str_repeat(' ', $depth + 2) . '([a-zA-Z0-9_@]+):\s*$/', $line, $matches)) {
                 $currentProperty = $matches[1];
                 $schema['properties'][$currentProperty] = ['type' => 'string'];
+                $inItems = false;
             } elseif ($currentProperty && preg_match('/^\s+type:\s*(.+)$/', $line, $matches)) {
-                $schema['properties'][$currentProperty]['type'] = trim($matches[1]);
+                $type = trim($matches[1]);
+                if ($inItems) {
+                    // This is the type inside items
+                    $schema['properties'][$currentProperty]['items']['type'] = $type;
+                } else {
+                    $schema['properties'][$currentProperty]['type'] = $type;
+                }
+            } elseif ($currentProperty && preg_match('/^\s+items:\s*$/', $line)) {
+                // Entering items section for array type
+                $inItems = true;
+                $schema['properties'][$currentProperty]['items'] = [];
             } elseif ($currentProperty && preg_match('/^\s+format:\s*(.+)$/', $line, $matches)) {
                 $schema['properties'][$currentProperty]['format'] = trim($matches[1]);
             } elseif ($currentProperty && preg_match('/^\s+description:\s*(.+)$/', $line, $matches)) {
@@ -275,17 +280,33 @@ function generateIndividualModels(array $schemas, $output): void
     foreach ($schemas as $schemaName => $schemaData) {
         $modelName = normalizeModelName($schemaName);
         
-        if (empty($schemaData['properties'])) {
+        // Skip collection response schemas - they'll be generated separately with proper type hints
+        if (str_ends_with(strtolower($schemaName), 'collectionresponse')) {
             continue;
         }
         
-        $filePath = $modelsDir . "/{$modelName}.php";
+        // Escape reserved keywords for filename (PSR-4 compliance)
+        $escapedModelName = escapeReservedKeyword($modelName);
+        $filePath = $modelsDir . "/{$escapedModelName}.php";
         if (file_exists($filePath)) {
             continue;
         }
         
-        // Generate model
-        $code = generateModelCode($modelName, $schemaData['properties']);
+        // Generate model (even if empty - some models have only @odata.type)
+        $properties = [];
+        
+        // Handle allOf schemas (merge all properties)
+        if (isset($schemaData['allOf'])) {
+            foreach ($schemaData['allOf'] as $idx => $subSchema) {
+                if (isset($subSchema['properties'])) {
+                    $properties = array_merge($properties, $subSchema['properties']);
+                }
+            }
+        } else {
+            $properties = $schemaData['properties'] ?? [];
+        }
+        
+        $code = generateModelCode($modelName, $properties);
         file_put_contents($filePath, $code);
         
         $generated++;
@@ -303,6 +324,9 @@ function generateIndividualModels(array $schemas, $output): void
  */
 function generateModelCode(string $modelName, array $properties): string
 {
+    // Escape reserved keywords
+    $escapedModelName = escapeReservedKeyword($modelName);
+    
     $propertiesCode = '';
     $gettersSettersCode = '';
     
@@ -315,6 +339,20 @@ function generateModelCode(string $modelName, array $properties): string
         if ($description) {
             $propertiesCode .= "     * {$description}\n";
         }
+        
+        // Add PHPDoc type hint for arrays
+        if ($type === 'array' && isset($propDef['items']['type'])) {
+            $itemType = $propDef['items']['type'];
+            $phpItemType = match($itemType) {
+                'string' => 'string',
+                'integer' => 'int',
+                'number' => 'float',
+                'boolean' => 'bool',
+                default => 'mixed'
+            };
+            $propertiesCode .= "     * @var {$phpItemType}[]\n";
+        }
+        
         $propertiesCode .= "     */\n";
         $propertiesCode .= "    private {$type} \${$propName}";
         
@@ -330,10 +368,40 @@ function generateModelCode(string $modelName, array $properties): string
         $type = mapPropertyType($propDef);
         $methodName = ucfirst($propName);
         
+        // Add PHPDoc for array return types
+        if ($type === 'array' && isset($propDef['items']['type'])) {
+            $itemType = $propDef['items']['type'];
+            $phpItemType = match($itemType) {
+                'string' => 'string',
+                'integer' => 'int',
+                'number' => 'float',
+                'boolean' => 'bool',
+                default => 'mixed'
+            };
+            $gettersSettersCode .= "    /**\n";
+            $gettersSettersCode .= "     * @return {$phpItemType}[]\n";
+            $gettersSettersCode .= "     */\n";
+        }
+        
         $gettersSettersCode .= "    public function get{$methodName}(): {$type}\n";
         $gettersSettersCode .= "    {\n";
         $gettersSettersCode .= "        return \$this->{$propName};\n";
         $gettersSettersCode .= "    }\n\n";
+        
+        // Add PHPDoc for array parameter types
+        if ($type === 'array' && isset($propDef['items']['type'])) {
+            $itemType = $propDef['items']['type'];
+            $phpItemType = match($itemType) {
+                'string' => 'string',
+                'integer' => 'int',
+                'number' => 'float',
+                'boolean' => 'bool',
+                default => 'mixed'
+            };
+            $gettersSettersCode .= "    /**\n";
+            $gettersSettersCode .= "     * @param {$phpItemType}[] \${$propName}\n";
+            $gettersSettersCode .= "     */\n";
+        }
         
         $gettersSettersCode .= "    public function set{$methodName}({$type} \${$propName}): self\n";
         $gettersSettersCode .= "    {\n";
@@ -346,7 +414,7 @@ function generateModelCode(string $modelName, array $properties): string
     
     return str_replace(
         ['{{MODEL_NAME}}', '{{PROPERTIES}}', '{{GETTERS_SETTERS}}'],
-        [$modelName, rtrim($propertiesCode), rtrim($gettersSettersCode)],
+        [$escapedModelName, rtrim($propertiesCode), rtrim($gettersSettersCode)],
         $template
     );
 }
@@ -453,15 +521,49 @@ function loadTemplate(string $templateName): string
 }
 
 /**
+ * Check if a name is a PHP reserved keyword
+ */
+function isReservedKeyword(string $name): bool
+{
+    $reserved = [
+        'abstract', 'and', 'array', 'as', 'break', 'callable', 'case', 'catch', 'class',
+        'clone', 'const', 'continue', 'declare', 'default', 'die', 'do', 'echo', 'else',
+        'elseif', 'empty', 'enddeclare', 'endfor', 'endforeach', 'endif', 'endswitch',
+        'endwhile', 'eval', 'exit', 'extends', 'final', 'finally', 'fn', 'for', 'foreach',
+        'function', 'global', 'goto', 'if', 'implements', 'include', 'include_once',
+        'instanceof', 'insteadof', 'interface', 'isset', 'list', 'match', 'namespace',
+        'new', 'or', 'print', 'private', 'protected', 'public', 'readonly', 'require',
+        'require_once', 'return', 'static', 'switch', 'throw', 'trait', 'try', 'unset',
+        'use', 'var', 'while', 'xor', 'yield', 'yield from'
+    ];
+    
+    return in_array(strtolower($name), $reserved);
+}
+
+/**
+ * Escape reserved keywords by adding suffix
+ */
+function escapeReservedKeyword(string $name): string
+{
+    if (isReservedKeyword($name)) {
+        return $name . 'Model';
+    }
+    return $name;
+}
+
+/**
  * Generate collection response code
  */
 function generateCollectionResponseCode(string $collectionName, string $modelName): string
 {
     $template = loadTemplate('CollectionResponse.php.template');
     
+    // Escape reserved keywords
+    $escapedModelName = escapeReservedKeyword($modelName);
+    
     return str_replace(
         ['{{COLLECTION_NAME}}', '{{MODEL_NAME}}'],
-        [$collectionName, $modelName],
+        [$collectionName, $escapedModelName],
         $template
     );
     
@@ -657,10 +759,11 @@ function analyzeAndChunkOpenApi($output): int
 /**
  * Process each namespace chunk
  */
-function processNamespaceChunks($output): void
+function processNamespaceChunks($output): array
 {
     $chunkFiles = glob(TMP_DIR . '/paths_*.yaml');
     $schemasFile = TMP_DIR . '/schemas.yaml';
+    $rootNamespaces = [];
     
     // Load schemas once
     $schemas = [];
@@ -677,10 +780,17 @@ function processNamespaceChunks($output): void
         $namespace = basename($chunkFile, '.yaml');
         $namespace = str_replace('paths_', '', $namespace);
         
+        // Skip "base" namespace as it conflicts with BaseRequestBuilder
+        if ($namespace === 'base') {
+            $output->writeln("<comment>  - Skipping: {$namespace} (reserved for base class)</comment>");
+            continue;
+        }
+        
         $output->writeln("<comment>  - Processing: {$namespace}</comment>");
         
         try {
             processNamespace($namespace, $chunkFile, $schemas, $output);
+            $rootNamespaces[] = $namespace; // Track root namespaces
         } catch (Exception $e) {
             $output->writeln("<error>    Error processing {$namespace}: " . $e->getMessage() . "</error>");
         }
@@ -688,6 +798,8 @@ function processNamespaceChunks($output): void
         // Free memory
         gc_collect_cycles();
     }
+    
+    return $rootNamespaces;
 }
 
 /**
@@ -716,8 +828,171 @@ function processNamespace(string $namespace, string $chunkFile, array $schemas, 
         generateModelFromDefinition(BUILD_DIR . '/Models', $modelName, $modelDef);
     }
     
-    // Generate request builders
+    // Generate request builders for root namespace
     generateRequestBuildersForNamespace($namespace, $paths, $output);
+    
+    // Generate request builders for all subpaths
+    generateSubpathRequestBuilders($namespace, $paths, $output);
+}
+
+/**
+ * Generate request builders for all subpaths
+ */
+function generateSubpathRequestBuilders(string $namespace, array $paths, $output): void
+{
+    $builderDir = BUILD_DIR . '/RequestBuilders';
+    $generatedBuilders = [];
+    
+    foreach ($paths as $path => $methods) {
+        // Extract all path segments after the base namespace with parameter
+        // e.g., /users/{user-id}/activities -> activities
+        // e.g., /users/{user-id}/authentication/emailMethods -> authentication, emailMethods
+        
+        // Match pattern: /namespace/{any-parameter}/subpath
+        if (preg_match("#^/{$namespace}/\\{[^}]+\\}/(.+)$#", $path, $matches)) {
+            $subpath = $matches[1];
+            $segments = explode('/', $subpath);
+            
+            // Build path pattern for matching
+            $pathPattern = "/{$namespace}/\\{[^}]+\\}";
+            
+            foreach ($segments as $segment) {
+                // Skip parameter segments
+                if (preg_match('/^\{.+\}$/', $segment)) {
+                    $pathPattern .= "/\\{[^}]+\\}";
+                    continue;
+                }
+                
+                // Skip segments with invalid characters (like function calls with parentheses)
+                if (preg_match('/[^a-zA-Z0-9_-]/', $segment)) {
+                    continue;
+                }
+                
+                // Normalize segment name (remove namespace prefixes like "microsoft.graph.")
+                $normalizedSegment = preg_replace('/^microsoft\.graph\./', '', $segment);
+                $normalizedSegment = str_replace('.', '_', $normalizedSegment); // Replace dots with underscores
+                
+                $builderName = ucfirst($normalizedSegment) . 'RequestBuilder';
+                
+                // Skip if already generated
+                if (isset($generatedBuilders[$builderName])) {
+                    $pathPattern .= "/{$segment}";
+                    continue;
+                }
+                
+                $pathPattern .= "/{$segment}";
+                
+                // Find all paths that match this pattern
+                $segmentPaths = [];
+                foreach ($paths as $p => $m) {
+                    // Match paths that start with the pattern
+                    if (preg_match("#^" . $pathPattern . "(/|$)#", $p)) {
+                        $segmentPaths[$p] = $m;
+                    }
+                }
+                
+                if (!empty($segmentPaths)) {
+                    generateSubpathBuilder($normalizedSegment, $segmentPaths, $builderDir, $output);
+                    $generatedBuilders[$builderName] = true;
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Generate a request builder for a subpath
+ */
+function generateSubpathBuilder(string $subresource, array $paths, string $dir, $output): void
+{
+    $className = ucfirst($subresource) . 'RequestBuilder';
+    $filePath = $dir . "/{$className}.php";
+    
+    // Skip BaseRequestBuilder - it's in src/
+    if ($className === 'BaseRequestBuilder') {
+        return;
+    }
+    
+    // Skip if already exists
+    if (file_exists($filePath)) {
+        return;
+    }
+    
+    // Analyze operations for this subpath
+    $operations = analyzePathOperations($paths);
+    
+    // Determine model name and response type
+    $modelName = ucfirst($subresource);
+    if (substr($modelName, -1) === 's' && $modelName !== 'News') {
+        $singularModel = substr($modelName, 0, -1);
+    } else {
+        $singularModel = $modelName;
+    }
+    
+    // Escape reserved keywords
+    $singularModel = escapeReservedKeyword($singularModel);
+    
+    // Find nested subpaths for this builder (e.g., /authentication/emailMethods)
+    $nestedSubpaths = [];
+    foreach ($paths as $path => $methods) {
+        // Look for paths that have more segments after this subresource
+        // e.g., if subresource is "authentication", look for "authentication/emailMethods"
+        if (preg_match("#/{$subresource}/([^/\{]+)#", $path, $matches)) {
+            $nestedResource = $matches[1];
+            
+            // Skip invalid characters
+            if (preg_match('/[^a-zA-Z0-9_-]/', $nestedResource)) {
+                continue;
+            }
+            
+            // Normalize the name
+            $normalizedNested = preg_replace('/^microsoft\.graph\./', '', $nestedResource);
+            $normalizedNested = str_replace('.', '_', $normalizedNested);
+            
+            if (!isset($nestedSubpaths[$normalizedNested])) {
+                $nestedSubpaths[$normalizedNested] = [];
+            }
+        }
+    }
+    
+    // Generate the builder with navigation methods
+    $code = generateRequestBuilderClassWithSubpaths($subresource, $className, $operations, $nestedSubpaths);
+    file_put_contents($filePath, $code);
+    
+    $output->writeln("<comment>    Generated subpath: {$className}</comment>");
+    
+    // Also generate ItemRequestBuilder if this is a collection
+    if ($operations['isCollection']) {
+        generateItemRequestBuilder($subresource, $operations, $paths, $dir, $output);
+    }
+}
+
+/**
+ * Generate request builder class with subpath navigation methods
+ */
+function generateRequestBuilderClassWithSubpaths(string $namespace, string $className, array $operations, array $nestedSubpaths): string
+{
+    // First generate the base class
+    $code = generateRequestBuilderClass($namespace, $className, $operations);
+    
+    // If there are nested subpaths, add navigation methods before the closing brace
+    if (!empty($nestedSubpaths)) {
+        // Remove the closing brace and any trailing whitespace
+        $code = rtrim($code);
+        if (str_ends_with($code, '}')) {
+            $code = substr($code, 0, -1);
+            $code = rtrim($code) . "\n";
+        }
+        
+        // Add navigation methods for nested subpaths
+        foreach ($nestedSubpaths as $subresource => $data) {
+            $code .= generateSubpathMethod($subresource);
+        }
+        
+        $code .= "}\n";
+    }
+    
+    return $code;
 }
 
 /**
@@ -808,19 +1083,15 @@ function extractModelDefinition(string $modelName, array $schema, array $allSche
     // Try to get from schemas
     if (isset($allSchemas[$modelName])) {
         $schemaData = $allSchemas[$modelName];
-        $properties = $schemaData['properties'] ?? [];
+        $properties = [];
         
-        foreach ($properties as $propName => $propDef) {
-            $type = mapOpenApiTypeToPhp($propDef);
-            $definition['properties'][$propName] = [
-                'type' => $type,
-                'description' => $propDef['description'] ?? '',
-            ];
-        }
-        
-        // Check for inheritance
+        // Handle allOf schemas (merge all properties)
         if (isset($schemaData['allOf'])) {
             foreach ($schemaData['allOf'] as $subSchema) {
+                if (isset($subSchema['properties'])) {
+                    $properties = array_merge($properties, $subSchema['properties']);
+                }
+                // Check for inheritance
                 if (isset($subSchema['$ref'])) {
                     $parentName = extractModelNameFromSchema($subSchema);
                     if ($parentName) {
@@ -828,6 +1099,16 @@ function extractModelDefinition(string $modelName, array $schema, array $allSche
                     }
                 }
             }
+        } else {
+            $properties = $schemaData['properties'] ?? [];
+        }
+        
+        foreach ($properties as $propName => $propDef) {
+            $type = mapOpenApiTypeToPhp($propDef);
+            $definition['properties'][$propName] = [
+                'type' => $type,
+                'description' => $propDef['description'] ?? '',
+            ];
         }
     }
     
@@ -963,6 +1244,11 @@ function generateRequestBuildersForNamespace(string $namespace, array $paths, $o
     $className = ucfirst($namespace) . 'RequestBuilder';
     $filePath = $builderDir . "/{$className}.php";
     
+    // Skip BaseRequestBuilder - it's in src/
+    if ($className === 'BaseRequestBuilder') {
+        return;
+    }
+    
     // Skip if already exists
     if (file_exists($filePath)) {
         return;
@@ -981,7 +1267,7 @@ function generateRequestBuildersForNamespace(string $namespace, array $paths, $o
     $output->writeln("<comment>    Generated: {$className}</comment>");
     
     // Always generate Item Request Builder for collections
-    generateItemRequestBuilder($namespace, $operations, $builderDir, $output);
+    generateItemRequestBuilder($namespace, $operations, $paths, $builderDir, $output);
     
     // Collection response model is now generated globally from schemas
 }
@@ -1006,7 +1292,22 @@ function analyzePathOperations(array $paths): array
         'supportsExpand' => false,
         'supportsSearch' => false,
         'supportsCount' => false,
+        'getResponseSchema' => null,
+        'isCollection' => false,
     ];
+    
+    // Find the root path (shortest path without parameters) to determine the primary response type
+    $rootPath = null;
+    $shortestLength = PHP_INT_MAX;
+    
+    foreach ($paths as $path => $methods) {
+        // Count path segments
+        $segments = substr_count($path, '/');
+        if ($segments < $shortestLength) {
+            $shortestLength = $segments;
+            $rootPath = $path;
+        }
+    }
     
     foreach ($paths as $path => $methods) {
         // Check if it's a collection endpoint
@@ -1024,6 +1325,52 @@ function analyzePathOperations(array $paths): array
             $method = strtolower($method);
             if ($method === 'get') {
                 $operations['hasGet'] = true;
+                
+                // Extract response schema (prioritize root path)
+                if ($path === $rootPath || $operations['getResponseSchema'] === null) {
+                    $responses = $operation['responses'] ?? [];
+                    foreach (['2XX', '200', 'default'] as $responseCode) {
+                        $responseData = $responses[$responseCode] ?? null;
+                        
+                        if (!$responseData) {
+                            continue;
+                        }
+                        
+                        // Check for direct schema reference
+                        if (isset($responseData['content']['application/json']['schema']['$ref'])) {
+                            $ref = $responseData['content']['application/json']['schema']['$ref'];
+                            // Extract schema name from #/components/schemas/microsoft.graph.user
+                            if (preg_match('#/schemas/microsoft\.graph\.(.+)$#', $ref, $matches)) {
+                                $operations['getResponseSchema'] = $matches[1];
+                                
+                                // Check if it's a collection response
+                                if (str_contains($matches[1], 'Collection')) {
+                                    $operations['isCollection'] = true;
+                                } else {
+                                    $operations['isCollection'] = false;
+                                }
+                            }
+                            break;
+                        }
+                        
+                        // Check for response reference (e.g., #/components/responses/microsoft.graph.userCollectionResponse)
+                        if (isset($responseData['$ref'])) {
+                            $ref = $responseData['$ref'];
+                            // Extract from #/components/responses/microsoft.graph.userCollectionResponse
+                            if (preg_match('#/responses/microsoft\.graph\.(.+)$#', $ref, $matches)) {
+                                $operations['getResponseSchema'] = $matches[1];
+                                
+                                // Check if it's a collection response
+                                if (str_contains(strtolower($matches[1]), 'collection')) {
+                                    $operations['isCollection'] = true;
+                                } else {
+                                    $operations['isCollection'] = false;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
                 
                 // Check for query parameters
                 $parameters = $operation['parameters'] ?? [];
@@ -1074,15 +1421,37 @@ function analyzePathOperations(array $paths): array
  */
 function generateRequestBuilderClass(string $namespace, string $className, array $operations): string
 {
-    // Normalize model name (remove trailing 's' for singular)
-    $modelName = ucfirst($namespace);
-    if (substr($modelName, -1) === 's' && $modelName !== 'News') {
-        $singularModel = substr($modelName, 0, -1);
+    // Determine actual response model from OpenAPI schema
+    $responseSchema = $operations['getResponseSchema'] ?? null;
+    $isCollection = $operations['isCollection'] ?? false;
+    
+    // Fallback to heuristic if no schema found
+    if (!$responseSchema) {
+        $modelName = ucfirst($namespace);
+        if (substr($modelName, -1) === 's' && $modelName !== 'News') {
+            $singularModel = substr($modelName, 0, -1);
+        } else {
+            $singularModel = $modelName;
+        }
+        $responseModel = $isCollection ? "{$singularModel}CollectionResponse" : $singularModel;
     } else {
-        $singularModel = $modelName;
+        // Use the actual schema name from OpenAPI and normalize it
+        $responseModel = normalizeModelName($responseSchema);
+        $responseModel = ucfirst($responseModel);
+        
+        // Extract singular model name
+        if ($isCollection && str_ends_with($responseModel, 'CollectionResponse')) {
+            $singularModel = substr($responseModel, 0, -strlen('CollectionResponse'));
+        } else {
+            $singularModel = $responseModel;
+        }
     }
     
-    $collectionResponse = "{$singularModel}CollectionResponse";
+    // Escape reserved keywords
+    $singularModel = escapeReservedKeyword($singularModel);
+    $responseModel = escapeReservedKeyword($responseModel);
+    
+    $collectionResponse = $isCollection ? $responseModel : "{$singularModel}CollectionResponse";
     $queryOptionsClass = "{$singularModel}QueryOptions";
     
     $code = <<<PHP
@@ -1094,20 +1463,28 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\\{$singularModel};
-use ApeDevDe\MicrosoftGraphSdk\Models\\{$collectionResponse};
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\\{$queryOptionsClass};
 
+PHP;
+
+    // Only include collection response if it's actually a collection
+    if ($isCollection) {
+        $code .= "use ApeDevDe\MicrosoftGraphSdk\Models\\{$collectionResponse};\n";
+    }
+    
+    $code .= "use ApeDevDe\MicrosoftGraphSdk\QueryOptions\\{$queryOptionsClass};\n\n";
+    
+    $code .= <<<PHP
 /**
- * Request builder for {$singularModel} collection
+ * Request builder for {$singularModel}
  */
 class {$className} extends BaseRequestBuilder
 {
 
 PHP;
     
-    // Add get method for collections
+    // Add get method
     if ($operations['hasList'] || $operations['hasGet']) {
-        $code .= generateGetMethod($operations, $collectionResponse, $singularModel);
+        $code .= generateGetMethod($operations, $responseModel, $singularModel, $isCollection);
     }
     
     // Add post method
@@ -1115,11 +1492,13 @@ PHP;
         $code .= generatePostMethod($singularModel);
     }
     
-    // Add byId method (always add for collections)
-    $code .= generateByIdMethod($namespace, $singularModel);
+    // Add byId method (only for collections)
+    if ($isCollection) {
+        $code .= generateByIdMethod($namespace, $singularModel);
+    }
     
     // Add count method if supported
-    if ($operations['supportsCount']) {
+    if ($operations['supportsCount'] && $isCollection) {
         $code .= generateCountMethod();
     }
     
@@ -1131,17 +1510,22 @@ PHP;
 /**
  * Generate GET method with query support
  */
-function generateGetMethod(array $operations, string $returnType, string $modelName): string
+function generateGetMethod(array $operations, string $returnType, string $modelName, bool $isCollection = true): string
 {
     $queryOptionsClass = "{$modelName}QueryOptions";
+    $methodDescription = $isCollection ? 'Get collection with optional query parameters' : 'Get the resource';
     
     $code = "    /**\n";
-    $code .= "     * Get collection with optional query parameters\n";
+    $code .= "     * {$methodDescription}\n";
     $code .= "     *\n";
-    $code .= "     * You can use either:\n";
-    $code .= "     * 1. Type-safe QueryOptions: get(options: (new {$queryOptionsClass}())->top(10)->select(['displayName', 'mail']))\n";
-    $code .= "     * 2. Array parameters: get(queryParameters: ['\$top' => 10, '\$select' => 'displayName,mail'])\n";
-    $code .= "     *\n";
+    
+    if ($isCollection) {
+        $code .= "     * You can use either:\n";
+        $code .= "     * 1. Type-safe QueryOptions: get(options: (new {$queryOptionsClass}())->top(10)->select(['displayName', 'mail']))\n";
+        $code .= "     * 2. Array parameters: get(queryParameters: ['\$top' => 10, '\$select' => 'displayName,mail'])\n";
+        $code .= "     *\n";
+    }
+    
     $code .= "     * Supported query parameters:\n";
     if ($operations['supportsSelect']) $code .= "     * - \$select: Select specific properties\n";
     if ($operations['supportsFilter']) $code .= "     * - \$filter: Filter results\n";
@@ -1239,7 +1623,7 @@ function generateCountMethod(): string
 /**
  * Generate Item Request Builder
  */
-function generateItemRequestBuilder(string $namespace, array $operations, string $dir, $output): void
+function generateItemRequestBuilder(string $namespace, array $operations, array $paths, string $dir, $output): void
 {
     // Normalize names
     $normalizedNamespace = ucfirst($namespace);
@@ -1256,6 +1640,21 @@ function generateItemRequestBuilder(string $namespace, array $operations, string
     // Skip if already exists
     if (file_exists($filePath)) {
         return;
+    }
+    
+    // Find subpaths (e.g., /users/{user-id}/activities)
+    $subpaths = [];
+    $itemPathPattern = "/{$namespace}/{"; // e.g., /users/{
+    
+    foreach ($paths as $path => $methods) {
+        // Check if this is a subpath of the item (e.g., /users/{user-id}/activities)
+        if (preg_match("#^{$itemPathPattern}[^/]+}/([^/\{]+)#", $path, $matches)) {
+            $subresource = $matches[1];
+            if (!isset($subpaths[$subresource])) {
+                $subpaths[$subresource] = [];
+            }
+            $subpaths[$subresource][$path] = $methods;
+        }
     }
     
     $code = <<<PHP
@@ -1291,10 +1690,41 @@ PHP;
         $code .= generateDeleteMethod();
     }
     
+    // Add subpath navigation methods
+    foreach ($subpaths as $subresource => $subpathData) {
+        $code .= generateSubpathMethod($subresource);
+    }
+    
     $code .= "}\n";
     
     file_put_contents($filePath, $code);
     $output->writeln("<comment>    Generated: {$className}</comment>");
+}
+
+/**
+ * Generate subpath navigation method
+ */
+function generateSubpathMethod(string $subresource): string
+{
+    // Skip if subresource contains invalid characters for method names
+    if (preg_match('/[^a-zA-Z0-9_]/', $subresource)) {
+        return ""; // Skip invalid method names
+    }
+    
+    $methodName = lcfirst($subresource);
+    $builderClass = ucfirst($subresource) . 'RequestBuilder';
+    
+    $code = "    /**\n";
+    $code .= "     * Get {$subresource} request builder\n";
+    $code .= "     *\n";
+    $code .= "     * @return {$builderClass}\n";
+    $code .= "     */\n";
+    $code .= "    public function {$methodName}(): {$builderClass}\n";
+    $code .= "    {\n";
+    $code .= "        return new {$builderClass}(\$this->client, \$this->buildPath('{$subresource}'));\n";
+    $code .= "    }\n\n";
+    
+    return $code;
 }
 
 /**
@@ -1391,23 +1821,17 @@ function generateCollectionModel(string $namespace, $output): void
 /**
  * Generate root request builder
  */
-function generateRootRequestBuilder(string $buildDir): void
+function generateRootRequestBuilder(string $buildDir, array $rootNamespaces): void
 {
     $builderDir = $buildDir . '/RequestBuilders';
     
-    // Scan for generated request builders
-    $builders = glob($builderDir . '/*RequestBuilder.php');
+    // Only include root namespaces (not subpaths)
     $namespaces = [];
-    
-    foreach ($builders as $builder) {
-        $className = basename($builder, '.php');
-        if ($className === 'BaseRequestBuilder' || $className === 'GraphRequestBuilder') {
-            continue;
-        }
+    foreach ($rootNamespaces as $namespace) {
+        $className = ucfirst($namespace) . 'RequestBuilder';
+        $filePath = $builderDir . '/' . $className . '.php';
         
-        // Extract namespace from class name
-        $namespace = lcfirst(str_replace(['RequestBuilder', 'ItemRequestBuilder'], '', $className));
-        if (!empty($namespace) && !str_contains($namespace, 'Item')) {
+        if (file_exists($filePath)) {
             $namespaces[$namespace] = $className;
         }
     }
@@ -1442,44 +1866,6 @@ PHP;
     $code .= "}\n";
     
     file_put_contents($builderDir . '/GraphRequestBuilder.php', $code);
-    
-    // Generate BaseRequestBuilder if not exists
-    if (!file_exists($builderDir . '/BaseRequestBuilder.php')) {
-        $baseCode = <<<'PHP'
-<?php
 
-declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
-
-use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-
-abstract class BaseRequestBuilder
-{
-    protected GraphClient $client;
-    protected string $path;
-
-    public function __construct(GraphClient $client, string $path = '')
-    {
-        $this->client = $client;
-        $this->path = $path;
-    }
-
-    protected function getFullPath(): string
-    {
-        return $this->path;
-    }
-
-    protected function buildPath(string ...$segments): string
-    {
-        $path = $this->path;
-        foreach ($segments as $segment) {
-            $path .= '/' . ltrim($segment, '/');
-        }
-        return $path;
-    }
-}
-PHP;
-        file_put_contents($builderDir . '/BaseRequestBuilder.php', $baseCode);
-    }
 }

@@ -74,35 +74,16 @@ class GraphServiceClient
     }
 
     /**
-     * Access the /me endpoint
+     * Magic method to forward all calls to the underlying GraphRequestBuilder
+     * This allows access to all root namespaces without explicitly defining them
      */
-    public function me(): RequestBuilders\MeRequestBuilder
+    public function __call(string $name, array $arguments)
     {
-        return $this->requestBuilder->me();
-    }
-
-    /**
-     * Access the /users endpoint
-     */
-    public function users(): RequestBuilders\UsersRequestBuilder
-    {
-        return $this->requestBuilder->users();
-    }
-
-    /**
-     * Access the /groups endpoint
-     */
-    public function groups(): RequestBuilders\GroupsRequestBuilder
-    {
-        return $this->requestBuilder->groups();
-    }
-
-    /**
-     * Access the /applications endpoint
-     */
-    public function applications(): RequestBuilders\ApplicationsRequestBuilder
-    {
-        return $this->requestBuilder->applications();
+        if (method_exists($this->requestBuilder, $name)) {
+            return $this->requestBuilder->$name(...$arguments);
+        }
+        
+        throw new \BadMethodCallException("Method {$name} does not exist on GraphServiceClient");
     }
 
     /**
