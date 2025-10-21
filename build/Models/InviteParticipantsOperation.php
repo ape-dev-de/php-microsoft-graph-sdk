@@ -18,7 +18,7 @@ class InviteParticipantsOperation
         public ?string $resultInfo = null,
         /**  */
         public ?string $status = null,
-        /** @var string[] The participants to invite. */
+        /** The participants to invite. */
         public array $participants = []
     ) {}
 }

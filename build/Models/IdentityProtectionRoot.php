@@ -16,7 +16,7 @@ class IdentityProtectionRoot
         public array $riskyServicePrincipals = [],
         /** Users that are flagged as at-risk by Microsoft Entra ID Protection. */
         public array $riskyUsers = [],
-        /** @var string[] Represents information about detected at-risk service principals in a Microsoft Entra tenant. */
+        /** Represents information about detected at-risk service principals in a Microsoft Entra tenant. */
         public array $servicePrincipalRiskDetections = []
     ) {}
 }

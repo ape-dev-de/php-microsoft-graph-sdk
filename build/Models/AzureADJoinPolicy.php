@@ -13,6 +13,6 @@ class AzureADJoinPolicy
         /**  */
         public ?string $allowedToJoin = null,
         /**  */
-        public ?string $isAdminConfigurable = null
+        public ?bool $isAdminConfigurable = null
     ) {}
 }

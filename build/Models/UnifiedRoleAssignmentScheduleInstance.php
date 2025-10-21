@@ -40,7 +40,7 @@ class UnifiedRoleAssignmentScheduleInstance
         public ?string $roleAssignmentScheduleId = null,
         /** When this instance starts. */
         public ?\DateTimeInterface $startDateTime = null,
-        /** If the request is from an eligible administrator to activate a role, this parameter shows the related eligible assignment for that activation. Otherwise, it''s null. Supports $expand and $select nested in $expand. */
+        /** If the request is from an eligible administrator to activate a role, this parameter shows the related eligible assignment for that activation. Otherwise, it's null. Supports $expand and $select nested in $expand. */
         public ?string $activatedUsing = null
     ) {}
 }

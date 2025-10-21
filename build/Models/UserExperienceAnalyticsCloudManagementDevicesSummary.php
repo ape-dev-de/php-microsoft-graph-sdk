@@ -14,7 +14,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary
         public ?float $coManagedDeviceCount = null,
         /** The count of intune devices that are not autopilot registerd. Read-only. */
         public ?float $intuneDeviceCount = null,
-        /** The user experience work from anywhere Cloud management devices summary. */
-        public ?string $tenantAttachDeviceCount = null
+        /** Total count of tenant attach devices. Read-only. */
+        public ?float $tenantAttachDeviceCount = null
     ) {}
 }

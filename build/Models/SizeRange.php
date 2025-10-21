@@ -13,6 +13,6 @@ class SizeRange
         /** The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply. */
         public ?float $maximumSize = null,
         /** The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply. */
-        public ?string $minimumSize = null
+        public ?float $minimumSize = null
     ) {}
 }

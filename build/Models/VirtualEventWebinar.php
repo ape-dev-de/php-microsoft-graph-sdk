@@ -30,7 +30,7 @@ class VirtualEventWebinar
         public ?string $status = null,
         /** The virtual event presenters. */
         public array $presenters = [],
-        /** @var string[] The sessions for the virtual event. */
+        /** The sessions for the virtual event. */
         public array $sessions = [],
         /** To whom the webinar is visible. Possible values are: everyone, organization, and unknownFutureValue. */
         public ?string $audience = null,
@@ -38,7 +38,7 @@ class VirtualEventWebinar
         public array $coOrganizers = [],
         /** Registration configuration of the webinar. */
         public ?string $registrationConfiguration = null,
-        /** @var string[] Registration records of the webinar. */
+        /** Registration records of the webinar. */
         public array $registrations = []
     ) {}
 }

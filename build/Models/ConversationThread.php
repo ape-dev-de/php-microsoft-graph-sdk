@@ -28,7 +28,7 @@ class ConversationThread
         public array $toRecipients = [],
         /** @var string[] All the users that sent a message to this thread. Returned by default. */
         public array $uniqueSenders = [],
-        /** @var string[]  */
+        /**  */
         public array $posts = []
     ) {}
 }

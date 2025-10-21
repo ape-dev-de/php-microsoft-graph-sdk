@@ -28,7 +28,7 @@ class DeviceManagementExchangeConnector
         public ?string $serverName = null,
         /**  */
         public ?string $status = null,
-        /** Entity which represents a connection to an Exchange environment. */
+        /** The version of the ExchangeConnectorAgent */
         public ?string $version = null
     ) {}
 }

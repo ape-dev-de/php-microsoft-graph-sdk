@@ -32,7 +32,7 @@ class WindowsUpdateForBusinessConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported. */
         public ?bool $allowWindows11Upgrade = null,
@@ -104,7 +104,7 @@ class WindowsUpdateForBusinessConfiguration
         public ?string $updateWeeks = null,
         /**  */
         public ?string $userPauseAccess = null,
-        /** Windows Update for business configuration, allows you to specify how and when Windows as a Service updates your Windows 10/11 devices with feature and quality updates. Supports ODATA clauses that DeviceConfiguration entity supports: $filter by types of DeviceConfiguration, $top, $select only DeviceConfiguration base properties, $orderby only DeviceConfiguration base properties, and $skip. The query parameter ''$search'' is not supported. */
+        /**  */
         public ?string $userWindowsUpdateScanAccess = null
     ) {}
 }

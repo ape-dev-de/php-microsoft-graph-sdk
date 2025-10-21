@@ -46,7 +46,7 @@ class Calendar
         public array $events = [],
         /** The collection of multi-value extended properties defined for the calendar. Read-only. Nullable. */
         public array $multiValueExtendedProperties = [],
-        /** @var string[] The collection of single-value extended properties defined for the calendar. Read-only. Nullable. */
+        /** The collection of single-value extended properties defined for the calendar. Read-only. Nullable. */
         public array $singleValueExtendedProperties = []
     ) {}
 }

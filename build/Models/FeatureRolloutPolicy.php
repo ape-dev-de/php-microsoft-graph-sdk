@@ -22,7 +22,7 @@ class FeatureRolloutPolicy
         public ?bool $isAppliedToOrganization = null,
         /** Indicates whether the feature rollout is enabled. */
         public ?bool $isEnabled = null,
-        /** @var string[] Nullable. Specifies a list of directoryObject resources that feature is enabled for. */
+        /** Nullable. Specifies a list of directoryObject resources that feature is enabled for. */
         public array $appliesTo = []
     ) {}
 }

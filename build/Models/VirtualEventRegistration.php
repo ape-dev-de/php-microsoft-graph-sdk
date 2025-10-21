@@ -34,7 +34,7 @@ class VirtualEventRegistration
         public ?string $status = null,
         /** The registrant's ID in Microsoft Entra ID. Only appears when the registrant is registered in Microsoft Entra ID. */
         public ?string $userId = null,
-        /** @var string[] Sessions for a registration. */
+        /** Sessions for a registration. */
         public array $sessions = []
     ) {}
 }

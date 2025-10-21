@@ -20,7 +20,7 @@ class CallRecordsCallRecord
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue. */
         public array $modalities = [],
-        /** The organizing party''s identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship. */
+        /** The organizing party's identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship. */
         public ?string $organizer = null,
         /** List of distinct identities involved in the call. Limited to 130 entries. The participants property is deprecated and will stop returning data on June 30, 2026. Going forward, use the participants_v2 relationship. */
         public array $participants = [],
@@ -34,7 +34,7 @@ class CallRecordsCallRecord
         public ?string $organizer_v2 = null,
         /** List of distinct participants in the call. */
         public array $participants_v2 = [],
-        /** @var string[] List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable. */
+        /** List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable. */
         public array $sessions = []
     ) {}
 }

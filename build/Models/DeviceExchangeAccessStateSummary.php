@@ -18,7 +18,7 @@ class DeviceExchangeAccessStateSummary
         public ?float $quarantinedDeviceCount = null,
         /** Total count of devices for which no Exchange Access State could be found. */
         public ?float $unavailableDeviceCount = null,
-        /** Device Exchange Access State summary */
-        public ?string $unknownDeviceCount = null
+        /** Total count of devices with Exchange Access State: Unknown. */
+        public ?float $unknownDeviceCount = null
     ) {}
 }

@@ -18,7 +18,7 @@ class WindowsSetting
         public ?string $settingType = null,
         /** A unique identifier for the device the setting might belong to if it is of the settingType backup. */
         public ?string $windowsDeviceId = null,
-        /** @var string[] A collection of setting values for a given windowsSetting. */
+        /** A collection of setting values for a given windowsSetting. */
         public array $instances = []
     ) {}
 }

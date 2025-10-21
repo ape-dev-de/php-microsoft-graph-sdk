@@ -26,7 +26,7 @@ class IdentityContainer
         public array $customAuthenticationExtensions = [],
         /**  */
         public array $identityProviders = [],
-        /** @var string[] Represents entry point for identity userflow attributes. */
+        /** Represents entry point for identity userflow attributes. */
         public array $userFlowAttributes = []
     ) {}
 }

@@ -31,6 +31,6 @@ class WorkbookWorksheetProtectionOptions
         /** Indicates whether the worksheet protection option to allow the use of the pivot table feature is enabled. */
         public ?bool $allowPivotTables = null,
         /** Indicates whether the worksheet protection option to allow the use of the sort feature is enabled. */
-        public ?string $allowSort = null
+        public ?bool $allowSort = null
     ) {}
 }

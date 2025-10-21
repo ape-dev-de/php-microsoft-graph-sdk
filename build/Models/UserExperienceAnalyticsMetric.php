@@ -14,7 +14,7 @@ class UserExperienceAnalyticsMetric
         public ?string $id = null,
         /** The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score. */
         public ?string $unit = null,
-        /** The user experience analytics metric contains the score and units of a metric of a user experience anlaytics category. */
+        /** The value of the user experience analytics metric. */
         public ?string $value = null
     ) {}
 }

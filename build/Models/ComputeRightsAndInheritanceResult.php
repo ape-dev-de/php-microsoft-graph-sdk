@@ -14,7 +14,7 @@ class ComputeRightsAndInheritanceResult
         public array $contentRights = [],
         /**  */
         public ?string $inheritedLabel = null,
-        /** @var string[]  */
+        /**  */
         public array $sensitivityLabels = []
     ) {}
 }

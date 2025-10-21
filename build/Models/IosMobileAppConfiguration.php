@@ -32,11 +32,11 @@ class IosMobileAppConfiguration
         public ?string $deviceStatusSummary = null,
         /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
         public array $userStatuses = [],
-        /** An abstract class for Mobile app configuration for enrolled devices. */
+        /** App configuration user status summary. */
         public ?string $userStatusSummary = null,
         /** mdm app configuration Base64 binary. */
         public ?string $encodedSettingXml = null,
-        /** @var string[] Contains properties, inherited properties and actions for iOS mobile app configurations. */
+        /** app configuration setting items. */
         public array $settings = []
     ) {}
 }

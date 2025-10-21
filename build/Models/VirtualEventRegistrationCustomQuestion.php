@@ -15,7 +15,7 @@ class VirtualEventRegistrationCustomQuestion
         /** Display name of the registration question. */
         public ?string $displayName = null,
         /** Indicates whether an answer to the question is required. The default value is false. */
-        public ?string $isRequired = null,
+        public ?bool $isRequired = null,
         /** @var string[] Answer choices when answerInputType is singleChoice or multiChoice. */
         public array $answerChoices = [],
         /** Input type of the registration question answer. Possible values are text, multilineText, singleChoice, multiChoice, boolean, and unknownFutureValue. */

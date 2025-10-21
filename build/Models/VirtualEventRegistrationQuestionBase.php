@@ -15,6 +15,6 @@ class VirtualEventRegistrationQuestionBase
         /** Display name of the registration question. */
         public ?string $displayName = null,
         /** Indicates whether an answer to the question is required. The default value is false. */
-        public ?string $isRequired = null
+        public ?bool $isRequired = null
     ) {}
 }

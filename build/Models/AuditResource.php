@@ -16,7 +16,7 @@ class AuditResource
         public ?string $displayName = null,
         /** List of modified properties. */
         public array $modifiedProperties = [],
-        /** A class containing the properties for Audit Resource. */
+        /** Audit resource's Id. */
         public ?string $resourceId = null
     ) {}
 }

@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceMetadata
 {
     public function __construct(
-        /** Optional. The general type of the device (for example, ''Managed'', ''Unmanaged''). */
+        /** Optional. The general type of the device (for example, 'Managed', 'Unmanaged'). */
         public ?string $deviceType = null,
         /** The Internet Protocol (IP) address of the device. */
         public ?string $ipAddress = null,

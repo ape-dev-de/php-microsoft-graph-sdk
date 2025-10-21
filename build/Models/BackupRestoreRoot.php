@@ -52,7 +52,7 @@ class BackupRestoreRoot
         public array $siteInclusionRules = [],
         /** The list of site protection units in the tenant. */
         public array $siteProtectionUnits = [],
-        /** @var string[]  */
+        /**  */
         public array $siteProtectionUnitsBulkAdditionJobs = []
     ) {}
 }

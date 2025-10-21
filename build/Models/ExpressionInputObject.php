@@ -11,8 +11,8 @@ class ExpressionInputObject
 {
     public function __construct(
         /** Definition of the test object. */
-        public array $definition = [],
+        public ?string $definition = null,
         /** Property values of the test object. */
-        public ?string $items = null
+        public array $properties = []
     ) {}
 }

@@ -26,7 +26,7 @@ class WorkbookWorksheet
         public array $pivotTables = [],
         /** The sheet protection object for a worksheet. Read-only. */
         public ?string $protection = null,
-        /** @var string[] The list of tables that are part of the worksheet. Read-only. */
+        /** The list of tables that are part of the worksheet. Read-only. */
         public array $tables = []
     ) {}
 }

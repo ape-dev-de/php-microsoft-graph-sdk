@@ -23,6 +23,6 @@ class IdentityGovernanceTaskDefinition
         /** The parameters that must be supplied when creating a workflow task object.Supports $filter(any). */
         public array $parameters = [],
         /** The version number of the taskDefinition. New records are pushed when we add support for new parameters.Supports $filter(ge, gt, le, lt, eq, ne) and $orderby. */
-        public ?string $version = null
+        public ?float $version = null
     ) {}
 }

@@ -14,7 +14,7 @@ class FileStorage
         public ?string $id = null,
         /**  */
         public array $containers = [],
-        /** @var string[]  */
+        /**  */
         public array $deletedContainers = []
     ) {}
 }

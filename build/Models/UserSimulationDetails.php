@@ -26,7 +26,7 @@ class UserSimulationDetails
         public array $simulationEvents = [],
         /** User in an attack simulation and training campaign. */
         public ?string $simulationUser = null,
-        /** @var string[] List of training events of a user in the attack simulation and training campaign. */
+        /** List of training events of a user in the attack simulation and training campaign. */
         public array $trainingEvents = []
     ) {}
 }

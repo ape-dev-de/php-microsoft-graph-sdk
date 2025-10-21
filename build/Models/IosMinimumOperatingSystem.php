@@ -24,7 +24,7 @@ class IosMinimumOperatingSystem
         public ?bool $v15_0 = null,
         /** When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
         public ?bool $v8_0 = null,
-        /** Contains properties of the minimum operating system required for an iOS mobile app. */
-        public ?string $v9_0 = null
+        /** When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
+        public ?bool $v9_0 = null
     ) {}
 }

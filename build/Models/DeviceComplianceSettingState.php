@@ -32,7 +32,7 @@ class DeviceComplianceSettingState
         public ?string $userId = null,
         /** The User Name that is being reported */
         public ?string $userName = null,
-        /** Device compliance setting State for a given device. */
+        /** The User PrincipalName that is being reported */
         public ?string $userPrincipalName = null
     ) {}
 }

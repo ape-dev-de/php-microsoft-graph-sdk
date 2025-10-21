@@ -32,7 +32,7 @@ class WindowsFirewallNetworkProfile
         public ?bool $securedPacketExemptionAllowed = null,
         /** Prevent the server from operating in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority. */
         public ?bool $stealthModeBlocked = null,
-        /** Windows Firewall Profile Policies. */
-        public ?string $unicastResponsesToMulticastBroadcastsBlocked = null
+        /** Configures the firewall to block unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority. */
+        public ?bool $unicastResponsesToMulticastBroadcastsBlocked = null
     ) {}
 }

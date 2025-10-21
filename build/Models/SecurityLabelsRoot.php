@@ -22,7 +22,7 @@ class SecurityLabelsRoot
         public array $departments = [],
         /** Specifies a unique alpha-numeric identifier for an organization’s retention schedule. */
         public array $filePlanReferences = [],
-        /** @var string[] Represents how customers can manage their data, whether and for how long to retain or delete it. */
+        /** Represents how customers can manage their data, whether and for how long to retain or delete it. */
         public array $retentionLabels = []
     ) {}
 }

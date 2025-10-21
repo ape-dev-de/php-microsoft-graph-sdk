@@ -42,7 +42,7 @@ class ServiceUpdateMessage
         public array $tags = [],
         /** Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions. */
         public ?string $viewPoint = null,
-        /** @var string[] A collection of serviceAnnouncementAttachments. */
+        /** A collection of serviceAnnouncementAttachments. */
         public array $attachments = []
     ) {}
 }

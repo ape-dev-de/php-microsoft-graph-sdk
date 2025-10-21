@@ -30,7 +30,7 @@ class BrowserSiteList
         public ?string $status = null,
         /** A collection of shared cookies defined for the site list. */
         public array $sharedCookies = [],
-        /** @var string[] A singleton entity which is used to specify IE mode site list metadata */
+        /** A collection of sites defined for the site list. */
         public array $sites = []
     ) {}
 }

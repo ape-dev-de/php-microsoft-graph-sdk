@@ -18,7 +18,7 @@ class WindowsInformationProtectionAppLockerFile
         public ?string $file = null,
         /** SHA256 hash of the file */
         public ?string $fileHash = null,
-        /** Windows Information Protection AppLocker File */
+        /** Version of the entity. */
         public ?string $version = null
     ) {}
 }

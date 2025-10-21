@@ -26,7 +26,7 @@ class AuthenticationMethodsPolicy
         public ?float $reconfirmationInDays = null,
         /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods. */
         public ?string $registrationEnforcement = null,
-        /** @var string[] Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
+        /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
         public array $authenticationMethodConfigurations = []
     ) {}
 }

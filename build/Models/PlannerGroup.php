@@ -12,7 +12,7 @@ class PlannerGroup
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** @var string[] Read-only. Nullable. Returns the plannerPlans owned by the group. */
+        /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
         public array $plans = []
     ) {}
 }

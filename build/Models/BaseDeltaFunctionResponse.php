@@ -10,5 +10,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BaseDeltaFunctionResponse
 {
     public function __construct(
+        /**  */
+        public ?string $@odata.nextLink = null,
+        /**  */
+        public ?string $@odata.deltaLink = null
     ) {}
 }

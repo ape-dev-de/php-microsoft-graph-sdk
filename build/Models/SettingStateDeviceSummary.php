@@ -28,7 +28,7 @@ class SettingStateDeviceSummary
         public ?float $remediatedDeviceCount = null,
         /** Name of the setting */
         public ?string $settingName = null,
-        /** Device Compilance Policy and Configuration for a Setting State summary */
-        public ?string $unknownDeviceCount = null
+        /** Device Unkown count for the setting */
+        public ?float $unknownDeviceCount = null
     ) {}
 }

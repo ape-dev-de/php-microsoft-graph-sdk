@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IdentityGovernanceAttributeChangeTrigger
 {
     public function __construct(
-        /** @var string[] The trigger attribute being changed that triggers the workflowexecutiontrigger of a workflow.) */
+        /** The trigger attribute being changed that triggers the workflowexecutiontrigger of a workflow.) */
         public array $triggerAttributes = []
     ) {}
 }

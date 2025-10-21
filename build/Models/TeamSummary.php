@@ -15,6 +15,6 @@ class TeamSummary
         /** Count of members in a team. */
         public ?float $membersCount = null,
         /** Count of owners in a team. */
-        public ?string $ownersCount = null
+        public ?float $ownersCount = null
     ) {}
 }

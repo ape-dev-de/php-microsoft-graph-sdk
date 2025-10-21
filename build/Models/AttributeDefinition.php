@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AttributeDefinition
 {
     public function __construct(
-        /** true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object''s attributes must be designated as the anchor to support synchronization. */
+        /** true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization. */
         public ?bool $anchor = null,
         /**  */
         public array $apiExpressions = [],
@@ -18,7 +18,7 @@ class AttributeDefinition
         public ?bool $caseExact = null,
         /** The default value of the attribute. */
         public ?string $defaultValue = null,
-        /** true'' to allow null values for attributes. */
+        /** 'true' to allow null values for attributes. */
         public ?bool $flowNullValues = null,
         /** Metadata for the given object. */
         public array $metadata = [],

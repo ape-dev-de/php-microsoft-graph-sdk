@@ -22,7 +22,7 @@ class ContactFolder
         public array $contacts = [],
         /** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable. */
         public array $multiValueExtendedProperties = [],
-        /** @var string[] The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable. */
+        /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable. */
         public array $singleValueExtendedProperties = []
     ) {}
 }

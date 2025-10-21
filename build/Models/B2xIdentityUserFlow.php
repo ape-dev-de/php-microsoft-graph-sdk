@@ -24,7 +24,7 @@ class B2xIdentityUserFlow
         public array $languages = [],
         /** The user attribute assignments included in the user flow. */
         public array $userAttributeAssignments = [],
-        /** @var string[]  */
+        /**  */
         public array $userFlowIdentityProviders = []
     ) {}
 }

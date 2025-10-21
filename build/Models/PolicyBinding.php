@@ -12,7 +12,7 @@ class PolicyBinding
     public function __construct(
         /** Specifies the users or groups to be explicitly excluded from this policy scope. Can be null or empty. */
         public array $exclusions = [],
-        /** @var string[] Specifies the users or groups to be included in this policy scope. Often set to tenantScope for 'All users'. */
+        /** Specifies the users or groups to be included in this policy scope. Often set to tenantScope for 'All users'. */
         public array $inclusions = []
     ) {}
 }

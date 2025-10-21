@@ -16,9 +16,9 @@ class RotateBitLockerKeysDeviceActionResult
         public ?string $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** Device action result */
+        /** Time the action was initiated */
         public ?\DateTimeInterface $startDateTime = null,
-        /** RotateBitLockerKeys device action result */
-        public ?string $errorCode = null
+        /** RotateBitLockerKeys action error code */
+        public ?float $errorCode = null
     ) {}
 }

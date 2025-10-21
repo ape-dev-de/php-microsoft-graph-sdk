@@ -24,7 +24,7 @@ class DeviceConfigurationDeviceStatus
         public ?string $status = null,
         /** The User Name that is being reported */
         public ?string $userName = null,
-        /** Support for this Entity is being deprecated starting May 2026 & will no longer be supported. */
+        /** UserPrincipalName. */
         public ?string $userPrincipalName = null
     ) {}
 }

@@ -19,6 +19,6 @@ class ParseExpressionResponse
         /** An attributeMappingSource object representing the parsed expression. */
         public ?string $parsedExpression = null,
         /** true if the expression was parsed successfully. */
-        public ?string $parsingSucceeded = null
+        public ?bool $parsingSucceeded = null
     ) {}
 }

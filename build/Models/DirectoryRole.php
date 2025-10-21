@@ -22,7 +22,7 @@ class DirectoryRole
         public ?string $roleTemplateId = null,
         /** Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand. */
         public array $members = [],
-        /** @var string[] Members of this directory role that are scoped to administrative units. Read-only. Nullable. */
+        /** Members of this directory role that are scoped to administrative units. Read-only. Nullable. */
         public array $scopedMembers = []
     ) {}
 }

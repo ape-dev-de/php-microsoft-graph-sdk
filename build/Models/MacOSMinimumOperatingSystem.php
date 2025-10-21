@@ -32,7 +32,7 @@ class MacOSMinimumOperatingSystem
         public ?bool $v11_0 = null,
         /** When TRUE, indicates macOS 12.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE. */
         public ?bool $v12_0 = null,
-        /** The minimum operating system required for a macOS app. */
-        public ?string $v13_0 = null
+        /** When TRUE, indicates macOS 13.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE. */
+        public ?bool $v13_0 = null
     ) {}
 }

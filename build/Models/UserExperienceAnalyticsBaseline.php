@@ -12,7 +12,7 @@ class UserExperienceAnalyticsBaseline
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** The date the custom baseline was created. The value cannot be modified and is automatically populated when the baseline is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned by default. */
+        /** The date the custom baseline was created. The value cannot be modified and is automatically populated when the baseline is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The name of the baseline. */
         public ?string $displayName = null,
@@ -30,7 +30,7 @@ class UserExperienceAnalyticsBaseline
         public ?string $rebootAnalyticsMetrics = null,
         /** The scores and insights for the resource performance metrics. */
         public ?string $resourcePerformanceMetrics = null,
-        /** The user experience analytics baseline entity contains baseline values against which to compare the user experience analytics scores. */
+        /** The scores and insights for the work from anywhere metrics. */
         public ?string $workFromAnywhereMetrics = null
     ) {}
 }

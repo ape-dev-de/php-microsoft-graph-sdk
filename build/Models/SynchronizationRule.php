@@ -18,7 +18,7 @@ class SynchronizationRule
         public ?bool $editable = null,
         /**  */
         public ?string $groupFilter = null,
-        /** Additional extension properties. Unless instructed explicitly by the support team, metadata values shouldn''t be changed. */
+        /** Additional extension properties. Unless instructed explicitly by the support team, metadata values shouldn't be changed. */
         public array $metadata = [],
         /** Human-readable name of the synchronization rule. Not nullable. */
         public ?string $name = null,

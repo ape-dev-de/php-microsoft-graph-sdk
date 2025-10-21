@@ -14,7 +14,7 @@ class SynchronizationLinkedObjects
         public ?string $manager = null,
         /** All group members that you would like to provision. */
         public array $members = [],
-        /** @var string[]  */
+        /**  */
         public array $owners = []
     ) {}
 }

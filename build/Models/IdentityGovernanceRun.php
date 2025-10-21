@@ -12,7 +12,7 @@ class IdentityGovernanceRun
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** The date time that the run completed. Value is null if the workflow hasn''t completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+        /** The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
         public ?\DateTimeInterface $completedDateTime = null,
         /** The number of tasks that failed in the run execution. */
         public ?float $failedTasksCount = null,
@@ -38,7 +38,7 @@ class IdentityGovernanceRun
         public ?string $workflowExecutionType = null,
         /** The related taskProcessingResults. */
         public array $taskProcessingResults = [],
-        /** @var string[] The associated individual user execution. */
+        /** The associated individual user execution. */
         public array $userProcessingResults = []
     ) {}
 }

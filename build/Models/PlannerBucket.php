@@ -18,7 +18,7 @@ class PlannerBucket
         public ?string $orderHint = null,
         /** Plan ID to which the bucket belongs. */
         public ?string $planId = null,
-        /** @var string[] Read-only. Nullable. The collection of tasks in the bucket. */
+        /** Read-only. Nullable. The collection of tasks in the bucket. */
         public array $tasks = []
     ) {}
 }

@@ -28,7 +28,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance
         public ?float $modelDeviceCount = null,
         /** The window score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $windowsScore = null,
-        /** The user experience analytics work from anywhere model performance. */
+        /** The work from anywhere score of the device model. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $workFromAnywhereScore = null
     ) {}
 }

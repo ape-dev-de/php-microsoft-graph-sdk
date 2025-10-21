@@ -24,7 +24,7 @@ class EducationUser
         public ?string $createdBy = null,
         /** The name for the department in which the user works. Supports $filter. */
         public ?string $department = null,
-        /** The name displayed in the address book for the user. This is usually the combination of the user''s first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby. */
+        /** The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby. */
         public ?string $displayName = null,
         /** Where this user was created from. Possible values are: sis, manual. */
         public ?string $externalSource = null,
@@ -48,7 +48,7 @@ class EducationUser
         public ?string $onPremisesInfo = null,
         /** Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two can be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. */
         public ?string $passwordPolicies = null,
-        /** Specifies the password profile for the user. The profile contains the user''s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. */
+        /** Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. */
         public ?string $passwordProfile = null,
         /** The preferred language for the user that should follow the ISO 639-1 code, for example, en-US. */
         public ?string $preferredLanguage = null,
@@ -72,7 +72,7 @@ class EducationUser
         public ?string $teacher = null,
         /** A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: US, JP, and GB. Not nullable. Supports $filter. */
         public ?string $usageLocation = null,
-        /** The user principal name (UPN) of the user. The UPN is an internet-style login name for the user based on the internet standard RFC 822. By convention, this should map to the user''s email name. The general format is alias@domain, where domain must be present in the tenant''s collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of the organization. Supports $filter and $orderby. */
+        /** The user principal name (UPN) of the user. The UPN is an internet-style login name for the user based on the internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of the organization. Supports $filter and $orderby. */
         public ?string $userPrincipalName = null,
         /** A string value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter. */
         public ?string $userType = null,

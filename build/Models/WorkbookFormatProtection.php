@@ -15,6 +15,6 @@ class WorkbookFormatProtection
         /** Indicates whether Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting. */
         public ?bool $formulaHidden = null,
         /** Indicates whether Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting. */
-        public ?string $locked = null
+        public ?bool $locked = null
     ) {}
 }

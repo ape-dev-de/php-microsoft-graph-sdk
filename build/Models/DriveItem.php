@@ -62,7 +62,7 @@ class DriveItem
         public ?string $pendingOperations = null,
         /** Photo metadata, if the item is a photo. Read-only. */
         public ?string $photo = null,
-        /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property isn''t returned by default. Read-only. */
+        /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property isn't returned by default. Read-only. */
         public ?string $publication = null,
         /** Remote item data, if the item is shared from a drive other than the one being accessed. Read-only. */
         public ?string $remoteItem = null,
@@ -98,7 +98,7 @@ class DriveItem
         public array $thumbnails = [],
         /** The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable. */
         public array $versions = [],
-        /** For files that are Excel spreadsheets, access to the workbook API to work with the spreadsheet''s contents. Nullable. */
+        /** For files that are Excel spreadsheets, access to the workbook API to work with the spreadsheet's contents. Nullable. */
         public ?string $workbook = null
     ) {}
 }

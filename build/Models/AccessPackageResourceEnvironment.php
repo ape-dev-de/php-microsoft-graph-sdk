@@ -28,7 +28,7 @@ class AccessPackageResourceEnvironment
         public ?string $originId = null,
         /** The type of the resource in the origin system, that is, SharePointOnline. Requires $filter (eq). */
         public ?string $originSystem = null,
-        /** @var string[] Read-only. Required. */
+        /** Read-only. Required. */
         public array $resources = []
     ) {}
 }

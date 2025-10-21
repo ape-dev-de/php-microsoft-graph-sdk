@@ -58,7 +58,7 @@ class PrinterCapabilities
         public array $scalings = [],
         /** True if the printer supports scaling PDF pages to match the print media size; false otherwise. */
         public ?bool $supportsFitPdfToPage = null,
-        /** @var string[] A list of supported top margins(in microns) for the printer. */
+        /** @var float[] A list of supported top margins(in microns) for the printer. */
         public array $topMargins = []
     ) {}
 }

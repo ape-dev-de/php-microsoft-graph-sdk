@@ -24,7 +24,7 @@ class DeviceGeoLocation
         public ?string $longitude = null,
         /** Speed the device is traveling in meters per second */
         public ?string $speed = null,
-        /** Device location */
+        /** Accuracy of altitude in meters */
         public ?string $verticalAccuracy = null
     ) {}
 }

@@ -22,7 +22,7 @@ class BookingCustomer
         public ?string $emailAddress = null,
         /** The date, time, and time zone when the customer was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** @var string[] Represents a customer of the business. */
+        /** Phone numbers associated with the customer, including home, business, and mobile numbers. */
         public array $phones = []
     ) {}
 }

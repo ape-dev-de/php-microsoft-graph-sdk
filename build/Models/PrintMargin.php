@@ -17,6 +17,6 @@ class PrintMargin
         /** The margin in microns from the right edge. */
         public ?float $right = null,
         /** The margin in microns from the top edge. */
-        public ?string $top = null
+        public ?float $top = null
     ) {}
 }

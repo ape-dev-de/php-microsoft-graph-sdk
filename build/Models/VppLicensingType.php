@@ -12,7 +12,7 @@ class VppLicensingType
     public function __construct(
         /** Whether the program supports the device licensing type. */
         public ?bool $supportsDeviceLicensing = null,
-        /** Contains properties for iOS Volume-Purchased Program (Vpp) Licensing Type. */
-        public ?string $supportsUserLicensing = null
+        /** Whether the program supports the user licensing type. */
+        public ?bool $supportsUserLicensing = null
     ) {}
 }

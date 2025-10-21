@@ -9,7 +9,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  *
  * Available select fields:
  * - definition
- * - items
+ * - properties
  */
 class ExpressionInputObjectQueryOptions extends QueryOptions
 {
@@ -17,7 +17,7 @@ class ExpressionInputObjectQueryOptions extends QueryOptions
      * Available select fields for ExpressionInputObject
      */
     public const FIELD_DEFINITION = 'definition';
-    public const FIELD_ITEMS = 'items';
+    public const FIELD_PROPERTIES = 'properties';
 
     /**
      * Select specific ExpressionInputObject properties

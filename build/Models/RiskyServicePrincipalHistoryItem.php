@@ -26,11 +26,11 @@ class RiskyServicePrincipalHistoryItem
         public ?\DateTimeInterface $riskLastUpdatedDateTime = null,
         /** Level of the detected risky workload identity. The possible values are: low, medium, high, hidden, none, unknownFutureValue. Supports $filter (eq). */
         public ?string $riskLevel = null,
-        /** State of the service principal''s risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
+        /** State of the service principal's risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
         public ?string $riskState = null,
         /** Identifies whether the service principal represents an Application, a ManagedIdentity, or a legacy application (socialIdp). This is set by Microsoft Entra ID internally and is inherited from servicePrincipal. */
         public ?string $servicePrincipalType = null,
-        /** @var string[] Represents the risk history of Microsoft Entra service principals. */
+        /** Represents the risk history of Microsoft Entra service principals. */
         public array $history = [],
         /** The activity related to service principal risk level change. */
         public ?string $activity = null,

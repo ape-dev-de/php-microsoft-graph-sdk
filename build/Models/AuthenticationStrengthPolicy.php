@@ -26,7 +26,7 @@ class AuthenticationStrengthPolicy
         public ?string $policyType = null,
         /**  */
         public ?string $requirementsSatisfied = null,
-        /** @var string[] Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods. */
+        /** Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods. */
         public array $combinationConfigurations = []
     ) {}
 }

@@ -14,7 +14,7 @@ class CopilotRoot
         public ?string $admin = null,
         /**  */
         public ?string $interactionHistory = null,
-        /** @var string[]  */
+        /**  */
         public array $users = []
     ) {}
 }

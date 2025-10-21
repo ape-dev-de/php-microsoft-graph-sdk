@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsCloudIdentityDevicesSummary
 {
     public function __construct(
-        /** The user experience analytics work from anywhere cloud identity devices summary. */
-        public ?string $deviceWithoutCloudIdentityCount = null
+        /** The count of devices that are not cloud identity. Read-only. */
+        public ?float $deviceWithoutCloudIdentityCount = null
     ) {}
 }

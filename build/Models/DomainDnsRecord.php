@@ -21,6 +21,6 @@ class DomainDnsRecord
         /** Microsoft Online Service or feature that has a dependency on this DNS record. Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. */
         public ?string $supportedService = null,
         /** Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable. */
-        public ?string $ttl = null
+        public ?float $ttl = null
     ) {}
 }

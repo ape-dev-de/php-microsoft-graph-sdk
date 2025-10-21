@@ -15,6 +15,6 @@ class AccessPackageAutomaticRequestSettings
         /** Indicates whether automatic assignment must be removed for targets who move out of the allowed target scope. */
         public ?bool $removeAccessWhenTargetLeavesAllowedTargets = null,
         /** If set to true, automatic assignments will be created for targets in the allowed target scope. */
-        public ?string $requestAccessForAllowedTargets = null
+        public ?bool $requestAccessForAllowedTargets = null
     ) {}
 }

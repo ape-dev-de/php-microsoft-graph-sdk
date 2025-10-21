@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceAndAppManagementData
 {
     public function __construct(
-        /** Exported Data */
+        /** Not yet documented */
         public ?string $content = null
     ) {}
 }

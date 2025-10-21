@@ -52,7 +52,7 @@ class ListModel
         public array $items = [],
         /** The collection of long-running operations on the list. */
         public array $operations = [],
-        /** @var string[] The set of subscriptions on the list. */
+        /** The set of subscriptions on the list. */
         public array $subscriptions = []
     ) {}
 }

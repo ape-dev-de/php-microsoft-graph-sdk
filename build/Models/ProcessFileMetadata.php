@@ -24,10 +24,10 @@ class ProcessFileMetadata
         public ?float $length = null,
         /** Required. Timestamp indicating when the original content was last modified. For ephemeral content like messages, this might be the same as createdDateTime. */
         public ?\DateTimeInterface $modifiedDateTime = null,
-        /** Required. A descriptive name for the content (for example, file name, web page title, ''Chat Message''). */
+        /** Required. A descriptive name for the content (for example, file name, web page title, 'Chat Message'). */
         public ?string $name = null,
         /** A sequence number indicating the order in which content was generated or should be processed, required when correlationId is used. */
-        public ?string $sequenceNumber = null,
+        public ?float $sequenceNumber = null,
         /** A dictionary containing custom metadata associated with the file, potentially extracted by the calling application. */
         public ?string $customProperties = null,
         /** The unique identifier (for example, Entra User ID or UPN) of the owner of the file. */

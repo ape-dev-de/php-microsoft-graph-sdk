@@ -42,7 +42,7 @@ class WindowsAutopilotDeviceIdentity
         public ?string $skuNumber = null,
         /** System Family */
         public ?string $systemFamily = null,
-        /** The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device. */
+        /** User Principal Name. */
         public ?string $userPrincipalName = null
     ) {}
 }

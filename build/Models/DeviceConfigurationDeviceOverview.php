@@ -25,6 +25,6 @@ class DeviceConfigurationDeviceOverview
         /** Number of pending devices */
         public ?float $pendingCount = null,
         /** Number of succeeded devices */
-        public ?string $successCount = null
+        public ?float $successCount = null
     ) {}
 }

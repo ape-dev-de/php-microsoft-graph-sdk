@@ -32,9 +32,9 @@ class Windows10EnterpriseModernAppManagementConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
-        /** Windows10 Enterprise Modern App Management Configuration. */
-        public ?string $uninstallBuiltInApps = null
+        /** Indicates whether or not to uninstall a fixed list of built-in Windows apps. */
+        public ?bool $uninstallBuiltInApps = null
     ) {}
 }

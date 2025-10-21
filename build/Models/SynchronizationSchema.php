@@ -16,7 +16,7 @@ class SynchronizationSchema
         public array $synchronizationRules = [],
         /** The version of the schema, updated automatically with every schema change. */
         public ?string $version = null,
-        /** @var string[] Contains the collection of directories and all of their objects. */
+        /** Contains the collection of directories and all of their objects. */
         public array $directories = []
     ) {}
 }

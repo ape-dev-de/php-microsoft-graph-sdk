@@ -16,7 +16,7 @@ class ServiceHealth
         public ?string $service = null,
         /**  */
         public ?string $status = null,
-        /** @var string[] A collection of issues that happened on the service, with detailed information for each issue. */
+        /** A collection of issues that happened on the service, with detailed information for each issue. */
         public array $issues = []
     ) {}
 }

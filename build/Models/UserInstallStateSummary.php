@@ -20,7 +20,7 @@ class UserInstallStateSummary
         public ?float $notInstalledDeviceCount = null,
         /** User name. */
         public ?string $userName = null,
-        /** @var string[] Contains properties for the installation state summary for a user. */
+        /** The install state of the eBook. */
         public array $deviceStates = []
     ) {}
 }

@@ -12,7 +12,7 @@ class IPv4Range
     public function __construct(
         /** Lower address. */
         public ?string $lowerAddress = null,
-        /** IPv4 Range definition. */
+        /** Upper address. */
         public ?string $upperAddress = null
     ) {}
 }

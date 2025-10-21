@@ -50,7 +50,7 @@ class UserExperienceAnalyticsDevicePerformance
         public ?float $responsiveDesktopTimeInMs = null,
         /** Number of Restarts in the last 30 days. Valid values 0 to 9999999 */
         public ?float $restartCount = null,
-        /** The user experience analytics device performance entity contains device boot performance details. */
+        /** The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $startupPerformanceScore = null
     ) {}
 }

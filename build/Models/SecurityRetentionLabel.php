@@ -42,7 +42,7 @@ class SecurityRetentionLabel
         public ?string $retentionTrigger = null,
         /** Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label. */
         public ?string $descriptors = null,
-        /** When action at the end of retention is chosen as ''dispositionReview'', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage. */
+        /** When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage. */
         public array $dispositionReviewStages = [],
         /** Represents the type associated with a retention event. */
         public ?string $retentionEventType = null

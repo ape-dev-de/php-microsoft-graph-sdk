@@ -24,7 +24,7 @@ class AccessPackageApprovalStage
         public ?bool $isApproverJustificationRequired = null,
         /** If true, then one or more escalationApprovers are configured in this approval stage. */
         public ?bool $isEscalationEnabled = null,
-        /** @var string[] The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors, or targetUserSponsors. */
+        /** The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors, or targetUserSponsors. */
         public array $primaryApprovers = []
     ) {}
 }

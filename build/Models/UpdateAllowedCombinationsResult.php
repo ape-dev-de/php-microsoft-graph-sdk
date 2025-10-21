@@ -16,7 +16,7 @@ class UpdateAllowedCombinationsResult
         public array $conditionalAccessReferences = [],
         /** The list of current authentication method combinations allowed by the authentication strength. */
         public array $currentCombinations = [],
-        /** @var string[] The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action. */
+        /** The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action. */
         public array $previousCombinations = []
     ) {}
 }

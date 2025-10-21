@@ -12,7 +12,7 @@ class WindowsInformationProtectionResourceCollection
     public function __construct(
         /** Display name */
         public ?string $displayName = null,
-        /** @var string[] Windows Information Protection Resource Collection */
+        /** @var string[] Collection of resources */
         public array $resources = []
     ) {}
 }

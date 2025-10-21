@@ -30,7 +30,7 @@ class VirtualEvent
         public ?string $status = null,
         /** The virtual event presenters. */
         public array $presenters = [],
-        /** @var string[] The sessions for the virtual event. */
+        /** The sessions for the virtual event. */
         public array $sessions = []
     ) {}
 }

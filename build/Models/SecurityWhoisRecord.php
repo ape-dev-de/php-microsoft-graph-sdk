@@ -48,7 +48,7 @@ class SecurityWhoisRecord
         public ?string $zone = null,
         /**  */
         public ?string $host = null,
-        /** @var string[] The collection of historical records associated to this WHOIS object. */
+        /** The collection of historical records associated to this WHOIS object. */
         public array $history = []
     ) {}
 }

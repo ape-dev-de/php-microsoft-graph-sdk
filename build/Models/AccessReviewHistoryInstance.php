@@ -24,7 +24,7 @@ class AccessReviewHistoryInstance
         public ?\DateTimeInterface $reviewHistoryPeriodStartDateTime = null,
         /** Timestamp when the instance's history data is scheduled to be generated. */
         public ?\DateTimeInterface $runDateTime = null,
-        /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance''s data by calling generateDownloadUri method. */
+        /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method. */
         public ?string $status = null
     ) {}
 }

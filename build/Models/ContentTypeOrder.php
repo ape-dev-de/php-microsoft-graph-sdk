@@ -13,6 +13,6 @@ class ContentTypeOrder
         /** Indicates whether this is the default content type */
         public ?bool $default = null,
         /** Specifies the position in which the content type appears in the selection UI. */
-        public ?string $position = null
+        public ?float $position = null
     ) {}
 }

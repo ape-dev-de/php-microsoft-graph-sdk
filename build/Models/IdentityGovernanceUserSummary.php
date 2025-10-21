@@ -19,6 +19,6 @@ class IdentityGovernanceUserSummary
         /** The total tasks of users in a user summary. */
         public ?float $totalTasks = null,
         /** The total number of users in a user summary */
-        public ?string $totalUsers = null
+        public ?float $totalUsers = null
     ) {}
 }

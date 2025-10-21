@@ -22,13 +22,13 @@ class RiskyUserHistoryItem
         public ?\DateTimeInterface $riskLastUpdatedDateTime = null,
         /** Level of the detected risky user. Possible values are: low, medium, high, hidden, none, unknownFutureValue. */
         public ?string $riskLevel = null,
-        /** State of the user''s risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
+        /** State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
         public ?string $riskState = null,
         /** Risky user display name. */
         public ?string $userDisplayName = null,
         /** Risky user principal name. */
         public ?string $userPrincipalName = null,
-        /** @var string[] The activity related to user risk level change */
+        /** The activity related to user risk level change */
         public array $history = [],
         /** The activity related to user risk level change. */
         public ?string $activity = null,

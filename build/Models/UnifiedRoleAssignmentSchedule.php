@@ -42,7 +42,7 @@ class UnifiedRoleAssignmentSchedule
         public ?string $memberType = null,
         /** The period of the role assignment. It can represent a single occurrence or multiple recurrences. */
         public ?string $scheduleInfo = null,
-        /** If the request is from an eligible administrator to activate a role, this parameter shows the related eligible assignment for that activation. Otherwise, it''s null. Supports $expand. */
+        /** If the request is from an eligible administrator to activate a role, this parameter shows the related eligible assignment for that activation. Otherwise, it's null. Supports $expand. */
         public ?string $activatedUsing = null
     ) {}
 }

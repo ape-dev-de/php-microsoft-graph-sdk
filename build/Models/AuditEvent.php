@@ -32,7 +32,7 @@ class AuditEvent
         public ?string $correlationId = null,
         /** Event display name. */
         public ?string $displayName = null,
-        /** @var string[] A class containing the properties for Audit Event. */
+        /** Resources being modified. */
         public array $resources = []
     ) {}
 }

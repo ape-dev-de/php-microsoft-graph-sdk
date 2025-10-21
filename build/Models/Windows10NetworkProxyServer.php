@@ -10,11 +10,11 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Windows10NetworkProxyServer
 {
     public function __construct(
-        /** Address to the proxy server. Specify an address in the format ['':''] */
+        /** Address to the proxy server. Specify an address in the format [':'] */
         public ?string $address = null,
         /** @var string[] Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node. */
         public array $exceptions = [],
-        /** Network Proxy Server Policy. */
-        public ?string $useForLocalAddresses = null
+        /** Specifies whether the proxy server should be used for local (intranet) addresses. */
+        public ?bool $useForLocalAddresses = null
     ) {}
 }

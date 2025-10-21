@@ -17,6 +17,6 @@ class SharingInvitation
         /**  */
         public ?string $redeemedBy = null,
         /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only. */
-        public ?string $signInRequired = null
+        public ?bool $signInRequired = null
     ) {}
 }

@@ -14,13 +14,13 @@ class CallRecordsMediaStream
         public ?string $audioCodec = null,
         /** Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio. */
         public ?string $averageAudioDegradation = null,
-        /** Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as ''PT1S'', where ''P'' is the duration designator, ''T'' is the time designator, and ''S'' is the second designator. */
+        /** Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
         public ?string $averageAudioNetworkJitter = null,
         /** Average estimated bandwidth available between two endpoints in bits per second. */
         public ?float $averageBandwidthEstimate = null,
         /** Average duration of the received freezing time in the video stream. */
         public ?string $averageFreezeDuration = null,
-        /** Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as ''PT1S'', where ''P'' is the duration designator, ''T'' is the time designator, and ''S'' is the second designator. */
+        /** Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
         public ?string $averageJitter = null,
         /** Average packet loss rate for stream. */
         public ?string $averagePacketLossRate = null,
@@ -28,7 +28,7 @@ class CallRecordsMediaStream
         public ?string $averageRatioOfConcealedSamples = null,
         /** Average frames per second received for all video streams computed over the duration of the session. */
         public ?string $averageReceivedFrameRate = null,
-        /** Average network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as ''PT1S'', where ''P'' is the duration designator, ''T'' is the time designator, and ''S'' is the second designator. */
+        /** Average network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
         public ?string $averageRoundTripTime = null,
         /** Average percentage of video frames lost as displayed to the user. */
         public ?string $averageVideoFrameLossPercentage = null,
@@ -44,15 +44,15 @@ class CallRecordsMediaStream
         public ?string $lowFrameRateRatio = null,
         /** Fraction of the call that the client is running less than 70% expected video processing capability. */
         public ?string $lowVideoProcessingCapabilityRatio = null,
-        /** Maximum of audio network jitter computed over each of the 20 second windows during the session, denoted in ISO 8601 format. For example, 1 second is denoted as ''PT1S'', where ''P'' is the duration designator, ''T'' is the time designator, and ''S'' is the second designator. */
+        /** Maximum of audio network jitter computed over each of the 20 second windows during the session, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
         public ?string $maxAudioNetworkJitter = null,
-        /** Maximum jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as ''PT1S'', where ''P'' is the duration designator, ''T'' is the time designator, and ''S'' is the second designator. */
+        /** Maximum jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
         public ?string $maxJitter = null,
         /** Maximum packet loss rate for the stream. */
         public ?string $maxPacketLossRate = null,
         /** Maximum ratio of packets concealed by the healer. */
         public ?string $maxRatioOfConcealedSamples = null,
-        /** Maximum network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as ''PT1S'', where ''P'' is the duration designator, ''T'' is the time designator, and ''S'' is the second designator. */
+        /** Maximum network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
         public ?string $maxRoundTripTime = null,
         /** Packet count for the stream. */
         public ?float $packetUtilization = null,
@@ -69,6 +69,6 @@ class CallRecordsMediaStream
         /** Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue. */
         public ?string $videoCodec = null,
         /** True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise. */
-        public ?string $wasMediaBypassed = null
+        public ?bool $wasMediaBypassed = null
     ) {}
 }

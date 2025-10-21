@@ -19,6 +19,6 @@ class Thumbnail
         /** The URL used to fetch the thumbnail content. */
         public ?string $url = null,
         /** The width of the thumbnail, in pixels. */
-        public ?string $width = null
+        public ?float $width = null
     ) {}
 }

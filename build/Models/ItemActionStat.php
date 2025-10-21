@@ -13,6 +13,6 @@ class ItemActionStat
         /** The number of times the action took place. Read-only. */
         public ?float $actionCount = null,
         /** The number of distinct actors that performed the action. Read-only. */
-        public ?string $actorCount = null
+        public ?float $actorCount = null
     ) {}
 }

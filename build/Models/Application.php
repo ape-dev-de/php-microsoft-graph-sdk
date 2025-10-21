@@ -14,13 +14,13 @@ class Application
         public ?string $id = null,
         /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
         public ?\DateTimeInterface $deletedDateTime = null,
-        /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams can set the addIns property for its ''FileHandler'' functionality. This lets services like Microsoft 365 call the application in the context of a document the user is working on. */
+        /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams can set the addIns property for its 'FileHandler' functionality. This lets services like Microsoft 365 call the application in the context of a document the user is working on. */
         public array $addIns = [],
         /** Specifies settings for an application that implements a web API. */
         public ?string $api = null,
         /** The unique identifier for the application that is assigned to an application by Microsoft Entra ID. Not nullable. Read-only. Alternate key. Supports $filter (eq). */
         public ?string $appId = null,
-        /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). Read-only. null if the app wasn''t created from an application template. */
+        /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). Read-only. null if the app wasn't created from an application template. */
         public ?string $applicationTemplateId = null,
         /** The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
         public array $appRoles = [],
@@ -40,13 +40,13 @@ class Application
         public ?string $displayName = null,
         /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Microsoft Entra roles), All (this gets all of the security groups, distribution groups, and Microsoft Entra directory roles that the signed-in user is a member of). */
         public ?string $groupMembershipClaims = null,
-        /** @var string[] Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API''s code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith). */
+        /** @var string[] Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API's code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith). */
         public array $identifierUris = [],
-        /** Basic profile information of the application such as  app''s marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values). */
+        /** Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values). */
         public ?string $info = null,
         /** Specifies whether this application supports device authentication without a user. The default is false. */
         public ?bool $isDeviceOnlyAuthSupported = null,
-        /** Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false, which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID can''t determine the client application type. For example, the ROPC flow where it''s configured without specifying a redirect URI. In those cases, Microsoft Entra ID interprets the application type based on the value of this property. */
+        /** Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false, which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID can't determine the client application type. For example, the ROPC flow where it's configured without specifying a redirect URI. In those cases, Microsoft Entra ID interprets the application type based on the value of this property. */
         public ?bool $isFallbackPublicClient = null,
         /** The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le). */
         public array $keyCredentials = [],
@@ -66,7 +66,7 @@ class Application
         public array $passwordCredentials = [],
         /** Specifies settings for installed clients such as desktop or mobile devices. */
         public ?string $publicClient = null,
-        /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application''s publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
+        /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
         public ?string $publisherDomain = null,
         /** Specifies whether this application requires Microsoft Entra ID to verify the signed authentication requests. */
         public ?string $requestSignatureVerification = null,
@@ -108,7 +108,7 @@ class Application
         public ?string $synchronization = null,
         /**  */
         public array $tokenIssuancePolicies = [],
-        /** @var string[]  */
+        /**  */
         public array $tokenLifetimePolicies = []
     ) {}
 }

@@ -13,6 +13,6 @@ class WorkbookSessionInfo
         /** ID of the workbook session. */
         public ?string $id = null,
         /** true for persistent session. false for non-persistent session (view mode) */
-        public ?string $persistChanges = null
+        public ?bool $persistChanges = null
     ) {}
 }

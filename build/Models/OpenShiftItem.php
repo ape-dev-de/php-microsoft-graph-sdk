@@ -23,6 +23,6 @@ class OpenShiftItem
         /** The shift notes for the shiftItem. */
         public ?string $notes = null,
         /** Count of the number of slots for the given open shift. */
-        public ?string $openSlotCount = null
+        public ?float $openSlotCount = null
     ) {}
 }

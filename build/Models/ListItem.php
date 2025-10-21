@@ -46,7 +46,7 @@ class ListItem
         public ?string $driveItem = null,
         /** The values of the columns set on this list item. */
         public ?string $fields = null,
-        /** @var string[] The list of previous versions of the list item. */
+        /** The list of previous versions of the list item. */
         public array $versions = []
     ) {}
 }

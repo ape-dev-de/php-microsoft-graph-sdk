@@ -13,6 +13,6 @@ class AzureADRegistrationPolicy
         /**  */
         public ?string $allowedToRegister = null,
         /**  */
-        public ?string $isAdminConfigurable = null
+        public ?bool $isAdminConfigurable = null
     ) {}
 }

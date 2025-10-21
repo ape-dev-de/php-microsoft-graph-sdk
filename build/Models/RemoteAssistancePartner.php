@@ -18,7 +18,7 @@ class RemoteAssistancePartner
         public ?\DateTimeInterface $lastConnectionDateTime = null,
         /**  */
         public ?string $onboardingStatus = null,
-        /** RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service. */
+        /** URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service. */
         public ?string $onboardingUrl = null
     ) {}
 }

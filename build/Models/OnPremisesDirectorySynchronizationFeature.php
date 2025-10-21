@@ -47,6 +47,6 @@ class OnPremisesDirectorySynchronizationFeature
         /** Used to indicate that feature to force password change for a user on logon is enabled while synchronizing on-premise credentials. */
         public ?bool $userForcePasswordChangeOnLogonEnabled = null,
         /** Used to indicate that user writeback is enabled. */
-        public ?string $userWritebackEnabled = null
+        public ?bool $userWritebackEnabled = null
     ) {}
 }

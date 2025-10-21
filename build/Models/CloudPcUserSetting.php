@@ -22,9 +22,9 @@ class CloudPcUserSetting
         public ?bool $localAdminEnabled = null,
         /** Indicates whether an end user is allowed to reset their Cloud PC. When true, the user is allowed to reset their Cloud PC. When false, end-user initiated reset is not allowed. The default value is false. */
         public ?bool $resetEnabled = null,
-        /** Defines how frequently a restore point is created that is, a snapshot is taken) for users'' provisioned Cloud PCs (default is 12 hours), and whether the user is allowed to restore their own Cloud PCs to a backup made at a specific point in time. */
+        /** Defines how frequently a restore point is created that is, a snapshot is taken) for users' provisioned Cloud PCs (default is 12 hours), and whether the user is allowed to restore their own Cloud PCs to a backup made at a specific point in time. */
         public ?string $restorePointSetting = null,
-        /** @var string[] Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting. */
+        /** Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting. */
         public array $assignments = []
     ) {}
 }

@@ -22,7 +22,7 @@ class EducationRubricOutcome
         public array $publishedRubricQualitySelectedLevels = [],
         /** A collection of specific feedback for each quality of this rubric. */
         public array $rubricQualityFeedback = [],
-        /** @var string[] The level that the teacher has selected for each quality while grading this assignment. */
+        /** The level that the teacher has selected for each quality while grading this assignment. */
         public array $rubricQualitySelectedLevels = []
     ) {}
 }

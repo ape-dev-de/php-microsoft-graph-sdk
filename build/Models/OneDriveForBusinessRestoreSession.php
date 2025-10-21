@@ -32,7 +32,7 @@ class OneDriveForBusinessRestoreSession
         public ?string $status = null,
         /** A collection of restore points and destination details that can be used to restore a OneDrive for work or school drive. */
         public array $driveRestoreArtifacts = [],
-        /** @var string[] A collection of user mailboxes and destination details that can be used to restore a OneDrive for work or school drive. */
+        /** A collection of user mailboxes and destination details that can be used to restore a OneDrive for work or school drive. */
         public array $driveRestoreArtifactsBulkAdditionRequests = []
     ) {}
 }

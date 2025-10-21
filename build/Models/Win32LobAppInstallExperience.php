@@ -12,7 +12,7 @@ class Win32LobAppInstallExperience
     public function __construct(
         /**  */
         public ?string $deviceRestartBehavior = null,
-        /** Contains installation experience properties for a Win32 App */
+        /**  */
         public ?string $runAsAccount = null
     ) {}
 }

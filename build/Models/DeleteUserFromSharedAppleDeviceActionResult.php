@@ -16,9 +16,9 @@ class DeleteUserFromSharedAppleDeviceActionResult
         public ?string $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** Device action result */
+        /** Time the action was initiated */
         public ?\DateTimeInterface $startDateTime = null,
-        /** Delete user from shared apple device action result */
+        /** User principal name of the user to be deleted */
         public ?string $userPrincipalName = null
     ) {}
 }

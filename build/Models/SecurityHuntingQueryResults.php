@@ -12,7 +12,7 @@ class SecurityHuntingQueryResults
     public function __construct(
         /** The results of the hunting query. */
         public array $results = [],
-        /** @var string[] The schema for the response. */
+        /** The schema for the response. */
         public array $schema = []
     ) {}
 }

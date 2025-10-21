@@ -17,6 +17,6 @@ class SmsAuthenticationMethodTarget
         /**  */
         public ?string $targetType = null,
         /** Determines if users can use this authentication method to sign in to Microsoft Entra ID. true if users can use this method for primary authentication, otherwise false. */
-        public ?string $isUsableForSignIn = null
+        public ?bool $isUsableForSignIn = null
     ) {}
 }

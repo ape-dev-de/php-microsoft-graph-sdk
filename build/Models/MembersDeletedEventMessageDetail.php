@@ -12,7 +12,7 @@ class MembersDeletedEventMessageDetail
     public function __construct(
         /** Initiator of the event. */
         public ?string $initiator = null,
-        /** @var string[] List of members deleted. */
+        /** List of members deleted. */
         public array $members = []
     ) {}
 }

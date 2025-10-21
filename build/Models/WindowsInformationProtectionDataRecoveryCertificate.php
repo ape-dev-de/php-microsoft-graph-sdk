@@ -16,7 +16,7 @@ class WindowsInformationProtectionDataRecoveryCertificate
         public ?string $description = null,
         /** Data recovery Certificate expiration datetime */
         public ?\DateTimeInterface $expirationDateTime = null,
-        /** Windows Information Protection DataRecoveryCertificate */
+        /** Data recovery Certificate subject name */
         public ?string $subjectName = null
     ) {}
 }

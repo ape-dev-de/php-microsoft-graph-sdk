@@ -12,7 +12,7 @@ class AuthenticationConfigurationValidation
     public function __construct(
         /** Errors in the validation result of a customAuthenticationExtension. */
         public array $errors = [],
-        /** @var string[] Warnings in the validation result of a customAuthenticationExtension. */
+        /** Warnings in the validation result of a customAuthenticationExtension. */
         public array $warnings = []
     ) {}
 }

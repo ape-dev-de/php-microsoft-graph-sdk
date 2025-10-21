@@ -14,9 +14,9 @@ class ManagedAppStatusRaw
         public ?string $id = null,
         /** Friendly name of the status report. */
         public ?string $displayName = null,
-        /** Represents app protection and configuration status for the organization. */
+        /** Version of the entity. */
         public ?string $version = null,
-        /** Represents an un-typed status report about organizations app protection and configuration. */
+        /** Status report content. */
         public ?string $content = null
     ) {}
 }

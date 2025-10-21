@@ -38,7 +38,7 @@ class UserActivity
         public ?string $userTimezone = null,
         /**  */
         public ?string $visualElements = null,
-        /** @var string[] Optional. NavigationProperty/Containment; navigation property to the activity's historyItems. */
+        /** Optional. NavigationProperty/Containment; navigation property to the activity's historyItems. */
         public array $historyItems = []
     ) {}
 }

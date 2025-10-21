@@ -29,6 +29,6 @@ class DocumentSetVersion
         /** Items within the document set that are captured as part of this version. */
         public array $items = [],
         /** If true, minor versions of items are also captured; otherwise, only major versions are captured. The default value is false. */
-        public ?string $shouldCaptureMinorVersion = null
+        public ?bool $shouldCaptureMinorVersion = null
     ) {}
 }

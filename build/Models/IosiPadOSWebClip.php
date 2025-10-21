@@ -40,11 +40,11 @@ class IosiPadOSWebClip
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
-        /** Indicates iOS/iPadOS web clip app URL. Example: ''https://www.contoso.com */
+        /** Indicates iOS/iPadOS web clip app URL. Example: 'https://www.contoso.com' */
         public ?string $appUrl = null,
-        /** Contains properties and inherited properties for iOS web apps. */
-        public ?string $useManagedBrowser = null
+        /** Whether or not to use managed browser. When TRUE, the app will be required to be opened in Microsoft Edge. When FALSE, the app will not be required to be opened in Microsoft Edge. By default, this property is set to FALSE. */
+        public ?bool $useManagedBrowser = null
     ) {}
 }

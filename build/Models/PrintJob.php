@@ -32,7 +32,7 @@ class PrintJob
         public ?string $status = null,
         /**  */
         public array $documents = [],
-        /** @var string[] A list of printTasks that were triggered by this print job. */
+        /** A list of printTasks that were triggered by this print job. */
         public array $tasks = []
     ) {}
 }

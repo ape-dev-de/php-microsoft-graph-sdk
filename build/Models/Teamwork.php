@@ -22,7 +22,7 @@ class Teamwork
         public array $deletedTeams = [],
         /** Represents tenant-wide settings for all Teams apps in the tenant. */
         public ?string $teamsAppSettings = null,
-        /** @var string[]  */
+        /**  */
         public array $workforceIntegrations = []
     ) {}
 }

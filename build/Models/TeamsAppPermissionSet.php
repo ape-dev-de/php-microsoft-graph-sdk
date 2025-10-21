@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamsAppPermissionSet
 {
     public function __construct(
-        /** @var string[] A collection of resource-specific permissions. */
+        /** A collection of resource-specific permissions. */
         public array $resourceSpecificPermissions = []
     ) {}
 }

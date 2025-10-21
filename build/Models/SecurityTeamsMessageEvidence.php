@@ -48,7 +48,7 @@ class SecurityTeamsMessageEvidence
         public ?string $messageId = null,
         /** Tenant ID (GUID) of the owner of the message. */
         public ?string $owningTenantId = null,
-        /** Identifier of the message to which the current message is a reply; otherwise, it''s the same as the messageId. */
+        /** Identifier of the message to which the current message is a reply; otherwise, it's the same as the messageId. */
         public ?string $parentMessageId = null,
         /** The received date of this message. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $receivedDateTime = null,
@@ -70,7 +70,7 @@ class SecurityTeamsMessageEvidence
         public ?string $threadId = null,
         /** The Teams message type. Supported values are: Chat, Topic, Space, and Meeting. */
         public ?string $threadType = null,
-        /** @var string[] The URLs contained in this Teams message. */
+        /** The URLs contained in this Teams message. */
         public array $urls = []
     ) {}
 }

@@ -32,7 +32,7 @@ class SharePointRestoreSession
         public ?string $status = null,
         /** A collection of restore points and destination details that can be used to restore SharePoint sites. */
         public array $siteRestoreArtifacts = [],
-        /** @var string[] A collection of SharePoint site URLs and destination details that can be used to restore SharePoint sites. */
+        /** A collection of SharePoint site URLs and destination details that can be used to restore SharePoint sites. */
         public array $siteRestoreArtifactsBulkAdditionRequests = []
     ) {}
 }

@@ -26,7 +26,7 @@ class ThreatAssessmentRequest
         public ?string $requestSource = null,
         /** The assessment process status. Possible values are: pending, completed. */
         public ?string $status = null,
-        /** @var string[] A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it. */
+        /** A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it. */
         public array $results = []
     ) {}
 }

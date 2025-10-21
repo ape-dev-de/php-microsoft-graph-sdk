@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EdgeSearchEngine
 {
     public function __construct(
-        /** Allows IT admins to set a predefined default search engine for MDM-Controlled devices. */
+        /**  */
         public ?string $edgeSearchEngineType = null
     ) {}
 }

@@ -12,7 +12,7 @@ class MimeContent
     public function __construct(
         /** Indicates the content mime type. */
         public ?string $type = null,
-        /** Contains properties for a generic mime content. */
+        /** The byte array that contains the actual content. */
         public ?string $value = null
     ) {}
 }

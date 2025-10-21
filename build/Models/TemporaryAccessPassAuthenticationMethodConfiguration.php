@@ -26,7 +26,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration
         public ?float $maximumLifetimeInMinutes = null,
         /** Minimum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days). */
         public ?float $minimumLifetimeInMinutes = null,
-        /** @var string[] A collection of groups that are enabled to use the authentication method. */
+        /** A collection of groups that are enabled to use the authentication method. */
         public array $includeTargets = []
     ) {}
 }

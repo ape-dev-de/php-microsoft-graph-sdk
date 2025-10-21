@@ -26,7 +26,7 @@ class AccessPackageAssignmentRequestRequirements
         public ?string $policyId = null,
         /** Schedule restrictions enforced, if any. */
         public ?string $schedule = null,
-        /** @var string[]  */
+        /**  */
         public array $questions = []
     ) {}
 }

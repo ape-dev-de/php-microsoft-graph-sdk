@@ -20,7 +20,7 @@ class ConfigurationManagerClientEnabledFeatures
         public ?bool $modernApps = null,
         /** Whether resource access is managed by Intune */
         public ?bool $resourceAccess = null,
-        /** configuration Manager client enabled features */
-        public ?string $windowsUpdateForBusiness = null
+        /** Whether Windows Update for Business is managed by Intune */
+        public ?bool $windowsUpdateForBusiness = null
     ) {}
 }

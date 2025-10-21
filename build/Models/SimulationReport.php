@@ -12,7 +12,7 @@ class SimulationReport
     public function __construct(
         /** Overview of an attack simulation and training campaign. */
         public ?string $overview = null,
-        /** @var string[] The tenant users and their online actions in an attack simulation and training campaign. */
+        /** The tenant users and their online actions in an attack simulation and training campaign. */
         public array $simulationUsers = []
     ) {}
 }

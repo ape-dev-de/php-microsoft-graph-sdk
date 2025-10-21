@@ -20,7 +20,7 @@ class ManagedDeviceOverview
         public ?float $dualEnrolledDeviceCount = null,
         /** Total enrolled device count. Does not include PC devices managed via Intune PC Agent */
         public ?float $enrolledDeviceCount = null,
-        /** Summary data for managed devices */
-        public ?string $mdmEnrolledCount = null
+        /** The number of devices enrolled in MDM */
+        public ?float $mdmEnrolledCount = null
     ) {}
 }

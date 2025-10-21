@@ -24,7 +24,7 @@ class BookingSchedulingPolicy
         public ?string $minimumLeadTime = null,
         /** True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business. */
         public ?bool $sendConfirmationsToOwner = null,
-        /** This type represents the set of policies that dictate how bookings can be created in a Booking Calendar. */
+        /** Duration of each time slot, denoted in ISO 8601 format. */
         public ?string $timeSlotInterval = null
     ) {}
 }

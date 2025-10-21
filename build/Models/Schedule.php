@@ -58,7 +58,7 @@ class Schedule
         public array $timeOffReasons = [],
         /** The time off requests in the schedule. */
         public array $timeOffRequests = [],
-        /** @var string[] The instances of times off in the schedule. */
+        /** The instances of times off in the schedule. */
         public array $timesOff = []
     ) {}
 }

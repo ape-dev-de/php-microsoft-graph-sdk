@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DelegatedAdminAccessDetails
 {
     public function __construct(
-        /** @var string[] The directory roles that the Microsoft partner is assigned in the customer tenant. */
+        /** The directory roles that the Microsoft partner is assigned in the customer tenant. */
         public array $unifiedRoles = []
     ) {}
 }

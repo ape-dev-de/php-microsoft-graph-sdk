@@ -11,6 +11,6 @@ class ChatRestrictions
 {
     public function __construct(
         /** Indicates whether only text is allowed in the meeting chat. Optional. */
-        public ?string $allowTextOnly = null
+        public ?bool $allowTextOnly = null
     ) {}
 }

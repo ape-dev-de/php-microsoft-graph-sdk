@@ -16,7 +16,7 @@ class DeviceActionResult
         public ?string $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** Device action result */
+        /** Time the action was initiated */
         public ?\DateTimeInterface $startDateTime = null
     ) {}
 }

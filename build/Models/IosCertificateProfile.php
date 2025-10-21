@@ -32,7 +32,7 @@ class IosCertificateProfile
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null
     ) {}
 }

@@ -16,7 +16,7 @@ class HorizontalSection
         public ?string $emphasis = null,
         /** Layout type of the section. The possible values are: none, oneColumn, twoColumns, threeColumns, oneThirdLeftColumn, oneThirdRightColumn, fullWidth, unknownFutureValue. */
         public ?string $layout = null,
-        /** @var string[] The set of vertical columns in this section. */
+        /** The set of vertical columns in this section. */
         public array $columns = []
     ) {}
 }

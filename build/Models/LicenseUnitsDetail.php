@@ -16,7 +16,7 @@ class LicenseUnitsDetail
         public ?float $lockedOut = null,
         /** The number of units that are suspended because the subscription of the service SKU has been canceled. The units can't be assigned but can still be reactivated before they're deleted. */
         public ?float $suspended = null,
-        /** The number of units that are in warning status. When the subscription of the service SKU has expired, the customer has a grace period to renew their subscription before it''s canceled (moved to a suspended state). */
-        public ?string $warning = null
+        /** The number of units that are in warning status. When the subscription of the service SKU has expired, the customer has a grace period to renew their subscription before it's canceled (moved to a suspended state). */
+        public ?float $warning = null
     ) {}
 }

@@ -34,7 +34,7 @@ class SecurityEdiscoveryCustodian
         public array $siteSources = [],
         /** Data source entity for groups associated with the custodian. */
         public array $unifiedGroupSources = [],
-        /** @var string[] Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site. */
+        /** Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site. */
         public array $userSources = []
     ) {}
 }

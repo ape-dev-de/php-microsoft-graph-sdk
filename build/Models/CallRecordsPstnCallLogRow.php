@@ -30,7 +30,7 @@ class CallRecordsPstnCallLogRow
         public ?float $connectionCharge = null,
         /** Type of currency used to calculate the cost of the call. For details, see (ISO 4217. */
         public ?string $currency = null,
-        /** Whether the call was domestic (within a country or region) or international (outside a country or region), based on the user''s location. */
+        /** Whether the call was domestic (within a country or region) or international (outside a country or region), based on the user's location. */
         public ?string $destinationContext = null,
         /** Country or region dialed. */
         public ?string $destinationName = null,
@@ -38,7 +38,7 @@ class CallRecordsPstnCallLogRow
         public ?float $duration = null,
         /** Call end time. */
         public ?\DateTimeInterface $endDateTime = null,
-        /** User''s phone number type, such as a service of toll-free number. */
+        /** User's phone number type, such as a service of toll-free number. */
         public ?string $inventoryType = null,
         /** The license used for the call. */
         public ?string $licenseCapability = null,
@@ -52,9 +52,9 @@ class CallRecordsPstnCallLogRow
         public ?string $usageCountryCode = null,
         /** Display name of the user. */
         public ?string $userDisplayName = null,
-        /** Calling user''s ID in Microsoft Graph. GUID. This and other user info will be null/empty for bot call types (ucapin, ucapout). */
+        /** Calling user's ID in Microsoft Graph. GUID. This and other user info will be null/empty for bot call types (ucapin, ucapout). */
         public ?string $userId = null,
-        /** The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user''s SIP address, and can be the same as the user''s email address. */
+        /** The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be the same as the user's email address. */
         public ?string $userPrincipalName = null
     ) {}
 }

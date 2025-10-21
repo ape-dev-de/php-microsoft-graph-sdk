@@ -23,6 +23,6 @@ class AdminConsentRequestPolicy
         /** The list of reviewers for the admin consent. Required. */
         public array $reviewers = [],
         /** Specifies the version of this policy. When the policy is updated, this version is updated. Read-only. */
-        public ?string $version = null
+        public ?float $version = null
     ) {}
 }

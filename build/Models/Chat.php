@@ -20,7 +20,7 @@ class Chat
         public ?bool $isHiddenForAllMembers = null,
         /** Date and time at which the chat was renamed or the list of members was last changed. Read-only. */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** Represents details about an online meeting. If the chat isn''t associated with an online meeting, the property is empty. Read-only. */
+        /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only. */
         public ?string $onlineMeetingInfo = null,
         /** The identifier of the tenant in which the chat was created. Read-only. */
         public ?string $tenantId = null,
@@ -42,7 +42,7 @@ class Chat
         public array $permissionGrants = [],
         /** A collection of all the pinned messages in the chat. Nullable. */
         public array $pinnedMessages = [],
-        /** @var string[] A collection of all the tabs in the chat. Nullable. */
+        /** A collection of all the tabs in the chat. Nullable. */
         public array $tabs = []
     ) {}
 }

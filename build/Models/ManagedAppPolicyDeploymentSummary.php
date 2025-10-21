@@ -20,7 +20,7 @@ class ManagedAppPolicyDeploymentSummary
         public ?string $displayName = null,
         /** Not yet documented */
         public ?\DateTimeInterface $lastRefreshTime = null,
-        /** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
+        /** Version of the entity. */
         public ?string $version = null
     ) {}
 }

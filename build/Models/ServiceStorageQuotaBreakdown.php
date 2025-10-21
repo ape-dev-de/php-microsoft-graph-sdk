@@ -17,6 +17,6 @@ class ServiceStorageQuotaBreakdown
         /**  */
         public ?string $manageWebUrl = null,
         /**  */
-        public ?string $used = null
+        public ?float $used = null
     ) {}
 }

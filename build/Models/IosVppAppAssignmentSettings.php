@@ -12,7 +12,7 @@ class IosVppAppAssignmentSettings
     public function __construct(
         /** Whether or not to use device licensing. */
         public ?bool $useDeviceLicensing = null,
-        /** Contains properties used to assign an iOS VPP mobile app to a group. */
+        /** The VPN Configuration Id to apply for this app. */
         public ?string $vpnConfigurationId = null
     ) {}
 }

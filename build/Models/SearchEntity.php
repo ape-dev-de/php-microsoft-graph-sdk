@@ -16,7 +16,7 @@ class SearchEntity
         public array $acronyms = [],
         /** Administrative answer in Microsoft Search results for common search queries in an organization. */
         public array $bookmarks = [],
-        /** @var string[] Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization. */
+        /** Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization. */
         public array $qnas = []
     ) {}
 }

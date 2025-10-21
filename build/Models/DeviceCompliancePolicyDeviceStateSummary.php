@@ -29,6 +29,6 @@ class DeviceCompliancePolicyDeviceStateSummary
         /** Number of remediated devices */
         public ?float $remediatedDeviceCount = null,
         /** Number of unknown devices */
-        public ?string $unknownDeviceCount = null
+        public ?float $unknownDeviceCount = null
     ) {}
 }

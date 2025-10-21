@@ -14,7 +14,7 @@ class OptionalClaims
         public array $accessToken = [],
         /** The optional claims returned in the JWT ID token. */
         public array $idToken = [],
-        /** @var string[] The optional claims returned in the SAML token. */
+        /** The optional claims returned in the SAML token. */
         public array $saml2Token = []
     ) {}
 }

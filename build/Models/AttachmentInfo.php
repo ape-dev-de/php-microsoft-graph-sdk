@@ -17,6 +17,6 @@ class AttachmentInfo
         /** The display name of the attachment. This can be a descriptive string and doesn't have to be the actual file name. Required. */
         public ?string $name = null,
         /** The length of the attachment in bytes. Required. */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

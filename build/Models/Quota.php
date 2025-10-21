@@ -21,6 +21,6 @@ class Quota
         /** Total allowed storage space, in bytes. Read-only. */
         public ?float $total = null,
         /** Total space used, in bytes. Read-only. */
-        public ?string $used = null
+        public ?float $used = null
     ) {}
 }

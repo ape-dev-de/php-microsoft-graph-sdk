@@ -17,6 +17,6 @@ class AppsInstallationOptionsForWindows
         /** Specifies whether users can install Skype for Business (standalone) on their Windows devices. The default value is true. */
         public ?bool $isSkypeForBusinessEnabled = null,
         /** Specifies whether users can install Visio on their Windows devices. The default value is true. */
-        public ?string $isVisioEnabled = null
+        public ?bool $isVisioEnabled = null
     ) {}
 }

@@ -29,6 +29,6 @@ class IdentityGovernanceTopWorkflowsInsightsSummary
         /** The workflow ID. */
         public ?string $workflowId = null,
         /** The version of the workflow that was a top workflow ran. */
-        public ?string $workflowVersion = null
+        public ?float $workflowVersion = null
     ) {}
 }

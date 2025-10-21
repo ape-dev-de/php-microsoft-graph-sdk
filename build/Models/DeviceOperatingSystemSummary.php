@@ -32,7 +32,7 @@ class DeviceOperatingSystemSummary
         public ?float $unknownCount = null,
         /** Number of Windows device count. */
         public ?float $windowsCount = null,
-        /** Device operating system summary. */
-        public ?string $windowsMobileCount = null
+        /** Number of Windows mobile device count. */
+        public ?float $windowsMobileCount = null
     ) {}
 }

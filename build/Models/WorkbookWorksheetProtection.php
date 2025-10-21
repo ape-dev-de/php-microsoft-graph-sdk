@@ -15,6 +15,6 @@ class WorkbookWorksheetProtection
         /** Worksheet protection options. Read-only. */
         public ?string $options = null,
         /** Indicates whether the worksheet is protected.  Read-only. */
-        public ?string $protected = null
+        public ?bool $protected = null
     ) {}
 }

@@ -16,7 +16,7 @@ class UserExperienceAnalyticsInsight
         public ?string $severity = null,
         /** The unique identifier of the user experience analytics metric. */
         public ?string $userExperienceAnalyticsMetricId = null,
-        /** @var string[] The user experience analytics insight is the recomendation to improve the user experience analytics score. */
+        /** The value of the user experience analytics insight. */
         public array $values = []
     ) {}
 }

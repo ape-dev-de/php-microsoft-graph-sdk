@@ -14,7 +14,7 @@ class MobileAppCategory
         public ?string $id = null,
         /** The name of the app category. */
         public ?string $displayName = null,
-        /** Contains properties for a single Intune app category. */
+        /** The date and time the mobileAppCategory was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null
     ) {}
 }

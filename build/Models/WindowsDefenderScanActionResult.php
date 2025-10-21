@@ -16,9 +16,9 @@ class WindowsDefenderScanActionResult
         public ?string $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** Device action result */
+        /** Time the action was initiated */
         public ?\DateTimeInterface $startDateTime = null,
-        /** Windows Defender last scan result */
+        /** Scan type either full scan or quick scan */
         public ?string $scanType = null
     ) {}
 }

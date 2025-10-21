@@ -16,7 +16,7 @@ class DelegatedAdminRelationship
         public ?string $accessDetails = null,
         /** The date and time in ISO 8601 format and in UTC time when the relationship became active. Read-only. */
         public ?\DateTimeInterface $activatedDateTime = null,
-        /** The duration by which the validity of the relationship is automatically extended, denoted in ISO 8601 format. Supported values are: P0D, PT0S, P180D. The default value is PT0S. PT0S indicates that the relationship expires when the endDateTime is reached and it isn''t automatically extended. */
+        /** The duration by which the validity of the relationship is automatically extended, denoted in ISO 8601 format. Supported values are: P0D, PT0S, P180D. The default value is PT0S. PT0S indicates that the relationship expires when the endDateTime is reached and it isn't automatically extended. */
         public ?string $autoExtendDuration = null,
         /** The date and time in ISO 8601 format and in UTC time when the relationship was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
@@ -36,7 +36,7 @@ class DelegatedAdminRelationship
         public array $accessAssignments = [],
         /** The long running operations associated with the delegated admin relationship. */
         public array $operations = [],
-        /** @var string[] The requests associated with the delegated admin relationship. */
+        /** The requests associated with the delegated admin relationship. */
         public array $requests = []
     ) {}
 }

@@ -28,7 +28,7 @@ class BookingPageSettings
         public ?bool $isSearchEngineIndexabilityDisabled = null,
         /** Indicates whether the time zone of the time slot is set to the time zone of the business. The default value is false. */
         public ?bool $isTimeSlotTimeZoneSetToBusinessTimeZone = null,
-        /** URL of a webpage that provides the terms and conditions of the business. If a privacy policy isn''t included, the following text appears on the booking page as default: ''The policies and practices of {bookingbusinessname} apply to the use of your data. */
+        /** URL of a webpage that provides the terms and conditions of the business. If a privacy policy isn't included, the following text appears on the booking page as default: 'The policies and practices of {bookingbusinessname} apply to the use of your data.' */
         public ?string $privacyPolicyWebUrl = null,
         /** URL of a webpage that provides the terms and conditions of the business. */
         public ?string $termsAndConditionsWebUrl = null

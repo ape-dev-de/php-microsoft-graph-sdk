@@ -26,7 +26,7 @@ class IosNotificationSettings
         public ?bool $showInNotificationCenter = null,
         /** Indicates whether notifications can be shown on the lock screen. */
         public ?bool $showOnLockScreen = null,
-        /** An item describing notification setting. */
-        public ?string $soundsEnabled = null
+        /** Indicates whether sounds are allowed for this app. */
+        public ?bool $soundsEnabled = null
     ) {}
 }

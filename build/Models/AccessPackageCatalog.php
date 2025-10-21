@@ -34,7 +34,7 @@ class AccessPackageCatalog
         public array $resourceRoles = [],
         /** Access package resources in this catalog. */
         public array $resources = [],
-        /** @var string[]  */
+        /**  */
         public array $resourceScopes = []
     ) {}
 }

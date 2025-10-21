@@ -13,6 +13,6 @@ class Image
         /** Optional. Height of the image, in pixels. Read-only. */
         public ?float $height = null,
         /** Optional. Width of the image, in pixels. Read-only. */
-        public ?string $width = null
+        public ?float $width = null
     ) {}
 }

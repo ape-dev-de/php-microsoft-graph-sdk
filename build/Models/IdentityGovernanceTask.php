@@ -16,7 +16,7 @@ class IdentityGovernanceTask
         public array $arguments = [],
         /**  */
         public ?string $category = null,
-        /** A Boolean value that specifies whether, if this task fails, the workflow stops, and subsequent tasks aren''t run. Optional. */
+        /** A Boolean value that specifies whether, if this task fails, the workflow stops, and subsequent tasks aren't run. Optional. */
         public ?bool $continueOnError = null,
         /** A string that describes the purpose of the task for administrative use. Optional. */
         public ?string $description = null,
@@ -28,7 +28,7 @@ class IdentityGovernanceTask
         public ?bool $isEnabled = null,
         /** A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see Configure the arguments for built-in Lifecycle Workflow tasks. Required.Supports $filter(eq, ne). */
         public ?string $taskDefinitionId = null,
-        /** @var string[] The result of processing the task. */
+        /** The result of processing the task. */
         public array $taskProcessingResults = []
     ) {}
 }

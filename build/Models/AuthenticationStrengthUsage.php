@@ -12,7 +12,7 @@ class AuthenticationStrengthUsage
     public function __construct(
         /**  */
         public array $mfa = [],
-        /** @var string[]  */
+        /**  */
         public array $none = []
     ) {}
 }

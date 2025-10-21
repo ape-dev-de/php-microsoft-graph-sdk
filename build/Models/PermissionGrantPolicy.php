@@ -20,7 +20,7 @@ class PermissionGrantPolicy
         public ?string $displayName = null,
         /** Condition sets that are excluded in this permission grant policy. Automatically expanded on GET. */
         public array $excludes = [],
-        /** @var string[] Condition sets that are included in this permission grant policy. Automatically expanded on GET. */
+        /** Condition sets that are included in this permission grant policy. Automatically expanded on GET. */
         public array $includes = []
     ) {}
 }

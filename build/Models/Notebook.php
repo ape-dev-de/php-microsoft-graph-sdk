@@ -38,7 +38,7 @@ class Notebook
         public ?string $userRole = null,
         /** The section groups in the notebook. Read-only. Nullable. */
         public array $sectionGroups = [],
-        /** @var string[] The sections in the notebook. Read-only. Nullable. */
+        /** The sections in the notebook. Read-only. Nullable. */
         public array $sections = []
     ) {}
 }

@@ -13,6 +13,6 @@ class InboundOutboundPolicyConfiguration
         /** Defines whether external users coming inbound are allowed. */
         public ?bool $inboundAllowed = null,
         /** Defines whether internal users are allowed to go outbound. */
-        public ?string $outboundAllowed = null
+        public ?bool $outboundAllowed = null
     ) {}
 }

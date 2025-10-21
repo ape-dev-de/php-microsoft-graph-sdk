@@ -15,6 +15,6 @@ class DeviceManagementSettings
         /** Is feature enabled or not for scheduled action for rule. */
         public ?bool $isScheduledActionEnabled = null,
         /** Device should be noncompliant when there is no compliance policy targeted when this is true */
-        public ?string $secureByDefault = null
+        public ?bool $secureByDefault = null
     ) {}
 }

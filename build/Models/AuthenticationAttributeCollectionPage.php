@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AuthenticationAttributeCollectionPage
 {
     public function __construct(
-        /** @var string[] A collection of displays of the attribute collection page. */
+        /** A collection of displays of the attribute collection page. */
         public array $views = []
     ) {}
 }

@@ -33,6 +33,6 @@ class Process
         /** Full path, including filename. */
         public ?string $path = null,
         /** The Process ID (PID) of the process. */
-        public ?string $processId = null
+        public ?float $processId = null
     ) {}
 }

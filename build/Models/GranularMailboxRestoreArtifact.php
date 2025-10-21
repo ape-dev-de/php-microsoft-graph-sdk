@@ -29,7 +29,7 @@ class GranularMailboxRestoreArtifact
         /** The new restored folder name. */
         public ?string $restoredFolderName = null,
         /** The number of items that are being restored in the folder. */
-        public ?string $restoredItemCount = null,
+        public ?float $restoredItemCount = null,
         /** This property will be deprecated soon. Don't use. */
         public ?float $artifactCount = null,
         /** . */

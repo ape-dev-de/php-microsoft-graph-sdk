@@ -18,7 +18,7 @@ class VoiceAuthenticationMethodConfiguration
         public ?string $state = null,
         /** true if users can register office phones, otherwise, false. */
         public ?bool $isOfficePhoneAllowed = null,
-        /** @var string[] A collection of groups that are enabled to use the authentication method. Expanded by default. */
+        /** A collection of groups that are enabled to use the authentication method. Expanded by default. */
         public array $includeTargets = []
     ) {}
 }

@@ -31,6 +31,6 @@ class MessageRuleActions
         /** The email addresses to which a message should be redirected. */
         public array $redirectTo = [],
         /** Indicates whether subsequent rules should be evaluated. */
-        public ?string $stopProcessingRules = null
+        public ?bool $stopProcessingRules = null
     ) {}
 }

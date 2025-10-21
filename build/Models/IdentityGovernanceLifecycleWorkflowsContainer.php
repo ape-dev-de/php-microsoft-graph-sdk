@@ -24,7 +24,7 @@ class IdentityGovernanceLifecycleWorkflowsContainer
         public array $taskDefinitions = [],
         /** The workflows in the lifecycle workflows instance. */
         public array $workflows = [],
-        /** @var string[] The workflow templates in the lifecycle workflow instance. */
+        /** The workflow templates in the lifecycle workflow instance. */
         public array $workflowTemplates = []
     ) {}
 }

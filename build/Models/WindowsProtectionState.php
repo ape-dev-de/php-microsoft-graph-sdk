@@ -14,7 +14,7 @@ class WindowsProtectionState
         public ?string $id = null,
         /** Current anti malware version */
         public ?string $antiMalwareVersion = null,
-        /** Indicates device''s health state. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. */
+        /** Indicates device's health state. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. */
         public ?string $deviceState = null,
         /** Current endpoint protection engine's version */
         public ?string $engineVersion = null,
@@ -52,7 +52,7 @@ class WindowsProtectionState
         public ?string $signatureVersion = null,
         /** When TRUE indicates the Windows Defender tamper protection feature is enabled, when FALSE indicates the Windows Defender tamper protection feature is not enabled. Defaults to setting on client device. */
         public ?bool $tamperProtectionEnabled = null,
-        /** @var string[] Device protection status entity. */
+        /** Device malware list */
         public array $detectedMalwareState = []
     ) {}
 }

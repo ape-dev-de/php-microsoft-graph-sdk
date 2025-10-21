@@ -16,7 +16,7 @@ class DelegatedAdminCustomer
         public ?string $displayName = null,
         /** The Microsoft Entra ID-assigned tenant ID of the customer. Read-only. */
         public ?string $tenantId = null,
-        /** @var string[] Contains the management details of a service in the customer tenant that's managed by delegated administration. */
+        /** Contains the management details of a service in the customer tenant that's managed by delegated administration. */
         public array $serviceManagementDetails = []
     ) {}
 }

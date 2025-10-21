@@ -41,6 +41,6 @@ class Audio
         /** The total number of tracks on the original disc for this audio file. */
         public ?float $trackCount = null,
         /** The year the audio file was recorded. */
-        public ?string $year = null
+        public ?float $year = null
     ) {}
 }

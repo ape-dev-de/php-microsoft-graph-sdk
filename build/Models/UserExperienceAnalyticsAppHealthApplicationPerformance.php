@@ -28,7 +28,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance
         public ?string $appPublisher = null,
         /** The total usage time of the application in minutes. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647 */
         public ?float $appUsageDuration = null,
-        /** The user experience analytics application performance entity contains application performance details. */
-        public ?string $meanTimeToFailureInMinutes = null
+        /** The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647 */
+        public ?float $meanTimeToFailureInMinutes = null
     ) {}
 }

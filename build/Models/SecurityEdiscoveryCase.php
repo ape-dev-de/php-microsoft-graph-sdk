@@ -42,7 +42,7 @@ class SecurityEdiscoveryCase
         public array $searches = [],
         /** Returns a list of eDIscoverySettings objects in the case. */
         public ?string $settings = null,
-        /** @var string[] Returns a list of ediscoveryReviewTag objects associated to this case. */
+        /** Returns a list of ediscoveryReviewTag objects associated to this case. */
         public array $tags = []
     ) {}
 }

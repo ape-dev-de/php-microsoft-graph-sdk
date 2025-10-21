@@ -24,7 +24,7 @@ class CompanySubscription
         public ?string $ownerId = null,
         /** The unique identifier for the Microsoft partner tenant that created the subscription on a customer tenant. */
         public ?string $ownerTenantId = null,
-        /** Indicates the entity that ownerId belongs to, for example, ''User''. */
+        /** Indicates the entity that ownerId belongs to, for example, 'User'. */
         public ?string $ownerType = null,
         /** The provisioning status of each service included in this subscription. */
         public array $serviceStatus = [],
@@ -35,6 +35,6 @@ class CompanySubscription
         /** The status of this subscription. Possible values are: Enabled, Deleted, Suspended, Warning, LockedOut. */
         public ?string $status = null,
         /** The number of licenses included in this subscription. */
-        public ?string $totalLicenses = null
+        public ?float $totalLicenses = null
     ) {}
 }

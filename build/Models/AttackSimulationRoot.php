@@ -26,7 +26,7 @@ class AttackSimulationRoot
         public array $simulationAutomations = [],
         /** Represents an attack simulation training campaign in a tenant. */
         public array $simulations = [],
-        /** @var string[] Represents details about attack simulation trainings. */
+        /** Represents details about attack simulation trainings. */
         public array $trainings = []
     ) {}
 }

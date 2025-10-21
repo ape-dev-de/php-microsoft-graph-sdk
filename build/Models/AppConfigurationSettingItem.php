@@ -14,7 +14,7 @@ class AppConfigurationSettingItem
         public ?string $appConfigKey = null,
         /**  */
         public ?string $appConfigKeyType = null,
-        /** Contains properties for App configuration setting item. */
+        /** app configuration key value. */
         public ?string $appConfigKeyValue = null
     ) {}
 }

@@ -14,11 +14,11 @@ class OmaSettingBase64
         public ?string $description = null,
         /** Display Name. */
         public ?string $displayName = null,
-        /** OMA Settings definition. */
+        /** OMA. */
         public ?string $omaUri = null,
         /** File name associated with the Value property (.cer */
         public ?string $fileName = null,
-        /** OMA Settings Base64 definition. */
+        /** Value. (Base64 encoded string) */
         public ?string $value = null
     ) {}
 }

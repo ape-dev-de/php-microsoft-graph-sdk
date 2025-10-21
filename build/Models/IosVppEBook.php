@@ -36,7 +36,7 @@ class IosVppEBook
         public array $deviceStates = [],
         /** Mobile App Install Summary. */
         public ?string $installSummary = null,
-        /** @var string[] An abstract class containing the base properties for Managed eBook. */
+        /** The list of installation states for this eBook. */
         public array $userStateSummary = [],
         /** The Apple ID associated with Vpp token. */
         public ?string $appleId = null,
@@ -52,7 +52,7 @@ class IosVppEBook
         public ?float $usedLicenseCount = null,
         /** The Vpp token's organization name. */
         public ?string $vppOrganizationName = null,
-        /** A class containing the properties for iOS Vpp eBook. */
+        /** The Vpp token ID. */
         public ?string $vppTokenId = null
     ) {}
 }

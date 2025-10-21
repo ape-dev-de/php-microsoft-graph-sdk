@@ -22,7 +22,7 @@ class TodoTaskList
         public ?string $wellknownListName = null,
         /** The collection of open extensions defined for the task list. Nullable. */
         public array $extensions = [],
-        /** @var string[] The tasks in this task list. Read-only. Nullable. */
+        /** The tasks in this task list. Read-only. Nullable. */
         public array $tasks = []
     ) {}
 }

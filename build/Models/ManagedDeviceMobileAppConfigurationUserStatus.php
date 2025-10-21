@@ -20,7 +20,7 @@ class ManagedDeviceMobileAppConfigurationUserStatus
         public ?string $status = null,
         /** User name of the DevicePolicyStatus. */
         public ?string $userDisplayName = null,
-        /** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user. */
+        /** UserPrincipalName. */
         public ?string $userPrincipalName = null
     ) {}
 }

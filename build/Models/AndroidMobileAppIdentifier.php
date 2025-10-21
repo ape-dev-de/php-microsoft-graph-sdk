@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AndroidMobileAppIdentifier
 {
     public function __construct(
-        /** The identifier for an Android app. */
+        /** The identifier for an app, as specified in the play store. */
         public ?string $packageId = null
     ) {}
 }

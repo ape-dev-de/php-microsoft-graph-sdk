@@ -30,7 +30,7 @@ class MobileAppContentFile
         public ?float $size = null,
         /** The size of the file after encryption. */
         public ?float $sizeEncrypted = null,
-        /** Contains properties for a single installer file that is associated with a given mobileAppContent version. */
+        /**  */
         public ?string $uploadState = null
     ) {}
 }

@@ -36,7 +36,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
         public ?float $windows10Devices = null,
         /** The user experience analytics work from anywhere Windows 10 devices summary. Read-only. */
         public ?string $windows10DevicesSummary = null,
-        /** The user experience analytics Work From Anywhere metrics devices summary. */
-        public ?string $windows10DevicesWithoutTenantAttach = null
+        /** The count of windows 10 devices that are Intune and co-managed. Read-only. Valid values -2147483648 to 2147483647 */
+        public ?float $windows10DevicesWithoutTenantAttach = null
     ) {}
 }

@@ -12,7 +12,7 @@ class TargetedManagedAppPolicyAssignment
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** The type for deployment of groups or apps. */
+        /** Identifier for deployment to a group or app */
         public ?string $target = null
     ) {}
 }

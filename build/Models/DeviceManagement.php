@@ -140,7 +140,7 @@ class DeviceManagement
         public array $windowsInformationProtectionAppLearningSummaries = [],
         /** The windows information protection network learning summaries. */
         public array $windowsInformationProtectionNetworkLearningSummaries = [],
-        /** @var string[] The list of affected malware in the tenant. */
+        /** The list of affected malware in the tenant. */
         public array $windowsMalwareInformation = []
     ) {}
 }

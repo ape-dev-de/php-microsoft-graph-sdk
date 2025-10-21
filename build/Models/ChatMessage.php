@@ -58,7 +58,7 @@ class ChatMessage
         public ?string $webUrl = null,
         /** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
         public array $hostedContents = [],
-        /** @var string[] Replies for a specified message. Supports $expand for channel messages. */
+        /** Replies for a specified message. Supports $expand for channel messages. */
         public array $replies = []
     ) {}
 }

@@ -33,6 +33,6 @@ class SecurityNetworkConnectionEvidence
         /**  */
         public ?string $sourceAddress = null,
         /**  */
-        public ?string $sourcePort = null
+        public ?float $sourcePort = null
     ) {}
 }

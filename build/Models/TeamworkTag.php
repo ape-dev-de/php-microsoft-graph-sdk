@@ -22,7 +22,7 @@ class TeamworkTag
         public ?string $tagType = null,
         /** ID of the team in which the tag is defined. */
         public ?string $teamId = null,
-        /** @var string[] Users assigned to the tag. */
+        /** Users assigned to the tag. */
         public array $members = []
     ) {}
 }

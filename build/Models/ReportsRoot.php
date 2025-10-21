@@ -14,7 +14,7 @@ class ReportsRoot
         public ?string $id = null,
         /** Details of submitted reading assignments. */
         public array $readingAssignmentSubmissions = [],
-        /** @var string[] Details of check-in responses. */
+        /** Details of check-in responses. */
         public array $reflectCheckInResponses = []
     ) {}
 }

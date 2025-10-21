@@ -44,7 +44,7 @@ class SecurityThreatIntelligence
         public array $vulnerabilities = [],
         /** Retrieve details about whoisHistoryRecord objects.Note: List retrieval is not yet supported. */
         public array $whoisHistoryRecords = [],
-        /** @var string[] A list of whoisRecord objects. */
+        /** A list of whoisRecord objects. */
         public array $whoisRecords = []
     ) {}
 }

@@ -16,7 +16,7 @@ class MobileAppAssignment
         public ?string $intent = null,
         /** The settings for target assignment defined by the admin. */
         public ?string $settings = null,
-        /** A class containing the properties used for Group Assignment of a Mobile App. */
+        /** The target group assignment defined by the admin. */
         public ?string $target = null
     ) {}
 }

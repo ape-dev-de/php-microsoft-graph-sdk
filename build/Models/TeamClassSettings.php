@@ -11,6 +11,6 @@ class TeamClassSettings
 {
     public function __construct(
         /** If set to true, enables sending of weekly assignments digest emails to parents/guardians, provided the tenant admin has enabled the setting globally. */
-        public ?string $notifyGuardiansAboutAssignments = null
+        public ?bool $notifyGuardiansAboutAssignments = null
     ) {}
 }

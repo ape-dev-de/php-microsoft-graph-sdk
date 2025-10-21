@@ -14,7 +14,7 @@ class Win32LobAppRestartSettings
         public ?float $countdownDisplayBeforeRestartInMinutes = null,
         /** The number of minutes to wait before restarting the device after an app installation. */
         public ?float $gracePeriodInMinutes = null,
-        /** Contains properties describing restart coordination following an app installation. */
-        public ?string $restartNotificationSnoozeDurationInMinutes = null
+        /** The number of minutes to snooze the restart notification dialog when the snooze button is selected. */
+        public ?float $restartNotificationSnoozeDurationInMinutes = null
     ) {}
 }

@@ -11,6 +11,6 @@ class StoragePlanInformation
 {
     public function __construct(
         /** Indicates whether there are higher storage quota plans available. Read-only. */
-        public ?string $upgradeAvailable = null
+        public ?bool $upgradeAvailable = null
     ) {}
 }

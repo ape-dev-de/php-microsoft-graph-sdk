@@ -15,6 +15,6 @@ class CrossTenantAccessPolicyInboundTrust
         /** Specifies whether Microsoft Entra hybrid joined devices from external Microsoft Entra organizations are trusted. */
         public ?bool $isHybridAzureADJoinedDeviceAccepted = null,
         /** Specifies whether MFA from external Microsoft Entra organizations is trusted. */
-        public ?string $isMfaAccepted = null
+        public ?bool $isMfaAccepted = null
     ) {}
 }

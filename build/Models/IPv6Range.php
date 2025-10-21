@@ -12,7 +12,7 @@ class IPv6Range
     public function __construct(
         /** Lower address. */
         public ?string $lowerAddress = null,
-        /** IPv6 Range definition. */
+        /** Upper address. */
         public ?string $upperAddress = null
     ) {}
 }

@@ -14,7 +14,7 @@ class OsVersionCount
         public ?float $deviceCount = null,
         /** The Timestamp of the last update for the device count in UTC */
         public ?\DateTimeInterface $lastUpdateDateTime = null,
-        /** Count of devices with malware for each OS version */
+        /** OS version */
         public ?string $osVersion = null
     ) {}
 }

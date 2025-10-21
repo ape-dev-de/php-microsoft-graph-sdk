@@ -16,7 +16,7 @@ class ServerProcessedContent
         public array $imageSources = [],
         /** A key-value map where keys are string identifiers and values are links. SharePoint servers treat the values as links and run services like link fixup on them. */
         public array $links = [],
-        /** @var string[] A key-value map where keys are string identifiers and values are strings that should be search indexed. */
+        /** A key-value map where keys are string identifiers and values are strings that should be search indexed. */
         public array $searchablePlainTexts = []
     ) {}
 }

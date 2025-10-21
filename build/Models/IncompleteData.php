@@ -13,6 +13,6 @@ class IncompleteData
         /** The service does not have source data before the specified time. */
         public ?\DateTimeInterface $missingDataBeforeDateTime = null,
         /** Some data was not recorded due to excessive activity. */
-        public ?string $wasThrottled = null
+        public ?bool $wasThrottled = null
     ) {}
 }

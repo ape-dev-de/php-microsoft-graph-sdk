@@ -28,7 +28,7 @@ class PrinterShare
         public ?string $model = null,
         /**  */
         public ?string $status = null,
-        /** @var string[] The list of jobs that are queued for printing by the printer/printerShare. */
+        /** The list of jobs that are queued for printing by the printer/printerShare. */
         public array $jobs = [],
         /** If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties. */
         public ?bool $allowAllUsers = null,

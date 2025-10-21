@@ -16,7 +16,7 @@ class UserSecurityState
         public ?string $accountName = null,
         /** NetBIOS/Active Directory domain of user account (that is, domain/account format). */
         public ?string $domainName = null,
-        /** For email-related alerts - user account''s email ''role''. Possible values are: unknown, sender, recipient. */
+        /** For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient. */
         public ?string $emailRole = null,
         /** Indicates whether the user logged on through a VPN. */
         public ?bool $isVpn = null,

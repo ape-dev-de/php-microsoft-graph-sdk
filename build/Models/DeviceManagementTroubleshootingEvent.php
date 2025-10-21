@@ -14,7 +14,7 @@ class DeviceManagementTroubleshootingEvent
         public ?string $id = null,
         /** Id used for tracing the failure in the service. */
         public ?string $correlationId = null,
-        /** Event representing an general failure. */
+        /** Time when the event occurred . */
         public ?\DateTimeInterface $eventDateTime = null
     ) {}
 }

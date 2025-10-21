@@ -48,7 +48,7 @@ class DeviceAppManagement
         public array $targetedManagedAppConfigurations = [],
         /** List of Vpp tokens for this organization. */
         public array $vppTokens = [],
-        /** @var string[] Singleton entity that acts as a container for all device app management functionality. */
+        /** Windows information protection for apps running on devices which are not MDM enrolled. */
         public array $windowsInformationProtectionPolicies = []
     ) {}
 }

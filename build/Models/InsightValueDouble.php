@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class InsightValueDouble
 {
     public function __construct(
-        /** The value in an user experience analytics insight. */
+        /** The double value of the user experience analytics insight. */
         public ?string $value = null
     ) {}
 }

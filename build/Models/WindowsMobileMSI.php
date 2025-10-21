@@ -40,7 +40,7 @@ class WindowsMobileMSI
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
         /** The internal committed content version. */
         public ?string $committedContentVersion = null,
@@ -48,7 +48,7 @@ class WindowsMobileMSI
         public ?string $fileName = null,
         /** The total size, including all uploaded files. */
         public ?float $size = null,
-        /** @var string[] An abstract base class containing properties for all mobile line-of-business apps. */
+        /** The list of content versions for this app. */
         public array $contentVersions = [],
         /** The command line. */
         public ?string $commandLine = null,
@@ -56,7 +56,7 @@ class WindowsMobileMSI
         public ?bool $ignoreVersionDetection = null,
         /** The product code. */
         public ?string $productCode = null,
-        /** Contains properties and inherited properties for Windows Mobile MSI Line Of Business apps. */
+        /** The product version of Windows Mobile MSI Line of Business (LoB) app. */
         public ?string $productVersion = null
     ) {}
 }

@@ -18,7 +18,7 @@ class RoleAssignment
         public ?string $displayName = null,
         /** @var string[] List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
         public array $resourceScopes = [],
-        /** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
+        /** Role definition this assignment is part of. */
         public ?string $roleDefinition = null
     ) {}
 }

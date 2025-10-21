@@ -13,6 +13,6 @@ class UserRegistrationMethodCount
         /** Name of the authentication method. */
         public ?string $authenticationMethod = null,
         /** Number of users registered. */
-        public ?string $userCount = null
+        public ?float $userCount = null
     ) {}
 }

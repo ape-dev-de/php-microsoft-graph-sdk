@@ -12,7 +12,7 @@ class ResourceReference
     public function __construct(
         /** The item's unique identifier. */
         public ?string $id = null,
-        /** A string value that can be used to classify the item, such as ''microsoft.graph.driveItem */
+        /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
         public ?string $type = null,
         /** A URL leading to the referenced item. */
         public ?string $webUrl = null

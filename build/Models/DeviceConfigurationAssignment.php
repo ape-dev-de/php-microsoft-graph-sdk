@@ -12,7 +12,7 @@ class DeviceConfigurationAssignment
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** The device configuration assignment entity assigns an AAD group to a specific device configuration. */
+        /** The assignment target for the device configuration. */
         public ?string $target = null
     ) {}
 }

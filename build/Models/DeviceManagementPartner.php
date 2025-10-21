@@ -28,7 +28,7 @@ class DeviceManagementPartner
         public ?string $singleTenantAppId = null,
         /** DateTime in UTC when PartnerDevices will be marked as NonCompliant */
         public ?\DateTimeInterface $whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = null,
-        /** Entity which represents a connection to device management partner. */
+        /** DateTime in UTC when PartnerDevices will be removed */
         public ?\DateTimeInterface $whenPartnerDevicesWillBeRemovedDateTime = null
     ) {}
 }

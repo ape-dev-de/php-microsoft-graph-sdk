@@ -12,7 +12,7 @@ class IosHomeScreenPage
     public function __construct(
         /** Name of the page */
         public ?string $displayName = null,
-        /** @var string[] A page containing apps, folders, and web clips on the Home Screen. */
+        /** A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements. */
         public array $icons = []
     ) {}
 }

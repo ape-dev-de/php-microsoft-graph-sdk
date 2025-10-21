@@ -34,7 +34,7 @@ class MacOSCompliancePolicy
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
-        /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
+        /** Device compliance users status overview */
         public ?string $userStatusOverview = null,
         /** Require that devices have enabled device threat protection. */
         public ?bool $deviceThreatProtectionEnabled = null,
@@ -44,7 +44,7 @@ class MacOSCompliancePolicy
         public ?bool $firewallBlockAllIncoming = null,
         /** Whether the firewall should be enabled or not. */
         public ?bool $firewallEnabled = null,
-        /** Corresponds to 'Enable stealth mode. */
+        /** Corresponds to 'Enable stealth mode.' */
         public ?bool $firewallEnableStealthMode = null,
         /** Maximum MacOS version. */
         public ?string $osMaximumVersion = null,
@@ -68,7 +68,7 @@ class MacOSCompliancePolicy
         public ?string $passwordRequiredType = null,
         /** Require encryption on Mac OS devices. */
         public ?bool $storageRequireEncryption = null,
-        /** This class contains compliance settings for Mac OS. */
-        public ?string $systemIntegrityProtectionEnabled = null
+        /** Require that devices have enabled system integrity protection. */
+        public ?bool $systemIntegrityProtectionEnabled = null
     ) {}
 }

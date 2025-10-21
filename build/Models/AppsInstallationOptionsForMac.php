@@ -13,6 +13,6 @@ class AppsInstallationOptionsForMac
         /** Specifies whether users can install Microsoft 365 apps on their MAC devices. The default value is true. */
         public ?bool $isMicrosoft365AppsEnabled = null,
         /** Specifies whether users can install Skype for Business on their MAC devices running OS X El Capitan 10.11 or later. The default value is true. */
-        public ?string $isSkypeForBusinessEnabled = null
+        public ?bool $isSkypeForBusinessEnabled = null
     ) {}
 }

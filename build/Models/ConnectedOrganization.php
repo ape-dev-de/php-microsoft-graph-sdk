@@ -26,7 +26,7 @@ class ConnectedOrganization
         public ?string $state = null,
         /**  */
         public array $externalSponsors = [],
-        /** @var string[]  */
+        /**  */
         public array $internalSponsors = []
     ) {}
 }

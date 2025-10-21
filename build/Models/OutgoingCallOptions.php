@@ -17,6 +17,6 @@ class OutgoingCallOptions
         /** Indicates whether delta roster is enabled for the call. */
         public ?bool $isDeltaRosterEnabled = null,
         /** Indicates whether delta roster filtering by participant interactivity is enabled. */
-        public ?string $isInteractiveRosterEnabled = null
+        public ?bool $isInteractiveRosterEnabled = null
     ) {}
 }

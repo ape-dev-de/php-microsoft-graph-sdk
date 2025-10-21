@@ -14,7 +14,7 @@ class EducationAssignmentSettings
         public ?string $id = null,
         /** Indicates whether to show the turn-in celebration animation. If true, indicates to skip the animation. The default value is false. */
         public ?bool $submissionAnimationDisabled = null,
-        /** @var string[] When set, enables users to weight assignments differently when computing a class average grade. */
+        /** When set, enables users to weight assignments differently when computing a class average grade. */
         public array $gradingCategories = []
     ) {}
 }

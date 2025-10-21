@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RolePermission
 {
     public function __construct(
-        /** @var string[] Contains the set of ResourceActions determining the allowed and not allowed permissions for each role. */
+        /** Resource Actions each containing a set of allowed and not allowed permissions. */
         public array $resourceActions = []
     ) {}
 }

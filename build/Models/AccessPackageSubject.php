@@ -18,7 +18,7 @@ class AccessPackageSubject
         public ?string $email = null,
         /** The object identifier of the subject. null if the subject isn't yet a user in the tenant. */
         public ?string $objectId = null,
-        /** A string representation of the principal''s security identifier, if known, or null if the subject doesn''t have a security identifier. */
+        /** A string representation of the principal's security identifier, if known, or null if the subject doesn't have a security identifier. */
         public ?string $onPremisesSecurityIdentifier = null,
         /** The principal name, if known, of the subject. */
         public ?string $principalName = null,

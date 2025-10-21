@@ -12,7 +12,7 @@ class SynchronizationJobApplicationParameters
     public function __construct(
         /** The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template. */
         public ?string $ruleId = null,
-        /** @var string[] The identifiers of one or more objects to which a synchronizationJob is to be applied. */
+        /** The identifiers of one or more objects to which a synchronizationJob is to be applied. */
         public array $subjects = []
     ) {}
 }

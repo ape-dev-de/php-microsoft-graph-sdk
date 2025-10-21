@@ -41,6 +41,6 @@ class SoftwareUpdateStatusSummary
         /** Number of unknown devices. */
         public ?float $unknownDeviceCount = null,
         /** Number of unknown users. */
-        public ?string $unknownUserCount = null
+        public ?float $unknownUserCount = null
     ) {}
 }

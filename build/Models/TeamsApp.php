@@ -18,7 +18,7 @@ class TeamsApp
         public ?string $distributionMethod = null,
         /** The ID of the catalog provided by the app developer in the Microsoft Teams zip app package. */
         public ?string $externalId = null,
-        /** @var string[] The details for each version of the app. */
+        /** The details for each version of the app. */
         public array $appDefinitions = []
     ) {}
 }

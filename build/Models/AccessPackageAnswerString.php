@@ -14,7 +14,7 @@ class AccessPackageAnswerString
         public ?string $displayValue = null,
         /**  */
         public ?string $answeredQuestion = null,
-        /** The value stored on the requestor''s user profile, if this answer is configured to be stored as a specific attribute. */
+        /** The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute. */
         public ?string $value = null
     ) {}
 }

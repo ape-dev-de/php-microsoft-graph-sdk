@@ -21,6 +21,6 @@ class IdentityGovernanceRunSummary
         /** The total number of tasks processed by a workflow. */
         public ?float $totalTasks = null,
         /** The total number of users processed by a workflow. */
-        public ?string $totalUsers = null
+        public ?float $totalUsers = null
     ) {}
 }

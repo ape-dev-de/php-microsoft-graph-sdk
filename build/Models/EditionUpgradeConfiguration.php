@@ -32,7 +32,7 @@ class EditionUpgradeConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Edition Upgrade License File Content. */
         public ?string $license = null,
@@ -40,7 +40,7 @@ class EditionUpgradeConfiguration
         public ?string $licenseType = null,
         /** Edition Upgrade Product Key. */
         public ?string $productKey = null,
-        /** Windows 10 Edition Upgrade configuration. */
+        /**  */
         public ?string $targetEdition = null
     ) {}
 }

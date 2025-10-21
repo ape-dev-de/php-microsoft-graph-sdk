@@ -11,6 +11,6 @@ class AccessPackageNotificationSettings
 {
     public function __construct(
         /** Indicates if notification emails for an access package are disabled within an access package assignment policy. */
-        public ?string $isAssignmentNotificationDisabled = null
+        public ?bool $isAssignmentNotificationDisabled = null
     ) {}
 }

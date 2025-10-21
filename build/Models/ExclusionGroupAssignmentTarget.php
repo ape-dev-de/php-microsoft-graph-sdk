@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ExclusionGroupAssignmentTarget
 {
     public function __construct(
-        /** Represents an assignment to a group. */
+        /** The group Id that is the target of the assignment. */
         public ?string $groupId = null
     ) {}
 }

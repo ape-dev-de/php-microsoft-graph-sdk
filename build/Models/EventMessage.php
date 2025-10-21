@@ -36,7 +36,7 @@ class EventMessage
         public ?string $flag = null,
         /** The owner of the mailbox from which the message is sent. In most cases, this value is the same as the sender property, except for sharing or delegation scenarios. The value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message. */
         public ?string $from = null,
-        /** Indicates whether the message has attachments. This property doesn''t include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src=''cid:image001.jpg@01D26CD8.6C05F070''>. */
+        /** Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>. */
         public ?bool $hasAttachments = null,
         /** The importance of the message. The possible values are: low, normal, and high. */
         public ?string $importance = null,
@@ -78,7 +78,7 @@ class EventMessage
         public array $extensions = [],
         /** The collection of multi-value extended properties defined for the message. Nullable. */
         public array $multiValueExtendedProperties = [],
-        /** @var string[] The collection of single-value extended properties defined for the message. Nullable. */
+        /** The collection of single-value extended properties defined for the message. Nullable. */
         public array $singleValueExtendedProperties = [],
         /**  */
         public ?string $endDateTime = null,

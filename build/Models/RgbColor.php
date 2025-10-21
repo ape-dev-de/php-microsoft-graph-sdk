@@ -14,7 +14,7 @@ class RgbColor
         public ?float $b = null,
         /** Green value */
         public ?float $g = null,
-        /** Color in RGB. */
-        public ?string $r = null
+        /** Red value */
+        public ?float $r = null
     ) {}
 }

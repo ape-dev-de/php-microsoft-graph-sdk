@@ -32,7 +32,7 @@ class CloudPcAuditEvent
         public ?string $correlationId = null,
         /** The display name for the audit event. Read-only. */
         public ?string $displayName = null,
-        /** @var string[] The list of cloudPcAuditResource objects. Read-only. */
+        /** The list of cloudPcAuditResource objects. Read-only. */
         public array $resources = []
     ) {}
 }

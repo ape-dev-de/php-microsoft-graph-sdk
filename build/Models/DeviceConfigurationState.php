@@ -22,7 +22,7 @@ class DeviceConfigurationState
         public array $settingStates = [],
         /**  */
         public ?string $state = null,
-        /** Support for this Entity is being deprecated starting May 2026 & will no longer be supported. */
-        public ?string $version = null
+        /** The version of the policy */
+        public ?float $version = null
     ) {}
 }

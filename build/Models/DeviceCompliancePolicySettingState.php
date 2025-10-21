@@ -32,7 +32,7 @@ class DeviceCompliancePolicySettingState
         public ?string $userId = null,
         /** UserName */
         public ?string $userName = null,
-        /** Device Compilance Policy Setting State for a given device. */
+        /** UserPrincipalName. */
         public ?string $userPrincipalName = null
     ) {}
 }

@@ -24,7 +24,7 @@ class OnTokenIssuanceStartCustomExtension
         public ?string $endpointConfiguration = null,
         /** The behaviour on error for the custom authentication extension. */
         public ?string $behaviorOnError = null,
-        /** @var string[] Collection of claims to be returned by the API called by this custom authentication extension. Used to populate claims mapping experience in Microsoft Entra admin center. Optional. */
+        /** Collection of claims to be returned by the API called by this custom authentication extension. Used to populate claims mapping experience in Microsoft Entra admin center. Optional. */
         public array $claimsForTokenConfiguration = []
     ) {}
 }

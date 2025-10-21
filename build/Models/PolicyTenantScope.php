@@ -16,7 +16,7 @@ class PolicyTenantScope
         public ?string $executionMode = null,
         /** The locations (like domains or URLs) to be protected. Required. */
         public array $locations = [],
-        /** @var string[] The enforcement actions to take if the policy conditions are met within this scope. Required. */
+        /** The enforcement actions to take if the policy conditions are met within this scope. Required. */
         public array $policyActions = [],
         /** Specifies the users and groups included in or excluded from this tenant-level policy scope. */
         public ?string $policyScope = null

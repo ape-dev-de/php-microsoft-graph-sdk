@@ -52,7 +52,7 @@ class OnlineMeeting
         public ?bool $isEntryExitAnnounced = null,
         /** The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only. */
         public ?string $joinInformation = null,
-        /** Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings can''t be modified. To make any changes to this property, you must cancel this meeting and create a new one. */
+        /** Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings can't be modified. To make any changes to this property, you must cancel this meeting and create a new one. */
         public ?string $joinMeetingIdSettings = null,
         /** The join URL of the online meeting. Read-only. */
         public ?string $joinWebUrl = null,
@@ -68,7 +68,7 @@ class OnlineMeeting
         public ?string $videoTeleconferenceId = null,
         /** Specifies whether the client application should apply a watermark to a content type. */
         public ?string $watermarkProtection = null,
-        /** @var string[] The attendance reports of an online meeting. Read-only. */
+        /** The attendance reports of an online meeting. Read-only. */
         public array $attendanceReports = [],
         /** The content stream of the attendee report of a Microsoft Teams live event. Read-only. */
         public ?string $attendeeReport = null,
@@ -90,7 +90,7 @@ class OnlineMeeting
         public ?\DateTimeInterface $startDateTime = null,
         /** The recordings of an online meeting. Read-only. */
         public array $recordings = [],
-        /** @var string[] The transcripts of an online meeting. Read-only. */
+        /** The transcripts of an online meeting. Read-only. */
         public array $transcripts = []
     ) {}
 }

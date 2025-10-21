@@ -18,7 +18,7 @@ class WindowsInformationProtectionStoreApp
         public ?string $displayName = null,
         /** The product name. */
         public ?string $productName = null,
-        /** App for Windows information protection */
+        /** The publisher name */
         public ?string $publisherName = null
     ) {}
 }

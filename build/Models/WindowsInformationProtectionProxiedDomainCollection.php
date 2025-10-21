@@ -12,7 +12,7 @@ class WindowsInformationProtectionProxiedDomainCollection
     public function __construct(
         /** Display name */
         public ?string $displayName = null,
-        /** @var string[] Windows Information Protection Proxied Domain Collection */
+        /** Collection of proxied domains */
         public array $proxiedDomains = []
     ) {}
 }

@@ -16,7 +16,7 @@ class SecuritySensorSettings
         public array $domainControllerDnsNames = [],
         /** Indicates whether to delay updates for the sensor. */
         public ?bool $isDelayedDeploymentEnabled = null,
-        /** @var string[]  */
+        /**  */
         public array $networkAdapters = []
     ) {}
 }

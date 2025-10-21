@@ -22,7 +22,7 @@ class CertificateBasedAuthPki
         public ?string $status = null,
         /** The status details of the upload/deleted operation of PKI (Public Key Infrastructure). */
         public ?string $statusDetails = null,
-        /** @var string[] The collection of certificate authorities contained in this public key infrastructure resource. */
+        /** The collection of certificate authorities contained in this public key infrastructure resource. */
         public array $certificateAuthorities = []
     ) {}
 }

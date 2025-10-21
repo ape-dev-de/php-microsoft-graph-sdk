@@ -34,7 +34,7 @@ class IosCompliancePolicy
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
-        /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
+        /** Device compliance users status overview */
         public ?string $userStatusOverview = null,
         /** Require that devices have enabled device threat protection . */
         public ?bool $deviceThreatProtectionEnabled = null,
@@ -62,7 +62,7 @@ class IosCompliancePolicy
         public ?bool $passcodeRequired = null,
         /**  */
         public ?string $passcodeRequiredType = null,
-        /** This class contains compliance settings for IOS. */
-        public ?string $securityBlockJailbrokenDevices = null
+        /** Devices must not be jailbroken or rooted. */
+        public ?bool $securityBlockJailbrokenDevices = null
     ) {}
 }

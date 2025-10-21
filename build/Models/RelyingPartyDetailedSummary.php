@@ -18,9 +18,9 @@ class RelyingPartyDetailedSummary
         public ?string $migrationStatus = null,
         /** Specifies all the validations checks done on applications config details. */
         public array $migrationValidationDetails = [],
-        /** Identifies the relying party to this federation service. It''s used when issuing claims to the relying party. Supports $orderby, $filter (eq). */
+        /** Identifies the relying party to this federation service. It's used when issuing claims to the relying party. Supports $orderby, $filter (eq). */
         public ?string $relyingPartyId = null,
-        /** Name of the relying party''s website or other entity on the Internet that uses an identity provider to authenticate a user who wants to log in. Supports $orderby, $filter (eq). */
+        /** Name of the relying party's website or other entity on the Internet that uses an identity provider to authenticate a user who wants to log in. Supports $orderby, $filter (eq). */
         public ?string $relyingPartyName = null,
         /** @var string[] Specifies where the relying party expects to receive the token. */
         public array $replyUrls = [],
@@ -33,6 +33,6 @@ class RelyingPartyDetailedSummary
         /** Number of successful + failed sign ins on AD FS in the period specified. Supports $orderby, $filter (eq). */
         public ?float $totalSignInCount = null,
         /** Number of unique users that signed into the application. Supports $orderby, $filter (eq). */
-        public ?string $uniqueUserCount = null
+        public ?float $uniqueUserCount = null
     ) {}
 }

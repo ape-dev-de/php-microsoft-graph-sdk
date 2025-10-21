@@ -39,6 +39,6 @@ class RecycleBinItem
         /** Relative URL of the list or folder that originally contained the item. */
         public ?string $deletedFromLocation = null,
         /** Size of the item in bytes. */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

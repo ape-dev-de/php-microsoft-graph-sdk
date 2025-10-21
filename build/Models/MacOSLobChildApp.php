@@ -14,7 +14,7 @@ class MacOSLobChildApp
         public ?string $buildNumber = null,
         /** The bundleId of the app. */
         public ?string $bundleId = null,
-        /** Contains properties of a macOS .app in the package */
+        /** The version number of the app. */
         public ?string $versionNumber = null
     ) {}
 }

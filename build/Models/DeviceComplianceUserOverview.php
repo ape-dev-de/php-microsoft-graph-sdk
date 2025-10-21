@@ -25,6 +25,6 @@ class DeviceComplianceUserOverview
         /** Number of pending Users */
         public ?float $pendingCount = null,
         /** Number of succeeded Users */
-        public ?string $successCount = null
+        public ?float $successCount = null
     ) {}
 }

@@ -32,7 +32,7 @@ class WhatIfAnalysisResult
         public ?string $templateId = null,
         /**  */
         public ?string $analysisReasons = null,
-        /** Specifies whether the policy applies to the sign-in properties provided in the request body. If policyApplies is true, the policy applies to the sign-in based on the sign-in properties provided. If policyApplies is false, the policy doesn''t apply to the sign-in based on the sign-in properties provided and the analysisReasons property is populated to show the reason for the policy not applying. */
-        public ?string $policyApplies = null
+        /** Specifies whether the policy applies to the sign-in properties provided in the request body. If policyApplies is true, the policy applies to the sign-in based on the sign-in properties provided. If policyApplies is false, the policy doesn't apply to the sign-in based on the sign-in properties provided and the analysisReasons property is populated to show the reason for the policy not applying. */
+        public ?bool $policyApplies = null
     ) {}
 }

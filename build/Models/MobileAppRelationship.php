@@ -26,7 +26,7 @@ class MobileAppRelationship
         public ?string $targetDisplayVersion = null,
         /** The unique app identifier of the target of the mobile app relationship entity. For example: 2dbc75b9-e993-4e4d-a071-91ac5a218672. Read-Only. Returned by default. Supports: $select. Does not support $search, $filter, $orderBy. */
         public ?string $targetId = null,
-        /** The MobileAppRelationship describes the relationship between two mobile applications by providing information that tells if an application is dependent on or superseded by another application. */
+        /** The publisher display name of the app that is the target of the mobile app relationship entity. For example: Fabrikam. Maximum length is 500 characters. Read-Only. Supports: $select. Does not support $search, $filter, $orderBy. This property is read-only. */
         public ?string $targetPublisherDisplayName = null
     ) {}
 }

@@ -34,7 +34,7 @@ class AndroidCompliancePolicy
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
-        /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
+        /** Device compliance users status overview */
         public ?string $userStatusOverview = null,
         /** Require that devices have enabled device threat protection. */
         public ?bool $deviceThreatProtectionEnabled = null,
@@ -76,7 +76,7 @@ class AndroidCompliancePolicy
         public ?bool $securityRequireUpToDateSecurityProviders = null,
         /** Require the Android Verify apps feature is turned on. */
         public ?bool $securityRequireVerifyApps = null,
-        /** This class contains compliance settings for Android. */
-        public ?string $storageRequireEncryption = null
+        /** Require encryption on Android devices. */
+        public ?bool $storageRequireEncryption = null
     ) {}
 }

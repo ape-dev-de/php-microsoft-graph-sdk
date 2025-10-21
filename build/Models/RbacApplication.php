@@ -28,7 +28,7 @@ class RbacApplication
         public array $roleEligibilityScheduleInstances = [],
         /** Requests for role eligibilities for principals through PIM. */
         public array $roleEligibilityScheduleRequests = [],
-        /** @var string[] Schedules for role eligibility operations. */
+        /** Schedules for role eligibility operations. */
         public array $roleEligibilitySchedules = []
     ) {}
 }

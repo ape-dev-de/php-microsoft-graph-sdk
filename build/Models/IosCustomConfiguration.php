@@ -32,13 +32,13 @@ class IosCustomConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Payload. (UTF8 encoded byte array) */
         public ?string $payload = null,
         /** Payload file name (.mobileconfig */
         public ?string $payloadFileName = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the iosCustomConfiguration resource. */
+        /** Name that is displayed to the user. */
         public ?string $payloadName = null
     ) {}
 }

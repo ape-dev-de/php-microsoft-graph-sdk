@@ -32,7 +32,7 @@ class DeviceCompliancePolicySettingStateSummary
         public ?string $settingName = null,
         /** Number of unknown devices */
         public ?float $unknownDeviceCount = null,
-        /** @var string[] Device Compilance Policy Setting State summary across the account. */
+        /** Not yet documented */
         public array $deviceComplianceSettingStates = []
     ) {}
 }

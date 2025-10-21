@@ -14,9 +14,9 @@ class OmaSettingInteger
         public ?string $description = null,
         /** Display Name. */
         public ?string $displayName = null,
-        /** OMA Settings definition. */
+        /** OMA. */
         public ?string $omaUri = null,
-        /** OMA Settings Integer definition. */
-        public ?string $value = null
+        /** Value. */
+        public ?float $value = null
     ) {}
 }

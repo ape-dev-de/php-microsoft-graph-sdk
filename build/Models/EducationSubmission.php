@@ -50,7 +50,7 @@ class EducationSubmission
         public array $outcomes = [],
         /**  */
         public array $resources = [],
-        /** @var string[]  */
+        /**  */
         public array $submittedResources = []
     ) {}
 }

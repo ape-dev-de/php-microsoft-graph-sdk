@@ -58,7 +58,7 @@ class BookingService
         public ?bool $smsNotificationsEnabled = null,
         /** @var string[] Represents those staff members who provide this service. */
         public array $staffMemberIds = [],
-        /** Represents a particular service offered by a booking business. */
+        /** The URL a customer uses to access the service. */
         public ?string $webUrl = null
     ) {}
 }

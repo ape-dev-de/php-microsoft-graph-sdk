@@ -26,7 +26,7 @@ class CallRecordsSession
         public array $modalities = [],
         /** UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
         public ?\DateTimeInterface $startDateTime = null,
-        /** @var string[] The list of segments involved in the session. Read-only. Nullable. */
+        /** The list of segments involved in the session. Read-only. Nullable. */
         public array $segments = []
     ) {}
 }

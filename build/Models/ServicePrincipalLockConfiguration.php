@@ -19,6 +19,6 @@ class ServicePrincipalLockConfiguration
         /** Enables or disables service principal lock configuration. To allow the sensitive properties to be updated, update this property to false to disable the lock on the service principal. */
         public ?bool $isEnabled = null,
         /** Locks the tokenEncryptionKeyId property for modification on the service principal. */
-        public ?string $tokenEncryptionKeyId = null
+        public ?bool $tokenEncryptionKeyId = null
     ) {}
 }

@@ -40,7 +40,7 @@ class ManagedAppRegistration
         public array $appliedPolicies = [],
         /** Zero or more policies admin intended for the app as of now. */
         public array $intendedPolicies = [],
-        /** @var string[] The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
+        /** Zero or more long running operations triggered on the app registration. */
         public array $operations = []
     ) {}
 }

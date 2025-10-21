@@ -20,7 +20,7 @@ class SecurityEdiscoveryReviewSet
         public ?string $description = null,
         /** The name of the data set. The name is unique with a maximum limit of 64 characters. */
         public ?string $displayName = null,
-        /** @var string[] Represents queries within the review set. */
+        /** Represents queries within the review set. */
         public array $queries = []
     ) {}
 }

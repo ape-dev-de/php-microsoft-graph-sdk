@@ -15,6 +15,6 @@ class AuthenticationBehaviors
         /**  */
         public ?bool $removeUnverifiedEmailClaim = null,
         /**  */
-        public ?string $requireClientServicePrincipal = null
+        public ?bool $requireClientServicePrincipal = null
     ) {}
 }

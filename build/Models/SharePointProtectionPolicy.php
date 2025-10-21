@@ -30,7 +30,7 @@ class SharePointProtectionPolicy
         public array $siteInclusionRules = [],
         /** The protection units (sites) that are protected under the site protection policy. */
         public array $siteProtectionUnits = [],
-        /** @var string[]  */
+        /**  */
         public array $siteProtectionUnitsBulkAdditionJobs = []
     ) {}
 }

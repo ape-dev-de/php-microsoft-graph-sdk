@@ -27,6 +27,6 @@ class MessageRule
         /** Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API. */
         public ?bool $isReadOnly = null,
         /** Indicates the order in which the rule is executed, among other rules. */
-        public ?string $sequence = null
+        public ?float $sequence = null
     ) {}
 }

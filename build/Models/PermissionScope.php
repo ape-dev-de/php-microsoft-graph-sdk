@@ -14,7 +14,7 @@ class PermissionScope
         public ?string $id = null,
         /** A description of the delegated permissions, intended to be read by an administrator granting the permission on behalf of all users. This text appears in tenant-wide admin consent experiences. */
         public ?string $adminConsentDescription = null,
-        /** The permission''s title, intended to be read by an administrator granting the permission on behalf of all users. */
+        /** The permission's title, intended to be read by an administrator granting the permission on behalf of all users. */
         public ?string $adminConsentDisplayName = null,
         /** When you create or update a permission, this property must be set to true (which is the default). To delete a permission, this property must first be set to false.  At that point, in a subsequent call, the permission may be removed. */
         public ?bool $isEnabled = null,
@@ -26,7 +26,7 @@ class PermissionScope
         public ?string $userConsentDescription = null,
         /** A title for the permission, intended to be read by a user granting the permission on their own behalf. This text appears in consent experiences where the user is consenting only on behalf of themselves. */
         public ?string $userConsentDisplayName = null,
-        /** Specifies the value to include in the scp (scope) claim in access tokens. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & '' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, and characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, aren''t allowed. May not begin with .. */
+        /** Specifies the value to include in the scp (scope) claim in access tokens. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, and characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, aren't allowed. May not begin with .. */
         public ?string $value = null
     ) {}
 }

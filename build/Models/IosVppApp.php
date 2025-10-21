@@ -40,7 +40,7 @@ class IosVppApp
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
         /** The applicable iOS Device Type. */
         public ?string $applicableDeviceType = null,
@@ -60,7 +60,7 @@ class IosVppApp
         public ?string $vppTokenAccountType = null,
         /** The Apple Id associated with the given Apple Volume Purchase Program Token. */
         public ?string $vppTokenAppleId = null,
-        /** Contains properties and inherited properties for iOS Volume-Purchased Program (VPP) Apps. */
+        /** The organization associated with the Apple Volume Purchase Program Token */
         public ?string $vppTokenOrganizationName = null
     ) {}
 }

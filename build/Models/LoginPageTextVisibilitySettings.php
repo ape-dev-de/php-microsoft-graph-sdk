@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class LoginPageTextVisibilitySettings
 {
     public function __construct(
-        /** Option to hide the self-service password reset (SSPR) hyperlinks such as ''Can''t access your account?'', ''Forgot my password'' and ''Reset it now'' on the sign-in form. */
+        /** Option to hide the self-service password reset (SSPR) hyperlinks such as 'Can't access your account?', 'Forgot my password' and 'Reset it now' on the sign-in form. */
         public ?bool $hideAccountResetCredentials = null,
         /** Option to hide the self-service password reset (SSPR) 'Can't access your account?' hyperlink on the sign-in form. */
         public ?bool $hideCannotAccessYourAccount = null,
@@ -21,6 +21,6 @@ class LoginPageTextVisibilitySettings
         /** Option to hide the self-service password reset (SSPR) 'reset it now' hyperlink on the sign-in form. */
         public ?bool $hideResetItNow = null,
         /** Option to hide the 'Terms of Use' hyperlink in the footer. */
-        public ?string $hideTermsOfUse = null
+        public ?bool $hideTermsOfUse = null
     ) {}
 }

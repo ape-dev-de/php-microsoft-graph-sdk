@@ -14,7 +14,7 @@ class OmaSetting
         public ?string $description = null,
         /** Display Name. */
         public ?string $displayName = null,
-        /** OMA Settings definition. */
+        /** OMA. */
         public ?string $omaUri = null
     ) {}
 }

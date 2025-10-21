@@ -17,6 +17,6 @@ class SecurityTopicModelingSettings
         /** Indicates whether themes model is enabled for the case. */
         public ?bool $isEnabled = null,
         /** The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes. */
-        public ?string $topicCount = null
+        public ?float $topicCount = null
     ) {}
 }

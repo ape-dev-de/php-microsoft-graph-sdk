@@ -15,6 +15,6 @@ class AlternativeSecurityId
         /** For internal use only. */
         public ?string $key = null,
         /** For internal use only. */
-        public ?string $type = null
+        public ?float $type = null
     ) {}
 }

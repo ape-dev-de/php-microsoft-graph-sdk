@@ -32,7 +32,7 @@ class Windows10SecureAssessmentConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Indicates whether or not to allow the app from printing during the test. */
         public ?bool $allowPrinting = null,
@@ -42,7 +42,7 @@ class Windows10SecureAssessmentConfiguration
         public ?bool $allowTextSuggestion = null,
         /** The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username). */
         public ?string $configurationAccount = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the secureAssessment resource. */
+        /** Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/). */
         public ?string $launchUri = null
     ) {}
 }

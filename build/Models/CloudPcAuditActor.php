@@ -28,7 +28,7 @@ class CloudPcAuditActor
         public array $userPermissions = [],
         /** User Principal Name (UPN). */
         public ?string $userPrincipalName = null,
-        /** @var string[] List of role scope tags. */
+        /** List of role scope tags. */
         public array $userRoleScopeTags = []
     ) {}
 }

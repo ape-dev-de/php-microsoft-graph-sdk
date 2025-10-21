@@ -16,7 +16,7 @@ class DeviceEnrollmentPlatformRestriction
         public ?string $osMinimumVersion = null,
         /** Block personally owned devices from enrolling */
         public ?bool $personalDeviceEnrollmentBlocked = null,
-        /** Platform specific enrollment restrictions */
-        public ?string $platformBlocked = null
+        /** Block the platform from enrolling */
+        public ?bool $platformBlocked = null
     ) {}
 }

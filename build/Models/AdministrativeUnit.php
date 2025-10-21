@@ -18,7 +18,7 @@ class AdministrativeUnit
         public ?string $description = null,
         /** Display name for the administrative unit. Maximum length is 256 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby. */
         public ?string $displayName = null,
-        /** true if members of this administrative unit should be treated as sensitive, which requires specific permissions to manage. If not set, the default value is null and the default behavior is false. Use this property to define administrative units with roles that don''t inherit from tenant-level administrators, and where the management of individual member objects is limited to administrators scoped to a restricted management administrative unit. This property is immutable and can''t be changed later.  For more information on how to work with restricted management administrative units, see Restricted management administrative units in Microsoft Entra ID. */
+        /** true if members of this administrative unit should be treated as sensitive, which requires specific permissions to manage. If not set, the default value is null and the default behavior is false. Use this property to define administrative units with roles that don't inherit from tenant-level administrators, and where the management of individual member objects is limited to administrators scoped to a restricted management administrative unit. This property is immutable and can't be changed later.  For more information on how to work with restricted management administrative units, see Restricted management administrative units in Microsoft Entra ID. */
         public ?bool $isMemberManagementRestricted = null,
         /** The dynamic membership rule for the administrative unit. For more information about the rules you can use for dynamic administrative units and dynamic groups, see Manage rules for dynamic membership groups in Microsoft Entra ID. */
         public ?string $membershipRule = null,
@@ -32,7 +32,7 @@ class AdministrativeUnit
         public array $extensions = [],
         /** Users and groups that are members of this administrative unit. Supports $expand. */
         public array $members = [],
-        /** @var string[] Scoped-role members of this administrative unit. */
+        /** Scoped-role members of this administrative unit. */
         public array $scopedRoleMembers = []
     ) {}
 }

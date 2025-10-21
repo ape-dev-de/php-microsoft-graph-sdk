@@ -32,7 +32,7 @@ class AndroidGeneralDeviceConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Indicates whether or not to block clipboard sharing to copy and paste between applications. */
         public ?bool $appsBlockClipboardSharing = null,
@@ -128,7 +128,7 @@ class AndroidGeneralDeviceConfiguration
         public ?bool $webBrowserBlockPopups = null,
         /**  */
         public ?string $webBrowserCookieSettings = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the androidGeneralDeviceConfiguration resource. */
-        public ?string $wiFiBlocked = null
+        /** Indicates whether or not to block syncing Wi-Fi. */
+        public ?bool $wiFiBlocked = null
     ) {}
 }

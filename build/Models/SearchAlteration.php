@@ -14,7 +14,7 @@ class SearchAlteration
         public ?string $alteredHighlightedQueryString = null,
         /** Defines the altered query string with spelling correction. */
         public ?string $alteredQueryString = null,
-        /** @var string[] Represents changed segments related to an original user query. */
+        /** Represents changed segments related to an original user query. */
         public array $alteredQueryTokens = []
     ) {}
 }

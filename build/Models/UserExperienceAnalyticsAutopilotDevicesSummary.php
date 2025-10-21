@@ -14,7 +14,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary
         public ?float $devicesNotAutopilotRegistered = null,
         /** The count of intune devices not autopilot profile assigned. Read-only. */
         public ?float $devicesWithoutAutopilotProfileAssigned = null,
-        /** The user experience analytics summary of Devices not windows autopilot ready. */
-        public ?string $totalWindows10DevicesWithoutTenantAttached = null
+        /** The count of windows 10 devices that are Intune and co-managed. Read-only. */
+        public ?float $totalWindows10DevicesWithoutTenantAttached = null
     ) {}
 }

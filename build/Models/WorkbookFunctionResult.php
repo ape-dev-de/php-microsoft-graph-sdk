@@ -13,6 +13,8 @@ class WorkbookFunctionResult
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $error = null
+        public ?string $error = null,
+        /**  */
+        public ?string $value = null
     ) {}
 }

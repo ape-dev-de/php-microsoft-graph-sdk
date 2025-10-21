@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CommsNotifications
 {
     public function __construct(
-        /** @var string[] The notification of a change in the resource. */
+        /** The notification of a change in the resource. */
         public array $value = []
     ) {}
 }

@@ -12,7 +12,7 @@ class ResourceAction
     public function __construct(
         /** @var string[] Allowed Actions */
         public array $allowedResourceActions = [],
-        /** @var string[] Set of allowed and not allowed actions for a resource. */
+        /** @var string[] Not Allowed Actions. */
         public array $notAllowedResourceActions = []
     ) {}
 }

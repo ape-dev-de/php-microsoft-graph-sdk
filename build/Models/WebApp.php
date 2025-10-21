@@ -40,11 +40,11 @@ class WebApp
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
         /** The web app URL. This property cannot be PATCHed. */
         public ?string $appUrl = null,
-        /** Contains properties and inherited properties for web apps. */
-        public ?string $useManagedBrowser = null
+        /** Whether or not to use managed browser. This property is only applicable for Android and IOS. */
+        public ?bool $useManagedBrowser = null
     ) {}
 }

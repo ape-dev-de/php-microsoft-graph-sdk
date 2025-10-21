@@ -34,7 +34,7 @@ class SectionGroup
         public ?string $parentSectionGroup = null,
         /** The section groups in the section. Read-only. Nullable. */
         public array $sectionGroups = [],
-        /** @var string[] The sections in the section group. Read-only. Nullable. */
+        /** The sections in the section group. Read-only. Nullable. */
         public array $sections = []
     ) {}
 }

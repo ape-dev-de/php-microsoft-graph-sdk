@@ -11,6 +11,6 @@ class SecurityRetentionDurationInDays
 {
     public function __construct(
         /** Specifies the time period in days for which an item with the applied retention label will be retained for. */
-        public ?string $days = null
+        public ?float $days = null
     ) {}
 }

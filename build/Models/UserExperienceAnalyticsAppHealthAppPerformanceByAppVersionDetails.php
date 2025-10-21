@@ -26,7 +26,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
         public ?float $deviceCountWithCrashes = null,
         /** When TRUE, indicates the version of application is the latest version for that application that is in use. When FALSE, indicates the version is not the latest version. FALSE by default. Supports: $select, $OrderBy. */
         public ?bool $isLatestUsedVersion = null,
-        /** The user experience analytics application performance entity contains application performance by application version details. */
-        public ?string $isMostUsedVersion = null
+        /** When TRUE, indicates the version of application is the most used version for that application. When FALSE, indicates the version is not the most used version. FALSE by default. Supports: $select, $OrderBy. Read-only. */
+        public ?bool $isMostUsedVersion = null
     ) {}
 }

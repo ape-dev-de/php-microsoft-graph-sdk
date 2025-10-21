@@ -24,7 +24,7 @@ class PrivilegedAccessGroup
         public array $eligibilityScheduleInstances = [],
         /** The schedule requests for operations to create, update, delete, extend, and renew an eligibility. */
         public array $eligibilityScheduleRequests = [],
-        /** @var string[] The eligibility schedules to activate a just-in-time access. */
+        /** The eligibility schedules to activate a just-in-time access. */
         public array $eligibilitySchedules = []
     ) {}
 }

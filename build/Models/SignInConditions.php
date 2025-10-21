@@ -28,7 +28,7 @@ class SignInConditions
         public ?string $servicePrincipalRiskLevel = null,
         /** Sign-in risk associated with the user. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none. */
         public ?string $signInRiskLevel = null,
-        /** The authenticating user''s risk level. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none. */
+        /** The authenticating user's risk level. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none. */
         public ?string $userRiskLevel = null
     ) {}
 }

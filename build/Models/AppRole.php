@@ -12,7 +12,7 @@ class AppRole
     public function __construct(
         /** Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided. */
         public ?string $id = null,
-        /** @var string[] Specifies whether this app role can be assigned to users and groups (by setting to [''User'']), to other application''s (by setting to [''Application''], or both (by setting to [''User'', ''Application'']). App roles supporting assignment to other applications'' service principals are also known as application permissions. The ''Application'' value is only supported for app roles defined on application entities. */
+        /** @var string[] Specifies whether this app role can be assigned to users and groups (by setting to ['User']), to other application's (by setting to ['Application'], or both (by setting to ['User', 'Application']). App roles supporting assignment to other applications' service principals are also known as application permissions. The 'Application' value is only supported for app roles defined on application entities. */
         public array $allowedMemberTypes = [],
         /** The description for the app role. This is displayed when the app role is being assigned and, if the app role functions as an application permission, during  consent experiences. */
         public ?string $description = null,
@@ -22,7 +22,7 @@ class AppRole
         public ?bool $isEnabled = null,
         /** Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only. */
         public ?string $origin = null,
-        /** Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & '' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, and characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, aren''t allowed. May not begin with .. */
+        /** Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, and characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, aren't allowed. May not begin with .. */
         public ?string $value = null
     ) {}
 }

@@ -12,7 +12,7 @@ class ConditionalAccessPlatforms
     public function __construct(
         /** Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue. */
         public array $excludePlatforms = [],
-        /** @var string[] Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue. */
+        /** Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue. */
         public array $includePlatforms = []
     ) {}
 }

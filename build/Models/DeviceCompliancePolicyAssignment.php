@@ -12,7 +12,7 @@ class DeviceCompliancePolicyAssignment
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** Device compliance policy assignment. */
+        /** Target for the compliance policy assignment. */
         public ?string $target = null
     ) {}
 }

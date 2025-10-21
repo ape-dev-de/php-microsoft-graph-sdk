@@ -22,7 +22,7 @@ class HomeRealmDiscoveryPolicy
         public array $definition = [],
         /** If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false. */
         public ?bool $isOrganizationDefault = null,
-        /** @var string[]  */
+        /**  */
         public array $appliesTo = []
     ) {}
 }

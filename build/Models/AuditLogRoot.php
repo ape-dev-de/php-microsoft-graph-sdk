@@ -16,7 +16,7 @@ class AuditLogRoot
         public array $directoryAudits = [],
         /**  */
         public array $provisioning = [],
-        /** @var string[]  */
+        /**  */
         public array $signIns = []
     ) {}
 }

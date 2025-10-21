@@ -22,7 +22,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance
         public ?string $healthStatus = null,
         /** The mean time to failure for the application in minutes. Valid values 0 to 2147483647. Supports: $filter, $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647 */
         public ?float $meanTimeToFailureInMinutes = null,
-        /** The user experience analytics device model performance entity contains device model performance details. */
+        /** The application health score of the device model. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $modelAppHealthScore = null
     ) {}
 }

@@ -15,6 +15,6 @@ class CopilotAdminLimitedMode
         /**  */
         public ?string $groupId = null,
         /**  */
-        public ?string $isEnabledForGroup = null
+        public ?bool $isEnabledForGroup = null
     ) {}
 }

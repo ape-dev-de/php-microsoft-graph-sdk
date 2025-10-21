@@ -51,6 +51,6 @@ class TeleconferenceDeviceAudioQuality
         /** The remote IP address for the media session. */
         public ?string $remoteIPAddress = null,
         /** The remote media port. */
-        public ?string $remotePort = null
+        public ?float $remotePort = null
     ) {}
 }

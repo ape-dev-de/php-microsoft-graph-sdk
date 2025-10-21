@@ -12,7 +12,7 @@ class UserExperienceAnalyticsOverview
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** @var string[] The user experience analytics overview entity contains the overall score and the scores and insights of every metric of all categories. */
+        /** The user experience analytics insights. Read-only. */
         public array $insights = []
     ) {}
 }

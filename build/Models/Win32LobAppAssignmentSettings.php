@@ -18,7 +18,7 @@ class Win32LobAppAssignmentSettings
         public ?string $installTimeSettings = null,
         /**  */
         public ?string $notifications = null,
-        /** Contains properties used to assign an Win32 LOB mobile app to a group. */
+        /** The reboot settings to apply for this app assignment. */
         public ?string $restartSettings = null
     ) {}
 }

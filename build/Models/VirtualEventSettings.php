@@ -11,6 +11,6 @@ class VirtualEventSettings
 {
     public function __construct(
         /** Indicates whether virtual event attendees receive email notifications. */
-        public ?string $isAttendeeEmailNotificationEnabled = null
+        public ?bool $isAttendeeEmailNotificationEnabled = null
     ) {}
 }

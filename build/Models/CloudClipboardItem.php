@@ -18,7 +18,7 @@ class CloudClipboardItem
         public ?\DateTimeInterface $expirationDateTime = null,
         /** Set by the server if not provided in the client's request. DateTime in UTC when the object was modified by the client. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** @var string[] A cloudClipboardItem can have multiple cloudClipboardItemPayload objects in the payloads. A window can place more than one clipboard object on the clipboard. Each one represents the same information in a different clipboard format. */
+        /** A cloudClipboardItem can have multiple cloudClipboardItemPayload objects in the payloads. A window can place more than one clipboard object on the clipboard. Each one represents the same information in a different clipboard format. */
         public array $payloads = []
     ) {}
 }

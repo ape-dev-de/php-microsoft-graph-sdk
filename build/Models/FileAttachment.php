@@ -21,7 +21,7 @@ class FileAttachment
         /** The attachment's file name. */
         public ?string $name = null,
         /** The length of the attachment in bytes. */
-        public ?string $size = null,
+        public ?float $size = null,
         /** The base64-encoded contents of the file. */
         public ?string $contentBytes = null,
         /** The ID of the attachment in the Exchange store. */

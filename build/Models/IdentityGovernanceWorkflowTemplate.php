@@ -20,7 +20,7 @@ class IdentityGovernanceWorkflowTemplate
         public ?string $displayName = null,
         /** Conditions describing when to execute the workflow and the criteria to identify in-scope subject set. */
         public ?string $executionConditions = null,
-        /** @var string[] Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default. */
+        /** Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default. */
         public array $tasks = []
     ) {}
 }

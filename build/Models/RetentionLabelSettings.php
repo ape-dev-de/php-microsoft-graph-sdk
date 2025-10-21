@@ -21,6 +21,6 @@ class RetentionLabelSettings
         /** Specifies whether updates to the item metadata (for example, the Title field) are blocked. Read-only. */
         public ?bool $isMetadataUpdateAllowed = null,
         /** Specifies whether the item is locked. Read-write. */
-        public ?string $isRecordLocked = null
+        public ?bool $isRecordLocked = null
     ) {}
 }

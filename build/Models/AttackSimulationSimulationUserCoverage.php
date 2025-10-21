@@ -19,6 +19,6 @@ class AttackSimulationSimulationUserCoverage
         /** Date and time of the latest attack simulation and training campaign that the user was included in. */
         public ?\DateTimeInterface $latestSimulationDateTime = null,
         /** Number of attack simulation and training campaigns that the user was included in. */
-        public ?string $simulationCount = null
+        public ?float $simulationCount = null
     ) {}
 }

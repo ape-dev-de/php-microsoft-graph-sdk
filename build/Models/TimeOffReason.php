@@ -27,6 +27,6 @@ class TimeOffReason
         /** Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required. */
         public ?string $iconType = null,
         /** Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
-        public ?string $isActive = null
+        public ?bool $isActive = null
     ) {}
 }

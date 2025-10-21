@@ -19,6 +19,6 @@ class SecurityHostPortBanner
         /** The specific protocol used to scan the hostPort. */
         public ?string $scanProtocol = null,
         /** The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPortBanner in all its scans. */
-        public ?string $timesObserved = null
+        public ?float $timesObserved = null
     ) {}
 }

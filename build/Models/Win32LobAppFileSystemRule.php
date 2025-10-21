@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Win32LobAppFileSystemRule
 {
     public function __construct(
-        /** A base complex type to store the detection or requirement rule data for a Win32 LOB app. */
+        /**  */
         public ?string $ruleType = null,
         /** A value indicating whether to expand environment variables in the 32-bit context on 64-bit systems. */
         public ?bool $check32BitOn64System = null,
@@ -22,7 +22,7 @@ class Win32LobAppFileSystemRule
         public ?string $operationType = null,
         /**  */
         public ?string $operator = null,
-        /** A complex type to store file or folder rule data for a Win32 LOB app. */
+        /** The file or folder path to look up. */
         public ?string $path = null
     ) {}
 }

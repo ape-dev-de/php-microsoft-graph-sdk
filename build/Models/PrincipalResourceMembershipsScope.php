@@ -12,7 +12,7 @@ class PrincipalResourceMembershipsScope
     public function __construct(
         /** Defines the scopes of the principals whose access to resources are reviewed in the access review. */
         public array $principalScopes = [],
-        /** @var string[] Defines the scopes of the resources for which access is reviewed. */
+        /** Defines the scopes of the resources for which access is reviewed. */
         public array $resourceScopes = []
     ) {}
 }

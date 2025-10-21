@@ -20,7 +20,7 @@ class UnifiedApprovalStage
         public ?bool $isApproverJustificationRequired = null,
         /** Indicates whether escalation if enabled. */
         public ?bool $isEscalationEnabled = null,
-        /** @var string[] The primary approvers of this stage. */
+        /** The primary approvers of this stage. */
         public array $primaryApprovers = []
     ) {}
 }

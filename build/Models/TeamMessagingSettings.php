@@ -19,6 +19,6 @@ class TeamMessagingSettings
         /** If set to true, users can delete their messages. */
         public ?bool $allowUserDeleteMessages = null,
         /** If set to true, users can edit their messages. */
-        public ?string $allowUserEditMessages = null
+        public ?bool $allowUserEditMessages = null
     ) {}
 }

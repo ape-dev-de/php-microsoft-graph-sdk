@@ -20,7 +20,7 @@ class LongRunningOperation
         public ?string $resourceLocation = null,
         /** The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. */
         public ?string $status = null,
-        /** The status of a long-running operation. */
+        /** Details about the status of the operation. */
         public ?string $statusDetail = null
     ) {}
 }

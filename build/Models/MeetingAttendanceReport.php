@@ -20,7 +20,7 @@ class MeetingAttendanceReport
         public ?\DateTimeInterface $meetingStartDateTime = null,
         /** Total number of participants. Read-only. */
         public ?float $totalParticipantCount = null,
-        /** @var string[] List of attendance records of an attendance report. Read-only. */
+        /** List of attendance records of an attendance report. Read-only. */
         public array $attendanceRecords = []
     ) {}
 }

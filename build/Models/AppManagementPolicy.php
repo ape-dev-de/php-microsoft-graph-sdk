@@ -22,7 +22,7 @@ class AppManagementPolicy
         public ?bool $isEnabled = null,
         /** Restrictions that apply to an application or service principal object. */
         public ?string $restrictions = null,
-        /** @var string[] Collection of applications and service principals to which the policy is applied. */
+        /** Collection of applications and service principals to which the policy is applied. */
         public array $appliesTo = []
     ) {}
 }

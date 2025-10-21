@@ -40,7 +40,7 @@ class IosStoreApp
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
         /**  */
         public ?string $applicableDeviceType = null,
@@ -48,7 +48,7 @@ class IosStoreApp
         public ?string $appStoreUrl = null,
         /** The Identity Name. */
         public ?string $bundleId = null,
-        /** Contains properties and inherited properties for iOS store apps. */
+        /** The value for the minimum applicable operating system. */
         public ?string $minimumSupportedOperatingSystem = null
     ) {}
 }

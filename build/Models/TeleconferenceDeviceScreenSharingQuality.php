@@ -51,7 +51,7 @@ class TeleconferenceDeviceScreenSharingQuality
         /** The remote IP address for the media session. */
         public ?string $remoteIPAddress = null,
         /** The remote media port. */
-        public ?string $remotePort = null,
+        public ?float $remotePort = null,
         /** The average inbound stream video bit rate per second. */
         public ?string $averageInboundBitRate = null,
         /** The average inbound stream video frame rate per second. */

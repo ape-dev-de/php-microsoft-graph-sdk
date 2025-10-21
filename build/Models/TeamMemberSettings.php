@@ -21,6 +21,6 @@ class TeamMemberSettings
         /** If set to true, members can add, update, and remove tabs. */
         public ?bool $allowCreateUpdateRemoveTabs = null,
         /** If set to true, members can delete channels. */
-        public ?string $allowDeleteChannels = null
+        public ?bool $allowDeleteChannels = null
     ) {}
 }

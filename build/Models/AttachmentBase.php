@@ -19,6 +19,6 @@ class AttachmentBase
         /** The display name of the attachment. This doesn't need to be the actual file name. */
         public ?string $name = null,
         /** The length of the attachment in bytes. */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

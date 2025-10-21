@@ -24,9 +24,9 @@ class Windows10EnrollmentCompletionPageConfiguration
         public ?float $priority = null,
         /** The version of the device enrollment configuration */
         public ?float $version = null,
-        /** @var string[] The Base Class of Device Enrollment Configuration */
+        /** The list of group assignments for the device configuration profile */
         public array $assignments = [],
-        /** Windows 10 Enrollment Status Page Configuration */
-        public ?string $allowNonBlockingAppInstallation = null
+        /** When TRUE, ESP (Enrollment Status Page) installs all required apps targeted during technician phase and ignores any failures for non-blocking apps. When FALSE, ESP fails on any error during app install. The default is false. */
+        public ?bool $allowNonBlockingAppInstallation = null
     ) {}
 }

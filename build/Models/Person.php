@@ -44,7 +44,7 @@ class Person
         public array $scoredEmailAddresses = [],
         /** The person's surname. */
         public ?string $surname = null,
-        /** The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person''s email name. The general format is alias@domain. */
+        /** The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain. */
         public ?string $userPrincipalName = null,
         /** The person's websites. */
         public array $websites = [],

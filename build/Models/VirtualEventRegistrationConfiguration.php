@@ -16,7 +16,7 @@ class VirtualEventRegistrationConfiguration
         public ?float $capacity = null,
         /** Registration URL of the virtual event. */
         public ?string $registrationWebUrl = null,
-        /** @var string[] Registration questions. */
+        /** Registration questions. */
         public array $questions = []
     ) {}
 }

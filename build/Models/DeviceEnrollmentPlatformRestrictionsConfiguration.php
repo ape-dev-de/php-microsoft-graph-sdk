@@ -24,7 +24,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration
         public ?float $priority = null,
         /** The version of the device enrollment configuration */
         public ?float $version = null,
-        /** @var string[] The Base Class of Device Enrollment Configuration */
+        /** The list of group assignments for the device configuration profile */
         public array $assignments = [],
         /** Android restrictions based on platform, platform operating system version, and device ownership */
         public ?string $androidRestriction = null,
@@ -34,7 +34,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration
         public ?string $macOSRestriction = null,
         /** Windows mobile restrictions based on platform, platform operating system version, and device ownership */
         public ?string $windowsMobileRestriction = null,
-        /** Default Device Enrollment Platform Restrictions Configuration that restricts the types of devices a user can enroll */
+        /** Windows restrictions based on platform, platform operating system version, and device ownership */
         public ?string $windowsRestriction = null
     ) {}
 }

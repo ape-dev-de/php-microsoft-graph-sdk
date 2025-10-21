@@ -18,13 +18,13 @@ class WindowsInformationProtectionDesktopApp
         public ?string $displayName = null,
         /** The product name. */
         public ?string $productName = null,
-        /** App for Windows information protection */
+        /** The publisher name */
         public ?string $publisherName = null,
         /** The binary name. */
         public ?string $binaryName = null,
         /** The high binary version. */
         public ?string $binaryVersionHigh = null,
-        /** Desktop App for Windows information protection */
+        /** The lower binary version. */
         public ?string $binaryVersionLow = null
     ) {}
 }

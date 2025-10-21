@@ -54,7 +54,7 @@ class SitePage
         public ?string $titleArea = null,
         /** Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections. */
         public ?string $canvasLayout = null,
-        /** @var string[] Collection of webparts on the SharePoint page. */
+        /** Collection of webparts on the SharePoint page. */
         public array $webParts = []
     ) {}
 }

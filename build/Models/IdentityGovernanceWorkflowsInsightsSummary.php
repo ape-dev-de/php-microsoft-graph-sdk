@@ -27,6 +27,6 @@ class IdentityGovernanceWorkflowsInsightsSummary
         /** Count of total tasks processed by workflows in the tenant. */
         public ?float $totalTasks = null,
         /** Count of total users processed by workflows in the tenant. */
-        public ?string $totalUsers = null
+        public ?float $totalUsers = null
     ) {}
 }

@@ -24,11 +24,11 @@ class Permission
         public ?string $grantedToV2 = null,
         /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.. */
         public ?bool $hasPassword = null,
-        /** Provides a reference to the ancestor of the current permission, if it''s inherited from an ancestor. Read-only. */
+        /** Provides a reference to the ancestor of the current permission, if it's inherited from an ancestor. Read-only. */
         public ?string $inheritedFrom = null,
         /** Details of any associated sharing invitation for this permission. Read-only. */
         public ?string $invitation = null,
-        /** Provides the link details of the current permission, if it''s a link type permission. Read-only. */
+        /** Provides the link details of the current permission, if it's a link type permission. Read-only. */
         public ?string $link = null,
         /** @var string[] The type of permission, for example, read. See below for the full list of roles. Read-only. */
         public array $roles = [],

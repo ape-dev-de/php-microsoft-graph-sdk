@@ -34,7 +34,7 @@ class IdentityGovernanceTaskReport
         public ?string $task = null,
         /**  */
         public ?string $taskDefinition = null,
-        /** @var string[] The related lifecycle workflow taskProcessingResults. */
+        /** The related lifecycle workflow taskProcessingResults. */
         public array $taskProcessingResults = []
     ) {}
 }

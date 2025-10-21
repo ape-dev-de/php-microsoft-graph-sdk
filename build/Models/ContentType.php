@@ -36,9 +36,9 @@ class ContentType
         public ?string $parentId = null,
         /** If true, any changes made to the content type are pushed to inherited content types and lists that implement the content type. */
         public ?bool $propagateChanges = null,
-        /** If true, the content type can''t be modified unless this value is first set to false. */
+        /** If true, the content type can't be modified unless this value is first set to false. */
         public ?bool $readOnly = null,
-        /** If true, the content type can''t be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types. */
+        /** If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types. */
         public ?bool $sealed = null,
         /** Parent contentType from which this content type is derived. */
         public ?string $base = null,
@@ -48,7 +48,7 @@ class ContentType
         public array $columnLinks = [],
         /** Column order information in a content type. */
         public array $columnPositions = [],
-        /** @var string[] The collection of column definitions for this content type. */
+        /** The collection of column definitions for this content type. */
         public array $columns = []
     ) {}
 }

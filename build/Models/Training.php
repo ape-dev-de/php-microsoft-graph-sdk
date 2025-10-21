@@ -38,7 +38,7 @@ class Training
         public array $tags = [],
         /** The type of training. Possible values are: unknown, phishing, unknownFutureValue. */
         public ?string $type = null,
-        /** @var string[] Language specific details on a training. */
+        /** Language specific details on a training. */
         public array $languageDetails = []
     ) {}
 }

@@ -12,7 +12,7 @@ class MembersLeftEventMessageDetail
     public function __construct(
         /** Initiator of the event. */
         public ?string $initiator = null,
-        /** @var string[] List of members who left the chat. */
+        /** List of members who left the chat. */
         public array $members = []
     ) {}
 }

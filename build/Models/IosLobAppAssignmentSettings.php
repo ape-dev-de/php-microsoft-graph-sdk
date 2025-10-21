@@ -14,7 +14,7 @@ class IosLobAppAssignmentSettings
         public ?bool $isRemovable = null,
         /** When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune. By default, property is set to null which internally is treated as TRUE. */
         public ?bool $uninstallOnDeviceRemoval = null,
-        /** Contains properties used to assign an iOS LOB mobile app to a group. */
+        /** This is the unique identifier (Id) of the VPN Configuration to apply to the app. */
         public ?string $vpnConfigurationId = null
     ) {}
 }

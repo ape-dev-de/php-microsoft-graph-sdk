@@ -32,7 +32,7 @@ class MailSearchFolder
         public array $messages = [],
         /** The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable. */
         public array $multiValueExtendedProperties = [],
-        /** @var string[] The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable. */
+        /** The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable. */
         public array $singleValueExtendedProperties = [],
         /** The OData query to filter the messages. */
         public ?string $filterQuery = null,

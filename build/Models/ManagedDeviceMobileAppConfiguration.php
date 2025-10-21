@@ -32,7 +32,7 @@ class ManagedDeviceMobileAppConfiguration
         public ?string $deviceStatusSummary = null,
         /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
         public array $userStatuses = [],
-        /** An abstract class for Mobile app configuration for enrolled devices. */
+        /** App configuration user status summary. */
         public ?string $userStatusSummary = null
     ) {}
 }

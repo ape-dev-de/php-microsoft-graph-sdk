@@ -66,7 +66,7 @@ class BookingAppointment
         public ?string $serviceId = null,
         /** The location where the service is delivered. */
         public ?string $serviceLocation = null,
-        /** The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it''s computed from the service associated with the appointment by the serviceId property. */
+        /** The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it's computed from the service associated with the appointment by the serviceId property. */
         public ?string $serviceName = null,
         /** Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID. */
         public ?string $serviceNotes = null,
@@ -74,7 +74,7 @@ class BookingAppointment
         public ?bool $smsNotificationsEnabled = null,
         /** @var string[] The ID of each bookingStaffMember who is scheduled in this appointment. */
         public array $staffMemberIds = [],
-        /** Represents a booked appointment of a service by a customer in a business. */
+        /**  */
         public ?string $startDateTime = null
     ) {}
 }

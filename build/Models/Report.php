@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Report
 {
     public function __construct(
-        /** Device Configuration profile History reports. */
+        /** Not yet documented */
         public ?string $content = null
     ) {}
 }

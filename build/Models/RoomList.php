@@ -22,7 +22,7 @@ class RoomList
         public ?string $phone = null,
         /** The email address of the room list. */
         public ?string $emailAddress = null,
-        /** @var string[]  */
+        /**  */
         public array $rooms = []
     ) {}
 }

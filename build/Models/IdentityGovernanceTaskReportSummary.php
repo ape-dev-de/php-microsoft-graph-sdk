@@ -17,6 +17,6 @@ class IdentityGovernanceTaskReportSummary
         /** The total number of tasks in a report. */
         public ?float $totalTasks = null,
         /** The number of unprocessed tasks in a report. */
-        public ?string $unprocessedTasks = null
+        public ?float $unprocessedTasks = null
     ) {}
 }

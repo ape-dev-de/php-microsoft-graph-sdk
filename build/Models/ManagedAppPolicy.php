@@ -20,7 +20,7 @@ class ManagedAppPolicy
         public ?string $displayName = null,
         /** Last time the policy was modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        /** Version of the entity. */
         public ?string $version = null
     ) {}
 }

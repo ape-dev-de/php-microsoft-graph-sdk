@@ -32,7 +32,7 @@ class EndUserNotification
         public ?string $status = null,
         /** @var string[] Supported locales for endUserNotification content. */
         public array $supportedLocales = [],
-        /** @var string[]  */
+        /**  */
         public array $details = []
     ) {}
 }

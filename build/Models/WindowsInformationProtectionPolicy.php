@@ -20,7 +20,7 @@ class WindowsInformationProtectionPolicy
         public ?string $displayName = null,
         /** Last time the policy was modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        /** Version of the entity. */
         public ?string $version = null,
         /** Specifies whether to allow Azure RMS encryption for WIP */
         public ?bool $azureRightsManagementServicesAllowed = null,
@@ -30,7 +30,7 @@ class WindowsInformationProtectionPolicy
         public ?string $enforcementLevel = null,
         /** Primary enterprise domain */
         public ?string $enterpriseDomain = null,
-        /** This is the comma-separated list of internal proxy servers. For example, ''157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59''. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
+        /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
         public array $enterpriseInternalProxyServers = [],
         /** Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to */
         public array $enterpriseIPRanges = [],
@@ -60,7 +60,7 @@ class WindowsInformationProtectionPolicy
         public array $protectedApps = [],
         /** Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured */
         public ?bool $protectionUnderLockConfigRequired = null,
-        /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don''t revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
+        /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
         public ?bool $revokeOnUnenrollDisabled = null,
         /** TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access */
         public ?string $rightsManagementServicesTemplateId = null,
@@ -70,7 +70,7 @@ class WindowsInformationProtectionPolicy
         public array $assignments = [],
         /** Another way to input exempt apps through xml files */
         public array $exemptAppLockerFiles = [],
-        /** @var string[] Policy for Windows information protection to configure detailed management settings */
+        /** Another way to input protected apps through xml files */
         public array $protectedAppLockerFiles = [],
         /** Offline interval before app data is wiped (days) */
         public ?float $daysWithoutContactBeforeUnenroll = null,
@@ -78,11 +78,11 @@ class WindowsInformationProtectionPolicy
         public ?string $mdmEnrollmentUrl = null,
         /** Specifies the maximum amount of time (in minutes) allowed after the device is idle that will cause the device to become PIN or password locked.   Range is an integer X where 0 <= X <= 999. */
         public ?float $minutesOfInactivityBeforeDeviceLock = null,
-        /** Integer value that specifies the number of past PINs that can be associated to a user account that can''t be reused. The largest number you can configure for this policy setting is 50. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then storage of previous PINs is not required. This node was added in Windows 10, version 1511. Default is 0. */
+        /** Integer value that specifies the number of past PINs that can be associated to a user account that can't be reused. The largest number you can configure for this policy setting is 50. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then storage of previous PINs is not required. This node was added in Windows 10, version 1511. Default is 0. */
         public ?float $numberOfPastPinsRemembered = null,
         /** The number of authentication failures allowed before the device will be wiped. A value of 0 disables device wipe functionality. Range is an integer X where 4 <= X <= 16 for desktop and 0 <= X <= 999 for mobile devices. */
         public ?float $passwordMaximumAttemptCount = null,
-        /** Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user''s PIN will never expire. This node was added in Windows 10, version 1511. Default is 0. */
+        /** Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0. */
         public ?float $pinExpirationDays = null,
         /**  */
         public ?string $pinLowercaseLetters = null,
@@ -94,7 +94,7 @@ class WindowsInformationProtectionPolicy
         public ?string $pinUppercaseLetters = null,
         /** New property in RS2, pending documentation */
         public ?bool $revokeOnMdmHandoffDisabled = null,
-        /** Policy for Windows information protection without MDM */
-        public ?string $windowsHelloForBusinessBlocked = null
+        /** Boolean value that sets Windows Hello for Business as a method for signing into Windows. */
+        public ?bool $windowsHelloForBusinessBlocked = null
     ) {}
 }

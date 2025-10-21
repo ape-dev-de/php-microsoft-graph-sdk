@@ -40,11 +40,11 @@ class ManagedIOSStoreApp
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
         /**  */
         public ?string $appAvailability = null,
-        /** Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy. */
+        /** The Application's version. */
         public ?string $version = null,
         /**  */
         public ?string $applicableDeviceType = null,
@@ -52,7 +52,7 @@ class ManagedIOSStoreApp
         public ?string $appStoreUrl = null,
         /** The app's Bundle ID. */
         public ?string $bundleId = null,
-        /** Contains properties and inherited properties for an iOS store app that you can manage with an Intune app protection policy. */
+        /**  */
         public ?string $minimumSupportedOperatingSystem = null
     ) {}
 }

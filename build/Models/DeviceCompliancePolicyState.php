@@ -22,7 +22,7 @@ class DeviceCompliancePolicyState
         public array $settingStates = [],
         /**  */
         public ?string $state = null,
-        /** Device Compliance Policy State for a given device. */
-        public ?string $version = null
+        /** The version of the policy */
+        public ?float $version = null
     ) {}
 }

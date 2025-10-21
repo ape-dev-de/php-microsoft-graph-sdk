@@ -30,7 +30,7 @@ class OneDriveForBusinessProtectionPolicy
         public array $driveInclusionRules = [],
         /** Contains the protection units associated with a  OneDrive for Business protection policy. */
         public array $driveProtectionUnits = [],
-        /** @var string[]  */
+        /**  */
         public array $driveProtectionUnitsBulkAdditionJobs = []
     ) {}
 }

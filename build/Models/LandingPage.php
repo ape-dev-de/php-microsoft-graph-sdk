@@ -32,7 +32,7 @@ class LandingPage
         public ?string $status = null,
         /** @var string[] Supported locales. */
         public array $supportedLocales = [],
-        /** @var string[] The detail information for a landing page associated with a simulation during its creation. */
+        /** The detail information for a landing page associated with a simulation during its creation. */
         public array $details = []
     ) {}
 }

@@ -11,6 +11,6 @@ class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp
 {
     public function __construct(
         /** Optional. Specifies whether the authentication flow includes an option to sign up (create account) and sign in. Default value is false meaning only sign in is enabled. */
-        public ?string $isSignUpAllowed = null
+        public ?bool $isSignUpAllowed = null
     ) {}
 }

@@ -24,7 +24,7 @@ class UnifiedStorageQuota
         public ?float $total = null,
         /**  */
         public ?float $used = null,
-        /** @var string[]  */
+        /**  */
         public array $services = []
     ) {}
 }

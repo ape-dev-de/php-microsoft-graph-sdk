@@ -12,7 +12,7 @@ class ProxiedDomain
     public function __construct(
         /** The IP address or FQDN */
         public ?string $ipAddressOrFQDN = null,
-        /** Proxied Domain */
+        /** Proxy IP or FQDN */
         public ?string $proxy = null
     ) {}
 }

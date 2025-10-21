@@ -32,11 +32,11 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule */
         public ?bool $allowSampleSharing = null,
-        /** Windows Defender AdvancedThreatProtection Configuration. */
-        public ?string $enableExpeditedTelemetryReporting = null
+        /** Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency. */
+        public ?bool $enableExpeditedTelemetryReporting = null
     ) {}
 }

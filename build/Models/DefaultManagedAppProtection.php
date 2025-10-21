@@ -20,7 +20,7 @@ class DefaultManagedAppProtection
         public ?string $displayName = null,
         /** Last time the policy was modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        /** Version of the entity. */
         public ?string $version = null,
         /** Data storage locations where a user may store managed data. */
         public array $allowedDataStorageLocations = [],
@@ -74,8 +74,8 @@ class DefaultManagedAppProtection
         public ?bool $printBlocked = null,
         /** Indicates whether users may use the 'Save As' menu item to save a copy of protected files. */
         public ?bool $saveAsBlocked = null,
-        /** Policy used to configure detailed management settings for a specified set of apps */
-        public ?string $simplePinBlocked = null,
+        /** Indicates whether simplePin is blocked. */
+        public ?bool $simplePinBlocked = null,
         /**  */
         public ?string $appDataEncryptionType = null,
         /** A set of string key and string value pairs to be sent to the affected users, unalterned by this service */
@@ -98,7 +98,7 @@ class DefaultManagedAppProtection
         public ?bool $screenCaptureBlocked = null,
         /** List of apps to which the policy is deployed. */
         public array $apps = [],
-        /** Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy */
+        /** Navigation property to deployment summary of the configuration. */
         public ?string $deploymentSummary = null
     ) {}
 }

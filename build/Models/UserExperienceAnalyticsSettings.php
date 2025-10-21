@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsSettings
 {
     public function __construct(
-        /** The user experience analytics insight is the recomendation to improve the user experience analytics score. */
-        public ?string $configurationManagerDataConnectorConfigured = null
+        /** When TRUE, indicates Tenant attach is configured properly and System Center Configuration Manager (SCCM) tenant attached devices will show up in endpoint analytics reporting. When FALSE, indicates Tenant attach is not configured. FALSE by default. */
+        public ?bool $configurationManagerDataConnectorConfigured = null
     ) {}
 }

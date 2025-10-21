@@ -32,9 +32,9 @@ class AndroidWorkProfileCustomConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
-        /** @var string[] Android Work Profile custom configuration */
+        /** OMA settings. This collection can contain a maximum of 500 elements. */
         public array $omaSettings = []
     ) {}
 }

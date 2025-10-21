@@ -29,6 +29,6 @@ class Participant
         /** Indicates the reason or reasons media content from this participant is restricted. */
         public ?string $restrictedExperience = null,
         /** Indicates the roster sequence number in which the participant was last updated. */
-        public ?string $rosterSequenceNumber = null
+        public ?float $rosterSequenceNumber = null
     ) {}
 }

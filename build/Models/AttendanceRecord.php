@@ -25,6 +25,6 @@ class AttendanceRecord
         /** Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer. */
         public ?string $role = null,
         /** Total duration of the attendances in seconds. */
-        public ?string $totalAttendanceInSeconds = null
+        public ?float $totalAttendanceInSeconds = null
     ) {}
 }

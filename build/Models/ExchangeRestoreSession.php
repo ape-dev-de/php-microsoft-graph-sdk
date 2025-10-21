@@ -34,7 +34,7 @@ class ExchangeRestoreSession
         public array $granularMailboxRestoreArtifacts = [],
         /** A collection of restore points and destination details that can be used to restore Exchange mailboxes. */
         public array $mailboxRestoreArtifacts = [],
-        /** @var string[] A collection of user mailboxes and destination details that can be used to restore Exchange mailboxes. */
+        /** A collection of user mailboxes and destination details that can be used to restore Exchange mailboxes. */
         public array $mailboxRestoreArtifactsBulkAdditionRequests = []
     ) {}
 }

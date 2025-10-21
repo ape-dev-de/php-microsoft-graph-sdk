@@ -30,7 +30,7 @@ class ItemActivityStat
         public ?string $move = null,
         /** When the interval starts. Read-only. */
         public ?\DateTimeInterface $startDateTime = null,
-        /** @var string[] Exposes the itemActivities represented in this itemActivityStat resource. */
+        /** Exposes the itemActivities represented in this itemActivityStat resource. */
         public array $activities = []
     ) {}
 }

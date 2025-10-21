@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ShareAction
 {
     public function __construct(
-        /** @var string[] The identities the item was shared with in this action. */
+        /** The identities the item was shared with in this action. */
         public array $recipients = []
     ) {}
 }

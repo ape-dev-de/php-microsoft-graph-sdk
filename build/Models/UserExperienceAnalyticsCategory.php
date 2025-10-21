@@ -14,7 +14,7 @@ class UserExperienceAnalyticsCategory
         public ?string $id = null,
         /** The insights for the category. Read-only. */
         public array $insights = [],
-        /** @var string[] The user experience analytics category entity contains the scores and insights for the various metrics of a category. */
+        /** The metric values for the user experience analytics category. Read-only. */
         public array $metricValues = []
     ) {}
 }

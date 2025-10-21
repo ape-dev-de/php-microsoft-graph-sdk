@@ -28,7 +28,7 @@ class SecurityArticle
         public array $tags = [],
         /** The title of this article. */
         public ?string $title = null,
-        /** @var string[] Indicators related to this article. */
+        /** Indicators related to this article. */
         public array $indicators = []
     ) {}
 }

@@ -12,7 +12,7 @@ class BookingWorkHours
     public function __construct(
         /**  */
         public ?string $day = null,
-        /** @var string[] This type represents the set of working hours in a single day of the week. */
+        /** A list of start/end times during a day. */
         public array $timeSlots = []
     ) {}
 }

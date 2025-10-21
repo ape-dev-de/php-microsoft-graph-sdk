@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ComplianceManagementPartnerAssignment
 {
     public function __construct(
-        /** User group targeting for Compliance Management Partner */
+        /** Group assignment target. */
         public ?string $target = null
     ) {}
 }

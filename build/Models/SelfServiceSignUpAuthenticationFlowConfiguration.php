@@ -11,6 +11,6 @@ class SelfServiceSignUpAuthenticationFlowConfiguration
 {
     public function __construct(
         /** Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property isn't a key. Required. */
-        public ?string $isEnabled = null
+        public ?bool $isEnabled = null
     ) {}
 }

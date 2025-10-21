@@ -28,7 +28,7 @@ class Directory
         public array $onPremisesSynchronization = [],
         /** The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant. */
         public ?string $publicKeyInfrastructure = null,
-        /** @var string[] List of commercial subscriptions that an organization acquired. */
+        /** List of commercial subscriptions that an organization acquired. */
         public array $subscriptions = []
     ) {}
 }

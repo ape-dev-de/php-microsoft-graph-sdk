@@ -24,7 +24,7 @@ class AccessPackageAssignmentRequestorSettings
         public ?bool $enableTargetsToSelfRemoveAccess = null,
         /** True allows requestors to create a request to update their access. */
         public ?bool $enableTargetsToSelfUpdateAccess = null,
-        /** @var string[] The principals who can request on-behalf-of others. */
+        /** The principals who can request on-behalf-of others. */
         public array $onBehalfRequestors = []
     ) {}
 }

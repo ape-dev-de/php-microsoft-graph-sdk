@@ -28,7 +28,7 @@ class Printer
         public ?string $model = null,
         /**  */
         public ?string $status = null,
-        /** @var string[] The list of jobs that are queued for printing by the printer/printerShare. */
+        /** The list of jobs that are queued for printing by the printer/printerShare. */
         public array $jobs = [],
         /** True if the printer has a physical device for printing. Read-only. */
         public ?bool $hasPhysicalDevice = null,
@@ -42,7 +42,7 @@ class Printer
         public array $connectors = [],
         /** The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable. */
         public array $shares = [],
-        /** @var string[] A list of task triggers that are associated with the printer. */
+        /** A list of task triggers that are associated with the printer. */
         public array $taskTriggers = []
     ) {}
 }

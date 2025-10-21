@@ -24,7 +24,7 @@ class VirtualEndpoint
         public array $onPremisesConnections = [],
         /** A collection of Cloud PC provisioning policies. */
         public array $provisioningPolicies = [],
-        /** @var string[] A collection of Cloud PC user settings. */
+        /** A collection of Cloud PC user settings. */
         public array $userSettings = []
     ) {}
 }

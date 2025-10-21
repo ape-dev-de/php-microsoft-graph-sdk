@@ -34,7 +34,7 @@ class Windows10CompliancePolicy
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
-        /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
+        /** Device compliance users status overview */
         public ?string $userStatusOverview = null,
         /** Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled */
         public ?bool $bitLockerEnabled = null,
@@ -72,7 +72,7 @@ class Windows10CompliancePolicy
         public ?bool $requireHealthyDeviceReport = null,
         /** Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled. */
         public ?bool $secureBootEnabled = null,
-        /** This class contains compliance settings for Windows 10. */
-        public ?string $storageRequireEncryption = null
+        /** Require encryption on windows devices. */
+        public ?bool $storageRequireEncryption = null
     ) {}
 }

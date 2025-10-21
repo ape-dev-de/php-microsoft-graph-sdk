@@ -12,7 +12,7 @@ class EnrollmentConfigurationAssignment
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** Enrollment Configuration Assignment */
+        /** Represents an assignment to managed devices in the tenant */
         public ?string $target = null
     ) {}
 }

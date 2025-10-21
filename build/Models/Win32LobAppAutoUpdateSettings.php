@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Win32LobAppAutoUpdateSettings
 {
     public function __construct(
-        /** Contains properties used to perform the auto-update of an application. */
+        /**  */
         public ?string $autoUpdateSupersededAppsState = null
     ) {}
 }

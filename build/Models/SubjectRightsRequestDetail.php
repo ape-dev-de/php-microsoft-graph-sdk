@@ -23,6 +23,6 @@ class SubjectRightsRequestDetail
         /** Count of items signed off by the administrator. */
         public ?float $signedOffItemCount = null,
         /** Total item size in bytes. */
-        public ?string $totalItemSize = null
+        public ?float $totalItemSize = null
     ) {}
 }

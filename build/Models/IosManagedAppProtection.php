@@ -20,7 +20,7 @@ class IosManagedAppProtection
         public ?string $displayName = null,
         /** Last time the policy was modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        /** Version of the entity. */
         public ?string $version = null,
         /** Data storage locations where a user may store managed data. */
         public array $allowedDataStorageLocations = [],
@@ -74,11 +74,11 @@ class IosManagedAppProtection
         public ?bool $printBlocked = null,
         /** Indicates whether users may use the 'Save As' menu item to save a copy of protected files. */
         public ?bool $saveAsBlocked = null,
-        /** Policy used to configure detailed management settings for a specified set of apps */
-        public ?string $simplePinBlocked = null,
+        /** Indicates whether simplePin is blocked. */
+        public ?bool $simplePinBlocked = null,
         /** Indicates if the policy is deployed to any inclusion groups or not. */
         public ?bool $isAssigned = null,
-        /** @var string[] Policy used to configure detailed management settings targeted to specific security groups */
+        /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
         public array $assignments = [],
         /**  */
         public ?string $appDataEncryptionType = null,
@@ -92,7 +92,7 @@ class IosManagedAppProtection
         public ?string $minimumRequiredSdkVersion = null,
         /** List of apps to which the policy is deployed. */
         public array $apps = [],
-        /** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device */
+        /** Navigation property to deployment summary of the configuration. */
         public ?string $deploymentSummary = null
     ) {}
 }

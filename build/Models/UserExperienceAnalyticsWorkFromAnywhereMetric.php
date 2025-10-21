@@ -12,7 +12,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** @var string[] The user experience analytics metric for work from anywhere report. */
+        /** The work from anywhere metric devices. Read-only. */
         public array $metricDevices = []
     ) {}
 }

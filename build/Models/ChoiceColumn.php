@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ChoiceColumn
 {
     public function __construct(
-        /** If true, allows custom values that aren''t in the configured choices. */
+        /** If true, allows custom values that aren't in the configured choices. */
         public ?bool $allowTextEntry = null,
         /** @var string[] The list of values available for this column. */
         public array $choices = [],

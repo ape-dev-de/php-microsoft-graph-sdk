@@ -12,7 +12,7 @@ class PhysicalOfficeAddress
     public function __construct(
         /** The city. */
         public ?string $city = null,
-        /** The country or region. It''s a free-format string value, for example, ''United States''. */
+        /** The country or region. It's a free-format string value, for example, 'United States'. */
         public ?string $countryOrRegion = null,
         /** Office location such as building and office number for an organizational contact. */
         public ?string $officeLocation = null,

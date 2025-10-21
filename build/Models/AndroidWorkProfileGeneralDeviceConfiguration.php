@@ -32,7 +32,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Indicates whether or not to block fingerprint unlock. */
         public ?bool $passwordBlockFingerprintUnlock = null,
@@ -100,7 +100,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
         public ?string $workProfilePasswordRequiredType = null,
         /** Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16 */
         public ?float $workProfilePasswordSignInFailureCountBeforeFactoryReset = null,
-        /** Android Work Profile general device configuration. */
-        public ?string $workProfileRequirePassword = null
+        /** Password is required or not for work profile */
+        public ?bool $workProfileRequirePassword = null
     ) {}
 }

@@ -12,11 +12,11 @@ class AccessReviewStageSettings
     public function __construct(
         /** @var string[] Indicate which decisions will go to the next stage. Can be a subset of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional. */
         public array $decisionsThatWillMoveToNextStage = [],
-        /** @var string[] Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, don''t specify dependsOn. Required if stageId isn''t 1. */
+        /** @var string[] Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, don't specify dependsOn. Required if stageId isn't 1. */
         public array $dependsOn = [],
-        /** The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Can''t exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays can''t exceed 7. */
+        /** The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Can't exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays can't exceed 7. */
         public ?float $durationInDays = null,
-        /** If provided, the fallback reviewers are asked to complete a review if the primary reviewers don''t exist. For example, if managers are selected as reviewers and a principal under review doesn''t have a manager in Microsoft Entra ID, the fallback reviewers are asked to review that principal. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object. */
+        /** If provided, the fallback reviewers are asked to complete a review if the primary reviewers don't exist. For example, if managers are selected as reviewers and a principal under review doesn't have a manager in Microsoft Entra ID, the fallback reviewers are asked to review that principal. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object. */
         public array $fallbackReviewers = [],
         /**  */
         public array $recommendationInsightSettings = [],

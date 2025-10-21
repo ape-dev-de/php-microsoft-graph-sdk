@@ -32,7 +32,7 @@ class Windows10TeamGeneralConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Indicates whether or not to Block Azure Operational Insights. */
         public ?bool $azureOperationalInsightsBlockTelemetry = null,
@@ -54,7 +54,7 @@ class Windows10TeamGeneralConfiguration
         public ?string $miracastChannel = null,
         /** Indicates whether or not to require a pin for wireless projection. */
         public ?bool $miracastRequirePin = null,
-        /** Specifies whether to disable the ''My meetings and files'' feature in the Start menu, which shows the signed-in user''s meetings and files from Office 365. */
+        /** Specifies whether to disable the 'My meetings and files' feature in the Start menu, which shows the signed-in user's meetings and files from Office 365. */
         public ?bool $settingsBlockMyMeetingsAndFiles = null,
         /** Specifies whether to allow the ability to resume a session when the session times out. */
         public ?bool $settingsBlockSessionResume = null,
@@ -72,7 +72,7 @@ class Windows10TeamGeneralConfiguration
         public ?string $welcomeScreenBackgroundImageUrl = null,
         /** Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room. */
         public ?bool $welcomeScreenBlockAutomaticWakeUp = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10TeamGeneralConfiguration resource. */
+        /**  */
         public ?string $welcomeScreenMeetingInformation = null
     ) {}
 }

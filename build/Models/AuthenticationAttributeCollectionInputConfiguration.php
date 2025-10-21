@@ -20,7 +20,7 @@ class AuthenticationAttributeCollectionInputConfiguration
         public ?bool $hidden = null,
         /**  */
         public ?string $inputType = null,
-        /** The label of the attribute field that''s displayed to end user, unless overridden. */
+        /** The label of the attribute field that's displayed to end user, unless overridden. */
         public ?string $label = null,
         /** The option values for certain multiple-option input types. */
         public array $options = [],
@@ -29,6 +29,6 @@ class AuthenticationAttributeCollectionInputConfiguration
         /** The regex for the value of the field. For more information about the supported regexes, see validationRegEx values for inputType objects. To understand how to specify regexes, see the Regular expressions cheat sheet. */
         public ?string $validationRegEx = null,
         /** Defines whether Microsoft Entra ID stores the value that it collects. */
-        public ?string $writeToDirectory = null
+        public ?bool $writeToDirectory = null
     ) {}
 }

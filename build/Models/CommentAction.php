@@ -14,7 +14,7 @@ class CommentAction
         public ?bool $isReply = null,
         /** The identity of the user who started the comment thread. */
         public ?string $parentAuthor = null,
-        /** @var string[] The identities of the users participating in this comment thread. */
+        /** The identities of the users participating in this comment thread. */
         public array $participants = []
     ) {}
 }

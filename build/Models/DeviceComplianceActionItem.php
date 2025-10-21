@@ -18,7 +18,7 @@ class DeviceComplianceActionItem
         public ?float $gracePeriodHours = null,
         /** @var string[] A list of group IDs to speicify who to CC this notification message to. */
         public array $notificationMessageCCList = [],
-        /** Scheduled Action Configuration */
+        /** What notification Message template to use */
         public ?string $notificationTemplateId = null
     ) {}
 }

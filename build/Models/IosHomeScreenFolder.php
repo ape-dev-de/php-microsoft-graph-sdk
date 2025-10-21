@@ -10,9 +10,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IosHomeScreenFolder
 {
     public function __construct(
-        /** Represents an item on the iOS Home Screen */
+        /** Name of the app */
         public ?string $displayName = null,
-        /** @var string[] A folder containing pages of apps and web clips on the Home Screen. */
+        /** Pages of Home Screen Layout Icons which must be applications or web clips. This collection can contain a maximum of 500 elements. */
         public array $pages = []
     ) {}
 }

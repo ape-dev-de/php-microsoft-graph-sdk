@@ -18,7 +18,7 @@ class ManagedAppOperation
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The current state of the operation */
         public ?string $state = null,
-        /** Represents an operation applied against an app registration. */
+        /** Version of the entity. */
         public ?string $version = null
     ) {}
 }

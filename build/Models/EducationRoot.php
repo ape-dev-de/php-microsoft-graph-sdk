@@ -18,7 +18,7 @@ class EducationRoot
         public ?string $reports = null,
         /**  */
         public array $schools = [],
-        /** @var string[]  */
+        /**  */
         public array $users = []
     ) {}
 }

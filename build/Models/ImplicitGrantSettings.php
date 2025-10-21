@@ -13,6 +13,6 @@ class ImplicitGrantSettings
         /** Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow. */
         public ?bool $enableAccessTokenIssuance = null,
         /** Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow. */
-        public ?string $enableIdTokenIssuance = null
+        public ?bool $enableIdTokenIssuance = null
     ) {}
 }

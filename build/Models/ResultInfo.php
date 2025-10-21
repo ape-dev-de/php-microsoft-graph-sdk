@@ -15,6 +15,6 @@ class ResultInfo
         /** The message. */
         public ?string $message = null,
         /** The result subcode. */
-        public ?string $subcode = null
+        public ?float $subcode = null
     ) {}
 }

@@ -16,7 +16,7 @@ class VirtualEventsRoot
         public array $events = [],
         /** A collection of town halls. Nullable. */
         public array $townhalls = [],
-        /** @var string[] A collection of webinars. Nullable. */
+        /** A collection of webinars. Nullable. */
         public array $webinars = []
     ) {}
 }

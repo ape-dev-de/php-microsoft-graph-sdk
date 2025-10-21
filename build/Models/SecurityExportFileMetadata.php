@@ -15,6 +15,6 @@ class SecurityExportFileMetadata
         /**  */
         public ?string $fileName = null,
         /**  */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

@@ -20,7 +20,7 @@ class Team
         public ?string $description = null,
         /** The name of the team. */
         public ?string $displayName = null,
-        /** The name of the first channel in the team. This is an optional property, only used during team creation and isn''t returned in methods to get and list teams. */
+        /** The name of the first channel in the team. This is an optional property, only used during team creation and isn't returned in methods to get and list teams. */
         public ?string $firstChannelName = null,
         /** Settings to configure use of Giphy, memes, and stickers in the team. */
         public ?string $funSettings = null,

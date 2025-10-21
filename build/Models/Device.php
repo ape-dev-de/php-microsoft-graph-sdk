@@ -42,7 +42,7 @@ class Device
         public ?bool $isCompliant = null,
         /** true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not). */
         public ?bool $isManaged = null,
-        /** Indicates whether the device is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a device that''s a member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit. Returned only on $select. */
+        /** Indicates whether the device is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a device that's a member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit. Returned only on $select. */
         public ?bool $isManagementRestricted = null,
         /** true if the device is rooted or jail-broken. This property can only be updated by Intune. */
         public ?bool $isRooted = null,
@@ -82,7 +82,7 @@ class Device
         public array $registeredOwners = [],
         /** Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand. */
         public array $registeredUsers = [],
-        /** @var string[] Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand. */
+        /** Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand. */
         public array $transitiveMemberOf = []
     ) {}
 }

@@ -28,7 +28,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
         public ?float $meanTimeToFailureInMinutes = null,
         /** The OS build number of the application. Supports: $select, $OrderBy. Read-only. */
         public ?string $osBuildNumber = null,
-        /** The user experience analytics application performance entity contains app performance details by OS version. */
+        /** The OS version of the application. Supports: $select, $OrderBy. Read-only. */
         public ?string $osVersion = null
     ) {}
 }

@@ -12,7 +12,7 @@ class WorkbookRangeFill
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** HTML color code representing the color of the border line. Can either be of the form #RRGGBB, for example ''FFA500'', or be a named HTML color, for example ''orange''. */
+        /** HTML color code representing the color of the border line. Can either be of the form #RRGGBB, for example 'FFA500', or be a named HTML color, for example 'orange'. */
         public ?string $color = null
     ) {}
 }

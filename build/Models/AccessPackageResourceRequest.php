@@ -16,7 +16,7 @@ class AccessPackageResourceRequest
         public ?\DateTimeInterface $createdDateTime = null,
         /** The type of the request. Use adminAdd to add a resource, if the caller is an administrator or resource owner, adminUpdate to update a resource, or adminRemove to remove a resource. */
         public ?string $requestType = null,
-        /** The outcome of whether the service was able to add the resource to the catalog. The value is delivered if the resource was added or removed, and deliveryFailed if it couldn''t be added or removed. Read-only. */
+        /** The outcome of whether the service was able to add the resource to the catalog. The value is delivered if the resource was added or removed, and deliveryFailed if it couldn't be added or removed. Read-only. */
         public ?string $state = null,
         /**  */
         public ?string $catalog = null,

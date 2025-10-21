@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp
 {
     public function __construct(
-        /** @var string[]  */
+        /**  */
         public array $identityProviders = []
     ) {}
 }

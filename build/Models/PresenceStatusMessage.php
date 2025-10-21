@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PresenceStatusMessage
 {
     public function __construct(
-        /** Time in which the status message expires.If not provided, the status message doesn''t expire.expiryDateTime.dateTime shouldn''t include time zone.expiryDateTime isn''t available when you request the presence of another user. */
+        /** Time in which the status message expires.If not provided, the status message doesn't expire.expiryDateTime.dateTime shouldn't include time zone.expiryDateTime isn't available when you request the presence of another user. */
         public ?string $expiryDateTime = null,
         /** Status message item. The only supported format currently is message.contentType = 'text'. */
         public ?string $message = null,

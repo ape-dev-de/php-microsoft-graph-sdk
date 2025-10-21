@@ -21,6 +21,6 @@ class BroadcastMeetingSettings
         /** Indicates whether recording is enabled for this Teams live event. Default value is false. */
         public ?bool $isRecordingEnabled = null,
         /** Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
-        public ?string $isVideoOnDemandEnabled = null
+        public ?bool $isVideoOnDemandEnabled = null
     ) {}
 }

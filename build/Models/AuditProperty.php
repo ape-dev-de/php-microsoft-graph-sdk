@@ -14,7 +14,7 @@ class AuditProperty
         public ?string $displayName = null,
         /** New value. */
         public ?string $newValue = null,
-        /** A class containing the properties for Audit Property. */
+        /** Old value. */
         public ?string $oldValue = null
     ) {}
 }

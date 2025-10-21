@@ -12,7 +12,7 @@ class AttackSimulationTrainingUserCoverage
     public function __construct(
         /** User in an attack simulation and training campaign. */
         public ?string $attackSimulationUser = null,
-        /** @var string[] List of assigned trainings and their statuses for the user. */
+        /** List of assigned trainings and their statuses for the user. */
         public array $userTrainings = []
     ) {}
 }

@@ -16,7 +16,7 @@ class WindowsInformationProtectionAppLearningSummary
         public ?string $applicationName = null,
         /**  */
         public ?string $applicationType = null,
-        /** Windows Information Protection AppLearning Summary entity. */
-        public ?string $deviceCount = null
+        /** Device Count */
+        public ?float $deviceCount = null
     ) {}
 }

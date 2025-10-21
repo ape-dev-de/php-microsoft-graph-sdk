@@ -30,7 +30,7 @@ class SimulationAutomation
         public ?\DateTimeInterface $nextRunDateTime = null,
         /** Status of the attack simulation automation. Supports $filter and $orderby. The possible values are: unknown, draft, notRunning, running, completed, unknownFutureValue. */
         public ?string $status = null,
-        /** @var string[] A collection of simulation automation runs. */
+        /** A collection of simulation automation runs. */
         public array $runs = []
     ) {}
 }

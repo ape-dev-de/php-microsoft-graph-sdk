@@ -24,9 +24,9 @@ class AgreementFile
         public ?bool $isDefault = null,
         /** Indicates whether the agreement file is a major version update. Major version updates invalidate the agreement's acceptances on the corresponding language. */
         public ?bool $isMajorVersion = null,
-        /** The language of the agreement file in the format ''languagecode2-country/regioncode2''. ''languagecode2'' is a lowercase two-letter code derived from ISO 639-1, while ''country/regioncode2'' is derived from ISO 3166 and usually consists of two uppercase letters, or a BCP-47 language tag. For example, U.S. English is en-US. Read-only. */
+        /** The language of the agreement file in the format 'languagecode2-country/regioncode2'. 'languagecode2' is a lowercase two-letter code derived from ISO 639-1, while 'country/regioncode2' is derived from ISO 3166 and usually consists of two uppercase letters, or a BCP-47 language tag. For example, U.S. English is en-US. Read-only. */
         public ?string $language = null,
-        /** @var string[] The localized version of the terms of use agreement files attached to the agreement. */
+        /** The localized version of the terms of use agreement files attached to the agreement. */
         public array $localizations = []
     ) {}
 }

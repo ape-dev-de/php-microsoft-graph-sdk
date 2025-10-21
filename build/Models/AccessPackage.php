@@ -32,7 +32,7 @@ class AccessPackage
         public array $incompatibleAccessPackages = [],
         /** The groups whose members are ineligible to be assigned this access package. */
         public array $incompatibleGroups = [],
-        /** @var string[] The resource roles and scopes in this access package. */
+        /** The resource roles and scopes in this access package. */
         public array $resourceRoleScopes = []
     ) {}
 }

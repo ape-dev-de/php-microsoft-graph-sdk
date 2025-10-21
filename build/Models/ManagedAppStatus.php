@@ -14,7 +14,7 @@ class ManagedAppStatus
         public ?string $id = null,
         /** Friendly name of the status report. */
         public ?string $displayName = null,
-        /** Represents app protection and configuration status for the organization. */
+        /** Version of the entity. */
         public ?string $version = null
     ) {}
 }

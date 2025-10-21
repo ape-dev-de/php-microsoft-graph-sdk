@@ -28,7 +28,7 @@ class CustomSecurityAttributeDefinition
         public ?string $type = null,
         /** Indicates whether only predefined values can be assigned to the custom security attribute. If set to false, free-form values are allowed. Can later be changed from true to false, but cannot be changed from false to true. If type is set to Boolean, usePreDefinedValuesOnly cannot be set to true. */
         public ?bool $usePreDefinedValuesOnly = null,
-        /** @var string[] Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues. */
+        /** Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues. */
         public array $allowedValues = []
     ) {}
 }

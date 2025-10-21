@@ -34,7 +34,7 @@ class BrowserSite
         public ?string $status = null,
         /**  */
         public ?string $targetEnvironment = null,
-        /** Singleton entity which is used to specify IE mode site metadata */
+        /** The URL of the site. */
         public ?string $webUrl = null
     ) {}
 }

@@ -16,9 +16,9 @@ class VisualInfo
         public ?string $backgroundColor = null,
         /** Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI */
         public ?string $content = null,
-        /** Optional. Longer text description of the user''s unique activity (example: document name, first sentence, and/or metadata) */
+        /** Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata) */
         public ?string $description = null,
-        /** Required. Short text description of the user''s unique activity (for example, document name in cases where an activity refers to document creation) */
+        /** Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation) */
         public ?string $displayText = null
     ) {}
 }

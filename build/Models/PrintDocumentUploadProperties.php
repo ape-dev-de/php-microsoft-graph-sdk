@@ -15,6 +15,6 @@ class PrintDocumentUploadProperties
         /** The document's name. */
         public ?string $documentName = null,
         /** The document's size in bytes. */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

@@ -28,7 +28,7 @@ class UserExperienceAnalyticsModelScores
         public ?float $modelDeviceCount = null,
         /** Indicates a weighted average of boot score and logon score used for measuring startup performance. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $startupPerformanceScore = null,
-        /** The user experience analytics model scores entity consolidates the various Endpoint Analytics scores. */
+        /** Indicates a weighted score of the work from anywhere on a device level. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $workFromAnywhereScore = null
     ) {}
 }

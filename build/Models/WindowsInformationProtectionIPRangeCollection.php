@@ -12,7 +12,7 @@ class WindowsInformationProtectionIPRangeCollection
     public function __construct(
         /** Display name */
         public ?string $displayName = null,
-        /** @var string[] Windows Information Protection IP Range Collection */
+        /** Collection of ip ranges */
         public array $ranges = []
     ) {}
 }

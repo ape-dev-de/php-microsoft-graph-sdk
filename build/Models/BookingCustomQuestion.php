@@ -20,7 +20,7 @@ class BookingCustomQuestion
         public ?\DateTimeInterface $createdDateTime = null,
         /** The question. */
         public ?string $displayName = null,
-        /** Represents a custom question of the business. */
+        /** The date, time, and time zone when the custom question was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastUpdatedDateTime = null
     ) {}
 }

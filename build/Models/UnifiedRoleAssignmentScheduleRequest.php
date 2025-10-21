@@ -40,11 +40,11 @@ class UnifiedRoleAssignmentScheduleRequest
         public ?string $roleDefinitionId = null,
         /** The period of the role assignment. Recurring schedules are currently unsupported. */
         public ?string $scheduleInfo = null,
-        /** Identifier of the schedule object that''s linked to the assignment request. Supports $filter (eq, ne). */
+        /** Identifier of the schedule object that's linked to the assignment request. Supports $filter (eq, ne). */
         public ?string $targetScheduleId = null,
         /** Ticket details linked to the role assignment request including details of the ticket number and ticket system. */
         public ?string $ticketInfo = null,
-        /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it''s null. Supports $expand and $select nested in $expand. */
+        /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it's null. Supports $expand and $select nested in $expand. */
         public ?string $activatedUsing = null,
         /** Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand. */
         public ?string $appScope = null,

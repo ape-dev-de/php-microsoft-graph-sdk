@@ -20,7 +20,7 @@ class SharedWithChannelTeamInfo
         public ?string $team = null,
         /** Indicates whether the team is the host of the channel. */
         public ?bool $isHostTeam = null,
-        /** @var string[] A collection of team members who have access to the shared channel. */
+        /** A collection of team members who have access to the shared channel. */
         public array $allowedMembers = []
     ) {}
 }

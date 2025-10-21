@@ -14,7 +14,7 @@ class ManagedMobileApp
         public ?string $id = null,
         /** The identifier for an app with it's operating system type. */
         public ?string $mobileAppIdentifier = null,
-        /** The identifier for the deployment an app. */
+        /** Version of the entity. */
         public ?string $version = null
     ) {}
 }

@@ -26,7 +26,7 @@ class DeviceInstallState
         public ?string $osDescription = null,
         /** OS Version. */
         public ?string $osVersion = null,
-        /** Contains properties for the installation state for a device. */
+        /** Device User Name. */
         public ?string $userName = null
     ) {}
 }

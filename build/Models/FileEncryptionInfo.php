@@ -22,7 +22,7 @@ class FileEncryptionInfo
         public ?string $mac = null,
         /** The key used to compute the message authentication code of the concatenation of the IV and encrypted file content. Must be 32 bytes. */
         public ?string $macKey = null,
-        /** Contains properties for file encryption information for the content version of a line-of-business app. */
+        /** The profile identifier. Maps to the strategy used to encrypt the file. Currently, only ProfileVersion1 is supported. */
         public ?string $profileIdentifier = null
     ) {}
 }

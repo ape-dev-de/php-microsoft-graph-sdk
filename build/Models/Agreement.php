@@ -14,7 +14,7 @@ class Agreement
         public ?string $id = null,
         /** Display name of the agreement. The display name is used for internal tracking of the agreement but isn't shown to end users who view the agreement. Supports $filter (eq). */
         public ?string $displayName = null,
-        /** Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Microsoft Entra ID, if they haven''t already done so. Supports $filter (eq). */
+        /** Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Microsoft Entra ID, if they haven't already done so. Supports $filter (eq). */
         public ?bool $isPerDeviceAcceptanceRequired = null,
         /** Indicates whether the user has to expand the agreement before accepting. Supports $filter (eq). */
         public ?bool $isViewingBeforeAcceptanceRequired = null,
@@ -26,7 +26,7 @@ class Agreement
         public array $acceptances = [],
         /** Default PDF linked to this agreement. */
         public ?string $file = null,
-        /** @var string[] PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand. */
+        /** PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand. */
         public array $files = []
     ) {}
 }

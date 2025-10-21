@@ -30,7 +30,7 @@ class SecurityDnsEvidence
         public ?string $domainName = null,
         /**  */
         public ?string $hostIpAddress = null,
-        /** @var string[]  */
+        /**  */
         public array $ipAddresses = []
     ) {}
 }

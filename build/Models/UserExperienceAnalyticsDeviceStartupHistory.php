@@ -28,7 +28,7 @@ class UserExperienceAnalyticsDeviceStartupHistory
         public ?bool $isFeatureUpdate = null,
         /** When TRUE, indicates the device login is the first login after a reboot. When FALSE, indicates the device login is not the first login after a reboot. Supports: $select, $OrderBy. Read-only. */
         public ?bool $isFirstLogin = null,
-        /** The user experience analytics device boot record''s operating system version. Supports: $select, $OrderBy. Read-only. */
+        /** The user experience analytics device boot record's operating system version. Supports: $select, $OrderBy. Read-only. */
         public ?string $operatingSystemVersion = null,
         /** The time for desktop to become responsive during login process in milliseconds. Supports: $select, $OrderBy. Read-only. */
         public ?float $responsiveDesktopTimeInMs = null,
@@ -38,11 +38,11 @@ class UserExperienceAnalyticsDeviceStartupHistory
         public ?string $restartFaultBucket = null,
         /** OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason. Supports: $select, $OrderBy. Read-only. */
         public ?string $restartStopCode = null,
-        /** The device boot start time. The value cannot be modified and is automatically populated when the device performs a reboot. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: ''2022-01-01T00:00:00Z''. Returned by default. Read-only. */
+        /** The device boot start time. The value cannot be modified and is automatically populated when the device performs a reboot. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only. */
         public ?\DateTimeInterface $startTime = null,
         /** The device total boot time in milliseconds. Supports: $select, $OrderBy. Read-only. */
         public ?float $totalBootTimeInMs = null,
-        /** The user experience analytics device startup history entity contains device boot performance history details. */
-        public ?string $totalLoginTimeInMs = null
+        /** The device total login time in milliseconds. Supports: $select, $OrderBy. Read-only. */
+        public ?float $totalLoginTimeInMs = null
     ) {}
 }

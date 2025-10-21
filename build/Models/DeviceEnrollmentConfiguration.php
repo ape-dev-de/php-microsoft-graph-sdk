@@ -24,7 +24,7 @@ class DeviceEnrollmentConfiguration
         public ?float $priority = null,
         /** The version of the device enrollment configuration */
         public ?float $version = null,
-        /** @var string[] The Base Class of Device Enrollment Configuration */
+        /** The list of group assignments for the device configuration profile */
         public array $assignments = []
     ) {}
 }

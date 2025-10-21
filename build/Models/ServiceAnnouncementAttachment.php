@@ -21,6 +21,6 @@ class ServiceAnnouncementAttachment
         /**  */
         public ?string $name = null,
         /**  */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

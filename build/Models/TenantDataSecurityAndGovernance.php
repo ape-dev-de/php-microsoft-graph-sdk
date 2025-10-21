@@ -12,7 +12,7 @@ class TenantDataSecurityAndGovernance
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** @var string[]  */
+        /**  */
         public array $sensitivityLabels = [],
         /**  */
         public ?string $protectionScopes = null

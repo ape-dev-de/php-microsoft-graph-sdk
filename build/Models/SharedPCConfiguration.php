@@ -32,7 +32,7 @@ class SharedPCConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false. */
         public ?string $accountManagerPolicy = null,
@@ -56,7 +56,7 @@ class SharedPCConfiguration
         public ?string $kioskAppDisplayName = null,
         /** Specifies the application user model ID of the app to use with assigned access. */
         public ?string $kioskAppUserModelId = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the sharedPCConfiguration resource. */
+        /** Specifies the daily start time of maintenance hour. */
         public ?string $maintenanceStartTime = null
     ) {}
 }

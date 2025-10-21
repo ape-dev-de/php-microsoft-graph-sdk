@@ -11,6 +11,6 @@ class LocalAdminPasswordSettings
 {
     public function __construct(
         /**  */
-        public ?string $isEnabled = null
+        public ?bool $isEnabled = null
     ) {}
 }

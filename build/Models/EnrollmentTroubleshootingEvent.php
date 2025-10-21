@@ -14,7 +14,7 @@ class EnrollmentTroubleshootingEvent
         public ?string $id = null,
         /** Id used for tracing the failure in the service. */
         public ?string $correlationId = null,
-        /** Event representing an general failure. */
+        /** Time when the event occurred . */
         public ?\DateTimeInterface $eventDateTime = null,
         /** Azure AD device identifier. */
         public ?string $deviceId = null,
@@ -30,7 +30,7 @@ class EnrollmentTroubleshootingEvent
         public ?string $operatingSystem = null,
         /** OS Version. */
         public ?string $osVersion = null,
-        /** Event representing an enrollment failure. */
+        /** Identifier for the user that tried to enroll the device. */
         public ?string $userId = null
     ) {}
 }

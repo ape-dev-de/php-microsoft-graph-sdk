@@ -30,7 +30,7 @@ class ExchangeProtectionPolicy
         public array $mailboxInclusionRules = [],
         /** The protection units (mailboxes) that are  protected under the Exchange protection policy. */
         public array $mailboxProtectionUnits = [],
-        /** @var string[]  */
+        /**  */
         public array $mailboxProtectionUnitsBulkAdditionJobs = []
     ) {}
 }

@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MacOsLobAppAssignmentSettings
 {
     public function __construct(
-        /** Contains properties used to assign a macOS LOB app to a group. */
-        public ?string $uninstallOnDeviceRemoval = null
+        /** When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune. */
+        public ?bool $uninstallOnDeviceRemoval = null
     ) {}
 }

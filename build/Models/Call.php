@@ -58,7 +58,7 @@ class Call
         public array $contentSharingSessions = [],
         /**  */
         public array $operations = [],
-        /** @var string[]  */
+        /**  */
         public array $participants = []
     ) {}
 }

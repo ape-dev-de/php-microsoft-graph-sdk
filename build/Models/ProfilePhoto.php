@@ -15,6 +15,6 @@ class ProfilePhoto
         /** The height of the photo. Read-only. */
         public ?float $height = null,
         /** The width of the photo. Read-only. */
-        public ?string $width = null
+        public ?float $width = null
     ) {}
 }

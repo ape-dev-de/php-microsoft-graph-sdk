@@ -16,9 +16,9 @@ class RemoteLockActionResult
         public ?string $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** Device action result */
+        /** Time the action was initiated */
         public ?\DateTimeInterface $startDateTime = null,
-        /** Lock action result with a pin to unlock */
+        /** Pin to unlock the client */
         public ?string $unlockPin = null
     ) {}
 }

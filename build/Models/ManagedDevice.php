@@ -60,7 +60,7 @@ class ManagedDevice
         public ?\DateTimeInterface $exchangeLastSuccessfulSyncDateTime = null,
         /** Free Storage in Bytes. Default value is 0. Read-only. This property is read-only. */
         public ?float $freeStorageSpaceInBytes = null,
-        /** Integrated Circuit Card Identifier, it is A SIM card''s unique identification number. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
+        /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
         public ?string $iccid = null,
         /** IMEI. This property is read-only. */
         public ?string $imei = null,
@@ -130,7 +130,7 @@ class ManagedDevice
         public array $logCollectionRequests = [],
         /** The primary users associated with the managed device. */
         public array $users = [],
-        /** Devices that are managed or pre-enrolled through Intune. Limited support for $filter: Only properties whose descriptions mention support for $filter may be used, and combinations of those filtered properties must use ''and'', not ''or''. */
+        /** The device protection status. This property is read-only. */
         public ?string $windowsProtectionState = null
     ) {}
 }

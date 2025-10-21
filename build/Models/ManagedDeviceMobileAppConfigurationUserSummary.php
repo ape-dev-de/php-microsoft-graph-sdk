@@ -24,7 +24,7 @@ class ManagedDeviceMobileAppConfigurationUserSummary
         public ?float $notApplicableCount = null,
         /** Number of pending Users */
         public ?float $pendingCount = null,
-        /** Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary. */
-        public ?string $successCount = null
+        /** Number of succeeded Users */
+        public ?float $successCount = null
     ) {}
 }

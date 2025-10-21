@@ -34,7 +34,7 @@ class Windows81CompliancePolicy
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
-        /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
+        /** Device compliance users status overview */
         public ?string $userStatusOverview = null,
         /** Maximum Windows 8.1 version. */
         public ?string $osMaximumVersion = null,
@@ -56,7 +56,7 @@ class Windows81CompliancePolicy
         public ?bool $passwordRequired = null,
         /**  */
         public ?string $passwordRequiredType = null,
-        /** This class contains compliance settings for Windows 8.1. */
-        public ?string $storageRequireEncryption = null
+        /** Indicates whether or not to require encryption on a windows 8.1 device. */
+        public ?bool $storageRequireEncryption = null
     ) {}
 }

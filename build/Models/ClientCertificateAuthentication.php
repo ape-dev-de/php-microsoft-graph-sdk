@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ClientCertificateAuthentication
 {
     public function __construct(
-        /** @var string[] The list of certificates uploaded for this API connector. */
+        /** The list of certificates uploaded for this API connector. */
         public array $certificateList = []
     ) {}
 }

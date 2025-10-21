@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ConfigurationManagerCollectionAssignmentTarget
 {
     public function __construct(
-        /** Represents an assignment to a Configuration Manager Collection. */
+        /** The collection Id that is the target of the assignment. */
         public ?string $collectionId = null
     ) {}
 }

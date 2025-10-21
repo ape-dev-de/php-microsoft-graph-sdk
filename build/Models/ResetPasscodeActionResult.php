@@ -16,11 +16,11 @@ class ResetPasscodeActionResult
         public ?string $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /** Device action result */
+        /** Time the action was initiated */
         public ?\DateTimeInterface $startDateTime = null,
         /** RotateBitLockerKeys action error code. Valid values 0 to 2147483647 */
         public ?float $errorCode = null,
-        /** Reset passcode action result */
+        /** Newly generated passcode for the device */
         public ?string $passcode = null
     ) {}
 }

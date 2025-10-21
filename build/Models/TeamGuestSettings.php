@@ -13,6 +13,6 @@ class TeamGuestSettings
         /** If set to true, guests can add and update channels. */
         public ?bool $allowCreateUpdateChannels = null,
         /** If set to true, guests can delete channels. */
-        public ?string $allowDeleteChannels = null
+        public ?bool $allowDeleteChannels = null
     ) {}
 }

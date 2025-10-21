@@ -14,7 +14,7 @@ class UnifiedRoleManagementPolicyAssignment
         public ?string $id = null,
         /** The id of the policy. Inherited from entity. */
         public ?string $policyId = null,
-        /** For Microsoft Entra roles policy, it''s the identifier of the role definition object where the policy applies. For PIM for Groups membership and ownership, it''s either member or owner. Supports $filter (eq). */
+        /** For Microsoft Entra roles policy, it's the identifier of the role definition object where the policy applies. For PIM for Groups membership and ownership, it's either member or owner. Supports $filter (eq). */
         public ?string $roleDefinitionId = null,
         /** The identifier of the scope where the policy is assigned. Can be / for the tenant or a group ID. Required. */
         public ?string $scopeId = null,

@@ -24,7 +24,7 @@ class AuditActor
         public ?string $userId = null,
         /** @var string[] List of user permissions when the audit was performed. */
         public array $userPermissions = [],
-        /** A class containing the properties for Audit Actor. */
+        /** User Principal Name (UPN). */
         public ?string $userPrincipalName = null
     ) {}
 }

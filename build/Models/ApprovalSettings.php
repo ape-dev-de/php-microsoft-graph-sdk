@@ -19,6 +19,6 @@ class ApprovalSettings
         /** Indicates whether approval is required for a user to extend their assignment. */
         public ?bool $isApprovalRequiredForExtension = null,
         /** Indicates whether the requestor is required to supply a justification in their request. */
-        public ?string $isRequestorJustificationRequired = null
+        public ?bool $isRequestorJustificationRequired = null
     ) {}
 }

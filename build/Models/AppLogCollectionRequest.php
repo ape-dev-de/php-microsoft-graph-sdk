@@ -18,7 +18,7 @@ class AppLogCollectionRequest
         public array $customLogFolders = [],
         /** Indicates error message if any during the upload process. */
         public ?string $errorMessage = null,
-        /** Entity for AppLogCollectionRequest contains all logs values. */
+        /**  */
         public ?string $status = null
     ) {}
 }

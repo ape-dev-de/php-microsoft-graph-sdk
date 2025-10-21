@@ -30,7 +30,7 @@ class AccessReviewHistoryDefinition
         public array $scopes = [],
         /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. */
         public ?string $status = null,
-        /** @var string[] If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn''t recur will have exactly one instance. */
+        /** If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance. */
         public array $instances = []
     ) {}
 }

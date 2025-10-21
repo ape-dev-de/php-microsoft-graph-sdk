@@ -13,6 +13,6 @@ class TeamsLicensingDetails
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Indicates whether the user has a valid license to use Microsoft Teams. */
-        public ?string $hasTeamsLicense = null
+        public ?bool $hasTeamsLicense = null
     ) {}
 }

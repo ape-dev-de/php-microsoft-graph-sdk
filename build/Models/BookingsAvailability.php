@@ -12,7 +12,7 @@ class BookingsAvailability
     public function __construct(
         /**  */
         public ?string $availabilityType = null,
-        /** @var string[] The hours of operation in a week. The business hours value is set to null if the availability type isn't customWeeklyHours. */
+        /** The hours of operation in a week. The business hours value is set to null if the availability type isn't customWeeklyHours. */
         public array $businessHours = []
     ) {}
 }

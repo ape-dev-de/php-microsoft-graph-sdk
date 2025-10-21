@@ -14,9 +14,9 @@ class OmaSettingDateTime
         public ?string $description = null,
         /** Display Name. */
         public ?string $displayName = null,
-        /** OMA Settings definition. */
+        /** OMA. */
         public ?string $omaUri = null,
-        /** OMA Settings DateTime definition. */
+        /** Value. */
         public ?\DateTimeInterface $value = null
     ) {}
 }

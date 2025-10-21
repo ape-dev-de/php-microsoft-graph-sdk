@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MentionAction
 {
     public function __construct(
-        /** @var string[] The identities of the users mentioned in this action. */
+        /** The identities of the users mentioned in this action. */
         public array $mentionees = []
     ) {}
 }

@@ -12,7 +12,7 @@ class SecurityCasesRoot
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** @var string[]  */
+        /**  */
         public array $ediscoveryCases = []
     ) {}
 }

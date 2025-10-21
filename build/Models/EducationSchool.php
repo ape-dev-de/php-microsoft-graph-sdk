@@ -46,7 +46,7 @@ class EducationSchool
         public ?string $administrativeUnit = null,
         /** Classes taught at the school. Nullable. */
         public array $classes = [],
-        /** @var string[] Users in the school. Nullable. */
+        /** Users in the school. Nullable. */
         public array $users = []
     ) {}
 }

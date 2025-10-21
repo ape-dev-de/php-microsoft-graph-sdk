@@ -17,6 +17,6 @@ class SecurityHostReputation
         /** A collection of rules that have been used to calculate the classification and score. */
         public array $rules = [],
         /** The calculated score (0-100) of the requested host. A higher value indicates that this host is more likely to be suspicious or malicious. */
-        public ?string $score = null
+        public ?float $score = null
     ) {}
 }

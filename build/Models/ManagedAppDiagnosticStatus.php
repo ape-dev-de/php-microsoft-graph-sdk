@@ -14,7 +14,7 @@ class ManagedAppDiagnosticStatus
         public ?string $mitigationInstruction = null,
         /** The state of the operation */
         public ?string $state = null,
-        /** Represents diagnostics status. */
+        /** The validation friendly name */
         public ?string $validationName = null
     ) {}
 }

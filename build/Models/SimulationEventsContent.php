@@ -12,7 +12,7 @@ class SimulationEventsContent
     public function __construct(
         /** Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign. */
         public ?string $compromisedRate = null,
-        /** @var string[] List of simulation events in an attack simulation and training campaign. */
+        /** List of simulation events in an attack simulation and training campaign. */
         public array $events = []
     ) {}
 }

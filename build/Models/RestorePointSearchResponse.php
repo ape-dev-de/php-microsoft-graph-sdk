@@ -14,7 +14,7 @@ class RestorePointSearchResponse
         public array $noResultProtectionUnitIds = [],
         /** The unique identifier of the search response. */
         public ?string $searchResponseId = null,
-        /** @var string[] Contains a collection of restore points. */
+        /** Contains a collection of restore points. */
         public array $searchResults = []
     ) {}
 }

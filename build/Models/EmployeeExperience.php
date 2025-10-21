@@ -16,7 +16,7 @@ class EmployeeExperience
         public array $engagementAsyncOperations = [],
         /**  */
         public array $learningCourseActivities = [],
-        /** @var string[] Represents a container that exposes navigation properties for employee experience resources. */
+        /** A collection of learning providers. */
         public array $learningProviders = []
     ) {}
 }

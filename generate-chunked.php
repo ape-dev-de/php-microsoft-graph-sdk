@@ -7,6 +7,12 @@ declare(strict_types=1);
  * 
  * This script processes the Microsoft Graph OpenAPI specification in chunks
  * to avoid memory issues. It generates models and request builders per namespace.
+ * 
+ * YAML Parsing Strategy:
+ * - Uses Symfony YAML parser for all schema parsing (parseSchemas, normalizeSchemaStructure)
+ * - Extracts components section as YAML text, then parses it properly
+ * - Line-by-line reading only for initial extraction to manage memory
+ * - Eliminates complex regex patterns in favor of proper YAML parsing
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -138,7 +144,8 @@ function downloadOpenApiSpec($output): void
 }
 
 /**
- * Parse schemas from OpenAPI file
+ * Parse schemas from OpenAPI file using YAML parser
+ * Extracts the components.schemas section and parses it properly
  */
 function parseSchemas($output): array
 {
@@ -149,170 +156,106 @@ function parseSchemas($output): array
         return [];
     }
     
-    $inSchemas = false;
-    $currentSchema = null;
-    $schemaContent = [];
-    $schemas = [];
-    $schemaCount = 0;
+    // Extract the entire components section
+    $inComponents = false;
+    $componentsYaml = '';
+    $componentsIndent = 0;
     
     while (($line = fgets($handle)) !== false) {
-        // Detect schemas section (2 spaces indentation)
-        if (preg_match('/^  schemas:\s*$/', $line)) {
-            $inSchemas = true;
+        // Detect components section start
+        if (!$inComponents && trim($line) === 'components:') {
+            $inComponents = true;
+            $componentsYaml = $line;
             continue;
         }
         
-        if ($inSchemas) {
-            // Exit schemas section (back to components level or other top-level)
-            if (preg_match('/^  [a-z]/', $line) && !preg_match('/^    /', $line)) {
-                if ($currentSchema && !empty($schemaContent)) {
-                    $schemas[$currentSchema] = parseSimpleYaml(implode('', $schemaContent));
-                }
+        if ($inComponents) {
+            // Check if we've exited the components section (back to root level)
+            if (strlen($line) > 0 && $line[0] !== ' ' && trim($line) !== '') {
                 break;
             }
-            
-            // Detect new schema (4 spaces indentation)
-            if (preg_match('/^    ([a-zA-Z0-9._-]+):\s*$/', $line, $matches)) {
-                if ($currentSchema && !empty($schemaContent)) {
-                    $schemas[$currentSchema] = parseSimpleYaml(implode('', $schemaContent));
-                    $schemaCount++;
-                    
-                    if ($schemaCount % 100 == 0) {
-                        gc_collect_cycles();
-                        $output->writeln("<comment>    Parsed {$schemaCount} schemas...</comment>");
-                    }
-                }
-                
-                $currentSchema = $matches[1];
-                $schemaContent = [];
-                continue;
-            }
-            
-            if ($currentSchema) {
-                $schemaContent[] = $line;
-            }
+            $componentsYaml .= $line;
         }
-    }
-    
-    if ($currentSchema && !empty($schemaContent)) {
-        $schemas[$currentSchema] = parseSimpleYaml(implode('', $schemaContent));
     }
     
     fclose($handle);
     
-    return $schemas;
+    if (empty($componentsYaml)) {
+        $output->writeln('<error>Could not find components section</error>');
+        return [];
+    }
+    
+    try {
+        // Parse the entire components section
+        $components = Yaml::parse($componentsYaml);
+        
+        if (!isset($components['components']['schemas'])) {
+            $output->writeln('<error>No schemas found in components</error>');
+            return [];
+        }
+        
+        $rawSchemas = $components['components']['schemas'];
+        $schemas = [];
+        $schemaCount = 0;
+        
+        // Process each schema
+        foreach ($rawSchemas as $schemaName => $schemaData) {
+            $schemas[$schemaName] = normalizeSchemaStructure($schemaData);
+            $schemaCount++;
+            
+            if ($schemaCount % 100 == 0) {
+                gc_collect_cycles();
+                $output->writeln("<comment>    Parsed {$schemaCount} schemas...</comment>");
+            }
+        }
+        
+        $output->writeln("<comment>    Total schemas parsed: {$schemaCount}</comment>");
+        return $schemas;
+        
+    } catch (Exception $e) {
+        $output->writeln('<error>Failed to parse schemas: ' . $e->getMessage() . '</error>');
+        return [];
+    }
 }
 
 /**
- * Simple YAML parser for schema properties
+ * Normalize schema structure from parsed YAML
+ * Extracts properties and handles inheritance patterns (allOf)
+ * Filters out @odata.type as it's a metadata property
  */
-function parseSimpleYaml(string $content): array
+function normalizeSchemaStructure(array $schemaData): array
 {
     $schema = ['properties' => []];
-    $lines = explode("\n", $content);
-    $inProperties = false;
-    $inAllOf = false;
-    $allOfItemIndex = -1;
-    $currentProperty = null;
-    $inItems = false;
-    $depth = 0;
     
-    foreach ($lines as $line) {
-        // Detect allOf (which contains properties and $ref)
-        if (preg_match('/^      allOf:\s*$/', $line)) {
-            $inAllOf = true;
-            $schema['allOf'] = [];
-            continue;
-        }
-        
-        // Detect new item in allOf array (8 spaces + dash)
-        if ($inAllOf && preg_match('/^        - /', $line)) {
-            $allOfItemIndex++;
-            
-            // Check if it's a $ref
-            if (preg_match('/^        - \$ref:\s*[\'"]?#\/components\/schemas\/(.+?)[\'"]?\s*$/', $line, $matches)) {
-                $schema['allOf'][$allOfItemIndex] = ['$ref' => $matches[1]];
-                continue;
-            } else {
-                // It's a new allOf item (will have properties)
-                $schema['allOf'][$allOfItemIndex] = ['properties' => []];
-                continue;
+    // Handle allOf (inheritance pattern)
+    if (isset($schemaData['allOf']) && is_array($schemaData['allOf'])) {
+        $schema['allOf'] = [];
+        foreach ($schemaData['allOf'] as $item) {
+            if (isset($item['$ref'])) {
+                // Extract schema name from reference
+                $ref = $item['$ref'];
+                if (preg_match('#/schemas/(.+)$#', $ref, $matches)) {
+                    $schema['allOf'][] = ['$ref' => $matches[1]];
+                }
+            } elseif (isset($item['properties'])) {
+                // Filter out @odata.type from properties
+                $filteredProperties = array_filter(
+                    $item['properties'],
+                    fn($key) => $key !== '@odata.type',
+                    ARRAY_FILTER_USE_KEY
+                );
+                $schema['allOf'][] = ['properties' => $filteredProperties];
             }
         }
-        
-        // Detect properties section (can be at different depths)
-        if (preg_match('/^(\s+)properties:\s*$/', $line, $matches)) {
-            $inProperties = true;
-            $depth = strlen($matches[1]);
-            continue;
-        }
-        
-        if ($inProperties) {
-            // Exit properties if we go back to lower indentation
-            if (preg_match('/^(\s+)\S/', $line, $matches)) {
-                $lineDepth = strlen($matches[1]);
-                if ($lineDepth <= $depth && !preg_match('/^\s+type:/', $line) && !preg_match('/^\s+format:/', $line) && !preg_match('/^\s+description:/', $line) && !preg_match('/^\s+items:/', $line)) {
-                    $inProperties = false;
-                    $currentProperty = null;
-                    $inItems = false;
-                }
-            }
-            
-            // New property (depth + 2 spaces)
-            if (preg_match('/^' . str_repeat(' ', $depth + 2) . '([a-zA-Z0-9_@]+):\s*$/', $line, $matches)) {
-                $currentProperty = $matches[1];
-                
-                // Store in the appropriate place (allOf item or root schema)
-                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'])) {
-                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty] = ['type' => 'string'];
-                } else {
-                    $schema['properties'][$currentProperty] = ['type' => 'string'];
-                }
-                $inItems = false;
-            } elseif ($currentProperty && preg_match('/^\s+type:\s*(.+)$/', $line, $matches)) {
-                $type = trim($matches[1]);
-                
-                // Determine where to store the type
-                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
-                    if ($inItems) {
-                        $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['items']['type'] = $type;
-                    } else {
-                        $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['type'] = $type;
-                    }
-                } else {
-                    if ($inItems) {
-                        $schema['properties'][$currentProperty]['items']['type'] = $type;
-                    } else {
-                        $schema['properties'][$currentProperty]['type'] = $type;
-                    }
-                }
-            } elseif ($currentProperty && preg_match('/^\s+items:\s*$/', $line)) {
-                // Entering items section for array type
-                $inItems = true;
-                
-                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
-                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['items'] = [];
-                } else {
-                    $schema['properties'][$currentProperty]['items'] = [];
-                }
-            } elseif ($currentProperty && preg_match('/^\s+format:\s*(.+)$/', $line, $matches)) {
-                $format = trim($matches[1]);
-                
-                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
-                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['format'] = $format;
-                } else {
-                    $schema['properties'][$currentProperty]['format'] = $format;
-                }
-            } elseif ($currentProperty && preg_match('/^\s+description:\s*(.+)$/', $line, $matches)) {
-                $description = trim($matches[1], '"\'');
-                
-                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
-                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['description'] = $description;
-                } else {
-                    $schema['properties'][$currentProperty]['description'] = $description;
-                }
-            }
-        }
+    }
+    
+    // Handle direct properties and filter out @odata.type
+    if (isset($schemaData['properties']) && is_array($schemaData['properties'])) {
+        $schema['properties'] = array_filter(
+            $schemaData['properties'],
+            fn($key) => $key !== '@odata.type',
+            ARRAY_FILTER_USE_KEY
+        );
     }
     
     return $schema;

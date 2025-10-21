@@ -22,7 +22,7 @@ class Contact
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The name of the contact's assistant. */
         public ?string $assistantName = null,
-        /** The contact''s birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+        /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
         public ?\DateTimeInterface $birthday = null,
         /** The contact's business address. */
         public ?string $businessAddress = null,
@@ -36,7 +36,7 @@ class Contact
         public ?string $companyName = null,
         /** The contact's department. */
         public ?string $department = null,
-        /** The contact''s display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation. */
+        /** The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation. */
         public ?string $displayName = null,
         /** The contact's email addresses. */
         public array $emailAddresses = [],
@@ -92,7 +92,7 @@ class Contact
         public array $multiValueExtendedProperties = [],
         /** Optional contact picture. You can get or set a photo for a contact. */
         public ?string $photo = null,
-        /** @var string[] The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
+        /** The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
         public array $singleValueExtendedProperties = []
     ) {}
 }

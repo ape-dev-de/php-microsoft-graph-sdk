@@ -20,7 +20,7 @@ class OutOfBoxExperienceSetting
         public ?bool $keyboardSelectionPageSkipped = null,
         /** When TRUE, privacy settings is hidden to the end user during OOBE. When FALSE, privacy settings is shown to the end user during OOBE. Default value is FALSE. */
         public ?bool $privacySettingsHidden = null,
-        /** The Windows Autopilot Deployment Profile settings used by the device for the out-of-box experience. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported. */
+        /**  */
         public ?string $userType = null
     ) {}
 }

@@ -24,9 +24,9 @@ class AccessReviewScheduleDefinition
         public ?string $descriptionForReviewers = null,
         /** Name of the access review series. Supports $select and $orderby. Required on create. */
         public ?string $displayName = null,
-        /** This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers are notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner doesn''t exist, or manager is specified as reviewer but a user''s manager doesn''t exist. See accessReviewReviewerScope. Replaces backupReviewers. Supports $select. NOTE: The value of this property will be ignored if fallback reviewers are assigned through the stageSettings property. */
+        /** This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers are notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner doesn't exist, or manager is specified as reviewer but a user's manager doesn't exist. See accessReviewReviewerScope. Replaces backupReviewers. Supports $select. NOTE: The value of this property will be ignored if fallback reviewers are assigned through the stageSettings property. */
         public array $fallbackReviewers = [],
-        /** This property is required when scoping a review to guest users'' access across all Microsoft 365 groups and determines which Microsoft 365 groups are reviewed. Each group becomes a unique accessReviewInstance of the access review series.  For supported scopes, see accessReviewScope. Supports $select. For examples of options for configuring instanceEnumerationScope, see Configure the scope of your access review definition using the Microsoft Graph API. */
+        /** This property is required when scoping a review to guest users' access across all Microsoft 365 groups and determines which Microsoft 365 groups are reviewed. Each group becomes a unique accessReviewInstance of the access review series.  For supported scopes, see accessReviewScope. Supports $select. For examples of options for configuring instanceEnumerationScope, see Configure the scope of your access review definition using the Microsoft Graph API. */
         public ?string $instanceEnumerationScope = null,
         /** Timestamp when the access review series was last modified. Supports $select. Read-only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
@@ -40,7 +40,7 @@ class AccessReviewScheduleDefinition
         public array $stageSettings = [],
         /** This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only. */
         public ?string $status = null,
-        /** @var string[] If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that doesn''t recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource has a unique instance for each recurrence. */
+        /** If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that doesn't recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource has a unique instance for each recurrence. */
         public array $instances = []
     ) {}
 }

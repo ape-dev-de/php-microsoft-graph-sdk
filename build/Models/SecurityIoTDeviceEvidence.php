@@ -32,7 +32,7 @@ class SecurityIoTDeviceEvidence
         public ?string $devicePageLink = null,
         /** The device subtype. */
         public ?string $deviceSubType = null,
-        /** The type of the device. For example, ''temperature sensor,'' ''freezer,'' ''wind turbine,'' and so on. */
+        /** The type of the device. For example, 'temperature sensor,' 'freezer,' 'wind turbine,' and so on. */
         public ?string $deviceType = null,
         /** The importance level for the IoT device. Possible values are low, normal, high, and unknownFutureValue. */
         public ?string $importance = null,

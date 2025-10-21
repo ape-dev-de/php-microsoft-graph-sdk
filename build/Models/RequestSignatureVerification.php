@@ -13,6 +13,6 @@ class RequestSignatureVerification
         /** Specifies which weak algorithms are allowed.  The possible values are: rsaSha1, unknownFutureValue. */
         public ?string $allowedWeakAlgorithms = null,
         /** Specifies whether signed authentication requests for this application should be required. */
-        public ?string $isSignedRequestRequired = null
+        public ?bool $isSignedRequestRequired = null
     ) {}
 }

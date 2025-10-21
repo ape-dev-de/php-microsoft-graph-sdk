@@ -12,7 +12,7 @@ class WindowsAutopilotDeploymentProfile
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** The date and time of when the deployment profile was created. The value cannot be modified and is automatically populated when the profile was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported. Read-Only. */
+        /** The date and time of when the deployment profile was created. The value cannot be modified and is automatically populated when the profile was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported. Read-Only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** A description of the deployment profile. Max allowed length is 1500 chars. Supports: $select, $top, $skip, $orderBy. $Search and $filter are not supported. */
         public ?string $description = null,
@@ -24,7 +24,7 @@ class WindowsAutopilotDeploymentProfile
         public ?string $displayName = null,
         /** Indicates whether the profile supports the extraction of hardware hash values and registration of the device into Windows Autopilot. When TRUE, indicates if hardware extraction and Windows Autopilot registration will happen on the next successful check-in. When FALSE, hardware hash extraction and Windows Autopilot registration will not happen. Default value is FALSE. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported. */
         public ?bool $hardwareHashExtractionEnabled = null,
-        /** The date and time of when the deployment profile was last modified. The value cannot be updated manually and is automatically populated when any changes are made to the profile. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported Read-Only. */
+        /** The date and time of when the deployment profile was last modified. The value cannot be updated manually and is automatically populated when any changes are made to the profile. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported Read-Only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The locale (language) to be used when configuring the device. E.g. en-US. The default value is os-default. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported. */
         public ?string $locale = null,
@@ -36,7 +36,7 @@ class WindowsAutopilotDeploymentProfile
         public ?bool $preprovisioningAllowed = null,
         /** @var string[] List of role scope tags for the deployment profile.  */
         public array $roleScopeTagIds = [],
-        /** @var string[] Windows Autopilot Deployment Profile */
+        /** The list of assigned devices for the profile. */
         public array $assignedDevices = []
     ) {}
 }

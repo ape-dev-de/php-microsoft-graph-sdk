@@ -24,7 +24,7 @@ class Workbook
         public array $operations = [],
         /** Represents a collection of tables associated with the workbook. Read-only. */
         public array $tables = [],
-        /** @var string[] Represents a collection of worksheets associated with the workbook. Read-only. */
+        /** Represents a collection of worksheets associated with the workbook. Read-only. */
         public array $worksheets = []
     ) {}
 }

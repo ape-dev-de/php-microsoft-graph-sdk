@@ -32,7 +32,7 @@ class PrivilegedAccessGroupAssignmentSchedule
         public ?string $memberType = null,
         /** The identifier of the principal whose membership or ownership assignment is granted through PIM for Groups. Required. Supports $filter (eq). */
         public ?string $principalId = null,
-        /** When the request activates an ownership or membership assignment in PIM for Groups, this object represents the eligibility relationship. Otherwise, it''s null. Supports $expand. */
+        /** When the request activates an ownership or membership assignment in PIM for Groups, this object represents the eligibility relationship. Otherwise, it's null. Supports $expand. */
         public ?string $activatedUsing = null,
         /** References the group that is the scope of the membership or ownership assignment through PIM for Groups. Supports $expand and $select nested in $expand for select properties like id, displayName, and mail. */
         public ?string $group = null,

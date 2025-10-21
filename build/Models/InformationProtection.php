@@ -12,7 +12,7 @@ class InformationProtection
     public function __construct(
         /**  */
         public ?string $bitlocker = null,
-        /** @var string[]  */
+        /**  */
         public array $threatAssessmentRequests = []
     ) {}
 }

@@ -14,7 +14,7 @@ class UnifiedRbacResourceNamespace
         public ?string $id = null,
         /**  */
         public ?string $name = null,
-        /** @var string[]  */
+        /**  */
         public array $resourceActions = []
     ) {}
 }

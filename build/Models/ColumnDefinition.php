@@ -56,7 +56,7 @@ class ColumnDefinition
         public ?string $number = null,
         /** This column stores Person or Group values. */
         public ?string $personOrGroup = null,
-        /** If ''true'', changes to this column will be propagated to lists that implement the column. */
+        /** If 'true', changes to this column will be propagated to lists that implement the column. */
         public ?bool $propagateChanges = null,
         /** Specifies whether the column values can be modified. */
         public ?bool $readOnly = null,

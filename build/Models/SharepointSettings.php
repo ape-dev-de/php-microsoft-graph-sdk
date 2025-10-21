@@ -36,7 +36,7 @@ class SharepointSettings
         public ?bool $isMacSyncAppEnabled = null,
         /** Indicates whether guests must sign in using the same account to which sharing invitations are sent. */
         public ?bool $isRequireAcceptingUserToMatchInvitedUserEnabled = null,
-        /** Indicates whether guests are allowed to reshare files, folders, and sites they don''t own. */
+        /** Indicates whether guests are allowed to reshare files, folders, and sites they don't own. */
         public ?bool $isResharingByExternalUsersEnabled = null,
         /** Indicates whether mobile push notifications are enabled for SharePoint. */
         public ?bool $isSharePointMobileNotificationEnabled = null,

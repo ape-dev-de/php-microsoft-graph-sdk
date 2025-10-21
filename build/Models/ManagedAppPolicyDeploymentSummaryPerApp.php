@@ -12,7 +12,7 @@ class ManagedAppPolicyDeploymentSummaryPerApp
     public function __construct(
         /** Number of users the policy is applied. */
         public ?float $configurationAppliedUserCount = null,
-        /** Represents policy deployment summary per app. */
+        /** Deployment of an app. */
         public ?string $mobileAppIdentifier = null
     ) {}
 }

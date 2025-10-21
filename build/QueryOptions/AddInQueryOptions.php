@@ -9,7 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  *
  * Available select fields:
  * - id
- * - items
+ * - properties
+ * - type
  */
 class AddInQueryOptions extends QueryOptions
 {
@@ -17,7 +18,8 @@ class AddInQueryOptions extends QueryOptions
      * Available select fields for AddIn
      */
     public const FIELD_ID = 'id';
-    public const FIELD_ITEMS = 'items';
+    public const FIELD_PROPERTIES = 'properties';
+    public const FIELD_TYPE = 'type';
 
     /**
      * Select specific AddIn properties

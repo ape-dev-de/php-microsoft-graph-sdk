@@ -16,7 +16,7 @@ class ExternalConnectorsExternalGroup
         public ?string $description = null,
         /** The friendly name of the external group. Optional. */
         public ?string $displayName = null,
-        /** @var string[] A member added to an externalGroup. You can add Microsoft Entra users, Microsoft Entra groups, or an externalGroup as members. */
+        /** A member added to an externalGroup. You can add Microsoft Entra users, Microsoft Entra groups, or an externalGroup as members. */
         public array $members = []
     ) {}
 }

@@ -20,7 +20,7 @@ class ManagedAppProtection
         public ?string $displayName = null,
         /** Last time the policy was modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        /** Version of the entity. */
         public ?string $version = null,
         /** Data storage locations where a user may store managed data. */
         public array $allowedDataStorageLocations = [],
@@ -74,7 +74,7 @@ class ManagedAppProtection
         public ?bool $printBlocked = null,
         /** Indicates whether users may use the 'Save As' menu item to save a copy of protected files. */
         public ?bool $saveAsBlocked = null,
-        /** Policy used to configure detailed management settings for a specified set of apps */
-        public ?string $simplePinBlocked = null
+        /** Indicates whether simplePin is blocked. */
+        public ?bool $simplePinBlocked = null
     ) {}
 }

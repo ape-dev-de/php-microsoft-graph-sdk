@@ -16,7 +16,7 @@ class FilterOperatorSchema
         public ?string $arity = null,
         /**  */
         public ?string $multivaluedComparisonType = null,
-        /** @var string[] Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String. */
+        /** Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String. */
         public array $supportedAttributeTypes = []
     ) {}
 }

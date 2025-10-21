@@ -32,7 +32,7 @@ class Windows10EndpointProtectionConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.) */
         public ?bool $applicationGuardAllowPersistence = null,
@@ -104,7 +104,7 @@ class Windows10EndpointProtectionConfiguration
         public ?string $firewallProfilePublic = null,
         /** Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files. */
         public ?bool $smartScreenBlockOverrideForFiles = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the Windows10EndpointProtectionConfiguration resource. */
-        public ?string $smartScreenEnableInShell = null
+        /** Allows IT Admins to configure SmartScreen for Windows. */
+        public ?bool $smartScreenEnableInShell = null
     ) {}
 }

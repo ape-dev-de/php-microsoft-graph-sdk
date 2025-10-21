@@ -12,7 +12,7 @@ class MacOSIncludedApp
     public function __construct(
         /** The bundleId of the app. This maps to the CFBundleIdentifier in the app's bundle configuration. */
         public ?string $bundleId = null,
-        /** Contains properties of an included .app in a MacOS app. */
+        /** The version of the app. This maps to the CFBundleShortVersion in the app's bundle configuration. */
         public ?string $bundleVersion = null
     ) {}
 }

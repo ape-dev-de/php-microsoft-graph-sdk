@@ -16,7 +16,7 @@ class ServiceAnnouncement
         public array $healthOverviews = [],
         /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */
         public array $issues = [],
-        /** @var string[] A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly. */
+        /** A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly. */
         public array $messages = []
     ) {}
 }

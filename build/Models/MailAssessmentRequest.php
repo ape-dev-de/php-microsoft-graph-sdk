@@ -26,7 +26,7 @@ class MailAssessmentRequest
         public ?string $requestSource = null,
         /** The assessment process status. Possible values are: pending, completed. */
         public ?string $status = null,
-        /** @var string[] A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it. */
+        /** A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it. */
         public array $results = [],
         /** The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk. */
         public ?string $destinationRoutingReason = null,

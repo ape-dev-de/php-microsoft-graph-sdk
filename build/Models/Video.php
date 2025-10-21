@@ -22,13 +22,13 @@ class Video
         public ?float $bitrate = null,
         /** Duration of the file in milliseconds. */
         public ?float $duration = null,
-        /** Four character code'' name of the video format. */
+        /** 'Four character code' name of the video format. */
         public ?string $fourCC = null,
         /** Frame rate of the video. */
         public ?string $frameRate = null,
         /** Height of the video, in pixels. */
         public ?float $height = null,
         /** Width of the video, in pixels. */
-        public ?string $width = null
+        public ?float $width = null
     ) {}
 }

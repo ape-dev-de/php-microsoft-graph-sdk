@@ -16,11 +16,11 @@ class VirtualEventWebinarRegistrationConfiguration
         public ?float $capacity = null,
         /** Registration URL of the virtual event. */
         public ?string $registrationWebUrl = null,
-        /** @var string[] Registration questions. */
+        /** Registration questions. */
         public array $questions = [],
         /**  */
         public ?bool $isManualApprovalEnabled = null,
         /**  */
-        public ?string $isWaitlistEnabled = null
+        public ?bool $isWaitlistEnabled = null
     ) {}
 }

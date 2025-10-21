@@ -26,7 +26,7 @@ class ApplePushNotificationCertificate
         public ?\DateTimeInterface $expirationDateTime = null,
         /** Last modified date and time for Apple push notification certificate. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** Apple push notification certificate. */
+        /** Topic Id. */
         public ?string $topicIdentifier = null
     ) {}
 }

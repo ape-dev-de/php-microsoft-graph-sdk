@@ -19,8 +19,14 @@ class TermStoreTerm
         /** Label metadata for a term. */
         public array $labels = [],
         /** Last date and time of term modification. Read-only. */
-        public array $lastModifiedDateTime = [],
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Collection of properties on the term. */
-        public ?string $items = null
+        public array $properties = [],
+        /** Children of current term. */
+        public array $children = [],
+        /** To indicate which terms are related to the current term as either pinned or reused. */
+        public array $relations = [],
+        /** The [set] in which the term is created. */
+        public ?string $set = null
     ) {}
 }

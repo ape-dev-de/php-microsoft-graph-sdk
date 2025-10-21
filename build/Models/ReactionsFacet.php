@@ -15,6 +15,6 @@ class ReactionsFacet
         /** Count of likes. */
         public ?float $likeCount = null,
         /** Count of shares. */
-        public ?string $shareCount = null
+        public ?float $shareCount = null
     ) {}
 }

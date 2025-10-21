@@ -12,7 +12,7 @@ class ManagedDeviceMobileAppConfigurationAssignment
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** Contains the properties used to assign an MDM app configuration to a group. */
+        /** Assignment target that the T&C policy is assigned to. */
         public ?string $target = null
     ) {}
 }

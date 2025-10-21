@@ -13,6 +13,6 @@ class WatermarkProtectionValues
         /** Indicates whether to apply a watermark to any shared content. */
         public ?bool $isEnabledForContentSharing = null,
         /** Indicates whether to apply a watermark to everyone's video feed. */
-        public ?string $isEnabledForVideo = null
+        public ?bool $isEnabledForVideo = null
     ) {}
 }

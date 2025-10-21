@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MicrosoftStoreForBusinessAppAssignmentSettings
 {
     public function __construct(
-        /** Contains properties used to assign an Microsoft Store for Business mobile app to a group. */
-        public ?string $useDeviceContext = null
+        /** Whether or not to use device execution context for Microsoft Store for Business mobile app. */
+        public ?bool $useDeviceContext = null
     ) {}
 }

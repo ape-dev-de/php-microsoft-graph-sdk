@@ -20,7 +20,7 @@ class SecurityHostComponent
         public ?\DateTimeInterface $lastSeenDateTime = null,
         /** A name running on the artifact, for example, Microsoft IIS. */
         public ?string $name = null,
-        /** The component version running on the artifact, for example, v8.5. This shouldn''t be assumed to be strictly numerical. */
+        /** The component version running on the artifact, for example, v8.5. This shouldn't be assumed to be strictly numerical. */
         public ?string $version = null,
         /**  */
         public ?string $host = null

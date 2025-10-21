@@ -40,7 +40,7 @@ class MobileThreatDefenseConnector
         public ?bool $partnerUnsupportedOsVersionBlocked = null,
         /** When TRUE, inidicates that Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant for Windows. When FALSE, inidicates that Intune may make a device compliant without receiving data from the Mobile Threat Defense partner for Windows. Default value is FALSE. */
         public ?bool $windowsDeviceBlockedOnMissingPartnerData = null,
-        /** Entity which represents a connection to Mobile Threat Defense partner. */
-        public ?string $windowsEnabled = null
+        /** When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during compliance evaluations for Windows. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during compliance evaluations for Windows. Default value is FALSE. */
+        public ?bool $windowsEnabled = null
     ) {}
 }

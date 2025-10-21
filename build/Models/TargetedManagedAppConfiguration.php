@@ -20,9 +20,9 @@ class TargetedManagedAppConfiguration
         public ?string $displayName = null,
         /** Last time the policy was modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        /** Version of the entity. */
         public ?string $version = null,
-        /** @var string[] Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped */
+        /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service */
         public array $customSettings = [],
         /** Count of apps to which the current policy is deployed. */
         public ?float $deployedAppCount = null,
@@ -32,7 +32,7 @@ class TargetedManagedAppConfiguration
         public array $apps = [],
         /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
         public array $assignments = [],
-        /** Configuration used to deliver a set of custom settings as-is to all users in the targeted security group */
+        /** Navigation property to deployment summary of the configuration. */
         public ?string $deploymentSummary = null
     ) {}
 }

@@ -30,7 +30,7 @@ class SecuritySslCertificate
         public ?string $sha1 = null,
         /** The person, site, machine, and so on, this certificate is for. */
         public ?string $subject = null,
-        /** @var string[] The host resources related with this sslCertificate. */
+        /** The host resources related with this sslCertificate. */
         public array $relatedHosts = []
     ) {}
 }

@@ -16,7 +16,7 @@ class GroupSetting
         public ?string $displayName = null,
         /** Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only. */
         public ?string $templateId = null,
-        /** @var string[] Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object. */
+        /** Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object. */
         public array $values = []
     ) {}
 }

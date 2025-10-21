@@ -20,7 +20,7 @@ class MdmWindowsInformationProtectionPolicy
         public ?string $displayName = null,
         /** Last time the policy was modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        /** Version of the entity. */
         public ?string $version = null,
         /** Specifies whether to allow Azure RMS encryption for WIP */
         public ?bool $azureRightsManagementServicesAllowed = null,
@@ -30,7 +30,7 @@ class MdmWindowsInformationProtectionPolicy
         public ?string $enforcementLevel = null,
         /** Primary enterprise domain */
         public ?string $enterpriseDomain = null,
-        /** This is the comma-separated list of internal proxy servers. For example, ''157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59''. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
+        /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
         public array $enterpriseInternalProxyServers = [],
         /** Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to */
         public array $enterpriseIPRanges = [],
@@ -60,7 +60,7 @@ class MdmWindowsInformationProtectionPolicy
         public array $protectedApps = [],
         /** Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured */
         public ?bool $protectionUnderLockConfigRequired = null,
-        /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don''t revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
+        /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
         public ?bool $revokeOnUnenrollDisabled = null,
         /** TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access */
         public ?string $rightsManagementServicesTemplateId = null,
@@ -70,7 +70,7 @@ class MdmWindowsInformationProtectionPolicy
         public array $assignments = [],
         /** Another way to input exempt apps through xml files */
         public array $exemptAppLockerFiles = [],
-        /** @var string[] Policy for Windows information protection to configure detailed management settings */
+        /** Another way to input protected apps through xml files */
         public array $protectedAppLockerFiles = []
     ) {}
 }

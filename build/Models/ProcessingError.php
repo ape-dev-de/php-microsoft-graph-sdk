@@ -18,7 +18,7 @@ class ProcessingError
         public ?string $message = null,
         /** The target of the error (for example, the specific property or item causing the issue). */
         public ?string $target = null,
-        /** @var string[] A collection of more specific errors contributing to the overall error. */
+        /** A collection of more specific errors contributing to the overall error. */
         public array $details = [],
         /**  */
         public ?string $errorType = null

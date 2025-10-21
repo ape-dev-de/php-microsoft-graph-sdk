@@ -28,7 +28,7 @@ class ComplianceManagementPartner
         public array $macOsEnrollmentAssignments = [],
         /** Partner onboarded for Mac devices. */
         public ?bool $macOsOnboarded = null,
-        /** Compliance management partner for all platforms */
+        /**  */
         public ?string $partnerState = null
     ) {}
 }

@@ -22,7 +22,7 @@ class EBookInstallSummary
         public ?float $installedUserCount = null,
         /** Number of Devices that does not have this book installed. */
         public ?float $notInstalledDeviceCount = null,
-        /** Contains properties for the installation summary of a book for a device. */
-        public ?string $notInstalledUserCount = null
+        /** Number of Users that did not install this book. */
+        public ?float $notInstalledUserCount = null
     ) {}
 }

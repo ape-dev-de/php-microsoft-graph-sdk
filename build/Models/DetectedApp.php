@@ -18,13 +18,13 @@ class DetectedApp
         public ?string $displayName = null,
         /**  */
         public ?string $platform = null,
-        /** Indicates the publisher of the discovered application. For example: ''Microsoft''.  The default value is an empty string. */
+        /** Indicates the publisher of the discovered application. For example: 'Microsoft'.  The default value is an empty string. */
         public ?string $publisher = null,
         /** Discovered application size in bytes. Read-only */
         public ?float $sizeInByte = null,
         /** Version of the discovered application. Read-only */
         public ?string $version = null,
-        /** @var string[] A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned. */
+        /** The devices that have the discovered application installed */
         public array $managedDevices = []
     ) {}
 }

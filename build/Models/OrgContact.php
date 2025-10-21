@@ -26,7 +26,7 @@ class OrgContact
         public ?string $givenName = null,
         /** Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values). */
         public ?string $jobTitle = null,
-        /** The SMTP address for the contact, for example, ''jeff@contoso.com''. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values). */
+        /** The SMTP address for the contact, for example, 'jeff@contoso.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values). */
         public ?string $mail = null,
         /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values). */
         public ?string $mailNickname = null,
@@ -38,7 +38,7 @@ class OrgContact
         public ?bool $onPremisesSyncEnabled = null,
         /** List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. */
         public array $phones = [],
-        /** @var string[] For example: ''SMTP: bob@contoso.com'', ''smtp: bob@sales.contoso.com''. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0). */
+        /** @var string[] For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0). */
         public array $proxyAddresses = [],
         /** Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from an organizational contact object .  Supports $filter (eq, not, for isResolved and serviceInstance). */
         public array $serviceProvisioningErrors = [],
@@ -50,7 +50,7 @@ class OrgContact
         public ?string $manager = null,
         /** Groups that this contact is a member of. Read-only. Nullable. Supports $expand. */
         public array $memberOf = [],
-        /** @var string[] Groups that this contact is a member of, including groups that the contact is nested under. Read-only. Nullable. */
+        /** Groups that this contact is a member of, including groups that the contact is nested under. Read-only. Nullable. */
         public array $transitiveMemberOf = []
     ) {}
 }

@@ -30,7 +30,7 @@ class AccessPackageResource
         public ?string $environment = null,
         /** Read-only. Nullable. Supports $expand. */
         public array $roles = [],
-        /** @var string[] Read-only. Nullable. Supports $expand. */
+        /** Read-only. Nullable. Supports $expand. */
         public array $scopes = []
     ) {}
 }

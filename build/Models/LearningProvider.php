@@ -28,7 +28,7 @@ class LearningProvider
         public ?string $squareLogoWebUrlForLightTheme = null,
         /** Learning catalog items for the provider. */
         public array $learningContents = [],
-        /** @var string[]  */
+        /**  */
         public array $learningCourseActivities = []
     ) {}
 }

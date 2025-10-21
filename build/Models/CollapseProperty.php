@@ -13,6 +13,6 @@ class CollapseProperty
         /** @var string[] Defines the collapse group to trim results. The properties in this collection must be sortable/refinable properties. Required. */
         public array $fields = [],
         /** Defines a maximum limit count for this field. This numeric value must be a positive integer. Required. */
-        public ?string $limit = null
+        public ?float $limit = null
     ) {}
 }

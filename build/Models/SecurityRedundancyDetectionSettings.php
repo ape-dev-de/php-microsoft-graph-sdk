@@ -17,6 +17,6 @@ class SecurityRedundancyDetectionSettings
         /** Specifies the minimum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words. */
         public ?float $minWords = null,
         /** Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold. */
-        public ?string $similarityThreshold = null
+        public ?float $similarityThreshold = null
     ) {}
 }

@@ -18,7 +18,7 @@ class CalendarGroup
         public ?string $classId = null,
         /** The group name. */
         public ?string $name = null,
-        /** @var string[] The calendars in the calendar group. Navigation property. Read-only. Nullable. */
+        /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
         public array $calendars = []
     ) {}
 }

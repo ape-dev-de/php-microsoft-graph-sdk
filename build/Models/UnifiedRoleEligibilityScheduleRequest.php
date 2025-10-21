@@ -40,7 +40,7 @@ class UnifiedRoleEligibilityScheduleRequest
         public ?string $roleDefinitionId = null,
         /** The period of the role eligibility. Recurring schedules are currently unsupported. */
         public ?string $scheduleInfo = null,
-        /** Identifier of the schedule object that''s linked to the eligibility request. Supports $filter (eq, ne). */
+        /** Identifier of the schedule object that's linked to the eligibility request. Supports $filter (eq, ne). */
         public ?string $targetScheduleId = null,
         /** Ticket details linked to the role eligibility request including details of the ticket number and ticket system. Optional. */
         public ?string $ticketInfo = null,

@@ -22,7 +22,7 @@ class Win32LobAppMsiInformation
         public ?string $publisher = null,
         /** Whether the MSI app requires the machine to reboot to complete installation. */
         public ?bool $requiresReboot = null,
-        /** Contains MSI app properties for a Win32 App. */
+        /** The MSI upgrade code. */
         public ?string $upgradeCode = null
     ) {}
 }

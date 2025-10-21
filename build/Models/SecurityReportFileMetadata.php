@@ -15,6 +15,6 @@ class SecurityReportFileMetadata
         /** The name of the file. */
         public ?string $fileName = null,
         /** The size of the file. */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

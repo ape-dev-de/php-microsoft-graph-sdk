@@ -12,7 +12,7 @@ class UnifiedRoleManagementPolicyNotificationRule
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** Defines details of scope that''s targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
+        /** Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
         public ?string $target = null,
         /** Indicates whether a default recipient will receive the notification email. */
         public ?bool $isDefaultRecipientsEnabled = null,

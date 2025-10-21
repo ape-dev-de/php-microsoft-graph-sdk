@@ -21,6 +21,6 @@ class Attachment
         /** The attachment's file name. */
         public ?string $name = null,
         /** The length of the attachment in bytes. */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

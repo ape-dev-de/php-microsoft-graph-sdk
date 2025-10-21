@@ -50,7 +50,7 @@ class PolicyRoot
         public array $roleManagementPolicyAssignments = [],
         /** The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID. */
         public array $tokenIssuancePolicies = [],
-        /** @var string[] The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID. */
+        /** The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID. */
         public array $tokenLifetimePolicies = []
     ) {}
 }

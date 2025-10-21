@@ -36,7 +36,7 @@ class RecycleBin
         public ?string $lastModifiedByUser = null,
         /**  */
         public ?string $settings = null,
-        /** @var string[] List of the recycleBinItems deleted by a user. */
+        /** List of the recycleBinItems deleted by a user. */
         public array $items = []
     ) {}
 }

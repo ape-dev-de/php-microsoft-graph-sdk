@@ -22,9 +22,9 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails
         public ?string $deviceDisplayName = null,
         /** The Intune device id of the device. Supports: $select, $OrderBy. Read-only. */
         public ?string $deviceId = null,
-        /** The time the event occurred. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: ''2022-01-01T00:00:00Z''. Returned by default. Read-only. */
+        /** The time the event occurred. The value cannot be modified and is automatically populated when the statistics are computed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2022 would look like this: '2022-01-01T00:00:00Z'. Returned by default. Read-only. */
         public ?\DateTimeInterface $eventDateTime = null,
-        /** The user experience analytics device performance entity contains device performance details. */
+        /** The type of the event. Supports: $select, $OrderBy. Read-only. */
         public ?string $eventType = null
     ) {}
 }

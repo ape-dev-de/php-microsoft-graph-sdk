@@ -40,7 +40,7 @@ class Win32LobApp
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
         /** The internal committed content version. */
         public ?string $committedContentVersion = null,
@@ -48,7 +48,7 @@ class Win32LobApp
         public ?string $fileName = null,
         /** The total size, including all uploaded files. */
         public ?float $size = null,
-        /** @var string[] An abstract base class containing properties for all mobile line-of-business apps. */
+        /** The list of content versions for this app. */
         public array $contentVersions = [],
         /** Indicates the Windows architecture(s) this app should be installed on. The app will be treated as not applicable for devices with architectures not matching the selected value. When a non-null value is provided for the `allowedArchitectures` property, the value of the `applicableArchitectures` property is set to `none`. Possible values are: `null`, `x86`, `x64`, `arm64`. */
         public ?string $allowedArchitectures = null,
@@ -76,7 +76,7 @@ class Win32LobApp
         public array $rules = [],
         /** The relative path of the setup file in the encrypted Win32LobApp package. */
         public ?string $setupFilePath = null,
-        /** Contains properties and inherited properties for Win32 apps. */
+        /** The command line to uninstall this app */
         public ?string $uninstallCommandLine = null
     ) {}
 }

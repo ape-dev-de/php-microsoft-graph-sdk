@@ -20,7 +20,7 @@ class ConditionalAccessRoot
         public array $namedLocations = [],
         /** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies. */
         public array $policies = [],
-        /** @var string[] Read-only. Nullable. Returns a collection of the specified Conditional Access templates. */
+        /** Read-only. Nullable. Returns a collection of the specified Conditional Access templates. */
         public array $templates = []
     ) {}
 }

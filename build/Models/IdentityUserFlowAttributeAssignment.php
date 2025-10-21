@@ -16,7 +16,7 @@ class IdentityUserFlowAttributeAssignment
         public ?string $displayName = null,
         /** Determines whether the identityUserFlowAttribute is optional. true means the user doesn't have to provide a value. false means the user can't complete sign-up without providing a value. */
         public ?bool $isOptional = null,
-        /** Determines whether the identityUserFlowAttribute requires verification, and is only used for verifying the user''s phone number or email address. */
+        /** Determines whether the identityUserFlowAttribute requires verification, and is only used for verifying the user's phone number or email address. */
         public ?bool $requiresVerification = null,
         /** The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect. */
         public array $userAttributeValues = [],

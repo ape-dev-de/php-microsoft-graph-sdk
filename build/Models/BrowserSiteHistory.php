@@ -22,7 +22,7 @@ class BrowserSiteHistory
         public ?string $mergeType = null,
         /** The date and time when the site was last published. */
         public ?\DateTimeInterface $publishedDateTime = null,
-        /** The history for the site modifications */
+        /** The target environment that the site should open in. The possible values are: internetExplorerMode, internetExplorer11, microsoftEdge, configurable, none, unknownFutureValue.Prior to June 15, 2022, the internetExplorer11 option would allow opening a site in the Internet Explorer 11 (IE11) desktop application. Following the retirement of IE11 on June 15, 2022, the internetExplorer11 option will no longer open an IE11 window and will instead behave the same as the internetExplorerMode option. */
         public ?string $targetEnvironment = null
     ) {}
 }

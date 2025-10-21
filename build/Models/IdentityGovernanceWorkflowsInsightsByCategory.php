@@ -27,6 +27,6 @@ class IdentityGovernanceWorkflowsInsightsByCategory
         /** Total 'Leaver' workflows processed in a tenant. */
         public ?float $totalLeaverRuns = null,
         /** Total 'Mover' workflows processed in a tenant. */
-        public ?string $totalMoverRuns = null
+        public ?float $totalMoverRuns = null
     ) {}
 }

@@ -22,7 +22,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance
         public ?string $productName = null,
         /** The publisher of the startup process. Examples: Microsoft Corporation, Contoso Corp. Supports: $select, $OrderBy. Read-only. */
         public ?string $publisher = null,
-        /** The user experience analytics device startup process performance. */
-        public ?string $totalImpactInMs = null
+        /** The total impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only. */
+        public ?float $totalImpactInMs = null
     ) {}
 }

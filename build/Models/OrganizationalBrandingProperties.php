@@ -30,7 +30,7 @@ class OrganizationalBrandingProperties
         public ?string $customAccountResetCredentialsUrl = null,
         /** A string to replace the default 'Can't access your account?' self-service password reset (SSPR) hyperlink text on the sign-in page. This text must be in Unicode format and not exceed 256 characters. */
         public ?string $customCannotAccessYourAccountText = null,
-        /** A custom URL to replace the default URL of the self-service password reset (SSPR) ''Can''t access your account?'' hyperlink on the sign-in page. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters. DO NOT USE. Use customAccountResetCredentialsUrl instead. */
+        /** A custom URL to replace the default URL of the self-service password reset (SSPR) 'Can't access your account?' hyperlink on the sign-in page. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters. DO NOT USE. Use customAccountResetCredentialsUrl instead. */
         public ?string $customCannotAccessYourAccountUrl = null,
         /** CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB. */
         public ?string $customCSS = null,
@@ -40,13 +40,13 @@ class OrganizationalBrandingProperties
         public ?string $customForgotMyPasswordText = null,
         /** A string to replace the default 'Privacy and Cookies' hyperlink text in the footer. This text must be in Unicode format and not exceed 256 characters. */
         public ?string $customPrivacyAndCookiesText = null,
-        /** A custom URL to replace the default URL of the ''Privacy and Cookies'' hyperlink in the footer. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters. */
+        /** A custom URL to replace the default URL of the 'Privacy and Cookies' hyperlink in the footer. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters. */
         public ?string $customPrivacyAndCookiesUrl = null,
-        /** A string to replace the default ''reset it now'' hyperlink text on the sign-in form. This text must be in Unicode format and not exceed 256 characters. DO NOT USE: Customization of the ''reset it now'' hyperlink text is currently not supported. */
+        /** A string to replace the default 'reset it now' hyperlink text on the sign-in form. This text must be in Unicode format and not exceed 256 characters. DO NOT USE: Customization of the 'reset it now' hyperlink text is currently not supported. */
         public ?string $customResetItNowText = null,
         /** A string to replace the the default 'Terms of Use' hyperlink text in the footer. This text must be in Unicode format and not exceed 256 characters. */
         public ?string $customTermsOfUseText = null,
-        /** A custom URL to replace the default URL of the ''Terms of Use'' hyperlink in the footer. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128characters. */
+        /** A custom URL to replace the default URL of the 'Terms of Use' hyperlink in the footer. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128characters. */
         public ?string $customTermsOfUseUrl = null,
         /** A custom icon (favicon) to replace a default Microsoft product favicon on a Microsoft Entra tenant. */
         public ?string $favicon = null,
@@ -72,7 +72,7 @@ class OrganizationalBrandingProperties
         public ?string $squareLogoDarkRelativeUrl = null,
         /** A relative URL for the squareLogo property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only. */
         public ?string $squareLogoRelativeUrl = null,
-        /** A string that shows as the hint in the username textbox on the sign-in screen. This text must be a Unicode, without links or code, and can''t exceed 64 characters. */
+        /** A string that shows as the hint in the username textbox on the sign-in screen. This text must be a Unicode, without links or code, and can't exceed 64 characters. */
         public ?string $usernameHintText = null
     ) {}
 }

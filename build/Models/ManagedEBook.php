@@ -36,7 +36,7 @@ class ManagedEBook
         public array $deviceStates = [],
         /** Mobile App Install Summary. */
         public ?string $installSummary = null,
-        /** @var string[] An abstract class containing the base properties for Managed eBook. */
+        /** The list of installation states for this eBook. */
         public array $userStateSummary = []
     ) {}
 }

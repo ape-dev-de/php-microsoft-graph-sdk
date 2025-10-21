@@ -8,6 +8,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ODataErrorsInnerError resources
  *
  * Available select fields:
+ * - request-id
+ * - client-request-id
  * - date
  */
 class ODataErrorsInnerErrorQueryOptions extends QueryOptions
@@ -15,6 +17,8 @@ class ODataErrorsInnerErrorQueryOptions extends QueryOptions
     /**
      * Available select fields for ODataErrorsInnerError
      */
+    public const FIELD_REQUEST-ID = 'request-id';
+    public const FIELD_CLIENT-REQUEST-ID = 'client-request-id';
     public const FIELD_DATE = 'date';
 
     /**

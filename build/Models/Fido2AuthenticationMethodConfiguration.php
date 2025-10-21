@@ -22,7 +22,7 @@ class Fido2AuthenticationMethodConfiguration
         public ?bool $isSelfServiceRegistrationAllowed = null,
         /** Controls whether key restrictions are enforced on FIDO2 security keys, either allowing or disallowing certain key types as defined by Authenticator Attestation GUID (AAGUID), an identifier that indicates the type (for example, make and model) of the authenticator. */
         public ?string $keyRestrictions = null,
-        /** @var string[] A collection of groups that are enabled to use the authentication method. */
+        /** A collection of groups that are enabled to use the authentication method. */
         public array $includeTargets = []
     ) {}
 }

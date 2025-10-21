@@ -18,7 +18,7 @@ class AppConsentRequest
         public ?string $appId = null,
         /** A list of pending scopes waiting for approval. Required. */
         public array $pendingScopes = [],
-        /** @var string[] A list of pending user consent requests. Supports $filter (eq). */
+        /** A list of pending user consent requests. Supports $filter (eq). */
         public array $userConsentRequests = []
     ) {}
 }

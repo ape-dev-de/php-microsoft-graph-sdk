@@ -22,7 +22,7 @@ class X509CertificateAuthenticationMethodConfiguration
         public array $certificateUserBindings = [],
         /**  */
         public ?string $crlValidationConfiguration = null,
-        /** @var string[] A collection of groups that are enabled to use the authentication method. */
+        /** A collection of groups that are enabled to use the authentication method. */
         public array $includeTargets = []
     ) {}
 }

@@ -32,7 +32,7 @@ class Authentication
         public array $softwareOathMethods = [],
         /** Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes. */
         public array $temporaryAccessPassMethods = [],
-        /** @var string[] Represents the Windows Hello for Business authentication method registered to a user for authentication. */
+        /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
         public array $windowsHelloForBusinessMethods = []
     ) {}
 }

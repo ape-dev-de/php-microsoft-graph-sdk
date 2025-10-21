@@ -52,7 +52,7 @@ class BookingBusiness
         public array $customQuestions = [],
         /** All the services offered by this business. Read-only. Nullable. */
         public array $services = [],
-        /** @var string[] Represents a Microsoft Bookings Business. */
+        /** All the staff members that provide services in this business. Read-only. Nullable. */
         public array $staffMembers = []
     ) {}
 }

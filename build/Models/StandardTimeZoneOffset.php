@@ -19,6 +19,6 @@ class StandardTimeZoneOffset
         /** Represents the time of day when the transition from daylight saving time to standard time occurs. */
         public ?string $time = null,
         /** Represents how frequently in terms of years the change from daylight saving time to standard time occurs. For example, a value of 0 means every year. */
-        public ?string $year = null
+        public ?float $year = null
     ) {}
 }

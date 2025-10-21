@@ -10,6 +10,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Available select fields:
  * - dataVersion
  * - description
+ * - properties
+ * - serverProcessedContent
+ * - title
  */
 class WebPartDataQueryOptions extends QueryOptions
 {
@@ -18,6 +21,9 @@ class WebPartDataQueryOptions extends QueryOptions
      */
     public const FIELD_DATA_VERSION = 'dataVersion';
     public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_PROPERTIES = 'properties';
+    public const FIELD_SERVER_PROCESSED_CONTENT = 'serverProcessedContent';
+    public const FIELD_TITLE = 'title';
 
     /**
      * Select specific WebPartData properties

@@ -19,6 +19,6 @@ class IdentitySecurityDefaultsEnforcementPolicy
         /** Display name for this policy. Required. */
         public ?string $displayName = null,
         /** If set to true, Microsoft Entra security defaults are enabled for the tenant. */
-        public ?string $isEnabled = null
+        public ?bool $isEnabled = null
     ) {}
 }

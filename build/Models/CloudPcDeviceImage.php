@@ -26,7 +26,7 @@ class CloudPcDeviceImage
         public ?string $osBuildNumber = null,
         /** The OS status of this image. Possible values are: supported, supportedWithWarning, unknown, unknownFutureValue. The default value is unknown. Read-only. */
         public ?string $osStatus = null,
-        /** The unique identifier (ID) of the source image resource on Azure. The required ID format is: ''/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}''. Read-only. */
+        /** The unique identifier (ID) of the source image resource on Azure. The required ID format is: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'. Read-only. */
         public ?string $sourceImageResourceId = null,
         /** The status of the image on the Cloud PC. Possible values are: pending, ready, failed, unknownFutureValue. Read-only. */
         public ?string $status = null,

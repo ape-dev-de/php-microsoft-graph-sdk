@@ -72,11 +72,11 @@ class Alert
         public array $securityResources = [],
         /**  */
         public ?string $severity = null,
-        /** @var string[] Hyperlinks (URIs) to the source material related to the alert, for example, provider''s user interface for alerts or log search. */
+        /** @var string[] Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search. */
         public array $sourceMaterials = [],
         /**  */
         public ?string $status = null,
-        /** @var string[] User-definable labels that can be applied to an alert and can serve as filter conditions (for example ''HVA'', ''SAW'') (supports update). */
+        /** @var string[] User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW') (supports update). */
         public array $tags = [],
         /** Alert title. Required. */
         public ?string $title = null,
@@ -88,7 +88,7 @@ class Alert
         public array $userStates = [],
         /** Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=Windows Defender ATP; subProvider=AppLocker). Required. */
         public ?string $vendorInformation = null,
-        /** @var string[] Threat intelligence pertaining to one or more vulnerabilities related to this alert. */
+        /** Threat intelligence pertaining to one or more vulnerabilities related to this alert. */
         public array $vulnerabilityStates = []
     ) {}
 }

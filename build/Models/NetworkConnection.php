@@ -26,7 +26,7 @@ class NetworkConnection
         public ?string $direction = null,
         /** Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
         public ?\DateTimeInterface $domainRegisteredDateTime = null,
-        /** The local DNS name resolution as it appears in the host''s local DNS cache (for example, in case the ''hosts'' file was tampered with). */
+        /** The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with). */
         public ?string $localDnsName = null,
         /** Network Address Translation destination IP address. */
         public ?string $natDestinationAddress = null,

@@ -10,5 +10,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BaseCollectionPaginationCountResponse
 {
     public function __construct(
+        /**  */
+        public ?int $@odata.count = null,
+        /**  */
+        public ?string $@odata.nextLink = null
     ) {}
 }

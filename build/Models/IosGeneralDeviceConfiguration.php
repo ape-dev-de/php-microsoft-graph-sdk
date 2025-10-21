@@ -32,7 +32,7 @@ class IosGeneralDeviceConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Indicates whether or not to allow account modification when the device is in supervised mode. */
         public ?bool $accountBlockModification = null,
@@ -112,7 +112,7 @@ class IosGeneralDeviceConfiguration
         public array $emailInDomainSuffixes = [],
         /** Indicates whether or not to block the user from trusting an enterprise app. */
         public ?bool $enterpriseAppBlockTrust = null,
-        /** [Deprecated] Configuring this setting and setting the value to ''true'' has no effect on the device. */
+        /** [Deprecated] Configuring this setting and setting the value to 'true' has no effect on the device. */
         public ?bool $enterpriseAppBlockTrustModification = null,
         /** Indicates whether or not to block the user from using FaceTime. Requires a supervised device for iOS 13 and later. */
         public ?bool $faceTimeBlocked = null,
@@ -294,7 +294,7 @@ class IosGeneralDeviceConfiguration
         public ?bool $voiceDialingBlocked = null,
         /** Indicates whether or not to allow wallpaper modification on supervised device (iOS 9.0 and later) . */
         public ?bool $wallpaperBlockModification = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the iosGeneralDeviceConfiguration resource. */
-        public ?string $wiFiConnectOnlyToConfiguredNetworks = null
+        /** Indicates whether or not to force the device to use only Wi-Fi networks from configuration profiles when the device is in supervised mode. Available for devices running iOS and iPadOS versions 14.4 and earlier. Devices running 14.5+ should use the setting, 'WiFiConnectToAllowedNetworksOnlyForced. */
+        public ?bool $wiFiConnectOnlyToConfiguredNetworks = null
     ) {}
 }

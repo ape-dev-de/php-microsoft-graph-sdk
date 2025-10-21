@@ -28,7 +28,7 @@ class AuthorizationPolicy
         public ?string $allowInvitesFrom = null,
         /** Indicates whether user consent for risky apps is allowed. We recommend keeping allowUserConsentForRiskyApps as false. Default value is false. */
         public ?bool $allowUserConsentForRiskyApps = null,
-        /** To disable the use of MSOL PowerShell, set this property to true. This also disables user-based access to the legacy service endpoint used by MSOL PowerShell. This doesn''t affect Microsoft Entra Connect or Microsoft Graph. */
+        /** To disable the use of MSOL PowerShell, set this property to true. This also disables user-based access to the legacy service endpoint used by MSOL PowerShell. This doesn't affect Microsoft Entra Connect or Microsoft Graph. */
         public ?bool $blockMsolPowerShell = null,
         /**  */
         public ?string $defaultUserRolePermissions = null,

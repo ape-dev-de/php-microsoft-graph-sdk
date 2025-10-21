@@ -32,9 +32,9 @@ class WindowsPhone81CustomConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
-        /** @var string[] This topic provides descriptions of the declared methods, properties and relationships exposed by the windowsPhone81CustomConfiguration resource. */
+        /** OMA settings. This collection can contain a maximum of 1000 elements. */
         public array $omaSettings = []
     ) {}
 }

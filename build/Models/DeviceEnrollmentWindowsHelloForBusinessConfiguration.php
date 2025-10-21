@@ -24,11 +24,11 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
         public ?float $priority = null,
         /** The version of the device enrollment configuration */
         public ?float $version = null,
-        /** @var string[] The Base Class of Device Enrollment Configuration */
+        /** The list of group assignments for the device configuration profile */
         public array $assignments = [],
         /**  */
         public ?string $enhancedBiometricsState = null,
-        /** Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user''s PIN will never expire */
+        /** Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user's PIN will never expire */
         public ?float $pinExpirationInDays = null,
         /**  */
         public ?string $pinLowercaseCharactersUsage = null,
@@ -48,7 +48,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
         public ?bool $securityDeviceRequired = null,
         /**  */
         public ?string $state = null,
-        /** Windows Hello for Business settings lets users access their devices using a gesture, such as biometric authentication, or a PIN. Configure settings for enrolled Windows 10, Windows 10 Mobile and later. */
-        public ?string $unlockWithBiometricsEnabled = null
+        /** Controls the use of biometric gestures, such as face and fingerprint, as an alternative to the Windows Hello for Business PIN.  If set to False, biometric gestures are not allowed. Users must still configure a PIN as a backup in case of failures. */
+        public ?bool $unlockWithBiometricsEnabled = null
     ) {}
 }

@@ -42,7 +42,7 @@ class AccessPackageAssignmentPolicy
         public ?string $catalog = null,
         /** The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand. */
         public array $customExtensionStageSettings = [],
-        /** @var string[] Questions that are posed to the  requestor. */
+        /** Questions that are posed to the  requestor. */
         public array $questions = []
     ) {}
 }

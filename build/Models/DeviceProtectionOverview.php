@@ -30,7 +30,7 @@ class DeviceProtectionOverview
         public ?float $pendingSignatureUpdateDeviceCount = null,
         /** Total device count. */
         public ?float $totalReportedDeviceCount = null,
-        /** Hardware information of a given device. */
-        public ?string $unknownStateThreatAgentDeviceCount = null
+        /** Indicates number of devices with threat agent state as unknown */
+        public ?float $unknownStateThreatAgentDeviceCount = null
     ) {}
 }

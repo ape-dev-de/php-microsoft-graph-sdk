@@ -25,6 +25,6 @@ class IdentityGovernanceTopTasksInsightsSummary
         /** Count of total runs of the task. */
         public ?float $totalTasks = null,
         /** Count of total users processed by the task. */
-        public ?string $totalUsers = null
+        public ?float $totalUsers = null
     ) {}
 }

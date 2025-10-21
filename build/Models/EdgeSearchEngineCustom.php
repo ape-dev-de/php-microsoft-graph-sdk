@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EdgeSearchEngineCustom
 {
     public function __construct(
-        /** Allows IT admins to set a custom default search engine for MDM-Controlled devices. */
+        /** Points to a https link containing the OpenSearch xml file that contains, at minimum, the short name and the URL to the search Engine. */
         public ?string $edgeSearchEngineOpenSearchXmlUrl = null
     ) {}
 }

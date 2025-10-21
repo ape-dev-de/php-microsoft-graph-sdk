@@ -13,6 +13,6 @@ class IntegerRange
         /** The inclusive upper bound of the integer range. */
         public ?float $end = null,
         /** The inclusive lower bound of the integer range. */
-        public ?string $start = null
+        public ?float $start = null
     ) {}
 }

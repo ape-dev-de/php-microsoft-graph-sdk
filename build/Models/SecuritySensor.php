@@ -30,7 +30,7 @@ class SecuritySensor
         public ?string $settings = null,
         /** The version of the sensor. */
         public ?string $version = null,
-        /** @var string[] Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified related to the sensor. */
+        /** Represents potential issues within a customer's Microsoft Defender for Identity configuration that Microsoft Defender for Identity identified related to the sensor. */
         public array $healthIssues = []
     ) {}
 }

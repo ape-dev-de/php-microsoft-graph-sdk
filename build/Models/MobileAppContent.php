@@ -14,7 +14,7 @@ class MobileAppContent
         public ?string $id = null,
         /** The collection of contained apps in a MobileLobApp acting as a package. */
         public array $containedApps = [],
-        /** @var string[] Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile. */
+        /** The list of files for this app content version. */
         public array $files = []
     ) {}
 }

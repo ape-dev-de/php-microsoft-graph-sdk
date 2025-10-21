@@ -14,7 +14,7 @@ class WindowsInformationProtectionNetworkLearningSummary
         public ?string $id = null,
         /** Device Count */
         public ?float $deviceCount = null,
-        /** Windows Information Protection Network learning Summary entity. */
+        /** Website url */
         public ?string $url = null
     ) {}
 }

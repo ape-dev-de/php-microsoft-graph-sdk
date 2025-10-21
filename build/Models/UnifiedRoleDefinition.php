@@ -28,7 +28,7 @@ class UnifiedRoleDefinition
         public ?string $templateId = null,
         /** Indicates version of the role definition. Read-only when isBuiltIn is true. */
         public ?string $version = null,
-        /** @var string[] Read-only collection of role definitions that the given role definition inherits from. Only Microsoft Entra built-in roles (isBuiltIn is true) support this attribute. Supports $expand. */
+        /** Read-only collection of role definitions that the given role definition inherits from. Only Microsoft Entra built-in roles (isBuiltIn is true) support this attribute. Supports $expand. */
         public array $inheritsPermissionsFrom = []
     ) {}
 }

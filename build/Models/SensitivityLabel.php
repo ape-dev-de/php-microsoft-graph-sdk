@@ -36,7 +36,7 @@ class SensitivityLabel
         public ?string $toolTip = null,
         /**  */
         public ?string $rights = null,
-        /** @var string[]  */
+        /**  */
         public array $sublabels = []
     ) {}
 }

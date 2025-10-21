@@ -12,7 +12,7 @@ class InternetExplorerMode
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** @var string[] A collection of site lists to support Internet Explorer mode. */
+        /** A collection of site lists to support Internet Explorer mode. */
         public array $siteLists = []
     ) {}
 }

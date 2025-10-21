@@ -32,7 +32,7 @@ class DeviceConfigurationSettingState
         public ?string $userId = null,
         /** UserName */
         public ?string $userName = null,
-        /** Device Configuration Setting State for a given device. */
+        /** UserPrincipalName. */
         public ?string $userPrincipalName = null
     ) {}
 }

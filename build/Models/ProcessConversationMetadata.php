@@ -24,15 +24,15 @@ class ProcessConversationMetadata
         public ?float $length = null,
         /** Required. Timestamp indicating when the original content was last modified. For ephemeral content like messages, this might be the same as createdDateTime. */
         public ?\DateTimeInterface $modifiedDateTime = null,
-        /** Required. A descriptive name for the content (for example, file name, web page title, ''Chat Message''). */
+        /** Required. A descriptive name for the content (for example, file name, web page title, 'Chat Message'). */
         public ?string $name = null,
         /** A sequence number indicating the order in which content was generated or should be processed, required when correlationId is used. */
-        public ?string $sequenceNumber = null,
+        public ?float $sequenceNumber = null,
         /** @var string[] List of resources (for example, file URLs, web URLs) accessed during the generation of this message (relevant for bot interactions). */
         public array $accessedResources = [],
         /** Identifier of the parent message in a threaded conversation, if applicable. */
         public ?string $parentMessageId = null,
-        /** @var string[] List of plugins used during the generation of this message (relevant for AI/bot interactions). */
+        /** List of plugins used during the generation of this message (relevant for AI/bot interactions). */
         public array $plugins = []
     ) {}
 }

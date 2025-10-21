@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceManagementPartnerAssignment
 {
     public function __construct(
-        /** User group targeting for Device Management Partner */
+        /** User groups targeting for devices to be enrolled through partner. */
         public ?string $target = null
     ) {}
 }

@@ -12,7 +12,7 @@ class DeviceManagementReports
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** @var string[] Entity representing a job to export a report */
+        /** Entity representing a job to export a report */
         public array $exportJobs = []
     ) {}
 }

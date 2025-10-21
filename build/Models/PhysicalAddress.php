@@ -12,7 +12,7 @@ class PhysicalAddress
     public function __construct(
         /** The city. */
         public ?string $city = null,
-        /** The country or region. It''s a free-format string value, for example, ''United States''. */
+        /** The country or region. It's a free-format string value, for example, 'United States'. */
         public ?string $countryOrRegion = null,
         /** The postal code. */
         public ?string $postalCode = null,

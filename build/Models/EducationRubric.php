@@ -28,7 +28,7 @@ class EducationRubric
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The collection of levels making up this rubric. */
         public array $levels = [],
-        /** @var string[] The collection of qualities making up this rubric. */
+        /** The collection of qualities making up this rubric. */
         public array $qualities = []
     ) {}
 }

@@ -16,7 +16,7 @@ class SoftwareOathAuthenticationMethodConfiguration
         public array $excludeTargets = [],
         /** The state of the policy. Possible values are: enabled, disabled. */
         public ?string $state = null,
-        /** @var string[] A collection of groups that are enabled to use the authentication method. Expanded by default. */
+        /** A collection of groups that are enabled to use the authentication method. Expanded by default. */
         public array $includeTargets = []
     ) {}
 }

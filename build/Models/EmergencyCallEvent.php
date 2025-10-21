@@ -16,7 +16,7 @@ class EmergencyCallEvent
         public ?string $callEventType = null,
         /**  */
         public ?\DateTimeInterface $eventDateTime = null,
-        /** @var string[]  */
+        /**  */
         public array $participants = [],
         /**  */
         public ?string $callerInfo = null,

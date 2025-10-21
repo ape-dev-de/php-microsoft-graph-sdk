@@ -22,9 +22,9 @@ class AccessPackageAssignmentRequest
         public array $customExtensionCalloutInstances = [],
         /** The requestor's supplied justification. */
         public ?string $justification = null,
-        /** The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. Requests from the user have a requestType of userAdd, userUpdate, or userRemove. This property can''t be changed once set. */
+        /** The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. Requests from the user have a requestType of userAdd, userUpdate, or userRemove. This property can't be changed once set. */
         public ?string $requestType = null,
-        /** The range of dates that access is to be assigned to the requestor. This property can''t be changed once set, but a new schedule for an assignment can be included in another userUpdate or UserExtend or adminUpdate assignment request. */
+        /** The range of dates that access is to be assigned to the requestor. This property can't be changed once set, but a new schedule for an assignment can be included in another userUpdate or UserExtend or adminUpdate assignment request. */
         public ?string $schedule = null,
         /** The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. Supports $filter (eq). */
         public ?string $state = null,

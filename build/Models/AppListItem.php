@@ -16,7 +16,7 @@ class AppListItem
         public ?string $appStoreUrl = null,
         /** The application name */
         public ?string $name = null,
-        /** Represents an app in the list of managed applications */
+        /** The publisher of the application */
         public ?string $publisher = null
     ) {}
 }

@@ -12,7 +12,7 @@ class IosLobAppProvisioningConfigurationAssignment
     public function __construct(
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
-        /** A class containing the properties used for Group Assignment of an iOS LOB App Provisioning and Configuration. */
+        /** The target group assignment defined by the admin. */
         public ?string $target = null
     ) {}
 }

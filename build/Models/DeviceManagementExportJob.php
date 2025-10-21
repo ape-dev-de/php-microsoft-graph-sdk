@@ -30,7 +30,7 @@ class DeviceManagementExportJob
         public ?string $snapshotId = null,
         /**  */
         public ?string $status = null,
-        /** Entity representing a job to export a report. */
+        /** Temporary location of the exported report */
         public ?string $url = null
     ) {}
 }

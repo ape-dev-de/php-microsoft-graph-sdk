@@ -20,7 +20,7 @@ class LocalizedNotificationMessage
         public ?string $locale = null,
         /** The Message Template content. */
         public ?string $messageTemplate = null,
-        /** The text content of a Notification Message Template for the specified locale. */
+        /** The Message Template Subject. */
         public ?string $subject = null
     ) {}
 }

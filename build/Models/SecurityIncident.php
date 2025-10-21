@@ -48,7 +48,7 @@ class SecurityIncident
         public array $systemTags = [],
         /** The Microsoft Entra tenant in which the alert was created. */
         public ?string $tenantId = null,
-        /** @var string[] The list of related alerts. Supports $expand. */
+        /** The list of related alerts. Supports $expand. */
         public array $alerts = []
     ) {}
 }

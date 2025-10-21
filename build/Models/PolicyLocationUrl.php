@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PolicyLocationUrl
 {
     public function __construct(
-        /** The actual value representing the location. Location value is specific for concretetype of the  policyLocation - policyLocationDomain, policyLocationUrl, or policyLocationApplication (for example, ''contoso.com'', ''https://partner.contoso.com/upload'', ''83ef198a-0396-4893-9d4f-d36efbffcaaa''). */
+        /** The actual value representing the location. Location value is specific for concretetype of the  policyLocation - policyLocationDomain, policyLocationUrl, or policyLocationApplication (for example, 'contoso.com', 'https://partner.contoso.com/upload', '83ef198a-0396-4893-9d4f-d36efbffcaaa'). */
         public ?string $value = null
     ) {}
 }

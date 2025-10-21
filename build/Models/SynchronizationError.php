@@ -15,6 +15,6 @@ class SynchronizationError
         /** The error message. For example, Policy permitting auto-redemption of invitations not configured. */
         public ?string $message = null,
         /** The action to take to resolve the error. For example, false. */
-        public ?string $tenantActionable = null
+        public ?bool $tenantActionable = null
     ) {}
 }

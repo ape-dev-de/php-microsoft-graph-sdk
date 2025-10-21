@@ -22,7 +22,7 @@ class DocumentSet
         public ?string $welcomePageUrl = null,
         /**  */
         public array $sharedColumns = [],
-        /** @var string[]  */
+        /**  */
         public array $welcomePageColumns = []
     ) {}
 }

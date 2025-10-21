@@ -32,7 +32,7 @@ class MacOSGeneralDeviceConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /**  */
         public ?string $compliantAppListType = null,
@@ -56,7 +56,7 @@ class MacOSGeneralDeviceConfiguration
         public ?float $passwordPreviousPasswordBlockCount = null,
         /** Whether or not to require a password. */
         public ?bool $passwordRequired = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSGeneralDeviceConfiguration resource. */
+        /**  */
         public ?string $passwordRequiredType = null
     ) {}
 }

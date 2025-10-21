@@ -12,7 +12,7 @@ class IosDeviceType
     public function __construct(
         /** Whether the app should run on iPads. */
         public ?bool $iPad = null,
-        /** Contains properties of the possible iOS device types the mobile app can run on. */
-        public ?string $iPhoneAndIPod = null
+        /** Whether the app should run on iPhones and iPods. */
+        public ?bool $iPhoneAndIPod = null
     ) {}
 }

@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WindowsUniversalAppXAppAssignmentSettings
 {
     public function __construct(
-        /** Contains properties used when assigning a Windows Universal AppX mobile app to a group. */
-        public ?string $useDeviceContext = null
+        /** If true, uses device execution context for Windows Universal AppX mobile app. Device-context install is not allowed when this type of app is targeted with Available intent. Defaults to false. */
+        public ?bool $useDeviceContext = null
     ) {}
 }

@@ -13,6 +13,6 @@ class Bundle
         /** If the bundle is an album, then the album property is included */
         public ?string $album = null,
         /** Number of children contained immediately within this container. */
-        public ?string $childCount = null
+        public ?float $childCount = null
     ) {}
 }

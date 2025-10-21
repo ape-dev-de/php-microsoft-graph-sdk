@@ -24,7 +24,7 @@ class IdentityGovernanceWorkflow
         public ?string $executionConditions = null,
         /** Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true. */
         public ?bool $isEnabled = null,
-        /** If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Can''t be true for a disabled workflow (where isEnabled is false). */
+        /** If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Can't be true for a disabled workflow (where isEnabled is false). */
         public ?bool $isSchedulingEnabled = null,
         /** When the workflow was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
@@ -32,7 +32,7 @@ class IdentityGovernanceWorkflow
         public ?string $createdBy = null,
         /** The unique identifier of the Microsoft Entra identity that last modified the workflow. */
         public ?string $lastModifiedBy = null,
-        /** @var string[] The tasks in the workflow. */
+        /** The tasks in the workflow. */
         public array $tasks = [],
         /** When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
         public ?\DateTimeInterface $deletedDateTime = null,
@@ -48,7 +48,7 @@ class IdentityGovernanceWorkflow
         public array $taskReports = [],
         /** Per-user workflow execution results. */
         public array $userProcessingResults = [],
-        /** @var string[] The workflow versions that are available. */
+        /** The workflow versions that are available. */
         public array $versions = []
     ) {}
 }

@@ -32,7 +32,7 @@ class IosDeviceFeaturesConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Asset tag information for the device, displayed on the login window and lock screen. */
         public ?string $assetTagTemplate = null,
@@ -42,7 +42,7 @@ class IosDeviceFeaturesConfiguration
         public array $homeScreenPages = [],
         /** A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later. */
         public ?string $lockScreenFootnote = null,
-        /** @var string[] iOS Device Features Configuration Profile. */
+        /** Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements. */
         public array $notificationSettings = []
     ) {}
 }

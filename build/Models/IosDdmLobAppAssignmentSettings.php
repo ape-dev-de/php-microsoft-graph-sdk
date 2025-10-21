@@ -18,7 +18,7 @@ class IosDdmLobAppAssignmentSettings
         public ?bool $preventManagedAppBackup = null,
         /** When true, the device locks its screen after every transaction that requires a customer’s card PIN. When false, the user can choose the behavior. Default value is false. */
         public ?bool $tapToPayScreenLockEnabled = null,
-        /** Contains properties used to assign an iOS iOS Declarative Device Management (DDM) Line Of Business (LOB) mobile app to a group. */
+        /** The unique identifier of the relay to associate with the app. */
         public ?string $vpnConfigurationId = null
     ) {}
 }

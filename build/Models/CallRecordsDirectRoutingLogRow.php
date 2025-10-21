@@ -50,7 +50,7 @@ class CallRecordsDirectRoutingLogRow
         public ?string $userDisplayName = null,
         /** Calling user's ID in Microsoft Graph. This and other user information is null/empty for bot call types. GUID. */
         public ?string $userId = null,
-        /** UserPrincipalName (sign-in name) in Microsoft Entra ID. This value is usually the same as the user''s SIP Address, and can be the same as the user''s email address. */
+        /** UserPrincipalName (sign-in name) in Microsoft Entra ID. This value is usually the same as the user's SIP Address, and can be the same as the user's email address. */
         public ?string $userPrincipalName = null
     ) {}
 }

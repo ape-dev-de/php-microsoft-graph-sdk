@@ -20,7 +20,7 @@ class CallRecordsMedia
         public ?string $callerNetwork = null,
         /** How the media was identified during media negotiation stage. */
         public ?string $label = null,
-        /** @var string[] Network streams associated with this media. */
+        /** Network streams associated with this media. */
         public array $streams = []
     ) {}
 }

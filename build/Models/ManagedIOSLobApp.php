@@ -40,11 +40,11 @@ class ManagedIOSLobApp
         public ?string $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
-        /** @var string[] An abstract class containing the base properties for Intune mobile apps. Note: Listing mobile apps with `$expand=assignments` has been deprecated. Instead get the list of apps without the `$expand` query on `assignments`. Then, perform the expansion on individual applications. */
+        /** The list of categories for this app. */
         public array $categories = [],
         /**  */
         public ?string $appAvailability = null,
-        /** Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy. */
+        /** The Application's version. */
         public ?string $version = null,
         /** The internal committed content version. */
         public ?string $committedContentVersion = null,
@@ -52,7 +52,7 @@ class ManagedIOSLobApp
         public ?string $fileName = null,
         /** The total size, including all uploaded files. */
         public ?float $size = null,
-        /** @var string[] An abstract base class containing properties for all managed mobile line-of-business apps. */
+        /** The list of content versions for this app. */
         public array $contentVersions = [],
         /**  */
         public ?string $applicableDeviceType = null,
@@ -64,7 +64,7 @@ class ManagedIOSLobApp
         public ?\DateTimeInterface $expirationDateTime = null,
         /** The value for the minimum applicable operating system. */
         public ?string $minimumSupportedOperatingSystem = null,
-        /** Contains properties and inherited properties for Managed iOS Line Of Business apps. */
+        /** The version number of managed iOS Line of Business (LoB) app. */
         public ?string $versionNumber = null
     ) {}
 }

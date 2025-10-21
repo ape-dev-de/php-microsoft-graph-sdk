@@ -16,7 +16,7 @@ class ResourceOperation
         public ?string $actionName = null,
         /** Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal. */
         public ?string $description = null,
-        /** Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC). */
+        /** Name of the Resource this operation is performed on. */
         public ?string $resourceName = null
     ) {}
 }

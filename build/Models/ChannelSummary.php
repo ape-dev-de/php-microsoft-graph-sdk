@@ -17,6 +17,6 @@ class ChannelSummary
         /** Count of members in a channel. */
         public ?float $membersCount = null,
         /** Count of owners in a channel. */
-        public ?string $ownersCount = null
+        public ?float $ownersCount = null
     ) {}
 }

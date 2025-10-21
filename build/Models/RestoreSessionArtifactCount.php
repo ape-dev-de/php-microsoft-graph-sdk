@@ -17,6 +17,6 @@ class RestoreSessionArtifactCount
         /** The number of artifacts whose restoration is in progress. */
         public ?float $inProgress = null,
         /** The number of artifacts present in the restore session. */
-        public ?string $total = null
+        public ?float $total = null
     ) {}
 }

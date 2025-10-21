@@ -18,7 +18,7 @@ class GroupSettingTemplate
         public ?string $description = null,
         /** Display name of the template. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings. */
         public ?string $displayName = null,
-        /** @var string[] Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template. */
+        /** Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template. */
         public array $values = []
     ) {}
 }

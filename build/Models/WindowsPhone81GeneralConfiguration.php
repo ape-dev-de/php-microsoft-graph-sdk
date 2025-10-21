@@ -32,7 +32,7 @@ class WindowsPhone81GeneralConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only. */
         public ?bool $applyOnlyToWindowsPhone81 = null,
@@ -90,7 +90,7 @@ class WindowsPhone81GeneralConfiguration
         public ?bool $wifiBlocked = null,
         /** Indicates whether or not to block Wi-Fi hotspot reporting. Has no impact if Wi-Fi is blocked. */
         public ?bool $wifiBlockHotspotReporting = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the windowsPhone81GeneralConfiguration resource. */
-        public ?string $windowsStoreBlocked = null
+        /** Indicates whether or not to block the Windows Store. */
+        public ?bool $windowsStoreBlocked = null
     ) {}
 }

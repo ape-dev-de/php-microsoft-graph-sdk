@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Privacy
 {
     public function __construct(
-        /** @var string[]  */
+        /**  */
         public array $subjectRightsRequests = []
     ) {}
 }

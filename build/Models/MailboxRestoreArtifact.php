@@ -29,6 +29,6 @@ class MailboxRestoreArtifact
         /** The new restored folder name. */
         public ?string $restoredFolderName = null,
         /** The number of items that are being restored in the folder. */
-        public ?string $restoredItemCount = null
+        public ?float $restoredItemCount = null
     ) {}
 }

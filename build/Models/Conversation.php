@@ -22,7 +22,7 @@ class Conversation
         public ?string $topic = null,
         /** @var string[] All the users that sent a message to this Conversation. */
         public array $uniqueSenders = [],
-        /** @var string[] A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable. */
+        /** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable. */
         public array $threads = []
     ) {}
 }

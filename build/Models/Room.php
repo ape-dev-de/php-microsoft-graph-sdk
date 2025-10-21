@@ -40,7 +40,7 @@ class Room
         public ?bool $isWheelChairAccessible = null,
         /** Specifies a descriptive label for the room, for example, a number or name. */
         public ?string $label = null,
-        /** Specifies a nickname for the room, for example, ''conf room''. */
+        /** Specifies a nickname for the room, for example, 'conf room'. */
         public ?string $nickname = null,
         /** @var string[] Specifies other features of the room, for example, details like the type of view or furniture type. */
         public array $tags = [],

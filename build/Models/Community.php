@@ -22,7 +22,7 @@ class Community
         public ?string $privacy = null,
         /** The Microsoft 365 group that manages the membership of this community. */
         public ?string $group = null,
-        /** @var string[] Represents a community in Viva Engage that is a central place for conversations,\nfiles, events, and updates for people sharing a common interest or goal. */
+        /** The admins of the community. Limited to 100 users. If this property isn't specified when you create the community, the calling user is automatically assigned as the community owner. */
         public array $owners = []
     ) {}
 }

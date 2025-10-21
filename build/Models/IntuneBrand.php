@@ -36,7 +36,7 @@ class IntuneBrand
         public ?bool $showLogo = null,
         /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image. */
         public ?bool $showNameNextToLogo = null,
-        /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
+        /** Primary theme color used in the Company Portal applications and web portal. */
         public ?string $themeColor = null
     ) {}
 }

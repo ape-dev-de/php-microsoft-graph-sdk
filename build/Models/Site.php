@@ -74,7 +74,7 @@ class Site
         public array $sites = [],
         /** The default termStore under this site. */
         public ?string $termStore = null,
-        /** @var string[] The collection of termStores under this site. */
+        /** The collection of termStores under this site. */
         public array $termStores = []
     ) {}
 }

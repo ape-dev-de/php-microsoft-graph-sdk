@@ -18,7 +18,7 @@ class WorkbookRangeFont
         public ?string $color = null,
         /** Inidicates whether the font is italic. */
         public ?bool $italic = null,
-        /** The font name. For example, ''Calibri''. */
+        /** The font name. For example, 'Calibri'. */
         public ?string $name = null,
         /** The font size. */
         public ?string $size = null,

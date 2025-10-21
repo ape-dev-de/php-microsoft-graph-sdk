@@ -36,7 +36,7 @@ class SecurityEdiscoverySearch
         public array $custodianSources = [],
         /** The last estimate operation associated with the eDiscovery search. */
         public ?string $lastEstimateStatisticsOperation = null,
-        /** @var string[] noncustodialDataSource sources that are included in the eDiscovery search */
+        /** noncustodialDataSource sources that are included in the eDiscovery search */
         public array $noncustodialSources = []
     ) {}
 }

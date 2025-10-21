@@ -30,7 +30,7 @@ class VirtualEventTownhall
         public ?string $status = null,
         /** The virtual event presenters. */
         public array $presenters = [],
-        /** @var string[] The sessions for the virtual event. */
+        /** The sessions for the virtual event. */
         public array $sessions = [],
         /** The audience to whom the town hall is visible. Possible values are: everyone, organization, and unknownFutureValue. */
         public ?string $audience = null,
@@ -39,6 +39,6 @@ class VirtualEventTownhall
         /** The attendees invited to the town hall. The supported identities are: communicationsUserIdentity and communicationsGuestIdentity. */
         public array $invitedAttendees = [],
         /** Indicates whether the town hall is only open to invited people and groups within your organization. The isInviteOnly property can only be true if the value of the audience property is set to organization. */
-        public ?string $isInviteOnly = null
+        public ?bool $isInviteOnly = null
     ) {}
 }

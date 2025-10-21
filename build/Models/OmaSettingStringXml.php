@@ -14,11 +14,11 @@ class OmaSettingStringXml
         public ?string $description = null,
         /** Display Name. */
         public ?string $displayName = null,
-        /** OMA Settings definition. */
+        /** OMA. */
         public ?string $omaUri = null,
         /** File name associated with the Value property (.xml). */
         public ?string $fileName = null,
-        /** OMA Settings StringXML definition. */
+        /** Value. (UTF8 encoded byte array) */
         public ?string $value = null
     ) {}
 }

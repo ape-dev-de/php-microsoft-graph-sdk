@@ -15,6 +15,6 @@ class ServiceUpdateMessageViewpoint
         /** Indicates whether the user marked the message as favorite. */
         public ?bool $isFavorited = null,
         /** Indicates whether the user read the message. */
-        public ?string $isRead = null
+        public ?bool $isRead = null
     ) {}
 }

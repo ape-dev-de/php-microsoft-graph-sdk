@@ -15,6 +15,6 @@ class IdleSessionSignOut
         /** Number of seconds of inactivity after which a user is signed out. */
         public ?float $signOutAfterInSeconds = null,
         /** Number of seconds of inactivity after which a user is notified that they'll be signed out. */
-        public ?string $warnAfterInSeconds = null
+        public ?float $warnAfterInSeconds = null
     ) {}
 }

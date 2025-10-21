@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsWindows10DevicesSummary
 {
     public function __construct(
-        /** The user experience analytics work from anywhere Windows 10 devices summary. */
-        public ?string $unsupportedOSversionDeviceCount = null
+        /** The count of Windows 10 devices that have unsupported OS versions. Read-only. */
+        public ?float $unsupportedOSversionDeviceCount = null
     ) {}
 }

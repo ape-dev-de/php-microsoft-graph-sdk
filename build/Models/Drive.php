@@ -42,7 +42,7 @@ class Drive
         public ?string $quota = null,
         /**  */
         public ?string $sharePointIds = null,
-        /** If present, indicates that it''s a system-managed drive. Read-only. */
+        /** If present, indicates that it's a system-managed drive. Read-only. */
         public ?string $system = null,
         /** Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive. */
         public array $bundles = [],
@@ -54,7 +54,7 @@ class Drive
         public ?string $list = null,
         /** The root folder of the drive. Read-only. */
         public ?string $root = null,
-        /** @var string[] Collection of common folders available in OneDrive. Read-only. Nullable. */
+        /** Collection of common folders available in OneDrive. Read-only. Nullable. */
         public array $special = []
     ) {}
 }

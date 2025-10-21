@@ -28,7 +28,7 @@ class PrinterBase
         public ?string $model = null,
         /**  */
         public ?string $status = null,
-        /** @var string[] The list of jobs that are queued for printing by the printer/printerShare. */
+        /** The list of jobs that are queued for printing by the printer/printerShare. */
         public array $jobs = []
     ) {}
 }

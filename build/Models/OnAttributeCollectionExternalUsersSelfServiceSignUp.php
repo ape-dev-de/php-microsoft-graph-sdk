@@ -12,7 +12,7 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp
     public function __construct(
         /** Required. The configuration for how attributes are displayed in the sign-up experience defined by a user flow, like the externalUsersSelfServiceSignupEventsFlow, specifically on the attribute collection page. */
         public ?string $attributeCollectionPage = null,
-        /** @var string[]  */
+        /**  */
         public array $attributes = []
     ) {}
 }

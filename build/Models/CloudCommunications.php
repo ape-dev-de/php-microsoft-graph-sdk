@@ -16,7 +16,7 @@ class CloudCommunications
         public array $calls = [],
         /**  */
         public array $onlineMeetings = [],
-        /** @var string[]  */
+        /**  */
         public array $presences = []
     ) {}
 }

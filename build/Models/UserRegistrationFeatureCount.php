@@ -13,6 +13,6 @@ class UserRegistrationFeatureCount
         /**  */
         public ?string $feature = null,
         /** Number of users. */
-        public ?string $userCount = null
+        public ?float $userCount = null
     ) {}
 }

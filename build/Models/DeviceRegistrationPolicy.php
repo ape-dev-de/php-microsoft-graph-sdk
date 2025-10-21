@@ -25,6 +25,6 @@ class DeviceRegistrationPolicy
         /**  */
         public ?string $multiFactorAuthConfiguration = null,
         /**  */
-        public ?string $userDeviceQuota = null
+        public ?float $userDeviceQuota = null
     ) {}
 }

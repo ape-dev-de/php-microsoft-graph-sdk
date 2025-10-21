@@ -30,7 +30,7 @@ class SecurityIntelligenceProfile
         public ?string $title = null,
         /** Formatted information featuring a description of the distinctive tactics, techniques, and procedures (TTP) of the group, followed by a list of all known custom, commodity, and publicly available implants used by the group. */
         public ?string $tradecraft = null,
-        /** @var string[] Includes an assemblage of high-fidelity network indicators of compromise. */
+        /** Includes an assemblage of high-fidelity network indicators of compromise. */
         public array $indicators = []
     ) {}
 }

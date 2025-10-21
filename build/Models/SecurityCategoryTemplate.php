@@ -18,7 +18,7 @@ class SecurityCategoryTemplate
         public ?\DateTimeInterface $createdDateTime = null,
         /** Unique string that defines a filePlanDescriptorTemplate name. */
         public ?string $displayName = null,
-        /** @var string[] Represents all subcategories under a particular category. */
+        /** Represents all subcategories under a particular category. */
         public array $subcategories = []
     ) {}
 }

@@ -10,7 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IdentityGovernanceCustomTaskExtensionCallbackData
 {
     public function __construct(
-        /** Operation status that''s provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue. */
+        /** Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue. */
         public ?string $operationStatus = null
     ) {}
 }

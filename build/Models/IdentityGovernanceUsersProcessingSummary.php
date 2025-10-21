@@ -19,6 +19,6 @@ class IdentityGovernanceUsersProcessingSummary
         /**  */
         public ?float $totalTasks = null,
         /**  */
-        public ?string $totalUsers = null
+        public ?float $totalUsers = null
     ) {}
 }

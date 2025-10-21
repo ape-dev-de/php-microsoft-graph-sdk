@@ -32,7 +32,7 @@ class Windows81GeneralConfiguration
         public ?string $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
-        /** Device Configuration. */
+        /** Device Configuration users status overview */
         public ?string $userStatusOverview = null,
         /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
         public ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null,
@@ -98,7 +98,7 @@ class Windows81GeneralConfiguration
         public ?bool $updatesRequireAutomaticUpdates = null,
         /**  */
         public ?string $userAccountControlSettings = null,
-        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the windows81GeneralConfiguration resource. */
+        /** The work folders url. */
         public ?string $workFoldersUrl = null
     ) {}
 }

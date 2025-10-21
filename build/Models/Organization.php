@@ -24,7 +24,7 @@ class Organization
         public ?string $country = null,
         /** Country or region abbreviation for the organization in ISO 3166-2 format. */
         public ?string $countryLetterCode = null,
-        /** Timestamp of when the organization was created. The value can''t be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+        /** Timestamp of when the organization was created. The value can't be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Two-letter ISO 3166 country code indicating the default service usage location of an organization. */
         public ?string $defaultUsageLocation = null,
@@ -66,7 +66,7 @@ class Organization
         public ?string $branding = null,
         /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection. */
         public array $certificateBasedAuthConfiguration = [],
-        /** @var string[] The collection of open extensions defined for the organization. Read-only. Nullable. */
+        /** The collection of open extensions defined for the organization. Read-only. Nullable. */
         public array $extensions = []
     ) {}
 }

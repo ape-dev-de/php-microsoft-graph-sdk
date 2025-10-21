@@ -24,9 +24,9 @@ class DeviceEnrollmentLimitConfiguration
         public ?float $priority = null,
         /** The version of the device enrollment configuration */
         public ?float $version = null,
-        /** @var string[] The Base Class of Device Enrollment Configuration */
+        /** The list of group assignments for the device configuration profile */
         public array $assignments = [],
-        /** Device Enrollment Configuration that restricts the number of devices a user can enroll */
-        public ?string $limit = null
+        /** The maximum number of devices that a user can enroll */
+        public ?float $limit = null
     ) {}
 }

@@ -52,7 +52,7 @@ class EducationClass
         public array $modules = [],
         /** All schools that this class is associated with. Nullable. */
         public array $schools = [],
-        /** @var string[] All teachers in the class. Nullable. */
+        /** All teachers in the class. Nullable. */
         public array $teachers = []
     ) {}
 }

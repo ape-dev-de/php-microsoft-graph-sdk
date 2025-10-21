@@ -40,7 +40,7 @@ class PrivilegedAccessGroupAssignmentScheduleRequest
         public ?string $groupId = null,
         /** The identifier of the principal whose membership or ownership assignment to the group is managed through PIM for Groups. Supports $filter (eq, ne). */
         public ?string $principalId = null,
-        /** The identifier of the schedule that''s created from the membership or ownership assignment request. Supports $filter (eq, ne). */
+        /** The identifier of the schedule that's created from the membership or ownership assignment request. Supports $filter (eq, ne). */
         public ?string $targetScheduleId = null,
         /** When the request activates a membership or ownership assignment in PIM for Groups, this object represents the eligibility policy for the group. Otherwise, it is null. Supports $expand. */
         public ?string $activatedUsing = null,

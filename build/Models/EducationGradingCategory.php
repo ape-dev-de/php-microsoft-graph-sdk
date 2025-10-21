@@ -15,6 +15,6 @@ class EducationGradingCategory
         /** The name of the grading category. */
         public ?string $displayName = null,
         /** The weight of the category; an integer between 0 and 100. */
-        public ?string $percentageWeight = null
+        public ?float $percentageWeight = null
     ) {}
 }

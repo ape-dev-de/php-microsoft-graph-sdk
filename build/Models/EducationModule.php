@@ -28,9 +28,9 @@ class EducationModule
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Folder URL where all the file resources for this module are stored. */
         public ?string $resourcesFolderUrl = null,
-        /** Status of the module. You can''t use a PATCH operation to update this value. Possible values are: draft and published. */
+        /** Status of the module. You can't use a PATCH operation to update this value. Possible values are: draft and published. */
         public ?string $status = null,
-        /** @var string[] Learning objects that are associated with this module. Only teachers can modify this list. Nullable. */
+        /** Learning objects that are associated with this module. Only teachers can modify this list. Nullable. */
         public array $resources = []
     ) {}
 }

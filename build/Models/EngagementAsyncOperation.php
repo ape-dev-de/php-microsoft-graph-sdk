@@ -20,11 +20,11 @@ class EngagementAsyncOperation
         public ?string $resourceLocation = null,
         /** The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. */
         public ?string $status = null,
-        /** The status of a long-running operation. */
+        /** Details about the status of the operation. */
         public ?string $statusDetail = null,
         /** The type of the long-running operation. The possible values are: createCommunity, unknownFutureValue. */
         public ?string $operationType = null,
-        /** Represents the status of a Viva Engage async operation that is an operation that transcends the\nlifetime of a single API request. These operations are long-running or too expensive to complete\nwithin the time frame of their original request. */
+        /** The ID of the object created or modified as a result of this async operation. */
         public ?string $resourceId = null
     ) {}
 }

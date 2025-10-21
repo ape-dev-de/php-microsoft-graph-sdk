@@ -20,7 +20,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance
         public ?string $osBuildNumber = null,
         /** The OS version installed on the device. Supports: $select, $OrderBy. Read-only. */
         public ?string $osVersion = null,
-        /** The user experience analytics device OS version performance entity contains OS version performance details. */
+        /** The application health score of the OS version. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $osVersionAppHealthScore = null
     ) {}
 }

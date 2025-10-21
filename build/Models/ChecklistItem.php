@@ -19,6 +19,6 @@ class ChecklistItem
         /** Indicates the title of the checklistItem. */
         public ?string $displayName = null,
         /** State that indicates whether the item is checked off or not. */
-        public ?string $isChecked = null
+        public ?bool $isChecked = null
     ) {}
 }

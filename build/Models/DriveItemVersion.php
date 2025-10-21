@@ -21,6 +21,6 @@ class DriveItemVersion
         /** The content stream for this version of the item. */
         public ?string $content = null,
         /** Indicates the size of the content stream for this version of the item. */
-        public ?string $size = null
+        public ?float $size = null
     ) {}
 }

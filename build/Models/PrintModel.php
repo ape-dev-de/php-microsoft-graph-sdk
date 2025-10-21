@@ -22,7 +22,7 @@ class PrintModel
         public array $services = [],
         /** The list of printer shares registered in the tenant. */
         public array $shares = [],
-        /** @var string[] List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
+        /** List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
         public array $taskDefinitions = []
     ) {}
 }

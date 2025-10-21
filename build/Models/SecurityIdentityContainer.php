@@ -14,7 +14,7 @@ class SecurityIdentityContainer
         public ?string $id = null,
         /** Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration. */
         public array $healthIssues = [],
-        /** @var string[] Represents a customer's Microsoft Defender for Identity sensors. */
+        /** Represents a customer's Microsoft Defender for Identity sensors. */
         public array $sensors = []
     ) {}
 }

@@ -24,7 +24,7 @@ class TeamsAsyncOperation
         public ?string $operationType = null,
         /**  */
         public ?string $status = null,
-        /** The ID of the object that''s created or modified as result of this async operation, typically a team. */
+        /** The ID of the object that's created or modified as result of this async operation, typically a team. */
         public ?string $targetResourceId = null,
         /** The location of the object that's created or modified as result of this async operation. This URL should be treated as an opaque value and not parsed into its component paths. */
         public ?string $targetResourceLocation = null

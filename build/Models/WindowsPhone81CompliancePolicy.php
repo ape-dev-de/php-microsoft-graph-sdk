@@ -34,7 +34,7 @@ class WindowsPhone81CompliancePolicy
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
-        /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
+        /** Device compliance users status overview */
         public ?string $userStatusOverview = null,
         /** Maximum Windows Phone version. */
         public ?string $osMaximumVersion = null,
@@ -56,7 +56,7 @@ class WindowsPhone81CompliancePolicy
         public ?bool $passwordRequired = null,
         /**  */
         public ?string $passwordRequiredType = null,
-        /** This class contains compliance settings for Windows 8.1 Mobile. */
-        public ?string $storageRequireEncryption = null
+        /** Require encryption on windows phone devices. */
+        public ?bool $storageRequireEncryption = null
     ) {}
 }

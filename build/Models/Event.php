@@ -40,11 +40,11 @@ class Event
         public ?string $iCalUId = null,
         /** The importance of the event. The possible values are: low, normal, high. */
         public ?string $importance = null,
-        /** Set to true if the event lasts all day. If true, regardless of whether it''s a single-day or multi-day event, start, and endtime must be set to midnight and be in the same time zone. */
+        /** Set to true if the event lasts all day. If true, regardless of whether it's a single-day or multi-day event, start, and endtime must be set to midnight and be in the same time zone. */
         public ?bool $isAllDay = null,
         /** Set to true if the event has been canceled. */
         public ?bool $isCancelled = null,
-        /** Set to true if the user has updated the meeting in Outlook but hasn''t sent the updates to attendees. Set to false if all changes are sent, or if the event is an appointment without any attendees. */
+        /** Set to true if the user has updated the meeting in Outlook but hasn't sent the updates to attendees. Set to false if all changes are sent, or if the event is an appointment without any attendees. */
         public ?bool $isDraft = null,
         /** True if this event has online meeting information (that is, onlineMeeting points to an onlineMeetingInfo resource), false otherwise. Default is false (onlineMeeting is null). Optional.  After you set isOnlineMeeting to true, Microsoft Graph initializes onlineMeeting. Subsequently, Outlook ignores any further changes to isOnlineMeeting, and the meeting remains available online. */
         public ?bool $isOnlineMeeting = null,
@@ -56,9 +56,9 @@ class Event
         public ?string $location = null,
         /** The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection are removed and replaced by the new location value. */
         public array $locations = [],
-        /** Details for an attendee to join the meeting online. The default is null. Read-only. After you set the isOnlineMeeting and onlineMeetingProvider properties to enable a meeting online, Microsoft Graph initializes onlineMeeting. When set, the meeting remains available online, and you can''t change the isOnlineMeeting, onlineMeetingProvider, and onlneMeeting properties again. */
+        /** Details for an attendee to join the meeting online. The default is null. Read-only. After you set the isOnlineMeeting and onlineMeetingProvider properties to enable a meeting online, Microsoft Graph initializes onlineMeeting. When set, the meeting remains available online, and you can't change the isOnlineMeeting, onlineMeetingProvider, and onlneMeeting properties again. */
         public ?string $onlineMeeting = null,
-        /** Represents the online meeting service provider. By default, onlineMeetingProvider is unknown. The possible values are unknown, teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.  After you set onlineMeetingProvider, Microsoft Graph initializes onlineMeeting. Subsequently, you can''t change onlineMeetingProvider again, and the meeting remains available online. */
+        /** Represents the online meeting service provider. By default, onlineMeetingProvider is unknown. The possible values are unknown, teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.  After you set onlineMeetingProvider, Microsoft Graph initializes onlineMeeting. Subsequently, you can't change onlineMeetingProvider again, and the meeting remains available online. */
         public ?string $onlineMeetingProvider = null,
         /** A URL for an online meeting. The property is set only when an organizer specifies in Outlook that an event is an online meeting such as Skype. Read-only.To access the URL to join an online meeting, use joinUrl which is exposed via the onlineMeeting property of the event. The onlineMeetingUrl property will be deprecated in the future. */
         public ?string $onlineMeetingUrl = null,
@@ -66,7 +66,7 @@ class Event
         public ?string $organizer = null,
         /** The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook. */
         public ?string $originalEndTimeZone = null,
-        /** Represents the start time of an event when it''s initially created as an occurrence or exception in a recurring series. This property is not returned for events that are single instances. Its date and time information is expressed in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+        /** Represents the start time of an event when it's initially created as an occurrence or exception in a recurring series. This property is not returned for events that are single instances. Its date and time information is expressed in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
         public ?\DateTimeInterface $originalStart = null,
         /** The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook. */
         public ?string $originalStartTimeZone = null,
@@ -88,25 +88,25 @@ class Event
         public ?string $start = null,
         /** The text of the event's subject line. */
         public ?string $subject = null,
-        /** A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. It''s useful when low network connectivity causes the client to time out before receiving a response from the server for the client''s prior create-event request. After you set transactionId when creating an event, you can''t change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional. */
+        /** A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. It's useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you can't change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional. */
         public ?string $transactionId = null,
         /** The event type. Possible values are: singleInstance, occurrence, exception, seriesMaster. Read-only */
         public ?string $type = null,
-        /** The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can''t be accessed from within an iFrame. */
+        /** The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can't be accessed from within an iFrame. */
         public ?string $webLink = null,
         /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable. */
         public array $attachments = [],
         /** The calendar that contains the event. Navigation property. Read-only. */
         public ?string $calendar = null,
-        /** Contains the id property values of the event instances that are exceptions in a recurring series.Exceptions can differ from other occurrences in a recurring series, such as the subject, start or end times, or attendees. Exceptions don''t include canceled occurrences.Returned only on $select and $expand in a GET operation that specifies the ID (seriesMasterId property value) of a series master event. */
+        /** Contains the id property values of the event instances that are exceptions in a recurring series.Exceptions can differ from other occurrences in a recurring series, such as the subject, start or end times, or attendees. Exceptions don't include canceled occurrences.Returned only on $select and $expand in a GET operation that specifies the ID (seriesMasterId property value) of a series master event. */
         public array $exceptionOccurrences = [],
         /** The collection of open extensions defined for the event. Nullable. */
         public array $extensions = [],
-        /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions modified, but doesn''t include occurrences canceled from the series. Navigation property. Read-only. Nullable. */
+        /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions modified, but doesn't include occurrences canceled from the series. Navigation property. Read-only. Nullable. */
         public array $instances = [],
         /** The collection of multi-value extended properties defined for the event. Read-only. Nullable. */
         public array $multiValueExtendedProperties = [],
-        /** @var string[] The collection of single-value extended properties defined for the event. Read-only. Nullable. */
+        /** The collection of single-value extended properties defined for the event. Read-only. Nullable. */
         public array $singleValueExtendedProperties = []
     ) {}
 }
