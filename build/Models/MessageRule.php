@@ -13,13 +13,13 @@ class MessageRule
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
-        public ?string $actions = null,
+        public ?MessageRuleActions $actions = null,
         /** Conditions that when fulfilled trigger the corresponding actions for that rule. */
-        public ?string $conditions = null,
+        public ?MessageRulePredicates $conditions = null,
         /** The display name of the rule. */
         public ?string $displayName = null,
         /** Exception conditions for the rule. */
-        public ?string $exceptions = null,
+        public ?MessageRulePredicates $exceptions = null,
         /** Indicates whether the rule is in an error condition. Read-only. */
         public ?bool $hasError = null,
         /** Indicates whether the rule is enabled to be applied to messages. */

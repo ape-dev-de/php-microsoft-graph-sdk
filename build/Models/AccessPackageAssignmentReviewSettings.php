@@ -11,7 +11,7 @@ class AccessPackageAssignmentReviewSettings
 {
     public function __construct(
         /** The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue. */
-        public ?string $expirationBehavior = null,
+        public ?AccessReviewExpirationBehavior $expirationBehavior = null,
         /** This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond. */
         public array $fallbackReviewers = [],
         /** If true, access reviews are required for assignments through this policy. */
@@ -25,6 +25,6 @@ class AccessPackageAssignmentReviewSettings
         /** This collection specifies the users or group of users who will review the access package assignments. */
         public array $primaryReviewers = [],
         /** When the first review should start and how often it should recur. */
-        public ?string $schedule = null
+        public ?EntitlementManagementSchedule $schedule = null
     ) {}
 }

@@ -22,7 +22,9 @@ class <?= $CLASS_NAME ?> extends QueryOptions
      */
 <?php foreach ($PROPERTIES as $propName => $propDef): ?>
 <?php
-    $constantName = 'FIELD_' . strtoupper(preg_replace('/([a-z])([A-Z])/', '$1_$2', $propName));
+    // Normalize property name for constant: convert dashes to underscores, then handle camelCase
+    $normalizedName = str_replace('-', '_', $propName);
+    $constantName = 'FIELD_' . strtoupper(preg_replace('/([a-z])([A-Z])/', '$1_$2', $normalizedName));
 ?>
     public const <?= $constantName ?> = '<?= $propName ?>';
 <?php endforeach; ?>

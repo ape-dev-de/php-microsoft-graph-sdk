@@ -13,6 +13,6 @@ class Win32LobAppReturnCode
         /** Return code. */
         public ?float $returnCode = null,
         /**  */
-        public ?string $type = null
+        public ?Win32LobAppReturnCodeType $type = null
     ) {}
 }

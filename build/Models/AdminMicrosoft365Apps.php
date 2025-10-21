@@ -13,6 +13,6 @@ class AdminMicrosoft365Apps
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** A container for tenant-level settings for Microsoft 365 applications. */
-        public ?string $installationOptions = null
+        public ?M365AppsInstallationOptions $installationOptions = null
     ) {}
 }

@@ -15,6 +15,6 @@ class SettingSource
         /** Not yet documented */
         public ?string $displayName = null,
         /**  */
-        public ?string $sourceType = null
+        public ?SettingSourceType $sourceType = null
     ) {}
 }

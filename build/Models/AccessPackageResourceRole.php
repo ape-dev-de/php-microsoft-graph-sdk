@@ -21,6 +21,6 @@ class AccessPackageResourceRole
         /** The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup. */
         public ?string $originSystem = null,
         /**  */
-        public ?string $resource = null
+        public ?AccessPackageResource $resource = null
     ) {}
 }

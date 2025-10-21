@@ -21,6 +21,6 @@ class UnifiedRoleManagementPolicyAssignment
         /** The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group. Required. */
         public ?string $scopeType = null,
         /** The policy that's associated with a policy assignment. Supports $expand and a nested $expand of the rules and effectiveRules relationships for the policy. */
-        public ?string $policy = null
+        public ?UnifiedRoleManagementPolicy $policy = null
     ) {}
 }

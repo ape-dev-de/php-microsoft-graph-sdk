@@ -13,7 +13,7 @@ class NotificationMessageTemplate
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $brandingOptions = null,
+        public ?NotificationTemplateBrandingOptions $brandingOptions = null,
         /** The default locale to fallback onto when the requested locale is not available. */
         public ?string $defaultLocale = null,
         /** Display name for the Notification Message Template. */

@@ -11,8 +11,8 @@ class OnOtpSendCustomExtensionHandler
 {
     public function __construct(
         /** Configuration regarding properties of the custom extension that are can be overwritten for the onEmailOtpSendListener event listener. */
-        public ?string $configuration = null,
+        public ?CustomExtensionOverwriteConfiguration $configuration = null,
         /**  */
-        public ?string $customExtension = null
+        public ?OnOtpSendCustomExtension $customExtension = null
     ) {}
 }

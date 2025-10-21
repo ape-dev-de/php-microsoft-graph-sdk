@@ -13,7 +13,7 @@ class SecurityArticle
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $body = null,
+        public ?SecurityFormattedContent $body = null,
         /** The date and time when this article was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** URL of the header image for this article, used for display purposes. */
@@ -23,7 +23,7 @@ class SecurityArticle
         /** The most recent date and time when this article was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
         /**  */
-        public ?string $summary = null,
+        public ?SecurityFormattedContent $summary = null,
         /** @var string[] Tags for this article, communicating keywords, or key concepts. */
         public array $tags = [],
         /** The title of this article. */

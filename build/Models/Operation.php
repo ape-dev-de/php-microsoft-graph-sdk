@@ -17,6 +17,6 @@ class Operation
         /** The time of the last action of the operation. */
         public ?\DateTimeInterface $lastActionDateTime = null,
         /** The current status of the operation: notStarted, running, completed, failed */
-        public ?string $status = null
+        public ?OperationStatus $status = null
     ) {}
 }

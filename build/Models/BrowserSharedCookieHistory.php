@@ -19,12 +19,12 @@ class BrowserSharedCookieHistory
         /** The URL of the cookie. */
         public ?string $hostOrDomain = null,
         /**  */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** The path of the cookie. */
         public ?string $path = null,
         /** The date and time when the cookie was last published. */
         public ?\DateTimeInterface $publishedDateTime = null,
         /** Specifies how the cookies are shared between Microsoft Edge and Internet Explorer. The possible values are: microsoftEdge, internetExplorer11, both, unknownFutureValue. */
-        public ?string $sourceEnvironment = null
+        public ?BrowserSharedCookieSourceEnvironment $sourceEnvironment = null
     ) {}
 }

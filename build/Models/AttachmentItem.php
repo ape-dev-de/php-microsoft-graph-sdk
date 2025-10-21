@@ -11,7 +11,7 @@ class AttachmentItem
 {
     public function __construct(
         /** The type of attachment. Possible values are: file, item, reference. Required. */
-        public ?string $attachmentType = null,
+        public ?AttachmentType $attachmentType = null,
         /** The CID or Content-Id of the attachment for referencing for the in-line attachments using the <img src='cid:contentId'> tag in HTML messages. Optional. */
         public ?string $contentId = null,
         /** The nature of the data in the attachment. Optional. */

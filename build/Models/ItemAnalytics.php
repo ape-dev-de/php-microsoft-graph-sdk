@@ -13,10 +13,10 @@ class ItemAnalytics
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $allTime = null,
+        public ?ItemActivityStat $allTime = null,
         /**  */
         public array $itemActivityStats = [],
         /**  */
-        public ?string $lastSevenDays = null
+        public ?ItemActivityStat $lastSevenDays = null
     ) {}
 }

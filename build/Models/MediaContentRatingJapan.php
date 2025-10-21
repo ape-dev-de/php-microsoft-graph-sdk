@@ -11,8 +11,8 @@ class MediaContentRatingJapan
 {
     public function __construct(
         /**  */
-        public ?string $movieRating = null,
+        public ?RatingJapanMoviesType $movieRating = null,
         /**  */
-        public ?string $tvRating = null
+        public ?RatingJapanTelevisionType $tvRating = null
     ) {}
 }

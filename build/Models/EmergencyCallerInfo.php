@@ -13,7 +13,7 @@ class EmergencyCallerInfo
         /**  */
         public ?string $displayName = null,
         /**  */
-        public ?string $location = null,
+        public ?Location $location = null,
         /**  */
         public ?string $phoneNumber = null,
         /**  */

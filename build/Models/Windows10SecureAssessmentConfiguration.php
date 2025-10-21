@@ -29,11 +29,11 @@ class Windows10SecureAssessmentConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Indicates whether or not to allow the app from printing during the test. */
         public ?bool $allowPrinting = null,
         /** Indicates whether or not to allow screen capture capability during a test. */

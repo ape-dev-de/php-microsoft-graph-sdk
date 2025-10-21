@@ -11,14 +11,14 @@ class AiInteractionMentionedIdentitySet
 {
     public function __construct(
         /** Optional. The application associated with this action. */
-        public ?string $application = null,
+        public ?Identity $application = null,
         /** Optional. The device associated with this action. */
-        public ?string $device = null,
+        public ?Identity $device = null,
         /** Optional. The user associated with this action. */
-        public ?string $user = null,
+        public ?Identity $user = null,
         /**  */
-        public ?string $conversation = null,
+        public ?TeamworkConversationIdentity $conversation = null,
         /**  */
-        public ?string $tag = null
+        public ?TeamworkTagIdentity $tag = null
     ) {}
 }

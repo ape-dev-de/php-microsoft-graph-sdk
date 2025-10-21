@@ -21,27 +21,27 @@ class ProvisioningObjectSummary
         /** Indicates how long this provisioning action took to finish. Measured in milliseconds. */
         public ?float $durationInMilliseconds = null,
         /** Details of who initiated this provisioning. Supports $filter (eq, contains). */
-        public ?string $initiatedBy = null,
+        public ?Initiator $initiatedBy = null,
         /** The unique ID for the whole provisioning job. Supports $filter (eq, contains). */
         public ?string $jobId = null,
         /** Details of each property that was modified in this provisioning action on this object. */
         public array $modifiedProperties = [],
         /** Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Microsoft Entra activity list. Supports $filter (eq, contains). */
-        public ?string $provisioningAction = null,
+        public ?ProvisioningAction $provisioningAction = null,
         /** Details of provisioning status. */
-        public ?string $provisioningStatusInfo = null,
+        public ?ProvisioningStatusInfo $provisioningStatusInfo = null,
         /** Details of each step in provisioning. */
         public array $provisioningSteps = [],
         /** Represents the service principal used for provisioning. Supports $filter (eq) for id and name. */
-        public ?string $servicePrincipal = null,
+        public ?ProvisioningServicePrincipal $servicePrincipal = null,
         /** Details of source object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName. */
-        public ?string $sourceIdentity = null,
+        public ?ProvisionedIdentity $sourceIdentity = null,
         /** Details of source system of the object being provisioned. Supports $filter (eq, contains) for displayName. */
-        public ?string $sourceSystem = null,
+        public ?ProvisioningSystem $sourceSystem = null,
         /** Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName. */
-        public ?string $targetIdentity = null,
+        public ?ProvisionedIdentity $targetIdentity = null,
         /** Details of target system of the object being provisioned. Supports $filter (eq, contains) for displayName. */
-        public ?string $targetSystem = null,
+        public ?ProvisioningSystem $targetSystem = null,
         /** Unique Microsoft Entra tenant ID. Supports $filter (eq, contains). */
         public ?string $tenantId = null
     ) {}

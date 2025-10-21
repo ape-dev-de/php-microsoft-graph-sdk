@@ -29,6 +29,6 @@ class CloudPcGalleryImage
         /** The date when the Cloud PC image is available for provisioning new Cloud PCs. For example, 2022-09-20. Read-only. */
         public ?\DateTimeInterface $startDate = null,
         /** The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. The default value is supported. Read-only. */
-        public ?string $status = null
+        public ?CloudPcGalleryImageStatus $status = null
     ) {}
 }

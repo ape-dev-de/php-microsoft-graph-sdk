@@ -13,7 +13,7 @@ class SensitivityLabel
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $actionSource = null,
+        public ?LabelActionSource $actionSource = null,
         /**  */
         public ?string $autoTooltip = null,
         /**  */
@@ -35,7 +35,7 @@ class SensitivityLabel
         /**  */
         public ?string $toolTip = null,
         /**  */
-        public ?string $rights = null,
+        public ?UsageRightsIncluded $rights = null,
         /**  */
         public array $sublabels = []
     ) {}

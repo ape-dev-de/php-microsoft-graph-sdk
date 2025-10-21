@@ -15,6 +15,6 @@ class PrinterStatus
         /** The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only. */
         public array $details = [],
         /**  */
-        public ?string $state = null
+        public ?PrinterProcessingState $state = null
     ) {}
 }

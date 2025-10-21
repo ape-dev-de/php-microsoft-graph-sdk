@@ -21,8 +21,8 @@ class SecurityPassiveDnsRecord
         /** The DNS record type for this passiveDnsRecord entry. */
         public ?string $recordType = null,
         /**  */
-        public ?string $artifact = null,
+        public ?SecurityArtifact $artifact = null,
         /**  */
-        public ?string $parentHost = null
+        public ?SecurityHost $parentHost = null
     ) {}
 }

@@ -13,6 +13,6 @@ class ToneInfo
         /** An incremental identifier used for ordering DTMF events. */
         public ?float $sequenceId = null,
         /**  */
-        public ?string $tone = null
+        public ?Tone $tone = null
     ) {}
 }

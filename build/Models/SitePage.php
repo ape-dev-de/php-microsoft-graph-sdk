@@ -13,7 +13,7 @@ class SitePage
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Identity of the user, device, or application that created the item. Read-only. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** Date and time of item creation. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Provides a user-visible description of the item. Optional. */
@@ -21,29 +21,29 @@ class SitePage
         /** ETag for the item. Read-only. */
         public ?string $eTag = null,
         /** Identity of the user, device, and application that last modified the item. Read-only. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** Date and time the item was last modified. Read-only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The name of the item. Read-write. */
         public ?string $name = null,
         /** Parent information, if the item has a parent. Read-write. */
-        public ?string $parentReference = null,
+        public ?ItemReference $parentReference = null,
         /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
         public ?string $webUrl = null,
         /** Identity of the user who created the item. Read-only. */
-        public ?string $createdByUser = null,
+        public ?User $createdByUser = null,
         /** Identity of the user who last modified the item. Read-only. */
-        public ?string $lastModifiedByUser = null,
+        public ?User $lastModifiedByUser = null,
         /** The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue. */
-        public ?string $pageLayout = null,
+        public ?PageLayoutType $pageLayout = null,
         /** The publishing status and the MM.mm version of the page. */
-        public ?string $publishingState = null,
+        public ?PublicationFacet $publishingState = null,
         /** Title of the sitePage. */
         public ?string $title = null,
         /** Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue. */
-        public ?string $promotionKind = null,
+        public ?PagePromotionType $promotionKind = null,
         /** Reactions information for the page. */
-        public ?string $reactions = null,
+        public ?ReactionsFacet $reactions = null,
         /** Determines whether or not to show comments at the bottom of the page. */
         public ?bool $showComments = null,
         /** Determines whether or not to show recommended pages at the bottom of the page. */
@@ -51,9 +51,9 @@ class SitePage
         /** Url of the sitePage's thumbnail image */
         public ?string $thumbnailWebUrl = null,
         /** Title area on the SharePoint page. */
-        public ?string $titleArea = null,
+        public ?TitleArea $titleArea = null,
         /** Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections. */
-        public ?string $canvasLayout = null,
+        public ?CanvasLayout $canvasLayout = null,
         /** Collection of webparts on the SharePoint page. */
         public array $webParts = []
     ) {}

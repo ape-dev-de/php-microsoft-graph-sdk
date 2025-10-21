@@ -13,10 +13,10 @@ class WorkbookChartAxes
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents the category axis in a chart. Read-only. */
-        public ?string $categoryAxis = null,
+        public ?WorkbookChartAxis $categoryAxis = null,
         /** Represents the series axis of a 3-dimensional chart. Read-only. */
-        public ?string $seriesAxis = null,
+        public ?WorkbookChartAxis $seriesAxis = null,
         /** Represents the value axis in an axis. Read-only. */
-        public ?string $valueAxis = null
+        public ?WorkbookChartAxis $valueAxis = null
     ) {}
 }

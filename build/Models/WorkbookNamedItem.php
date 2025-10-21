@@ -25,6 +25,6 @@ class WorkbookNamedItem
         /** Indicates whether the object is visible. */
         public ?bool $visible = null,
         /** Returns the worksheet to which the named item is scoped. Available only if the item is scoped to the worksheet. Read-only. */
-        public ?string $worksheet = null
+        public ?WorkbookWorksheet $worksheet = null
     ) {}
 }

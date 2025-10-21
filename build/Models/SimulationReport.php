@@ -11,7 +11,7 @@ class SimulationReport
 {
     public function __construct(
         /** Overview of an attack simulation and training campaign. */
-        public ?string $overview = null,
+        public ?SimulationReportOverview $overview = null,
         /** The tenant users and their online actions in an attack simulation and training campaign. */
         public array $simulationUsers = []
     ) {}

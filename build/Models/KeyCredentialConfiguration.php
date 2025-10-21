@@ -15,8 +15,8 @@ class KeyCredentialConfiguration
         /** Specifies the date from which the policy restriction applies to newly created applications. For existing applications, the enforcement date can be retroactively applied. */
         public ?\DateTimeInterface $restrictForAppsCreatedAfterDateTime = null,
         /** The type of restriction being applied. Possible values are asymmetricKeyLifetime, and unknownFutureValue. Each value of restrictionType can be used only once per policy. */
-        public ?string $restrictionType = null,
+        public ?AppKeyCredentialRestrictionType $restrictionType = null,
         /**  */
-        public ?string $state = null
+        public ?AppManagementRestrictionState $state = null
     ) {}
 }

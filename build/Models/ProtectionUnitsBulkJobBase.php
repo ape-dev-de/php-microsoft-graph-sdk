@@ -13,18 +13,18 @@ class ProtectionUnitsBulkJobBase
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The identity of person who created the job. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** The time of creation of the job. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The name of the protection units bulk addition job. */
         public ?string $displayName = null,
         /** Error details containing resource resolution failures, if any. */
-        public ?string $error = null,
+        public ?PublicError $error = null,
         /** The identity of the person who last modified the job. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** Timestamp of the last modification made to the job. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /**  */
-        public ?string $status = null
+        public ?ProtectionUnitsBulkJobStatus $status = null
     ) {}
 }

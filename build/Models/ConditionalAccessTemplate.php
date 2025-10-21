@@ -15,10 +15,10 @@ class ConditionalAccessTemplate
         /** The user-friendly name of the template. */
         public ?string $description = null,
         /**  */
-        public ?string $details = null,
+        public ?ConditionalAccessPolicyDetail $details = null,
         /** The user-friendly name of the template. */
         public ?string $name = null,
         /**  */
-        public ?string $scenarios = null
+        public ?TemplateScenarios $scenarios = null
     ) {}
 }

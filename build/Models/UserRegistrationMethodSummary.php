@@ -15,8 +15,8 @@ class UserRegistrationMethodSummary
         /** Number of users registered for each authentication method. */
         public array $userRegistrationMethodCounts = [],
         /** The role type of the user. Possible values are: all, privilegedAdmin, admin, user, unknownFutureValue. */
-        public ?string $userRoles = null,
+        public ?IncludedUserRoles $userRoles = null,
         /** User type. Possible values are: all, member, guest, unknownFutureValue. */
-        public ?string $userTypes = null
+        public ?IncludedUserTypes $userTypes = null
     ) {}
 }

@@ -11,10 +11,10 @@ class MicrosoftTrainingAssignmentMapping
 {
     public function __construct(
         /** Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue. */
-        public ?string $settingType = null,
+        public ?TrainingSettingType $settingType = null,
         /** A user collection that specifies to whom the training should be assigned. Possible values are: none, allUsers, clickedPayload, compromised, reportedPhish, readButNotClicked, didNothing, unknownFutureValue. */
         public array $assignedTo = [],
         /**  */
-        public ?string $training = null
+        public ?Training $training = null
     ) {}
 }

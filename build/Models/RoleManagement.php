@@ -11,8 +11,8 @@ class RoleManagement
 {
     public function __construct(
         /**  */
-        public ?string $directory = null,
+        public ?RbacApplication $directory = null,
         /** Container for roles and assignments for entitlement management resources. */
-        public ?string $entitlementManagement = null
+        public ?RbacApplication $entitlementManagement = null
     ) {}
 }

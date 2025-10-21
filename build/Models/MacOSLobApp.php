@@ -25,7 +25,7 @@ class MacOSLobApp
         /** The value indicating whether the app is marked as featured by the admin. */
         public ?bool $isFeatured = null,
         /** The large icon, to be displayed in the app details and used for upload of the icon. */
-        public ?string $largeIcon = null,
+        public ?MimeContent $largeIcon = null,
         /** The date and time the app was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Notes for the app. */
@@ -37,7 +37,7 @@ class MacOSLobApp
         /** The publisher of the app. */
         public ?string $publisher = null,
         /**  */
-        public ?string $publishingState = null,
+        public ?MobileAppPublishingState $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
         /** The list of categories for this app. */
@@ -65,7 +65,7 @@ class MacOSLobApp
         /** The chunk size for MD5 hash. This is '0' or empty if the package was uploaded directly. If the Intune App Wrapping Tool is used to create a .intunemac, this value can be found inside the Detection.xml file. */
         public ?float $md5HashChunkSize = null,
         /** ComplexType macOSMinimumOperatingSystem that indicates the minimum operating system applicable for the application. */
-        public ?string $minimumSupportedOperatingSystem = null,
+        public ?MacOSMinimumOperatingSystem $minimumSupportedOperatingSystem = null,
         /** The version number of the package. This should match the package CFBundleVersion in the packageinfo file. */
         public ?string $versionNumber = null
     ) {}

@@ -13,6 +13,6 @@ class StorageSettings
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $quota = null
+        public ?UnifiedStorageQuota $quota = null
     ) {}
 }

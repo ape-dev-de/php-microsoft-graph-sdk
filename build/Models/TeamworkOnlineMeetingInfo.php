@@ -15,6 +15,6 @@ class TeamworkOnlineMeetingInfo
         /** The URL that users click to join or uniquely identify the meeting. */
         public ?string $joinWebUrl = null,
         /** The organizer of the meeting. */
-        public ?string $organizer = null
+        public ?TeamworkUserIdentity $organizer = null
     ) {}
 }

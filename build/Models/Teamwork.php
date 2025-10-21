@@ -21,7 +21,7 @@ class Teamwork
         /** The deleted team. */
         public array $deletedTeams = [],
         /** Represents tenant-wide settings for all Teams apps in the tenant. */
-        public ?string $teamsAppSettings = null,
+        public ?TeamsAppSettings $teamsAppSettings = null,
         /**  */
         public array $workforceIntegrations = []
     ) {}

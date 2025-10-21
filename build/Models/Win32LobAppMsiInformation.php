@@ -11,7 +11,7 @@ class Win32LobAppMsiInformation
 {
     public function __construct(
         /**  */
-        public ?string $packageType = null,
+        public ?Win32LobAppMsiPackageType $packageType = null,
         /** The MSI product code. */
         public ?string $productCode = null,
         /** The MSI product name. */

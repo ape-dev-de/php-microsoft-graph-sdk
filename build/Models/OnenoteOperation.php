@@ -17,9 +17,9 @@ class OnenoteOperation
         /** The time of the last action of the operation. */
         public ?\DateTimeInterface $lastActionDateTime = null,
         /** The current status of the operation: notStarted, running, completed, failed */
-        public ?string $status = null,
+        public ?OperationStatus $status = null,
         /** The error returned by the operation. */
-        public ?string $error = null,
+        public ?OnenoteOperationError $error = null,
         /** The operation percent complete if the operation is still in running status. */
         public ?string $percentComplete = null,
         /** The resource id. */

@@ -13,6 +13,6 @@ class SecurityFilePlanAppliedCategory
         /** Unique string that defines the name for the file plan descriptor associated with a particular retention label. */
         public ?string $displayName = null,
         /** Represents the file plan descriptor for a subcategory under a specific category, which has been assigned to a particular retention label. */
-        public ?string $subcategory = null
+        public ?SecurityFilePlanSubcategory $subcategory = null
     ) {}
 }

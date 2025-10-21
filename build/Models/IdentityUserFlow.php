@@ -13,7 +13,7 @@ class IdentityUserFlow
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $userFlowType = null,
+        public ?UserFlowType $userFlowType = null,
         /**  */
         public ?string $userFlowTypeVersion = null
     ) {}

@@ -11,7 +11,7 @@ class AzureADRegistrationPolicy
 {
     public function __construct(
         /**  */
-        public ?string $allowedToRegister = null,
+        public ?DeviceRegistrationMembership $allowedToRegister = null,
         /**  */
         public ?bool $isAdminConfigurable = null
     ) {}

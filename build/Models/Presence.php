@@ -17,10 +17,10 @@ class Presence
         /** The base presence information for a user. Possible values are available, away, beRightBack, busy, doNotDisturb, focusing, inACall, inAMeeting, offline, presenting, presenceUnknown. */
         public ?string $availability = null,
         /** The out of office settings for a user. */
-        public ?string $outOfOfficeSettings = null,
+        public ?OutOfOfficeSettings $outOfOfficeSettings = null,
         /** The lexicographically sortable String stamp that represents the version of a presence object. */
         public ?string $sequenceNumber = null,
         /** The presence status message of a user. */
-        public ?string $statusMessage = null
+        public ?PresenceStatusMessage $statusMessage = null
     ) {}
 }

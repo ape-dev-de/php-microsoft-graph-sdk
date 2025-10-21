@@ -11,6 +11,6 @@ class EdgeSearchEngine
 {
     public function __construct(
         /**  */
-        public ?string $edgeSearchEngineType = null
+        public ?EdgeSearchEngineType $edgeSearchEngineType = null
     ) {}
 }

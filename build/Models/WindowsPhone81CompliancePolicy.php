@@ -29,13 +29,13 @@ class WindowsPhone81CompliancePolicy
         /** List of DeviceComplianceDeviceStatus. */
         public array $deviceStatuses = [],
         /** Device compliance devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceComplianceDeviceOverview $deviceStatusOverview = null,
         /** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies. */
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
         /** Device compliance users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceComplianceUserOverview $userStatusOverview = null,
         /** Maximum Windows Phone version. */
         public ?string $osMaximumVersion = null,
         /** Minimum Windows Phone version. */
@@ -55,7 +55,7 @@ class WindowsPhone81CompliancePolicy
         /** Whether or not to require a password. */
         public ?bool $passwordRequired = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?RequiredPasswordType $passwordRequiredType = null,
         /** Require encryption on windows phone devices. */
         public ?bool $storageRequireEncryption = null
     ) {}

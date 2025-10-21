@@ -13,6 +13,6 @@ class CallTranscriptionInfo
         /** The state modified time in UTC. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /**  */
-        public ?string $state = null
+        public ?CallTranscriptionState $state = null
     ) {}
 }

@@ -11,9 +11,9 @@ class RequestSchedule
 {
     public function __construct(
         /** When the eligible or active assignment expires. */
-        public ?string $expiration = null,
+        public ?ExpirationPattern $expiration = null,
         /** The frequency of the  eligible or active assignment. This property is currently unsupported in PIM. */
-        public ?string $recurrence = null,
+        public ?PatternedRecurrence $recurrence = null,
         /** When the  eligible or active assignment becomes active. */
         public ?\DateTimeInterface $startDateTime = null
     ) {}

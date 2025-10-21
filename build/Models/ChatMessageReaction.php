@@ -19,6 +19,6 @@ class ChatMessageReaction
         /** The reaction type. Supported values include Unicode characters, custom, and some backward-compatible reaction types, such as like, angry, sad, laugh, heart, and surprised. */
         public ?string $reactionType = null,
         /**  */
-        public ?string $user = null
+        public ?ChatMessageReactionIdentitySet $user = null
     ) {}
 }

@@ -11,7 +11,7 @@ class PrintModel
 {
     public function __construct(
         /** Tenant-wide settings for the Universal Print service. */
-        public ?string $settings = null,
+        public ?PrintSettings $settings = null,
         /** The list of available print connectors. */
         public array $connectors = [],
         /** The list of print long running operations. */

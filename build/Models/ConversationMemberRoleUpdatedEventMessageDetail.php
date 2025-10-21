@@ -13,8 +13,8 @@ class ConversationMemberRoleUpdatedEventMessageDetail
         /** @var string[] Roles for the coversation member user. */
         public array $conversationMemberRoles = [],
         /** Identity of the conversation member user. */
-        public ?string $conversationMemberUser = null,
+        public ?TeamworkUserIdentity $conversationMemberUser = null,
         /** Initiator of the event. */
-        public ?string $initiator = null
+        public ?IdentitySet $initiator = null
     ) {}
 }

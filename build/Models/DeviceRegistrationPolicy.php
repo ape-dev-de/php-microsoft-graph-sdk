@@ -13,17 +13,17 @@ class DeviceRegistrationPolicy
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $azureADJoin = null,
+        public ?AzureADJoinPolicy $azureADJoin = null,
         /**  */
-        public ?string $azureADRegistration = null,
+        public ?AzureADRegistrationPolicy $azureADRegistration = null,
         /**  */
         public ?string $description = null,
         /**  */
         public ?string $displayName = null,
         /**  */
-        public ?string $localAdminPassword = null,
+        public ?LocalAdminPasswordSettings $localAdminPassword = null,
         /**  */
-        public ?string $multiFactorAuthConfiguration = null,
+        public ?MultiFactorAuthConfiguration $multiFactorAuthConfiguration = null,
         /**  */
         public ?float $userDeviceQuota = null
     ) {}

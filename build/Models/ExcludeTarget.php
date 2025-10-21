@@ -13,6 +13,6 @@ class ExcludeTarget
         /** The object identifier of a Microsoft Entra user or group. */
         public ?string $id = null,
         /**  */
-        public ?string $targetType = null
+        public ?AuthenticationMethodTargetType $targetType = null
     ) {}
 }

@@ -19,10 +19,10 @@ class TenantAppManagementPolicy
         /** Display name for this policy. Required. */
         public ?string $displayName = null,
         /** Restrictions that apply as default to all application objects in the tenant. */
-        public ?string $applicationRestrictions = null,
+        public ?AppManagementApplicationConfiguration $applicationRestrictions = null,
         /** Denotes whether the policy is enabled. Default value is false. */
         public ?bool $isEnabled = null,
         /** Restrictions that apply as default to all service principal objects in the tenant. */
-        public ?string $servicePrincipalRestrictions = null
+        public ?AppManagementServicePrincipalConfiguration $servicePrincipalRestrictions = null
     ) {}
 }

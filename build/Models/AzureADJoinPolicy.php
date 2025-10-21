@@ -11,7 +11,7 @@ class AzureADJoinPolicy
 {
     public function __construct(
         /**  */
-        public ?string $allowedToJoin = null,
+        public ?DeviceRegistrationMembership $allowedToJoin = null,
         /**  */
         public ?bool $isAdminConfigurable = null
     ) {}

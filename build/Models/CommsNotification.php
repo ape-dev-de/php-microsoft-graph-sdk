@@ -11,7 +11,7 @@ class CommsNotification
 {
     public function __construct(
         /**  */
-        public ?string $changeType = null,
+        public ?ChangeType $changeType = null,
         /** URI of the resource that was changed. */
         public ?string $resourceUrl = null
     ) {}

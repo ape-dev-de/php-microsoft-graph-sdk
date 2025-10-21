@@ -17,6 +17,6 @@ class AccessReviewInstanceDecisionItemAzureRoleResource
         /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
         public ?string $type = null,
         /** Details of the scope this role is associated with. */
-        public ?string $scope = null
+        public ?AccessReviewInstanceDecisionItemResource $scope = null
     ) {}
 }

@@ -11,8 +11,8 @@ class ProvisioningStatusInfo
 {
     public function __construct(
         /** If status isn't success/ skipped details for the error are contained in this. */
-        public ?string $errorInformation = null,
+        public ?ProvisioningErrorInfo $errorInformation = null,
         /** Possible values are: success, warning, failure, skipped, unknownFutureValue. */
-        public ?string $status = null
+        public ?ProvisioningResult $status = null
     ) {}
 }

@@ -15,7 +15,7 @@ class ProvisionedIdentity
         /** The display name of the identity.For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta. */
         public ?string $displayName = null,
         /** Details of the identity. */
-        public ?string $details = null,
+        public ?DetailsInfo $details = null,
         /** Type of identity that has been provisioned, such as 'user' or 'group'. Supports $filter (eq, contains). */
         public ?string $identityType = null
     ) {}

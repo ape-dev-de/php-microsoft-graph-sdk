@@ -23,7 +23,7 @@ class NetworkConnection
         /** Network connection URL/URI string - excluding parameters. (for example 'www.contoso.com/products/default.html') */
         public ?string $destinationUrl = null,
         /** Network connection direction. Possible values are: unknown, inbound, outbound. */
-        public ?string $direction = null,
+        public ?ConnectionDirection $direction = null,
         /** Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
         public ?\DateTimeInterface $domainRegisteredDateTime = null,
         /** The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with). */
@@ -37,7 +37,7 @@ class NetworkConnection
         /** Network Address Translation source port. */
         public ?string $natSourcePort = null,
         /** Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII. */
-        public ?string $protocol = null,
+        public ?SecurityNetworkProtocol $protocol = null,
         /** Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage. */
         public ?string $riskScore = null,
         /** Source (i.e. origin) IP address (of the network connection). */
@@ -47,7 +47,7 @@ class NetworkConnection
         /** Source (i.e. origin) IP port (of the network connection). */
         public ?string $sourcePort = null,
         /** Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed. */
-        public ?string $status = null,
+        public ?ConnectionStatus $status = null,
         /** Parameters (suffix) of the destination URL. */
         public ?string $urlParameters = null
     ) {}

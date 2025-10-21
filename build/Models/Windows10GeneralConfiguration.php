@@ -29,17 +29,17 @@ class Windows10GeneralConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
         public ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null,
         /** Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only). */
         public ?bool $antiTheftModeBlocked = null,
         /**  */
-        public ?string $appsAllowTrustedAppsSideloading = null,
+        public ?StateManagementSetting $appsAllowTrustedAppsSideloading = null,
         /** Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded. */
         public ?bool $appsBlockWindowsStoreOriginatedApps = null,
         /** @var string[] Specify a list of allowed Bluetooth services and profiles in hex formatted strings. */
@@ -71,21 +71,21 @@ class Windows10GeneralConfiguration
         /** Whether or not to block end user access to Defender. */
         public ?bool $defenderBlockEndUserAccess = null,
         /**  */
-        public ?string $defenderCloudBlockLevel = null,
+        public ?DefenderCloudBlockLevelType $defenderCloudBlockLevel = null,
         /** Number of days before deleting quarantined malware. Valid values 0 to 90 */
         public ?float $defenderDaysBeforeDeletingQuarantinedMalware = null,
         /** Gets or sets Defender’s actions to take on detected Malware per threat level. */
-        public ?string $defenderDetectedMalwareActions = null,
+        public ?DefenderDetectedMalwareActions $defenderDetectedMalwareActions = null,
         /** @var string[] File extensions to exclude from scans and real time protection. */
         public array $defenderFileExtensionsToExclude = [],
         /** @var string[] Files and folder to exclude from scans and real time protection. */
         public array $defenderFilesAndFoldersToExclude = [],
         /**  */
-        public ?string $defenderMonitorFileActivity = null,
+        public ?DefenderMonitorFileActivity $defenderMonitorFileActivity = null,
         /** @var string[] Processes to exclude from scans and real time protection. */
         public array $defenderProcessesToExclude = [],
         /**  */
-        public ?string $defenderPromptForSampleSubmission = null,
+        public ?DefenderPromptForSampleSubmission $defenderPromptForSampleSubmission = null,
         /** Indicates whether or not to require behavior monitoring. */
         public ?bool $defenderRequireBehaviorMonitoring = null,
         /** Indicates whether or not to require cloud protection. */
@@ -111,7 +111,7 @@ class Windows10GeneralConfiguration
         /** Indicates whether or not to scan scripts loaded in Internet Explorer browser. */
         public ?bool $defenderScanScriptsLoadedInInternetExplorer = null,
         /**  */
-        public ?string $defenderScanType = null,
+        public ?DefenderScanType $defenderScanType = null,
         /** The time to perform a daily quick scan. */
         public ?string $defenderScheduledQuickScanTime = null,
         /** The defender time for the system scan. */
@@ -119,15 +119,15 @@ class Windows10GeneralConfiguration
         /** The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24 */
         public ?float $defenderSignatureUpdateIntervalInHours = null,
         /**  */
-        public ?string $defenderSystemScanSchedule = null,
+        public ?WeeklySchedule $defenderSystemScanSchedule = null,
         /**  */
-        public ?string $developerUnlockSetting = null,
+        public ?StateManagementSetting $developerUnlockSetting = null,
         /** Indicates whether or not to Block the user from resetting their phone. */
         public ?bool $deviceManagementBlockFactoryResetOnMobile = null,
         /** Indicates whether or not to Block the user from doing manual un-enrollment from device management. */
         public ?bool $deviceManagementBlockManualUnenroll = null,
         /**  */
-        public ?string $diagnosticsDataSubmissionMode = null,
+        public ?DiagnosticDataSubmissionMode $diagnosticsDataSubmissionMode = null,
         /** Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge. */
         public ?bool $edgeAllowStartPagesModification = null,
         /** Indicates whether or not to prevent access to about flags on Edge browser. */
@@ -163,7 +163,7 @@ class Windows10GeneralConfiguration
         /** Clear browsing data on exiting Microsoft Edge. */
         public ?bool $edgeClearBrowsingDataOnExit = null,
         /**  */
-        public ?string $edgeCookiePolicy = null,
+        public ?EdgeCookiePolicy $edgeCookiePolicy = null,
         /** Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page. */
         public ?bool $edgeDisableFirstRunPage = null,
         /** Indicates the enterprise mode site list location. Could be a local file, local network or http location. */
@@ -175,7 +175,7 @@ class Windows10GeneralConfiguration
         /** Indicates whether or not to Require the user to use the smart screen filter. */
         public ?bool $edgeRequireSmartScreen = null,
         /** Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set. */
-        public ?string $edgeSearchEngine = null,
+        public ?EdgeSearchEngineBase $edgeSearchEngine = null,
         /** Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. */
         public ?bool $edgeSendIntranetTrafficToInternetExplorer = null,
         /** Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers. */
@@ -227,7 +227,7 @@ class Windows10GeneralConfiguration
         /** Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script. */
         public ?bool $networkProxyDisableAutoDetect = null,
         /** Specifies manual proxy server settings. */
-        public ?string $networkProxyServer = null,
+        public ?Windows10NetworkProxyServer $networkProxyServer = null,
         /** Indicates whether or not to Block the user from using near field communication. */
         public ?bool $nfcBlocked = null,
         /** Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive. */
@@ -247,7 +247,7 @@ class Windows10GeneralConfiguration
         /** Indicates whether or not to require the user to have a password. */
         public ?bool $passwordRequired = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?RequiredPasswordType $passwordRequiredType = null,
         /** Indicates whether or not to require a password upon resuming from an idle state. */
         public ?bool $passwordRequireWhenResumeFromIdleState = null,
         /** The number of sign in failures before factory reset. Valid values 0 to 999 */
@@ -257,7 +257,7 @@ class Windows10GeneralConfiguration
         /** A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image. */
         public ?string $personalizationLockScreenImageUrl = null,
         /**  */
-        public ?string $privacyAdvertisingId = null,
+        public ?StateManagementSetting $privacyAdvertisingId = null,
         /** Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps. */
         public ?bool $privacyAutoAcceptPairingAndConsentPrompts = null,
         /** Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications. */
@@ -265,7 +265,7 @@ class Windows10GeneralConfiguration
         /** Indicates whether or not to Block the user from reset protection mode. */
         public ?bool $resetProtectionModeBlocked = null,
         /**  */
-        public ?string $safeSearchFilter = null,
+        public ?SafeSearchFilterType $safeSearchFilter = null,
         /** Indicates whether or not to Block the user from taking Screenshots. */
         public ?bool $screenCaptureBlocked = null,
         /** Specifies if search can use diacritics. */
@@ -331,7 +331,7 @@ class Windows10GeneralConfiguration
         /** Indicates whether or not to block the user from unpinning apps from taskbar. */
         public ?bool $startBlockUnpinningAppsFromTaskbar = null,
         /**  */
-        public ?string $startMenuAppListVisibility = null,
+        public ?WindowsStartMenuAppListVisibilityType $startMenuAppListVisibility = null,
         /** Enabling this policy hides the change account setting from appearing in the user tile in the start menu. */
         public ?bool $startMenuHideChangeAccountSettings = null,
         /** Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app. */
@@ -363,27 +363,27 @@ class Windows10GeneralConfiguration
         /** Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format. */
         public ?string $startMenuLayoutXml = null,
         /**  */
-        public ?string $startMenuMode = null,
+        public ?WindowsStartMenuModeType $startMenuMode = null,
         /**  */
-        public ?string $startMenuPinnedFolderDocuments = null,
+        public ?VisibilitySetting $startMenuPinnedFolderDocuments = null,
         /**  */
-        public ?string $startMenuPinnedFolderDownloads = null,
+        public ?VisibilitySetting $startMenuPinnedFolderDownloads = null,
         /**  */
-        public ?string $startMenuPinnedFolderFileExplorer = null,
+        public ?VisibilitySetting $startMenuPinnedFolderFileExplorer = null,
         /**  */
-        public ?string $startMenuPinnedFolderHomeGroup = null,
+        public ?VisibilitySetting $startMenuPinnedFolderHomeGroup = null,
         /**  */
-        public ?string $startMenuPinnedFolderMusic = null,
+        public ?VisibilitySetting $startMenuPinnedFolderMusic = null,
         /**  */
-        public ?string $startMenuPinnedFolderNetwork = null,
+        public ?VisibilitySetting $startMenuPinnedFolderNetwork = null,
         /**  */
-        public ?string $startMenuPinnedFolderPersonalFolder = null,
+        public ?VisibilitySetting $startMenuPinnedFolderPersonalFolder = null,
         /**  */
-        public ?string $startMenuPinnedFolderPictures = null,
+        public ?VisibilitySetting $startMenuPinnedFolderPictures = null,
         /**  */
-        public ?string $startMenuPinnedFolderSettings = null,
+        public ?VisibilitySetting $startMenuPinnedFolderSettings = null,
         /**  */
-        public ?string $startMenuPinnedFolderVideos = null,
+        public ?VisibilitySetting $startMenuPinnedFolderVideos = null,
         /** Indicates whether or not to Block the user from using removable storage. */
         public ?bool $storageBlockRemovableStorage = null,
         /** Indicating whether or not to require encryption on a mobile device. */
@@ -423,7 +423,7 @@ class Windows10GeneralConfiguration
         /** Allows IT admins to turn off the popup of Windows Tips. */
         public ?bool $windowsSpotlightBlockWindowsTips = null,
         /**  */
-        public ?string $windowsSpotlightConfigureOnLockScreen = null,
+        public ?WindowsSpotlightEnablementSettings $windowsSpotlightConfigureOnLockScreen = null,
         /** Indicates whether or not to block automatic update of apps from Windows Store. */
         public ?bool $windowsStoreBlockAutoUpdate = null,
         /** Indicates whether or not to Block the user from using the Windows store. */

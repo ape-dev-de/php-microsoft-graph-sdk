@@ -25,7 +25,7 @@ class CallRecording
         /** The unique identifier of the onlineMeeting related to this recording. Read-only. */
         public ?string $meetingId = null,
         /** The identity information of the organizer of the onlineMeeting related to this recording. Read-only. */
-        public ?string $meetingOrganizer = null,
+        public ?IdentitySet $meetingOrganizer = null,
         /** The URL that can be used to access the content of the recording. Read-only. */
         public ?string $recordingContentUrl = null
     ) {}

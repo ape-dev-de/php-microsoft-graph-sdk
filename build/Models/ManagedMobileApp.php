@@ -13,7 +13,7 @@ class ManagedMobileApp
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The identifier for an app with it's operating system type. */
-        public ?string $mobileAppIdentifier = null,
+        public ?MobileAppIdentifier $mobileAppIdentifier = null,
         /** Version of the entity. */
         public ?string $version = null
     ) {}

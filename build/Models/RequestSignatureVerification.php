@@ -11,7 +11,7 @@ class RequestSignatureVerification
 {
     public function __construct(
         /** Specifies which weak algorithms are allowed.  The possible values are: rsaSha1, unknownFutureValue. */
-        public ?string $allowedWeakAlgorithms = null,
+        public ?WeakAlgorithms $allowedWeakAlgorithms = null,
         /** Specifies whether signed authentication requests for this application should be required. */
         public ?bool $isSignedRequestRequired = null
     ) {}

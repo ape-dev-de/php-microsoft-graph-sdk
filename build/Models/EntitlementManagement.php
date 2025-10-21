@@ -35,6 +35,6 @@ class EntitlementManagement
         /** The resources associated with the catalogs. */
         public array $resources = [],
         /** The settings that control the behavior of Microsoft Entra entitlement management. */
-        public ?string $settings = null
+        public ?EntitlementManagementSettings $settings = null
     ) {}
 }

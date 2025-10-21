@@ -13,8 +13,8 @@ class ManagedEBookAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $installIntent = null,
+        public ?InstallIntent $installIntent = null,
         /** The assignment target for eBook. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

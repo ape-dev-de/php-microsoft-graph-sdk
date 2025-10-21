@@ -19,9 +19,9 @@ class Community
         /** The ID of the Microsoft 365 group that manages the membership of this community. */
         public ?string $groupId = null,
         /**  */
-        public ?string $privacy = null,
+        public ?CommunityPrivacy $privacy = null,
         /** The Microsoft 365 group that manages the membership of this community. */
-        public ?string $group = null,
+        public ?Group $group = null,
         /** The admins of the community. Limited to 100 users. If this property isn't specified when you create the community, the calling user is automatically assigned as the community owner. */
         public array $owners = []
     ) {}

@@ -13,12 +13,12 @@ class UserScopeTeamsAppInstallation
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The set of resource-specific permissions consented to while installing or upgrading the teamsApp. */
-        public ?string $consentedPermissionSet = null,
+        public ?TeamsAppPermissionSet $consentedPermissionSet = null,
         /** The app that is installed. */
-        public ?string $teamsApp = null,
+        public ?TeamsApp $teamsApp = null,
         /** The details of this version of the app. */
-        public ?string $teamsAppDefinition = null,
+        public ?TeamsAppDefinition $teamsAppDefinition = null,
         /** The chat between the user and Teams app. */
-        public ?string $chat = null
+        public ?Chat $chat = null
     ) {}
 }

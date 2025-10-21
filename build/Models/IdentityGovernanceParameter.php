@@ -15,6 +15,6 @@ class IdentityGovernanceParameter
         /** @var string[] The values of the parameter. */
         public array $values = [],
         /**  */
-        public ?string $valueType = null
+        public ?IdentityGovernanceValueType $valueType = null
     ) {}
 }

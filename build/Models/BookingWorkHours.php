@@ -11,7 +11,7 @@ class BookingWorkHours
 {
     public function __construct(
         /**  */
-        public ?string $day = null,
+        public ?DayOfWeek $day = null,
         /** A list of start/end times during a day. */
         public array $timeSlots = []
     ) {}

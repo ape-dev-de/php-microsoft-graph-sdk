@@ -11,8 +11,8 @@ class UserFlowApiConnectorConfiguration
 {
     public function __construct(
         /**  */
-        public ?string $postAttributeCollection = null,
+        public ?IdentityApiConnector $postAttributeCollection = null,
         /**  */
-        public ?string $postFederationSignup = null
+        public ?IdentityApiConnector $postFederationSignup = null
     ) {}
 }

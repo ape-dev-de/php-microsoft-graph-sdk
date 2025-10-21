@@ -19,13 +19,13 @@ class Agreement
         /** Indicates whether the user has to expand the agreement before accepting. Supports $filter (eq). */
         public ?bool $isViewingBeforeAcceptanceRequired = null,
         /** Expiration schedule and frequency of agreement for all users. Supports $filter (eq). */
-        public ?string $termsExpiration = null,
+        public ?TermsExpiration $termsExpiration = null,
         /** The duration after which the user must reaccept the terms of use. The value is represented in ISO 8601 format for durations. Supports $filter (eq). */
         public ?string $userReacceptRequiredFrequency = null,
         /** Read-only. Information about acceptances of this agreement. */
         public array $acceptances = [],
         /** Default PDF linked to this agreement. */
-        public ?string $file = null,
+        public ?AgreementFile $file = null,
         /** PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand. */
         public array $files = []
     ) {}

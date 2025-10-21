@@ -13,7 +13,7 @@ class AccessPackageCatalog
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue. */
-        public ?string $catalogType = null,
+        public ?AccessPackageCatalogType $catalogType = null,
         /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The description of the access package catalog. */
@@ -25,7 +25,7 @@ class AccessPackageCatalog
         /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
         public ?\DateTimeInterface $modifiedDateTime = null,
         /** Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue. */
-        public ?string $state = null,
+        public ?AccessPackageCatalogState $state = null,
         /** The access packages in this catalog. Read-only. Nullable. */
         public array $accessPackages = [],
         /**  */

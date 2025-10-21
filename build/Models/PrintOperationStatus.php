@@ -13,6 +13,6 @@ class PrintOperationStatus
         /** A human-readable description of the printOperation's current processing state. Read-only. */
         public ?string $description = null,
         /**  */
-        public ?string $state = null
+        public ?PrintOperationProcessingState $state = null
     ) {}
 }

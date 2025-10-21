@@ -13,6 +13,6 @@ class DeviceCompliancePolicyAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Target for the compliance policy assignment. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

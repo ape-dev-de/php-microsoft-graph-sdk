@@ -11,7 +11,7 @@ class UserRegistrationFeatureCount
 {
     public function __construct(
         /**  */
-        public ?string $feature = null,
+        public ?AuthenticationMethodFeature $feature = null,
         /** Number of users. */
         public ?float $userCount = null
     ) {}

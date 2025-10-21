@@ -11,9 +11,9 @@ class BroadcastMeetingSettings
 {
     public function __construct(
         /** Defines who can join the Teams live event. Possible values are listed in the following table. */
-        public ?string $allowedAudience = null,
+        public ?BroadcastMeetingAudience $allowedAudience = null,
         /** Caption settings of a Teams live event. */
-        public ?string $captions = null,
+        public ?BroadcastMeetingCaptionSettings $captions = null,
         /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
         public ?bool $isAttendeeReportEnabled = null,
         /** Indicates whether Q&A is enabled for this Teams live event. Default value is false. */

@@ -13,7 +13,7 @@ class WorkbookWorksheetProtection
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Worksheet protection options. Read-only. */
-        public ?string $options = null,
+        public ?WorkbookWorksheetProtectionOptions $options = null,
         /** Indicates whether the worksheet is protected.  Read-only. */
         public ?bool $protected = null
     ) {}

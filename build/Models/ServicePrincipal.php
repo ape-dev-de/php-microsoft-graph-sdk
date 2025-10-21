@@ -35,7 +35,7 @@ class ServicePrincipal
         /** The roles exposed by the application that's linked to this service principal. For more information, see the appRoles property definition on the application entity. Not nullable. */
         public array $appRoles = [],
         /** An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. */
-        public ?string $customSecurityAttributes = null,
+        public ?CustomSecurityAttributeValue $customSecurityAttributes = null,
         /** Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps displays the application description in this field. The maximum allowed size is 1,024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
         public ?string $description = null,
         /** Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not). */
@@ -45,7 +45,7 @@ class ServicePrincipal
         /** Home page or landing page of the application. */
         public ?string $homepage = null,
         /** Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values). */
-        public ?string $info = null,
+        public ?InformationalUrl $info = null,
         /** The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le). */
         public array $keyCredentials = [],
         /** Specifies the URL where the service provider redirects the user to Microsoft Entra ID to authenticate. Microsoft Entra ID uses the URL to launch the application from Microsoft 365 or the Microsoft Entra My Apps. When blank, Microsoft Entra ID performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Microsoft Entra My Apps, or the Microsoft Entra SSO URL. */
@@ -69,7 +69,7 @@ class ServicePrincipal
         /** The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only. */
         public array $resourceSpecificApplicationPermissions = [],
         /** The collection for settings related to saml single sign-on. */
-        public ?string $samlSingleSignOnSettings = null,
+        public ?SamlSingleSignOnSettings $samlSingleSignOnSettings = null,
         /** @var string[] Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Microsoft Entra ID. For example,Client apps can specify a resource URI that is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith). */
         public array $servicePrincipalNames = [],
         /** Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Microsoft Entra ID internally. The servicePrincipalType property can be set to three different values: Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens aren't issued for the service principal.ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but can't be updated or modified directly.Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. A legacy service principal can have credentials, service principal names, reply URLs, and other properties that are editable by an authorized user, but doesn't have an associated app registration. The appId value doesn't associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.SocialIdp - For internal use. */
@@ -81,7 +81,7 @@ class ServicePrincipal
         /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Microsoft Entra ID issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
         public ?string $tokenEncryptionKeyId = null,
         /** Specifies the verified publisher of the application that's linked to this service principal. */
-        public ?string $verifiedPublisher = null,
+        public ?VerifiedPublisher $verifiedPublisher = null,
         /** The appManagementPolicy applied to this application. */
         public array $appManagementPolicies = [],
         /** App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand. */
@@ -109,9 +109,9 @@ class ServicePrincipal
         /** Directory objects that are owners of this servicePrincipal. The owners are a set of nonadmin users or servicePrincipals who are allowed to modify this object. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand. */
         public array $owners = [],
         /** The remoteDesktopSecurityConfiguration object applied to this service principal. Supports $filter (eq) for isRemoteDesktopProtocolEnabled property. */
-        public ?string $remoteDesktopSecurityConfiguration = null,
+        public ?RemoteDesktopSecurityConfiguration $remoteDesktopSecurityConfiguration = null,
         /** Represents the capability for Microsoft Entra identity synchronization through the Microsoft Graph API. */
-        public ?string $synchronization = null,
+        public ?Synchronization $synchronization = null,
         /** The tokenIssuancePolicies assigned to this service principal. */
         public array $tokenIssuancePolicies = [],
         /** The tokenLifetimePolicies assigned to this service principal. */

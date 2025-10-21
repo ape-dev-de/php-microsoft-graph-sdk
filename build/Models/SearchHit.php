@@ -23,6 +23,6 @@ class SearchHit
         /** A summary of the result, if a summary is available. */
         public ?string $summary = null,
         /**  */
-        public ?string $resource = null
+        public ?Entity $resource = null
     ) {}
 }

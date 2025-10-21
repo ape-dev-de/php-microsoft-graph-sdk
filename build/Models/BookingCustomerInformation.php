@@ -17,7 +17,7 @@ class BookingCustomerInformation
         /** The SMTP address of the bookingCustomer who is booking the appointment */
         public ?string $emailAddress = null,
         /** Represents location information for the bookingCustomer who is booking the appointment. */
-        public ?string $location = null,
+        public ?Location $location = null,
         /** The customer's name. */
         public ?string $name = null,
         /** Notes from the customer associated with this appointment. You can get the value only when reading this bookingAppointment by its ID. You can set this property only when initially creating an appointment with a new customer. After that point, the value is computed from the customer represented by the customerId. */

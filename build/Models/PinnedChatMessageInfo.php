@@ -13,6 +13,6 @@ class PinnedChatMessageInfo
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents details about the chat message that is pinned. */
-        public ?string $message = null
+        public ?ChatMessage $message = null
     ) {}
 }

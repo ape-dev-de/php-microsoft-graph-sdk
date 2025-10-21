@@ -15,10 +15,10 @@ class PrintTask
         /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only. */
         public ?string $parentUrl = null,
         /**  */
-        public ?string $status = null,
+        public ?PrintTaskStatus $status = null,
         /**  */
-        public ?string $definition = null,
+        public ?PrintTaskDefinition $definition = null,
         /**  */
-        public ?string $trigger = null
+        public ?PrintTaskTrigger $trigger = null
     ) {}
 }

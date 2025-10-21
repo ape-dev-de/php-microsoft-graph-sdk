@@ -15,8 +15,8 @@ class VirtualEventPresenter
         /** Email address of the presenter. */
         public ?string $email = null,
         /** Identity information of the presenter. The supported identities are: communicationsGuestIdentity and communicationsUserIdentity. */
-        public ?string $identity = null,
+        public ?Identity $identity = null,
         /** Other details about the presenter. This property returns null when the virtual event type is virtualEventTownhall. */
-        public ?string $presenterDetails = null
+        public ?VirtualEventPresenterDetails $presenterDetails = null
     ) {}
 }

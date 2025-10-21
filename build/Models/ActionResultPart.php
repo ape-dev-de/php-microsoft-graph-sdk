@@ -11,6 +11,6 @@ class ActionResultPart
 {
     public function __construct(
         /** The error that occurred, if any, during the bulk operation. */
-        public ?string $error = null
+        public ?PublicError $error = null
     ) {}
 }

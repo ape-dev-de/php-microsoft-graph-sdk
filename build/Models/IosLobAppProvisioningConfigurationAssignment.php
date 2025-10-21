@@ -13,6 +13,6 @@ class IosLobAppProvisioningConfigurationAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The target group assignment defined by the admin. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

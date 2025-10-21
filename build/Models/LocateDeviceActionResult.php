@@ -13,12 +13,12 @@ class LocateDeviceActionResult
         /** Action name */
         public ?string $actionName = null,
         /**  */
-        public ?string $actionState = null,
+        public ?ActionState $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
         /** Time the action was initiated */
         public ?\DateTimeInterface $startDateTime = null,
         /** device location */
-        public ?string $deviceLocation = null
+        public ?DeviceGeoLocation $deviceLocation = null
     ) {}
 }

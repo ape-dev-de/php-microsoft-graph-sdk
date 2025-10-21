@@ -21,37 +21,37 @@ class SignIn
         /** Identifies the client used for the sign-in activity. Modern authentication clients include Browser, modern clients. Legacy authentication clients include Exchange ActiveSync, IMAP, MAPI, SMTP, POP, and other clients.  Supports $filter (eq). */
         public ?string $clientAppUsed = null,
         /** Reports status of an activated conditional access policy. Possible values are: success, failure, notApplied, and unknownFutureValue.  Supports $filter (eq). */
-        public ?string $conditionalAccessStatus = null,
+        public ?ConditionalAccessStatus $conditionalAccessStatus = null,
         /** The request ID sent from the client when the sign-in is initiated. Used to troubleshoot sign-in activity.  Supports $filter (eq). */
         public ?string $correlationId = null,
         /** Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as 2014-01-01T00:00:00Z.  Supports $orderby, $filter (eq, le, and ge). */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Device information from where the sign-in occurred; includes device ID, operating system, and browser.  Supports $filter (eq, startsWith) on browser and operatingSytem properties. */
-        public ?string $deviceDetail = null,
+        public ?DeviceDetail $deviceDetail = null,
         /** IP address of the client used to sign in.  Supports $filter (eq, startsWith). */
         public ?string $ipAddress = null,
         /** Indicates whether a sign-in is interactive. */
         public ?bool $isInteractive = null,
         /** Provides the city, state, and country code where the sign-in originated.  Supports $filter (eq, startsWith) on city, state, and countryOrRegion properties. */
-        public ?string $location = null,
+        public ?SignInLocation $location = null,
         /** Name of the resource the user signed into.  Supports $filter (eq). */
         public ?string $resourceDisplayName = null,
         /** ID of the resource that the user signed into.  Supports $filter (eq). */
         public ?string $resourceId = null,
         /** The reason behind a specific state of a risky user, sign-in, or a risk event. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.The value none means that Microsoft Entra risk detection did not flag the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden. */
-        public ?string $riskDetail = null,
+        public ?RiskDetail $riskDetail = null,
         /**  */
         public array $riskEventTypes = [],
         /** @var string[] The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic, or unknownFutureValue.  Supports $filter (eq, startsWith). */
         public array $riskEventTypes_v2 = [],
         /** Aggregated risk level. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Microsoft Entra ID Protection.  Supports $filter (eq).  Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden. */
-        public ?string $riskLevelAggregated = null,
+        public ?RiskLevel $riskLevelAggregated = null,
         /** Risk level during sign-in. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Microsoft Entra ID Protection.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden. */
-        public ?string $riskLevelDuringSignIn = null,
+        public ?RiskLevel $riskLevelDuringSignIn = null,
         /** Reports status of the risky user, sign-in, or a risk event. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.  Supports $filter (eq). */
-        public ?string $riskState = null,
+        public ?RiskState $riskState = null,
         /** Sign-in status. Includes the error code and description of the error (if a sign-in failure occurs).  Supports $filter (eq) on errorCode property. */
-        public ?string $status = null,
+        public ?SignInStatus $status = null,
         /** Display name of the user that initiated the sign-in.  Supports $filter (eq, startsWith). */
         public ?string $userDisplayName = null,
         /** ID of the user that initiated the sign-in.  Supports $filter (eq). */

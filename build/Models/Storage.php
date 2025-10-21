@@ -11,8 +11,8 @@ class Storage
 {
     public function __construct(
         /**  */
-        public ?string $fileStorage = null,
+        public ?FileStorage $fileStorage = null,
         /**  */
-        public ?string $settings = null
+        public ?StorageSettings $settings = null
     ) {}
 }

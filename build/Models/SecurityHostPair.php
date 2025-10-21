@@ -19,8 +19,8 @@ class SecurityHostPair
         /** The reason that two hosts are identified as hostPair. */
         public ?string $linkKind = null,
         /**  */
-        public ?string $childHost = null,
+        public ?SecurityHost $childHost = null,
         /**  */
-        public ?string $parentHost = null
+        public ?SecurityHost $parentHost = null
     ) {}
 }

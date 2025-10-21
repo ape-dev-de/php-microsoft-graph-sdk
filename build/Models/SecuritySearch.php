@@ -15,7 +15,7 @@ class SecuritySearch
         /**  */
         public ?string $contentQuery = null,
         /**  */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /**  */
         public ?\DateTimeInterface $createdDateTime = null,
         /**  */
@@ -23,7 +23,7 @@ class SecuritySearch
         /**  */
         public ?string $displayName = null,
         /**  */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /**  */
         public ?\DateTimeInterface $lastModifiedDateTime = null
     ) {}

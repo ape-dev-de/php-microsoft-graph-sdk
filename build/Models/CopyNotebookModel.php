@@ -15,7 +15,7 @@ class CopyNotebookModel
         /**  */
         public ?string $createdBy = null,
         /**  */
-        public ?string $createdByIdentity = null,
+        public ?IdentitySet $createdByIdentity = null,
         /**  */
         public ?\DateTimeInterface $createdTime = null,
         /**  */
@@ -25,11 +25,11 @@ class CopyNotebookModel
         /**  */
         public ?string $lastModifiedBy = null,
         /**  */
-        public ?string $lastModifiedByIdentity = null,
+        public ?IdentitySet $lastModifiedByIdentity = null,
         /**  */
         public ?\DateTimeInterface $lastModifiedTime = null,
         /**  */
-        public ?string $links = null,
+        public ?NotebookLinks $links = null,
         /**  */
         public ?string $name = null,
         /**  */
@@ -39,6 +39,6 @@ class CopyNotebookModel
         /**  */
         public ?string $self = null,
         /**  */
-        public ?string $userRole = null
+        public ?OnenoteUserRole $userRole = null
     ) {}
 }

@@ -11,7 +11,7 @@ class SecurityFileHash
 {
     public function __construct(
         /**  */
-        public ?string $algorithm = null,
+        public ?SecurityFileHashAlgorithm $algorithm = null,
         /** The hash value. */
         public ?string $value = null
     ) {}

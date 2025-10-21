@@ -13,6 +13,6 @@ class FeatureTarget
         /** The ID of the entity that's targeted in the include or exclude rule, or all_users to target all users. */
         public ?string $id = null,
         /** The kind of entity that's targeted. The possible values are: group, administrativeUnit, role, unknownFutureValue. */
-        public ?string $targetType = null
+        public ?FeatureTargetType $targetType = null
     ) {}
 }

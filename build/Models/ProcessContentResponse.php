@@ -15,6 +15,6 @@ class ProcessContentResponse
         /** A collection of errors encountered during the content processing. */
         public array $processingErrors = [],
         /**  */
-        public ?string $protectionScopeState = null
+        public ?ProtectionScopeState $protectionScopeState = null
     ) {}
 }

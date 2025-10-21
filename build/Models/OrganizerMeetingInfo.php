@@ -11,6 +11,6 @@ class OrganizerMeetingInfo
 {
     public function __construct(
         /**  */
-        public ?string $organizer = null
+        public ?IdentitySet $organizer = null
     ) {}
 }

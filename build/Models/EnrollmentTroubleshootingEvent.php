@@ -19,9 +19,9 @@ class EnrollmentTroubleshootingEvent
         /** Azure AD device identifier. */
         public ?string $deviceId = null,
         /**  */
-        public ?string $enrollmentType = null,
+        public ?DeviceEnrollmentType $enrollmentType = null,
         /**  */
-        public ?string $failureCategory = null,
+        public ?DeviceEnrollmentFailureReason $failureCategory = null,
         /** Detailed failure reason. */
         public ?string $failureReason = null,
         /** Device identifier created or collected by Intune. */

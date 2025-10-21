@@ -27,7 +27,7 @@ class AccessPackage
         /** Read-only. Nullable. Supports $expand. */
         public array $assignmentPolicies = [],
         /** Required when creating the access package. Read-only. Nullable. */
-        public ?string $catalog = null,
+        public ?AccessPackageCatalog $catalog = null,
         /** The access packages whose assigned users are ineligible to be assigned this access package. */
         public array $incompatibleAccessPackages = [],
         /** The groups whose members are ineligible to be assigned this access package. */

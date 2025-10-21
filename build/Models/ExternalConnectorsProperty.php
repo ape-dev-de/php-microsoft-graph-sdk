@@ -25,6 +25,6 @@ class ExternalConnectorsProperty
         /** The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required. */
         public ?string $name = null,
         /**  */
-        public ?string $type = null
+        public ?ExternalConnectorsPropertyType $type = null
     ) {}
 }

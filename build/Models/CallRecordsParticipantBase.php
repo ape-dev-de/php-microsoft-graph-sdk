@@ -15,6 +15,6 @@ class CallRecordsParticipantBase
         /** List of administrativeUnitInfo objects for the call participant. */
         public array $administrativeUnitInfos = [],
         /** The identity of the call participant. */
-        public ?string $identity = null
+        public ?CommunicationsIdentitySet $identity = null
     ) {}
 }

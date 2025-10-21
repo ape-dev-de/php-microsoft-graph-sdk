@@ -11,6 +11,6 @@ class RejectJoinResponse
 {
     public function __construct(
         /**  */
-        public ?string $reason = null
+        public ?RejectReason $reason = null
     ) {}
 }

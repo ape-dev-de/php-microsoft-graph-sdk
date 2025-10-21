@@ -35,7 +35,7 @@ class BookingAppointment
         /** The length of the appointment, denoted in ISO8601 format. */
         public ?string $duration = null,
         /**  */
-        public ?string $endDateTime = null,
+        public ?DateTimeTimeZone $endDateTime = null,
         /** The current number of customers in the appointment. */
         public ?float $filledAttendeesCount = null,
         /** Indicates that the customer can manage bookings created by the staff. The default value is false. */
@@ -57,7 +57,7 @@ class BookingAppointment
         /** The regular price for an appointment for the specified bookingService. */
         public ?string $price = null,
         /**  */
-        public ?string $priceType = null,
+        public ?BookingPriceType $priceType = null,
         /** The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID. */
         public array $reminders = [],
         /** Another tracking ID for the appointment, if the appointment was created directly by the customer on the scheduling page, as opposed to by a staff member on behalf of the customer. */
@@ -65,7 +65,7 @@ class BookingAppointment
         /** The ID of the bookingService associated with this appointment. */
         public ?string $serviceId = null,
         /** The location where the service is delivered. */
-        public ?string $serviceLocation = null,
+        public ?Location $serviceLocation = null,
         /** The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it's computed from the service associated with the appointment by the serviceId property. */
         public ?string $serviceName = null,
         /** Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID. */
@@ -75,6 +75,6 @@ class BookingAppointment
         /** @var string[] The ID of each bookingStaffMember who is scheduled in this appointment. */
         public array $staffMemberIds = [],
         /**  */
-        public ?string $startDateTime = null
+        public ?DateTimeTimeZone $startDateTime = null
     ) {}
 }

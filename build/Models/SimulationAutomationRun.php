@@ -19,6 +19,6 @@ class SimulationAutomationRun
         /** Date and time when the run starts in an attack simulation automation. */
         public ?\DateTimeInterface $startDateTime = null,
         /** Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue. */
-        public ?string $status = null
+        public ?SimulationAutomationRunStatus $status = null
     ) {}
 }

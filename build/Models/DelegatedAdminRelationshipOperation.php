@@ -19,8 +19,8 @@ class DelegatedAdminRelationshipOperation
         /** The time in ISO 8601 format and in UTC time when the long-running operation was last modified. Read-only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /**  */
-        public ?string $operationType = null,
+        public ?DelegatedAdminRelationshipOperationType $operationType = null,
         /**  */
-        public ?string $status = null
+        public ?LongRunningOperationStatus $status = null
     ) {}
 }

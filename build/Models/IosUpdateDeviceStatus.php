@@ -21,13 +21,13 @@ class IosUpdateDeviceStatus
         /** The device model that is being reported */
         public ?string $deviceModel = null,
         /**  */
-        public ?string $installStatus = null,
+        public ?IosUpdatesInstallStatus $installStatus = null,
         /** Last modified date time of the policy report. */
         public ?\DateTimeInterface $lastReportedDateTime = null,
         /** The device version that is being reported. */
         public ?string $osVersion = null,
         /**  */
-        public ?string $status = null,
+        public ?ComplianceStatus $status = null,
         /** The User id that is being reported. */
         public ?string $userId = null,
         /** The User Name that is being reported */

@@ -21,7 +21,7 @@ class WorkbookFilterCriteria
         /** Indicates whether a filter is applied to a column. */
         public ?string $filterOn = null,
         /** An icon applied to a cell via conditional formatting. */
-        public ?string $icon = null,
+        public ?WorkbookIcon $icon = null,
         /** An operator in a cell; for example, =, >, <, <=, or <>. */
         public ?string $operator = null,
         /** The values that appear in the cell. */

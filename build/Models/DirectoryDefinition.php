@@ -13,7 +13,7 @@ class DirectoryDefinition
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $discoverabilities = null,
+        public ?DirectoryDefinitionDiscoverabilities $discoverabilities = null,
         /** Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $discoveryDateTime = null,
         /** Name of the directory. Must be unique within the synchronization schema. Not nullable. */

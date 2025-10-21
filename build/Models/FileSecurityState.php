@@ -11,7 +11,7 @@ class FileSecurityState
 {
     public function __construct(
         /** Complex type containing file hashes (cryptographic and location-sensitive). */
-        public ?string $fileHash = null,
+        public ?FileHash $fileHash = null,
         /** File name (without path). */
         public ?string $name = null,
         /** Full file path of the file/imageFile. */

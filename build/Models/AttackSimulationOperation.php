@@ -19,7 +19,7 @@ class AttackSimulationOperation
         /** URI of the resource that the operation is performed on. */
         public ?string $resourceLocation = null,
         /** The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. */
-        public ?string $status = null,
+        public ?LongRunningOperationStatus $status = null,
         /** Details about the status of the operation. */
         public ?string $statusDetail = null,
         /** Percentage of completion of the respective operation. */
@@ -27,6 +27,6 @@ class AttackSimulationOperation
         /** Tenant identifier. */
         public ?string $tenantId = null,
         /** The attack simulation operation type. Possible values are: createSimulation, updateSimulation, unknownFutureValue. */
-        public ?string $type = null
+        public ?AttackSimulationOperationType $type = null
     ) {}
 }

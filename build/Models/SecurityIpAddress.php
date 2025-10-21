@@ -33,7 +33,7 @@ class SecurityIpAddress
         /** The hostPorts associated with a host. */
         public array $ports = [],
         /** Represents a calculated reputation of this host. */
-        public ?string $reputation = null,
+        public ?SecurityHostReputation $reputation = null,
         /** The hostSslCertificates that are associated with this host. */
         public array $sslCertificates = [],
         /** The subdomains that are associated with this host. */
@@ -41,9 +41,9 @@ class SecurityIpAddress
         /** The hostTrackers that are associated with this host. */
         public array $trackers = [],
         /** The most recent whoisRecord for this host. */
-        public ?string $whois = null,
+        public ?SecurityWhoisRecord $whois = null,
         /** The details about the autonomous system to which this IP address belongs. */
-        public ?string $autonomousSystem = null,
+        public ?SecurityAutonomousSystem $autonomousSystem = null,
         /** The country/region for this IP address. */
         public ?string $countryOrRegion = null,
         /** The hosting company listed for this host. */

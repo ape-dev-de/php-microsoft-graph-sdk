@@ -17,7 +17,7 @@ class CertificateAuthorityDetail
         /** The public key of the certificate authority. */
         public ?string $certificate = null,
         /** The type of certificate authority. The possible values are: root, intermediate, unknownFutureValue. Supports $filter (eq). */
-        public ?string $certificateAuthorityType = null,
+        public ?CertificateAuthorityType $certificateAuthorityType = null,
         /** The URL to check if the certificate is revoked. */
         public ?string $certificateRevocationListUrl = null,
         /** The date and time when the certificate authority was created. */

@@ -15,6 +15,6 @@ class WorkbookChartPoint
         /** The value of a chart point. Read-only. */
         public ?string $value = null,
         /** The format properties of the chart point. Read-only. */
-        public ?string $format = null
+        public ?WorkbookChartPointFormat $format = null
     ) {}
 }

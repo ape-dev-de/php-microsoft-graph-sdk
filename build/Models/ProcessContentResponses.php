@@ -13,6 +13,6 @@ class ProcessContentResponses
         /** The unique identifier that matches the requestId provided in the corresponding processContentBatchRequest. */
         public ?string $requestId = null,
         /**  */
-        public ?string $results = null
+        public ?ProcessContentResponse $results = null
     ) {}
 }

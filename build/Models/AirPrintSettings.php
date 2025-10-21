@@ -11,6 +11,6 @@ class AirPrintSettings
 {
     public function __construct(
         /**  */
-        public ?string $incompatiblePrinters = null
+        public ?IncompatiblePrinterSettings $incompatiblePrinters = null
     ) {}
 }

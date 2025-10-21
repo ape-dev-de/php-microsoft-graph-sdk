@@ -13,6 +13,6 @@ class ChannelUnsetAsFavoriteByDefaultEventMessageDetail
         /** Unique identifier of the channel. */
         public ?string $channelId = null,
         /** Initiator of the event. */
-        public ?string $initiator = null
+        public ?IdentitySet $initiator = null
     ) {}
 }

@@ -21,6 +21,6 @@ class SecurityHostCookie
         /** The name of the cookie, for example, JSESSIONID or SEARCH_NAMESITE. */
         public ?string $name = null,
         /**  */
-        public ?string $host = null
+        public ?SecurityHost $host = null
     ) {}
 }

@@ -25,9 +25,9 @@ class Channel
         /** Indicates whether the channel should be marked as recommended for all members of the team to show in their channel list. Note: All recommended channels automatically show in the channels list for education and frontline worker users. The property can only be set programmatically via the Create team method. The default value is false. */
         public ?bool $isFavoriteByDefault = null,
         /** The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared. */
-        public ?string $membershipType = null,
+        public ?ChannelMembershipType $membershipType = null,
         /** Contains summary information about the channel, including number of owners, members, guests, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method. */
-        public ?string $summary = null,
+        public ?ChannelSummary $summary = null,
         /** The ID of the Microsoft Entra tenant. */
         public ?string $tenantId = null,
         /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only. */
@@ -35,7 +35,7 @@ class Channel
         /** A collection of membership records associated with the channel, including both direct and indirect members of shared channels. */
         public array $allMembers = [],
         /** Metadata for the location where the channel's files are stored. */
-        public ?string $filesFolder = null,
+        public ?DriveItem $filesFolder = null,
         /** A collection of membership records associated with the channel. */
         public array $members = [],
         /** A collection of all the messages in the channel. A navigation property. Nullable. */

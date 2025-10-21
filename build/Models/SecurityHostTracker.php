@@ -21,6 +21,6 @@ class SecurityHostTracker
         /** The identification value for the hostTracker. */
         public ?string $value = null,
         /**  */
-        public ?string $host = null
+        public ?SecurityHost $host = null
     ) {}
 }

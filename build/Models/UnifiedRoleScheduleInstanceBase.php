@@ -21,12 +21,12 @@ class UnifiedRoleScheduleInstanceBase
         /** Identifier of the unifiedRoleDefinition object that is being assigned to the principal or that the principal is eligible for. */
         public ?string $roleDefinitionId = null,
         /** Read-only property with details of the app-specific scope when the assignment or role eligibility is scoped to an app. Nullable. */
-        public ?string $appScope = null,
+        public ?AppScope $appScope = null,
         /** The directory object that is the scope of the assignment or role eligibility. Read-only. */
-        public ?string $directoryScope = null,
+        public ?DirectoryObject $directoryScope = null,
         /** The principal that's getting a role assignment or role eligibility through the request. */
-        public ?string $principal = null,
+        public ?DirectoryObject $principal = null,
         /** Detailed information for the roleDefinition object that is referenced through the roleDefinitionId property. */
-        public ?string $roleDefinition = null
+        public ?UnifiedRoleDefinition $roleDefinition = null
     ) {}
 }

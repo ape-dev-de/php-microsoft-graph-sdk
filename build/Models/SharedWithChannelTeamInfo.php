@@ -17,7 +17,7 @@ class SharedWithChannelTeamInfo
         /** The ID of the Microsoft Entra tenant. */
         public ?string $tenantId = null,
         /**  */
-        public ?string $team = null,
+        public ?Team $team = null,
         /** Indicates whether the team is the host of the channel. */
         public ?bool $isHostTeam = null,
         /** A collection of team members who have access to the shared channel. */

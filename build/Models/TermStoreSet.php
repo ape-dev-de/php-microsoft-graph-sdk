@@ -23,7 +23,7 @@ class TermStoreSet
         /** Children terms of set in term [store]. */
         public array $children = [],
         /**  */
-        public ?string $parentGroup = null,
+        public ?TermStoreGroup $parentGroup = null,
         /** Indicates which terms have been pinned or reused directly under the set. */
         public array $relations = [],
         /** All the terms under the set. */

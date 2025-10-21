@@ -11,10 +11,10 @@ class ConditionalAccessPolicyDetail
 {
     public function __construct(
         /**  */
-        public ?string $conditions = null,
+        public ?ConditionalAccessConditionSet $conditions = null,
         /** Represents grant controls that must be fulfilled for the policy. */
-        public ?string $grantControls = null,
+        public ?ConditionalAccessGrantControls $grantControls = null,
         /** Represents a complex type of session controls that is enforced after sign-in. */
-        public ?string $sessionControls = null
+        public ?ConditionalAccessSessionControls $sessionControls = null
     ) {}
 }

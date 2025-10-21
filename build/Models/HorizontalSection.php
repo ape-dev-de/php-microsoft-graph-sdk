@@ -13,9 +13,9 @@ class HorizontalSection
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue. */
-        public ?string $emphasis = null,
+        public ?SectionEmphasisType $emphasis = null,
         /** Layout type of the section. The possible values are: none, oneColumn, twoColumns, threeColumns, oneThirdLeftColumn, oneThirdRightColumn, fullWidth, unknownFutureValue. */
-        public ?string $layout = null,
+        public ?HorizontalSectionLayoutType $layout = null,
         /** The set of vertical columns in this section. */
         public array $columns = []
     ) {}

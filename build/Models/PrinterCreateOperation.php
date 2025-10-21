@@ -15,10 +15,10 @@ class PrinterCreateOperation
         /** The DateTimeOffset when the operation was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /**  */
-        public ?string $status = null,
+        public ?PrintOperationStatus $status = null,
         /** The signed certificate created during the registration process. Read-only. */
         public ?string $certificate = null,
         /** The created printer entity. Read-only. */
-        public ?string $printer = null
+        public ?Printer $printer = null
     ) {}
 }

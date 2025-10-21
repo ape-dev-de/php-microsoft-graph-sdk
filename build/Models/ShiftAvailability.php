@@ -11,7 +11,7 @@ class ShiftAvailability
 {
     public function __construct(
         /** Specifies the pattern for recurrence */
-        public ?string $recurrence = null,
+        public ?PatternedRecurrence $recurrence = null,
         /** The time slot(s) preferred by the user. */
         public array $timeSlots = [],
         /** Specifies the time zone for the indicated time. */

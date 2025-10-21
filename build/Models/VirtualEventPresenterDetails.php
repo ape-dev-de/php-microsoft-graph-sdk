@@ -11,7 +11,7 @@ class VirtualEventPresenterDetails
 {
     public function __construct(
         /** Bio of the presenter. */
-        public ?string $bio = null,
+        public ?ItemBody $bio = null,
         /** The presenter's company name. */
         public ?string $company = null,
         /** The presenter's job title. */

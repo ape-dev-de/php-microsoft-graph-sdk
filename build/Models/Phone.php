@@ -17,6 +17,6 @@ class Phone
         /**  */
         public ?string $region = null,
         /** The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
-        public ?string $type = null
+        public ?PhoneType $type = null
     ) {}
 }

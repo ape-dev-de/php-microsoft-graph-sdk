@@ -15,6 +15,6 @@ class CrossTenantIdentitySyncPolicyPartner
         /** Tenant identifier for the partner Microsoft Entra organization. Read-only. */
         public ?string $tenantId = null,
         /** Defines whether users can be synchronized from the partner tenant. Key. */
-        public ?string $userSyncInbound = null
+        public ?CrossTenantUserSyncInbound $userSyncInbound = null
     ) {}
 }

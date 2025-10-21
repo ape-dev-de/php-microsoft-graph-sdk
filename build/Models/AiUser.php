@@ -13,6 +13,6 @@ class AiUser
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $interactionHistory = null
+        public ?AiInteractionHistory $interactionHistory = null
     ) {}
 }

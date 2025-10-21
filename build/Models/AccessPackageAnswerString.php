@@ -13,7 +13,7 @@ class AccessPackageAnswerString
         /** The localized display value shown to the requestor and approvers. */
         public ?string $displayValue = null,
         /**  */
-        public ?string $answeredQuestion = null,
+        public ?AccessPackageQuestion $answeredQuestion = null,
         /** The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute. */
         public ?string $value = null
     ) {}

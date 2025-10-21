@@ -17,8 +17,8 @@ class ODataErrorsInnerErrorQueryOptions extends QueryOptions
     /**
      * Available select fields for ODataErrorsInnerError
      */
-    public const FIELD_REQUEST-ID = 'request-id';
-    public const FIELD_CLIENT-REQUEST-ID = 'client-request-id';
+    public const FIELD_REQUEST_ID = 'request-id';
+    public const FIELD_CLIENT_REQUEST_ID = 'client-request-id';
     public const FIELD_DATE = 'date';
 
     /**

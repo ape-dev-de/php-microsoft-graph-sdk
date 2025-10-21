@@ -11,6 +11,6 @@ class OnenotePagePreviewLinks
 {
     public function __construct(
         /**  */
-        public ?string $previewImageUrl = null
+        public ?ExternalLink $previewImageUrl = null
     ) {}
 }

@@ -13,7 +13,7 @@ class ComputeRightsAndInheritanceResult
         /**  */
         public array $contentRights = [],
         /**  */
-        public ?string $inheritedLabel = null,
+        public ?SensitivityLabel $inheritedLabel = null,
         /**  */
         public array $sensitivityLabels = []
     ) {}

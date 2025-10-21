@@ -15,6 +15,6 @@ class SynchronizationSchedule
         /** The interval between synchronization iterations. The value is represented in ISO 8601  format for durations. For example, P1M represents a period of one month and PT1M represents a period of one minute. */
         public ?string $interval = null,
         /**  */
-        public ?string $state = null
+        public ?SynchronizationScheduleState $state = null
     ) {}
 }

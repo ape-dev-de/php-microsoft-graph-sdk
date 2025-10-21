@@ -29,17 +29,17 @@ class IosCompliancePolicy
         /** List of DeviceComplianceDeviceStatus. */
         public array $deviceStatuses = [],
         /** Device compliance devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceComplianceDeviceOverview $deviceStatusOverview = null,
         /** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies. */
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
         /** Device compliance users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceComplianceUserOverview $userStatusOverview = null,
         /** Require that devices have enabled device threat protection . */
         public ?bool $deviceThreatProtectionEnabled = null,
         /**  */
-        public ?string $deviceThreatProtectionRequiredSecurityLevel = null,
+        public ?DeviceThreatProtectionLevel $deviceThreatProtectionRequiredSecurityLevel = null,
         /** Indicates whether or not to require a managed email profile. */
         public ?bool $managedEmailProfileRequired = null,
         /** Maximum IOS version. */
@@ -61,7 +61,7 @@ class IosCompliancePolicy
         /** Indicates whether or not to require a passcode. */
         public ?bool $passcodeRequired = null,
         /**  */
-        public ?string $passcodeRequiredType = null,
+        public ?RequiredPasswordType $passcodeRequiredType = null,
         /** Devices must not be jailbroken or rooted. */
         public ?bool $securityBlockJailbrokenDevices = null
     ) {}

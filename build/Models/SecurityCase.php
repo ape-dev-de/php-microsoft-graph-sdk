@@ -19,10 +19,10 @@ class SecurityCase
         /**  */
         public ?string $displayName = null,
         /**  */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /**  */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /**  */
-        public ?string $status = null
+        public ?SecurityCaseStatus $status = null
     ) {}
 }

@@ -13,6 +13,6 @@ class PrivilegedAccessRoot
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** A group that's governed through Privileged Identity Management (PIM). */
-        public ?string $group = null
+        public ?PrivilegedAccessGroup $group = null
     ) {}
 }

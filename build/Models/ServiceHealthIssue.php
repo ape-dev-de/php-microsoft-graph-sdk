@@ -23,7 +23,7 @@ class ServiceHealthIssue
         /** The title of the service event. */
         public ?string $title = null,
         /**  */
-        public ?string $classification = null,
+        public ?ServiceHealthClassificationType $classification = null,
         /** The feature name of the service issue. */
         public ?string $feature = null,
         /** The feature group name of the service issue. */
@@ -33,12 +33,12 @@ class ServiceHealthIssue
         /** Indicates whether the issue is resolved. */
         public ?bool $isResolved = null,
         /**  */
-        public ?string $origin = null,
+        public ?ServiceHealthOrigin $origin = null,
         /** Collection of historical posts for the service issue. */
         public array $posts = [],
         /** Indicates the service affected by the issue. */
         public ?string $service = null,
         /**  */
-        public ?string $status = null
+        public ?ServiceHealthStatus $status = null
     ) {}
 }

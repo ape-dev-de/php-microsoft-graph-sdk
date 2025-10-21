@@ -11,13 +11,13 @@ class CallRecordsMedia
 {
     public function __construct(
         /** Device information associated with the callee endpoint of this media. */
-        public ?string $calleeDevice = null,
+        public ?CallRecordsDeviceInfo $calleeDevice = null,
         /** Network information associated with the callee endpoint of this media. */
-        public ?string $calleeNetwork = null,
+        public ?CallRecordsNetworkInfo $calleeNetwork = null,
         /** Device information associated with the caller endpoint of this media. */
-        public ?string $callerDevice = null,
+        public ?CallRecordsDeviceInfo $callerDevice = null,
         /** Network information associated with the caller endpoint of this media. */
-        public ?string $callerNetwork = null,
+        public ?CallRecordsNetworkInfo $callerNetwork = null,
         /** How the media was identified during media negotiation stage. */
         public ?string $label = null,
         /** Network streams associated with this media. */

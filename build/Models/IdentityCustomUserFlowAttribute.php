@@ -13,12 +13,12 @@ class IdentityCustomUserFlowAttribute
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $dataType = null,
+        public ?IdentityUserFlowAttributeDataType $dataType = null,
         /** The description of the user flow attribute that's shown to the user at the time of sign up. */
         public ?string $description = null,
         /** The display name of the user flow attribute.  Supports $filter (eq, ne). */
         public ?string $displayName = null,
         /**  */
-        public ?string $userFlowAttributeType = null
+        public ?IdentityUserFlowAttributeType $userFlowAttributeType = null
     ) {}
 }

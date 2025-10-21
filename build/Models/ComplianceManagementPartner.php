@@ -29,6 +29,6 @@ class ComplianceManagementPartner
         /** Partner onboarded for Mac devices. */
         public ?bool $macOsOnboarded = null,
         /**  */
-        public ?string $partnerState = null
+        public ?DeviceManagementPartnerTenantState $partnerState = null
     ) {}
 }

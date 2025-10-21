@@ -19,6 +19,6 @@ class RelatedContact
         /** Mobile phone number of the contact. */
         public ?string $mobilePhone = null,
         /**  */
-        public ?string $relationship = null
+        public ?ContactRelationship $relationship = null
     ) {}
 }

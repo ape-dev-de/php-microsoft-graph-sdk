@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ReferenceUpdate resources
  *
  * Available select fields:
- * - @odata.id
  */
 class ReferenceUpdateQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ReferenceUpdate
      */
-    public const FIELD_@ODATA.ID = '@odata.id';
 
     /**
      * Select specific ReferenceUpdate properties

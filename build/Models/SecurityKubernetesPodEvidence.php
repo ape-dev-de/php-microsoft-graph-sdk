@@ -15,7 +15,7 @@ class SecurityKubernetesPodEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,24 +23,24 @@ class SecurityKubernetesPodEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The list of pod containers which are not init or ephemeral containers. */
         public array $containers = [],
         /** The pod controller. */
-        public ?string $controller = null,
+        public ?SecurityKubernetesControllerEvidence $controller = null,
         /** The list of pod ephemeral containers. */
         public array $ephemeralContainers = [],
         /** The list of pod init containers. */
         public array $initContainers = [],
         /** The pod labels. */
-        public ?string $labels = null,
+        public ?SecurityDictionary $labels = null,
         /** The pod name. */
         public ?string $name = null,
         /** The pod namespace. */
-        public ?string $namespace = null,
+        public ?SecurityKubernetesNamespaceEvidence $namespace = null,
         /** The pod IP. */
-        public ?string $podIp = null,
+        public ?SecurityIpEvidence $podIp = null,
         /** The pod service account. */
-        public ?string $serviceAccount = null
+        public ?SecurityKubernetesServiceAccountEvidence $serviceAccount = null
     ) {}
 }

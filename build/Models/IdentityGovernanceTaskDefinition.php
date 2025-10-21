@@ -13,7 +13,7 @@ class IdentityGovernanceTaskDefinition
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $category = null,
+        public ?IdentityGovernanceLifecycleTaskCategory $category = null,
         /** Defines if the workflow will continue if the task has an error. */
         public ?bool $continueOnError = null,
         /** The description of the taskDefinition. */

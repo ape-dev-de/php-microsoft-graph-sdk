@@ -13,9 +13,9 @@ class ManagedDeviceOverview
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Distribution of Exchange Access State in Intune */
-        public ?string $deviceExchangeAccessStateSummary = null,
+        public ?DeviceExchangeAccessStateSummary $deviceExchangeAccessStateSummary = null,
         /** Device operating system summary. */
-        public ?string $deviceOperatingSystemSummary = null,
+        public ?DeviceOperatingSystemSummary $deviceOperatingSystemSummary = null,
         /** The number of devices enrolled in both MDM and EAS */
         public ?float $dualEnrolledDeviceCount = null,
         /** Total enrolled device count. Does not include PC devices managed via Intune PC Agent */

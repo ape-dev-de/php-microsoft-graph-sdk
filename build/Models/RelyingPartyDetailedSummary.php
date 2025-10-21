@@ -15,7 +15,7 @@ class RelyingPartyDetailedSummary
         /** Number of failed sign ins on AD FS in the period specified. Supports $orderby, $filter (eq). */
         public ?float $failedSignInCount = null,
         /**  */
-        public ?string $migrationStatus = null,
+        public ?MigrationStatus $migrationStatus = null,
         /** Specifies all the validations checks done on applications config details. */
         public array $migrationValidationDetails = [],
         /** Identifies the relying party to this federation service. It's used when issuing claims to the relying party. Supports $orderby, $filter (eq). */

@@ -17,6 +17,6 @@ class TeamInfo
         /** The ID of the Microsoft Entra tenant. */
         public ?string $tenantId = null,
         /**  */
-        public ?string $team = null
+        public ?Team $team = null
     ) {}
 }

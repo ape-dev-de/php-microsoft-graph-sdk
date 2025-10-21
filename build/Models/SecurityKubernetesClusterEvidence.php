@@ -15,7 +15,7 @@ class SecurityKubernetesClusterEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,15 +23,15 @@ class SecurityKubernetesClusterEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The cloud identifier of the cluster. Can be either an amazonResourceEvidence, azureResourceEvidence, or googleCloudResourceEvidence object. */
-        public ?string $cloudResource = null,
+        public ?SecurityAlertEvidence $cloudResource = null,
         /** The distribution type of the cluster. */
         public ?string $distribution = null,
         /** The cluster name. */
         public ?string $name = null,
         /** The platform the cluster runs on. Possible values are: unknown, aks, eks, gke, arc, unknownFutureValue. */
-        public ?string $platform = null,
+        public ?SecurityKubernetesPlatform $platform = null,
         /** The kubernetes version of the cluster. */
         public ?string $version = null
     ) {}

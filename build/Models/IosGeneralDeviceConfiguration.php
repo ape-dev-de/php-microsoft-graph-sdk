@@ -29,11 +29,11 @@ class IosGeneralDeviceConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Indicates whether or not to allow account modification when the device is in supervised mode. */
         public ?bool $accountBlockModification = null,
         /** Indicates whether or not to allow activation lock when the device is in the supervised mode. */
@@ -65,7 +65,7 @@ class IosGeneralDeviceConfiguration
         /** List of apps in the visibility list (either visible/launchable apps list or hidden/unlaunchable apps list, controlled by AppsVisibilityListType) (iOS 9.3 and later). This collection can contain a maximum of 10000 elements. */
         public array $appsVisibilityList = [],
         /**  */
-        public ?string $appsVisibilityListType = null,
+        public ?AppListType $appsVisibilityListType = null,
         /** Indicates whether or not to allow modification of Bluetooth settings when the device is in supervised mode (iOS 10.0 and later). */
         public ?bool $bluetoothBlockModification = null,
         /** Indicates whether or not to block the user from accessing the camera of the device. Requires a supervised device for iOS 13 and later. */
@@ -87,7 +87,7 @@ class IosGeneralDeviceConfiguration
         /** Indicates whether or not to automatically give permission to the teacher of a managed course on the Classroom app to view a student's screen without prompting when the device is in supervised mode. */
         public ?bool $classroomAppForceUnpromptedScreenObservation = null,
         /**  */
-        public ?string $compliantAppListType = null,
+        public ?AppListType $compliantAppListType = null,
         /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */
         public array $compliantAppsList = [],
         /** Indicates whether or not to block the user from installing configuration profiles and certificates interactively when the device is in supervised mode. */
@@ -209,25 +209,25 @@ class IosGeneralDeviceConfiguration
         /** Indicates whether or not to block the user from using the Today View on the lock screen. */
         public ?bool $lockScreenBlockTodayView = null,
         /**  */
-        public ?string $mediaContentRatingApps = null,
+        public ?RatingAppsType $mediaContentRatingApps = null,
         /** Media content rating settings for Australia */
-        public ?string $mediaContentRatingAustralia = null,
+        public ?MediaContentRatingAustralia $mediaContentRatingAustralia = null,
         /** Media content rating settings for Canada */
-        public ?string $mediaContentRatingCanada = null,
+        public ?MediaContentRatingCanada $mediaContentRatingCanada = null,
         /** Media content rating settings for France */
-        public ?string $mediaContentRatingFrance = null,
+        public ?MediaContentRatingFrance $mediaContentRatingFrance = null,
         /** Media content rating settings for Germany */
-        public ?string $mediaContentRatingGermany = null,
+        public ?MediaContentRatingGermany $mediaContentRatingGermany = null,
         /** Media content rating settings for Ireland */
-        public ?string $mediaContentRatingIreland = null,
+        public ?MediaContentRatingIreland $mediaContentRatingIreland = null,
         /** Media content rating settings for Japan */
-        public ?string $mediaContentRatingJapan = null,
+        public ?MediaContentRatingJapan $mediaContentRatingJapan = null,
         /** Media content rating settings for New Zealand */
-        public ?string $mediaContentRatingNewZealand = null,
+        public ?MediaContentRatingNewZealand $mediaContentRatingNewZealand = null,
         /** Media content rating settings for United Kingdom */
-        public ?string $mediaContentRatingUnitedKingdom = null,
+        public ?MediaContentRatingUnitedKingdom $mediaContentRatingUnitedKingdom = null,
         /** Media content rating settings for United States */
-        public ?string $mediaContentRatingUnitedStates = null,
+        public ?MediaContentRatingUnitedStates $mediaContentRatingUnitedStates = null,
         /** Indicates whether or not to block the user from using the Messages app on the supervised device. */
         public ?bool $messagesBlocked = null,
         /** List of managed apps and the network rules that applies to them. This collection can contain a maximum of 1000 elements. */
@@ -257,7 +257,7 @@ class IosGeneralDeviceConfiguration
         /** Indicates whether or not to require a passcode. */
         public ?bool $passcodeRequired = null,
         /**  */
-        public ?string $passcodeRequiredType = null,
+        public ?RequiredPasswordType $passcodeRequiredType = null,
         /** Number of sign in failures allowed before wiping the device. Valid values 2 to 11 */
         public ?float $passcodeSignInFailureCountBeforeWipe = null,
         /** Indicates whether or not to block the user from using podcasts on the supervised device (iOS 8.0 and later). */
@@ -271,7 +271,7 @@ class IosGeneralDeviceConfiguration
         /** Indicates whether or not to block popups in Safari. */
         public ?bool $safariBlockPopups = null,
         /**  */
-        public ?string $safariCookieSettings = null,
+        public ?WebBrowserCookieSettings $safariCookieSettings = null,
         /** @var string[] URLs matching the patterns listed here will be considered managed. */
         public array $safariManagedDomains = [],
         /** @var string[] Users can save passwords in Safari only from URLs matching the patterns listed here. Applies to devices in supervised mode (iOS 9.3 and later). */

@@ -29,13 +29,13 @@ class MacOSGeneralDeviceConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /**  */
-        public ?string $compliantAppListType = null,
+        public ?AppListType $compliantAppListType = null,
         /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */
         public array $compliantAppsList = [],
         /** @var string[] An email address lacking a suffix that matches any of these strings will be considered out-of-domain. */
@@ -57,6 +57,6 @@ class MacOSGeneralDeviceConfiguration
         /** Whether or not to require a password. */
         public ?bool $passwordRequired = null,
         /**  */
-        public ?string $passwordRequiredType = null
+        public ?RequiredPasswordType $passwordRequiredType = null
     ) {}
 }

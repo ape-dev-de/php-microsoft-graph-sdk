@@ -15,8 +15,8 @@ class SimulationReportOverview
         /** Number of valid users in the attack simulation and training campaign. */
         public ?float $resolvedTargetsCount = null,
         /** Summary of simulation events in the attack simulation and training campaign. */
-        public ?string $simulationEventsContent = null,
+        public ?SimulationEventsContent $simulationEventsContent = null,
         /** Summary of assigned trainings in the attack simulation and training campaign. */
-        public ?string $trainingEventsContent = null
+        public ?TrainingEventsContent $trainingEventsContent = null
     ) {}
 }

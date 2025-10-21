@@ -13,7 +13,7 @@ class RubricQuality
         /** The collection of criteria for this rubric quality. */
         public array $criteria = [],
         /** The description of this rubric quality. */
-        public ?string $description = null,
+        public ?EducationItemBody $description = null,
         /** The name of this rubric quality. */
         public ?string $displayName = null,
         /** The ID of this resource. */

@@ -25,7 +25,7 @@ class AttributeDefinition
         /** true if an attribute can have multiple values. Default is false. */
         public ?bool $multivalued = null,
         /**  */
-        public ?string $mutability = null,
+        public ?Mutability $mutability = null,
         /** Name of the attribute. Must be unique within the object definition. Not nullable. */
         public ?string $name = null,
         /** For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object). */
@@ -33,6 +33,6 @@ class AttributeDefinition
         /** true if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization, the required attribute has no value, the default value will be used. If default the value was not set, synchronization will record an error. */
         public ?bool $required = null,
         /**  */
-        public ?string $type = null
+        public ?AttributeType $type = null
     ) {}
 }

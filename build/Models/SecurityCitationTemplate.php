@@ -13,7 +13,7 @@ class SecurityCitationTemplate
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents the user who created the filePlanDescriptorTemplate column. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** Represents the date and time in which the filePlanDescriptorTemplate is created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Unique string that defines a filePlanDescriptorTemplate name. */

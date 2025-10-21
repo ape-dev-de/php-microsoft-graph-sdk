@@ -17,7 +17,7 @@ class WebPartData
         /** Properties bag of the web part. */
         public ?string $properties = null,
         /** Contains collections of data that can be processed by server side services like search index and link fixup. */
-        public ?string $serverProcessedContent = null,
+        public ?ServerProcessedContent $serverProcessedContent = null,
         /** Title of the web part. */
         public ?string $title = null
     ) {}

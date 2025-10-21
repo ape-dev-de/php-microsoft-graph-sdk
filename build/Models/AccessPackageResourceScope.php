@@ -23,6 +23,6 @@ class AccessPackageResourceScope
         /** The origin system for the scope. */
         public ?string $originSystem = null,
         /**  */
-        public ?string $resource = null
+        public ?AccessPackageResource $resource = null
     ) {}
 }

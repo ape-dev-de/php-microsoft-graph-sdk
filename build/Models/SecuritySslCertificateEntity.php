@@ -11,7 +11,7 @@ class SecuritySslCertificateEntity
 {
     public function __construct(
         /** A physical address of the entity. */
-        public ?string $address = null,
+        public ?PhysicalAddress $address = null,
         /** @var string[] Alternate names for this entity that are part of the certificate. */
         public array $alternateNames = [],
         /** A common name for this entity. */

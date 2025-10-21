@@ -13,17 +13,17 @@ class EducationRubric
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The user who created this resource. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The description of this rubric. */
-        public ?string $description = null,
+        public ?EducationItemBody $description = null,
         /** The name of this rubric. */
         public ?string $displayName = null,
         /** The grading type of this rubric. You can use null for a no-points rubric or educationAssignmentPointsGradeType for a points rubric. */
-        public ?string $grading = null,
+        public ?EducationAssignmentGradeType $grading = null,
         /** The last user to modify the resource. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** Moment in time when the resource was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The collection of levels making up this rubric. */

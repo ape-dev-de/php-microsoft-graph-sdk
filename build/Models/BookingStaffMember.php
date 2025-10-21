@@ -25,9 +25,9 @@ class BookingStaffMember
         /** The date, time, and time zone when the staff member was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
         /**  */
-        public ?string $membershipStatus = null,
+        public ?BookingStaffMembershipStatus $membershipStatus = null,
         /**  */
-        public ?string $role = null,
+        public ?BookingStaffRole $role = null,
         /** The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
         public ?string $timeZone = null,
         /** True means the staff member's availability is as specified in the businessHours property of the business. False means the availability is determined by the staff member's workingHours property setting. */

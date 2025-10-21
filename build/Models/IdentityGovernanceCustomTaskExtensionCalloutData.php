@@ -11,12 +11,12 @@ class IdentityGovernanceCustomTaskExtensionCalloutData
 {
     public function __construct(
         /**  */
-        public ?string $subject = null,
+        public ?User $subject = null,
         /**  */
-        public ?string $task = null,
+        public ?IdentityGovernanceTask $task = null,
         /**  */
-        public ?string $taskProcessingresult = null,
+        public ?IdentityGovernanceTaskProcessingResult $taskProcessingresult = null,
         /**  */
-        public ?string $workflow = null
+        public ?IdentityGovernanceWorkflow $workflow = null
     ) {}
 }

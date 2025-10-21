@@ -11,9 +11,9 @@ class CopilotRoot
 {
     public function __construct(
         /**  */
-        public ?string $admin = null,
+        public ?CopilotAdmin $admin = null,
         /**  */
-        public ?string $interactionHistory = null,
+        public ?AiInteractionHistory $interactionHistory = null,
         /**  */
         public array $users = []
     ) {}

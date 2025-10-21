@@ -39,7 +39,7 @@ class LearningContent
         /** The date and time when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The difficulty level of the learning content. Possible values are: Beginner, Intermediate, Advanced, unknownFutureValue. Optional. */
-        public ?string $level = null,
+        public ?Level $level = null,
         /** The number of pages of the learning content, for example, 9. Optional. */
         public ?float $numberOfPages = null,
         /** @var string[] The skills tags associated with the learning content. Optional. */

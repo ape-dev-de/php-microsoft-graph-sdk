@@ -17,7 +17,7 @@ class IdentityGovernanceUserProcessingResult
         /** The number of tasks that failed in the workflow execution. */
         public ?float $failedTasksCount = null,
         /**  */
-        public ?string $processingStatus = null,
+        public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null,
         /** The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
         public ?\DateTimeInterface $scheduledDateTime = null,
         /** The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
@@ -27,11 +27,11 @@ class IdentityGovernanceUserProcessingResult
         /** The total number of unprocessed tasks for the workflow. */
         public ?float $totalUnprocessedTasksCount = null,
         /**  */
-        public ?string $workflowExecutionType = null,
+        public ?IdentityGovernanceWorkflowExecutionType $workflowExecutionType = null,
         /** The version of the workflow that was executed. */
         public ?float $workflowVersion = null,
         /**  */
-        public ?string $subject = null,
+        public ?User $subject = null,
         /** The associated individual task execution. */
         public array $taskProcessingResults = []
     ) {}

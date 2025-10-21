@@ -17,6 +17,6 @@ class WorkingHours
         /** The time of the day that the user starts working. */
         public ?string $startTime = null,
         /** The time zone to which the working hours apply. */
-        public ?string $timeZone = null
+        public ?TimeZoneBase $timeZone = null
     ) {}
 }

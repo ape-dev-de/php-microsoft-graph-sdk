@@ -13,8 +13,8 @@ class PartnersBillingAzureUsage
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $billed = null,
+        public ?PartnersBillingBilledUsage $billed = null,
         /**  */
-        public ?string $unbilled = null
+        public ?PartnersBillingUnbilledUsage $unbilled = null
     ) {}
 }

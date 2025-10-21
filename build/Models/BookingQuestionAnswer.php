@@ -13,7 +13,7 @@ class BookingQuestionAnswer
         /** The answer given by the user in case the answerInputType is text. */
         public ?string $answer = null,
         /** The expected answer type. The possible values are: text, radioButton, unknownFutureValue. */
-        public ?string $answerInputType = null,
+        public ?AnswerInputType $answerInputType = null,
         /** @var string[] In case the answerInputType is radioButton, this will consists of a list of possible answer values. */
         public array $answerOptions = [],
         /** Indicates whether it is mandatory to answer the custom question. */

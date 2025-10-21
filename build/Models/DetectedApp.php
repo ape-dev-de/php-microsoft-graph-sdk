@@ -17,7 +17,7 @@ class DetectedApp
         /** Name of the discovered application. Read-only */
         public ?string $displayName = null,
         /**  */
-        public ?string $platform = null,
+        public ?DetectedAppPlatformType $platform = null,
         /** Indicates the publisher of the discovered application. For example: 'Microsoft'.  The default value is an empty string. */
         public ?string $publisher = null,
         /** Discovered application size in bytes. Read-only */

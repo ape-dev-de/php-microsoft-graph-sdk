@@ -19,6 +19,6 @@ class BitlockerRecoveryKey
         /** The BitLocker recovery key. Returned only on $select. Not nullable. */
         public ?string $key = null,
         /** Indicates the type of volume the BitLocker key is associated with. The possible values are: 1 (for operatingSystemVolume), 2 (for fixedDataVolume), 3 (for removableDataVolume), and 4 (for unknownFutureValue). */
-        public ?string $volumeType = null
+        public ?VolumeType $volumeType = null
     ) {}
 }

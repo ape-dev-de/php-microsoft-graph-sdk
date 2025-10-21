@@ -23,12 +23,12 @@ class UnifiedRoleAssignment
         /** Identifier of the unifiedRoleDefinition the assignment is for. Read-only. Supports $filter (eq, in). */
         public ?string $roleDefinitionId = null,
         /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only. */
-        public ?string $appScope = null,
+        public ?AppScope $appScope = null,
         /** The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider. */
-        public ?string $directoryScope = null,
+        public ?DirectoryObject $directoryScope = null,
         /** Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider. */
-        public ?string $principal = null,
+        public ?DirectoryObject $principal = null,
         /** The roleDefinition the assignment is for. Supports $expand. */
-        public ?string $roleDefinition = null
+        public ?UnifiedRoleDefinition $roleDefinition = null
     ) {}
 }

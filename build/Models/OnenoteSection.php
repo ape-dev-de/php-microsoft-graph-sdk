@@ -17,24 +17,24 @@ class OnenoteSection
         /** The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Identity of the user, device, and application that created the item. Read-only. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** The name of the notebook. */
         public ?string $displayName = null,
         /** Identity of the user, device, and application that created the item. Read-only. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Indicates whether this is the user's default section. Read-only. */
         public ?bool $isDefault = null,
         /** Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web. */
-        public ?string $links = null,
+        public ?SectionLinks $links = null,
         /** The pages endpoint where you can get details for all the pages in the section. Read-only. */
         public ?string $pagesUrl = null,
         /** The collection of pages in the section.  Read-only. Nullable. */
         public array $pages = [],
         /** The notebook that contains the section.  Read-only. */
-        public ?string $parentNotebook = null,
+        public ?Notebook $parentNotebook = null,
         /** The section group that contains the section.  Read-only. */
-        public ?string $parentSectionGroup = null
+        public ?SectionGroup $parentSectionGroup = null
     ) {}
 }

@@ -29,11 +29,11 @@ class WindowsPhone81GeneralConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only. */
         public ?bool $applyOnlyToWindowsPhone81 = null,
         /** Indicates whether or not to block copy paste. */
@@ -45,7 +45,7 @@ class WindowsPhone81GeneralConfiguration
         /** Indicates whether or not to block Wi-Fi tethering. Has no impact if Wi-Fi is blocked. */
         public ?bool $cellularBlockWifiTethering = null,
         /**  */
-        public ?string $compliantAppListType = null,
+        public ?AppListType $compliantAppListType = null,
         /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */
         public array $compliantAppsList = [],
         /** Indicates whether or not to block diagnostic data submission. */
@@ -73,7 +73,7 @@ class WindowsPhone81GeneralConfiguration
         /** Indicates whether or not to require a password. */
         public ?bool $passwordRequired = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?RequiredPasswordType $passwordRequiredType = null,
         /** Number of sign in failures allowed before factory reset. */
         public ?float $passwordSignInFailureCountBeforeFactoryReset = null,
         /** Indicates whether or not to block screenshots. */

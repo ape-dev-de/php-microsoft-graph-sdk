@@ -13,12 +13,12 @@ class ThumbnailSet
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** A 1920x1920 scaled thumbnail. */
-        public ?string $large = null,
+        public ?Thumbnail $large = null,
         /** A 176x176 scaled thumbnail. */
-        public ?string $medium = null,
+        public ?Thumbnail $medium = null,
         /** A 48x48 cropped thumbnail. */
-        public ?string $small = null,
+        public ?Thumbnail $small = null,
         /** A custom thumbnail image or the original image used to generate other thumbnails. */
-        public ?string $source = null
+        public ?Thumbnail $source = null
     ) {}
 }

@@ -15,7 +15,7 @@ class SecurityTeamsMessageEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,15 +23,15 @@ class SecurityTeamsMessageEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The identifier of the campaign that this Teams message is part of. */
         public ?string $campaignId = null,
         /** The channel ID associated with this Teams message. */
         public ?string $channelId = null,
         /** The delivery action of this Teams message. Possible values are: unknown, deliveredAsSpam, delivered, blocked, replaced, unknownFutureValue. */
-        public ?string $deliveryAction = null,
+        public ?SecurityTeamsMessageDeliveryAction $deliveryAction = null,
         /** The delivery location of this Teams message. Possible values are: unknown, teams, quarantine, failed, unknownFutureValue. */
-        public ?string $deliveryLocation = null,
+        public ?SecurityTeamsDeliveryLocation $deliveryLocation = null,
         /** The list of file entities that are attached to this Teams message. */
         public array $files = [],
         /** The identifier of the team or group that this message is part of. */
@@ -43,7 +43,7 @@ class SecurityTeamsMessageEvidence
         /** Date and time when the message was last edited. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The direction of the Teams message. The possible values are: unknown, inbound, outbound, intraorg, unknownFutureValue. */
-        public ?string $messageDirection = null,
+        public ?SecurityAntispamTeamsDirection $messageDirection = null,
         /** Message identifier unique within the thread. */
         public ?string $messageId = null,
         /** Tenant ID (GUID) of the owner of the message. */

@@ -11,11 +11,11 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
 {
     public function __construct(
         /** The user experience analytics work from anywhere Autopilot devices summary. Read-only. */
-        public ?string $autopilotDevicesSummary = null,
+        public ?UserExperienceAnalyticsAutopilotDevicesSummary $autopilotDevicesSummary = null,
         /** The user experience analytics work from anywhere Cloud Identity devices summary. Read-only. */
-        public ?string $cloudIdentityDevicesSummary = null,
+        public ?UserExperienceAnalyticsCloudIdentityDevicesSummary $cloudIdentityDevicesSummary = null,
         /** The user experience analytics work from anywhere Cloud management devices summary. Read-only. */
-        public ?string $cloudManagementDevicesSummary = null,
+        public ?UserExperienceAnalyticsCloudManagementDevicesSummary $cloudManagementDevicesSummary = null,
         /** Total number of co-managed devices. Read-only. Valid values -2147483648 to 2147483647 */
         public ?float $coManagedDevices = null,
         /** The count of intune devices that are not autopilot registerd. Read-only. Valid values -2147483648 to 2147483647 */
@@ -35,7 +35,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
         /** The count of windows 10 devices. Read-only. Valid values -2147483648 to 2147483647 */
         public ?float $windows10Devices = null,
         /** The user experience analytics work from anywhere Windows 10 devices summary. Read-only. */
-        public ?string $windows10DevicesSummary = null,
+        public ?UserExperienceAnalyticsWindows10DevicesSummary $windows10DevicesSummary = null,
         /** The count of windows 10 devices that are Intune and co-managed. Read-only. Valid values -2147483648 to 2147483647 */
         public ?float $windows10DevicesWithoutTenantAttach = null
     ) {}

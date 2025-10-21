@@ -11,6 +11,6 @@ class AuthenticationFlow
 {
     public function __construct(
         /** Represents the transfer methods in scope for the policy. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue. Default value is none. */
-        public ?string $transferMethod = null
+        public ?ConditionalAccessTransferMethods $transferMethod = null
     ) {}
 }

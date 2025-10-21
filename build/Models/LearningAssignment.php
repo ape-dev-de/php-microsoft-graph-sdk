@@ -25,16 +25,16 @@ class LearningAssignment
         /** The registration ID of the provider. Required. */
         public ?string $learningProviderId = null,
         /** The status of the course activity. Possible values are: notStarted, inProgress, completed. Required. */
-        public ?string $status = null,
+        public ?CourseStatus $status = null,
         /** Assigned date for the course activity. Optional. */
         public ?\DateTimeInterface $assignedDateTime = null,
         /** The user ID of the assigner. Optional. */
         public ?string $assignerUserId = null,
         /**  */
-        public ?string $assignmentType = null,
+        public ?AssignmentType $assignmentType = null,
         /** Due date for the course activity. Optional. */
-        public ?string $dueDateTime = null,
+        public ?DateTimeTimeZone $dueDateTime = null,
         /** Notes for the course activity. Optional. */
-        public ?string $notes = null
+        public ?ItemBody $notes = null
     ) {}
 }

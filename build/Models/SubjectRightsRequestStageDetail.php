@@ -11,10 +11,10 @@ class SubjectRightsRequestStageDetail
 {
     public function __construct(
         /** Describes the error, if any, for the current stage. */
-        public ?string $error = null,
+        public ?PublicError $error = null,
         /** The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue, approval. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: approval. */
-        public ?string $stage = null,
+        public ?SubjectRightsRequestStage $stage = null,
         /** Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue. */
-        public ?string $status = null
+        public ?SubjectRightsRequestStageStatus $status = null
     ) {}
 }

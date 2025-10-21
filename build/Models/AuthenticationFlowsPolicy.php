@@ -17,6 +17,6 @@ class AuthenticationFlowsPolicy
         /** Inherited property. The human-readable name of the policy. Optional. Read-only. */
         public ?string $displayName = null,
         /** Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only. */
-        public ?string $selfServiceSignUp = null
+        public ?SelfServiceSignUpAuthenticationFlowConfiguration $selfServiceSignUp = null
     ) {}
 }

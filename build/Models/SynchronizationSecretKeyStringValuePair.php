@@ -11,7 +11,7 @@ class SynchronizationSecretKeyStringValuePair
 {
     public function __construct(
         /**  */
-        public ?string $key = null,
+        public ?SynchronizationSecret $key = null,
         /** The value of the secret. */
         public ?string $value = null
     ) {}

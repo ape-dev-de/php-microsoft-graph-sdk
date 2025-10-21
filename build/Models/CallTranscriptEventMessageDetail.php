@@ -15,6 +15,6 @@ class CallTranscriptEventMessageDetail
         /** Unique identifier for a call transcript. */
         public ?string $callTranscriptICalUid = null,
         /** The organizer of the meeting. */
-        public ?string $meetingOrganizer = null
+        public ?IdentitySet $meetingOrganizer = null
     ) {}
 }

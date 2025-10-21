@@ -15,7 +15,7 @@ class SecurityKubernetesServiceEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,22 +23,22 @@ class SecurityKubernetesServiceEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The service cluster IP. */
-        public ?string $clusterIP = null,
+        public ?SecurityIpEvidence $clusterIP = null,
         /** The service external IPs. */
         public array $externalIPs = [],
         /** The service labels. */
-        public ?string $labels = null,
+        public ?SecurityDictionary $labels = null,
         /** The service name. */
         public ?string $name = null,
         /** The service namespace. */
-        public ?string $namespace = null,
+        public ?SecurityKubernetesNamespaceEvidence $namespace = null,
         /** The service selector. */
-        public ?string $selector = null,
+        public ?SecurityDictionary $selector = null,
         /** The list of service ports. */
         public array $servicePorts = [],
         /**  */
-        public ?string $serviceType = null
+        public ?SecurityKubernetesServiceType $serviceType = null
     ) {}
 }

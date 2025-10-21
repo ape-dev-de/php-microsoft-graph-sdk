@@ -13,8 +13,8 @@ class PrintTaskTrigger
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $event = null,
+        public ?PrintEvent $event = null,
         /**  */
-        public ?string $definition = null
+        public ?PrintTaskDefinition $definition = null
     ) {}
 }

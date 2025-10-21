@@ -23,16 +23,16 @@ class SecurityHostPort
         /** The numerical identifier of the port which is standardized across the internet. */
         public ?float $port = null,
         /** The general protocol used to scan the port. The possible values are: tcp, udp, unknownFutureValue. */
-        public ?string $protocol = null,
+        public ?SecurityHostPortProtocol $protocol = null,
         /** The hostPortComponents retrieved from scanning the port. */
         public array $services = [],
         /** The status of the port. The possible values are: open, filtered, closed, unknownFutureValue. */
-        public ?string $status = null,
+        public ?SecurityHostPortStatus $status = null,
         /** The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPort in all its scans. */
         public ?float $timesObserved = null,
         /**  */
-        public ?string $host = null,
+        public ?SecurityHost $host = null,
         /** The most recent sslCertificate used to communicate on the port. */
-        public ?string $mostRecentSslCertificate = null
+        public ?SecuritySslCertificate $mostRecentSslCertificate = null
     ) {}
 }

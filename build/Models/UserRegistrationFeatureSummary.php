@@ -15,8 +15,8 @@ class UserRegistrationFeatureSummary
         /** Number of users registered or capable for multi-factor authentication, self-service password reset, and passwordless authentication. */
         public array $userRegistrationFeatureCounts = [],
         /** The role type of the user. Possible values are: all, privilegedAdmin, admin, user, unknownFutureValue. */
-        public ?string $userRoles = null,
+        public ?IncludedUserRoles $userRoles = null,
         /** User type. Possible values are: all, member, guest, unknownFutureValue. */
-        public ?string $userTypes = null
+        public ?IncludedUserTypes $userTypes = null
     ) {}
 }

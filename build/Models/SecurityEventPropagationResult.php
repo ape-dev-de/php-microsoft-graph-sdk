@@ -15,7 +15,7 @@ class SecurityEventPropagationResult
         /** The name of the workload associated with the event. */
         public ?string $serviceName = null,
         /** Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success, unknownFutureValue. */
-        public ?string $status = null,
+        public ?SecurityEventPropagationStatus $status = null,
         /** Additional information about the status of the event creation request. */
         public ?string $statusInformation = null
     ) {}

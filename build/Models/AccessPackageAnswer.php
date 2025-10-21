@@ -13,6 +13,6 @@ class AccessPackageAnswer
         /** The localized display value shown to the requestor and approvers. */
         public ?string $displayValue = null,
         /**  */
-        public ?string $answeredQuestion = null
+        public ?AccessPackageQuestion $answeredQuestion = null
     ) {}
 }

@@ -15,7 +15,7 @@ class WindowsFirewallNetworkProfile
         /** Configures the firewall to merge connection security rules from group policy with those from local store instead of ignoring the local store rules. When ConnectionSecurityRulesFromGroupPolicyNotMerged and ConnectionSecurityRulesFromGroupPolicyMerged are both true, ConnectionSecurityRulesFromGroupPolicyMerged takes priority. */
         public ?bool $connectionSecurityRulesFromGroupPolicyMerged = null,
         /**  */
-        public ?string $firewallEnabled = null,
+        public ?StateManagementSetting $firewallEnabled = null,
         /** Configures the firewall to merge global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority. */
         public ?bool $globalPortRulesFromGroupPolicyMerged = null,
         /** Configures the firewall to block all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority. */

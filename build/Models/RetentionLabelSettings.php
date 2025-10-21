@@ -11,7 +11,7 @@ class RetentionLabelSettings
 {
     public function __construct(
         /** Describes the item behavior during retention period. Possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue. Read-only. */
-        public ?string $behaviorDuringRetentionPeriod = null,
+        public ?SecurityBehaviorDuringRetentionPeriod $behaviorDuringRetentionPeriod = null,
         /** Specifies whether updates to document content are allowed. Read-only. */
         public ?bool $isContentUpdateAllowed = null,
         /** Specifies whether the document deletion is allowed. Read-only. */

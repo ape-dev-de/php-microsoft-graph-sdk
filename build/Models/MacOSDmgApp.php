@@ -25,7 +25,7 @@ class MacOSDmgApp
         /** The value indicating whether the app is marked as featured by the admin. */
         public ?bool $isFeatured = null,
         /** The large icon, to be displayed in the app details and used for upload of the icon. */
-        public ?string $largeIcon = null,
+        public ?MimeContent $largeIcon = null,
         /** The date and time the app was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Notes for the app. */
@@ -37,7 +37,7 @@ class MacOSDmgApp
         /** The publisher of the app. */
         public ?string $publisher = null,
         /**  */
-        public ?string $publishingState = null,
+        public ?MobileAppPublishingState $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
         /** The list of categories for this app. */
@@ -55,7 +55,7 @@ class MacOSDmgApp
         /** The list of .apps expected to be installed by the DMG (Apple Disk Image). This collection can contain a maximum of 500 elements. */
         public array $includedApps = [],
         /** ComplexType macOSMinimumOperatingSystem that indicates the minimum operating system applicable for the application. */
-        public ?string $minimumSupportedOperatingSystem = null,
+        public ?MacOSMinimumOperatingSystem $minimumSupportedOperatingSystem = null,
         /** The bundleId of the primary .app in the DMG (Apple Disk Image). This maps to the CFBundleIdentifier in the app's bundle configuration. */
         public ?string $primaryBundleId = null,
         /** The version of the primary .app in the DMG (Apple Disk Image). This maps to the CFBundleShortVersion in the app's bundle configuration. */

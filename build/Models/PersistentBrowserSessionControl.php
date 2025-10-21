@@ -13,6 +13,6 @@ class PersistentBrowserSessionControl
         /** Specifies whether the session control is enabled. */
         public ?bool $isEnabled = null,
         /** Possible values are: always, never. */
-        public ?string $mode = null
+        public ?PersistentBrowserSessionMode $mode = null
     ) {}
 }

@@ -11,7 +11,7 @@ class BookingPageSettings
 {
     public function __construct(
         /**  */
-        public ?string $accessControl = null,
+        public ?BookingPageAccessControl $accessControl = null,
         /** Custom color for the booking page. The value should be in Hex format. For example, #123456. */
         public ?string $bookingPageColorCode = null,
         /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone. */

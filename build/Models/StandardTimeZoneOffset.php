@@ -13,7 +13,7 @@ class StandardTimeZoneOffset
         /** Represents the nth occurrence of the day of week that the transition from daylight saving time to standard time occurs. */
         public ?float $dayOccurrence = null,
         /** Represents the day of the week when the transition from daylight saving time to standard time. */
-        public ?string $dayOfWeek = null,
+        public ?DayOfWeek $dayOfWeek = null,
         /** Represents the month of the year when the transition from daylight saving time to standard time occurs. */
         public ?float $month = null,
         /** Represents the time of day when the transition from daylight saving time to standard time occurs. */

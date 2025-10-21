@@ -19,6 +19,6 @@ class AppLogCollectionRequest
         /** Indicates error message if any during the upload process. */
         public ?string $errorMessage = null,
         /**  */
-        public ?string $status = null
+        public ?AppLogUploadState $status = null
     ) {}
 }

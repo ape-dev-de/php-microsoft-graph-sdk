@@ -17,8 +17,8 @@ class RestorePoint
         /** Date time when the restore point was created. */
         public ?\DateTimeInterface $protectionDateTime = null,
         /** The type of the restore point. The possible values are: none, fastRestore, unknownFutureValue. */
-        public ?string $tags = null,
+        public ?RestorePointTags $tags = null,
         /** The site, drive, or mailbox units that are protected under a protection policy. */
-        public ?string $protectionUnit = null
+        public ?ProtectionUnitBase $protectionUnit = null
     ) {}
 }

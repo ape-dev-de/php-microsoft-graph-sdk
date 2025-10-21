@@ -13,8 +13,8 @@ class TimeCardEntry
         /** The clock-in event of the timeCard. */
         public array $breaks = [],
         /** The clock-out event of the timeCard. */
-        public ?string $clockInEvent = null,
+        public ?TimeCardEvent $clockInEvent = null,
         /** The list of breaks associated with the timeCard. */
-        public ?string $clockOutEvent = null
+        public ?TimeCardEvent $clockOutEvent = null
     ) {}
 }

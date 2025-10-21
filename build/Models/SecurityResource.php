@@ -13,6 +13,6 @@ class SecurityResource
         /** Name of the resource that is related to current alert. Required. */
         public ?string $resource = null,
         /** Represents type of security resources related to an alert. Possible values are: attacked, related. */
-        public ?string $resourceType = null
+        public ?SecurityResourceType $resourceType = null
     ) {}
 }

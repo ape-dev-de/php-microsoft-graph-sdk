@@ -13,27 +13,27 @@ class DeviceManagement
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Device protection overview. */
-        public ?string $deviceProtectionOverview = null,
+        public ?DeviceProtectionOverview $deviceProtectionOverview = null,
         /** Intune Account Id for given tenant */
         public ?string $intuneAccountId = null,
         /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
-        public ?string $intuneBrand = null,
+        public ?IntuneBrand $intuneBrand = null,
         /** Account level settings. */
-        public ?string $settings = null,
+        public ?DeviceManagementSettings $settings = null,
         /**  */
-        public ?string $subscriptionState = null,
+        public ?DeviceManagementSubscriptionState $subscriptionState = null,
         /** User experience analytics device settings */
-        public ?string $userExperienceAnalyticsSettings = null,
+        public ?UserExperienceAnalyticsSettings $userExperienceAnalyticsSettings = null,
         /** Malware overview for windows devices. */
-        public ?string $windowsMalwareOverview = null,
+        public ?WindowsMalwareOverview $windowsMalwareOverview = null,
         /** Apple push notification certificate. */
-        public ?string $applePushNotificationCertificate = null,
+        public ?ApplePushNotificationCertificate $applePushNotificationCertificate = null,
         /** The Audit Events */
         public array $auditEvents = [],
         /** The list of Compliance Management Partners configured by the tenant. */
         public array $complianceManagementPartners = [],
         /** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access */
-        public ?string $conditionalAccessSettings = null,
+        public ?OnPremisesConditionalAccessSettings $conditionalAccessSettings = null,
         /** The list of detected apps associated with a device. */
         public array $detectedApps = [],
         /** The list of device categories with the tenant. */
@@ -41,11 +41,11 @@ class DeviceManagement
         /** The device compliance policies. */
         public array $deviceCompliancePolicies = [],
         /** The device compliance state summary for this account. */
-        public ?string $deviceCompliancePolicyDeviceStateSummary = null,
+        public ?DeviceCompliancePolicyDeviceStateSummary $deviceCompliancePolicyDeviceStateSummary = null,
         /** The summary states of compliance policy settings for this account. */
         public array $deviceCompliancePolicySettingStateSummaries = [],
         /** The device configuration device state summary for this account. */
-        public ?string $deviceConfigurationDeviceStateSummaries = null,
+        public ?DeviceConfigurationDeviceStateSummary $deviceConfigurationDeviceStateSummaries = null,
         /** The device configurations. */
         public array $deviceConfigurations = [],
         /** The list of device enrollment configurations */
@@ -59,7 +59,7 @@ class DeviceManagement
         /** The IOS software update installation statuses for this account. */
         public array $iosUpdateStatuses = [],
         /** Device overview */
-        public ?string $managedDeviceOverview = null,
+        public ?ManagedDeviceOverview $managedDeviceOverview = null,
         /** The list of managed devices. */
         public array $managedDevices = [],
         /** The collection property of MobileAppTroubleshootingEvent. */
@@ -71,7 +71,7 @@ class DeviceManagement
         /** The remote assist partners. */
         public array $remoteAssistancePartners = [],
         /** Reports singleton */
-        public ?string $reports = null,
+        public ?DeviceManagementReports $reports = null,
         /** The Resource Operations. */
         public array $resourceOperations = [],
         /** The Role Assignments. */
@@ -79,7 +79,7 @@ class DeviceManagement
         /** The Role Definitions. */
         public array $roleDefinitions = [],
         /** The software update status summary. */
-        public ?string $softwareUpdateStatusSummary = null,
+        public ?SoftwareUpdateStatusSummary $softwareUpdateStatusSummary = null,
         /** The telecom expense management partners. */
         public array $telecomExpenseManagementPartners = [],
         /** The terms and conditions associated with device management of the company. */
@@ -103,7 +103,7 @@ class DeviceManagement
         /** User experience analytics appHealth OS version Performance */
         public array $userExperienceAnalyticsAppHealthOSVersionPerformance = [],
         /** User experience analytics appHealth overview */
-        public ?string $userExperienceAnalyticsAppHealthOverview = null,
+        public ?UserExperienceAnalyticsCategory $userExperienceAnalyticsAppHealthOverview = null,
         /** User experience analytics baselines */
         public array $userExperienceAnalyticsBaselines = [],
         /** User experience analytics categories */
@@ -123,17 +123,17 @@ class DeviceManagement
         /** User experience analytics model scores */
         public array $userExperienceAnalyticsModelScores = [],
         /** User experience analytics overview */
-        public ?string $userExperienceAnalyticsOverview = null,
+        public ?UserExperienceAnalyticsOverview $userExperienceAnalyticsOverview = null,
         /** User experience analytics device Startup Score History */
         public array $userExperienceAnalyticsScoreHistory = [],
         /** User experience analytics work from anywhere hardware readiness metrics. */
-        public ?string $userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = null,
+        public ?UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric $userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = null,
         /** User experience analytics work from anywhere metrics. */
         public array $userExperienceAnalyticsWorkFromAnywhereMetrics = [],
         /** The user experience analytics work from anywhere model performance */
         public array $userExperienceAnalyticsWorkFromAnywhereModelPerformance = [],
         /** Virtual endpoint */
-        public ?string $virtualEndpoint = null,
+        public ?VirtualEndpoint $virtualEndpoint = null,
         /** The Windows autopilot device identities contained collection. */
         public array $windowsAutopilotDeviceIdentities = [],
         /** The windows information protection app learning summaries. */

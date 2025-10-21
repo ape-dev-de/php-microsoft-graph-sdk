@@ -11,12 +11,12 @@ class AvailabilityItem
 {
     public function __construct(
         /**  */
-        public ?string $endDateTime = null,
+        public ?DateTimeTimeZone $endDateTime = null,
         /** Indicates the service ID for 1:n appointments. If the appointment is of type 1:n, this field is present, otherwise, null. */
         public ?string $serviceId = null,
         /**  */
-        public ?string $startDateTime = null,
+        public ?DateTimeTimeZone $startDateTime = null,
         /** The status of the staff member. Possible values are: available, busy, slotsAvailable, outOfOffice, unknownFutureValue. */
-        public ?string $status = null
+        public ?BookingsAvailabilityStatus $status = null
     ) {}
 }

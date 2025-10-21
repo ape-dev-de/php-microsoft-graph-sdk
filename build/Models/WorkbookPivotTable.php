@@ -15,6 +15,6 @@ class WorkbookPivotTable
         /** The name of the pivot table. */
         public ?string $name = null,
         /** The worksheet that contains the current pivot table. Read-only. */
-        public ?string $worksheet = null
+        public ?WorkbookWorksheet $worksheet = null
     ) {}
 }

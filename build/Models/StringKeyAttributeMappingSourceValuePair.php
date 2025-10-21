@@ -13,6 +13,6 @@ class StringKeyAttributeMappingSourceValuePair
         /** The name of the parameter. */
         public ?string $key = null,
         /** The value of the parameter. */
-        public ?string $value = null
+        public ?AttributeMappingSource $value = null
     ) {}
 }

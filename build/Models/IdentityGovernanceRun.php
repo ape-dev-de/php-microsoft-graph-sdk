@@ -21,7 +21,7 @@ class IdentityGovernanceRun
         /** The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
         /**  */
-        public ?string $processingStatus = null,
+        public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null,
         /** The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
         public ?\DateTimeInterface $scheduledDateTime = null,
         /** The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
@@ -35,7 +35,7 @@ class IdentityGovernanceRun
         /** The total number of users in the workflow execution. */
         public ?float $totalUsersCount = null,
         /**  */
-        public ?string $workflowExecutionType = null,
+        public ?IdentityGovernanceWorkflowExecutionType $workflowExecutionType = null,
         /** The related taskProcessingResults. */
         public array $taskProcessingResults = [],
         /** The associated individual user execution. */

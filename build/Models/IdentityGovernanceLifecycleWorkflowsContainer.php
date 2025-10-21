@@ -15,11 +15,11 @@ class IdentityGovernanceLifecycleWorkflowsContainer
         /** The customTaskExtension instance. */
         public array $customTaskExtensions = [],
         /** Deleted workflows in your lifecycle workflows instance. */
-        public ?string $deletedItems = null,
+        public ?DeletedItemContainer $deletedItems = null,
         /** The insight container holding workflow insight summaries for a tenant. */
-        public ?string $insights = null,
+        public ?IdentityGovernanceInsights $insights = null,
         /**  */
-        public ?string $settings = null,
+        public ?IdentityGovernanceLifecycleManagementSettings $settings = null,
         /** The definition of tasks within the lifecycle workflows instance. */
         public array $taskDefinitions = [],
         /** The workflows in the lifecycle workflows instance. */

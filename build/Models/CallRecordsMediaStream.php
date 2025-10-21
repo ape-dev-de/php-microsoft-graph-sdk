@@ -11,7 +11,7 @@ class CallRecordsMediaStream
 {
     public function __construct(
         /** Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRta, unknownFutureValue. */
-        public ?string $audioCodec = null,
+        public ?CallRecordsAudioCodec $audioCodec = null,
         /** Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio. */
         public ?string $averageAudioDegradation = null,
         /** Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
@@ -63,11 +63,11 @@ class CallRecordsMediaStream
         /** UTC time when the stream started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This field is only available for streams that use the SIP protocol. */
         public ?\DateTimeInterface $startDateTime = null,
         /**  */
-        public ?string $streamDirection = null,
+        public ?CallRecordsMediaStreamDirection $streamDirection = null,
         /** Unique identifier for the stream. */
         public ?string $streamId = null,
         /** Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue. */
-        public ?string $videoCodec = null,
+        public ?CallRecordsVideoCodec $videoCodec = null,
         /** True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise. */
         public ?bool $wasMediaBypassed = null
     ) {}

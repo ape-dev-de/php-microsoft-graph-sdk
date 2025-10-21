@@ -11,7 +11,7 @@ class Win32LobAppFileSystemRule
 {
     public function __construct(
         /**  */
-        public ?string $ruleType = null,
+        public ?Win32LobAppRuleType $ruleType = null,
         /** A value indicating whether to expand environment variables in the 32-bit context on 64-bit systems. */
         public ?bool $check32BitOn64System = null,
         /** The file or folder comparison value. */
@@ -19,9 +19,9 @@ class Win32LobAppFileSystemRule
         /** The file or folder name to look up. */
         public ?string $fileOrFolderName = null,
         /**  */
-        public ?string $operationType = null,
+        public ?Win32LobAppFileSystemOperationType $operationType = null,
         /**  */
-        public ?string $operator = null,
+        public ?Win32LobAppRuleOperator $operator = null,
         /** The file or folder path to look up. */
         public ?string $path = null
     ) {}

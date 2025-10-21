@@ -11,7 +11,7 @@ class RubricQualityFeedbackModel
 {
     public function __construct(
         /** Specific feedback for one quality of this rubric. */
-        public ?string $feedback = null,
+        public ?EducationItemBody $feedback = null,
         /** The ID of the rubricQuality that this feedback is related to. */
         public ?string $qualityId = null
     ) {}

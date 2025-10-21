@@ -29,11 +29,11 @@ class Windows81GeneralConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
         public ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null,
         /** Value indicating whether this policy only applies to Windows 8.1. This property is read-only. */
@@ -57,9 +57,9 @@ class Windows81GeneralConfiguration
         /** The enterprise mode site list location. Could be a local file, local network or http location. */
         public ?string $browserEnterpriseModeSiteListLocation = null,
         /**  */
-        public ?string $browserInternetSecurityLevel = null,
+        public ?InternetSiteSecurityLevel $browserInternetSecurityLevel = null,
         /**  */
-        public ?string $browserIntranetSecurityLevel = null,
+        public ?SiteSecurityLevel $browserIntranetSecurityLevel = null,
         /** The logging report location. */
         public ?string $browserLoggingReportLocation = null,
         /** Indicates whether or not to require a firewall. */
@@ -71,7 +71,7 @@ class Windows81GeneralConfiguration
         /** Indicates whether or not to require the user to use the smart screen filter. */
         public ?bool $browserRequireSmartScreen = null,
         /**  */
-        public ?string $browserTrustedSitesSecurityLevel = null,
+        public ?SiteSecurityLevel $browserTrustedSitesSecurityLevel = null,
         /** Indicates whether or not to block data roaming. */
         public ?bool $cellularBlockDataRoaming = null,
         /** Indicates whether or not to block diagnostic data submission. */
@@ -89,7 +89,7 @@ class Windows81GeneralConfiguration
         /** The number of previous passwords to prevent re-use of. Valid values 0 to 24 */
         public ?float $passwordPreviousPasswordBlockCount = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?RequiredPasswordType $passwordRequiredType = null,
         /** The number of sign in failures before factory reset. */
         public ?float $passwordSignInFailureCountBeforeFactoryReset = null,
         /** Indicates whether or not to require encryption on a mobile device. */
@@ -97,7 +97,7 @@ class Windows81GeneralConfiguration
         /** Indicates whether or not to require automatic updates. */
         public ?bool $updatesRequireAutomaticUpdates = null,
         /**  */
-        public ?string $userAccountControlSettings = null,
+        public ?WindowsUserAccountControlSettings $userAccountControlSettings = null,
         /** The work folders url. */
         public ?string $workFoldersUrl = null
     ) {}

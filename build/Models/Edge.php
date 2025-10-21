@@ -13,6 +13,6 @@ class Edge
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** A container for Internet Explorer mode resources. */
-        public ?string $internetExplorerMode = null
+        public ?InternetExplorerMode $internetExplorerMode = null
     ) {}
 }

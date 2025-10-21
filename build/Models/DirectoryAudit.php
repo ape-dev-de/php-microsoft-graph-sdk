@@ -23,13 +23,13 @@ class DirectoryAudit
         /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. Supports $filter (eq). */
         public ?string $correlationId = null,
         /**  */
-        public ?string $initiatedBy = null,
+        public ?AuditActivityInitiator $initiatedBy = null,
         /** Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management. Supports $filter (eq). */
         public ?string $loggedByService = null,
         /** Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete. */
         public ?string $operationType = null,
         /** Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue. */
-        public ?string $result = null,
+        public ?OperationResult $result = null,
         /** Indicates the reason for failure if the result is failure or timeout. */
         public ?string $resultReason = null,
         /** Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other. Supports $filter (eq) for id and displayName; and $filter (startswith) for displayName. */

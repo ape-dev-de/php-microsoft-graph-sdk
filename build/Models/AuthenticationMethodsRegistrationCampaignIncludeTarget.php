@@ -15,6 +15,6 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget
         /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */
         public ?string $targetedAuthenticationMethod = null,
         /**  */
-        public ?string $targetType = null
+        public ?AuthenticationMethodTargetType $targetType = null
     ) {}
 }

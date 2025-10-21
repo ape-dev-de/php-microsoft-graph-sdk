@@ -25,6 +25,6 @@ class SynchronizationTemplate
         /** Additional extension properties. Unless mentioned explicitly, metadata values should not be changed. */
         public array $metadata = [],
         /** Default synchronization schema for the jobs based on this template. */
-        public ?string $schema = null
+        public ?SynchronizationSchema $schema = null
     ) {}
 }

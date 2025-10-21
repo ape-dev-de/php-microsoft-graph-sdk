@@ -27,9 +27,9 @@ class ReflectCheckInResponse
         /** ID of the user who responded to the Reflect check-in. */
         public ?string $responderId = null,
         /**  */
-        public ?string $responseEmotion = null,
+        public ?ResponseEmotionType $responseEmotion = null,
         /**  */
-        public ?string $responseFeedback = null,
+        public ?ResponseFeedbackType $responseFeedback = null,
         /** Date and time when the response to the Reflect check-in was submitted. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $submitDateTime = null
     ) {}

@@ -15,7 +15,7 @@ class IdentityGovernanceTask
         /** Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks. Required. */
         public array $arguments = [],
         /**  */
-        public ?string $category = null,
+        public ?IdentityGovernanceLifecycleTaskCategory $category = null,
         /** A Boolean value that specifies whether, if this task fails, the workflow stops, and subsequent tasks aren't run. Optional. */
         public ?bool $continueOnError = null,
         /** A string that describes the purpose of the task for administrative use. Optional. */

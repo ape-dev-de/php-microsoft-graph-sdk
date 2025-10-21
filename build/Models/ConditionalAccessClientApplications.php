@@ -15,6 +15,6 @@ class ConditionalAccessClientApplications
         /** @var string[] Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
         public array $includeServicePrincipals = [],
         /** Filter that defines the dynamic-servicePrincipal-syntax rule to include/exclude service principals. A filter can use custom security attributes to include/exclude service principals. */
-        public ?string $servicePrincipalFilter = null
+        public ?ConditionalAccessFilter $servicePrincipalFilter = null
     ) {}
 }

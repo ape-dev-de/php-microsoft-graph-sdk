@@ -23,9 +23,9 @@ class AuthenticationStrengthPolicy
         /** The datetime when this policy was last modified. */
         public ?\DateTimeInterface $modifiedDateTime = null,
         /**  */
-        public ?string $policyType = null,
+        public ?AuthenticationStrengthPolicyType $policyType = null,
         /**  */
-        public ?string $requirementsSatisfied = null,
+        public ?AuthenticationStrengthRequirements $requirementsSatisfied = null,
         /** Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods. */
         public array $combinationConfigurations = []
     ) {}

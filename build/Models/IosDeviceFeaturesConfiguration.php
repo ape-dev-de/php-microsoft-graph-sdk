@@ -29,11 +29,11 @@ class IosDeviceFeaturesConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Asset tag information for the device, displayed on the login window and lock screen. */
         public ?string $assetTagTemplate = null,
         /** A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements. */

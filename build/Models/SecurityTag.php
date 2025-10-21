@@ -13,7 +13,7 @@ class SecurityTag
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /**  */
         public ?string $description = null,
         /**  */

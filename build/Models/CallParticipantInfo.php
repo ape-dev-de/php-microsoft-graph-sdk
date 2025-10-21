@@ -11,6 +11,6 @@ class CallParticipantInfo
 {
     public function __construct(
         /** Identity of the call participant. */
-        public ?string $participant = null
+        public ?IdentitySet $participant = null
     ) {}
 }

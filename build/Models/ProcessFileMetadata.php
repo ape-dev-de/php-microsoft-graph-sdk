@@ -11,7 +11,7 @@ class ProcessFileMetadata
 {
     public function __construct(
         /** Represents the actual content, either as text (textContent) or binary data (binaryContent). Optional if metadata alone is sufficient for policy evaluation. Do not use for contentActivities. */
-        public ?string $content = null,
+        public ?ContentBase $content = null,
         /** An identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation). */
         public ?string $correlationId = null,
         /** Required. Timestamp indicating when the original content was created (for example, file creation time, message sent time). */
@@ -29,7 +29,7 @@ class ProcessFileMetadata
         /** A sequence number indicating the order in which content was generated or should be processed, required when correlationId is used. */
         public ?float $sequenceNumber = null,
         /** A dictionary containing custom metadata associated with the file, potentially extracted by the calling application. */
-        public ?string $customProperties = null,
+        public ?CustomMetadataDictionary $customProperties = null,
         /** The unique identifier (for example, Entra User ID or UPN) of the owner of the file. */
         public ?string $ownerId = null
     ) {}

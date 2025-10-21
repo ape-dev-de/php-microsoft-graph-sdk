@@ -11,7 +11,7 @@ class SecurityWhoisContact
 {
     public function __construct(
         /** The physical address of the entity. */
-        public ?string $address = null,
+        public ?PhysicalAddress $address = null,
         /** The email of this WHOIS contact. */
         public ?string $email = null,
         /** The fax of this WHOIS contact. No format is guaranteed. */

@@ -25,9 +25,9 @@ class WindowsInformationProtectionPolicy
         /** Specifies whether to allow Azure RMS encryption for WIP */
         public ?bool $azureRightsManagementServicesAllowed = null,
         /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS) */
-        public ?string $dataRecoveryCertificate = null,
+        public ?WindowsInformationProtectionDataRecoveryCertificate $dataRecoveryCertificate = null,
         /**  */
-        public ?string $enforcementLevel = null,
+        public ?WindowsInformationProtectionEnforcementLevel $enforcementLevel = null,
         /** Primary enterprise domain */
         public ?string $enterpriseDomain = null,
         /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
@@ -85,13 +85,13 @@ class WindowsInformationProtectionPolicy
         /** Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0. */
         public ?float $pinExpirationDays = null,
         /**  */
-        public ?string $pinLowercaseLetters = null,
+        public ?WindowsInformationProtectionPinCharacterRequirements $pinLowercaseLetters = null,
         /** Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest. */
         public ?float $pinMinimumLength = null,
         /**  */
-        public ?string $pinSpecialCharacters = null,
+        public ?WindowsInformationProtectionPinCharacterRequirements $pinSpecialCharacters = null,
         /**  */
-        public ?string $pinUppercaseLetters = null,
+        public ?WindowsInformationProtectionPinCharacterRequirements $pinUppercaseLetters = null,
         /** New property in RS2, pending documentation */
         public ?bool $revokeOnMdmHandoffDisabled = null,
         /** Boolean value that sets Windows Hello for Business as a method for signing into Windows. */

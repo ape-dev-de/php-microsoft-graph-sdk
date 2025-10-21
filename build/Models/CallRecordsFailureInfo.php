@@ -13,6 +13,6 @@ class CallRecordsFailureInfo
         /** Classification of why a call or portion of a call failed. */
         public ?string $reason = null,
         /**  */
-        public ?string $stage = null
+        public ?CallRecordsFailureStage $stage = null
     ) {}
 }

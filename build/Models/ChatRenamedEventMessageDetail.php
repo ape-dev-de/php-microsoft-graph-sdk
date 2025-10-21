@@ -15,6 +15,6 @@ class ChatRenamedEventMessageDetail
         /** Unique identifier of the chat. */
         public ?string $chatId = null,
         /** Initiator of the event. */
-        public ?string $initiator = null
+        public ?IdentitySet $initiator = null
     ) {}
 }

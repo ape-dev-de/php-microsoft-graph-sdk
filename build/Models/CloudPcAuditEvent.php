@@ -17,15 +17,15 @@ class CloudPcAuditEvent
         /** The date time in UTC when the activity was performed. Read-only. */
         public ?\DateTimeInterface $activityDateTime = null,
         /**  */
-        public ?string $activityOperationType = null,
+        public ?CloudPcAuditActivityOperationType $activityOperationType = null,
         /**  */
-        public ?string $activityResult = null,
+        public ?CloudPcAuditActivityResult $activityResult = null,
         /** The type of activity that was performed. Read-only. */
         public ?string $activityType = null,
         /**  */
-        public ?string $actor = null,
+        public ?CloudPcAuditActor $actor = null,
         /**  */
-        public ?string $category = null,
+        public ?CloudPcAuditCategory $category = null,
         /** The component name for the audit event. Read-only. */
         public ?string $componentName = null,
         /** The client request ID that is used to correlate activity within the system. Read-only. */

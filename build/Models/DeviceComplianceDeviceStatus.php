@@ -21,7 +21,7 @@ class DeviceComplianceDeviceStatus
         /** Last modified date time of the policy report. */
         public ?\DateTimeInterface $lastReportedDateTime = null,
         /**  */
-        public ?string $status = null,
+        public ?ComplianceStatus $status = null,
         /** The User Name that is being reported */
         public ?string $userName = null,
         /** UserPrincipalName. */

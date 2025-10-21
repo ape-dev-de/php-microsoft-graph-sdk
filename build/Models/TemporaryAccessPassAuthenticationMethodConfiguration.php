@@ -15,7 +15,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration
         /** Groups of users that are excluded from a policy. */
         public array $excludeTargets = [],
         /** The state of the policy. Possible values are: enabled, disabled. */
-        public ?string $state = null,
+        public ?AuthenticationMethodState $state = null,
         /** Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters. */
         public ?float $defaultLength = null,
         /** Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes. */

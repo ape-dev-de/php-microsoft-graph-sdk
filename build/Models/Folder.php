@@ -13,6 +13,6 @@ class Folder
         /** Number of children contained immediately within this container. */
         public ?float $childCount = null,
         /** A collection of properties defining the recommended view for the folder. */
-        public ?string $view = null
+        public ?FolderView $view = null
     ) {}
 }

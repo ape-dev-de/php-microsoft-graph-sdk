@@ -21,19 +21,19 @@ class RiskyServicePrincipalHistoryItem
         /** Indicates whether Microsoft Entra ID is currently processing the service principal's risky state. */
         public ?bool $isProcessing = null,
         /** Details of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: none, hidden,  unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal. */
-        public ?string $riskDetail = null,
+        public ?RiskDetail $riskDetail = null,
         /** The date and time that the risk state was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z. Supports $filter (eq). */
         public ?\DateTimeInterface $riskLastUpdatedDateTime = null,
         /** Level of the detected risky workload identity. The possible values are: low, medium, high, hidden, none, unknownFutureValue. Supports $filter (eq). */
-        public ?string $riskLevel = null,
+        public ?RiskLevel $riskLevel = null,
         /** State of the service principal's risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
-        public ?string $riskState = null,
+        public ?RiskState $riskState = null,
         /** Identifies whether the service principal represents an Application, a ManagedIdentity, or a legacy application (socialIdp). This is set by Microsoft Entra ID internally and is inherited from servicePrincipal. */
         public ?string $servicePrincipalType = null,
         /** Represents the risk history of Microsoft Entra service principals. */
         public array $history = [],
         /** The activity related to service principal risk level change. */
-        public ?string $activity = null,
+        public ?RiskServicePrincipalActivity $activity = null,
         /** The identifier of the actor of the operation. */
         public ?string $initiatedBy = null
     ) {}

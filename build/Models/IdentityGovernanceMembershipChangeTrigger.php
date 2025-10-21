@@ -11,6 +11,6 @@ class IdentityGovernanceMembershipChangeTrigger
 {
     public function __construct(
         /**  */
-        public ?string $changeType = null
+        public ?IdentityGovernanceMembershipChangeType $changeType = null
     ) {}
 }

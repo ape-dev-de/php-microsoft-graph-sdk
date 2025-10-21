@@ -11,12 +11,12 @@ class SolutionsRoot
 {
     public function __construct(
         /**  */
-        public ?string $backupRestore = null,
+        public ?BackupRestoreRoot $backupRestore = null,
         /**  */
         public array $bookingBusinesses = [],
         /**  */
         public array $bookingCurrencies = [],
         /**  */
-        public ?string $virtualEvents = null
+        public ?VirtualEventsRoot $virtualEvents = null
     ) {}
 }

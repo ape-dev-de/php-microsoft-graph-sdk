@@ -13,7 +13,7 @@ class SecurityCvssSummary
         /** The CVSS score about this vulnerability. */
         public ?string $score = null,
         /** The CVSS severity rating for this vulnerability. The possible values are: none, low, medium, high, critical, unknownFutureValue. */
-        public ?string $severity = null,
+        public ?SecurityVulnerabilitySeverity $severity = null,
         /** The CVSS vector string for this vulnerability. */
         public ?string $vectorString = null
     ) {}

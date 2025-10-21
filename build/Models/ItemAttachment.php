@@ -23,6 +23,6 @@ class ItemAttachment
         /** The length of the attachment in bytes. */
         public ?float $size = null,
         /** The attached message or event. Navigation property. */
-        public ?string $item = null
+        public ?OutlookItem $item = null
     ) {}
 }

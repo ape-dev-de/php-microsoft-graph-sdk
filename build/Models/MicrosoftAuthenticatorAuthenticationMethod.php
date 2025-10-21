@@ -21,6 +21,6 @@ class MicrosoftAuthenticatorAuthenticationMethod
         /** Numerical version of this instance of the Authenticator app. */
         public ?string $phoneAppVersion = null,
         /** The registered device on which Microsoft Authenticator resides. This property is null if the device isn't registered for passwordless Phone Sign-In. */
-        public ?string $device = null
+        public ?Device $device = null
     ) {}
 }

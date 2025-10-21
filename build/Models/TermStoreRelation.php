@@ -13,12 +13,12 @@ class TermStoreRelation
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The type of relation. Possible values are: pin, reuse. */
-        public ?string $relationship = null,
+        public ?TermStoreRelationType $relationship = null,
         /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
-        public ?string $fromTerm = null,
+        public ?TermStoreTerm $fromTerm = null,
         /** The [set] in which the relation is relevant. */
-        public ?string $set = null,
+        public ?TermStoreSet $set = null,
         /** The to [term] of the relation. The term to which the relationship is defined. */
-        public ?string $toTerm = null
+        public ?TermStoreTerm $toTerm = null
     ) {}
 }

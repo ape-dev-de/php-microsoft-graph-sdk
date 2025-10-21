@@ -21,6 +21,6 @@ class TermsAndConditionsAcceptanceStatus
         /** The userPrincipalName of the User that accepted the term. */
         public ?string $userPrincipalName = null,
         /** Navigation link to the terms and conditions that are assigned. */
-        public ?string $termsAndConditions = null
+        public ?TermsAndConditions $termsAndConditions = null
     ) {}
 }

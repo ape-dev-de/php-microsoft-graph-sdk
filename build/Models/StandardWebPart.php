@@ -15,7 +15,7 @@ class StandardWebPart
         /** The instance identifier of the container text webPart. It only works for inline standard webPart in rich text webParts. */
         public ?string $containerTextWebPartId = null,
         /** Data of the webPart. */
-        public ?string $data = null,
+        public ?WebPartData $data = null,
         /** A Guid that indicates the webPart type. */
         public ?string $webPartType = null
     ) {}

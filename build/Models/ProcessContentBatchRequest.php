@@ -11,7 +11,7 @@ class ProcessContentBatchRequest
 {
     public function __construct(
         /**  */
-        public ?string $contentToProcess = null,
+        public ?ProcessContentRequest $contentToProcess = null,
         /** A unique identifier provided by the client to correlate this specific request item within the batch. */
         public ?string $requestId = null,
         /** The unique identifier (Object ID or UPN) of the user in whose context the content should be processed. */

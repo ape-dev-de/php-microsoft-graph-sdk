@@ -13,6 +13,6 @@ class DeviceConfigurationAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The assignment target for the device configuration. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

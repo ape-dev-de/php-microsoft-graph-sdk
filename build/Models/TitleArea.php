@@ -17,9 +17,9 @@ class TitleArea
         /** URL of the image in the title area. */
         public ?string $imageWebUrl = null,
         /** Enumeration value that indicates the layout of the title area. The possible values are: imageAndTitle, plain, colorBlock, overlap, unknownFutureValue. */
-        public ?string $layout = null,
+        public ?TitleAreaLayoutType $layout = null,
         /** Contains collections of data that can be processed by server side services like search index and link fixup. */
-        public ?string $serverProcessedContent = null,
+        public ?ServerProcessedContent $serverProcessedContent = null,
         /** Indicates whether the author should be shown in title area. */
         public ?bool $showAuthor = null,
         /** Indicates whether the published date should be shown in title area. */
@@ -29,6 +29,6 @@ class TitleArea
         /** The text above title line. */
         public ?string $textAboveTitle = null,
         /** Enumeration value that indicates the text alignment of the title area. The possible values are: left, center, unknownFutureValue. */
-        public ?string $textAlignment = null
+        public ?TitleAreaTextAlignmentType $textAlignment = null
     ) {}
 }

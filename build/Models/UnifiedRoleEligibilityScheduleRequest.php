@@ -17,7 +17,7 @@ class UnifiedRoleEligibilityScheduleRequest
         /** The request completion date time. */
         public ?\DateTimeInterface $completedDateTime = null,
         /** The principal that created the request. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** The request creation date time. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Free text field to define any custom data for the request. Not used. */
@@ -25,7 +25,7 @@ class UnifiedRoleEligibilityScheduleRequest
         /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. */
         public ?string $status = null,
         /** Represents the type of operation on the role eligibility request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign eligible roles to principals.adminRemove: For administrators to remove eligible roles from principals. adminUpdate: For administrators to change existing role eligibilities.adminExtend: For administrators to extend expiring role eligibilities.adminRenew: For administrators to renew expired eligibilities.selfActivate: For users to activate their assignments.selfDeactivate: For users to deactivate their active assignments.selfExtend: For users to request to extend their expiring assignments.selfRenew: For users to request to renew their expired assignments. */
-        public ?string $action = null,
+        public ?UnifiedRoleScheduleRequestActions $action = null,
         /** Identifier of the app-specific scope when the role eligibility is scoped to an app. The scope of a role eligibility determines the set of resources for which the principal is eligible to access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, ne, and on null values). */
         public ?string $appScopeId = null,
         /** Identifier of the directory object representing the scope of the role eligibility. The scope of a role eligibility determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. Supports $filter (eq, ne, and on null values). */
@@ -39,20 +39,20 @@ class UnifiedRoleEligibilityScheduleRequest
         /** Identifier of the unifiedRoleDefinition object that is being assigned to the principal. Supports $filter (eq, ne). */
         public ?string $roleDefinitionId = null,
         /** The period of the role eligibility. Recurring schedules are currently unsupported. */
-        public ?string $scheduleInfo = null,
+        public ?RequestSchedule $scheduleInfo = null,
         /** Identifier of the schedule object that's linked to the eligibility request. Supports $filter (eq, ne). */
         public ?string $targetScheduleId = null,
         /** Ticket details linked to the role eligibility request including details of the ticket number and ticket system. Optional. */
-        public ?string $ticketInfo = null,
+        public ?TicketInfo $ticketInfo = null,
         /** Read-only property with details of the app-specific scope when the role eligibility is scoped to an app. Nullable. Supports $expand. */
-        public ?string $appScope = null,
+        public ?AppScope $appScope = null,
         /** The directory object that is the scope of the role eligibility. Read-only. Supports $expand. */
-        public ?string $directoryScope = null,
+        public ?DirectoryObject $directoryScope = null,
         /** The principal that's getting a role eligibility through the request. Supports $expand. */
-        public ?string $principal = null,
+        public ?DirectoryObject $principal = null,
         /** Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand. */
-        public ?string $roleDefinition = null,
+        public ?UnifiedRoleDefinition $roleDefinition = null,
         /** The schedule for a role eligibility that is referenced through the targetScheduleId property. Supports $expand. */
-        public ?string $targetSchedule = null
+        public ?UnifiedRoleEligibilitySchedule $targetSchedule = null
     ) {}
 }

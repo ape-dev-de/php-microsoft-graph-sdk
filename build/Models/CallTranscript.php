@@ -25,7 +25,7 @@ class CallTranscript
         /** The unique identifier of the online meeting related to this transcript. Read-only. */
         public ?string $meetingId = null,
         /** The identity information of the organizer of the onlineMeeting related to this transcript. Read-only. */
-        public ?string $meetingOrganizer = null,
+        public ?IdentitySet $meetingOrganizer = null,
         /** The time-aligned metadata of the utterances in the transcript. Read-only. */
         public ?string $metadataContent = null,
         /** The URL that can be used to access the content of the transcript. Read-only. */

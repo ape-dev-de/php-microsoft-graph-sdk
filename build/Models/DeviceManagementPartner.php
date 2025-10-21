@@ -21,9 +21,9 @@ class DeviceManagementPartner
         /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
         public ?\DateTimeInterface $lastHeartbeatDateTime = null,
         /**  */
-        public ?string $partnerAppType = null,
+        public ?DeviceManagementPartnerAppType $partnerAppType = null,
         /**  */
-        public ?string $partnerState = null,
+        public ?DeviceManagementPartnerTenantState $partnerState = null,
         /** Partner Single tenant App id */
         public ?string $singleTenantAppId = null,
         /** DateTime in UTC when PartnerDevices will be marked as NonCompliant */

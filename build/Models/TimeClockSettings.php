@@ -11,6 +11,6 @@ class TimeClockSettings
 {
     public function __construct(
         /** The approved location of the timeClock. */
-        public ?string $approvedLocation = null
+        public ?GeoCoordinates $approvedLocation = null
     ) {}
 }

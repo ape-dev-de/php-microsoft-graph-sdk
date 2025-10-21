@@ -19,12 +19,12 @@ class IdentityGovernanceTaskProcessingResult
         /** Describes why the taskProcessingResult has failed. */
         public ?string $failureReason = null,
         /**  */
-        public ?string $processingStatus = null,
+        public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null,
         /** The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
         public ?\DateTimeInterface $startedDateTime = null,
         /**  */
-        public ?string $subject = null,
+        public ?User $subject = null,
         /**  */
-        public ?string $task = null
+        public ?IdentityGovernanceTask $task = null
     ) {}
 }

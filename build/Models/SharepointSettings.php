@@ -21,9 +21,9 @@ class SharepointSettings
         /** @var string[] Collection of file extensions not uploaded by the OneDrive sync app. */
         public array $excludedFileExtensionsForSyncApp = [],
         /** Specifies the idle session sign-out policies for the tenant. */
-        public ?string $idleSessionSignOut = null,
+        public ?IdleSessionSignOut $idleSessionSignOut = null,
         /** Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced. */
-        public ?string $imageTaggingOption = null,
+        public ?ImageTaggingChoice $imageTaggingOption = null,
         /** Indicates whether comments are allowed on modern site pages in SharePoint. */
         public ?bool $isCommentingOnSitePagesEnabled = null,
         /** Indicates whether push notifications are enabled for OneDrive events. */
@@ -61,9 +61,9 @@ class SharepointSettings
         /** @var string[] Collection of email domains that are blocked for sharing outside the organization. */
         public array $sharingBlockedDomainList = [],
         /** Sharing capability for the tenant. Possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly. */
-        public ?string $sharingCapability = null,
+        public ?SharingCapabilities $sharingCapability = null,
         /** Specifies the external sharing mode for domains. Possible values are: none, allowList, blockList. */
-        public ?string $sharingDomainRestrictionMode = null,
+        public ?SharingDomainRestrictionMode $sharingDomainRestrictionMode = null,
         /** The value of the team site managed path. This is the path under which new team sites will be created. */
         public ?string $siteCreationDefaultManagedPath = null,
         /** The default storage quota for a new site upon creation. Measured in megabytes (MB). */

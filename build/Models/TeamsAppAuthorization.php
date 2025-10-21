@@ -13,6 +13,6 @@ class TeamsAppAuthorization
         /** The registration ID of the Microsoft Entra app ID associated with the teamsApp. */
         public ?string $clientAppId = null,
         /** Set of permissions required by the teamsApp. */
-        public ?string $requiredPermissionSet = null
+        public ?TeamsAppPermissionSet $requiredPermissionSet = null
     ) {}
 }

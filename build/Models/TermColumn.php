@@ -15,8 +15,8 @@ class TermColumn
         /** Specifies whether to display the entire term path or only the term label. */
         public ?bool $showFullyQualifiedName = null,
         /**  */
-        public ?string $parentTerm = null,
+        public ?TermStoreTerm $parentTerm = null,
         /**  */
-        public ?string $termSet = null
+        public ?TermStoreSet $termSet = null
     ) {}
 }

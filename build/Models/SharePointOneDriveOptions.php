@@ -11,6 +11,6 @@ class SharePointOneDriveOptions
 {
     public function __construct(
         /** The type of search content. The possible values are: sharedContent, privateContent, unknownFutureValue. Read-only. */
-        public ?string $includeContent = null
+        public ?SearchContent $includeContent = null
     ) {}
 }

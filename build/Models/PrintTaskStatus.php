@@ -13,6 +13,6 @@ class PrintTaskStatus
         /** A human-readable description of the current processing state of the printTask. */
         public ?string $description = null,
         /**  */
-        public ?string $state = null
+        public ?PrintTaskProcessingState $state = null
     ) {}
 }

@@ -11,7 +11,7 @@ class AiInteractionMention
 {
     public function __construct(
         /**  */
-        public ?string $mentioned = null,
+        public ?AiInteractionMentionedIdentitySet $mentioned = null,
         /**  */
         public ?float $mentionId = null,
         /**  */

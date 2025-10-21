@@ -11,7 +11,7 @@ class SynchronizationMetadataEntry
 {
     public function __construct(
         /** Possible values are: GalleryApplicationIdentifier, GalleryApplicationKey, IsOAuthEnabled, IsSynchronizationAgentAssignmentRequired, IsSynchronizationAgentRequired, IsSynchronizationInPreview, OAuthSettings, SynchronizationLearnMoreIbizaFwLink, ConfigurationFields. */
-        public ?string $key = null,
+        public ?SynchronizationMetadata $key = null,
         /** Value of the metadata property. */
         public ?string $value = null
     ) {}

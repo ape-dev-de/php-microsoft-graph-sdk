@@ -15,6 +15,6 @@ class CanvasLayout
         /** Collection of horizontal sections on the SharePoint page. */
         public array $horizontalSections = [],
         /** Vertical section on the SharePoint page. */
-        public ?string $verticalSection = null
+        public ?VerticalSection $verticalSection = null
     ) {}
 }

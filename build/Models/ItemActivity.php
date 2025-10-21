@@ -13,12 +13,12 @@ class ItemActivity
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** An item was accessed. */
-        public ?string $access = null,
+        public ?AccessAction $access = null,
         /** Details about when the activity took place. Read-only. */
         public ?\DateTimeInterface $activityDateTime = null,
         /** Identity of who performed the action. Read-only. */
-        public ?string $actor = null,
+        public ?IdentitySet $actor = null,
         /** Exposes the driveItem that was the target of this activity. */
-        public ?string $driveItem = null
+        public ?DriveItem $driveItem = null
     ) {}
 }

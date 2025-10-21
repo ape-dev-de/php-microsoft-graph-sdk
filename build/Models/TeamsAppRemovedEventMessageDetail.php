@@ -11,7 +11,7 @@ class TeamsAppRemovedEventMessageDetail
 {
     public function __construct(
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** Display name of the teamsApp. */
         public ?string $teamsAppDisplayName = null,
         /** Unique identifier of the teamsApp. */

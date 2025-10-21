@@ -15,6 +15,6 @@ class WorkbookChartGridlines
         /** Indicates whether the axis gridlines are visible. */
         public ?bool $visible = null,
         /** Represents the formatting of chart gridlines. Read-only. */
-        public ?string $format = null
+        public ?WorkbookChartGridlinesFormat $format = null
     ) {}
 }

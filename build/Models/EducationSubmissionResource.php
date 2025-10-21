@@ -15,6 +15,6 @@ class EducationSubmissionResource
         /** Pointer to the assignment from which the resource was copied, and if null, the student uploaded the resource. */
         public ?string $assignmentResourceUrl = null,
         /** Resource object. */
-        public ?string $resource = null
+        public ?EducationResource $resource = null
     ) {}
 }

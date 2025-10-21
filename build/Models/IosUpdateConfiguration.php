@@ -29,11 +29,11 @@ class IosUpdateConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Active Hours End (active hours mean the time window when updates install should not happen) */
         public ?string $activeHoursEnd = null,
         /** Active Hours Start (active hours mean the time window when updates install should not happen) */

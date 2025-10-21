@@ -11,6 +11,6 @@ class PendingOperations
 {
     public function __construct(
         /** A property that indicates that an operation that might update the binary content of a file is pending completion. */
-        public ?string $pendingContentUpdate = null
+        public ?PendingContentUpdate $pendingContentUpdate = null
     ) {}
 }

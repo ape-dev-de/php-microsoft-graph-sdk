@@ -21,8 +21,8 @@ class IdentityUserFlowAttributeAssignment
         /** The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect. */
         public array $userAttributeValues = [],
         /**  */
-        public ?string $userInputType = null,
+        public ?IdentityUserFlowAttributeInputType $userInputType = null,
         /** The user attribute that you want to add to your user flow. */
-        public ?string $userAttribute = null
+        public ?IdentityUserFlowAttribute $userAttribute = null
     ) {}
 }

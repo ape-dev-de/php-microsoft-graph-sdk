@@ -23,9 +23,9 @@ class Calendar
         /** Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
         public ?string $changeKey = null,
         /** Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: auto, lightBlue, lightGreen, lightOrange, lightGray, lightYellow, lightTeal, lightPink, lightBrown, lightRed, maxColor. */
-        public ?string $color = null,
+        public ?CalendarColor $color = null,
         /** The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
-        public ?string $defaultOnlineMeetingProvider = null,
+        public ?OnlineMeetingProviderType $defaultOnlineMeetingProvider = null,
         /** The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is empty. Read-only. */
         public ?string $hexColor = null,
         /** true if this is the default calendar where new events are created by default, false otherwise. */
@@ -37,7 +37,7 @@ class Calendar
         /** The calendar name. */
         public ?string $name = null,
         /** If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. */
-        public ?string $owner = null,
+        public ?EmailAddress $owner = null,
         /** The permissions of the users with whom the calendar is shared. */
         public array $calendarPermissions = [],
         /** The calendar view for the calendar. Navigation property. Read-only. */

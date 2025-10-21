@@ -17,17 +17,17 @@ class BrowserSiteList
         /** The name of the site list. */
         public ?string $displayName = null,
         /** The user who last modified the site list. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** The date and time when the site list was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The user who published the site list. */
-        public ?string $publishedBy = null,
+        public ?IdentitySet $publishedBy = null,
         /** The date and time when the site list was published. */
         public ?\DateTimeInterface $publishedDateTime = null,
         /** The current revision of the site list. */
         public ?string $revision = null,
         /**  */
-        public ?string $status = null,
+        public ?BrowserSiteListStatus $status = null,
         /** A collection of shared cookies defined for the site list. */
         public array $sharedCookies = [],
         /** A collection of sites defined for the site list. */

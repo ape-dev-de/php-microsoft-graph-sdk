@@ -11,7 +11,7 @@ class ConditionalAccessFilter
 {
     public function __construct(
         /**  */
-        public ?string $mode = null,
+        public ?FilterMode $mode = null,
         /** Rule syntax is similar to that used for membership rules for groups in Microsoft Entra ID. For details, see rules with multiple expressions */
         public ?string $rule = null
     ) {}

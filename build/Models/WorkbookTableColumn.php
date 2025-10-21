@@ -19,6 +19,6 @@ class WorkbookTableColumn
         /** TRepresents the raw values of the specified range. The data returned could be of type string, number, or a Boolean. Cell that contain an error will return the error string. */
         public ?string $values = null,
         /** The filter applied to the column. Read-only. */
-        public ?string $filter = null
+        public ?WorkbookFilter $filter = null
     ) {}
 }

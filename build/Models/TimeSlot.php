@@ -11,8 +11,8 @@ class TimeSlot
 {
     public function __construct(
         /**  */
-        public ?string $end = null,
+        public ?DateTimeTimeZone $end = null,
         /**  */
-        public ?string $start = null
+        public ?DateTimeTimeZone $start = null
     ) {}
 }

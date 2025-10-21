@@ -11,6 +11,6 @@ class AccessPackageResourceAttributeQuestion
 {
     public function __construct(
         /**  */
-        public ?string $question = null
+        public ?AccessPackageQuestion $question = null
     ) {}
 }

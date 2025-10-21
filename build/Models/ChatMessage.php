@@ -15,9 +15,9 @@ class ChatMessage
         /** References to attached objects like files, tabs, meetings etc. */
         public array $attachments = [],
         /**  */
-        public ?string $body = null,
+        public ?ItemBody $body = null,
         /** If the message was sent in a channel, represents identity of the channel. */
-        public ?string $channelIdentity = null,
+        public ?ChannelIdentity $channelIdentity = null,
         /** If the message was sent in a chat, represents the identity of the chat. */
         public ?string $chatId = null,
         /** Timestamp of when the chat message was created. */
@@ -27,11 +27,11 @@ class ChatMessage
         /** Read-only. Version number of the chat message. */
         public ?string $etag = null,
         /** Read-only. If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage. */
-        public ?string $eventDetail = null,
+        public ?EventMessageDetail $eventDetail = null,
         /** Details of the sender of the chat message. Can only be set during migration. */
-        public ?string $from = null,
+        public ?ChatMessageFromIdentitySet $from = null,
         /**  */
-        public ?string $importance = null,
+        public ?ChatMessageImportance $importance = null,
         /** Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null. */
         public ?\DateTimeInterface $lastEditedDateTime = null,
         /** Read only. Timestamp when the chat message is created (initial setting) or modified, including when a reaction is added or removed. */
@@ -43,9 +43,9 @@ class ChatMessage
         /** List of activity history of a message item, including modification time and actions, such as reactionAdded, reactionRemoved, or reaction changes, on the message. */
         public array $messageHistory = [],
         /**  */
-        public ?string $messageType = null,
+        public ?ChatMessageType $messageType = null,
         /** Defines the properties of a policy violation set by a data loss prevention (DLP) application. */
-        public ?string $policyViolation = null,
+        public ?ChatMessagePolicyViolation $policyViolation = null,
         /** Reactions for this chat message (for example, Like). */
         public array $reactions = [],
         /** Read-only. ID of the parent chat message or root chat message of the thread. (Only applies to chat messages in channels, not chats.) */

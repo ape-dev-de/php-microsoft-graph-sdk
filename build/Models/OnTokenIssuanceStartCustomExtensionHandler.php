@@ -11,8 +11,8 @@ class OnTokenIssuanceStartCustomExtensionHandler
 {
     public function __construct(
         /**  */
-        public ?string $configuration = null,
+        public ?CustomExtensionOverwriteConfiguration $configuration = null,
         /**  */
-        public ?string $customExtension = null
+        public ?OnTokenIssuanceStartCustomExtension $customExtension = null
     ) {}
 }

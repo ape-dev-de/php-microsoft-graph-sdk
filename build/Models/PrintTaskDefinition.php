@@ -13,7 +13,7 @@ class PrintTaskDefinition
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $createdBy = null,
+        public ?AppIdentity $createdBy = null,
         /** The name of the printTaskDefinition. */
         public ?string $displayName = null,
         /** A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only. */

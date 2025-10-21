@@ -15,7 +15,7 @@ class SecurityEdiscoverySearch
         /**  */
         public ?string $contentQuery = null,
         /**  */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /**  */
         public ?\DateTimeInterface $createdDateTime = null,
         /**  */
@@ -23,19 +23,19 @@ class SecurityEdiscoverySearch
         /**  */
         public ?string $displayName = null,
         /**  */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /**  */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources. */
-        public ?string $dataSourceScopes = null,
+        public ?SecurityDataSourceScopes $dataSourceScopes = null,
         /** Adds an additional source to the eDiscovery search. */
         public array $additionalSources = [],
         /** Adds the results of the eDiscovery search to the specified reviewSet. */
-        public ?string $addToReviewSetOperation = null,
+        public ?SecurityEdiscoveryAddToReviewSetOperation $addToReviewSetOperation = null,
         /** Custodian sources that are included in the eDiscovery search. */
         public array $custodianSources = [],
         /** The last estimate operation associated with the eDiscovery search. */
-        public ?string $lastEstimateStatisticsOperation = null,
+        public ?SecurityEdiscoveryEstimateOperation $lastEstimateStatisticsOperation = null,
         /** noncustodialDataSource sources that are included in the eDiscovery search */
         public array $noncustodialSources = []
     ) {}

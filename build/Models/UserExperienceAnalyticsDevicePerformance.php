@@ -29,13 +29,13 @@ class UserExperienceAnalyticsDevicePerformance
         /** The user experience analytics device name. */
         public ?string $deviceName = null,
         /**  */
-        public ?string $diskType = null,
+        public ?DiskType $diskType = null,
         /** The user experience analytics device group policy boot time in milliseconds. */
         public ?float $groupPolicyBootTimeInMs = null,
         /** The user experience analytics device group policy login time in milliseconds. */
         public ?float $groupPolicyLoginTimeInMs = null,
         /**  */
-        public ?string $healthStatus = null,
+        public ?UserExperienceAnalyticsHealthState $healthStatus = null,
         /** The user experience analytics device login score. */
         public ?float $loginScore = null,
         /** The user experience analytics device manufacturer. */

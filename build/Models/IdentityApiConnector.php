@@ -13,7 +13,7 @@ class IdentityApiConnector
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
-        public ?string $authenticationConfiguration = null,
+        public ?ApiAuthenticationConfigurationBase $authenticationConfiguration = null,
         /** The name of the API connector. */
         public ?string $displayName = null,
         /** The URL of the API endpoint to call. */

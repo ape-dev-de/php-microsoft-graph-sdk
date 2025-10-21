@@ -25,7 +25,7 @@ class OrganizationalBrandingLocalization
         /** @var string[] A list of base URLs for all available CDN providers that are serving the assets of the current resource. Several CDN providers are used at the same time for high availability of read requests. Read-only. */
         public array $cdnList = [],
         /** Represents the content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Microsoft Entra External ID in external tenants only. */
-        public ?string $contentCustomization = null,
+        public ?ContentCustomization $contentCustomization = null,
         /** A custom URL for resetting account credentials. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters. */
         public ?string $customAccountResetCredentialsUrl = null,
         /** A string to replace the default 'Can't access your account?' self-service password reset (SSPR) hyperlink text on the sign-in page. This text must be in Unicode format and not exceed 256 characters. */
@@ -59,9 +59,9 @@ class OrganizationalBrandingLocalization
         /** A relative URL for the headerLogo property that is combined with a CDN base URL from the cdnList to provide the read-only version served by a CDN. Read-only. */
         public ?string $headerLogoRelativeUrl = null,
         /** Represents the layout configuration to be displayed on the login page for a tenant. */
-        public ?string $loginPageLayoutConfiguration = null,
+        public ?LoginPageLayoutConfiguration $loginPageLayoutConfiguration = null,
         /** Represents the various texts that can be hidden on the login page for a tenant. */
-        public ?string $loginPageTextVisibilitySettings = null,
+        public ?LoginPageTextVisibilitySettings $loginPageTextVisibilitySettings = null,
         /** Text that appears at the bottom of the sign-in box. Use this to communicate additional information, such as the phone number to your help desk or a legal statement. This text must be in Unicode format and not exceed 1024 characters. */
         public ?string $signInPageText = null,
         /** A square version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo. */

@@ -17,7 +17,7 @@ class Quota
         /** Enumeration value that indicates the state of the storage space. Read-only. */
         public ?string $state = null,
         /** Information about the drive's storage quota plans. Only in Personal OneDrive. */
-        public ?string $storagePlanInformation = null,
+        public ?StoragePlanInformation $storagePlanInformation = null,
         /** Total allowed storage space, in bytes. Read-only. */
         public ?float $total = null,
         /** Total space used, in bytes. Read-only. */

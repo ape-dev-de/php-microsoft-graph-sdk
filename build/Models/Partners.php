@@ -13,6 +13,6 @@ class Partners
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents billing details for billed and unbilled data. */
-        public ?string $billing = null
+        public ?PartnersBillingBilling $billing = null
     ) {}
 }

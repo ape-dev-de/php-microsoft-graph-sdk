@@ -13,6 +13,6 @@ class ParticipantJoiningNotification
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $call = null
+        public ?Call $call = null
     ) {}
 }

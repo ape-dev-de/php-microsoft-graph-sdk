@@ -11,10 +11,10 @@ class CallRoute
 {
     public function __construct(
         /**  */
-        public ?string $final = null,
+        public ?IdentitySet $final = null,
         /**  */
-        public ?string $original = null,
+        public ?IdentitySet $original = null,
         /**  */
-        public ?string $routingType = null
+        public ?RoutingType $routingType = null
     ) {}
 }

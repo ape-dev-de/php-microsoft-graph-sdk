@@ -11,7 +11,7 @@ class AttributeDefinitionMetadataEntry
 {
     public function __construct(
         /** Possible values are: BaseAttributeName, ComplexObjectDefinition, IsContainer, IsCustomerDefined, IsDomainQualified, LinkPropertyNames, LinkTypeName, MaximumLength, ReferencedProperty. */
-        public ?string $key = null,
+        public ?AttributeDefinitionMetadata $key = null,
         /** Value of the metadata property. */
         public ?string $value = null
     ) {}

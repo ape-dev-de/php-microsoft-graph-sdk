@@ -47,10 +47,10 @@ class WorkbookRange
         /** Represents the type of data of each cell. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only. */
         public ?string $valueTypes = null,
         /** Returns a format object, encapsulating the range's font, fill, borders, alignment, and other properties. Read-only. */
-        public ?string $format = null,
+        public ?WorkbookRangeFormat $format = null,
         /** The worksheet containing the current range. Read-only. */
-        public ?string $sort = null,
+        public ?WorkbookRangeSort $sort = null,
         /** The worksheet containing the current range. Read-only. */
-        public ?string $worksheet = null
+        public ?WorkbookWorksheet $worksheet = null
     ) {}
 }

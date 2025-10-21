@@ -25,7 +25,7 @@ class WorkbookWorksheet
         /** The list of piot tables that are part of the worksheet. */
         public array $pivotTables = [],
         /** The sheet protection object for a worksheet. Read-only. */
-        public ?string $protection = null,
+        public ?WorkbookWorksheetProtection $protection = null,
         /** The list of tables that are part of the worksheet. Read-only. */
         public array $tables = []
     ) {}

@@ -13,8 +13,8 @@ class WorkbookChartAxisFormat
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
-        public ?string $font = null,
+        public ?WorkbookChartFont $font = null,
         /** Represents chart line formatting. Read-only. */
-        public ?string $line = null
+        public ?WorkbookChartLineFormat $line = null
     ) {}
 }

@@ -19,7 +19,7 @@ class TeamworkTag
         /** The number of users assigned to the tag. */
         public ?float $memberCount = null,
         /** The type of the tag. Default is standard. */
-        public ?string $tagType = null,
+        public ?TeamworkTagType $tagType = null,
         /** ID of the team in which the tag is defined. */
         public ?string $teamId = null,
         /** Users assigned to the tag. */

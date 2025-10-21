@@ -21,7 +21,7 @@ class IdentityContainer
         /** Represents entry point for B2X/self-service sign-up identity userflows. */
         public array $b2xUserFlows = [],
         /** the entry point for the Conditional Access (CA) object model. */
-        public ?string $conditionalAccess = null,
+        public ?ConditionalAccessRoot $conditionalAccess = null,
         /** Represents custom extensions to authentication flows in Azure AD for workforce and customers. */
         public array $customAuthenticationExtensions = [],
         /**  */

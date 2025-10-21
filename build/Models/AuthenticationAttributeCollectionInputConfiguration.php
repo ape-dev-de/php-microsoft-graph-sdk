@@ -19,7 +19,7 @@ class AuthenticationAttributeCollectionInputConfiguration
         /** Defines whether the attribute is displayed to the end user. The capability to hide isn't available through the Microsoft Entra admin center. */
         public ?bool $hidden = null,
         /**  */
-        public ?string $inputType = null,
+        public ?AuthenticationAttributeCollectionInputType $inputType = null,
         /** The label of the attribute field that's displayed to end user, unless overridden. */
         public ?string $label = null,
         /** The option values for certain multiple-option input types. */

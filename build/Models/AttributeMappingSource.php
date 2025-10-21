@@ -17,6 +17,6 @@ class AttributeMappingSource
         /** If this object represents a function, lists function parameters. Parameters consist of attributeMappingSource objects themselves, allowing for complex expressions. If type isn't Function, this property is null/empty array. */
         public array $parameters = [],
         /**  */
-        public ?string $type = null
+        public ?AttributeMappingSourceType $type = null
     ) {}
 }

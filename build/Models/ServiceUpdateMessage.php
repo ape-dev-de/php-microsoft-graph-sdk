@@ -27,9 +27,9 @@ class ServiceUpdateMessage
         /** The zip file that contains all attachments for a message. */
         public ?string $attachmentsArchive = null,
         /**  */
-        public ?string $body = null,
+        public ?ItemBody $body = null,
         /**  */
-        public ?string $category = null,
+        public ?ServiceUpdateCategory $category = null,
         /** Indicates whether the message has any attachment. */
         public ?bool $hasAttachments = null,
         /** Indicates whether the message describes a major update for the service. */
@@ -37,11 +37,11 @@ class ServiceUpdateMessage
         /** @var string[] The affected services by the service message. */
         public array $services = [],
         /**  */
-        public ?string $severity = null,
+        public ?ServiceUpdateSeverity $severity = null,
         /** @var string[] A collection of tags for the service message. Tags are provided by the service team/support team who post the message to tell whether this message contains privacy data, or whether this message is for a service new feature update, and so on. */
         public array $tags = [],
         /** Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions. */
-        public ?string $viewPoint = null,
+        public ?ServiceUpdateMessageViewpoint $viewPoint = null,
         /** A collection of serviceAnnouncementAttachments. */
         public array $attachments = []
     ) {}

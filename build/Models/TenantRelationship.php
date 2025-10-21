@@ -15,6 +15,6 @@ class TenantRelationship
         /** The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant. */
         public array $delegatedAdminRelationships = [],
         /** Defines an organization with more than one instance of Microsoft Entra ID. */
-        public ?string $multiTenantOrganization = null
+        public ?MultiTenantOrganization $multiTenantOrganization = null
     ) {}
 }

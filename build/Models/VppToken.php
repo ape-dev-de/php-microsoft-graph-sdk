@@ -25,14 +25,14 @@ class VppToken
         /** The last time when an application sync was done with the Apple volume purchase program service using the the Apple Volume Purchase Program Token. */
         public ?\DateTimeInterface $lastSyncDateTime = null,
         /**  */
-        public ?string $lastSyncStatus = null,
+        public ?VppTokenSyncStatus $lastSyncStatus = null,
         /** The organization associated with the Apple Volume Purchase Program Token */
         public ?string $organizationName = null,
         /**  */
-        public ?string $state = null,
+        public ?VppTokenState $state = null,
         /** The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program. */
         public ?string $token = null,
         /**  */
-        public ?string $vppTokenAccountType = null
+        public ?VppTokenAccountType $vppTokenAccountType = null
     ) {}
 }

@@ -17,9 +17,9 @@ class Process
         /** Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Complex type containing file hashes (cryptographic and location-sensitive). */
-        public ?string $fileHash = null,
+        public ?FileHash $fileHash = null,
         /** The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system. */
-        public ?string $integrityLevel = null,
+        public ?ProcessIntegrityLevel $integrityLevel = null,
         /** True if the process is elevated. */
         public ?bool $isElevated = null,
         /** The name of the process' Image file. */

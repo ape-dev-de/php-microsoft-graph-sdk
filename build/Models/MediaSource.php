@@ -11,6 +11,6 @@ class MediaSource
 {
     public function __construct(
         /** Enumeration value that indicates the media content category. */
-        public ?string $contentCategory = null
+        public ?MediaSourceContentCategory $contentCategory = null
     ) {}
 }

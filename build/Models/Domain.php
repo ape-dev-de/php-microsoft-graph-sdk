@@ -35,7 +35,7 @@ class Domain
         /** Specifies the length of time that a password is valid before it must be changed. If the property isn't set, a default value of 90 days is used. */
         public ?float $passwordValidityPeriodInDays = null,
         /** Status of asynchronous operations scheduled for the domain. */
-        public ?string $state = null,
+        public ?DomainState $state = null,
         /** @var string[] The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values that you can add or remove using the API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable. */
         public array $supportedServices = [],
         /** The objects such as users and groups that reference the domain ID. Read-only, Nullable. Doesn't support $expand. Supports $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group. */
@@ -43,7 +43,7 @@ class Domain
         /** Domain settings configured by a customer when federated with Microsoft Entra ID. Doesn't support $expand. */
         public array $federationConfiguration = [],
         /** Root domain of a subdomain. Read-only, Nullable. Supports $expand. */
-        public ?string $rootDomain = null,
+        public ?Domain $rootDomain = null,
         /** DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Doesn't support $expand. */
         public array $serviceConfigurationRecords = [],
         /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Doesn't support $expand. */

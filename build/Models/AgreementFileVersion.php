@@ -17,7 +17,7 @@ class AgreementFileVersion
         /** Localized display name of the policy file of an agreement. The localized display name is shown to end users who view the agreement. */
         public ?string $displayName = null,
         /** Data that represents the terms of use PDF document. Read-only. */
-        public ?string $fileData = null,
+        public ?AgreementFileData $fileData = null,
         /** Name of the agreement file (for example, TOU.pdf). Read-only. */
         public ?string $fileName = null,
         /** If none of the languages matches the client preference, indicates whether this is the default agreement file. If none of the files are marked as default, the first one is treated as the default. Read-only. */

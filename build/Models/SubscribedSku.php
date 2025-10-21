@@ -23,7 +23,7 @@ class SubscribedSku
         /** The number of licenses that have been assigned. */
         public ?float $consumedUnits = null,
         /** Information about the number and status of prepaid licenses. */
-        public ?string $prepaidUnits = null,
+        public ?LicenseUnitsDetail $prepaidUnits = null,
         /** Information about the service plans that are available with the SKU. Not nullable. */
         public array $servicePlans = [],
         /** The unique identifier (GUID) for the service SKU. */

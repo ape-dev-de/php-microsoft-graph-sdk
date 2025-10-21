@@ -21,7 +21,7 @@ class ArchivedPrintJob
         /** The number of copies that were printed. Read-only. */
         public ?float $copiesPrinted = null,
         /** The user who created the print job. Read-only. */
-        public ?string $createdBy = null,
+        public ?UserIdentity $createdBy = null,
         /** The dateTimeOffset when the job was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The printer ID that the job was queued for. Read-only. */
@@ -29,6 +29,6 @@ class ArchivedPrintJob
         /** The printer name that the job was queued for. Read-only. */
         public ?string $printerName = null,
         /**  */
-        public ?string $processingState = null
+        public ?PrintJobProcessingState $processingState = null
     ) {}
 }

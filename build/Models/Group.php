@@ -49,7 +49,7 @@ class Group
         /** Indicates whether the signed-in user is subscribed to receive email conversations. The default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). */
         public ?bool $isSubscribedByMail = null,
         /** Indicates the status of the group license assignment to all group members. The default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only. */
-        public ?string $licenseProcessingState = null,
+        public ?LicenseProcessingState $licenseProcessingState = null,
         /** The SMTP address for the group, for example, 'serviceadmins@contoso.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
         public ?string $mail = null,
         /** Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not). */
@@ -101,15 +101,15 @@ class Group
         /** Represents the app roles granted to a group for an application. Supports $expand. */
         public array $appRoleAssignments = [],
         /** The group's calendar. Read-only. */
-        public ?string $calendar = null,
+        public ?Calendar $calendar = null,
         /** The calendar view for the calendar. Read-only. */
         public array $calendarView = [],
         /** The group's conversations. */
         public array $conversations = [],
         /** The user (or application) that created the group. NOTE: This property isn't set if the user is an administrator. Read-only. */
-        public ?string $createdOnBehalfOf = null,
+        public ?DirectoryObject $createdOnBehalfOf = null,
         /** The group's default drive. Read-only. */
-        public ?string $drive = null,
+        public ?Drive $drive = null,
         /** The group's drives. Read-only. */
         public array $drives = [],
         /** The group's calendar events. */
@@ -125,17 +125,17 @@ class Group
         /** A list of group members with license errors from this group-based license assignment. Read-only. */
         public array $membersWithLicenseErrors = [],
         /**  */
-        public ?string $onenote = null,
+        public ?Onenote $onenote = null,
         /** The owners of the group who can be users or service principals. Limited to 100 owners. Nullable. If this property isn't specified when creating a Microsoft 365 group the calling user (admin or non-admin) is automatically assigned as the group owner. A non-admin user can't explicitly add themselves to this collection when they're creating the group. For more information, see the related known issue. For security groups, the admin user isn't automatically added to this collection. For more information, see the related known issue. Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName). */
         public array $owners = [],
         /**  */
         public array $permissionGrants = [],
         /** The group's profile photo */
-        public ?string $photo = null,
+        public ?ProfilePhoto $photo = null,
         /** The profile photos owned by the group. Read-only. Nullable. */
         public array $photos = [],
         /** Entry-point to Planner resource that might exist for a Unified Group. */
-        public ?string $planner = null,
+        public ?PlannerGroup $planner = null,
         /** The list of users or groups not allowed to create posts or calendar events in this group. Nullable */
         public array $rejectedSenders = [],
         /** Settings that can govern this group's behavior, like whether members can invite guests to the group. Nullable. */
@@ -143,7 +143,7 @@ class Group
         /** The list of SharePoint sites in this group. Access the default site with /sites/root. */
         public array $sites = [],
         /** The team associated with this group. */
-        public ?string $team = null,
+        public ?Team $team = null,
         /** The group's conversation threads. Nullable. */
         public array $threads = [],
         /** The groups that a group is a member of, either directly or through nested membership. Nullable. */

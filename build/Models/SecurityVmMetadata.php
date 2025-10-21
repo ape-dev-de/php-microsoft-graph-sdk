@@ -11,7 +11,7 @@ class SecurityVmMetadata
 {
     public function __construct(
         /**  */
-        public ?string $cloudProvider = null,
+        public ?SecurityVmCloudProvider $cloudProvider = null,
         /** Unique identifier of the Azure resource. */
         public ?string $resourceId = null,
         /** Unique identifier of the Azure subscription the customer tenant belongs to. */

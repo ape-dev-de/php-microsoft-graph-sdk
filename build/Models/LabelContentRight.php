@@ -17,8 +17,8 @@ class LabelContentRight
         /** The content format. */
         public ?string $format = null,
         /**  */
-        public ?string $rights = null,
+        public ?UsageRights $rights = null,
         /**  */
-        public ?string $label = null
+        public ?SensitivityLabel $label = null
     ) {}
 }

@@ -15,15 +15,15 @@ class GranularMailboxRestoreArtifact
         /** The time when restoration of restore artifact is completed. */
         public ?\DateTimeInterface $completionDateTime = null,
         /** Indicates the restoration destination. The possible values are: new, inPlace, unknownFutureValue. */
-        public ?string $destinationType = null,
+        public ?DestinationType $destinationType = null,
         /** Contains error details if the restore session fails or completes with an error. */
-        public ?string $error = null,
+        public ?PublicError $error = null,
         /** The time when restoration of restore artifact is started. */
         public ?\DateTimeInterface $startDateTime = null,
         /** The individual restoration status of the restore artifact. The possible values are: added, scheduling, scheduled, inProgress, succeeded, failed, unknownFutureValue. */
-        public ?string $status = null,
+        public ?ArtifactRestoreStatus $status = null,
         /** Represents the date and time when an artifact is protected by a protectionPolicy and can be restored. */
-        public ?string $restorePoint = null,
+        public ?RestorePoint $restorePoint = null,
         /** The new restored folder identifier for the user. */
         public ?string $restoredFolderId = null,
         /** The new restored folder name. */

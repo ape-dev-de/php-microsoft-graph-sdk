@@ -11,7 +11,7 @@ class SynchronizationLinkedObjects
 {
     public function __construct(
         /**  */
-        public ?string $manager = null,
+        public ?SynchronizationJobSubject $manager = null,
         /** All group members that you would like to provision. */
         public array $members = [],
         /**  */

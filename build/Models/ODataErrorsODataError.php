@@ -11,6 +11,6 @@ class ODataErrorsODataError
 {
     public function __construct(
         /**  */
-        public ?string $error = null
+        public ?ODataErrorsMainError $error = null
     ) {}
 }

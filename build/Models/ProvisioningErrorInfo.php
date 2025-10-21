@@ -13,7 +13,7 @@ class ProvisioningErrorInfo
         /** Additional details if there's error. */
         public ?string $additionalDetails = null,
         /** Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue */
-        public ?string $errorCategory = null,
+        public ?ProvisioningStatusErrorCategory $errorCategory = null,
         /** Unique error code if any occurred. Learn more */
         public ?string $errorCode = null,
         /** Summarizes the status and describes why the status happened. */

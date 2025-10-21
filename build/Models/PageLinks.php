@@ -11,8 +11,8 @@ class PageLinks
 {
     public function __construct(
         /** Opens the page in the OneNote native client if it's installed. */
-        public ?string $oneNoteClientUrl = null,
+        public ?ExternalLink $oneNoteClientUrl = null,
         /** Opens the page in OneNote on the web. */
-        public ?string $oneNoteWebUrl = null
+        public ?ExternalLink $oneNoteWebUrl = null
     ) {}
 }

@@ -19,11 +19,11 @@ class RichLongRunningOperation
         /** URI of the resource that the operation is performed on. */
         public ?string $resourceLocation = null,
         /** The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. */
-        public ?string $status = null,
+        public ?LongRunningOperationStatus $status = null,
         /** Details about the status of the operation. */
         public ?string $statusDetail = null,
         /** Error that caused the operation to fail. */
-        public ?string $error = null,
+        public ?PublicError $error = null,
         /** A value between 0 and 100 that indicates the progress of the operation. */
         public ?float $percentageComplete = null,
         /** The unique identifier for the result. */

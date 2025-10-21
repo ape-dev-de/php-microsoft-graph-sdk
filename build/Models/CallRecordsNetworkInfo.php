@@ -15,7 +15,7 @@ class CallRecordsNetworkInfo
         /** The wireless LAN basic service set identifier of the media endpoint used to connect to the network. This property isn't available if the user disables precise location sharing in their operating system or Microsoft Teams app settings. */
         public ?string $basicServiceSetIdentifier = null,
         /**  */
-        public ?string $connectionType = null,
+        public ?CallRecordsNetworkConnectionType $connectionType = null,
         /** Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication. */
         public ?string $delayEventRatio = null,
         /** DNS suffix associated with the network adapter of the media endpoint. */
@@ -27,7 +27,7 @@ class CallRecordsNetworkInfo
         /** The media access control (MAC) address of the media endpoint's network device. This value may be missing or shown as 02:00:00:00:00:00 due to operating system privacy policies. */
         public ?string $macAddress = null,
         /**  */
-        public ?string $networkTransportProtocol = null,
+        public ?CallRecordsNetworkTransportProtocol $networkTransportProtocol = null,
         /** Network port number used by media endpoint. */
         public ?float $port = null,
         /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received. */
@@ -45,7 +45,7 @@ class CallRecordsNetworkInfo
         /** List of network trace route hops collected for this media stream.* */
         public array $traceRouteHops = [],
         /**  */
-        public ?string $wifiBand = null,
+        public ?CallRecordsWifiBand $wifiBand = null,
         /** Estimated remaining battery charge in percentage reported by the media endpoint. */
         public ?float $wifiBatteryCharge = null,
         /** WiFi channel used by the media endpoint. */
@@ -55,7 +55,7 @@ class CallRecordsNetworkInfo
         /** Version of the Microsoft WiFi driver used by the media endpoint. */
         public ?string $wifiMicrosoftDriverVersion = null,
         /**  */
-        public ?string $wifiRadioType = null,
+        public ?CallRecordsWifiRadioType $wifiRadioType = null,
         /** WiFi signal strength in percentage reported by the media endpoint. */
         public ?float $wifiSignalStrength = null,
         /** Name of the WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint. */

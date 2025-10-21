@@ -15,6 +15,6 @@ class PrintOperation
         /** The DateTimeOffset when the operation was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /**  */
-        public ?string $status = null
+        public ?PrintOperationStatus $status = null
     ) {}
 }

@@ -15,7 +15,7 @@ class CloudPcDeviceImage
         /** The display name of the associated device image. The device image display name and the version are used to uniquely identify the Cloud PC device image. Read-only. */
         public ?string $displayName = null,
         /** The error code of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Read-only. */
-        public ?string $errorCode = null,
+        public ?CloudPcDeviceImageErrorCode $errorCode = null,
         /** The date when the image became unavailable. Read-only. */
         public ?\DateTimeInterface $expirationDate = null,
         /** The data and time when the image was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
@@ -25,11 +25,11 @@ class CloudPcDeviceImage
         /** The OS build version of the image. For example, 1909. Read-only. */
         public ?string $osBuildNumber = null,
         /** The OS status of this image. Possible values are: supported, supportedWithWarning, unknown, unknownFutureValue. The default value is unknown. Read-only. */
-        public ?string $osStatus = null,
+        public ?CloudPcDeviceImageOsStatus $osStatus = null,
         /** The unique identifier (ID) of the source image resource on Azure. The required ID format is: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'. Read-only. */
         public ?string $sourceImageResourceId = null,
         /** The status of the image on the Cloud PC. Possible values are: pending, ready, failed, unknownFutureValue. Read-only. */
-        public ?string $status = null,
+        public ?CloudPcDeviceImageStatus $status = null,
         /** The image version. For example, 0.0.1 and 1.5.13. Read-only. */
         public ?string $version = null
     ) {}

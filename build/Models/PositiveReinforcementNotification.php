@@ -13,8 +13,8 @@ class PositiveReinforcementNotification
         /** The default language for the end user notification. */
         public ?string $defaultLanguage = null,
         /**  */
-        public ?string $endUserNotification = null,
+        public ?EndUserNotification $endUserNotification = null,
         /** Delivery preference. Possible values are: unknown, deliverImmedietly, deliverAfterCampaignEnd, unknownFutureValue. */
-        public ?string $deliveryPreference = null
+        public ?NotificationDeliveryPreference $deliveryPreference = null
     ) {}
 }

@@ -13,6 +13,6 @@ class OnPremisesAccidentalDeletionPrevention
         /** Threshold value which triggers accidental deletion prevention. The threshold is either an absolute number of objects or a percentage number of objects. */
         public ?float $alertThreshold = null,
         /** The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage, unknownFutureValue. */
-        public ?string $synchronizationPreventionType = null
+        public ?OnPremisesDirectorySynchronizationDeletionPreventionType $synchronizationPreventionType = null
     ) {}
 }

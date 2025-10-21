@@ -13,6 +13,6 @@ class BaseEndUserNotification
         /** The default language for the end user notification. */
         public ?string $defaultLanguage = null,
         /**  */
-        public ?string $endUserNotification = null
+        public ?EndUserNotification $endUserNotification = null
     ) {}
 }

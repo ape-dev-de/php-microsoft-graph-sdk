@@ -32,6 +32,8 @@ foreach ($sortedProperties as $propName => $propDef):
     $type = $propDef['type'];
     $description = $propDef['description'] ?? '';
     $isLast = $currentIndex === $propCount;
+    // Normalize property name: convert dashes to camelCase for valid PHP variable names
+    $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $propName))));
 ?>
 <?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
 <?php
@@ -48,7 +50,7 @@ foreach ($sortedProperties as $propName => $propDef):
 <?php else: ?>
         /** <?= $description ? $description : '' ?> */
 <?php endif; ?>
-        public <?= $type ?> $<?= $propName ?> = <?= $type === 'array' ? '[]' : 'null' ?><?= $isLast ? '' : ',' ?>
+        public <?= $type ?> $<?= $phpPropName ?> = <?= $type === 'array' ? '[]' : 'null' ?><?= $isLast ? '' : ',' ?>
 
 <?php endforeach; ?>
     ) {}

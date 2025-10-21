@@ -13,8 +13,8 @@ class MultiTenantOrganizationIdentitySyncPolicyTemplate
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $templateApplicationLevel = null,
+        public ?TemplateApplicationLevel $templateApplicationLevel = null,
         /** Defines whether users can be synchronized from the partner tenant. */
-        public ?string $userSyncInbound = null
+        public ?CrossTenantUserSyncInbound $userSyncInbound = null
     ) {}
 }

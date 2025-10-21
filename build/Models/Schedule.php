@@ -21,17 +21,17 @@ class Schedule
         /** Indicates whether open shifts are enabled for the schedule. */
         public ?bool $openShiftsEnabled = null,
         /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed. */
-        public ?string $provisionStatus = null,
+        public ?OperationStatus $provisionStatus = null,
         /** Additional information about why schedule provisioning failed. */
         public ?string $provisionStatusCode = null,
         /** Indicates the start day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. */
-        public ?string $startDayOfWeek = null,
+        public ?DayOfWeek $startDayOfWeek = null,
         /** Indicates whether swap shifts requests are enabled for the schedule. */
         public ?bool $swapShiftsRequestsEnabled = null,
         /** Indicates whether time clock is enabled for the schedule. */
         public ?bool $timeClockEnabled = null,
         /** The time clock location settings for this schedule. */
-        public ?string $timeClockSettings = null,
+        public ?TimeClockSettings $timeClockSettings = null,
         /** Indicates whether time off requests are enabled for the schedule. */
         public ?bool $timeOffRequestsEnabled = null,
         /** Indicates the time zone of the schedule team using tz database format. Required. */

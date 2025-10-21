@@ -11,7 +11,7 @@ class ReportRoot
 {
     public function __construct(
         /** Container for navigation properties for Microsoft Entra authentication methods resources. */
-        public ?string $authenticationMethods = null,
+        public ?AuthenticationMethodsRoot $authenticationMethods = null,
         /** Retrieve a list of daily print usage summaries, grouped by printer. */
         public array $dailyPrintUsageByPrinter = [],
         /** Retrieve a list of daily print usage summaries, grouped by user. */
@@ -21,8 +21,8 @@ class ReportRoot
         /** Retrieve a list of monthly print usage summaries, grouped by user. */
         public array $monthlyPrintUsageByUser = [],
         /** Represents billing details for a Microsoft direct partner. */
-        public ?string $partners = null,
+        public ?Partners $partners = null,
         /** Represents an abstract type that contains resources for attack simulation and training reports. */
-        public ?string $security = null
+        public ?SecurityReportsRoot $security = null
     ) {}
 }

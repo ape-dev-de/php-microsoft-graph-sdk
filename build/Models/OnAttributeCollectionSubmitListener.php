@@ -15,8 +15,8 @@ class OnAttributeCollectionSubmitListener
         /** The identifier of the authenticationEventsFlow object. */
         public ?string $authenticationEventsFlowId = null,
         /** The conditions on which this authenticationEventListener should trigger. */
-        public ?string $conditions = null,
+        public ?AuthenticationConditions $conditions = null,
         /** Configuration for what to invoke if the event resolves to this listener. */
-        public ?string $handler = null
+        public ?OnAttributeCollectionSubmitHandler $handler = null
     ) {}
 }

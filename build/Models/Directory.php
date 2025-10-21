@@ -27,7 +27,7 @@ class Directory
         /** A container for on-premises directory synchronization functionalities that are available for the organization. */
         public array $onPremisesSynchronization = [],
         /** The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant. */
-        public ?string $publicKeyInfrastructure = null,
+        public ?PublicKeyInfrastructureRoot $publicKeyInfrastructure = null,
         /** List of commercial subscriptions that an organization acquired. */
         public array $subscriptions = []
     ) {}

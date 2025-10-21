@@ -11,6 +11,6 @@ class CallMediaState
 {
     public function __construct(
         /** The audio media state. Possible values are: active, inactive, unknownFutureValue. */
-        public ?string $audio = null
+        public ?MediaState $audio = null
     ) {}
 }

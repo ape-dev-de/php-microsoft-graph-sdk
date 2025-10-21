@@ -15,8 +15,8 @@ class PhoneAuthenticationMethod
         /** The phone number to text or call for authentication. Phone numbers use the format +{country code} {number}x{extension}, with extension optional. For example, +1 5555551234 or +1 5555551234x123 are valid. Numbers are rejected when creating or updating if they don't match the required format. */
         public ?string $phoneNumber = null,
         /** The type of this phone. Possible values are: mobile, alternateMobile, or office. */
-        public ?string $phoneType = null,
+        public ?AuthenticationPhoneType $phoneType = null,
         /** Whether a phone is ready to be used for SMS sign-in or not. Possible values are: notSupported, notAllowedByPolicy, notEnabled, phoneNumberNotUnique, ready, or notConfigured, unknownFutureValue. */
-        public ?string $smsSignInState = null
+        public ?AuthenticationMethodSignInState $smsSignInState = null
     ) {}
 }

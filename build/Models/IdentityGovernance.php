@@ -11,16 +11,16 @@ class IdentityGovernance
 {
     public function __construct(
         /**  */
-        public ?string $accessReviews = null,
+        public ?AccessReviewSet $accessReviews = null,
         /**  */
-        public ?string $appConsent = null,
+        public ?AppConsentApprovalRoute $appConsent = null,
         /**  */
-        public ?string $entitlementManagement = null,
+        public ?EntitlementManagement $entitlementManagement = null,
         /**  */
-        public ?string $lifecycleWorkflows = null,
+        public ?IdentityGovernanceLifecycleWorkflowsContainer $lifecycleWorkflows = null,
         /**  */
-        public ?string $privilegedAccess = null,
+        public ?PrivilegedAccessRoot $privilegedAccess = null,
         /**  */
-        public ?string $termsOfUse = null
+        public ?TermsOfUseContainer $termsOfUse = null
     ) {}
 }

@@ -13,10 +13,10 @@ class M365AppsInstallationOptions
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $appsForMac = null,
+        public ?AppsInstallationOptionsForMac $appsForMac = null,
         /**  */
-        public ?string $appsForWindows = null,
+        public ?AppsInstallationOptionsForWindows $appsForWindows = null,
         /**  */
-        public ?string $updateChannel = null
+        public ?AppsUpdateChannelType $updateChannel = null
     ) {}
 }

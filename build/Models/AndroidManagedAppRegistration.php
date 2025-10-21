@@ -13,7 +13,7 @@ class AndroidManagedAppRegistration
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The app package Identifier */
-        public ?string $appIdentifier = null,
+        public ?MobileAppIdentifier $appIdentifier = null,
         /** App version */
         public ?string $applicationVersion = null,
         /** Date and time of creation */

@@ -17,7 +17,7 @@ class WorkbookSortField
         /** Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber. */
         public ?string $dataOption = null,
         /** Represents the icon that is the target of the condition if the sorting is on the cell's icon. */
-        public ?string $icon = null,
+        public ?WorkbookIcon $icon = null,
         /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
         public ?float $key = null,
         /** Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon. */

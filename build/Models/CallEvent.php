@@ -13,7 +13,7 @@ class CallEvent
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $callEventType = null,
+        public ?CallEventType $callEventType = null,
         /**  */
         public ?\DateTimeInterface $eventDateTime = null,
         /**  */

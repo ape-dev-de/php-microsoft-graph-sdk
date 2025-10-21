@@ -11,7 +11,7 @@ class ProcessContentMetadataBase
 {
     public function __construct(
         /** Represents the actual content, either as text (textContent) or binary data (binaryContent). Optional if metadata alone is sufficient for policy evaluation. Do not use for contentActivities. */
-        public ?string $content = null,
+        public ?ContentBase $content = null,
         /** An identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation). */
         public ?string $correlationId = null,
         /** Required. Timestamp indicating when the original content was created (for example, file creation time, message sent time). */

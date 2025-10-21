@@ -13,10 +13,10 @@ class MobileAppAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $intent = null,
+        public ?InstallIntent $intent = null,
         /** The settings for target assignment defined by the admin. */
-        public ?string $settings = null,
+        public ?MobileAppAssignmentSettings $settings = null,
         /** The target group assignment defined by the admin. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

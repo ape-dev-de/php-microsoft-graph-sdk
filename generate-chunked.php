@@ -13,6 +13,13 @@ declare(strict_types=1);
  * - Extracts components section as YAML text, then parses it properly
  * - Line-by-line reading only for initial extraction to manage memory
  * - Eliminates complex regex patterns in favor of proper YAML parsing
+ * 
+ * Schema Support:
+ * - Handles allOf (inheritance patterns)
+ * - Handles anyOf (union types - prefers $ref types over generic objects)
+ * - Handles $ref (direct references to other schemas)
+ * - Filters out all @odata.* metadata properties (type, count, nextLink, etc.)
+ * - Escapes PHP reserved keywords (e.g., 'list' becomes 'ListModel')
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -220,8 +227,8 @@ function parseSchemas($output): array
 
 /**
  * Normalize schema structure from parsed YAML
- * Extracts properties and handles inheritance patterns (allOf)
- * Filters out @odata.type as it's a metadata property
+ * Extracts properties and handles inheritance patterns (allOf, anyOf)
+ * Filters out @odata.* metadata properties (type, count, nextLink, etc.)
  */
 function normalizeSchemaStructure(array $schemaData): array
 {
@@ -238,10 +245,10 @@ function normalizeSchemaStructure(array $schemaData): array
                     $schema['allOf'][] = ['$ref' => $matches[1]];
                 }
             } elseif (isset($item['properties'])) {
-                // Filter out @odata.type from properties
+                // Filter out all @odata.* properties (metadata)
                 $filteredProperties = array_filter(
                     $item['properties'],
-                    fn($key) => $key !== '@odata.type',
+                    fn($key) => !str_starts_with($key, '@odata.'),
                     ARRAY_FILTER_USE_KEY
                 );
                 $schema['allOf'][] = ['properties' => $filteredProperties];
@@ -249,11 +256,11 @@ function normalizeSchemaStructure(array $schemaData): array
         }
     }
     
-    // Handle direct properties and filter out @odata.type
+    // Handle direct properties and filter out all @odata.* properties
     if (isset($schemaData['properties']) && is_array($schemaData['properties'])) {
         $schema['properties'] = array_filter(
             $schemaData['properties'],
-            fn($key) => $key !== '@odata.type',
+            fn($key) => !str_starts_with($key, '@odata.'),
             ARRAY_FILTER_USE_KEY
         );
     }
@@ -384,9 +391,50 @@ function generateModelCode(string $modelName, array $properties): string
 
 /**
  * Map property type to PHP type
+ * Handles anyOf, $ref, and standard types
+ * Escapes reserved keywords (e.g., 'list' becomes 'ListModel')
  */
 function mapPropertyType(array $propDef): string
 {
+    // Handle anyOf - prefer the $ref type if present, otherwise use object
+    if (isset($propDef['anyOf']) && is_array($propDef['anyOf'])) {
+        foreach ($propDef['anyOf'] as $option) {
+            // Look for a $ref in anyOf options
+            if (isset($option['$ref'])) {
+                $ref = $option['$ref'];
+                if (preg_match('#/schemas/(.+)$#', $ref, $matches)) {
+                    $schemaName = $matches[1];
+                    // Remove microsoft.graph. prefix if present
+                    $schemaName = preg_replace('/^microsoft\.graph\./', '', $schemaName);
+                    // Convert to PascalCase class name
+                    $className = normalizeModelName($schemaName);
+                    // Escape reserved keywords
+                    $className = escapeReservedKeyword($className);
+                    return '?' . $className;
+                }
+            }
+            // If it's an object type without $ref, use array
+            if (isset($option['type']) && $option['type'] === 'object') {
+                return '?array';
+            }
+        }
+        // Fallback if no suitable type found
+        return '?array';
+    }
+    
+    // Handle direct $ref
+    if (isset($propDef['$ref'])) {
+        $ref = $propDef['$ref'];
+        if (preg_match('#/schemas/(.+)$#', $ref, $matches)) {
+            $schemaName = $matches[1];
+            $schemaName = preg_replace('/^microsoft\.graph\./', '', $schemaName);
+            $className = normalizeModelName($schemaName);
+            // Escape reserved keywords
+            $className = escapeReservedKeyword($className);
+            return '?' . $className;
+        }
+    }
+    
     $type = $propDef['type'] ?? 'string';
     $format = $propDef['format'] ?? null;
     
@@ -1029,13 +1077,15 @@ function extractModelsFromPaths(array $paths, array $schemas): array
 
 /**
  * Extract model name from schema reference
+ * Normalizes the name and escapes reserved keywords
  */
 function extractModelNameFromSchema(array $schema): ?string
 {
     if (isset($schema['$ref'])) {
         $ref = $schema['$ref'];
         if (preg_match('#/schemas/(.+)$#', $ref, $matches)) {
-            return normalizeModelName($matches[1]);
+            $modelName = normalizeModelName($matches[1]);
+            return escapeReservedKeyword($modelName);
         }
     }
     
@@ -1097,18 +1147,40 @@ function extractModelDefinition(string $modelName, array $schema, array $allSche
 
 /**
  * Map OpenAPI type to PHP type
+ * Handles anyOf, $ref, and standard types
+ * Uses extractModelNameFromSchema which handles reserved keyword escaping
  */
 function mapOpenApiTypeToPhp(array $propDef): string
 {
-    $type = $propDef['type'] ?? 'string';
-    $format = $propDef['format'] ?? null;
     $nullable = $propDef['nullable'] ?? false;
     $prefix = $nullable ? '?' : '';
+    
+    // Handle anyOf - prefer the $ref type if present, otherwise use object
+    if (isset($propDef['anyOf']) && is_array($propDef['anyOf'])) {
+        foreach ($propDef['anyOf'] as $option) {
+            // Look for a $ref in anyOf options
+            if (isset($option['$ref'])) {
+                $modelName = extractModelNameFromSchema($option);
+                if ($modelName) {
+                    return '?' . $modelName;
+                }
+            }
+            // If it's an object type without $ref, use array
+            if (isset($option['type']) && $option['type'] === 'object') {
+                return '?array';
+            }
+        }
+        // Fallback if no suitable type found
+        return '?array';
+    }
     
     if (isset($propDef['$ref'])) {
         $modelName = extractModelNameFromSchema($propDef);
         return $prefix . ($modelName ?? 'mixed');
     }
+    
+    $type = $propDef['type'] ?? 'string';
+    $format = $propDef['format'] ?? null;
     
     if ($type === 'array') {
         return 'array';

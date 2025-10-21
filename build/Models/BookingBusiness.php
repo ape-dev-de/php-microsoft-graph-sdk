@@ -13,9 +13,9 @@ class BookingBusiness
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others. */
-        public ?string $address = null,
+        public ?PhysicalAddress $address = null,
         /** Settings for the published booking page. */
-        public ?string $bookingPageSettings = null,
+        public ?BookingPageSettings $bookingPageSettings = null,
         /** The hours of operation for the business. */
         public array $businessHours = [],
         /** The type of business. */
@@ -39,7 +39,7 @@ class BookingBusiness
         /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
         public ?string $publicUrl = null,
         /** Specifies how bookings can be created for this business. */
-        public ?string $schedulingPolicy = null,
+        public ?BookingSchedulingPolicy $schedulingPolicy = null,
         /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page. */
         public ?string $webSiteUrl = null,
         /** All the appointments of this business. Read-only. Nullable. */

@@ -19,7 +19,7 @@ class DeviceAndAppManagementRoleAssignment
         /** @var string[] List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
         public array $resourceScopes = [],
         /** Role definition this assignment is part of. */
-        public ?string $roleDefinition = null,
+        public ?RoleDefinition $roleDefinition = null,
         /** @var string[] The list of ids of role member security groups. These are IDs from Azure Active Directory. */
         public array $members = []
     ) {}

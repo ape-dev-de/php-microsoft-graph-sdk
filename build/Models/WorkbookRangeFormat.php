@@ -25,10 +25,10 @@ class WorkbookRangeFormat
         /** Collection of border objects that apply to the overall range selected Read-only. */
         public array $borders = [],
         /** Returns the fill object defined on the overall range. Read-only. */
-        public ?string $fill = null,
+        public ?WorkbookRangeFill $fill = null,
         /** Returns the font object defined on the overall range selected Read-only. */
-        public ?string $font = null,
+        public ?WorkbookRangeFont $font = null,
         /** Returns the format protection object for a range. Read-only. */
-        public ?string $protection = null
+        public ?WorkbookFormatProtection $protection = null
     ) {}
 }

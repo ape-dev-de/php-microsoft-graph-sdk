@@ -37,10 +37,10 @@ class UserRegistrationDetails
         /** The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderby. */
         public ?string $userDisplayName = null,
         /** The method the user selected as the default second-factor for performing multifactor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue. This property is used as preferred MFA method when isSystemPreferredAuthenticationMethodEnabled is false. Supports $filter (any with eq). */
-        public ?string $userPreferredMethodForSecondaryAuthentication = null,
+        public ?UserDefaultAuthenticationMethod $userPreferredMethodForSecondaryAuthentication = null,
         /** The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderby. */
         public ?string $userPrincipalName = null,
         /** Identifies whether the user is a member or guest in the tenant. The possible values are: member, guest, unknownFutureValue. */
-        public ?string $userType = null
+        public ?SignInUserType $userType = null
     ) {}
 }

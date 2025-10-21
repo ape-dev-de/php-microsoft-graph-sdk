@@ -13,7 +13,7 @@ class ContentActivity
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $contentMetadata = null,
+        public ?ProcessContentRequest $contentMetadata = null,
         /** The scope identified from computed protection scopes. */
         public ?string $scopeIdentifier = null,
         /** ID of the user. */

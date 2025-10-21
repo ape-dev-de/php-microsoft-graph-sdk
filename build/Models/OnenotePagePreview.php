@@ -11,7 +11,7 @@ class OnenotePagePreview
 {
     public function __construct(
         /**  */
-        public ?string $links = null,
+        public ?OnenotePagePreviewLinks $links = null,
         /**  */
         public ?string $previewText = null
     ) {}

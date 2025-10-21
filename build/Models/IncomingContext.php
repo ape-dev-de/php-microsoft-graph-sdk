@@ -13,10 +13,10 @@ class IncomingContext
         /** The ID of the participant that is under observation. Read-only. */
         public ?string $observedParticipantId = null,
         /** The identity that the call is happening on behalf of. */
-        public ?string $onBehalfOf = null,
+        public ?IdentitySet $onBehalfOf = null,
         /** The ID of the participant that triggered the incoming call. Read-only. */
         public ?string $sourceParticipantId = null,
         /** The identity that transferred the call. */
-        public ?string $transferor = null
+        public ?IdentitySet $transferor = null
     ) {}
 }

@@ -19,7 +19,7 @@ class UnifiedRoleManagementPolicy
         /** This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne). */
         public ?bool $isOrganizationDefault = null,
         /** The identity who last modified the role setting. */
-        public ?string $lastModifiedBy = null,
+        public ?Identity $lastModifiedBy = null,
         /** The time when the role setting was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */

@@ -29,11 +29,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Indicates whether or not to block fingerprint unlock. */
         public ?bool $passwordBlockFingerprintUnlock = null,
         /** Indicates whether or not to block Smart Lock and other trust agents. */
@@ -47,7 +47,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
         /** Number of previous passwords to block. Valid values 0 to 24 */
         public ?float $passwordPreviousPasswordBlockCount = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?AndroidWorkProfileRequiredPasswordType $passwordRequiredType = null,
         /** Number of sign in failures allowed before factory reset. Valid values 1 to 16 */
         public ?float $passwordSignInFailureCountBeforeFactoryReset = null,
         /** Require the Android Verify apps feature is turned on. */
@@ -69,9 +69,9 @@ class AndroidWorkProfileGeneralDeviceConfiguration
         /** Allow bluetooth devices to access enterprise contacts. */
         public ?bool $workProfileBluetoothEnableContactSharing = null,
         /**  */
-        public ?string $workProfileDataSharingType = null,
+        public ?AndroidWorkProfileCrossProfileDataSharingType $workProfileDataSharingType = null,
         /**  */
-        public ?string $workProfileDefaultAppPermissionPolicy = null,
+        public ?AndroidWorkProfileDefaultAppPermissionPolicyType $workProfileDefaultAppPermissionPolicy = null,
         /** Indicates whether or not to block fingerprint unlock for work profile. */
         public ?bool $workProfilePasswordBlockFingerprintUnlock = null,
         /** Indicates whether or not to block Smart Lock and other trust agents for work profile. */
@@ -97,7 +97,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
         /** Number of previous work profile passwords to block. Valid values 0 to 24 */
         public ?float $workProfilePasswordPreviousPasswordBlockCount = null,
         /**  */
-        public ?string $workProfilePasswordRequiredType = null,
+        public ?AndroidWorkProfileRequiredPasswordType $workProfilePasswordRequiredType = null,
         /** Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16 */
         public ?float $workProfilePasswordSignInFailureCountBeforeFactoryReset = null,
         /** Password is required or not for work profile */

@@ -29,10 +29,10 @@ class ManagedDeviceMobileAppConfiguration
         /** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
         public array $deviceStatuses = [],
         /** App configuration device status summary. */
-        public ?string $deviceStatusSummary = null,
+        public ?ManagedDeviceMobileAppConfigurationDeviceSummary $deviceStatusSummary = null,
         /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
         public array $userStatuses = [],
         /** App configuration user status summary. */
-        public ?string $userStatusSummary = null
+        public ?ManagedDeviceMobileAppConfigurationUserSummary $userStatusSummary = null
     ) {}
 }

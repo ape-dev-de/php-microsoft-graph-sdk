@@ -13,17 +13,17 @@ class Room
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The street address of the place. */
-        public ?string $address = null,
+        public ?PhysicalAddress $address = null,
         /** The name associated with the place. */
         public ?string $displayName = null,
         /** Specifies the place location in latitude, longitude, and (optionally) altitude coordinates. */
-        public ?string $geoCoordinates = null,
+        public ?OutlookGeoCoordinates $geoCoordinates = null,
         /** The phone number of the place. */
         public ?string $phone = null,
         /** Specifies the name of the audio device in the room. */
         public ?string $audioDeviceName = null,
         /** Type of room. Possible values are standard, and reserved. */
-        public ?string $bookingType = null,
+        public ?BookingType $bookingType = null,
         /** Specifies the building name or building number that the room is in. */
         public ?string $building = null,
         /** Specifies the capacity of the room. */

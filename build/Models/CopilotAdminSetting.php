@@ -13,6 +13,6 @@ class CopilotAdminSetting
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $limitedMode = null
+        public ?CopilotAdminLimitedMode $limitedMode = null
     ) {}
 }

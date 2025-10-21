@@ -21,7 +21,7 @@ class TermStoreGroup
         /** ID of the parent site of this group. */
         public ?string $parentSiteId = null,
         /** Returns the type of the group. Possible values are: global, system, and siteCollection. */
-        public ?string $scope = null,
+        public ?TermStoreTermGroupScope $scope = null,
         /** All sets under the group in a term [store]. */
         public array $sets = []
     ) {}

@@ -17,21 +17,21 @@ class ContentType
         /** The descriptive text for the item. */
         public ?string $description = null,
         /** Document Set metadata. */
-        public ?string $documentSet = null,
+        public ?DocumentSet $documentSet = null,
         /** Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type. */
-        public ?string $documentTemplate = null,
+        public ?DocumentSetContent $documentTemplate = null,
         /** The name of the group this content type belongs to. Helps organize related content types. */
         public ?string $group = null,
         /** Indicates whether the content type is hidden in the list's 'New' menu. */
         public ?bool $hidden = null,
         /** If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined. */
-        public ?string $inheritedFrom = null,
+        public ?ItemReference $inheritedFrom = null,
         /** Specifies if a content type is a built-in content type. */
         public ?bool $isBuiltIn = null,
         /** The name of the content type. */
         public ?string $name = null,
         /** Specifies the order in which the content type appears in the selection UI. */
-        public ?string $order = null,
+        public ?ContentTypeOrder $order = null,
         /** The unique identifier of the content type. */
         public ?string $parentId = null,
         /** If true, any changes made to the content type are pushed to inherited content types and lists that implement the content type. */
@@ -41,7 +41,7 @@ class ContentType
         /** If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types. */
         public ?bool $sealed = null,
         /** Parent contentType from which this content type is derived. */
-        public ?string $base = null,
+        public ?ContentType $base = null,
         /** The collection of content types that are ancestors of this content type. */
         public array $baseTypes = [],
         /** The collection of columns that are required by this content type. */

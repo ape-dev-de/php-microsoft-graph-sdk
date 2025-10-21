@@ -15,7 +15,7 @@ class ConditionalAccessRoot
         /** Read-only. Nullable. Returns a collection of the specified authentication context class references. */
         public array $authenticationContextClassReferences = [],
         /**  */
-        public ?string $authenticationStrength = null,
+        public ?AuthenticationStrengthRoot $authenticationStrength = null,
         /** Read-only. Nullable. Returns a collection of the specified named locations. */
         public array $namedLocations = [],
         /** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies. */

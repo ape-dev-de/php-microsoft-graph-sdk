@@ -13,6 +13,6 @@ class X509CertificateCRLValidationConfiguration
         /** @var string[] Represents the SKIs of CAs that should be excluded from the valid CRL distribution point check. SKI is represented as a hexadecimal string. */
         public array $exemptedCertificateAuthoritiesSubjectKeyIdentifiers = [],
         /**  */
-        public ?string $state = null
+        public ?X509CertificateCRLValidationConfigurationState $state = null
     ) {}
 }

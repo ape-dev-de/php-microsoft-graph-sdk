@@ -11,8 +11,8 @@ class RecordingInfo
 {
     public function __construct(
         /** The identities of the recording initiator. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /**  */
-        public ?string $recordingStatus = null
+        public ?RecordingStatus $recordingStatus = null
     ) {}
 }

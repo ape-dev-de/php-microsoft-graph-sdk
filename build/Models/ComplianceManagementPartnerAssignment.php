@@ -11,6 +11,6 @@ class ComplianceManagementPartnerAssignment
 {
     public function __construct(
         /** Group assignment target. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

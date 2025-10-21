@@ -29,15 +29,15 @@ class SharedPCConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false. */
-        public ?string $accountManagerPolicy = null,
+        public ?SharedPCAccountManagerPolicy $accountManagerPolicy = null,
         /**  */
-        public ?string $allowedAccounts = null,
+        public ?SharedPCAllowedAccountType $allowedAccounts = null,
         /** Specifies whether local storage is allowed on a shared PC. */
         public ?bool $allowLocalStorage = null,
         /** Disables the account manager for shared PC mode. */

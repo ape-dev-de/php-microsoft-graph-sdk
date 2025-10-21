@@ -15,8 +15,8 @@ class OnTokenIssuanceStartListener
         /** The identifier of the authenticationEventsFlow object. */
         public ?string $authenticationEventsFlowId = null,
         /** The conditions on which this authenticationEventListener should trigger. */
-        public ?string $conditions = null,
+        public ?AuthenticationConditions $conditions = null,
         /** The handler to invoke when conditions are met for this onTokenIssuanceStartListener. */
-        public ?string $handler = null
+        public ?OnTokenIssuanceStartHandler $handler = null
     ) {}
 }

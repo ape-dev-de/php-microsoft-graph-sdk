@@ -11,7 +11,7 @@ class AddressBookAccountTargetContent
 {
     public function __construct(
         /** The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue. */
-        public ?string $type = null,
+        public ?AccountTargetContentType $type = null,
         /** @var string[] List of user emails targeted for an attack simulation training campaign. */
         public array $accountTargetEmails = []
     ) {}

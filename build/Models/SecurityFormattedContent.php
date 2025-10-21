@@ -13,6 +13,6 @@ class SecurityFormattedContent
         /** The content of this formattedContent. */
         public ?string $content = null,
         /** The format of the content. The possible values are: text, html, markdown, unknownFutureValue. */
-        public ?string $format = null
+        public ?SecurityContentFormat $format = null
     ) {}
 }

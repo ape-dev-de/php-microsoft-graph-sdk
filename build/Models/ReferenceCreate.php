@@ -10,7 +10,5 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ReferenceCreate
 {
     public function __construct(
-        /**  */
-        public ?string $@odata.id = null
     ) {}
 }

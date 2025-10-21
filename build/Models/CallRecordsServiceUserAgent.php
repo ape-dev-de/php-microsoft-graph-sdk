@@ -15,6 +15,6 @@ class CallRecordsServiceUserAgent
         /** User-agent header value reported by this endpoint. */
         public ?string $headerValue = null,
         /**  */
-        public ?string $role = null
+        public ?CallRecordsServiceRole $role = null
     ) {}
 }

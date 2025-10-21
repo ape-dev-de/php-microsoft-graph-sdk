@@ -11,6 +11,6 @@ class DeviceManagementPartnerAssignment
 {
     public function __construct(
         /** User groups targeting for devices to be enrolled through partner. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

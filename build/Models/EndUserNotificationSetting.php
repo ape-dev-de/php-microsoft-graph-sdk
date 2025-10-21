@@ -11,10 +11,10 @@ class EndUserNotificationSetting
 {
     public function __construct(
         /** Notification preference. Possible values are: unknown, microsoft, custom, unknownFutureValue. */
-        public ?string $notificationPreference = null,
+        public ?EndUserNotificationPreference $notificationPreference = null,
         /** Positive reinforcement detail. */
-        public ?string $positiveReinforcement = null,
+        public ?PositiveReinforcementNotification $positiveReinforcement = null,
         /** End user notification type. Possible values are: unknown, noTraining, trainingSelected, noNotification, unknownFutureValue. */
-        public ?string $settingType = null
+        public ?EndUserNotificationSettingType $settingType = null
     ) {}
 }

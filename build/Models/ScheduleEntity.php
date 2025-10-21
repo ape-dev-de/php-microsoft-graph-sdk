@@ -15,6 +15,6 @@ class ScheduleEntity
         /**  */
         public ?\DateTimeInterface $startDateTime = null,
         /**  */
-        public ?string $theme = null
+        public ?ScheduleEntityTheme $theme = null
     ) {}
 }

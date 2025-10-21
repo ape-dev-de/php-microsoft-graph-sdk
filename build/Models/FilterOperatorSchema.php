@@ -13,9 +13,9 @@ class FilterOperatorSchema
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $arity = null,
+        public ?ScopeOperatorType $arity = null,
         /**  */
-        public ?string $multivaluedComparisonType = null,
+        public ?ScopeOperatorMultiValuedComparisonType $multivaluedComparisonType = null,
         /** Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String. */
         public array $supportedAttributeTypes = []
     ) {}

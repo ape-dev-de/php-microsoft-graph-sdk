@@ -19,7 +19,7 @@ class UserExperienceAnalyticsModelScores
         /** Indicates a weighted average of the various scores. Valid values range from 0-100. Value -1 means associated score is unavailable. A higher score indicates a healthier device. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $endpointAnalyticsScore = null,
         /**  */
-        public ?string $healthStatus = null,
+        public ?UserExperienceAnalyticsHealthState $healthStatus = null,
         /** The manufacturer name of the device. Examples: Microsoft Corporation, HP, Lenovo. Supports: $select, $OrderBy. Read-only. */
         public ?string $manufacturer = null,
         /** The model name of the device. Supports: $select, $OrderBy. Read-only. */

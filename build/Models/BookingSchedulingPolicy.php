@@ -15,7 +15,7 @@ class BookingSchedulingPolicy
         /** Custom availability of the service in a given time frame. */
         public array $customAvailabilities = [],
         /** General availability of the service defined by the scheduling policy. */
-        public ?string $generalAvailability = null,
+        public ?BookingsAvailability $generalAvailability = null,
         /** Indicates whether the meeting invite is sent to the customers. The default value is false. */
         public ?bool $isMeetingInviteToCustomersEnabled = null,
         /** Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format. */

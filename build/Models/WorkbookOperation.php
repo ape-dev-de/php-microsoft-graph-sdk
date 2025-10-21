@@ -13,10 +13,10 @@ class WorkbookOperation
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The error returned by the operation. */
-        public ?string $error = null,
+        public ?WorkbookOperationError $error = null,
         /** The resource URI for the result. */
         public ?string $resourceLocation = null,
         /**  */
-        public ?string $status = null
+        public ?WorkbookOperationStatus $status = null
     ) {}
 }

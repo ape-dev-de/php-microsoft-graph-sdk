@@ -11,6 +11,6 @@ class Recipient
 {
     public function __construct(
         /** The recipient's email address. */
-        public ?string $emailAddress = null
+        public ?EmailAddress $emailAddress = null
     ) {}
 }

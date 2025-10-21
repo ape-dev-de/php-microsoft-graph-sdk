@@ -11,8 +11,8 @@ class OnAttributeCollectionSubmitCustomExtensionHandler
 {
     public function __construct(
         /** Configuration regarding properties of the custom extension that can be overwritten per event listener. */
-        public ?string $configuration = null,
+        public ?CustomExtensionOverwriteConfiguration $configuration = null,
         /**  */
-        public ?string $customExtension = null
+        public ?OnAttributeCollectionSubmitCustomExtension $customExtension = null
     ) {}
 }

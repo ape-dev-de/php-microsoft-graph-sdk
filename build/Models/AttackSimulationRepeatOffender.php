@@ -11,7 +11,7 @@ class AttackSimulationRepeatOffender
 {
     public function __construct(
         /** The user in an attack simulation and training campaign. */
-        public ?string $attackSimulationUser = null,
+        public ?AttackSimulationUser $attackSimulationUser = null,
         /** Number of repeat offences of the user in attack simulation and training campaigns. */
         public ?float $repeatOffenceCount = null
     ) {}

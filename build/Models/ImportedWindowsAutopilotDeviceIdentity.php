@@ -25,6 +25,6 @@ class ImportedWindowsAutopilotDeviceIdentity
         /** Serial number of the Windows autopilot device. */
         public ?string $serialNumber = null,
         /** Current state of the imported device. */
-        public ?string $state = null
+        public ?ImportedWindowsAutopilotDeviceIdentityState $state = null
     ) {}
 }

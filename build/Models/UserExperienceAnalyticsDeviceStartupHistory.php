@@ -33,7 +33,7 @@ class UserExperienceAnalyticsDeviceStartupHistory
         /** The time for desktop to become responsive during login process in milliseconds. Supports: $select, $OrderBy. Read-only. */
         public ?float $responsiveDesktopTimeInMs = null,
         /**  */
-        public ?string $restartCategory = null,
+        public ?UserExperienceAnalyticsOperatingSystemRestartCategory $restartCategory = null,
         /** OS restart fault bucket. The fault bucket is used to find additional information about a system crash. Supports: $select, $OrderBy. Read-only. */
         public ?string $restartFaultBucket = null,
         /** OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason. Supports: $select, $OrderBy. Read-only. */

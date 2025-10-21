@@ -13,8 +13,8 @@ class SecurityArticleIndicator
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $source = null,
+        public ?SecurityIndicatorSource $source = null,
         /**  */
-        public ?string $artifact = null
+        public ?SecurityArtifact $artifact = null
     ) {}
 }

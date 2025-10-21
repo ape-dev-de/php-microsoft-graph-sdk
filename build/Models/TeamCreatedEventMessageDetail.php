@@ -11,7 +11,7 @@ class TeamCreatedEventMessageDetail
 {
     public function __construct(
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** Description for the team. */
         public ?string $teamDescription = null,
         /** Display name of the team. */

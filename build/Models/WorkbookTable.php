@@ -37,8 +37,8 @@ class WorkbookTable
         /** The list of all the rows in the table. Read-only. */
         public array $rows = [],
         /** The sorting for the table. Read-only. */
-        public ?string $sort = null,
+        public ?WorkbookTableSort $sort = null,
         /** The worksheet containing the current table. Read-only. */
-        public ?string $worksheet = null
+        public ?WorkbookWorksheet $worksheet = null
     ) {}
 }

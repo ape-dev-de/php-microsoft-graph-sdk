@@ -29,11 +29,11 @@ class AndroidGeneralDeviceConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Indicates whether or not to block clipboard sharing to copy and paste between applications. */
         public ?bool $appsBlockClipboardSharing = null,
         /** Indicates whether or not to block copy and paste within applications. */
@@ -59,7 +59,7 @@ class AndroidGeneralDeviceConfiguration
         /** Indicates whether or not to block syncing Wi-Fi tethering. */
         public ?bool $cellularBlockWiFiTethering = null,
         /**  */
-        public ?string $compliantAppListType = null,
+        public ?AppListType $compliantAppListType = null,
         /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */
         public array $compliantAppsList = [],
         /** Indicates whether or not to allow device sharing mode. */
@@ -97,7 +97,7 @@ class AndroidGeneralDeviceConfiguration
         /** Indicates whether or not to require a password. */
         public ?bool $passwordRequired = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?AndroidRequiredPasswordType $passwordRequiredType = null,
         /** Number of sign in failures allowed before factory reset. Valid values 1 to 16 */
         public ?float $passwordSignInFailureCountBeforeFactoryReset = null,
         /** Indicates whether or not to block powering off the device. */
@@ -127,7 +127,7 @@ class AndroidGeneralDeviceConfiguration
         /** Indicates whether or not to block popups within the web browser. */
         public ?bool $webBrowserBlockPopups = null,
         /**  */
-        public ?string $webBrowserCookieSettings = null,
+        public ?WebBrowserCookieSettings $webBrowserCookieSettings = null,
         /** Indicates whether or not to block syncing Wi-Fi. */
         public ?bool $wiFiBlocked = null
     ) {}

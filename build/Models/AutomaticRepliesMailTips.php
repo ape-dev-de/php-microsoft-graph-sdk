@@ -13,10 +13,10 @@ class AutomaticRepliesMailTips
         /** The automatic reply message. */
         public ?string $message = null,
         /** The language that the automatic reply message is in. */
-        public ?string $messageLanguage = null,
+        public ?LocaleInfo $messageLanguage = null,
         /** The date and time that automatic replies are set to end. */
-        public ?string $scheduledEndTime = null,
+        public ?DateTimeTimeZone $scheduledEndTime = null,
         /** The date and time that automatic replies are set to begin. */
-        public ?string $scheduledStartTime = null
+        public ?DateTimeTimeZone $scheduledStartTime = null
     ) {}
 }

@@ -29,13 +29,13 @@ class Windows81CompliancePolicy
         /** List of DeviceComplianceDeviceStatus. */
         public array $deviceStatuses = [],
         /** Device compliance devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceComplianceDeviceOverview $deviceStatusOverview = null,
         /** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies. */
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
         /** Device compliance users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceComplianceUserOverview $userStatusOverview = null,
         /** Maximum Windows 8.1 version. */
         public ?string $osMaximumVersion = null,
         /** Minimum Windows 8.1 version. */
@@ -55,7 +55,7 @@ class Windows81CompliancePolicy
         /** Require a password to unlock Windows device. */
         public ?bool $passwordRequired = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?RequiredPasswordType $passwordRequiredType = null,
         /** Indicates whether or not to require encryption on a windows 8.1 device. */
         public ?bool $storageRequireEncryption = null
     ) {}

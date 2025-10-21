@@ -11,7 +11,7 @@ class ObjectMappingMetadataEntry
 {
     public function __construct(
         /** Possible values are: EscrowBehavior, DisableMonitoringForChanges, OriginalJoiningProperty, Disposition, IsCustomerDefined, ExcludeFromReporting, Unsynchronized. */
-        public ?string $key = null,
+        public ?ObjectMappingMetadata $key = null,
         /** Value of the metadata property. */
         public ?string $value = null
     ) {}

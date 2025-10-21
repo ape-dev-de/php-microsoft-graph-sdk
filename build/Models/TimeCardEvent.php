@@ -15,6 +15,6 @@ class TimeCardEvent
         /** Indicates whether this action happens at an approved location. */
         public ?bool $isAtApprovedLocation = null,
         /** Notes about the timeCardEvent. */
-        public ?string $notes = null
+        public ?ItemBody $notes = null
     ) {}
 }

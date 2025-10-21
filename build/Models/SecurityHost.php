@@ -33,7 +33,7 @@ class SecurityHost
         /** The hostPorts associated with a host. */
         public array $ports = [],
         /** Represents a calculated reputation of this host. */
-        public ?string $reputation = null,
+        public ?SecurityHostReputation $reputation = null,
         /** The hostSslCertificates that are associated with this host. */
         public array $sslCertificates = [],
         /** The subdomains that are associated with this host. */
@@ -41,6 +41,6 @@ class SecurityHost
         /** The hostTrackers that are associated with this host. */
         public array $trackers = [],
         /** The most recent whoisRecord for this host. */
-        public ?string $whois = null
+        public ?SecurityWhoisRecord $whois = null
     ) {}
 }

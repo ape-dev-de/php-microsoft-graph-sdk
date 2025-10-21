@@ -13,6 +13,6 @@ class ManagedAppPolicyDeploymentSummaryPerApp
         /** Number of users the policy is applied. */
         public ?float $configurationAppliedUserCount = null,
         /** Deployment of an app. */
-        public ?string $mobileAppIdentifier = null
+        public ?MobileAppIdentifier $mobileAppIdentifier = null
     ) {}
 }

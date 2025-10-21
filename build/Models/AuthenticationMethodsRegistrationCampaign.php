@@ -17,6 +17,6 @@ class AuthenticationMethodsRegistrationCampaign
         /** Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum: 0 days. Maximum: 14 days. If the value is '0', the user is prompted during every MFA attempt. */
         public ?float $snoozeDurationInDays = null,
         /**  */
-        public ?string $state = null
+        public ?AdvancedConfigState $state = null
     ) {}
 }

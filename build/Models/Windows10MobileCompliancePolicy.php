@@ -29,13 +29,13 @@ class Windows10MobileCompliancePolicy
         /** List of DeviceComplianceDeviceStatus. */
         public array $deviceStatuses = [],
         /** Device compliance devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceComplianceDeviceOverview $deviceStatusOverview = null,
         /** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies. */
         public array $scheduledActionsForRule = [],
         /** List of DeviceComplianceUserStatus. */
         public array $userStatuses = [],
         /** Device compliance users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceComplianceUserOverview $userStatusOverview = null,
         /** Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled */
         public ?bool $bitLockerEnabled = null,
         /** Require devices to be reported as healthy by Windows Device Health Attestation. */
@@ -61,7 +61,7 @@ class Windows10MobileCompliancePolicy
         /** Require a password to unlock Windows Phone device. */
         public ?bool $passwordRequired = null,
         /**  */
-        public ?string $passwordRequiredType = null,
+        public ?RequiredPasswordType $passwordRequiredType = null,
         /** Require a password to unlock an idle device. */
         public ?bool $passwordRequireToUnlockFromIdle = null,
         /** Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled. */

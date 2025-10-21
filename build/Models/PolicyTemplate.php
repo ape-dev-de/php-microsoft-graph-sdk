@@ -13,8 +13,8 @@ class PolicyTemplate
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Defines an optional cross-tenant access policy template with user synchronization settings for a multitenant organization. */
-        public ?string $multiTenantOrganizationIdentitySynchronization = null,
+        public ?MultiTenantOrganizationIdentitySyncPolicyTemplate $multiTenantOrganizationIdentitySynchronization = null,
         /** Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization. */
-        public ?string $multiTenantOrganizationPartnerConfiguration = null
+        public ?MultiTenantOrganizationPartnerConfigurationTemplate $multiTenantOrganizationPartnerConfiguration = null
     ) {}
 }

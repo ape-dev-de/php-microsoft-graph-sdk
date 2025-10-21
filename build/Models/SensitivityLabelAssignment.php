@@ -11,7 +11,7 @@ class SensitivityLabelAssignment
 {
     public function __construct(
         /**  */
-        public ?string $assignmentMethod = null,
+        public ?SensitivityLabelAssignmentMethod $assignmentMethod = null,
         /** The unique identifier for the sensitivity label assigned to the file. */
         public ?string $sensitivityLabelId = null,
         /** The unique identifier for the tenant that hosts the file when this label is applied. */

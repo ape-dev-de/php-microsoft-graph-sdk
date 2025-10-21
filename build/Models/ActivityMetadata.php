@@ -11,6 +11,6 @@ class ActivityMetadata
 {
     public function __construct(
         /**  */
-        public ?string $activity = null
+        public ?UserActivityType $activity = null
     ) {}
 }

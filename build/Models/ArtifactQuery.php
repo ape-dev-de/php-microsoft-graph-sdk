@@ -11,7 +11,7 @@ class ArtifactQuery
 {
     public function __construct(
         /** The type of artifact to search. The possible values are: message, unknownFutureValue. */
-        public ?string $artifactType = null,
+        public ?RestorableArtifact $artifactType = null,
         /** Specifies criteria to retrieve artifacts. */
         public ?string $queryExpression = null
     ) {}

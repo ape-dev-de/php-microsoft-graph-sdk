@@ -13,7 +13,7 @@ class SimulationAutomation
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Identity of the user who created the attack simulation automation. */
-        public ?string $createdBy = null,
+        public ?EmailIdentity $createdBy = null,
         /** Date and time when the attack simulation automation was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Description of the attack simulation automation. */
@@ -21,7 +21,7 @@ class SimulationAutomation
         /** Display name of the attack simulation automation. Supports $filter and $orderby. */
         public ?string $displayName = null,
         /** Identity of the user who most recently modified the attack simulation automation. */
-        public ?string $lastModifiedBy = null,
+        public ?EmailIdentity $lastModifiedBy = null,
         /** Date and time when the attack simulation automation was most recently modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Date and time of the latest run of the attack simulation automation. */
@@ -29,7 +29,7 @@ class SimulationAutomation
         /** Date and time of the upcoming run of the attack simulation automation. */
         public ?\DateTimeInterface $nextRunDateTime = null,
         /** Status of the attack simulation automation. Supports $filter and $orderby. The possible values are: unknown, draft, notRunning, running, completed, unknownFutureValue. */
-        public ?string $status = null,
+        public ?SimulationAutomationStatus $status = null,
         /** A collection of simulation automation runs. */
         public array $runs = []
     ) {}

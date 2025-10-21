@@ -25,9 +25,9 @@ class WindowsInformationProtection
         /** Specifies whether to allow Azure RMS encryption for WIP */
         public ?bool $azureRightsManagementServicesAllowed = null,
         /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS) */
-        public ?string $dataRecoveryCertificate = null,
+        public ?WindowsInformationProtectionDataRecoveryCertificate $dataRecoveryCertificate = null,
         /**  */
-        public ?string $enforcementLevel = null,
+        public ?WindowsInformationProtectionEnforcementLevel $enforcementLevel = null,
         /** Primary enterprise domain */
         public ?string $enterpriseDomain = null,
         /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */

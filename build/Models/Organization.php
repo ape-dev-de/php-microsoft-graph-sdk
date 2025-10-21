@@ -33,19 +33,19 @@ class Organization
         /** @var string[] Not nullable. */
         public array $marketingNotificationEmails = [],
         /**  */
-        public ?string $mobileDeviceManagementAuthority = null,
+        public ?MdmAuthority $mobileDeviceManagementAuthority = null,
         /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
         public ?\DateTimeInterface $onPremisesLastSyncDateTime = null,
         /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object isn't synced from on-premises active directory (default). */
         public ?bool $onPremisesSyncEnabled = null,
         /** The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values. */
-        public ?string $partnerTenantType = null,
+        public ?PartnerTenantType $partnerTenantType = null,
         /** Postal code of the address for the organization. */
         public ?string $postalCode = null,
         /** The preferred language for the organization. Should follow ISO 639-1 Code; for example, en. */
         public ?string $preferredLanguage = null,
         /** The privacy profile of an organization. */
-        public ?string $privacyProfile = null,
+        public ?PrivacyProfile $privacyProfile = null,
         /** Not nullable. */
         public array $provisionedPlans = [],
         /** @var string[] Not nullable. */
@@ -63,7 +63,7 @@ class Organization
         /** The collection of domains associated with this tenant. Not nullable. */
         public array $verifiedDomains = [],
         /** Branding for the organization. Nullable. */
-        public ?string $branding = null,
+        public ?OrganizationalBranding $branding = null,
         /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection. */
         public array $certificateBasedAuthConfiguration = [],
         /** The collection of open extensions defined for the organization. Read-only. Nullable. */

@@ -15,6 +15,6 @@ class BookingReminder
         /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format. */
         public ?string $offset = null,
         /**  */
-        public ?string $recipients = null
+        public ?BookingReminderRecipients $recipients = null
     ) {}
 }

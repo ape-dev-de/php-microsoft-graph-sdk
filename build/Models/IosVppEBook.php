@@ -21,7 +21,7 @@ class IosVppEBook
         /** The more information Url. */
         public ?string $informationUrl = null,
         /** Book cover. */
-        public ?string $largeCover = null,
+        public ?MimeContent $largeCover = null,
         /** The date and time when the eBook was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The privacy statement Url. */
@@ -35,7 +35,7 @@ class IosVppEBook
         /** The list of installation states for this eBook. */
         public array $deviceStates = [],
         /** Mobile App Install Summary. */
-        public ?string $installSummary = null,
+        public ?EBookInstallSummary $installSummary = null,
         /** The list of installation states for this eBook. */
         public array $userStateSummary = [],
         /** The Apple ID associated with Vpp token. */

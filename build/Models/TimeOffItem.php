@@ -15,7 +15,7 @@ class TimeOffItem
         /**  */
         public ?\DateTimeInterface $startDateTime = null,
         /**  */
-        public ?string $theme = null,
+        public ?ScheduleEntityTheme $theme = null,
         /** ID of the timeOffReason for this timeOffItem. Required. */
         public ?string $timeOffReasonId = null
     ) {}

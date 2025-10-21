@@ -25,7 +25,7 @@ class AccessPackageAssignmentRequestRequirements
         /** The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request. */
         public ?string $policyId = null,
         /** Schedule restrictions enforced, if any. */
-        public ?string $schedule = null,
+        public ?EntitlementManagementSchedule $schedule = null,
         /**  */
         public array $questions = []
     ) {}

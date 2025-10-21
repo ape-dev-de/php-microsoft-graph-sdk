@@ -11,12 +11,12 @@ class VirtualEventPresenterInfo
 {
     public function __construct(
         /** Identity information of the participant. */
-        public ?string $identity = null,
+        public ?IdentitySet $identity = null,
         /** Specifies the participant's role in the meeting. */
-        public ?string $role = null,
+        public ?OnlineMeetingRole $role = null,
         /** User principal name of the participant. */
         public ?string $upn = null,
         /**  */
-        public ?string $presenterDetails = null
+        public ?VirtualEventPresenterDetails $presenterDetails = null
     ) {}
 }

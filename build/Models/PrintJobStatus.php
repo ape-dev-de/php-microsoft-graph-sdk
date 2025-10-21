@@ -17,6 +17,6 @@ class PrintJobStatus
         /** True if the job was acknowledged by a printer; false otherwise. Read-only. */
         public ?bool $isAcquiredByPrinter = null,
         /**  */
-        public ?string $state = null
+        public ?PrintJobProcessingState $state = null
     ) {}
 }

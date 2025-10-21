@@ -11,7 +11,7 @@ class ExternalConnectorsExternalItemContent
 {
     public function __construct(
         /**  */
-        public ?string $type = null,
+        public ?ExternalConnectorsExternalItemContentType $type = null,
         /** The content for the externalItem. Required. */
         public ?string $value = null
     ) {}

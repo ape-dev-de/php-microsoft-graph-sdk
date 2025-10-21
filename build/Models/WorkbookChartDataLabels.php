@@ -29,6 +29,6 @@ class WorkbookChartDataLabels
         /** Boolean value that represents whether the data label value is visible. */
         public ?bool $showValue = null,
         /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
-        public ?string $format = null
+        public ?WorkbookChartDataLabelFormat $format = null
     ) {}
 }

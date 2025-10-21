@@ -11,6 +11,6 @@ class ConditionalAccessExternalTenants
 {
     public function __construct(
         /** The membership kind. Possible values are: all, enumerated, unknownFutureValue. The enumerated member references an conditionalAccessEnumeratedExternalTenants object. */
-        public ?string $membershipKind = null
+        public ?ConditionalAccessExternalTenantsMembershipKind $membershipKind = null
     ) {}
 }

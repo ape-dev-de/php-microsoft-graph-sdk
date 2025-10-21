@@ -11,6 +11,6 @@ class RubricCriterion
 {
     public function __construct(
         /** The description of this criterion. */
-        public ?string $description = null
+        public ?EducationItemBody $description = null
     ) {}
 }

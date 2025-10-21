@@ -13,6 +13,6 @@ class MessagePinnedEventMessageDetail
         /** Date and time when the event occurred. */
         public ?\DateTimeInterface $eventDateTime = null,
         /** Initiator of the event. */
-        public ?string $initiator = null
+        public ?IdentitySet $initiator = null
     ) {}
 }

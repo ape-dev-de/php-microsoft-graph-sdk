@@ -15,7 +15,7 @@ class WorkbookChartSeries
         /** The name of a series in a chart. */
         public ?string $name = null,
         /** The formatting of a chart series, which includes fill and line formatting. Read-only. */
-        public ?string $format = null,
+        public ?WorkbookChartSeriesFormat $format = null,
         /** A collection of all points in the series. Read-only. */
         public array $points = []
     ) {}

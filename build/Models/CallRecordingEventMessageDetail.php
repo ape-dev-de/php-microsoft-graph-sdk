@@ -17,12 +17,12 @@ class CallRecordingEventMessageDetail
         /** Duration of the call recording. */
         public ?string $callRecordingDuration = null,
         /** Status of the call recording. Possible values are: success, failure, initial, chunkFinished, unknownFutureValue. */
-        public ?string $callRecordingStatus = null,
+        public ?CallRecordingStatus $callRecordingStatus = null,
         /** Call recording URL. */
         public ?string $callRecordingUrl = null,
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** Organizer of the meeting. */
-        public ?string $meetingOrganizer = null
+        public ?IdentitySet $meetingOrganizer = null
     ) {}
 }

@@ -19,7 +19,7 @@ class DeviceInstallState
         /** The error code for install failures. */
         public ?string $errorCode = null,
         /**  */
-        public ?string $installState = null,
+        public ?InstallState $installState = null,
         /** Last sync date and time. */
         public ?\DateTimeInterface $lastSyncDateTime = null,
         /** OS Description. */

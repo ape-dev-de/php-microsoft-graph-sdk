@@ -19,6 +19,6 @@ class BucketAggregationDefinition
         /** Specifies the manual ranges to compute the aggregations. This is only valid for nonstring refiners of date or numeric type. Optional. */
         public array $ranges = [],
         /**  */
-        public ?string $sortBy = null
+        public ?BucketAggregationSortProperty $sortBy = null
     ) {}
 }

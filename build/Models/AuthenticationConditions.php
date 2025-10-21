@@ -11,6 +11,6 @@ class AuthenticationConditions
 {
     public function __construct(
         /** Applications which trigger a custom authentication extension. */
-        public ?string $applications = null
+        public ?AuthenticationConditionsApplications $applications = null
     ) {}
 }

@@ -13,8 +13,8 @@ class InferenceClassificationOverride
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other. */
-        public ?string $classifyAs = null,
+        public ?InferenceClassificationType $classifyAs = null,
         /** The email address information of the sender for whom the override is created. */
-        public ?string $senderEmailAddress = null
+        public ?EmailAddress $senderEmailAddress = null
     ) {}
 }

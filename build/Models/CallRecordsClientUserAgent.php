@@ -19,8 +19,8 @@ class CallRecordsClientUserAgent
         /** Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs. */
         public ?string $communicationServiceId = null,
         /**  */
-        public ?string $platform = null,
+        public ?CallRecordsClientPlatform $platform = null,
         /**  */
-        public ?string $productFamily = null
+        public ?CallRecordsProductFamily $productFamily = null
     ) {}
 }

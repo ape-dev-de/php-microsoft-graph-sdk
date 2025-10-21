@@ -23,18 +23,18 @@ class WorkbookChart
         /** Represents the width, in points, of the chart object. */
         public ?string $width = null,
         /** Represents chart axes. Read-only. */
-        public ?string $axes = null,
+        public ?WorkbookChartAxes $axes = null,
         /** Represents the data labels on the chart. Read-only. */
-        public ?string $dataLabels = null,
+        public ?WorkbookChartDataLabels $dataLabels = null,
         /** Encapsulates the format properties for the chart area. Read-only. */
-        public ?string $format = null,
+        public ?WorkbookChartAreaFormat $format = null,
         /** Represents the legend for the chart. Read-only. */
-        public ?string $legend = null,
+        public ?WorkbookChartLegend $legend = null,
         /** Represents either a single series or collection of series in the chart. Read-only. */
         public array $series = [],
         /** Represents the title of the specified chart, including the text, visibility, position and formatting of the title. Read-only. */
-        public ?string $title = null,
+        public ?WorkbookChartTitle $title = null,
         /** The worksheet containing the current chart. Read-only. */
-        public ?string $worksheet = null
+        public ?WorkbookWorksheet $worksheet = null
     ) {}
 }

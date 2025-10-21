@@ -11,7 +11,7 @@ class PayloadCoachmark
 {
     public function __construct(
         /** The coachmark location. */
-        public ?string $coachmarkLocation = null,
+        public ?CoachmarkLocation $coachmarkLocation = null,
         /** The description about the coachmark. */
         public ?string $description = null,
         /** The coachmark indicator. */

@@ -27,15 +27,15 @@ class SearchRequest
         /** Specifies the offset for the search results. Offset 0 returns the very first result. Optional. */
         public ?float $from = null,
         /**  */
-        public ?string $query = null,
+        public ?SearchQuery $query = null,
         /** Query alteration options formatted in a JSON blob that contains two optional flags related to spelling correction. Optional. */
-        public ?string $queryAlterationOptions = null,
+        public ?SearchAlterationOptions $queryAlterationOptions = null,
         /** The geographic location for the search. Required for searches that use application permissions. For details, see Get the region value. */
         public ?string $region = null,
         /** Provides the search result template options to render search results from connectors. */
-        public ?string $resultTemplateOptions = null,
+        public ?ResultTemplateOption $resultTemplateOptions = null,
         /** Indicates the kind of contents to be searched when a search is performed using application permissions. Optional. */
-        public ?string $sharePointOneDriveOptions = null,
+        public ?SharePointOneDriveOptions $sharePointOneDriveOptions = null,
         /** The size of the page to be retrieved. The maximum value is 500. Optional. */
         public ?float $size = null,
         /** Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional. */

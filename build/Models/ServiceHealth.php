@@ -15,7 +15,7 @@ class ServiceHealth
         /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
         public ?string $service = null,
         /**  */
-        public ?string $status = null,
+        public ?ServiceHealthStatus $status = null,
         /** A collection of issues that happened on the service, with detailed information for each issue. */
         public array $issues = []
     ) {}

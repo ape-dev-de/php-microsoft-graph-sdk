@@ -13,10 +13,10 @@ class TimeCardBreak
         /** ID of the timeCardBreak. */
         public ?string $breakId = null,
         /** The start event of the timeCardBreak. */
-        public ?string $end = null,
+        public ?TimeCardEvent $end = null,
         /** Notes about the timeCardBreak. */
-        public ?string $notes = null,
+        public ?ItemBody $notes = null,
         /**  */
-        public ?string $start = null
+        public ?TimeCardEvent $start = null
     ) {}
 }

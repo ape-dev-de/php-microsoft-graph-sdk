@@ -11,7 +11,7 @@ class OutOfBoxExperienceSetting
 {
     public function __construct(
         /**  */
-        public ?string $deviceUsageType = null,
+        public ?WindowsDeviceUsageType $deviceUsageType = null,
         /** When TRUE, the link that allows user to start over with a different account on company sign-in is hidden. When false, the link that allows user to start over with a different account on company sign-in is available. Default value is FALSE. */
         public ?bool $escapeLinkHidden = null,
         /** When TRUE, EULA is hidden to the end user during OOBE. When FALSE, EULA is shown to the end user during OOBE. Default value is FALSE. */
@@ -21,6 +21,6 @@ class OutOfBoxExperienceSetting
         /** When TRUE, privacy settings is hidden to the end user during OOBE. When FALSE, privacy settings is shown to the end user during OOBE. Default value is FALSE. */
         public ?bool $privacySettingsHidden = null,
         /**  */
-        public ?string $userType = null
+        public ?WindowsUserType $userType = null
     ) {}
 }

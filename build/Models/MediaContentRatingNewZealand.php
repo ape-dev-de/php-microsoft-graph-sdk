@@ -11,8 +11,8 @@ class MediaContentRatingNewZealand
 {
     public function __construct(
         /**  */
-        public ?string $movieRating = null,
+        public ?RatingNewZealandMoviesType $movieRating = null,
         /**  */
-        public ?string $tvRating = null
+        public ?RatingNewZealandTelevisionType $tvRating = null
     ) {}
 }

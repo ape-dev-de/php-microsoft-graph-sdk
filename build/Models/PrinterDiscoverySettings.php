@@ -11,6 +11,6 @@ class PrinterDiscoverySettings
 {
     public function __construct(
         /**  */
-        public ?string $airPrint = null
+        public ?AirPrintSettings $airPrint = null
     ) {}
 }

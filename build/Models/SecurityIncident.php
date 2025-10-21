@@ -15,7 +15,7 @@ class SecurityIncident
         /** Owner of the incident, or null if no owner is assigned. Free editable text. */
         public ?string $assignedTo = null,
         /** The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue. */
-        public ?string $classification = null,
+        public ?SecurityAlertClassification $classification = null,
         /** Array of comments created by the Security Operations (SecOps) team when the incident is managed. */
         public array $comments = [],
         /** Time when the incident was first created. */
@@ -25,7 +25,7 @@ class SecurityIncident
         /** Description of the incident. */
         public ?string $description = null,
         /** Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue. */
-        public ?string $determination = null,
+        public ?SecurityAlertDetermination $determination = null,
         /** The incident name. */
         public ?string $displayName = null,
         /** The URL for the incident page in the Microsoft 365 Defender portal. */
@@ -39,9 +39,9 @@ class SecurityIncident
         /** User input that explains the resolution of the incident and the classification choice. This property contains free editable text. */
         public ?string $resolvingComment = null,
         /**  */
-        public ?string $severity = null,
+        public ?SecurityAlertSeverity $severity = null,
         /**  */
-        public ?string $status = null,
+        public ?SecurityIncidentStatus $status = null,
         /** The overview of an attack. When applicable, the summary contains details of what occurred, impacted assets, and the type of attack. */
         public ?string $summary = null,
         /** @var string[] The system tags associated with the incident. */

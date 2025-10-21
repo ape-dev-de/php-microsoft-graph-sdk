@@ -25,11 +25,11 @@ class TargetedManagedAppProtection
         /** Data storage locations where a user may store managed data. */
         public array $allowedDataStorageLocations = [],
         /**  */
-        public ?string $allowedInboundDataTransferSources = null,
+        public ?ManagedAppDataTransferLevel $allowedInboundDataTransferSources = null,
         /**  */
-        public ?string $allowedOutboundClipboardSharingLevel = null,
+        public ?ManagedAppClipboardSharingLevel $allowedOutboundClipboardSharingLevel = null,
         /**  */
-        public ?string $allowedOutboundDataTransferDestinations = null,
+        public ?ManagedAppDataTransferLevel $allowedOutboundDataTransferDestinations = null,
         /** Indicates whether contacts can be synced to the user's device. */
         public ?bool $contactSyncBlocked = null,
         /** Indicates whether the backup of a managed app's data is blocked. */
@@ -41,7 +41,7 @@ class TargetedManagedAppProtection
         /** Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. */
         public ?bool $fingerprintBlocked = null,
         /**  */
-        public ?string $managedBrowser = null,
+        public ?ManagedBrowserType $managedBrowser = null,
         /** Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android) */
         public ?bool $managedBrowserToOpenLinksRequired = null,
         /** Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped. */
@@ -67,7 +67,7 @@ class TargetedManagedAppProtection
         /** The period after which access is checked when the device is connected to the internet. */
         public ?string $periodOnlineBeforeAccessCheck = null,
         /**  */
-        public ?string $pinCharacterSet = null,
+        public ?ManagedAppPinCharacterSet $pinCharacterSet = null,
         /** Indicates whether an app-level pin is required. */
         public ?bool $pinRequired = null,
         /** Indicates whether printing is allowed from managed apps. */

@@ -11,6 +11,6 @@ class ConditionalAccessAuthenticationFlows
 {
     public function __construct(
         /**  */
-        public ?string $transferMethods = null
+        public ?ConditionalAccessTransferMethods $transferMethods = null
     ) {}
 }

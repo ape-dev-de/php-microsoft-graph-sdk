@@ -13,7 +13,7 @@ class AppConfigurationSettingItem
         /** app configuration key. */
         public ?string $appConfigKey = null,
         /**  */
-        public ?string $appConfigKeyType = null,
+        public ?MdmAppConfigKeyType $appConfigKeyType = null,
         /** app configuration key value. */
         public ?string $appConfigKeyValue = null
     ) {}

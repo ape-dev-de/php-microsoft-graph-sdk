@@ -11,8 +11,8 @@ class ApplicationServicePrincipal
 {
     public function __construct(
         /**  */
-        public ?string $application = null,
+        public ?Application $application = null,
         /**  */
-        public ?string $servicePrincipal = null
+        public ?ServicePrincipal $servicePrincipal = null
     ) {}
 }

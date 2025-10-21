@@ -13,7 +13,7 @@ class UserExperienceAnalyticsInsight
         /** The unique identifier of the user experience analytics insight. */
         public ?string $insightId = null,
         /**  */
-        public ?string $severity = null,
+        public ?UserExperienceAnalyticsInsightSeverity $severity = null,
         /** The unique identifier of the user experience analytics metric. */
         public ?string $userExperienceAnalyticsMetricId = null,
         /** The value of the user experience analytics insight. */

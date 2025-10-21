@@ -15,6 +15,6 @@ class EducationAssignmentResource
         /** Indicates whether this resource should be copied to each student submission for modification and submission. Required */
         public ?bool $distributeForStudentWork = null,
         /** Resource object that has been associated with this assignment. */
-        public ?string $resource = null
+        public ?EducationResource $resource = null
     ) {}
 }

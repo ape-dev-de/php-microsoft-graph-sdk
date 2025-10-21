@@ -13,7 +13,7 @@ class UserSimulationEventInfo
         /** Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign. */
         public ?string $browser = null,
         /**  */
-        public ?string $clickSource = null,
+        public ?ClickSource $clickSource = null,
         /** Date and time of the simulation event by a user in an attack simulation and training campaign. */
         public ?\DateTimeInterface $eventDateTime = null,
         /** Name of the simulation event by a user in an attack simulation and training campaign. */

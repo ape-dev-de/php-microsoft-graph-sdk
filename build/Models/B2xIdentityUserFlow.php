@@ -13,11 +13,11 @@ class B2xIdentityUserFlow
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $userFlowType = null,
+        public ?UserFlowType $userFlowType = null,
         /**  */
         public ?string $userFlowTypeVersion = null,
         /** Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
-        public ?string $apiConnectorConfiguration = null,
+        public ?UserFlowApiConnectorConfiguration $apiConnectorConfiguration = null,
         /** The identity providers included in the user flow. */
         public array $identityProviders = [],
         /** The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows. */

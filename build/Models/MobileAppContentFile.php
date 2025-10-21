@@ -31,6 +31,6 @@ class MobileAppContentFile
         /** The size of the file after encryption. */
         public ?float $sizeEncrypted = null,
         /**  */
-        public ?string $uploadState = null
+        public ?MobileAppContentFileUploadState $uploadState = null
     ) {}
 }

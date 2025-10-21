@@ -13,6 +13,6 @@ class SocialIdentitySource
         /**  */
         public ?string $displayName = null,
         /**  */
-        public ?string $socialIdentitySourceType = null
+        public ?SocialIdentitySourceType $socialIdentitySourceType = null
     ) {}
 }

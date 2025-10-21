@@ -17,7 +17,7 @@ class RemoteAssistancePartner
         /** Timestamp of the last request sent to Intune by the TEM partner. */
         public ?\DateTimeInterface $lastConnectionDateTime = null,
         /**  */
-        public ?string $onboardingStatus = null,
+        public ?RemoteAssistanceOnboardingStatus $onboardingStatus = null,
         /** URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service. */
         public ?string $onboardingUrl = null
     ) {}

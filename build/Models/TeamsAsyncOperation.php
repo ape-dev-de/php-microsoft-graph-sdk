@@ -17,13 +17,13 @@ class TeamsAsyncOperation
         /** Time when the operation was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Any error that causes the async operation to fail. */
-        public ?string $error = null,
+        public ?OperationError $error = null,
         /** Time when the async operation was last updated. */
         public ?\DateTimeInterface $lastActionDateTime = null,
         /**  */
-        public ?string $operationType = null,
+        public ?TeamsAsyncOperationType $operationType = null,
         /**  */
-        public ?string $status = null,
+        public ?TeamsAsyncOperationStatus $status = null,
         /** The ID of the object that's created or modified as result of this async operation, typically a team. */
         public ?string $targetResourceId = null,
         /** The location of the object that's created or modified as result of this async operation. This URL should be treated as an opaque value and not parsed into its component paths. */

@@ -17,8 +17,8 @@ class PartnersBillingBilling
         /** Represents an operation to export the billing data of a partner. */
         public array $operations = [],
         /**  */
-        public ?string $reconciliation = null,
+        public ?PartnersBillingBillingReconciliation $reconciliation = null,
         /**  */
-        public ?string $usage = null
+        public ?PartnersBillingAzureUsage $usage = null
     ) {}
 }

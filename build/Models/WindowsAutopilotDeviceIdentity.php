@@ -19,7 +19,7 @@ class WindowsAutopilotDeviceIdentity
         /** Display Name */
         public ?string $displayName = null,
         /**  */
-        public ?string $enrollmentState = null,
+        public ?EnrollmentState $enrollmentState = null,
         /** Group Tag of the Windows autopilot device. */
         public ?string $groupTag = null,
         /** Intune Last Contacted Date Time of the Windows autopilot device. */

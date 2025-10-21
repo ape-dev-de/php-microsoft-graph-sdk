@@ -13,6 +13,6 @@ class PrintSettings
         /** Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service converts documents into a format compatible with the printer (xps to pdf) when needed. */
         public ?bool $documentConversionEnabled = null,
         /** Specifies settings that affect printer discovery when using Universal Print. */
-        public ?string $printerDiscoverySettings = null
+        public ?PrinterDiscoverySettings $printerDiscoverySettings = null
     ) {}
 }

@@ -19,6 +19,6 @@ class WorkbookChartTitle
         /** Indicates whether the chart title is visible. */
         public ?bool $visible = null,
         /** The formatting of a chart title, which includes fill and font formatting. Read-only. */
-        public ?string $format = null
+        public ?WorkbookChartTitleFormat $format = null
     ) {}
 }

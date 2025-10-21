@@ -13,8 +13,8 @@ class CustomExtensionStageSetting
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $stage = null,
+        public ?AccessPackageCustomExtensionStage $stage = null,
         /** Indicates the custom workflow extension that will be executed at this stage. Nullable. Supports $expand. */
-        public ?string $customExtension = null
+        public ?CustomCalloutExtension $customExtension = null
     ) {}
 }

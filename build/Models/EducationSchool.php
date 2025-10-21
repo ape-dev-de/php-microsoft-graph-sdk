@@ -17,13 +17,13 @@ class EducationSchool
         /** Organization display name. */
         public ?string $displayName = null,
         /** Source where this organization was created from. Possible values are: sis, manual. */
-        public ?string $externalSource = null,
+        public ?EducationExternalSource $externalSource = null,
         /** The name of the external source this resource was generated from. */
         public ?string $externalSourceDetail = null,
         /** Address of the school. */
-        public ?string $address = null,
+        public ?PhysicalAddress $address = null,
         /** Entity who created the school. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** ID of school in syncing system. */
         public ?string $externalId = null,
         /** ID of principal in syncing system. */
@@ -43,7 +43,7 @@ class EducationSchool
         /** School Number. */
         public ?string $schoolNumber = null,
         /** The underlying administrativeUnit for this school. */
-        public ?string $administrativeUnit = null,
+        public ?AdministrativeUnit $administrativeUnit = null,
         /** Classes taught at the school. Nullable. */
         public array $classes = [],
         /** Users in the school. Nullable. */

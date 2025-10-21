@@ -19,6 +19,6 @@ class WorkbookChartLegend
         /** Indicates whether the chart legend is visible. */
         public ?bool $visible = null,
         /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only. */
-        public ?string $format = null
+        public ?WorkbookChartLegendFormat $format = null
     ) {}
 }

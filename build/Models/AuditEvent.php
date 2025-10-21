@@ -23,7 +23,7 @@ class AuditEvent
         /** The type of activity that was being performed. */
         public ?string $activityType = null,
         /** AAD user and application that are associated with the audit event. */
-        public ?string $actor = null,
+        public ?AuditActor $actor = null,
         /** Audit category. */
         public ?string $category = null,
         /** Component name. */

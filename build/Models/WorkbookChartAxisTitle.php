@@ -17,6 +17,6 @@ class WorkbookChartAxisTitle
         /** A Boolean that specifies the visibility of an axis title. */
         public ?bool $visible = null,
         /** Represents the formatting of chart axis title. Read-only. */
-        public ?string $format = null
+        public ?WorkbookChartAxisTitleFormat $format = null
     ) {}
 }

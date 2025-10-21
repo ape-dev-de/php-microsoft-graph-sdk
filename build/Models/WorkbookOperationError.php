@@ -13,7 +13,7 @@ class WorkbookOperationError
         /** The error code. */
         public ?string $code = null,
         /**  */
-        public ?string $innerError = null,
+        public ?WorkbookOperationError $innerError = null,
         /** The error message. */
         public ?string $message = null
     ) {}

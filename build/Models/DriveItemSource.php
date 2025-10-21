@@ -11,7 +11,7 @@ class DriveItemSource
 {
     public function __construct(
         /** Enumeration value that indicates the source application where the file was created. */
-        public ?string $application = null,
+        public ?DriveItemSourceApplication $application = null,
         /** The external identifier for the drive item from the source. */
         public ?string $externalId = null
     ) {}

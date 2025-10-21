@@ -11,7 +11,7 @@ class SharingLink
 {
     public function __construct(
         /** The app the link is associated with. */
-        public ?string $application = null,
+        public ?Identity $application = null,
         /** If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint. */
         public ?bool $preventsDownload = null,
         /** The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant. */

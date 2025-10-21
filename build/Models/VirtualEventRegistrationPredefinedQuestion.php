@@ -17,6 +17,6 @@ class VirtualEventRegistrationPredefinedQuestion
         /** Indicates whether an answer to the question is required. The default value is false. */
         public ?bool $isRequired = null,
         /** Label of the predefined registration question. It accepts a single line of text: street, city, state, postalCode, countryOrRegion, industry, jobTitle, organization, and unknownFutureValue. */
-        public ?string $label = null
+        public ?VirtualEventRegistrationPredefinedQuestionLabel $label = null
     ) {}
 }

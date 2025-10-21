@@ -13,6 +13,6 @@ class WorkbookChartGridlinesFormat
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents chart line formatting. Read-only. */
-        public ?string $line = null
+        public ?WorkbookChartLineFormat $line = null
     ) {}
 }

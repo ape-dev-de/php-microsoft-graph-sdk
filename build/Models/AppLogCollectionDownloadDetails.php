@@ -11,7 +11,7 @@ class AppLogCollectionDownloadDetails
 {
     public function __construct(
         /**  */
-        public ?string $appLogDecryptionAlgorithm = null,
+        public ?AppLogDecryptionAlgorithm $appLogDecryptionAlgorithm = null,
         /** Decryption key that used to decrypt the log. */
         public ?string $decryptionKey = null,
         /** Download SAS (Shared Access Signature) Url for completed app log request. */

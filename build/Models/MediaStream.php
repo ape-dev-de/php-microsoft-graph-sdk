@@ -11,11 +11,11 @@ class MediaStream
 {
     public function __construct(
         /**  */
-        public ?string $direction = null,
+        public ?MediaDirection $direction = null,
         /** The media stream label. */
         public ?string $label = null,
         /**  */
-        public ?string $mediaType = null,
+        public ?Modality $mediaType = null,
         /** If the media is muted by the server. */
         public ?bool $serverMuted = null,
         /** The source ID. */

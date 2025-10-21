@@ -11,6 +11,6 @@ class PublicErrorResponse
 {
     public function __construct(
         /**  */
-        public ?string $error = null
+        public ?PublicError $error = null
     ) {}
 }

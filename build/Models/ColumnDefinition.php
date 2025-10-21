@@ -13,21 +13,21 @@ class ColumnDefinition
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** This column stores Boolean values. */
-        public ?string $boolean = null,
+        public ?BooleanColumn $boolean = null,
         /** This column's data is calculated based on other columns. */
-        public ?string $calculated = null,
+        public ?CalculatedColumn $calculated = null,
         /** This column stores data from a list of choices. */
-        public ?string $choice = null,
+        public ?ChoiceColumn $choice = null,
         /** For site columns, the name of the group this column belongs to. Helps organize related columns. */
         public ?string $columnGroup = null,
         /** This column stores content approval status. */
-        public ?string $contentApprovalStatus = null,
+        public ?ContentApprovalStatusColumn $contentApprovalStatus = null,
         /** This column stores currency values. */
-        public ?string $currency = null,
+        public ?CurrencyColumn $currency = null,
         /** This column stores DateTime values. */
-        public ?string $dateTime = null,
+        public ?DateTimeColumn $dateTime = null,
         /** The default value for this column. */
-        public ?string $defaultValue = null,
+        public ?DefaultColumnValue $defaultValue = null,
         /** The user-facing description of the column. */
         public ?string $description = null,
         /** The user-facing name of the column. */
@@ -35,11 +35,11 @@ class ColumnDefinition
         /** If true, no two list items may have the same value for this column. */
         public ?bool $enforceUniqueValues = null,
         /** This column stores a geolocation. */
-        public ?string $geolocation = null,
+        public ?GeolocationColumn $geolocation = null,
         /** Specifies whether the column is displayed in the user interface. */
         public ?bool $hidden = null,
         /** This column stores hyperlink or picture values. */
-        public ?string $hyperlinkOrPicture = null,
+        public ?HyperlinkOrPictureColumn $hyperlinkOrPicture = null,
         /** Specifies whether the column values can be used for sorting and searching. */
         public ?bool $indexed = null,
         /** Indicates whether this column can be deleted. */
@@ -49,13 +49,13 @@ class ColumnDefinition
         /** Specifies whether the column can be changed. */
         public ?bool $isSealed = null,
         /** This column's data is looked up from another source in the site. */
-        public ?string $lookup = null,
+        public ?LookupColumn $lookup = null,
         /** The API-facing name of the column as it appears in the fields on a listItem. For the user-facing name, see displayName. */
         public ?string $name = null,
         /** This column stores number values. */
-        public ?string $number = null,
+        public ?NumberColumn $number = null,
         /** This column stores Person or Group values. */
-        public ?string $personOrGroup = null,
+        public ?PersonOrGroupColumn $personOrGroup = null,
         /** If 'true', changes to this column will be propagated to lists that implement the column. */
         public ?bool $propagateChanges = null,
         /** Specifies whether the column values can be modified. */
@@ -63,18 +63,18 @@ class ColumnDefinition
         /** Specifies whether the column value isn't optional. */
         public ?bool $required = null,
         /** ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only. */
-        public ?string $sourceContentType = null,
+        public ?ContentTypeInfo $sourceContentType = null,
         /** This column stores taxonomy terms. */
-        public ?string $term = null,
+        public ?TermColumn $term = null,
         /** This column stores text values. */
-        public ?string $text = null,
+        public ?TextColumn $text = null,
         /** This column stores thumbnail values. */
-        public ?string $thumbnail = null,
+        public ?ThumbnailColumn $thumbnail = null,
         /** For site columns, the type of column. Read-only. */
-        public ?string $type = null,
+        public ?ColumnTypes $type = null,
         /** This column stores validation formula and message for the column. */
-        public ?string $validation = null,
+        public ?ColumnValidation $validation = null,
         /** The source column for the content type column. */
-        public ?string $sourceColumn = null
+        public ?ColumnDefinition $sourceColumn = null
     ) {}
 }

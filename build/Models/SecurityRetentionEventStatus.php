@@ -11,8 +11,8 @@ class SecurityRetentionEventStatus
 {
     public function __construct(
         /** The error if the status isn't successful. */
-        public ?string $error = null,
+        public ?PublicError $error = null,
         /** The status of the distribution. The possible values are: pending, error, success, notAvaliable. */
-        public ?string $status = null
+        public ?SecurityEventStatusType $status = null
     ) {}
 }

@@ -23,7 +23,7 @@ class MessageRuleActions
         /** Indicates whether a message should be marked as read. */
         public ?bool $markAsRead = null,
         /** Sets the importance of the message, which can be: low, normal, high. */
-        public ?string $markImportance = null,
+        public ?Importance $markImportance = null,
         /** The ID of the folder that a message will be moved to. */
         public ?string $moveToFolder = null,
         /** Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder. */

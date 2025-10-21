@@ -11,7 +11,7 @@ class TeamUnarchivedEventMessageDetail
 {
     public function __construct(
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** Unique identifier of the team. */
         public ?string $teamId = null
     ) {}

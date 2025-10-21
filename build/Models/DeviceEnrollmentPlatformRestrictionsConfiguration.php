@@ -27,14 +27,14 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration
         /** The list of group assignments for the device configuration profile */
         public array $assignments = [],
         /** Android restrictions based on platform, platform operating system version, and device ownership */
-        public ?string $androidRestriction = null,
+        public ?DeviceEnrollmentPlatformRestriction $androidRestriction = null,
         /** Ios restrictions based on platform, platform operating system version, and device ownership */
-        public ?string $iosRestriction = null,
+        public ?DeviceEnrollmentPlatformRestriction $iosRestriction = null,
         /** Mac restrictions based on platform, platform operating system version, and device ownership */
-        public ?string $macOSRestriction = null,
+        public ?DeviceEnrollmentPlatformRestriction $macOSRestriction = null,
         /** Windows mobile restrictions based on platform, platform operating system version, and device ownership */
-        public ?string $windowsMobileRestriction = null,
+        public ?DeviceEnrollmentPlatformRestriction $windowsMobileRestriction = null,
         /** Windows restrictions based on platform, platform operating system version, and device ownership */
-        public ?string $windowsRestriction = null
+        public ?DeviceEnrollmentPlatformRestriction $windowsRestriction = null
     ) {}
 }

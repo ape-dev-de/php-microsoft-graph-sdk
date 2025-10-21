@@ -25,6 +25,6 @@ class AadUserConversationMember
         /** The guid of the user. */
         public ?string $userId = null,
         /**  */
-        public ?string $user = null
+        public ?User $user = null
     ) {}
 }

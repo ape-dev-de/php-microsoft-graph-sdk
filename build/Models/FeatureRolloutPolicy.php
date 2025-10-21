@@ -17,7 +17,7 @@ class FeatureRolloutPolicy
         /** The display name for this  feature rollout policy. */
         public ?string $displayName = null,
         /**  */
-        public ?string $feature = null,
+        public ?StagedFeatureName $feature = null,
         /** Indicates whether this feature rollout policy should be applied to the entire organization. */
         public ?bool $isAppliedToOrganization = null,
         /** Indicates whether the feature rollout is enabled. */

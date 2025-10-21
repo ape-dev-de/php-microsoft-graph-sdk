@@ -17,7 +17,7 @@ class SearchAnswerVariant
         /** The country or region that can view this answer variation. */
         public ?string $languageTag = null,
         /** The device or operating system that can view this answer variation. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue. */
-        public ?string $platform = null,
+        public ?DevicePlatformType $platform = null,
         /** The URL link for the answer variation. When users select this answer variation from the search results, they're directed to the specified URL. */
         public ?string $webUrl = null
     ) {}

@@ -13,7 +13,7 @@ class Fido2KeyRestrictions
         /** @var string[] A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers. */
         public array $aaGuids = [],
         /** Enforcement type. Possible values are: allow, block. */
-        public ?string $enforcementType = null,
+        public ?Fido2RestrictionEnforcementType $enforcementType = null,
         /** Determines if the configured key enforcement is enabled. */
         public ?bool $isEnforced = null
     ) {}

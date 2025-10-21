@@ -17,6 +17,6 @@ class UserTrainingStatusInfo
         /** Display name of the assigned training. */
         public ?string $displayName = null,
         /** The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue. */
-        public ?string $trainingStatus = null
+        public ?TrainingStatus $trainingStatus = null
     ) {}
 }

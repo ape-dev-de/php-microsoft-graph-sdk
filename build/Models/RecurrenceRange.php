@@ -19,6 +19,6 @@ class RecurrenceRange
         /** The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required. */
         public ?\DateTimeInterface $startDate = null,
         /** The recurrence range. The possible values are: endDate, noEnd, numbered. Required. */
-        public ?string $type = null
+        public ?RecurrenceRangeType $type = null
     ) {}
 }

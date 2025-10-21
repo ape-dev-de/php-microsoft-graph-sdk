@@ -13,6 +13,6 @@ class EducationItemBody
         /**  */
         public ?string $content = null,
         /**  */
-        public ?string $contentType = null
+        public ?BodyType $contentType = null
     ) {}
 }

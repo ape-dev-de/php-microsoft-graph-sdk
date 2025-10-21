@@ -13,13 +13,13 @@ class EmergencyCallEvent
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $callEventType = null,
+        public ?CallEventType $callEventType = null,
         /**  */
         public ?\DateTimeInterface $eventDateTime = null,
         /**  */
         public array $participants = [],
         /**  */
-        public ?string $callerInfo = null,
+        public ?EmergencyCallerInfo $callerInfo = null,
         /**  */
         public ?string $emergencyNumberDialed = null,
         /**  */

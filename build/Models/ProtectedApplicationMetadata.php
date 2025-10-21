@@ -15,6 +15,6 @@ class ProtectedApplicationMetadata
         /** The version number of the integrated application. */
         public ?string $version = null,
         /** The client (application) ID of the Microsoft Entra application. Required. */
-        public ?string $applicationLocation = null
+        public ?PolicyLocation $applicationLocation = null
     ) {}
 }

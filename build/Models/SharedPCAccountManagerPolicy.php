@@ -11,7 +11,7 @@ class SharedPCAccountManagerPolicy
 {
     public function __construct(
         /**  */
-        public ?string $accountDeletionPolicy = null,
+        public ?SharedPCAccountDeletionPolicyType $accountDeletionPolicy = null,
         /** Sets the percentage of available disk space a PC should have before it stops deleting cached shared PC accounts. Only applies when AccountDeletionPolicy is DiskSpaceThreshold or DiskSpaceThresholdOrInactiveThreshold. Valid values 0 to 100 */
         public ?float $cacheAccountsAboveDiskFreePercentage = null,
         /** Specifies when the accounts will start being deleted when they have not been logged on during the specified period, given as number of days. Only applies when AccountDeletionPolicy is DiskSpaceThreshold or DiskSpaceThresholdOrInactiveThreshold. */

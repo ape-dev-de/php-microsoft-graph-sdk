@@ -11,6 +11,6 @@ class OnPremisesDirectorySynchronizationConfiguration
 {
     public function __construct(
         /** Contains the accidental deletion prevention configuration for a tenant. */
-        public ?string $accidentalDeletionPrevention = null
+        public ?OnPremisesAccidentalDeletionPrevention $accidentalDeletionPrevention = null
     ) {}
 }

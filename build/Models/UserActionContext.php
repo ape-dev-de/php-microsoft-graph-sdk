@@ -11,6 +11,6 @@ class UserActionContext
 {
     public function __construct(
         /** Represents the user action that the authenticating identity is performing. The possible values are: registerSecurityInformation, registerOrJoinDevices, unknownFutureValue. */
-        public ?string $userAction = null
+        public ?UserAction $userAction = null
     ) {}
 }

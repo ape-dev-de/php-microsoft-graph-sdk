@@ -11,8 +11,8 @@ class CustomExtensionOverwriteConfiguration
 {
     public function __construct(
         /**  */
-        public ?string $behaviorOnError = null,
+        public ?CustomExtensionBehaviorOnError $behaviorOnError = null,
         /** Configuration regarding properties of the custom extension which can be overwritten per event listener. If no values are provided, the properties on the custom extension are used. */
-        public ?string $clientConfiguration = null
+        public ?CustomExtensionClientConfiguration $clientConfiguration = null
     ) {}
 }

@@ -11,7 +11,7 @@ class MembersDeletedEventMessageDetail
 {
     public function __construct(
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** List of members deleted. */
         public array $members = []
     ) {}

@@ -17,7 +17,7 @@ class Request
         /** The request completion date time. */
         public ?\DateTimeInterface $completedDateTime = null,
         /** The principal that created the request. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** The request creation date time. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Free text field to define any custom data for the request. Not used. */

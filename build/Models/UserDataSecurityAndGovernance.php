@@ -15,8 +15,8 @@ class UserDataSecurityAndGovernance
         /**  */
         public array $sensitivityLabels = [],
         /** Container for activity logs (content processing and audit) related to this user. ContainsTarget: true. */
-        public ?string $activities = null,
+        public ?ActivitiesContainer $activities = null,
         /**  */
-        public ?string $protectionScopes = null
+        public ?UserProtectionScopeContainer $protectionScopes = null
     ) {}
 }

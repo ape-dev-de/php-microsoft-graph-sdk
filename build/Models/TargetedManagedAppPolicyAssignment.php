@@ -13,6 +13,6 @@ class TargetedManagedAppPolicyAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Identifier for deployment to a group or app */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

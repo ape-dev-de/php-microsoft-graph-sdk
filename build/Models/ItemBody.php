@@ -13,6 +13,6 @@ class ItemBody
         /** The content of the item. */
         public ?string $content = null,
         /** The type of the content. Possible values are text and html. */
-        public ?string $contentType = null
+        public ?BodyType $contentType = null
     ) {}
 }

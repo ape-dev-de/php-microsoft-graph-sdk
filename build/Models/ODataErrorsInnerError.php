@@ -11,9 +11,9 @@ class ODataErrorsInnerError
 {
     public function __construct(
         /** Request Id as tracked internally by the service */
-        public ?string $request-id = null,
+        public ?string $requestId = null,
         /** Client request Id as sent by the client application. */
-        public ?string $client-request-id = null,
+        public ?string $clientRequestId = null,
         /** Date when the error occured. */
         public ?\DateTimeInterface $date = null
     ) {}

@@ -15,6 +15,6 @@ class AuthenticationMethodConfiguration
         /** Groups of users that are excluded from a policy. */
         public array $excludeTargets = [],
         /** The state of the policy. Possible values are: enabled, disabled. */
-        public ?string $state = null
+        public ?AuthenticationMethodState $state = null
     ) {}
 }

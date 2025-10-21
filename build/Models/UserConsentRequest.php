@@ -17,7 +17,7 @@ class UserConsentRequest
         /** The request completion date time. */
         public ?\DateTimeInterface $completedDateTime = null,
         /** The principal that created the request. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** The request creation date time. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Free text field to define any custom data for the request. Not used. */
@@ -27,6 +27,6 @@ class UserConsentRequest
         /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
         public ?string $reason = null,
         /** Approval decisions associated with a request. */
-        public ?string $approval = null
+        public ?Approval $approval = null
     ) {}
 }

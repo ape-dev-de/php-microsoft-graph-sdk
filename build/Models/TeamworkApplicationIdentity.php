@@ -15,6 +15,6 @@ class TeamworkApplicationIdentity
         /** The display name of the identity.For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta. */
         public ?string $displayName = null,
         /** Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue. */
-        public ?string $applicationIdentityType = null
+        public ?TeamworkApplicationIdentityType $applicationIdentityType = null
     ) {}
 }

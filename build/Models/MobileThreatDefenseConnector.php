@@ -33,7 +33,7 @@ class MobileThreatDefenseConnector
         /** When TRUE, inidicates that configuration profile management via Microsoft Defender for Endpoint is enabled. When FALSE, inidicates that configuration profile management via Microsoft Defender for Endpoint is disabled. Default value is FALSE. */
         public ?bool $microsoftDefenderForEndpointAttachEnabled = null,
         /**  */
-        public ?string $partnerState = null,
+        public ?MobileThreatPartnerTenantState $partnerState = null,
         /** Get or Set days the per tenant tolerance to unresponsiveness for this partner integration */
         public ?float $partnerUnresponsivenessThresholdInDays = null,
         /** Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Mobile Threat Defense partner */

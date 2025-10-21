@@ -11,7 +11,7 @@ class WorkforceIntegrationEncryption
 {
     public function __construct(
         /** Possible values are: sharedSecret, unknownFutureValue. */
-        public ?string $protocol = null,
+        public ?WorkforceIntegrationEncryptionProtocol $protocol = null,
         /** Encryption shared secret. */
         public ?string $secret = null
     ) {}

@@ -15,6 +15,6 @@ class SecurityWhoisNameserver
         /** The last seen date and time of this WHOIS contact. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastSeenDateTime = null,
         /**  */
-        public ?string $host = null
+        public ?SecurityHost $host = null
     ) {}
 }

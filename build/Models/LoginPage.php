@@ -15,7 +15,7 @@ class LoginPage
         /** The HTML content of the login page. */
         public ?string $content = null,
         /** Identity of the user who created the login page. */
-        public ?string $createdBy = null,
+        public ?EmailIdentity $createdBy = null,
         /** Date and time when the login page was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Description about the login page. */
@@ -25,12 +25,12 @@ class LoginPage
         /** The content language of the login page. */
         public ?string $language = null,
         /** Identity of the user who last modified the login page. */
-        public ?string $lastModifiedBy = null,
+        public ?EmailIdentity $lastModifiedBy = null,
         /** Date and time when the login page was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The source of the content. Possible values are: unknown, global, tenant, unknownFutureValue. */
-        public ?string $source = null,
+        public ?SimulationContentSource $source = null,
         /** The login page status. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue. */
-        public ?string $status = null
+        public ?SimulationContentStatus $status = null
     ) {}
 }

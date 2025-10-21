@@ -17,6 +17,6 @@ class UsageRightsIncluded
         /** The email of user with label user rights. */
         public ?string $userEmail = null,
         /**  */
-        public ?string $value = null
+        public ?UsageRights $value = null
     ) {}
 }

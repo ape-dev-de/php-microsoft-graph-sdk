@@ -11,7 +11,7 @@ class AttackSimulationSimulationUserCoverage
 {
     public function __construct(
         /** User in an attack simulation and training campaign. */
-        public ?string $attackSimulationUser = null,
+        public ?AttackSimulationUser $attackSimulationUser = null,
         /** Number of link clicks in the received payloads by the user in attack simulation and training campaigns. */
         public ?float $clickCount = null,
         /** Number of compromising actions by the user in attack simulation and training campaigns. */

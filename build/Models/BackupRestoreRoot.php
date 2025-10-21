@@ -13,7 +13,7 @@ class BackupRestoreRoot
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents the tenant-level status of the Backup Storage service. */
-        public ?string $serviceStatus = null,
+        public ?ServiceStatus $serviceStatus = null,
         /** The list of drive inclusion rules applied to the tenant. */
         public array $driveInclusionRules = [],
         /** The list of drive protection units in the tenant. */

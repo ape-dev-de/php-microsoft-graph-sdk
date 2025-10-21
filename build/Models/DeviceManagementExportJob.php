@@ -17,9 +17,9 @@ class DeviceManagementExportJob
         /** Filters applied on the report */
         public ?string $filter = null,
         /**  */
-        public ?string $format = null,
+        public ?DeviceManagementReportFileFormat $format = null,
         /**  */
-        public ?string $localizationType = null,
+        public ?DeviceManagementExportJobLocalizationType $localizationType = null,
         /** Name of the report */
         public ?string $reportName = null,
         /** Time that the exported report was requested */
@@ -29,7 +29,7 @@ class DeviceManagementExportJob
         /** A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. */
         public ?string $snapshotId = null,
         /**  */
-        public ?string $status = null,
+        public ?DeviceManagementReportStatus $status = null,
         /** Temporary location of the exported report */
         public ?string $url = null
     ) {}

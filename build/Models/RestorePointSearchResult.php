@@ -13,6 +13,6 @@ class RestorePointSearchResult
         /** Total number of artifacts restored. */
         public ?float $artifactHitCount = null,
         /**  */
-        public ?string $restorePoint = null
+        public ?RestorePoint $restorePoint = null
     ) {}
 }

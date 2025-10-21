@@ -15,6 +15,6 @@ class EntitlementManagementSettings
         /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically many days, after an external user is blocked from sign in before their account is deleted. */
         public ?string $durationUntilExternalUserDeletedAfterBlocked = null,
         /** Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue. */
-        public ?string $externalUserLifecycleAction = null
+        public ?AccessPackageExternalUserLifecycleAction $externalUserLifecycleAction = null
     ) {}
 }

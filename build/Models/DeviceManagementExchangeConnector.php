@@ -17,7 +17,7 @@ class DeviceManagementExchangeConnector
         /** An alias assigned to the Exchange server */
         public ?string $exchangeAlias = null,
         /**  */
-        public ?string $exchangeConnectorType = null,
+        public ?DeviceManagementExchangeConnectorType $exchangeConnectorType = null,
         /** Exchange Organization to the Exchange server */
         public ?string $exchangeOrganization = null,
         /** Last sync time for the Exchange Connector */
@@ -27,7 +27,7 @@ class DeviceManagementExchangeConnector
         /** The name of the Exchange server. */
         public ?string $serverName = null,
         /**  */
-        public ?string $status = null,
+        public ?DeviceManagementExchangeConnectorStatus $status = null,
         /** The version of the ExchangeConnectorAgent */
         public ?string $version = null
     ) {}

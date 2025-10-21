@@ -15,7 +15,7 @@ class SecurityAlert
         /** The adversary or activity group that is associated with this alert. */
         public ?string $actorDisplayName = null,
         /** A collection of other alert properties, including user-defined properties. Any custom details defined in the alert, and any dynamic content in the alert details, are stored here. */
-        public ?string $additionalData = null,
+        public ?SecurityDictionary $additionalData = null,
         /** The ID of the policy that generated the alert, and populated when there is a specific policy that generated the alert, whether configured by a customer or a built-in policy. */
         public ?string $alertPolicyId = null,
         /** URL for the Microsoft 365 Defender portal alert page. */
@@ -25,21 +25,21 @@ class SecurityAlert
         /** The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework. */
         public ?string $category = null,
         /** Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue. */
-        public ?string $classification = null,
+        public ?SecurityAlertClassification $classification = null,
         /** Array of comments created by the Security Operations (SecOps) team during the alert management process. */
         public array $comments = [],
         /** Time when Microsoft 365 Defender created the alert. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** User defined custom fields with string values. */
-        public ?string $customDetails = null,
+        public ?SecurityDictionary $customDetails = null,
         /** String value describing each alert. */
         public ?string $description = null,
         /** Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot. */
-        public ?string $detectionSource = null,
+        public ?SecurityDetectionSource $detectionSource = null,
         /** The ID of the detector that triggered the alert. */
         public ?string $detectorId = null,
         /** Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue. */
-        public ?string $determination = null,
+        public ?SecurityAlertDetermination $determination = null,
         /** Collection of evidence related to the alert. */
         public array $evidence = [],
         /** The earliest activity associated with the alert. */
@@ -63,11 +63,11 @@ class SecurityAlert
         /** Time when the alert was resolved. */
         public ?\DateTimeInterface $resolvedDateTime = null,
         /**  */
-        public ?string $serviceSource = null,
+        public ?SecurityServiceSource $serviceSource = null,
         /**  */
-        public ?string $severity = null,
+        public ?SecurityAlertSeverity $severity = null,
         /**  */
-        public ?string $status = null,
+        public ?SecurityAlertStatus $status = null,
         /** @var string[] The system tags associated with the alert. */
         public array $systemTags = [],
         /** The Microsoft Entra tenant the alert was created in. */

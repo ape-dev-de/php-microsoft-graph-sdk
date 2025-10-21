@@ -21,12 +21,12 @@ class WorkbookChartAxis
         /** Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number. */
         public ?string $minorUnit = null,
         /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
-        public ?string $format = null,
+        public ?WorkbookChartAxisFormat $format = null,
         /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only. */
-        public ?string $majorGridlines = null,
+        public ?WorkbookChartGridlines $majorGridlines = null,
         /** Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only. */
-        public ?string $minorGridlines = null,
+        public ?WorkbookChartGridlines $minorGridlines = null,
         /** Represents the axis title. Read-only. */
-        public ?string $title = null
+        public ?WorkbookChartAxisTitle $title = null
     ) {}
 }

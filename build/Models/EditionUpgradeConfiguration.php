@@ -29,18 +29,18 @@ class EditionUpgradeConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Edition Upgrade License File Content. */
         public ?string $license = null,
         /**  */
-        public ?string $licenseType = null,
+        public ?EditionUpgradeLicenseType $licenseType = null,
         /** Edition Upgrade Product Key. */
         public ?string $productKey = null,
         /**  */
-        public ?string $targetEdition = null
+        public ?Windows10EditionType $targetEdition = null
     ) {}
 }

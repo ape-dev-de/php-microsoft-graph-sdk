@@ -11,7 +11,7 @@ class Win32LobAppRegistryRule
 {
     public function __construct(
         /**  */
-        public ?string $ruleType = null,
+        public ?Win32LobAppRuleType $ruleType = null,
         /** A value indicating whether to search the 32-bit registry on 64-bit systems. */
         public ?bool $check32BitOn64System = null,
         /** The registry comparison value. */
@@ -19,9 +19,9 @@ class Win32LobAppRegistryRule
         /** The full path of the registry entry containing the value to detect. */
         public ?string $keyPath = null,
         /**  */
-        public ?string $operationType = null,
+        public ?Win32LobAppRegistryRuleOperationType $operationType = null,
         /**  */
-        public ?string $operator = null,
+        public ?Win32LobAppRuleOperator $operator = null,
         /** The name of the registry value to detect. */
         public ?string $valueName = null
     ) {}

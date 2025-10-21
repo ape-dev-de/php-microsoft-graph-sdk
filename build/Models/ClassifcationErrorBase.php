@@ -13,7 +13,7 @@ class ClassifcationErrorBase
         /** A service-defined error code string. */
         public ?string $code = null,
         /** Contains more specific, potentially internal error details. */
-        public ?string $innerError = null,
+        public ?ClassificationInnerError $innerError = null,
         /** A human-readable representation of the error. */
         public ?string $message = null,
         /** The target of the error (for example, the specific property or item causing the issue). */

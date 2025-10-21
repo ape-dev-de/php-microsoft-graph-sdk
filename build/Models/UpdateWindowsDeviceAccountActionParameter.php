@@ -13,7 +13,7 @@ class UpdateWindowsDeviceAccountActionParameter
         /** Not yet documented */
         public ?bool $calendarSyncEnabled = null,
         /** Not yet documented */
-        public ?string $deviceAccount = null,
+        public ?WindowsDeviceAccount $deviceAccount = null,
         /** Not yet documented */
         public ?string $deviceAccountEmail = null,
         /** Not yet documented */

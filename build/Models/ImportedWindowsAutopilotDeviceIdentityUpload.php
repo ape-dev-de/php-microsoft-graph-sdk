@@ -15,7 +15,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload
         /** DateTime when the entity is created. */
         public ?\DateTimeInterface $createdDateTimeUtc = null,
         /**  */
-        public ?string $status = null,
+        public ?ImportedWindowsAutopilotDeviceIdentityUploadStatus $status = null,
         /** Collection of all Autopilot devices as a part of this upload. */
         public array $deviceIdentities = []
     ) {}

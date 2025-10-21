@@ -17,26 +17,26 @@ class FileStorageContainer
         /** Date and time of the fileStorageContainer creation. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Custom property collection for the fileStorageContainer. Read-write. */
-        public ?string $customProperties = null,
+        public ?FileStorageContainerCustomPropertyDictionary $customProperties = null,
         /** Provides a user-visible description of the fileStorageContainer. Read-write. */
         public ?string $description = null,
         /** The display name of the fileStorageContainer. Read-write. */
         public ?string $displayName = null,
         /** Indicates the lock state of the fileStorageContainer. The possible values are unlocked and lockedReadOnly. Read-only. */
-        public ?string $lockState = null,
+        public ?SiteLockState $lockState = null,
         /**  */
-        public ?string $settings = null,
+        public ?FileStorageContainerSettings $settings = null,
         /** Status of the fileStorageContainer. Containers are created as inactive and require activation. Inactive containers are subjected to automatic deletion in 24 hours. The possible values are: inactive, active. Read-only. */
-        public ?string $status = null,
+        public ?FileStorageContainerStatus $status = null,
         /** Data specific to the current user. Read-only. */
-        public ?string $viewpoint = null,
+        public ?FileStorageContainerViewpoint $viewpoint = null,
         /**  */
         public array $columns = [],
         /** The drive of the resource fileStorageContainer. Read-only. */
-        public ?string $drive = null,
+        public ?Drive $drive = null,
         /** The set of permissions for users in the fileStorageContainer. Permission for each user is set by the roles property. The possible values are: reader, writer, manager, and owner. Read-write. */
         public array $permissions = [],
         /** Recycle bin of the fileStorageContainer. Read-only. */
-        public ?string $recycleBin = null
+        public ?RecycleBin $recycleBin = null
     ) {}
 }

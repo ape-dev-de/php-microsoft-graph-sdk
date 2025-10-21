@@ -11,8 +11,8 @@ class Win32LobAppInstallExperience
 {
     public function __construct(
         /**  */
-        public ?string $deviceRestartBehavior = null,
+        public ?Win32LobAppRestartBehavior $deviceRestartBehavior = null,
         /**  */
-        public ?string $runAsAccount = null
+        public ?RunAsAccountType $runAsAccount = null
     ) {}
 }

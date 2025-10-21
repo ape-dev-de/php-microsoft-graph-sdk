@@ -25,7 +25,7 @@ class DeviceCompliancePolicySettingState
         /** Contributing policies */
         public array $sources = [],
         /**  */
-        public ?string $state = null,
+        public ?ComplianceStatus $state = null,
         /** UserEmail */
         public ?string $userEmail = null,
         /** UserId */

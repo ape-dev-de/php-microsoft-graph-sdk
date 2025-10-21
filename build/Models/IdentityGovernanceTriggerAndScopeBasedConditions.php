@@ -11,8 +11,8 @@ class IdentityGovernanceTriggerAndScopeBasedConditions
 {
     public function __construct(
         /** Defines who the workflow runs for. */
-        public ?string $scope = null,
+        public ?SubjectSet $scope = null,
         /** What triggers a workflow to run. */
-        public ?string $trigger = null
+        public ?IdentityGovernanceWorkflowExecutionTrigger $trigger = null
     ) {}
 }

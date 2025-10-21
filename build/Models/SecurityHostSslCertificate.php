@@ -19,8 +19,8 @@ class SecurityHostSslCertificate
         /** The ports related with this hostSslCertificate. */
         public array $ports = [],
         /** The host for this hostSslCertificate. */
-        public ?string $host = null,
+        public ?SecurityHost $host = null,
         /** The sslCertificate for this hostSslCertificate. */
-        public ?string $sslCertificate = null
+        public ?SecuritySslCertificate $sslCertificate = null
     ) {}
 }

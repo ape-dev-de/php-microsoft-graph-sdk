@@ -17,7 +17,7 @@ class VirtualEventRegistration
         /** Email address of the registrant. */
         public ?string $email = null,
         /** The external information for a virtual event registration. */
-        public ?string $externalRegistrationInformation = null,
+        public ?VirtualEventExternalRegistrationInformation $externalRegistrationInformation = null,
         /** First name of the registrant. */
         public ?string $firstName = null,
         /** Last name of the registrant. */
@@ -31,7 +31,7 @@ class VirtualEventRegistration
         /** The registrant's answer to the registration questions. */
         public array $registrationQuestionAnswers = [],
         /** Registration status of the registrant. Read-only. Possible values are registered, canceled, waitlisted, pendingApproval, rejectedByOrganizer, and unknownFutureValue. */
-        public ?string $status = null,
+        public ?VirtualEventAttendeeRegistrationStatus $status = null,
         /** The registrant's ID in Microsoft Entra ID. Only appears when the registrant is registered in Microsoft Entra ID. */
         public ?string $userId = null,
         /** Sessions for a registration. */

@@ -15,6 +15,6 @@ class CoachmarkLocation
         /** Offset of coachmark. */
         public ?float $offset = null,
         /** Type of coachmark location. The possible values are: unknown, fromEmail, subject, externalTag, displayName, messageBody, unknownFutureValue. */
-        public ?string $type = null
+        public ?CoachmarkLocationType $type = null
     ) {}
 }

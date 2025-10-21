@@ -15,6 +15,6 @@ class ParticipantLeftNotification
         /** ID of the participant under the policy who has left the meeting. */
         public ?string $participantId = null,
         /**  */
-        public ?string $call = null
+        public ?Call $call = null
     ) {}
 }

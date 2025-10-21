@@ -23,18 +23,18 @@ class AccessPackageAssignmentRequest
         /** The requestor's supplied justification. */
         public ?string $justification = null,
         /** The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. Requests from the user have a requestType of userAdd, userUpdate, or userRemove. This property can't be changed once set. */
-        public ?string $requestType = null,
+        public ?AccessPackageRequestType $requestType = null,
         /** The range of dates that access is to be assigned to the requestor. This property can't be changed once set, but a new schedule for an assignment can be included in another userUpdate or UserExtend or adminUpdate assignment request. */
-        public ?string $schedule = null,
+        public ?EntitlementManagementSchedule $schedule = null,
         /** The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. Supports $filter (eq). */
-        public ?string $state = null,
+        public ?AccessPackageRequestState $state = null,
         /** More information on the request processing status. Read-only. */
         public ?string $status = null,
         /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand. */
-        public ?string $accessPackage = null,
+        public ?AccessPackage $accessPackage = null,
         /** For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created. For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
-        public ?string $assignment = null,
+        public ?AccessPackageAssignment $assignment = null,
         /** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand. */
-        public ?string $requestor = null
+        public ?AccessPackageSubject $requestor = null
     ) {}
 }

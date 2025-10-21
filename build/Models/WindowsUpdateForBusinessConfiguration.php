@@ -29,19 +29,19 @@ class WindowsUpdateForBusinessConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported. */
         public ?bool $allowWindows11Upgrade = null,
         /**  */
-        public ?string $automaticUpdateMode = null,
+        public ?AutomaticUpdateMode $automaticUpdateMode = null,
         /**  */
-        public ?string $autoRestartNotificationDismissal = null,
+        public ?AutoRestartNotificationDismissalMethod $autoRestartNotificationDismissal = null,
         /**  */
-        public ?string $businessReadyUpdatesOnly = null,
+        public ?WindowsUpdateType $businessReadyUpdatesOnly = null,
         /** Number of days before feature updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported. */
         public ?float $deadlineForFeatureUpdatesInDays = null,
         /** Number of days before quality updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported. */
@@ -49,7 +49,7 @@ class WindowsUpdateForBusinessConfiguration
         /** Number of days after deadline until restarts occur automatically with valid range from 0 to 7 days. Returned by default. Query parameters are not supported. */
         public ?float $deadlineGracePeriodInDays = null,
         /**  */
-        public ?string $deliveryOptimizationMode = null,
+        public ?WindowsDeliveryOptimizationMode $deliveryOptimizationMode = null,
         /** When TRUE, excludes Windows update Drivers. When FALSE, does not exclude Windows update Drivers. Returned by default. Query parameters are not supported. */
         public ?bool $driversExcluded = null,
         /** Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days. Returned by default. Query parameters are not supported. */
@@ -73,13 +73,13 @@ class WindowsUpdateForBusinessConfiguration
         /** When TRUE, rollback Feature Updates on the next device check in. When FALSE, do not rollback Feature Updates on the next device check in. Returned by default.Query parameters are not supported. */
         public ?bool $featureUpdatesWillBeRolledBack = null,
         /** The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported. */
-        public ?string $installationSchedule = null,
+        public ?WindowsUpdateInstallScheduleType $installationSchedule = null,
         /** When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported. */
         public ?bool $microsoftUpdateServiceAllowed = null,
         /** When TRUE the device should wait until deadline for rebooting outside of active hours. When FALSE the device should not wait until deadline for rebooting outside of active hours. Returned by default. Query parameters are not supported. */
         public ?bool $postponeRebootUntilAfterDeadline = null,
         /**  */
-        public ?string $prereleaseFeatures = null,
+        public ?PrereleaseFeatures $prereleaseFeatures = null,
         /** Defer Quality Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported. */
         public ?float $qualityUpdatesDeferralPeriodInDays = null,
         /** When TRUE, assigned devices are paused from receiving quality updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Quality Updates. Returned by default. Query parameters are not supported. */
@@ -99,12 +99,12 @@ class WindowsUpdateForBusinessConfiguration
         /** When TRUE, skips all checks before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc. When FALSE, does not skip all checks before restart. Returned by default. Query parameters are not supported. */
         public ?bool $skipChecksBeforeRestart = null,
         /**  */
-        public ?string $updateNotificationLevel = null,
+        public ?WindowsUpdateNotificationDisplayOption $updateNotificationLevel = null,
         /** Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue. */
-        public ?string $updateWeeks = null,
+        public ?WindowsUpdateForBusinessUpdateWeeks $updateWeeks = null,
         /**  */
-        public ?string $userPauseAccess = null,
+        public ?Enablement $userPauseAccess = null,
         /**  */
-        public ?string $userWindowsUpdateScanAccess = null
+        public ?Enablement $userWindowsUpdateScanAccess = null
     ) {}
 }

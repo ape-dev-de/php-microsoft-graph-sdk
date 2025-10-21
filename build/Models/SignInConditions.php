@@ -11,24 +11,24 @@ class SignInConditions
 {
     public function __construct(
         /** Type of authentication flow. The possible value is: deviceCodeFlow or authenticationTransfer. Default value is none. */
-        public ?string $authenticationFlow = null,
+        public ?AuthenticationFlow $authenticationFlow = null,
         /** Client application type. The possible value is: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other, unknownFutureValue. Default value is all. */
-        public ?string $clientAppType = null,
+        public ?ConditionalAccessClientApp $clientAppType = null,
         /** Country from where the identity is authenticating. */
         public ?string $country = null,
         /** Information about the device used for the sign-in. */
-        public ?string $deviceInfo = null,
+        public ?DeviceInfo $deviceInfo = null,
         /** Device platform. The possible value is: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux. Default value is all. */
-        public ?string $devicePlatform = null,
+        public ?ConditionalAccessDevicePlatform $devicePlatform = null,
         /** Insider risk associated with the authenticating user. The possible value is: none, minor, moderate, elevated, unknownFutureValue. Default value is none. */
-        public ?string $insiderRiskLevel = null,
+        public ?InsiderRiskLevel $insiderRiskLevel = null,
         /** Ip address of the authenticating identity. */
         public ?string $ipAddress = null,
         /** Risk associated with the service principal. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none. */
-        public ?string $servicePrincipalRiskLevel = null,
+        public ?RiskLevel $servicePrincipalRiskLevel = null,
         /** Sign-in risk associated with the user. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none. */
-        public ?string $signInRiskLevel = null,
+        public ?RiskLevel $signInRiskLevel = null,
         /** The authenticating user's risk level. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none. */
-        public ?string $userRiskLevel = null
+        public ?RiskLevel $userRiskLevel = null
     ) {}
 }

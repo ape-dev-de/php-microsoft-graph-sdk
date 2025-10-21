@@ -27,7 +27,7 @@ class AccessPackageResource
         /** The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup. */
         public ?string $originSystem = null,
         /** Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand. */
-        public ?string $environment = null,
+        public ?AccessPackageResourceEnvironment $environment = null,
         /** Read-only. Nullable. Supports $expand. */
         public array $roles = [],
         /** Read-only. Nullable. Supports $expand. */

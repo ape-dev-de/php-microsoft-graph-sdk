@@ -33,7 +33,7 @@ class AccessReviewScheduleSettings
         /** Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property. */
         public ?bool $recommendationsEnabled = null,
         /** Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts. */
-        public ?string $recurrence = null,
+        public ?PatternedRecurrence $recurrence = null,
         /** Indicates whether reminders are enabled or disabled. Default value is false. */
         public ?bool $reminderNotificationsEnabled = null
     ) {}

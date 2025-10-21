@@ -11,6 +11,6 @@ class TrainingSetting
 {
     public function __construct(
         /** Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue. */
-        public ?string $settingType = null
+        public ?TrainingSettingType $settingType = null
     ) {}
 }

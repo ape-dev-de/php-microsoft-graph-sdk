@@ -13,12 +13,12 @@ class UserTrainingEventInfo
         /** Display name of the training. */
         public ?string $displayName = null,
         /** Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue. */
-        public ?string $latestTrainingStatus = null,
+        public ?TrainingStatus $latestTrainingStatus = null,
         /** Event details of the training when it was assigned to the user. */
-        public ?string $trainingAssignedProperties = null,
+        public ?UserTrainingContentEventInfo $trainingAssignedProperties = null,
         /** Event details of the training when it was completed by the user. */
-        public ?string $trainingCompletedProperties = null,
+        public ?UserTrainingContentEventInfo $trainingCompletedProperties = null,
         /** Event details of the training when it was updated/in-progress by the user. */
-        public ?string $trainingUpdatedProperties = null
+        public ?UserTrainingContentEventInfo $trainingUpdatedProperties = null
     ) {}
 }

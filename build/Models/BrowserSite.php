@@ -17,7 +17,7 @@ class BrowserSite
         /** The comment for the site. */
         public ?string $comment = null,
         /**  */
-        public ?string $compatibilityMode = null,
+        public ?BrowserSiteCompatibilityMode $compatibilityMode = null,
         /** The date and time when the site was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The date and time when the site was deleted. */
@@ -25,15 +25,15 @@ class BrowserSite
         /** The history of modifications applied to the site. */
         public array $history = [],
         /** The user who last modified the site. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** The date and time when the site was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /**  */
-        public ?string $mergeType = null,
+        public ?BrowserSiteMergeType $mergeType = null,
         /**  */
-        public ?string $status = null,
+        public ?BrowserSiteStatus $status = null,
         /**  */
-        public ?string $targetEnvironment = null,
+        public ?BrowserSiteTargetEnvironment $targetEnvironment = null,
         /** The URL of the site. */
         public ?string $webUrl = null
     ) {}

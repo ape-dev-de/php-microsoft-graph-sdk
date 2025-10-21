@@ -25,7 +25,7 @@ class ManagedIOSStoreApp
         /** The value indicating whether the app is marked as featured by the admin. */
         public ?bool $isFeatured = null,
         /** The large icon, to be displayed in the app details and used for upload of the icon. */
-        public ?string $largeIcon = null,
+        public ?MimeContent $largeIcon = null,
         /** The date and time the app was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Notes for the app. */
@@ -37,22 +37,22 @@ class ManagedIOSStoreApp
         /** The publisher of the app. */
         public ?string $publisher = null,
         /**  */
-        public ?string $publishingState = null,
+        public ?MobileAppPublishingState $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
         /** The list of categories for this app. */
         public array $categories = [],
         /**  */
-        public ?string $appAvailability = null,
+        public ?ManagedAppAvailability $appAvailability = null,
         /** The Application's version. */
         public ?string $version = null,
         /**  */
-        public ?string $applicableDeviceType = null,
+        public ?IosDeviceType $applicableDeviceType = null,
         /** The Apple AppStoreUrl. */
         public ?string $appStoreUrl = null,
         /** The app's Bundle ID. */
         public ?string $bundleId = null,
         /**  */
-        public ?string $minimumSupportedOperatingSystem = null
+        public ?IosMinimumOperatingSystem $minimumSupportedOperatingSystem = null
     ) {}
 }

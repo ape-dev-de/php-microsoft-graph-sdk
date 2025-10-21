@@ -19,18 +19,18 @@ class UserExperienceAnalyticsBaseline
         /** When TRUE, indicates the current baseline is the commercial median baseline. When FALSE, indicates it is a custom baseline. FALSE by default. */
         public ?bool $isBuiltIn = null,
         /** The scores and insights for the application health metrics. */
-        public ?string $appHealthMetrics = null,
+        public ?UserExperienceAnalyticsCategory $appHealthMetrics = null,
         /** The scores and insights for the battery health metrics. */
-        public ?string $batteryHealthMetrics = null,
+        public ?UserExperienceAnalyticsCategory $batteryHealthMetrics = null,
         /** The scores and insights for the best practices metrics. */
-        public ?string $bestPracticesMetrics = null,
+        public ?UserExperienceAnalyticsCategory $bestPracticesMetrics = null,
         /** The scores and insights for the device boot performance metrics. */
-        public ?string $deviceBootPerformanceMetrics = null,
+        public ?UserExperienceAnalyticsCategory $deviceBootPerformanceMetrics = null,
         /** The scores and insights for the reboot analytics metrics. */
-        public ?string $rebootAnalyticsMetrics = null,
+        public ?UserExperienceAnalyticsCategory $rebootAnalyticsMetrics = null,
         /** The scores and insights for the resource performance metrics. */
-        public ?string $resourcePerformanceMetrics = null,
+        public ?UserExperienceAnalyticsCategory $resourcePerformanceMetrics = null,
         /** The scores and insights for the work from anywhere metrics. */
-        public ?string $workFromAnywhereMetrics = null
+        public ?UserExperienceAnalyticsCategory $workFromAnywhereMetrics = null
     ) {}
 }

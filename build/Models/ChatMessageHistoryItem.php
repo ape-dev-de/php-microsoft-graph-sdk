@@ -11,10 +11,10 @@ class ChatMessageHistoryItem
 {
     public function __construct(
         /**  */
-        public ?string $actions = null,
+        public ?ChatMessageActions $actions = null,
         /** The date and time when the message was modified. */
         public ?\DateTimeInterface $modifiedDateTime = null,
         /** The reaction in the modified message. */
-        public ?string $reaction = null
+        public ?ChatMessageReaction $reaction = null
     ) {}
 }

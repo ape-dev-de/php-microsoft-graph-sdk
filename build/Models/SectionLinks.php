@@ -11,8 +11,8 @@ class SectionLinks
 {
     public function __construct(
         /** Opens the section in the OneNote native client if it's installed. */
-        public ?string $oneNoteClientUrl = null,
+        public ?ExternalLink $oneNoteClientUrl = null,
         /** Opens the section in OneNote on the web. */
-        public ?string $oneNoteWebUrl = null
+        public ?ExternalLink $oneNoteWebUrl = null
     ) {}
 }

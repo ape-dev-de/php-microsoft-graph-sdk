@@ -23,7 +23,7 @@ class IdentityGovernanceTopWorkflowsInsightsSummary
         /** Total number of users processed by the workflow. */
         public ?float $totalUsers = null,
         /**  */
-        public ?string $workflowCategory = null,
+        public ?IdentityGovernanceLifecycleWorkflowCategory $workflowCategory = null,
         /** The name of the workflow. */
         public ?string $workflowDisplayName = null,
         /** The workflow ID. */

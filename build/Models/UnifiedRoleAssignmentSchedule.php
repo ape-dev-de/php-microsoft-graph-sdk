@@ -29,20 +29,20 @@ class UnifiedRoleAssignmentSchedule
         /** The status of the role assignment or eligibility request. */
         public ?string $status = null,
         /** Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable. */
-        public ?string $appScope = null,
+        public ?AppScope $appScope = null,
         /** The directory object that is the scope of the role eligibility or assignment. Read-only. */
-        public ?string $directoryScope = null,
+        public ?DirectoryObject $directoryScope = null,
         /** The principal that's getting a role assignment or that's eligible for a role through the request. */
-        public ?string $principal = null,
+        public ?DirectoryObject $principal = null,
         /** Detailed information for the roleDefinition object that is referenced through the roleDefinitionId property. */
-        public ?string $roleDefinition = null,
+        public ?UnifiedRoleDefinition $roleDefinition = null,
         /** The type of the assignment that can either be Assigned or Activated. Supports $filter (eq, ne). */
         public ?string $assignmentType = null,
         /** How the assignment is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne). */
         public ?string $memberType = null,
         /** The period of the role assignment. It can represent a single occurrence or multiple recurrences. */
-        public ?string $scheduleInfo = null,
+        public ?RequestSchedule $scheduleInfo = null,
         /** If the request is from an eligible administrator to activate a role, this parameter shows the related eligible assignment for that activation. Otherwise, it's null. Supports $expand. */
-        public ?string $activatedUsing = null
+        public ?UnifiedRoleEligibilitySchedule $activatedUsing = null
     ) {}
 }

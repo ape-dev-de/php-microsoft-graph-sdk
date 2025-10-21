@@ -15,6 +15,6 @@ class Website
         /** The display name of the web site. */
         public ?string $displayName = null,
         /** The possible values are: other, home, work, blog, profile. */
-        public ?string $type = null
+        public ?WebsiteType $type = null
     ) {}
 }

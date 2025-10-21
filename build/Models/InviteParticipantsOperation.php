@@ -15,9 +15,9 @@ class InviteParticipantsOperation
         /** Unique Client Context string. Max limit is 256 chars. */
         public ?string $clientContext = null,
         /** The result information. Read-only. */
-        public ?string $resultInfo = null,
+        public ?ResultInfo $resultInfo = null,
         /**  */
-        public ?string $status = null,
+        public ?OperationStatus $status = null,
         /** The participants to invite. */
         public array $participants = []
     ) {}

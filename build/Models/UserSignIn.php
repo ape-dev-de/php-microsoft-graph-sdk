@@ -13,7 +13,7 @@ class UserSignIn
         /** TenantId of the guest user as applies to Microsoft Entra B2B scenarios. */
         public ?string $externalTenantId = null,
         /**  */
-        public ?string $externalUserType = null,
+        public ?ConditionalAccessGuestOrExternalUserTypes $externalUserType = null,
         /** Object ID of the user. */
         public ?string $userId = null
     ) {}

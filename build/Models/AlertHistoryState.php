@@ -17,9 +17,9 @@ class AlertHistoryState
         /** @var string[]  */
         public array $comments = [],
         /**  */
-        public ?string $feedback = null,
+        public ?AlertFeedback $feedback = null,
         /**  */
-        public ?string $status = null,
+        public ?AlertStatus $status = null,
         /**  */
         public ?\DateTimeInterface $updatedDateTime = null,
         /**  */

@@ -11,7 +11,7 @@ class WindowsUpdateScheduledInstall
 {
     public function __construct(
         /**  */
-        public ?string $scheduledInstallDay = null,
+        public ?WeeklySchedule $scheduledInstallDay = null,
         /** Scheduled Install Time during day */
         public ?string $scheduledInstallTime = null
     ) {}

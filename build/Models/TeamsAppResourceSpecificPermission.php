@@ -11,7 +11,7 @@ class TeamsAppResourceSpecificPermission
 {
     public function __construct(
         /** The type of resource-specific permission. */
-        public ?string $permissionType = null,
+        public ?TeamsAppResourceSpecificPermissionType $permissionType = null,
         /** The name of the resource-specific permission. */
         public ?string $permissionValue = null
     ) {}

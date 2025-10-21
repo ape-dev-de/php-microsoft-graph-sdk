@@ -31,6 +31,6 @@ class SecureScore
         /** Tenant maximum possible score on specified date. */
         public ?string $maxScore = null,
         /** Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required. */
-        public ?string $vendorInformation = null
+        public ?SecurityVendorInformation $vendorInformation = null
     ) {}
 }

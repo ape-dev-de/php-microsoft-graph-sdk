@@ -13,6 +13,6 @@ class WorkbookFilter
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The currently applied filter on the given column. Read-only. */
-        public ?string $criteria = null
+        public ?WorkbookFilterCriteria $criteria = null
     ) {}
 }

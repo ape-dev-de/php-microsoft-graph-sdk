@@ -35,7 +35,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
         /** The name of the device. Supports: $select, $OrderBy. Read-only. */
         public ?string $deviceName = null,
         /**  */
-        public ?string $healthStatus = null,
+        public ?UserExperienceAnalyticsHealthState $healthStatus = null,
         /** When TRUE, indicates the device's Cloud Management Gateway for Configuration Manager is enabled. When FALSE, indicates it's not enabled. Supports: $select, $OrderBy. Read-only. */
         public ?bool $isCloudManagedGatewayEnabled = null,
         /** The management agent of the device. Supports: $select, $OrderBy. Read-only. */
@@ -75,7 +75,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
         /** When TRUE, indicates Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows. When FALSE, indicates the check succeeded. Supports: $select, $OrderBy. Read-only. */
         public ?bool $tpmCheckFailed = null,
         /**  */
-        public ?string $upgradeEligibility = null,
+        public ?OperatingSystemUpgradeEligibility $upgradeEligibility = null,
         /** Indicates per device windows score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
         public ?string $windowsScore = null,
         /** Indicates work from anywhere per device overall score. Valid values 0 to 100. Value -1 means associated score is unavailable. Supports: $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */

@@ -11,6 +11,6 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp
 {
     public function __construct(
         /** The type of user to create. Maps to userType property of user object. The possible values are: member, guest, unknownFutureValue. */
-        public ?string $userTypeToCreate = null
+        public ?UserType $userTypeToCreate = null
     ) {}
 }

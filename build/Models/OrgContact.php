@@ -47,7 +47,7 @@ class OrgContact
         /** The contact's direct reports. (The users and contacts that have their manager property set to this contact.)  Read-only. Nullable. Supports $expand. */
         public array $directReports = [],
         /** The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id. */
-        public ?string $manager = null,
+        public ?DirectoryObject $manager = null,
         /** Groups that this contact is a member of. Read-only. Nullable. Supports $expand. */
         public array $memberOf = [],
         /** Groups that this contact is a member of, including groups that the contact is nested under. Read-only. Nullable. */

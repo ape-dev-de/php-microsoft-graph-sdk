@@ -13,9 +13,9 @@ class ParticipantInfo
         /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
         public ?string $countryCode = null,
         /** The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only. */
-        public ?string $endpointType = null,
+        public ?EndpointType $endpointType = null,
         /**  */
-        public ?string $identity = null,
+        public ?IdentitySet $identity = null,
         /** The language culture string. Read-only. */
         public ?string $languageId = null,
         /** The participant ID of the participant. Read-only. */

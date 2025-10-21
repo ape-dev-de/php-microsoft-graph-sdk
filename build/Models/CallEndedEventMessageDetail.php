@@ -13,12 +13,12 @@ class CallEndedEventMessageDetail
         /** Duration of the call. */
         public ?string $callDuration = null,
         /** Represents the call event type. Possible values are: call, meeting, screenShare, unknownFutureValue. */
-        public ?string $callEventType = null,
+        public ?TeamworkCallEventType $callEventType = null,
         /** Unique identifier of the call. */
         public ?string $callId = null,
         /** List of call participants. */
         public array $callParticipants = [],
         /** Initiator of the event. */
-        public ?string $initiator = null
+        public ?IdentitySet $initiator = null
     ) {}
 }

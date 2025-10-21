@@ -13,12 +13,12 @@ class DelegatedAdminRelationshipRequest
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $action = null,
+        public ?DelegatedAdminRelationshipRequestAction $action = null,
         /** The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The date and time in ISO 8601 format and UTC time when this relationship request was last modified. Read-only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue. */
-        public ?string $status = null
+        public ?DelegatedAdminRelationshipRequestStatus $status = null
     ) {}
 }

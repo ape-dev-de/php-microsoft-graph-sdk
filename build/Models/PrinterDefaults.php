@@ -11,7 +11,7 @@ class PrinterDefaults
 {
     public function __construct(
         /** The default color mode to use when printing the document. Valid values are described in the following table. */
-        public ?string $colorMode = null,
+        public ?PrintColorMode $colorMode = null,
         /** The default content (MIME) type to use when processing documents. */
         public ?string $contentType = null,
         /** The default number of copies printed per job. */
@@ -19,7 +19,7 @@ class PrinterDefaults
         /** The default resolution in DPI to use when printing the job. */
         public ?float $dpi = null,
         /** The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table. */
-        public ?string $duplexMode = null,
+        public ?PrintDuplexMode $duplexMode = null,
         /** The default set of finishings to apply to print jobs. Valid values are described in the following table. */
         public array $finishings = [],
         /** The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions. */
@@ -33,16 +33,16 @@ class PrinterDefaults
         /** The default media (such as paper) type to print the document on. */
         public ?string $mediaType = null,
         /** The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
-        public ?string $multipageLayout = null,
+        public ?PrintMultipageLayout $multipageLayout = null,
         /** The default orientation to use when printing the document. Valid values are described in the following table. */
-        public ?string $orientation = null,
+        public ?PrintOrientation $orientation = null,
         /** The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
         public ?string $outputBin = null,
         /** The default number of document pages to print on each sheet. */
         public ?float $pagesPerSheet = null,
         /** The default quality to use when printing the document. Valid values are described in the following table. */
-        public ?string $quality = null,
+        public ?PrintQuality $quality = null,
         /** Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table. */
-        public ?string $scaling = null
+        public ?PrintScaling $scaling = null
     ) {}
 }

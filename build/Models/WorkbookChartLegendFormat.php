@@ -13,8 +13,8 @@ class WorkbookChartLegendFormat
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents the fill format of an object, which includes background formating information. Read-only. */
-        public ?string $fill = null,
+        public ?WorkbookChartFill $fill = null,
         /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
-        public ?string $font = null
+        public ?WorkbookChartFont $font = null
     ) {}
 }

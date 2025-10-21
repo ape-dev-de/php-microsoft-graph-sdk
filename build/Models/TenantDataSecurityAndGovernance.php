@@ -15,6 +15,6 @@ class TenantDataSecurityAndGovernance
         /**  */
         public array $sensitivityLabels = [],
         /**  */
-        public ?string $protectionScopes = null
+        public ?TenantProtectionScopeContainer $protectionScopes = null
     ) {}
 }

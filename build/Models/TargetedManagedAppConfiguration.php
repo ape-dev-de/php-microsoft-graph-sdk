@@ -33,6 +33,6 @@ class TargetedManagedAppConfiguration
         /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
         public array $assignments = [],
         /** Navigation property to deployment summary of the configuration. */
-        public ?string $deploymentSummary = null
+        public ?ManagedAppPolicyDeploymentSummary $deploymentSummary = null
     ) {}
 }

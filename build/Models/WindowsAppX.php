@@ -25,7 +25,7 @@ class WindowsAppX
         /** The value indicating whether the app is marked as featured by the admin. */
         public ?bool $isFeatured = null,
         /** The large icon, to be displayed in the app details and used for upload of the icon. */
-        public ?string $largeIcon = null,
+        public ?MimeContent $largeIcon = null,
         /** The date and time the app was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Notes for the app. */
@@ -37,7 +37,7 @@ class WindowsAppX
         /** The publisher of the app. */
         public ?string $publisher = null,
         /**  */
-        public ?string $publishingState = null,
+        public ?MobileAppPublishingState $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
         /** The list of categories for this app. */
@@ -51,7 +51,7 @@ class WindowsAppX
         /** The list of content versions for this app. */
         public array $contentVersions = [],
         /**  */
-        public ?string $applicableArchitectures = null,
+        public ?WindowsArchitecture $applicableArchitectures = null,
         /** The identity name of the uploaded app package. For example: 'Contoso.DemoApp'. */
         public ?string $identityName = null,
         /** The identity publisher hash of the uploaded app package. This is the hash of the publisher from the manifest. For example: 'AB82CD0XYZ'. */
@@ -63,6 +63,6 @@ class WindowsAppX
         /** When TRUE, indicates that the app is a bundle. When FALSE, indicates that the app is not a bundle. By default, property is set to FALSE. */
         public ?bool $isBundle = null,
         /**  */
-        public ?string $minimumSupportedOperatingSystem = null
+        public ?WindowsMinimumOperatingSystem $minimumSupportedOperatingSystem = null
     ) {}
 }

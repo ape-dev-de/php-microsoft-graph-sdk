@@ -27,7 +27,7 @@ class OnenotePage
         /** The indentation level of the page. Read-only. */
         public ?float $level = null,
         /** Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only. */
-        public ?string $links = null,
+        public ?PageLinks $links = null,
         /** The order of the page within its parent section. Read-only. */
         public ?float $order = null,
         /** The title of the page. */
@@ -35,8 +35,8 @@ class OnenotePage
         /** @var string[]  */
         public array $userTags = [],
         /** The notebook that contains the page.  Read-only. */
-        public ?string $parentNotebook = null,
+        public ?Notebook $parentNotebook = null,
         /** The section that contains the page. Read-only. */
-        public ?string $parentSection = null
+        public ?OnenoteSection $parentSection = null
     ) {}
 }

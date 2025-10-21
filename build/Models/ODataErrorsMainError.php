@@ -19,6 +19,6 @@ class ODataErrorsMainError
         /**  */
         public array $details = [],
         /**  */
-        public ?string $innerError = null
+        public ?ODataErrorsInnerError $innerError = null
     ) {}
 }

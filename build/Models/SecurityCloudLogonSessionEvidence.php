@@ -15,7 +15,7 @@ class SecurityCloudLogonSessionEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,9 +23,9 @@ class SecurityCloudLogonSessionEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The account associated with the sign-in session. */
-        public ?string $account = null,
+        public ?SecurityUserEvidence $account = null,
         /** The browser that is used for the sign-in, if known. */
         public ?string $browser = null,
         /** The friendly name of the device, if known. */

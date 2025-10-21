@@ -15,6 +15,6 @@ class AuthenticationMethodTarget
         /** Determines if the user is enforced to register the authentication method. */
         public ?bool $isRegistrationRequired = null,
         /**  */
-        public ?string $targetType = null
+        public ?AuthenticationMethodTargetType $targetType = null
     ) {}
 }

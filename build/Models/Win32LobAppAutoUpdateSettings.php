@@ -11,6 +11,6 @@ class Win32LobAppAutoUpdateSettings
 {
     public function __construct(
         /**  */
-        public ?string $autoUpdateSupersededAppsState = null
+        public ?Win32LobAutoUpdateSupersededAppsState $autoUpdateSupersededAppsState = null
     ) {}
 }

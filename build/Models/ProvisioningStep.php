@@ -13,12 +13,12 @@ class ProvisioningStep
         /** Summary of what occurred during the step. */
         public ?string $description = null,
         /** Details of what occurred during the step. */
-        public ?string $details = null,
+        public ?DetailsInfo $details = null,
         /** Name of the step. */
         public ?string $name = null,
         /** Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue. */
-        public ?string $provisioningStepType = null,
+        public ?ProvisioningStepType $provisioningStepType = null,
         /** Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue. */
-        public ?string $status = null
+        public ?ProvisioningResult $status = null
     ) {}
 }

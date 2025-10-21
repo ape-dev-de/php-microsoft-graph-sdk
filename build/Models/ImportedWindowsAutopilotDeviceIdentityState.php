@@ -15,7 +15,7 @@ class ImportedWindowsAutopilotDeviceIdentityState
         /** Device error name reported by Device Directory Service(DDS). */
         public ?string $deviceErrorName = null,
         /**  */
-        public ?string $deviceImportStatus = null,
+        public ?ImportedWindowsAutopilotDeviceIdentityImportStatus $deviceImportStatus = null,
         /** Device Registration ID for successfully added device reported by Device Directory Service(DDS). */
         public ?string $deviceRegistrationId = null
     ) {}

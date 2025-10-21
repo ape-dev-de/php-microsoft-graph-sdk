@@ -13,7 +13,7 @@ class DriveItem
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Identity of the user, device, or application that created the item. Read-only. */
-        public ?string $createdBy = null,
+        public ?IdentitySet $createdBy = null,
         /** Date and time of item creation. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Provides a user-visible description of the item. Optional. */
@@ -21,77 +21,77 @@ class DriveItem
         /** ETag for the item. Read-only. */
         public ?string $eTag = null,
         /** Identity of the user, device, and application that last modified the item. Read-only. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** Date and time the item was last modified. Read-only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The name of the item. Read-write. */
         public ?string $name = null,
         /** Parent information, if the item has a parent. Read-write. */
-        public ?string $parentReference = null,
+        public ?ItemReference $parentReference = null,
         /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
         public ?string $webUrl = null,
         /** Identity of the user who created the item. Read-only. */
-        public ?string $createdByUser = null,
+        public ?User $createdByUser = null,
         /** Identity of the user who last modified the item. Read-only. */
-        public ?string $lastModifiedByUser = null,
+        public ?User $lastModifiedByUser = null,
         /** Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal. */
-        public ?string $audio = null,
+        public ?Audio $audio = null,
         /** Bundle metadata, if the item is a bundle. Read-only. */
-        public ?string $bundle = null,
+        public ?Bundle $bundle = null,
         /** The content stream, if the item represents a file. */
         public ?string $content = null,
         /** An eTag for the content of the item. This eTag isn't changed if only the metadata is changed. Note This property isn't returned if the item is a folder. Read-only. */
         public ?string $cTag = null,
         /** Information about the deleted state of the item. Read-only. */
-        public ?string $deleted = null,
+        public ?Deleted $deleted = null,
         /** File metadata, if the item is a file. Read-only. */
-        public ?string $file = null,
+        public ?File $file = null,
         /** File system information on client. Read-write. */
-        public ?string $fileSystemInfo = null,
+        public ?FileSystemInfo $fileSystemInfo = null,
         /** Folder metadata, if the item is a folder. Read-only. */
-        public ?string $folder = null,
+        public ?Folder $folder = null,
         /** Image metadata, if the item is an image. Read-only. */
-        public ?string $image = null,
+        public ?Image $image = null,
         /** Location metadata, if the item has location data. Read-only. */
-        public ?string $location = null,
+        public ?GeoCoordinates $location = null,
         /** Malware metadata, if the item was detected to contain malware. Read-only. */
-        public ?string $malware = null,
+        public ?Malware $malware = null,
         /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
-        public ?string $package = null,
+        public ?Package $package = null,
         /** If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only. */
-        public ?string $pendingOperations = null,
+        public ?PendingOperations $pendingOperations = null,
         /** Photo metadata, if the item is a photo. Read-only. */
-        public ?string $photo = null,
+        public ?Photo $photo = null,
         /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property isn't returned by default. Read-only. */
-        public ?string $publication = null,
+        public ?PublicationFacet $publication = null,
         /** Remote item data, if the item is shared from a drive other than the one being accessed. Read-only. */
-        public ?string $remoteItem = null,
+        public ?RemoteItem $remoteItem = null,
         /** If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive. */
-        public ?string $root = null,
+        public ?Root $root = null,
         /** Search metadata, if the item is from a search result. Read-only. */
-        public ?string $searchResult = null,
+        public ?SearchResult $searchResult = null,
         /** Indicates that the item was shared with others and provides information about the shared state of the item. Read-only. */
-        public ?string $shared = null,
+        public ?Shared $shared = null,
         /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-        public ?string $sharepointIds = null,
+        public ?SharepointIds $sharepointIds = null,
         /** Size of the item in bytes. Read-only. */
         public ?float $size = null,
         /** If the current item is also available as a special folder, this facet is returned. Read-only. */
-        public ?string $specialFolder = null,
+        public ?SpecialFolder $specialFolder = null,
         /** Video metadata, if the item is a video. Read-only. */
-        public ?string $video = null,
+        public ?Video $video = null,
         /** WebDAV compatible URL for the item. */
         public ?string $webDavUrl = null,
         /** Analytics about the view activities that took place on this item. */
-        public ?string $analytics = null,
+        public ?ItemAnalytics $analytics = null,
         /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable. */
         public array $children = [],
         /** For drives in SharePoint, the associated document library list item. Read-only. Nullable. */
-        public ?string $listItem = null,
+        public ?ListItem $listItem = null,
         /** The set of permissions for the item. Read-only. Nullable. */
         public array $permissions = [],
         /** Information about retention label and settings enforced on the driveItem. Read-write. */
-        public ?string $retentionLabel = null,
+        public ?ItemRetentionLabel $retentionLabel = null,
         /** The set of subscriptions on the item. Only supported on the root of a drive. */
         public array $subscriptions = [],
         /** Collection of thumbnailSet objects associated with the item. For more information, see getting thumbnails. Read-only. Nullable. */
@@ -99,6 +99,6 @@ class DriveItem
         /** The list of previous versions of the item. For more info, see getting previous versions. Read-only. Nullable. */
         public array $versions = [],
         /** For files that are Excel spreadsheets, access to the workbook API to work with the spreadsheet's contents. Nullable. */
-        public ?string $workbook = null
+        public ?Workbook $workbook = null
     ) {}
 }

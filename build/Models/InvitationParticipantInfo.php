@@ -13,7 +13,7 @@ class InvitationParticipantInfo
         /** Optional. Whether to hide the participant from the roster. */
         public ?bool $hidden = null,
         /**  */
-        public ?string $identity = null,
+        public ?IdentitySet $identity = null,
         /** Optional. The ID of the target participant. */
         public ?string $participantId = null,
         /** Optional. Whether to remove them from the main mixer. */

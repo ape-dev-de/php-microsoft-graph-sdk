@@ -11,6 +11,6 @@ class SiteArchivalDetails
 {
     public function __construct(
         /** Represents the current archive status of the site collection. Returned only on $select. The possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue. */
-        public ?string $archiveStatus = null
+        public ?SiteArchiveStatus $archiveStatus = null
     ) {}
 }

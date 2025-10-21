@@ -11,6 +11,6 @@ class CallRecordsEndpoint
 {
     public function __construct(
         /** User-agent reported by this endpoint. */
-        public ?string $userAgent = null
+        public ?CallRecordsUserAgent $userAgent = null
     ) {}
 }

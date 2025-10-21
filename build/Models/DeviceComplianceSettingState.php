@@ -25,7 +25,7 @@ class DeviceComplianceSettingState
         /** The Setting Name that is being reported */
         public ?string $settingName = null,
         /**  */
-        public ?string $state = null,
+        public ?ComplianceStatus $state = null,
         /** The User email address that is being reported */
         public ?string $userEmail = null,
         /** The user Id that is being reported */

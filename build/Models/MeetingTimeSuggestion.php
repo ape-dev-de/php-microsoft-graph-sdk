@@ -17,11 +17,11 @@ class MeetingTimeSuggestion
         /** An array that specifies the name and geographic location of each meeting location for this meeting suggestion. */
         public array $locations = [],
         /** A time period suggested for the meeting. */
-        public ?string $meetingTimeSlot = null,
+        public ?TimeSlot $meetingTimeSlot = null,
         /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence. */
         public ?float $order = null,
         /** Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-        public ?string $organizerAvailability = null,
+        public ?FreeBusyStatus $organizerAvailability = null,
         /** Reason for suggesting the meeting time. */
         public ?string $suggestionReason = null
     ) {}

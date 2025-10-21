@@ -17,7 +17,7 @@ class Fido2AuthenticationMethod
         /** @var string[] The attestation certificate(s) attached to this security key. */
         public array $attestationCertificates = [],
         /** The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested. */
-        public ?string $attestationLevel = null,
+        public ?AttestationLevel $attestationLevel = null,
         /** The timestamp when this key was registered to the user. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The display name of the key as given by the user. */

@@ -25,7 +25,7 @@ class PermissionGrantConditionSet
         /** @var string[] The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the oauth2PermissionScopes property of the API's servicePrincipal object. The id of application permissions can be found in the appRoles property of the API's servicePrincipal object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's servicePrincipal object. Default is the single value all. */
         public array $permissions = [],
         /** The permission type of the permission being granted. Possible values: application for application permissions (for example app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions that haven't been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but can't be used in custom permission grant policies. Required. */
-        public ?string $permissionType = null,
+        public ?PermissionType $permissionType = null,
         /** The appId of the resource application (for example the API) for which a permission is being granted, or any to match with any resource application or API. Default is any. */
         public ?string $resourceApplication = null
     ) {}

@@ -13,7 +13,7 @@ class CommentAction
         /** If true, this activity was a reply to an existing comment thread. */
         public ?bool $isReply = null,
         /** The identity of the user who started the comment thread. */
-        public ?string $parentAuthor = null,
+        public ?IdentitySet $parentAuthor = null,
         /** The identities of the users participating in this comment thread. */
         public array $participants = []
     ) {}

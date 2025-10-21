@@ -19,6 +19,6 @@ class CustomExtensionCalloutInstance
         /** The unique run identifier for the logic app. */
         public ?string $externalCorrelationId = null,
         /** The status of the request to the custom extension. The possible values are: calloutSent, callbackReceived, calloutFailed, callbackTimedOut, waitingForCallback, unknownFutureValue. */
-        public ?string $status = null
+        public ?CustomExtensionCalloutInstanceStatus $status = null
     ) {}
 }

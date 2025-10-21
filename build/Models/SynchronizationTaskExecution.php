@@ -31,9 +31,9 @@ class SynchronizationTaskExecution
         /** Count of imported delta-changes pertaining to reference changes. */
         public ?float $countImportedReferenceDeltas = null,
         /** If an error was encountered, contains a synchronizationError object with details. */
-        public ?string $error = null,
+        public ?SynchronizationError $error = null,
         /**  */
-        public ?string $state = null,
+        public ?SynchronizationTaskExecutionResult $state = null,
         /** Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
         public ?\DateTimeInterface $timeBegan = null,
         /** Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */

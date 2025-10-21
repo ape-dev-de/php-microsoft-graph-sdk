@@ -33,11 +33,11 @@ class UserActivity
         /** Set by the server. DateTime in UTC when the object was modified on the server. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored. */
-        public ?string $status = null,
+        public ?Status $status = null,
         /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation. */
         public ?string $userTimezone = null,
         /**  */
-        public ?string $visualElements = null,
+        public ?VisualInfo $visualElements = null,
         /** Optional. NavigationProperty/Containment; navigation property to the activity's historyItems. */
         public array $historyItems = []
     ) {}

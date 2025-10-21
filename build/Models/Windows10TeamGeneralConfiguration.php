@@ -29,11 +29,11 @@ class Windows10TeamGeneralConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Indicates whether or not to Block Azure Operational Insights. */
         public ?bool $azureOperationalInsightsBlockTelemetry = null,
         /** The Azure Operational Insights workspace id. */
@@ -51,7 +51,7 @@ class Windows10TeamGeneralConfiguration
         /** Indicates whether or not to Block wireless projection. */
         public ?bool $miracastBlocked = null,
         /**  */
-        public ?string $miracastChannel = null,
+        public ?MiracastChannel $miracastChannel = null,
         /** Indicates whether or not to require a pin for wireless projection. */
         public ?bool $miracastRequirePin = null,
         /** Specifies whether to disable the 'My meetings and files' feature in the Start menu, which shows the signed-in user's meetings and files from Office 365. */
@@ -73,6 +73,6 @@ class Windows10TeamGeneralConfiguration
         /** Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room. */
         public ?bool $welcomeScreenBlockAutomaticWakeUp = null,
         /**  */
-        public ?string $welcomeScreenMeetingInformation = null
+        public ?WelcomeScreenMeetingInformation $welcomeScreenMeetingInformation = null
     ) {}
 }

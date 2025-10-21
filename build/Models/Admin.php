@@ -11,16 +11,16 @@ class Admin
 {
     public function __construct(
         /** A container for Microsoft Edge resources. Read-only. */
-        public ?string $edge = null,
+        public ?Edge $edge = null,
         /** A container for the Microsoft 365 apps admin functionality. */
-        public ?string $microsoft365Apps = null,
+        public ?AdminMicrosoft365Apps $microsoft365Apps = null,
         /** Represents a setting to control people-related admin settings in the tenant. */
-        public ?string $people = null,
+        public ?PeopleAdminSettings $people = null,
         /** A container for administrative resources to manage reports. */
-        public ?string $reportSettings = null,
+        public ?AdminReportSettings $reportSettings = null,
         /** A container for service communications resources. Read-only. */
-        public ?string $serviceAnnouncement = null,
+        public ?ServiceAnnouncement $serviceAnnouncement = null,
         /**  */
-        public ?string $sharepoint = null
+        public ?Sharepoint $sharepoint = null
     ) {}
 }

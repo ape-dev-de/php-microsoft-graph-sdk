@@ -23,7 +23,7 @@ class SecurityHealthIssue
         /** @var string[] A list of the fully qualified domain names of the domains or the sensors the health issue is related to. */
         public array $domainNames = [],
         /** The type of the health issue. The possible values are: sensor, global, unknownFutureValue. For a list of all health issues and their identifiers, see Microsoft Defender for Identity health issues. */
-        public ?string $healthIssueType = null,
+        public ?SecurityHealthIssueType $healthIssueType = null,
         /** The type identifier of the health issue. For a list of all health issues and their identifiers, see Microsoft Defender for Identity health issues. */
         public ?string $issueTypeId = null,
         /** The date and time when the health issue was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
@@ -35,8 +35,8 @@ class SecurityHealthIssue
         /** @var string[] A list of the DNS names of the sensors the health issue is related to. */
         public array $sensorDNSNames = [],
         /** The severity of the health issue. The possible values are: low, medium, high, unknownFutureValue. */
-        public ?string $severity = null,
+        public ?SecurityHealthIssueSeverity $severity = null,
         /** The status of the health issue. The possible values are: open, closed, suppressed, unknownFutureValue. */
-        public ?string $status = null
+        public ?SecurityHealthIssueStatus $status = null
     ) {}
 }

@@ -11,7 +11,7 @@ class InformationProtection
 {
     public function __construct(
         /**  */
-        public ?string $bitlocker = null,
+        public ?Bitlocker $bitlocker = null,
         /**  */
         public array $threatAssessmentRequests = []
     ) {}

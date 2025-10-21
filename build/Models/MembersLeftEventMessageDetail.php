@@ -11,7 +11,7 @@ class MembersLeftEventMessageDetail
 {
     public function __construct(
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** List of members who left the chat. */
         public array $members = []
     ) {}

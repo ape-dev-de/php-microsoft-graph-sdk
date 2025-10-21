@@ -19,7 +19,7 @@ class PrinterCapabilities
         /** @var string[] A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types. */
         public array $contentTypes = [],
         /** The range of copies per job supported by the printer. */
-        public ?string $copiesPerJob = null,
+        public ?IntegerRange $copiesPerJob = null,
         /** @var float[] The list of print resolutions in DPI that are supported by the printer. */
         public array $dpis = [],
         /** The list of duplex modes that are supported by the printer. Valid values are described in the following table. */

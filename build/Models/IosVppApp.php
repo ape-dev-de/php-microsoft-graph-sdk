@@ -25,7 +25,7 @@ class IosVppApp
         /** The value indicating whether the app is marked as featured by the admin. */
         public ?bool $isFeatured = null,
         /** The large icon, to be displayed in the app details and used for upload of the icon. */
-        public ?string $largeIcon = null,
+        public ?MimeContent $largeIcon = null,
         /** The date and time the app was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Notes for the app. */
@@ -37,19 +37,19 @@ class IosVppApp
         /** The publisher of the app. */
         public ?string $publisher = null,
         /**  */
-        public ?string $publishingState = null,
+        public ?MobileAppPublishingState $publishingState = null,
         /** The list of group assignments for this mobile app. */
         public array $assignments = [],
         /** The list of categories for this app. */
         public array $categories = [],
         /** The applicable iOS Device Type. */
-        public ?string $applicableDeviceType = null,
+        public ?IosDeviceType $applicableDeviceType = null,
         /** The store URL. */
         public ?string $appStoreUrl = null,
         /** The Identity Name. */
         public ?string $bundleId = null,
         /** The supported License Type. */
-        public ?string $licensingType = null,
+        public ?VppLicensingType $licensingType = null,
         /** The VPP application release date and time. */
         public ?\DateTimeInterface $releaseDateTime = null,
         /** The total number of VPP licenses. */
@@ -57,7 +57,7 @@ class IosVppApp
         /** The number of VPP licenses in use. */
         public ?float $usedLicenseCount = null,
         /**  */
-        public ?string $vppTokenAccountType = null,
+        public ?VppTokenAccountType $vppTokenAccountType = null,
         /** The Apple Id associated with the given Apple Volume Purchase Program Token. */
         public ?string $vppTokenAppleId = null,
         /** The organization associated with the Apple Volume Purchase Program Token */

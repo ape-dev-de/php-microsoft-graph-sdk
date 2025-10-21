@@ -13,6 +13,6 @@ class MeetingParticipants
         /** Information about the meeting attendees. */
         public array $attendees = [],
         /** Information about the meeting organizer. */
-        public ?string $organizer = null
+        public ?MeetingParticipantInfo $organizer = null
     ) {}
 }

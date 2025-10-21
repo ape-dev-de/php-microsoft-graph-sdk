@@ -19,7 +19,7 @@ class TodoTaskList
         /** True if the task list is shared with other users */
         public ?bool $isShared = null,
         /**  */
-        public ?string $wellknownListName = null,
+        public ?WellknownListName $wellknownListName = null,
         /** The collection of open extensions defined for the task list. Nullable. */
         public array $extensions = [],
         /** The tasks in this task list. Read-only. Nullable. */

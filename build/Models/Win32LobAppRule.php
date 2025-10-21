@@ -11,6 +11,6 @@ class Win32LobAppRule
 {
     public function __construct(
         /**  */
-        public ?string $ruleType = null
+        public ?Win32LobAppRuleType $ruleType = null
     ) {}
 }

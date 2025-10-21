@@ -17,6 +17,6 @@ class ScopedRoleMembership
         /** Unique identifier for the directory role that the member is in. */
         public ?string $roleId = null,
         /**  */
-        public ?string $roleMemberInfo = null
+        public ?Identity $roleMemberInfo = null
     ) {}
 }

@@ -15,7 +15,7 @@ class SignInLocation
         /** Provides the country code info (two letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity. */
         public ?string $countryOrRegion = null,
         /** Provides the latitude, longitude and altitude where the sign-in originated. */
-        public ?string $geoCoordinates = null,
+        public ?GeoCoordinates $geoCoordinates = null,
         /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
         public ?string $state = null
     ) {}

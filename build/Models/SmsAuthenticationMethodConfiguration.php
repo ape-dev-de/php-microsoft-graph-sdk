@@ -15,7 +15,7 @@ class SmsAuthenticationMethodConfiguration
         /** Groups of users that are excluded from a policy. */
         public array $excludeTargets = [],
         /** The state of the policy. Possible values are: enabled, disabled. */
-        public ?string $state = null,
+        public ?AuthenticationMethodState $state = null,
         /** A collection of groups that are enabled to use the authentication method. */
         public array $includeTargets = []
     ) {}

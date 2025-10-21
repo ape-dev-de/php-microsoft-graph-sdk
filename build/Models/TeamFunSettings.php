@@ -17,6 +17,6 @@ class TeamFunSettings
         /** If set to true, enables users to include stickers and memes. */
         public ?bool $allowStickersAndMemes = null,
         /** Giphy content rating. Possible values are: moderate, strict. */
-        public ?string $giphyContentRating = null
+        public ?GiphyRatingType $giphyContentRating = null
     ) {}
 }

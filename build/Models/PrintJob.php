@@ -15,9 +15,9 @@ class PrintJob
         /** The dateTimeOffset when the job was acknowledged. Read-only. */
         public ?\DateTimeInterface $acknowledgedDateTime = null,
         /**  */
-        public ?string $configuration = null,
+        public ?PrintJobConfiguration $configuration = null,
         /**  */
-        public ?string $createdBy = null,
+        public ?UserIdentity $createdBy = null,
         /** The DateTimeOffset when the job was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The error code of the print job. Read-only. */
@@ -29,7 +29,7 @@ class PrintJob
         /** Contains the destination job URL, if the job has been redirected to another printer. */
         public ?string $redirectedTo = null,
         /**  */
-        public ?string $status = null,
+        public ?PrintJobStatus $status = null,
         /**  */
         public array $documents = [],
         /** A list of printTasks that were triggered by this print job. */

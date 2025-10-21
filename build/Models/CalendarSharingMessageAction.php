@@ -11,10 +11,10 @@ class CalendarSharingMessageAction
 {
     public function __construct(
         /**  */
-        public ?string $action = null,
+        public ?CalendarSharingAction $action = null,
         /**  */
-        public ?string $actionType = null,
+        public ?CalendarSharingActionType $actionType = null,
         /**  */
-        public ?string $importance = null
+        public ?CalendarSharingActionImportance $importance = null
     ) {}
 }

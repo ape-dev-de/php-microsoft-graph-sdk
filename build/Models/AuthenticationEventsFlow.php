@@ -13,7 +13,7 @@ class AuthenticationEventsFlow
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.  Supports $filter (eq). See support for filtering on user flows for syntax information. */
-        public ?string $conditions = null,
+        public ?AuthenticationConditions $conditions = null,
         /** The description of the events policy. */
         public ?string $description = null,
         /** Required. The display name for the events policy. */

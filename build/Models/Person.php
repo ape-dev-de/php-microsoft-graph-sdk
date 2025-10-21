@@ -33,7 +33,7 @@ class Person
         /** Free-form notes that the user has taken about this person. */
         public ?string $personNotes = null,
         /** The type of person. */
-        public ?string $personType = null,
+        public ?PersonType $personType = null,
         /** The person's phone numbers. */
         public array $phones = [],
         /** The person's addresses. */

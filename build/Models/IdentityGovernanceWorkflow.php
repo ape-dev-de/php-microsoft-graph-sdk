@@ -13,7 +13,7 @@ class IdentityGovernanceWorkflow
         /** Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby. */
         public ?string $id = null,
         /**  */
-        public ?string $category = null,
+        public ?IdentityGovernanceLifecycleWorkflowCategory $category = null,
         /** When a workflow was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** A string that describes the purpose of the workflow. */
@@ -21,7 +21,7 @@ class IdentityGovernanceWorkflow
         /** A string to identify the workflow. */
         public ?string $displayName = null,
         /** Defines when and for who the workflow will run. */
-        public ?string $executionConditions = null,
+        public ?IdentityGovernanceWorkflowExecutionConditions $executionConditions = null,
         /** Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true. */
         public ?bool $isEnabled = null,
         /** If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Can't be true for a disabled workflow (where isEnabled is false). */
@@ -29,9 +29,9 @@ class IdentityGovernanceWorkflow
         /** When the workflow was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The user who created the workflow. */
-        public ?string $createdBy = null,
+        public ?User $createdBy = null,
         /** The unique identifier of the Microsoft Entra identity that last modified the workflow. */
-        public ?string $lastModifiedBy = null,
+        public ?User $lastModifiedBy = null,
         /** The tasks in the workflow. */
         public array $tasks = [],
         /** When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */

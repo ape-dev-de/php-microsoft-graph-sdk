@@ -15,7 +15,7 @@ class SecurityMailboxEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,7 +23,7 @@ class SecurityMailboxEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The name associated with the mailbox. */
         public ?string $displayName = null,
         /** The primary email address of the mailbox. */
@@ -31,6 +31,6 @@ class SecurityMailboxEvidence
         /** The user principal name of the mailbox. */
         public ?string $upn = null,
         /** The user account of the mailbox. */
-        public ?string $userAccount = null
+        public ?SecurityUserAccount $userAccount = null
     ) {}
 }

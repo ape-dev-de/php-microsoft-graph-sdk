@@ -11,7 +11,7 @@ class ObjectDefinitionMetadataEntry
 {
     public function __construct(
         /** Possible values are: PropertyNameAccountEnabled, PropertyNameSoftDeleted, IsSoftDeletionSupported, IsSynchronizeAllSupported, ConnectorDataStorageRequired, Extensions, LinkTypeName. */
-        public ?string $key = null,
+        public ?ObjectDefinitionMetadata $key = null,
         /** Value of the metadata property. */
         public ?string $value = null
     ) {}

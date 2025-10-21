@@ -13,7 +13,7 @@ class ResetPasscodeActionResult
         /** Action name */
         public ?string $actionName = null,
         /**  */
-        public ?string $actionState = null,
+        public ?ActionState $actionState = null,
         /** Time the action state was last updated */
         public ?\DateTimeInterface $lastUpdatedDateTime = null,
         /** Time the action was initiated */

@@ -13,8 +13,8 @@ class PartnersBillingBillingReconciliation
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $billed = null,
+        public ?PartnersBillingBilledReconciliation $billed = null,
         /**  */
-        public ?string $unbilled = null
+        public ?PartnersBillingUnbilledReconciliation $unbilled = null
     ) {}
 }

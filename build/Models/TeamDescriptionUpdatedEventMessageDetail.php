@@ -11,7 +11,7 @@ class TeamDescriptionUpdatedEventMessageDetail
 {
     public function __construct(
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** The updated description for the team. */
         public ?string $teamDescription = null,
         /** Unique identifier of the team. */

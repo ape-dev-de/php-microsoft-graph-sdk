@@ -11,10 +11,10 @@ class SearchIdentitySet
 {
     public function __construct(
         /**  */
-        public ?string $application = null,
+        public ?SearchIdentity $application = null,
         /**  */
-        public ?string $device = null,
+        public ?SearchIdentity $device = null,
         /**  */
-        public ?string $user = null
+        public ?SearchIdentity $user = null
     ) {}
 }

@@ -19,7 +19,7 @@ class SecurityKubernetesServicePort
         /** The port that this service exposes. */
         public ?float $port = null,
         /** The protocol name. Possible values are: udp, tcp, sctp, unknownFutureValue. */
-        public ?string $protocol = null,
+        public ?SecurityContainerPortProtocol $protocol = null,
         /** The name or number of the port to access on the pods targeted by the service. The port number must be in the range 1 to 65535. The name must be an IANASVCNAME. */
         public ?string $targetPort = null
     ) {}

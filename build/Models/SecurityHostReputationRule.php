@@ -17,6 +17,6 @@ class SecurityHostReputationRule
         /** Link to a web page with details related to this rule. */
         public ?string $relatedDetailsUrl = null,
         /**  */
-        public ?string $severity = null
+        public ?SecurityHostReputationRuleSeverity $severity = null
     ) {}
 }

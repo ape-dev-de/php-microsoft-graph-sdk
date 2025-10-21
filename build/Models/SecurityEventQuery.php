@@ -13,6 +13,6 @@ class SecurityEventQuery
         /** Represents unique identification for the  query. 'Asset ID' for SharePoint Online and OneDrive for Business, 'keywords' for Exchange Online. */
         public ?string $query = null,
         /** Represents the type of query associated with an event. 'files' for SPO and ODB and 'messages' for EXO.The possible values are: files, messages, unknownFutureValue. */
-        public ?string $queryType = null
+        public ?SecurityQueryType $queryType = null
     ) {}
 }

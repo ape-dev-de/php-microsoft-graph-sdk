@@ -15,7 +15,7 @@ class SecurityIpEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,14 +23,14 @@ class SecurityIpEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The two-letter country code according to ISO 3166 format, for example: US, UK, CA, etc. */
         public ?string $countryLetterCode = null,
         /** The value of the IP Address, can be either in V4 address or V6 address format. */
         public ?string $ipAddress = null,
         /**  */
-        public ?string $location = null,
+        public ?SecurityGeoLocation $location = null,
         /**  */
-        public ?string $stream = null
+        public ?SecurityStream $stream = null
     ) {}
 }

@@ -21,11 +21,11 @@ class BookingService
         /** The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S. */
         public ?string $defaultDuration = null,
         /** The default physical location for the service. */
-        public ?string $defaultLocation = null,
+        public ?Location $defaultLocation = null,
         /** The default monetary price for the service. */
         public ?string $defaultPrice = null,
         /**  */
-        public ?string $defaultPriceType = null,
+        public ?BookingPriceType $defaultPriceType = null,
         /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID. */
         public array $defaultReminders = [],
         /** A text description for the service. */
@@ -53,7 +53,7 @@ class BookingService
         /** The time to buffer before an appointment for this service can start. */
         public ?string $preBuffer = null,
         /** The set of policies that determine how appointments for this type of service should be created and managed. */
-        public ?string $schedulingPolicy = null,
+        public ?BookingSchedulingPolicy $schedulingPolicy = null,
         /** True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false. */
         public ?bool $smsNotificationsEnabled = null,
         /** @var string[] Represents those staff members who provide this service. */

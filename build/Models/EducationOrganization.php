@@ -17,7 +17,7 @@ class EducationOrganization
         /** Organization display name. */
         public ?string $displayName = null,
         /** Source where this organization was created from. Possible values are: sis, manual. */
-        public ?string $externalSource = null,
+        public ?EducationExternalSource $externalSource = null,
         /** The name of the external source this resource was generated from. */
         public ?string $externalSourceDetail = null
     ) {}

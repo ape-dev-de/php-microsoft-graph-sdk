@@ -15,7 +15,7 @@ class SecurityIoTDeviceEvidence
         /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
         public array $detailedRoles = [],
         /**  */
-        public ?string $remediationStatus = null,
+        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
         /** Details about the remediation status. */
         public ?string $remediationStatusDetails = null,
         /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
@@ -23,7 +23,7 @@ class SecurityIoTDeviceEvidence
         /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
         public array $tags = [],
         /**  */
-        public ?string $verdict = null,
+        public ?SecurityEvidenceVerdict $verdict = null,
         /** The device ID. */
         public ?string $deviceId = null,
         /** The friendly name of the device. */
@@ -35,13 +35,13 @@ class SecurityIoTDeviceEvidence
         /** The type of the device. For example, 'temperature sensor,' 'freezer,' 'wind turbine,' and so on. */
         public ?string $deviceType = null,
         /** The importance level for the IoT device. Possible values are low, normal, high, and unknownFutureValue. */
-        public ?string $importance = null,
+        public ?SecurityIoTDeviceImportanceType $importance = null,
         /** The azureResourceEvidence entity that represents the IoT Hub that the device belongs to. */
-        public ?string $ioTHub = null,
+        public ?SecurityAzureResourceEvidence $ioTHub = null,
         /** The ID of the Azure Security Center for the IoT agent that is running on the device. */
         public ?string $ioTSecurityAgentId = null,
         /** The current IP address of the device. */
-        public ?string $ipAddress = null,
+        public ?SecurityIpEvidence $ipAddress = null,
         /** Indicates whether the device classified as an authorized device. */
         public ?bool $isAuthorized = null,
         /** Indicates whether the device classified as a programming device. */
@@ -73,7 +73,7 @@ class SecurityIoTDeviceEvidence
         /** The source (microsoft/vendor) of the device entity. */
         public ?string $source = null,
         /** A URL reference to the source item where the device is managed. */
-        public ?string $sourceRef = null,
+        public ?SecurityUrlEvidence $sourceRef = null,
         /** The zone location of the device within a site. */
         public ?string $zone = null
     ) {}

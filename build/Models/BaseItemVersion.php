@@ -13,10 +13,10 @@ class BaseItemVersion
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Identity of the user which last modified the version. Read-only. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** Date and time the version was last modified. Read-only. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Indicates the publication status of this particular version. Read-only. */
-        public ?string $publication = null
+        public ?PublicationFacet $publication = null
     ) {}
 }

@@ -11,7 +11,7 @@ class Bundle
 {
     public function __construct(
         /** If the bundle is an album, then the album property is included */
-        public ?string $album = null,
+        public ?Album $album = null,
         /** Number of children contained immediately within this container. */
         public ?float $childCount = null
     ) {}

@@ -15,6 +15,6 @@ class FilterClause
         /** Name of source operand (the operand being tested). The source operand name must match one of the attribute names on the source object. */
         public ?string $sourceOperandName = null,
         /** Values that the source operand will be tested against. */
-        public ?string $targetOperand = null
+        public ?FilterOperand $targetOperand = null
     ) {}
 }

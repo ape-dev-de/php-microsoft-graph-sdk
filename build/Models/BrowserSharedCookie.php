@@ -27,14 +27,14 @@ class BrowserSharedCookie
         /** The URL of the cookie. */
         public ?string $hostOrDomain = null,
         /** The user who last modified the cookie. */
-        public ?string $lastModifiedBy = null,
+        public ?IdentitySet $lastModifiedBy = null,
         /** The date and time when the cookie was last modified. */
         public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** The path of the cookie. */
         public ?string $path = null,
         /**  */
-        public ?string $sourceEnvironment = null,
+        public ?BrowserSharedCookieSourceEnvironment $sourceEnvironment = null,
         /**  */
-        public ?string $status = null
+        public ?BrowserSharedCookieStatus $status = null
     ) {}
 }

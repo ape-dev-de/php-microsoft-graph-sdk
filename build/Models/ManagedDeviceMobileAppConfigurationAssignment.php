@@ -13,6 +13,6 @@ class ManagedDeviceMobileAppConfigurationAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Assignment target that the T&C policy is assigned to. */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

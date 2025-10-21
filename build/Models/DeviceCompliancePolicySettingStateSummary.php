@@ -23,7 +23,7 @@ class DeviceCompliancePolicySettingStateSummary
         /** Number of not applicable devices */
         public ?float $notApplicableDeviceCount = null,
         /**  */
-        public ?string $platformType = null,
+        public ?PolicyPlatformType $platformType = null,
         /** Number of remediated devices */
         public ?float $remediatedDeviceCount = null,
         /** The setting class name and property name. */

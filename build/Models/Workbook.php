@@ -13,11 +13,11 @@ class Workbook
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $application = null,
+        public ?WorkbookApplication $application = null,
         /** Represents a collection of comments in a workbook. */
         public array $comments = [],
         /**  */
-        public ?string $functions = null,
+        public ?WorkbookFunctions $functions = null,
         /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
         public array $names = [],
         /** The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. */

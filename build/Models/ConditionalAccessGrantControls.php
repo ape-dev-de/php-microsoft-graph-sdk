@@ -19,6 +19,6 @@ class ConditionalAccessGrantControls
         /** @var string[] List of terms of use IDs required by the policy. */
         public array $termsOfUse = [],
         /**  */
-        public ?string $authenticationStrength = null
+        public ?AuthenticationStrengthPolicy $authenticationStrength = null
     ) {}
 }

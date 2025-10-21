@@ -11,7 +11,7 @@ class OAuthConsentAppDetail
 {
     public function __construct(
         /** App scope. Possible values are: unknown, readCalendar, readContact, readMail, readAllChat, readAllFile, readAndWriteMail, sendMail, unknownFutureValue. */
-        public ?string $appScope = null,
+        public ?OAuthAppScope $appScope = null,
         /** App display logo. */
         public ?string $displayLogo = null,
         /** App name. */

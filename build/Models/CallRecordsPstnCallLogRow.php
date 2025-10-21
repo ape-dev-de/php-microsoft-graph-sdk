@@ -13,7 +13,7 @@ class CallRecordsPstnCallLogRow
         /** Unique call identifier. GUID. */
         public ?string $id = null,
         /** The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator can provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft. */
-        public ?string $callDurationSource = null,
+        public ?CallRecordsPstnCallDurationSource $callDurationSource = null,
         /** Number dialed in E.164 format. */
         public ?string $calleeNumber = null,
         /** Number that received the call for inbound calls or the number dialed for outbound calls. E.164 format. */

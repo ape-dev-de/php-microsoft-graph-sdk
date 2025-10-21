@@ -15,7 +15,7 @@ class PublicError
         /** Details of the error. */
         public array $details = [],
         /** Details of the inner error. */
-        public ?string $innerError = null,
+        public ?PublicInnerError $innerError = null,
         /** A non-localized message for the developer. */
         public ?string $message = null,
         /** The target of the error. */

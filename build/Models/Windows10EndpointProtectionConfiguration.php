@@ -29,11 +29,11 @@ class Windows10EndpointProtectionConfiguration
         /** Device configuration installation status by device. */
         public array $deviceStatuses = [],
         /** Device Configuration devices status overview */
-        public ?string $deviceStatusOverview = null,
+        public ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null,
         /** Device configuration installation status by user. */
         public array $userStatuses = [],
         /** Device Configuration users status overview */
-        public ?string $userStatusOverview = null,
+        public ?DeviceConfigurationUserOverview $userStatusOverview = null,
         /** Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.) */
         public ?bool $applicationGuardAllowPersistence = null,
         /** Allow printing to Local Printers from Container */
@@ -45,9 +45,9 @@ class Windows10EndpointProtectionConfiguration
         /** Allow printing to XPS from Container */
         public ?bool $applicationGuardAllowPrintToXPS = null,
         /**  */
-        public ?string $applicationGuardBlockClipboardSharing = null,
+        public ?ApplicationGuardBlockClipboardSharingType $applicationGuardBlockClipboardSharing = null,
         /**  */
-        public ?string $applicationGuardBlockFileTransfer = null,
+        public ?ApplicationGuardBlockFileTransferType $applicationGuardBlockFileTransfer = null,
         /** Block enterprise sites to load non-enterprise content, such as third party plug-ins */
         public ?bool $applicationGuardBlockNonEnterpriseContent = null,
         /** Enable Windows Defender Application Guard */
@@ -55,7 +55,7 @@ class Windows10EndpointProtectionConfiguration
         /** Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.) */
         public ?bool $applicationGuardForceAuditing = null,
         /**  */
-        public ?string $appLockerApplicationControl = null,
+        public ?AppLockerApplicationControlType $appLockerApplicationControl = null,
         /** Allows the Admin to disable the warning prompt for other disk encryption on the user machines. */
         public ?bool $bitLockerDisableWarningForOtherDiskEncryption = null,
         /** Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU. */
@@ -63,7 +63,7 @@ class Windows10EndpointProtectionConfiguration
         /** Allows the admin to require encryption to be turned on using BitLocker. */
         public ?bool $bitLockerEncryptDevice = null,
         /** BitLocker Removable Drive Policy. */
-        public ?string $bitLockerRemovableDrivePolicy = null,
+        public ?BitLockerRemovableDrivePolicy $bitLockerRemovableDrivePolicy = null,
         /** @var string[] List of folder paths to be added to the list of protected folders */
         public array $defenderAdditionalGuardedFolders = [],
         /** @var string[] List of exe files and folders to be excluded from attack surface reduction rules */
@@ -79,7 +79,7 @@ class Windows10EndpointProtectionConfiguration
         /** Blocks stateful FTP connections to the device */
         public ?bool $firewallBlockStatefulFTP = null,
         /**  */
-        public ?string $firewallCertificateRevocationListCheckMethod = null,
+        public ?FirewallCertificateRevocationListCheckMethodType $firewallCertificateRevocationListCheckMethod = null,
         /** Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600 */
         public ?float $firewallIdleTimeoutForSecurityAssociationInSeconds = null,
         /** Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic */
@@ -93,15 +93,15 @@ class Windows10EndpointProtectionConfiguration
         /** If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set */
         public ?bool $firewallMergeKeyingModuleSettings = null,
         /**  */
-        public ?string $firewallPacketQueueingMethod = null,
+        public ?FirewallPacketQueueingMethodType $firewallPacketQueueingMethod = null,
         /**  */
-        public ?string $firewallPreSharedKeyEncodingMethod = null,
+        public ?FirewallPreSharedKeyEncodingMethodType $firewallPreSharedKeyEncodingMethod = null,
         /** Configures the firewall profile settings for domain networks */
-        public ?string $firewallProfileDomain = null,
+        public ?WindowsFirewallNetworkProfile $firewallProfileDomain = null,
         /** Configures the firewall profile settings for private networks */
-        public ?string $firewallProfilePrivate = null,
+        public ?WindowsFirewallNetworkProfile $firewallProfilePrivate = null,
         /** Configures the firewall profile settings for public networks */
-        public ?string $firewallProfilePublic = null,
+        public ?WindowsFirewallNetworkProfile $firewallProfilePublic = null,
         /** Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files. */
         public ?bool $smartScreenBlockOverrideForFiles = null,
         /** Allows IT Admins to configure SmartScreen for Windows. */

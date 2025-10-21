@@ -17,7 +17,7 @@ class AiInteraction
         /**  */
         public array $attachments = [],
         /**  */
-        public ?string $body = null,
+        public ?ItemBody $body = null,
         /**  */
         public array $contexts = [],
         /**  */
@@ -27,9 +27,9 @@ class AiInteraction
         /**  */
         public ?string $etag = null,
         /**  */
-        public ?string $from = null,
+        public ?IdentitySet $from = null,
         /**  */
-        public ?string $interactionType = null,
+        public ?AiInteractionType $interactionType = null,
         /**  */
         public array $links = [],
         /**  */

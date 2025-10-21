@@ -13,16 +13,16 @@ class SynchronizationJob
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Schedule used to run the job. Read-only. */
-        public ?string $schedule = null,
+        public ?SynchronizationSchedule $schedule = null,
         /** Status of the job, which includes when the job was last run, current job state, and errors. */
-        public ?string $status = null,
+        public ?SynchronizationStatus $status = null,
         /** Settings associated with the job. Some settings are inherited from the template. */
         public array $synchronizationJobSettings = [],
         /** Identifier of the synchronization template this job is based on. */
         public ?string $templateId = null,
         /** The bulk upload operation for the job. */
-        public ?string $bulkUpload = null,
+        public ?BulkUpload $bulkUpload = null,
         /** The synchronization schema configured for the job. */
-        public ?string $schema = null
+        public ?SynchronizationSchema $schema = null
     ) {}
 }

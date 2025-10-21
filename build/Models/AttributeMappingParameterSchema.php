@@ -17,6 +17,6 @@ class AttributeMappingParameterSchema
         /** true if the parameter is required; otherwise false. */
         public ?bool $required = null,
         /**  */
-        public ?string $type = null
+        public ?AttributeType $type = null
     ) {}
 }

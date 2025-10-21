@@ -19,11 +19,11 @@ class EngagementAsyncOperation
         /** URI of the resource that the operation is performed on. */
         public ?string $resourceLocation = null,
         /** The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. */
-        public ?string $status = null,
+        public ?LongRunningOperationStatus $status = null,
         /** Details about the status of the operation. */
         public ?string $statusDetail = null,
         /** The type of the long-running operation. The possible values are: createCommunity, unknownFutureValue. */
-        public ?string $operationType = null,
+        public ?EngagementAsyncOperationType $operationType = null,
         /** The ID of the object created or modified as a result of this async operation. */
         public ?string $resourceId = null
     ) {}

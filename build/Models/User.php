@@ -25,7 +25,7 @@ class User
         /** The plans that are assigned to the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq and not). */
         public array $assignedPlans = [],
         /**  */
-        public ?string $authorizationInfo = null,
+        public ?AuthorizationInfo $authorizationInfo = null,
         /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z. Returned only on $select. */
         public ?\DateTimeInterface $birthday = null,
         /** @var string[] The telephone numbers for the user. NOTE: Although it's a string collection, only one number can be set for this property. Read-only for users synced from the on-premises directory. Returned by default. Supports $filter (eq, not, ge, le, startsWith). */
@@ -43,7 +43,7 @@ class User
         /** Indicates whether the user account was created through one of the following methods:  As a regular school or work account (null). As an external account (Invitation). As a local account for an Azure Active Directory B2C tenant (LocalAccount). Through self-service sign-up by an internal user using email verification (EmailVerified). Through self-service sign-up by a guest signing up through a link that is part of a user flow (SelfServiceSignUp). Read-only.Returned only on $select. Supports $filter (eq, ne, not, in). */
         public ?string $creationType = null,
         /** An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. */
-        public ?string $customSecurityAttributes = null,
+        public ?CustomSecurityAttributeValue $customSecurityAttributes = null,
         /** The name of the department in which the user works. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, and eq on null values). */
         public ?string $department = null,
         /** The limit on the maximum number of devices that the user is permitted to enroll. Allowed values are 5 or 1000. */
@@ -57,7 +57,7 @@ class User
         /** The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs at least one of the following Microsoft Entra roles: Lifecycle Workflows Administrator (least privilege), Global Reader. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user. */
         public ?\DateTimeInterface $employeeLeaveDateTime = null,
         /** Represents organization data (for example, division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in). */
-        public ?string $employeeOrgData = null,
+        public ?EmployeeOrgData $employeeOrgData = null,
         /** Captures enterprise worker type. For example, Employee, Contractor, Consultant, or Vendor. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith). */
         public ?string $employeeType = null,
         /** For a guest invited to the tenant using the invitation API, this property represents the invited user's invitation status. For invited users, the state can be PendingAcceptance or Accepted, or null for all other users. Returned only on $select. Supports $filter (eq, ne, not , in). */
@@ -91,7 +91,7 @@ class User
         /** The SMTP address for the user, for example, jeff@contoso.com. Changes to this property update the user's proxyAddresses collection to include the value as an SMTP address. This property can't contain accent characters.  NOTE: We don't recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values). */
         public ?string $mail = null,
         /** Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select. */
-        public ?string $mailboxSettings = null,
+        public ?MailboxSettings $mailboxSettings = null,
         /** The mail alias for the user. This property must be specified when a user is created. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
         public ?string $mailNickname = null,
         /** The primary cellular telephone number for the user. Read-only for users synced from the on-premises directory. Maximum length is 64 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search. */
@@ -105,7 +105,7 @@ class User
         /** Contains the on-premises domainFQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect. Read-only. Returned only on $select. */
         public ?string $onPremisesDomainName = null,
         /** Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. Each attribute can store up to 1024 characters. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Returned only on $select. Supports $filter (eq, ne, not, in). */
-        public ?string $onPremisesExtensionAttributes = null,
+        public ?OnPremisesExtensionAttributes $onPremisesExtensionAttributes = null,
         /** This property is used to associate an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. NOTE: The $ and _ characters can't be used when specifying this property. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in). */
         public ?string $onPremisesImmutableId = null,
         /** Indicates the last time at which the object was synced with the on-premises directory; for example: 2013-02-16T03:04:54Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in). */
@@ -125,7 +125,7 @@ class User
         /** Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two might be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. Returned only on $select. For more information on the default password policies, see Microsoft Entra password policies. Supports $filter (ne, not, and eq on null values). */
         public ?string $passwordPolicies = null,
         /** Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values). To update this property:  User-PasswordProfile.ReadWrite.All is the least privileged permission to update this property.  In delegated scenarios, the User Administrator Microsoft Entra role is the least privileged admin role supported to update this property for nonadmin users. Privileged Authentication Administrator is the least privileged role that's allowed to update this property for all administrators in the tenant. In general, the signed-in user must have a higher privileged administrator role as indicated in Who can reset passwords.  In app-only scenarios, the calling app must be assigned a supported permission and at least the User Administrator Microsoft Entra role. */
-        public ?string $passwordProfile = null,
+        public ?PasswordProfile $passwordProfile = null,
         /** @var string[] A list for the user to enumerate their past projects. Returned only on $select. */
         public array $pastProjects = [],
         /** The postal code for the user's postal address. The postal code is specific to the user's country or region. In the United States of America, this attribute contains the ZIP code. Maximum length is 40 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
@@ -137,7 +137,7 @@ class User
         /** The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select. */
         public ?string $preferredName = null,
         /**  */
-        public ?string $print = null,
+        public ?UserPrint $print = null,
         /** The plans that are provisioned for the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le). */
         public array $provisionedPlans = [],
         /** @var string[] For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address, while those addresses prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of 10 unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0). */
@@ -153,7 +153,7 @@ class User
         /** Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue. */
         public ?bool $showInAddressList = null,
         /** Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note: Details for this property require a Microsoft Entra ID P1 or P2 license and the AuditLog.Read.All permission.This property isn't returned for a user who never signed in or last signed in before April 2020. */
-        public ?string $signInActivity = null,
+        public ?SignInActivity $signInActivity = null,
         /** Any refresh tokens or session tokens (session cookies) issued before this time are invalid. Applications get an error when using an invalid refresh or session token to acquire a delegated access token (to access APIs such as Microsoft Graph). If this happens, the application needs to acquire a new refresh token by requesting the authorized endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select. */
         public ?\DateTimeInterface $signInSessionsValidFromDateTime = null,
         /** @var string[] A list for the user to enumerate their skills. Returned only on $select. */
@@ -177,9 +177,9 @@ class User
         /** Represents the app roles a user is granted for an application. Supports $expand. */
         public array $appRoleAssignments = [],
         /** The authentication methods that are supported for the user. */
-        public ?string $authentication = null,
+        public ?Authentication $authentication = null,
         /** The user's primary calendar. Read-only. */
-        public ?string $calendar = null,
+        public ?Calendar $calendar = null,
         /** The user's calendar groups. Read-only. Nullable. */
         public array $calendarGroups = [],
         /** The user's calendars. Read-only. Nullable. */
@@ -189,7 +189,7 @@ class User
         /**  */
         public array $chats = [],
         /**  */
-        public ?string $cloudClipboard = null,
+        public ?CloudClipboardRoot $cloudClipboard = null,
         /** The user's contacts folders. Read-only. Nullable. */
         public array $contactFolders = [],
         /** The user's contacts. Read-only. Nullable. */
@@ -197,17 +197,17 @@ class User
         /** Directory objects that the user created. Read-only. Nullable. */
         public array $createdObjects = [],
         /** The data security and governance settings for the user. Read-only. Nullable. */
-        public ?string $dataSecurityAndGovernance = null,
+        public ?UserDataSecurityAndGovernance $dataSecurityAndGovernance = null,
         /** The list of troubleshooting events for this user. */
         public array $deviceManagementTroubleshootingEvents = [],
         /** The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand. */
         public array $directReports = [],
         /** The user's OneDrive. Read-only. */
-        public ?string $drive = null,
+        public ?Drive $drive = null,
         /** A collection of drives available for this user. Read-only. */
         public array $drives = [],
         /**  */
-        public ?string $employeeExperience = null,
+        public ?EmployeeExperienceUser $employeeExperience = null,
         /** The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable. */
         public array $events = [],
         /** The collection of open extensions defined for the user. Read-only. Supports $expand. Nullable. */
@@ -215,9 +215,9 @@ class User
         /**  */
         public array $followedSites = [],
         /** Relevance classification of the user's messages based on explicit designations that override inferred relevance or importance. */
-        public ?string $inferenceClassification = null,
+        public ?InferenceClassification $inferenceClassification = null,
         /** Represents relationships between a user and items such as OneDrive for work or school documents, calculated using advanced analytics and machine learning techniques. Read-only. Nullable. */
-        public ?string $insights = null,
+        public ?ItemInsights $insights = null,
         /**  */
         public array $joinedTeams = [],
         /** A collection of this user's license details. Read-only. */
@@ -229,7 +229,7 @@ class User
         /** The managed devices associated with the user. */
         public array $managedDevices = [],
         /** The user or contact that is this user's manager. Read-only. Supports $expand. */
-        public ?string $manager = null,
+        public ?DirectoryObject $manager = null,
         /** The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand. */
         public array $memberOf = [],
         /** The messages in a mailbox or folder. Read-only. Nullable. */
@@ -237,11 +237,11 @@ class User
         /**  */
         public array $oauth2PermissionGrants = [],
         /**  */
-        public ?string $onenote = null,
+        public ?Onenote $onenote = null,
         /** Information about a meeting, including the URL used to join a meeting, the attendees list, and the description. */
         public array $onlineMeetings = [],
         /**  */
-        public ?string $outlook = null,
+        public ?OutlookUser $outlook = null,
         /** Devices the user owns. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
         public array $ownedDevices = [],
         /** Directory objects the user owns. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
@@ -251,27 +251,27 @@ class User
         /** List all resource-specific permission grants of a user. */
         public array $permissionGrants = [],
         /** The user's profile photo. Read-only. */
-        public ?string $photo = null,
+        public ?ProfilePhoto $photo = null,
         /** The collection of the user's profile photos in different sizes. Read-only. */
         public array $photos = [],
         /** Entry-point to the Planner resource that might exist for a user. Read-only. */
-        public ?string $planner = null,
+        public ?PlannerUser $planner = null,
         /**  */
-        public ?string $presence = null,
+        public ?Presence $presence = null,
         /** Devices that are registered for the user. Read-only. Nullable. Supports $expand and returns up to 100 objects. */
         public array $registeredDevices = [],
         /**  */
         public array $scopedRoleMemberOf = [],
         /**  */
-        public ?string $settings = null,
+        public ?UserSettings $settings = null,
         /** The identifier that relates the user to the working time schedule triggers. Read-Only. Nullable */
-        public ?string $solutions = null,
+        public ?UserSolutionRoot $solutions = null,
         /** The users and groups responsible for this guest's privileges in the tenant and keeping the guest's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand. */
         public array $sponsors = [],
         /** A container for Microsoft Teams features available for the user. Read-only. Nullable. */
-        public ?string $teamwork = null,
+        public ?UserTeamwork $teamwork = null,
         /** Represents the To Do services available to a user. */
-        public ?string $todo = null,
+        public ?Todo $todo = null,
         /** The groups, including nested groups, and directory roles that a user is a member of. Nullable. */
         public array $transitiveMemberOf = []
     ) {}

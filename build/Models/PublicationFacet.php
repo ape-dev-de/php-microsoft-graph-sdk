@@ -11,7 +11,7 @@ class PublicationFacet
 {
     public function __construct(
         /** The user who checked out the file. */
-        public ?string $checkedOutBy = null,
+        public ?IdentitySet $checkedOutBy = null,
         /** The state of publication for this document. Either published or checkout. Read-only. */
         public ?string $level = null,
         /** The unique identifier for the version that is visible to the current caller. Read-only. */

@@ -19,7 +19,7 @@ class PrintConnector
         /** The connector machine's hostname. */
         public ?string $fullyQualifiedDomainName = null,
         /** The physical and/or organizational location of the connector. */
-        public ?string $location = null,
+        public ?PrinterLocation $location = null,
         /** The connector machine's operating system version. */
         public ?string $operatingSystem = null,
         /** The DateTimeOffset when the connector was registered. */

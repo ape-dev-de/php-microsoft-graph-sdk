@@ -13,21 +13,21 @@ class ItemActivityStat
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Statistics about the access actions in this interval. Read-only. */
-        public ?string $access = null,
+        public ?ItemActionStat $access = null,
         /** Statistics about the create actions in this interval. Read-only. */
-        public ?string $create = null,
+        public ?ItemActionStat $create = null,
         /** Statistics about the delete actions in this interval. Read-only. */
-        public ?string $delete = null,
+        public ?ItemActionStat $delete = null,
         /** Statistics about the edit actions in this interval. Read-only. */
-        public ?string $edit = null,
+        public ?ItemActionStat $edit = null,
         /** When the interval ends. Read-only. */
         public ?\DateTimeInterface $endDateTime = null,
         /** Indicates that the statistics in this interval are based on incomplete data. Read-only. */
-        public ?string $incompleteData = null,
+        public ?IncompleteData $incompleteData = null,
         /** Indicates whether the item is 'trending.' Read-only. */
         public ?bool $isTrending = null,
         /** Statistics about the move actions in this interval. Read-only. */
-        public ?string $move = null,
+        public ?ItemActionStat $move = null,
         /** When the interval starts. Read-only. */
         public ?\DateTimeInterface $startDateTime = null,
         /** Exposes the itemActivities represented in this itemActivityStat resource. */

@@ -11,14 +11,14 @@ class Win32LobAppAssignmentSettings
 {
     public function __construct(
         /** The auto-update settings to apply for this app assignment. */
-        public ?string $autoUpdateSettings = null,
+        public ?Win32LobAppAutoUpdateSettings $autoUpdateSettings = null,
         /**  */
-        public ?string $deliveryOptimizationPriority = null,
+        public ?Win32LobAppDeliveryOptimizationPriority $deliveryOptimizationPriority = null,
         /** The install time settings to apply for this app assignment. */
-        public ?string $installTimeSettings = null,
+        public ?MobileAppInstallTimeSettings $installTimeSettings = null,
         /**  */
-        public ?string $notifications = null,
+        public ?Win32LobAppNotification $notifications = null,
         /** The reboot settings to apply for this app assignment. */
-        public ?string $restartSettings = null
+        public ?Win32LobAppRestartSettings $restartSettings = null
     ) {}
 }

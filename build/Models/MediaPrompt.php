@@ -11,6 +11,6 @@ class MediaPrompt
 {
     public function __construct(
         /**  */
-        public ?string $mediaInfo = null
+        public ?MediaInfo $mediaInfo = null
     ) {}
 }

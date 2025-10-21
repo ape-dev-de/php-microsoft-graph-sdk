@@ -17,6 +17,6 @@ class ThreatAssessmentResult
         /** The result message for each threat assessment. */
         public ?string $message = null,
         /** The threat assessment result type. Possible values are: checkPolicy, rescan. */
-        public ?string $resultType = null
+        public ?ThreatAssessmentResultType $resultType = null
     ) {}
 }

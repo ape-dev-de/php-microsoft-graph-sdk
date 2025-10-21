@@ -11,7 +11,7 @@ class TeamRenamedEventMessageDetail
 {
     public function __construct(
         /** Initiator of the event. */
-        public ?string $initiator = null,
+        public ?IdentitySet $initiator = null,
         /** The updated name of the team. */
         public ?string $teamDisplayName = null,
         /** Unique identifier of the team. */

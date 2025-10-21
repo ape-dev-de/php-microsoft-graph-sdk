@@ -21,7 +21,7 @@ class AppManagementPolicy
         /** Denotes whether the policy is enabled. */
         public ?bool $isEnabled = null,
         /** Restrictions that apply to an application or service principal object. */
-        public ?string $restrictions = null,
+        public ?CustomAppManagementConfiguration $restrictions = null,
         /** Collection of applications and service principals to which the policy is applied. */
         public array $appliesTo = []
     ) {}

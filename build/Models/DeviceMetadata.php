@@ -15,6 +15,6 @@ class DeviceMetadata
         /** The Internet Protocol (IP) address of the device. */
         public ?string $ipAddress = null,
         /** Details about the operating system platform and version. */
-        public ?string $operatingSystemSpecifications = null
+        public ?OperatingSystemSpecifications $operatingSystemSpecifications = null
     ) {}
 }

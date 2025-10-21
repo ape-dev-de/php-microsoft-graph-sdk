@@ -13,6 +13,6 @@ class EnrollmentConfigurationAssignment
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /** Represents an assignment to managed devices in the tenant */
-        public ?string $target = null
+        public ?DeviceAndAppManagementAssignmentTarget $target = null
     ) {}
 }

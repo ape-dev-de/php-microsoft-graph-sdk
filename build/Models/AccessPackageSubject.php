@@ -23,8 +23,8 @@ class AccessPackageSubject
         /** The principal name, if known, of the subject. */
         public ?string $principalName = null,
         /** The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue. */
-        public ?string $subjectType = null,
+        public ?AccessPackageSubjectType $subjectType = null,
         /** The connected organization of the subject. Read-only. Nullable. */
-        public ?string $connectedOrganization = null
+        public ?ConnectedOrganization $connectedOrganization = null
     ) {}
 }

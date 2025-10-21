@@ -21,7 +21,7 @@ class EndUserNotificationDetail
         /** Notification locale. */
         public ?string $locale = null,
         /**  */
-        public ?string $sentFrom = null,
+        public ?EmailIdentity $sentFrom = null,
         /** Mail subject. */
         public ?string $subject = null
     ) {}

@@ -11,7 +11,7 @@ class AttachmentInfo
 {
     public function __construct(
         /** The type of the attachment. The possible values are: file, item, reference. Required. */
-        public ?string $attachmentType = null,
+        public ?AttachmentType $attachmentType = null,
         /** The nature of the data in the attachment. Optional. */
         public ?string $contentType = null,
         /** The display name of the attachment. This can be a descriptive string and doesn't have to be the actual file name. Required. */

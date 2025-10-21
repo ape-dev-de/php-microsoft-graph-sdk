@@ -15,7 +15,7 @@ class EducationStudent
         /** ID of the student in the source system. */
         public ?string $externalId = null,
         /** The possible values are: female, male, other, unknownFutureValue. */
-        public ?string $gender = null,
+        public ?EducationGender $gender = null,
         /** Current grade level of the student. */
         public ?string $grade = null,
         /** Year the student is graduating from the school. */

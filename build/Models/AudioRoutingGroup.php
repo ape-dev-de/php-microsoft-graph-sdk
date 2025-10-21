@@ -15,7 +15,7 @@ class AudioRoutingGroup
         /** @var string[] List of receiving participant ids. */
         public array $receivers = [],
         /**  */
-        public ?string $routingMode = null,
+        public ?RoutingMode $routingMode = null,
         /** @var string[] List of source participant ids. */
         public array $sources = []
     ) {}

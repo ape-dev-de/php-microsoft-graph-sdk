@@ -25,7 +25,7 @@ class LearningSelfInitiatedCourse
         /** The registration ID of the provider. Required. */
         public ?string $learningProviderId = null,
         /** The status of the course activity. Possible values are: notStarted, inProgress, completed. Required. */
-        public ?string $status = null,
+        public ?CourseStatus $status = null,
         /** The date and time on which the learner started the self-initiated course. Optional. */
         public ?\DateTimeInterface $startedDateTime = null
     ) {}

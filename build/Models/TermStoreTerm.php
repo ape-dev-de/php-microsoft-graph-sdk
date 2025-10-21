@@ -27,6 +27,6 @@ class TermStoreTerm
         /** To indicate which terms are related to the current term as either pinned or reused. */
         public array $relations = [],
         /** The [set] in which the term is created. */
-        public ?string $set = null
+        public ?TermStoreSet $set = null
     ) {}
 }

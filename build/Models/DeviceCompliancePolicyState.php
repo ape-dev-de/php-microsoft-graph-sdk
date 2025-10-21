@@ -15,13 +15,13 @@ class DeviceCompliancePolicyState
         /** The name of the policy for this policyBase */
         public ?string $displayName = null,
         /**  */
-        public ?string $platformType = null,
+        public ?PolicyPlatformType $platformType = null,
         /** Count of how many setting a policy holds */
         public ?float $settingCount = null,
         /**  */
         public array $settingStates = [],
         /**  */
-        public ?string $state = null,
+        public ?ComplianceStatus $state = null,
         /** The version of the policy */
         public ?float $version = null
     ) {}

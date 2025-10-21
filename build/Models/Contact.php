@@ -25,7 +25,7 @@ class Contact
         /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
         public ?\DateTimeInterface $birthday = null,
         /** The contact's business address. */
-        public ?string $businessAddress = null,
+        public ?PhysicalAddress $businessAddress = null,
         /** The business home page of the contact. */
         public ?string $businessHomePage = null,
         /** @var string[] The contact's business phone numbers. */
@@ -47,7 +47,7 @@ class Contact
         /** The contact's given name. */
         public ?string $givenName = null,
         /** The contact's home address. */
-        public ?string $homeAddress = null,
+        public ?PhysicalAddress $homeAddress = null,
         /** @var string[] The contact's home phone numbers. */
         public array $homePhones = [],
         /** @var string[] The contact's instant messaging (IM) addresses. */
@@ -67,7 +67,7 @@ class Contact
         /** The location of the contact's office. */
         public ?string $officeLocation = null,
         /** Other addresses for the contact. */
-        public ?string $otherAddress = null,
+        public ?PhysicalAddress $otherAddress = null,
         /** The ID of the contact's parent folder. */
         public ?string $parentFolderId = null,
         /** The user's notes about the contact. */
@@ -91,7 +91,7 @@ class Contact
         /** The collection of multi-value extended properties defined for the contact. Read-only. Nullable. */
         public array $multiValueExtendedProperties = [],
         /** Optional contact picture. You can get or set a photo for a contact. */
-        public ?string $photo = null,
+        public ?ProfilePhoto $photo = null,
         /** The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
         public array $singleValueExtendedProperties = []
     ) {}

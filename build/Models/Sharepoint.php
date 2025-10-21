@@ -13,6 +13,6 @@ class Sharepoint
         /** The unique identifier for an entity. Read-only. */
         public ?string $id = null,
         /**  */
-        public ?string $settings = null
+        public ?SharepointSettings $settings = null
     ) {}
 }

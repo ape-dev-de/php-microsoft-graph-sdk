@@ -11,7 +11,7 @@ class IosNotificationSettings
 {
     public function __construct(
         /**  */
-        public ?string $alertType = null,
+        public ?IosNotificationAlertType $alertType = null,
         /** Application name to be associated with the bundleID. */
         public ?string $appName = null,
         /** Indicates whether badges are allowed for this app. */
