@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeviceCompliancePolicyAssignment resources
  *
  * Available select fields:
- * - target
  */
 class DeviceCompliancePolicyAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeviceCompliancePolicyAssignment
      */
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific DeviceCompliancePolicyAssignment properties

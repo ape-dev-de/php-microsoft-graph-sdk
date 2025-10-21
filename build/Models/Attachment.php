@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Attachment
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The MIME type. */
         public ?string $contentType = null,
         /** true if the attachment is an inline attachment; otherwise, false. */

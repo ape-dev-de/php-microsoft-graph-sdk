@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DomainDnsRecord
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** If false, the customer must configure this record at the DNS host for Microsoft Online Services to operate correctly with the domain. */
         public ?bool $isOptional = null,
         /** Value used when configuring the name of the DNS record at the DNS host. */

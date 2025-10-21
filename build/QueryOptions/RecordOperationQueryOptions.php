@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RecordOperation resources
  *
  * Available select fields:
- * - recordingAccessToken
- * - recordingLocation
  */
 class RecordOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RecordOperation
      */
-    public const FIELD_RECORDING_ACCESS_TOKEN = 'recordingAccessToken';
-    public const FIELD_RECORDING_LOCATION = 'recordingLocation';
 
     /**
      * Select specific RecordOperation properties

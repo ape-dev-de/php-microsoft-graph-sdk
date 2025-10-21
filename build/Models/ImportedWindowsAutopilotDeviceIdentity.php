@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ImportedWindowsAutopilotDeviceIdentity
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** UPN of the user the device will be assigned */
         public ?string $assignedUserPrincipalName = null,
         /** Group Tag of the Windows autopilot device. */

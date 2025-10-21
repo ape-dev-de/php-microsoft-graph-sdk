@@ -10,14 +10,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SynchronizationRule
 {
     public function __construct(
+        /** Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be found in the synchronization template returned by the API. */
+        public ?string $id = null,
         /**  */
         public ?string $containerFilter = null,
         /** true if the synchronization rule can be customized; false if this rule is read-only and shouldn't be changed. */
         public ?bool $editable = null,
         /**  */
         public ?string $groupFilter = null,
-        /** Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be found in the synchronization template returned by the API. */
-        public ?string $id = null,
         /** Additional extension properties. Unless instructed explicitly by the support team, metadata values shouldn''t be changed. */
         public array $metadata = [],
         /** Human-readable name of the synchronization rule. Not nullable. */

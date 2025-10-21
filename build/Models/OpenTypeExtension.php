@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OpenTypeExtension
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A unique text identifier for an open type data extension. Optional. */
         public ?string $extensionName = null
     ) {}

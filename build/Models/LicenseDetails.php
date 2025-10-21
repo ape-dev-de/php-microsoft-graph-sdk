@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class LicenseDetails
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Information about the service plans assigned with the license. Read-only. Not nullable. */
         public array $servicePlans = [],
         /** Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related subscribedSku object. Read-only. */

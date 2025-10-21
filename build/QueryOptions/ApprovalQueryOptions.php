@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Approval resources
  *
  * Available select fields:
- * - stages
  */
 class ApprovalQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Approval
      */
-    public const FIELD_STAGES = 'stages';
 
     /**
      * Select specific Approval properties

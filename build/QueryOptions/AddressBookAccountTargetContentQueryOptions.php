@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AddressBookAccountTargetContent resources
  *
  * Available select fields:
- * - accountTargetEmails
  */
 class AddressBookAccountTargetContentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AddressBookAccountTargetContent
      */
-    public const FIELD_ACCOUNT_TARGET_EMAILS = 'accountTargetEmails';
 
     /**
      * Select specific AddressBookAccountTargetContent properties

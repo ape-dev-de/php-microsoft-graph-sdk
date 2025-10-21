@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TrainingLanguageDetail
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Language specific content for the training. */
         public ?string $content = null,
         /** Identity of the user who created the language details. */

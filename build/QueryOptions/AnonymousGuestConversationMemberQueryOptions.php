@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AnonymousGuestConversationMember resources
  *
  * Available select fields:
- * - anonymousGuestId
  */
 class AnonymousGuestConversationMemberQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AnonymousGuestConversationMember
      */
-    public const FIELD_ANONYMOUS_GUEST_ID = 'anonymousGuestId';
 
     /**
      * Select specific AnonymousGuestConversationMember properties

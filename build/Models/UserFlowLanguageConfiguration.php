@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserFlowLanguageConfiguration
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The language name to display. This property is read-only. */
         public ?string $displayName = null,
         /** Indicates whether the language is enabled within the user flow. */

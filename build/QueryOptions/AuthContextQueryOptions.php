@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AuthContext resources
  *
  * Available select fields:
- * - authenticationContextValue
  */
 class AuthContextQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AuthContext
      */
-    public const FIELD_AUTHENTICATION_CONTEXT_VALUE = 'authenticationContextValue';
 
     /**
      * Select specific AuthContext properties

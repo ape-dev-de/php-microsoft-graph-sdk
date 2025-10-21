@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for InternetExplorerMode resources
  *
  * Available select fields:
- * - siteLists
  */
 class InternetExplorerModeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for InternetExplorerMode
      */
-    public const FIELD_SITE_LISTS = 'siteLists';
 
     /**
      * Select specific InternetExplorerMode properties

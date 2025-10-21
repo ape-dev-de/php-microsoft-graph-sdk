@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MultiTenantOrganizationMember
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** Tenant ID of the tenant that added the tenant to the multitenant organization. Read-only. */
         public ?string $addedByTenantId = null,
         /** Date and time when the tenant was added to the multitenant organization. Read-only. */

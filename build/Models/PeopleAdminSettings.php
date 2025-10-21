@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PeopleAdminSettings
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents administrator settings that manage the support for item insights in an organization. */
         public ?string $itemInsights = null,
         /** Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. */

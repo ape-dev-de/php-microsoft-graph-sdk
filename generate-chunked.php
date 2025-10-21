@@ -212,15 +212,32 @@ function parseSimpleYaml(string $content): array
     $lines = explode("\n", $content);
     $inProperties = false;
     $inAllOf = false;
+    $allOfItemIndex = -1;
     $currentProperty = null;
     $inItems = false;
     $depth = 0;
     
     foreach ($lines as $line) {
-        // Detect allOf (which contains properties)
+        // Detect allOf (which contains properties and $ref)
         if (preg_match('/^      allOf:\s*$/', $line)) {
             $inAllOf = true;
+            $schema['allOf'] = [];
             continue;
+        }
+        
+        // Detect new item in allOf array (8 spaces + dash)
+        if ($inAllOf && preg_match('/^        - /', $line)) {
+            $allOfItemIndex++;
+            
+            // Check if it's a $ref
+            if (preg_match('/^        - \$ref:\s*[\'"]?#\/components\/schemas\/(.+?)[\'"]?\s*$/', $line, $matches)) {
+                $schema['allOf'][$allOfItemIndex] = ['$ref' => $matches[1]];
+                continue;
+            } else {
+                // It's a new allOf item (will have properties)
+                $schema['allOf'][$allOfItemIndex] = ['properties' => []];
+                continue;
+            }
         }
         
         // Detect properties section (can be at different depths)
@@ -244,24 +261,56 @@ function parseSimpleYaml(string $content): array
             // New property (depth + 2 spaces)
             if (preg_match('/^' . str_repeat(' ', $depth + 2) . '([a-zA-Z0-9_@]+):\s*$/', $line, $matches)) {
                 $currentProperty = $matches[1];
-                $schema['properties'][$currentProperty] = ['type' => 'string'];
+                
+                // Store in the appropriate place (allOf item or root schema)
+                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'])) {
+                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty] = ['type' => 'string'];
+                } else {
+                    $schema['properties'][$currentProperty] = ['type' => 'string'];
+                }
                 $inItems = false;
             } elseif ($currentProperty && preg_match('/^\s+type:\s*(.+)$/', $line, $matches)) {
                 $type = trim($matches[1]);
-                if ($inItems) {
-                    // This is the type inside items
-                    $schema['properties'][$currentProperty]['items']['type'] = $type;
+                
+                // Determine where to store the type
+                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
+                    if ($inItems) {
+                        $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['items']['type'] = $type;
+                    } else {
+                        $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['type'] = $type;
+                    }
                 } else {
-                    $schema['properties'][$currentProperty]['type'] = $type;
+                    if ($inItems) {
+                        $schema['properties'][$currentProperty]['items']['type'] = $type;
+                    } else {
+                        $schema['properties'][$currentProperty]['type'] = $type;
+                    }
                 }
             } elseif ($currentProperty && preg_match('/^\s+items:\s*$/', $line)) {
                 // Entering items section for array type
                 $inItems = true;
-                $schema['properties'][$currentProperty]['items'] = [];
+                
+                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
+                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['items'] = [];
+                } else {
+                    $schema['properties'][$currentProperty]['items'] = [];
+                }
             } elseif ($currentProperty && preg_match('/^\s+format:\s*(.+)$/', $line, $matches)) {
-                $schema['properties'][$currentProperty]['format'] = trim($matches[1]);
+                $format = trim($matches[1]);
+                
+                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
+                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['format'] = $format;
+                } else {
+                    $schema['properties'][$currentProperty]['format'] = $format;
+                }
             } elseif ($currentProperty && preg_match('/^\s+description:\s*(.+)$/', $line, $matches)) {
-                $schema['properties'][$currentProperty]['description'] = trim($matches[1], '"\'');
+                $description = trim($matches[1], '"\'');
+                
+                if ($inAllOf && $allOfItemIndex >= 0 && isset($schema['allOf'][$allOfItemIndex]['properties'][$currentProperty])) {
+                    $schema['allOf'][$allOfItemIndex]['properties'][$currentProperty]['description'] = $description;
+                } else {
+                    $schema['properties'][$currentProperty]['description'] = $description;
+                }
             }
         }
     }
@@ -295,9 +344,18 @@ function generateIndividualModels(array $schemas, $output): void
         // Generate model (even if empty - some models have only @odata.type)
         $properties = [];
         
-        // Handle allOf schemas (merge all properties)
+        // Handle allOf schemas (merge all properties including inherited ones)
         if (isset($schemaData['allOf'])) {
             foreach ($schemaData['allOf'] as $idx => $subSchema) {
+                // Handle $ref to parent schemas
+                if (isset($subSchema['$ref'])) {
+                    $refName = basename($subSchema['$ref']);
+                    if (isset($schemas[$refName])) {
+                        $parentProperties = resolveSchemaProperties($schemas[$refName], $schemas);
+                        $properties = array_merge($properties, $parentProperties);
+                    }
+                }
+                // Handle direct properties
                 if (isset($subSchema['properties'])) {
                     $properties = array_merge($properties, $subSchema['properties']);
                 }
@@ -320,6 +378,39 @@ function generateIndividualModels(array $schemas, $output): void
 }
 
 /**
+ * Recursively resolve schema properties including inherited ones
+ */
+function resolveSchemaProperties(array $schemaData, array $allSchemas): array
+{
+    $properties = [];
+    
+    // Handle allOf (inheritance)
+    if (isset($schemaData['allOf'])) {
+        foreach ($schemaData['allOf'] as $subSchema) {
+            // Resolve $ref
+            if (isset($subSchema['$ref'])) {
+                $refName = basename($subSchema['$ref']);
+                if (isset($allSchemas[$refName])) {
+                    $parentProperties = resolveSchemaProperties($allSchemas[$refName], $allSchemas);
+                    $properties = array_merge($properties, $parentProperties);
+                }
+            }
+            // Direct properties
+            if (isset($subSchema['properties'])) {
+                $properties = array_merge($properties, $subSchema['properties']);
+            }
+        }
+    }
+    
+    // Direct properties
+    if (isset($schemaData['properties'])) {
+        $properties = array_merge($properties, $schemaData['properties']);
+    }
+    
+    return $properties;
+}
+
+/**
  * Generate model code
  */
 function generateModelCode(string $modelName, array $properties): string
@@ -330,6 +421,11 @@ function generateModelCode(string $modelName, array $properties): string
     // Map property types
     $mappedProperties = [];
     foreach ($properties as $propName => $propDef) {
+        // Skip @odata.type as it's a metadata property
+        if ($propName === '@odata.type') {
+            continue;
+        }
+        
         $mappedProperties[$propName] = [
             'type' => mapPropertyType($propDef),
             'description' => $propDef['description'] ?? '',

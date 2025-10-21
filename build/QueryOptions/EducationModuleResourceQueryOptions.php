@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationModuleResource resources
  *
  * Available select fields:
- * - resource
  */
 class EducationModuleResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationModuleResource
      */
-    public const FIELD_RESOURCE = 'resource';
 
     /**
      * Select specific EducationModuleResource properties

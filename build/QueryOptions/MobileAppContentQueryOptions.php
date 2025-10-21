@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MobileAppContent resources
  *
  * Available select fields:
- * - containedApps
- * - files
  */
 class MobileAppContentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MobileAppContent
      */
-    public const FIELD_CONTAINED_APPS = 'containedApps';
-    public const FIELD_FILES = 'files';
 
     /**
      * Select specific MobileAppContent properties

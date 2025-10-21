@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ChannelSetAsFavoriteByDefaultEventMessageDetail resources
  *
  * Available select fields:
- * - channelId
- * - initiator
  */
 class ChannelSetAsFavoriteByDefaultEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ChannelSetAsFavoriteByDefaultEventMessageDetail
      */
-    public const FIELD_CHANNEL_ID = 'channelId';
-    public const FIELD_INITIATOR = 'initiator';
 
     /**
      * Select specific ChannelSetAsFavoriteByDefaultEventMessageDetail properties

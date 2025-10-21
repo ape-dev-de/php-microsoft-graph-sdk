@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityDataSourceContainer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Created date and time of the dataSourceContainer entity. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Display name of the dataSourceContainer entity. */

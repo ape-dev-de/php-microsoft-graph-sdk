@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ConversationThread
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The Cc: recipients for the thread. Returned only on $select. */
         public array $ccRecipients = [],
         /** Indicates whether any of the posts within this thread has at least one attachment. Returned by default. */

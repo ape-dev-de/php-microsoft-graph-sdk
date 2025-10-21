@@ -8,24 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeviceCompliancePolicyState resources
  *
  * Available select fields:
- * - displayName
- * - platformType
- * - settingCount
- * - settingStates
- * - state
- * - version
  */
 class DeviceCompliancePolicyStateQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeviceCompliancePolicyState
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_PLATFORM_TYPE = 'platformType';
-    public const FIELD_SETTING_COUNT = 'settingCount';
-    public const FIELD_SETTING_STATES = 'settingStates';
-    public const FIELD_STATE = 'state';
-    public const FIELD_VERSION = 'version';
 
     /**
      * Select specific DeviceCompliancePolicyState properties

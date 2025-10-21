@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CustomSecurityAttributeDefinition
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Name of the attribute set. Case insensitive. */
         public ?string $attributeSet = null,
         /** Description of the custom security attribute. Can be up to 128 characters long and include Unicode characters. Can be changed later. */

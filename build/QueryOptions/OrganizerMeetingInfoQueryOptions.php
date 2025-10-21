@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OrganizerMeetingInfo resources
  *
  * Available select fields:
- * - organizer
  */
 class OrganizerMeetingInfoQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OrganizerMeetingInfo
      */
-    public const FIELD_ORGANIZER = 'organizer';
 
     /**
      * Select specific OrganizerMeetingInfo properties

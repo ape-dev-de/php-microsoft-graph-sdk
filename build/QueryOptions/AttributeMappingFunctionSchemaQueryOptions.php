@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AttributeMappingFunctionSchema resources
  *
  * Available select fields:
- * - parameters
  */
 class AttributeMappingFunctionSchemaQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AttributeMappingFunctionSchema
      */
-    public const FIELD_PARAMETERS = 'parameters';
 
     /**
      * Select specific AttributeMappingFunctionSchema properties

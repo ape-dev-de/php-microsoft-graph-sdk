@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceManagement
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Device protection overview. */
         public ?string $deviceProtectionOverview = null,
         /** Intune Account Id for given tenant */

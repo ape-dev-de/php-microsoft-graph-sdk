@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationMediaResource resources
  *
  * Available select fields:
- * - fileUrl
  */
 class EducationMediaResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationMediaResource
      */
-    public const FIELD_FILE_URL = 'fileUrl';
 
     /**
      * Select specific EducationMediaResource properties

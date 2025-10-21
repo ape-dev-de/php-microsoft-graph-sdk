@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ExternalConnectorsExternalItem
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
         public array $acl = [],
         /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional. */

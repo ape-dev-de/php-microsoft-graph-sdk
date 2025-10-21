@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MessageRule
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
         public ?string $actions = null,
         /** Conditions that when fulfilled trigger the corresponding actions for that rule. */

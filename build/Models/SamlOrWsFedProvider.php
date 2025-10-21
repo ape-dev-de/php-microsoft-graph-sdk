@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SamlOrWsFedProvider
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The display name of the identity provider. */
+        public ?string $displayName = null,
         /** Issuer URI of the federation server. */
         public ?string $issuerUri = null,
         /** URI of the metadata exchange endpoint used for authentication from rich client applications. */

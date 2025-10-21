@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookApplication resources
  *
  * Available select fields:
- * - calculationMode
  */
 class WorkbookApplicationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookApplication
      */
-    public const FIELD_CALCULATION_MODE = 'calculationMode';
 
     /**
      * Select specific WorkbookApplication properties

@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ThreatAssessmentResult resources
  *
  * Available select fields:
- * - createdDateTime
- * - message
- * - resultType
  */
 class ThreatAssessmentResultQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ThreatAssessmentResult
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
-    public const FIELD_MESSAGE = 'message';
-    public const FIELD_RESULT_TYPE = 'resultType';
 
     /**
      * Select specific ThreatAssessmentResult properties

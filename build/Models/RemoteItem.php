@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RemoteItem
 {
     public function __construct(
+        /** Unique identifier for the remote item in its drive. Read-only. */
+        public ?string $id = null,
         /** Identity of the user, device, and application which created the item. Read-only. */
         public ?string $createdBy = null,
         /** Date and time of item creation. Read-only. */
@@ -20,8 +22,6 @@ class RemoteItem
         public ?string $fileSystemInfo = null,
         /** Indicates that the remote item is a folder. Read-only. */
         public ?string $folder = null,
-        /** Unique identifier for the remote item in its drive. Read-only. */
-        public ?string $id = null,
         /** Image metadata, if the item is an image. Read-only. */
         public ?string $image = null,
         /** Identity of the user, device, and application which last modified the item. Read-only. */

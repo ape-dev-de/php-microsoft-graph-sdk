@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CanvasLayout
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Collection of horizontal sections on the SharePoint page. */
         public array $horizontalSections = [],
         /** Vertical section on the SharePoint page. */

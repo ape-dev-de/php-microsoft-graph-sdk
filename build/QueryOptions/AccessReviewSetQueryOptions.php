@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessReviewSet resources
  *
  * Available select fields:
- * - definitions
- * - historyDefinitions
  */
 class AccessReviewSetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessReviewSet
      */
-    public const FIELD_DEFINITIONS = 'definitions';
-    public const FIELD_HISTORY_DEFINITIONS = 'historyDefinitions';
 
     /**
      * Select specific AccessReviewSet properties

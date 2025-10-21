@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class NotificationMessageTemplate
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public ?string $brandingOptions = null,
         /** The default locale to fallback onto when the requested locale is not available. */

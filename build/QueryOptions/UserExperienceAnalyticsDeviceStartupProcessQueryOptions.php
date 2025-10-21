@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserExperienceAnalyticsDeviceStartupProcess resources
  *
  * Available select fields:
- * - managedDeviceId
- * - processName
- * - productName
- * - publisher
- * - startupImpactInMs
  */
 class UserExperienceAnalyticsDeviceStartupProcessQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserExperienceAnalyticsDeviceStartupProcess
      */
-    public const FIELD_MANAGED_DEVICE_ID = 'managedDeviceId';
-    public const FIELD_PROCESS_NAME = 'processName';
-    public const FIELD_PRODUCT_NAME = 'productName';
-    public const FIELD_PUBLISHER = 'publisher';
-    public const FIELD_STARTUP_IMPACT_IN_MS = 'startupImpactInMs';
 
     /**
      * Select specific UserExperienceAnalyticsDeviceStartupProcess properties

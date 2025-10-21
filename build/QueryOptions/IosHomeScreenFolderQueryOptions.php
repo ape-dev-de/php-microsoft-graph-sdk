@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IosHomeScreenFolder resources
  *
  * Available select fields:
- * - pages
  */
 class IosHomeScreenFolderQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IosHomeScreenFolder
      */
-    public const FIELD_PAGES = 'pages';
 
     /**
      * Select specific IosHomeScreenFolder properties

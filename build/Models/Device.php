@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Device
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers with at least the Cloud Device Administrator role can set this property. */
         public ?bool $accountEnabled = null,
         /** For internal use only. Not nullable. Supports $filter (eq, not, ge, le). */

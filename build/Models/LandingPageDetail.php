@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class LandingPageDetail
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Landing page detail content. */
         public ?string $content = null,
         /** Indicates whether this language detail is default for the landing page. */

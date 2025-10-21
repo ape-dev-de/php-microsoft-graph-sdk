@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityHostReputation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public ?string $classification = null,
         /** A collection of rules that have been used to calculate the classification and score. */

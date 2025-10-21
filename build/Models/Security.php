@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Security
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public array $alerts = [],
         /** A collection of alerts in Microsoft 365 Defender. */

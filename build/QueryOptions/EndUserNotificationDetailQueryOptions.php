@@ -8,24 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EndUserNotificationDetail resources
  *
  * Available select fields:
- * - emailContent
- * - isDefaultLangauge
- * - language
- * - locale
- * - sentFrom
- * - subject
  */
 class EndUserNotificationDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EndUserNotificationDetail
      */
-    public const FIELD_EMAIL_CONTENT = 'emailContent';
-    public const FIELD_IS_DEFAULT_LANGAUGE = 'isDefaultLangauge';
-    public const FIELD_LANGUAGE = 'language';
-    public const FIELD_LOCALE = 'locale';
-    public const FIELD_SENT_FROM = 'sentFrom';
-    public const FIELD_SUBJECT = 'subject';
 
     /**
      * Select specific EndUserNotificationDetail properties

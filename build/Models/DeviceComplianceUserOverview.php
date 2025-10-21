@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceComplianceUserOverview
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Version of the policy for that overview */
         public ?float $configurationVersion = null,
         /** Number of error Users */

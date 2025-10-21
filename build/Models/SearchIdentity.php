@@ -11,8 +11,8 @@ class SearchIdentity
 {
     public function __construct(
         /**  */
-        public ?string $displayName = null,
+        public ?string $id = null,
         /**  */
-        public ?string $id = null
+        public ?string $displayName = null
     ) {}
 }

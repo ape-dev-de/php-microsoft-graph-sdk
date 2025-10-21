@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class VirtualEventsRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public array $events = [],
         /** A collection of town halls. Nullable. */

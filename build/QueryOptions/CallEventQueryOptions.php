@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CallEvent resources
  *
  * Available select fields:
- * - callEventType
- * - eventDateTime
- * - participants
  */
 class CallEventQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CallEvent
      */
-    public const FIELD_CALL_EVENT_TYPE = 'callEventType';
-    public const FIELD_EVENT_DATE_TIME = 'eventDateTime';
-    public const FIELD_PARTICIPANTS = 'participants';
 
     /**
      * Select specific CallEvent properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WindowsInformationProtectionAppLearningSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Application Name */
         public ?string $applicationName = null,
         /**  */

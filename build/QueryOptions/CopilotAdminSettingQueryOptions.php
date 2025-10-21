@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CopilotAdminSetting resources
  *
  * Available select fields:
- * - limitedMode
  */
 class CopilotAdminSettingQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CopilotAdminSetting
      */
-    public const FIELD_LIMITED_MODE = 'limitedMode';
 
     /**
      * Select specific CopilotAdminSetting properties

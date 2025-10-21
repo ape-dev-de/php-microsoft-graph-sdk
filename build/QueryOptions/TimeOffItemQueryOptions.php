@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TimeOffItem resources
  *
  * Available select fields:
- * - timeOffReasonId
  */
 class TimeOffItemQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TimeOffItem
      */
-    public const FIELD_TIME_OFF_REASON_ID = 'timeOffReasonId';
 
     /**
      * Select specific TimeOffItem properties

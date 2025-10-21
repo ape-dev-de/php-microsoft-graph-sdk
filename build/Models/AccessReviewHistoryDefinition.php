@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewHistoryDefinition
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public ?string $createdBy = null,
         /** Timestamp when the access review definition was created. */

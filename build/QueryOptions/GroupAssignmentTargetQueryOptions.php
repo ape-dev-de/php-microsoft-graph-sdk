@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for GroupAssignmentTarget resources
  *
  * Available select fields:
- * - groupId
  */
 class GroupAssignmentTargetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for GroupAssignmentTarget
      */
-    public const FIELD_GROUP_ID = 'groupId';
 
     /**
      * Select specific GroupAssignmentTarget properties

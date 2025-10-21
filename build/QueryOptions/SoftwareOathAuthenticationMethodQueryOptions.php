@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SoftwareOathAuthenticationMethod resources
  *
  * Available select fields:
- * - secretKey
  */
 class SoftwareOathAuthenticationMethodQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SoftwareOathAuthenticationMethod
      */
-    public const FIELD_SECRET_KEY = 'secretKey';
 
     /**
      * Select specific SoftwareOathAuthenticationMethod properties

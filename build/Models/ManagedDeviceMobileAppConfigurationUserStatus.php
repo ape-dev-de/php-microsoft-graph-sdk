@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ManagedDeviceMobileAppConfigurationUserStatus
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Devices count for that user. */
         public ?float $devicesCount = null,
         /** Last modified date time of the policy report. */

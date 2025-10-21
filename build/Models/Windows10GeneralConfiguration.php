@@ -10,6 +10,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Windows10GeneralConfiguration
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** DateTime the object was created. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** Admin provided description of the Device Configuration. */
+        public ?string $description = null,
+        /** Admin provided name of the device configuration. */
+        public ?string $displayName = null,
+        /** DateTime the object was last modified. */
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
+        /** Version of the device configuration. */
+        public ?float $version = null,
+        /** The list of assignments for the device configuration profile. */
+        public array $assignments = [],
+        /** Device Configuration Setting State Device Summary */
+        public array $deviceSettingStateSummaries = [],
+        /** Device configuration installation status by device. */
+        public array $deviceStatuses = [],
+        /** Device Configuration devices status overview */
+        public ?string $deviceStatusOverview = null,
+        /** Device configuration installation status by user. */
+        public array $userStatuses = [],
+        /** Device Configuration. */
+        public ?string $userStatusOverview = null,
         /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
         public ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null,
         /** Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only). */

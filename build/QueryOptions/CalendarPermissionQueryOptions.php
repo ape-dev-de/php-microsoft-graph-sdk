@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CalendarPermission resources
  *
  * Available select fields:
- * - allowedRoles
- * - emailAddress
- * - isInsideOrganization
- * - isRemovable
- * - role
  */
 class CalendarPermissionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CalendarPermission
      */
-    public const FIELD_ALLOWED_ROLES = 'allowedRoles';
-    public const FIELD_EMAIL_ADDRESS = 'emailAddress';
-    public const FIELD_IS_INSIDE_ORGANIZATION = 'isInsideOrganization';
-    public const FIELD_IS_REMOVABLE = 'isRemovable';
-    public const FIELD_ROLE = 'role';
 
     /**
      * Select specific CalendarPermission properties

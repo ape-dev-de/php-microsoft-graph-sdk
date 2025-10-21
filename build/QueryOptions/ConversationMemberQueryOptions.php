@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ConversationMember resources
  *
  * Available select fields:
- * - displayName
- * - roles
- * - visibleHistoryStartDateTime
  */
 class ConversationMemberQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ConversationMember
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_ROLES = 'roles';
-    public const FIELD_VISIBLE_HISTORY_START_DATE_TIME = 'visibleHistoryStartDateTime';
 
     /**
      * Select specific ConversationMember properties

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PrintUsageByPrinter resources
  *
  * Available select fields:
- * - printerId
- * - printerName
  */
 class PrintUsageByPrinterQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PrintUsageByPrinter
      */
-    public const FIELD_PRINTER_ID = 'printerId';
-    public const FIELD_PRINTER_NAME = 'printerName';
 
     /**
      * Select specific PrintUsageByPrinter properties

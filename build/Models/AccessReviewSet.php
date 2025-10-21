@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewSet
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents the template and scheduling for an access review. */
         public array $definitions = [],
         /** @var string[] Represents a collection of access review history data and the scopes used to collect that data. */

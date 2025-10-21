@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for LearningSelfInitiatedCourse resources
  *
  * Available select fields:
- * - startedDateTime
  */
 class LearningSelfInitiatedCourseQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for LearningSelfInitiatedCourse
      */
-    public const FIELD_STARTED_DATE_TIME = 'startedDateTime';
 
     /**
      * Select specific LearningSelfInitiatedCourse properties

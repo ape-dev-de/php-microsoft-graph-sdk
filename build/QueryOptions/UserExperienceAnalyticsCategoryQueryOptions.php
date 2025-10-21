@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserExperienceAnalyticsCategory resources
  *
  * Available select fields:
- * - insights
- * - metricValues
  */
 class UserExperienceAnalyticsCategoryQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserExperienceAnalyticsCategory
      */
-    public const FIELD_INSIGHTS = 'insights';
-    public const FIELD_METRIC_VALUES = 'metricValues';
 
     /**
      * Select specific UserExperienceAnalyticsCategory properties

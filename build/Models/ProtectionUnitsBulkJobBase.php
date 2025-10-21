@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ProtectionUnitsBulkJobBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The identity of person who created the job. */
         public ?string $createdBy = null,
         /** The time of creation of the job. */

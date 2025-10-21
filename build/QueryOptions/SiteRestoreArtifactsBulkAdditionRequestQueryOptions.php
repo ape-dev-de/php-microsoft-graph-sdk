@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SiteRestoreArtifactsBulkAdditionRequest resources
  *
  * Available select fields:
- * - siteIds
- * - siteWebUrls
  */
 class SiteRestoreArtifactsBulkAdditionRequestQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SiteRestoreArtifactsBulkAdditionRequest
      */
-    public const FIELD_SITE_IDS = 'siteIds';
-    public const FIELD_SITE_WEB_URLS = 'siteWebUrls';
 
     /**
      * Select specific SiteRestoreArtifactsBulkAdditionRequest properties

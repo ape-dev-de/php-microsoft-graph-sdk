@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeamsLicensingDetails resources
  *
  * Available select fields:
- * - hasTeamsLicense
  */
 class TeamsLicensingDetailsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeamsLicensingDetails
      */
-    public const FIELD_HAS_TEAMS_LICENSE = 'hasTeamsLicense';
 
     /**
      * Select specific TeamsLicensingDetails properties

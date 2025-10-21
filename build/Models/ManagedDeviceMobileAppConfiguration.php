@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ManagedDeviceMobileAppConfiguration
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** DateTime the object was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Admin provided description of the Device Configuration. */

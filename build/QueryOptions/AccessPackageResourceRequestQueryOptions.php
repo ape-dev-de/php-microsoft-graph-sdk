@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessPackageResourceRequest resources
  *
  * Available select fields:
- * - createdDateTime
- * - requestType
- * - state
- * - catalog
- * - resource
  */
 class AccessPackageResourceRequestQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessPackageResourceRequest
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
-    public const FIELD_REQUEST_TYPE = 'requestType';
-    public const FIELD_STATE = 'state';
-    public const FIELD_CATALOG = 'catalog';
-    public const FIELD_RESOURCE = 'resource';
 
     /**
      * Select specific AccessPackageResourceRequest properties

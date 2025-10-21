@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PlannerUser
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
         public array $plans = [],
         /** @var string[] Read-only. Nullable. Returns the plannerPlans shared with the user. */

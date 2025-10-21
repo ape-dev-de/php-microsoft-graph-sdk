@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IdentityGovernanceCustomTaskExtensionCalloutData resources
  *
  * Available select fields:
- * - subject
- * - task
- * - taskProcessingresult
- * - workflow
  */
 class IdentityGovernanceCustomTaskExtensionCalloutDataQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IdentityGovernanceCustomTaskExtensionCalloutData
      */
-    public const FIELD_SUBJECT = 'subject';
-    public const FIELD_TASK = 'task';
-    public const FIELD_TASK_PROCESSINGRESULT = 'taskProcessingresult';
-    public const FIELD_WORKFLOW = 'workflow';
 
     /**
      * Select specific IdentityGovernanceCustomTaskExtensionCalloutData properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ChecklistItem
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date and time when the checklistItem was finished. */
         public ?\DateTimeInterface $checkedDateTime = null,
         /** The date and time when the checklistItem was created. */

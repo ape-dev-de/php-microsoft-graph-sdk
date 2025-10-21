@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeamMembersNotificationRecipient resources
  *
  * Available select fields:
- * - teamId
  */
 class TeamMembersNotificationRecipientQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeamMembersNotificationRecipient
      */
-    public const FIELD_TEAM_ID = 'teamId';
 
     /**
      * Select specific TeamMembersNotificationRecipient properties

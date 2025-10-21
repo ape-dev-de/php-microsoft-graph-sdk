@@ -10,11 +10,11 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class InsightIdentity
 {
     public function __construct(
+        /** The ID of the user who shared the item. */
+        public ?string $id = null,
         /** The email address of the user who shared the item. */
         public ?string $address = null,
         /** The display name of the user who shared the item. */
-        public ?string $displayName = null,
-        /** The ID of the user who shared the item. */
-        public ?string $id = null
+        public ?string $displayName = null
     ) {}
 }

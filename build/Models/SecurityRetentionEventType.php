@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityRetentionEventType
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The user who created the retentionEventType. */
         public ?string $createdBy = null,
         /** The date time when the retentionEventType was created. */

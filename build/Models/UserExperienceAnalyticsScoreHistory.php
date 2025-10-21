@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsScoreHistory
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The user experience analytics device startup score history. */
         public ?\DateTimeInterface $startupDateTime = null
     ) {}

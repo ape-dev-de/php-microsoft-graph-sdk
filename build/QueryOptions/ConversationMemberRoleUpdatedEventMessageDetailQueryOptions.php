@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ConversationMemberRoleUpdatedEventMessageDetail resources
  *
  * Available select fields:
- * - conversationMemberRoles
- * - conversationMemberUser
- * - initiator
  */
 class ConversationMemberRoleUpdatedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ConversationMemberRoleUpdatedEventMessageDetail
      */
-    public const FIELD_CONVERSATION_MEMBER_ROLES = 'conversationMemberRoles';
-    public const FIELD_CONVERSATION_MEMBER_USER = 'conversationMemberUser';
-    public const FIELD_INITIATOR = 'initiator';
 
     /**
      * Select specific ConversationMemberRoleUpdatedEventMessageDetail properties

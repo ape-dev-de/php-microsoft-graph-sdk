@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessPackageResourceScope
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The description of the scope. */
         public ?string $description = null,
         /** The display name of the scope. */

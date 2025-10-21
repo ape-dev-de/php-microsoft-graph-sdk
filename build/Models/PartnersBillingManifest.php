@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PartnersBillingManifest
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The total file count for this partner tenant ID. */
         public ?float $blobCount = null,
         /** A collection of blob objects that contain details of all the files for the partner tenant ID. */

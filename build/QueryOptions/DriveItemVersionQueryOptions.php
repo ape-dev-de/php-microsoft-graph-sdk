@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DriveItemVersion resources
  *
  * Available select fields:
- * - content
- * - size
  */
 class DriveItemVersionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DriveItemVersion
      */
-    public const FIELD_CONTENT = 'content';
-    public const FIELD_SIZE = 'size';
 
     /**
      * Select specific DriveItemVersion properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SoftwareOathAuthenticationMethodConfiguration resources
  *
  * Available select fields:
- * - includeTargets
  */
 class SoftwareOathAuthenticationMethodConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SoftwareOathAuthenticationMethodConfiguration
      */
-    public const FIELD_INCLUDE_TARGETS = 'includeTargets';
 
     /**
      * Select specific SoftwareOathAuthenticationMethodConfiguration properties

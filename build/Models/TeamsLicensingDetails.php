@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamsLicensingDetails
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether the user has a valid license to use Microsoft Teams. */
         public ?string $hasTeamsLicense = null
     ) {}

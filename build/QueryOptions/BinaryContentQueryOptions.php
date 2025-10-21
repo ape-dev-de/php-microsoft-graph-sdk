@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for BinaryContent resources
  *
  * Available select fields:
- * - data
  */
 class BinaryContentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for BinaryContent
      */
-    public const FIELD_DATA = 'data';
 
     /**
      * Select specific BinaryContent properties

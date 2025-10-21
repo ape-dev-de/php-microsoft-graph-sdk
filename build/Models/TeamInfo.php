@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamInfo
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The name of the team. */
         public ?string $displayName = null,
         /** The ID of the Microsoft Entra tenant. */

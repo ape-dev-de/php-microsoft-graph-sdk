@@ -14,9 +14,20 @@ class <?= $MODEL_NAME ?>
 {
     public function __construct(
 <?php 
-$propCount = count($PROPERTIES);
+// Sort properties to put 'id' first if it exists
+$sortedProperties = [];
+if (isset($PROPERTIES['id'])) {
+    $sortedProperties['id'] = $PROPERTIES['id'];
+}
+foreach ($PROPERTIES as $propName => $propDef) {
+    if ($propName !== 'id') {
+        $sortedProperties[$propName] = $propDef;
+    }
+}
+
+$propCount = count($sortedProperties);
 $currentIndex = 0;
-foreach ($PROPERTIES as $propName => $propDef): 
+foreach ($sortedProperties as $propName => $propDef): 
     $currentIndex++;
     $type = $propDef['type'];
     $description = $propDef['description'] ?? '';

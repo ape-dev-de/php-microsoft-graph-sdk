@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RestoreArtifactsBulkRequestBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The identity of the person who created the bulk request. */
         public ?string $createdBy = null,
         /** The time when the bulk request was created. */

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for InsightsSettings resources
  *
  * Available select fields:
- * - disabledForGroup
- * - isEnabledInOrganization
  */
 class InsightsSettingsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for InsightsSettings
      */
-    public const FIELD_DISABLED_FOR_GROUP = 'disabledForGroup';
-    public const FIELD_IS_ENABLED_IN_ORGANIZATION = 'isEnabledInOrganization';
 
     /**
      * Select specific InsightsSettings properties

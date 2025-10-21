@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class User
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** A freeform text entry field for the user to describe themselves. Returned only on $select. */
         public ?string $aboutMe = null,
         /** true if the account is enabled; otherwise, false. This property is required when a user is created. Returned only on $select. Supports $filter (eq, ne, not, and in). */

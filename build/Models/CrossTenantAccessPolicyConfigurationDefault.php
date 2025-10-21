@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CrossTenantAccessPolicyConfigurationDefault
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Determines the default configuration for automatic user consent settings. The inboundAllowed and outboundAllowed properties are always false and can't be updated in the default configuration. Read-only. */
         public ?string $automaticUserConsentSettings = null,
         /** Defines your default configuration for users from other organizations accessing your resources via Microsoft Entra B2B collaboration. */

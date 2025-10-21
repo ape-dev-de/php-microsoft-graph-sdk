@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallRecordsSegment
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Endpoint that answered this segment. */
         public ?string $callee = null,
         /** Endpoint that initiated this segment. */

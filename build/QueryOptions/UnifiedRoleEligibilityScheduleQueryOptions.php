@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UnifiedRoleEligibilitySchedule resources
  *
  * Available select fields:
- * - memberType
- * - scheduleInfo
  */
 class UnifiedRoleEligibilityScheduleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UnifiedRoleEligibilitySchedule
      */
-    public const FIELD_MEMBER_TYPE = 'memberType';
-    public const FIELD_SCHEDULE_INFO = 'scheduleInfo';
 
     /**
      * Select specific UnifiedRoleEligibilitySchedule properties

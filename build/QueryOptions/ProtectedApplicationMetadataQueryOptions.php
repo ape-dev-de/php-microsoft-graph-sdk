@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ProtectedApplicationMetadata resources
  *
  * Available select fields:
- * - applicationLocation
  */
 class ProtectedApplicationMetadataQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ProtectedApplicationMetadata
      */
-    public const FIELD_APPLICATION_LOCATION = 'applicationLocation';
 
     /**
      * Select specific ProtectedApplicationMetadata properties

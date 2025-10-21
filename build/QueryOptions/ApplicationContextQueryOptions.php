@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ApplicationContext resources
  *
  * Available select fields:
- * - includeApplications
  */
 class ApplicationContextQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ApplicationContext
      */
-    public const FIELD_INCLUDE_APPLICATIONS = 'includeApplications';
 
     /**
      * Select specific ApplicationContext properties

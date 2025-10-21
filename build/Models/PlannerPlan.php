@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PlannerPlan
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it''s set, this property can’t be updated. Required. */
         public ?string $container = null,
         /** Read-only. The user who created the plan. */

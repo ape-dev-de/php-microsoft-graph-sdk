@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for InferenceClassification resources
  *
  * Available select fields:
- * - overrides
  */
 class InferenceClassificationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for InferenceClassification
      */
-    public const FIELD_OVERRIDES = 'overrides';
 
     /**
      * Select specific InferenceClassification properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DelegatedAdminRelationshipRequest
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public ?string $action = null,
         /** The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only. */

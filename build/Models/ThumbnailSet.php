@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ThumbnailSet
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A 1920x1920 scaled thumbnail. */
         public ?string $large = null,
         /** A 176x176 scaled thumbnail. */

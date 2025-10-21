@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ItemAttachment resources
  *
  * Available select fields:
- * - item
  */
 class ItemAttachmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ItemAttachment
      */
-    public const FIELD_ITEM = 'item';
 
     /**
      * Select specific ItemAttachment properties

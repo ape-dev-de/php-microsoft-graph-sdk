@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OmaSettingInteger resources
  *
  * Available select fields:
- * - value
  */
 class OmaSettingIntegerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OmaSettingInteger
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific OmaSettingInteger properties

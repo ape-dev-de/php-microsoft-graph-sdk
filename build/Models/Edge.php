@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Edge
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A container for Internet Explorer mode resources. */
         public ?string $internetExplorerMode = null
     ) {}

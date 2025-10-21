@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PlannerPlanDetails resources
  *
  * Available select fields:
- * - categoryDescriptions
- * - sharedWith
  */
 class PlannerPlanDetailsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PlannerPlanDetails
      */
-    public const FIELD_CATEGORY_DESCRIPTIONS = 'categoryDescriptions';
-    public const FIELD_SHARED_WITH = 'sharedWith';
 
     /**
      * Select specific PlannerPlanDetails properties

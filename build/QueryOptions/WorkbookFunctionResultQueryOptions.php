@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookFunctionResult resources
  *
  * Available select fields:
- * - error
  */
 class WorkbookFunctionResultQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookFunctionResult
      */
-    public const FIELD_ERROR = 'error';
 
     /**
      * Select specific WorkbookFunctionResult properties

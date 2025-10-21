@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EducationSubmissionResource
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Pointer to the assignment from which the resource was copied, and if null, the student uploaded the resource. */
         public ?string $assignmentResourceUrl = null,
         /** Resource object. */

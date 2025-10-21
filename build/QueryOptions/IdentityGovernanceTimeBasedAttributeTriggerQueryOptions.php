@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IdentityGovernanceTimeBasedAttributeTrigger resources
  *
  * Available select fields:
- * - offsetInDays
- * - timeBasedAttribute
  */
 class IdentityGovernanceTimeBasedAttributeTriggerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IdentityGovernanceTimeBasedAttributeTrigger
      */
-    public const FIELD_OFFSET_IN_DAYS = 'offsetInDays';
-    public const FIELD_TIME_BASED_ATTRIBUTE = 'timeBasedAttribute';
 
     /**
      * Select specific IdentityGovernanceTimeBasedAttributeTrigger properties

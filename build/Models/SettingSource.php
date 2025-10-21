@@ -11,9 +11,9 @@ class SettingSource
 {
     public function __construct(
         /** Not yet documented */
-        public ?string $displayName = null,
-        /** Not yet documented */
         public ?string $id = null,
+        /** Not yet documented */
+        public ?string $displayName = null,
         /**  */
         public ?string $sourceType = null
     ) {}

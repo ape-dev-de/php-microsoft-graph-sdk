@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for StsPolicy resources
  *
  * Available select fields:
- * - definition
- * - isOrganizationDefault
- * - appliesTo
  */
 class StsPolicyQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for StsPolicy
      */
-    public const FIELD_DEFINITION = 'definition';
-    public const FIELD_IS_ORGANIZATION_DEFAULT = 'isOrganizationDefault';
-    public const FIELD_APPLIES_TO = 'appliesTo';
 
     /**
      * Select specific StsPolicy properties

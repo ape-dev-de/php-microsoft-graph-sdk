@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityBlobContainerEvidence resources
  *
  * Available select fields:
- * - name
- * - storageResource
- * - url
  */
 class SecurityBlobContainerEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityBlobContainerEvidence
      */
-    public const FIELD_NAME = 'name';
-    public const FIELD_STORAGE_RESOURCE = 'storageResource';
-    public const FIELD_URL = 'url';
 
     /**
      * Select specific SecurityBlobContainerEvidence properties

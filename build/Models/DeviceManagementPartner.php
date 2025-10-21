@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceManagementPartner
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Partner display name */
         public ?string $displayName = null,
         /** User groups that specifies whether enrollment is through partner. */

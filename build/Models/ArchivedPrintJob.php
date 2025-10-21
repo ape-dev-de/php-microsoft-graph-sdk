@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ArchivedPrintJob
 {
     public function __construct(
+        /** The archived print job's GUID. Read-only. */
+        public ?string $id = null,
         /** True if the job was acquired by a printer; false otherwise. Read-only. */
         public ?bool $acquiredByPrinter = null,
         /** The dateTimeOffset when the job was acquired by the printer, if any. Read-only. */
@@ -22,8 +24,6 @@ class ArchivedPrintJob
         public ?string $createdBy = null,
         /** The dateTimeOffset when the job was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
-        /** The archived print job's GUID. Read-only. */
-        public ?string $id = null,
         /** The printer ID that the job was queued for. Read-only. */
         public ?string $printerId = null,
         /** The printer name that the job was queued for. Read-only. */

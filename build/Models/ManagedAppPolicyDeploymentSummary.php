@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ManagedAppPolicyDeploymentSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Not yet documented */
         public ?float $configurationDeployedUserCount = null,
         /** Not yet documented */

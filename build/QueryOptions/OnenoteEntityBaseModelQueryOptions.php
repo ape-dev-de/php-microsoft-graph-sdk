@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnenoteEntityBaseModel resources
  *
  * Available select fields:
- * - self
  */
 class OnenoteEntityBaseModelQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnenoteEntityBaseModel
      */
-    public const FIELD_SELF = 'self';
 
     /**
      * Select specific OnenoteEntityBaseModel properties

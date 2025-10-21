@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DirectoryAudit
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and $orderby. */
         public ?\DateTimeInterface $activityDateTime = null,
         /** Indicates the activity name or the operation name (examples: ''Create User'' and ''Add member to group''). For a list of activities logged, refer to Microsoft Entra audit log categories and activities. Supports $filter (eq, startswith). */

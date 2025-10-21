@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UnifiedRbacResourceNamespace resources
  *
  * Available select fields:
- * - name
- * - resourceActions
  */
 class UnifiedRbacResourceNamespaceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UnifiedRbacResourceNamespace
      */
-    public const FIELD_NAME = 'name';
-    public const FIELD_RESOURCE_ACTIONS = 'resourceActions';
 
     /**
      * Select specific UnifiedRbacResourceNamespace properties

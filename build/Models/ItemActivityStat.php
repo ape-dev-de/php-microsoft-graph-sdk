@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ItemActivityStat
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Statistics about the access actions in this interval. Read-only. */
         public ?string $access = null,
         /** Statistics about the create actions in this interval. Read-only. */

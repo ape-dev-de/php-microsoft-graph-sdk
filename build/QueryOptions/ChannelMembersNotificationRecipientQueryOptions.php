@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ChannelMembersNotificationRecipient resources
  *
  * Available select fields:
- * - channelId
- * - teamId
  */
 class ChannelMembersNotificationRecipientQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ChannelMembersNotificationRecipient
      */
-    public const FIELD_CHANNEL_ID = 'channelId';
-    public const FIELD_TEAM_ID = 'teamId';
 
     /**
      * Select specific ChannelMembersNotificationRecipient properties

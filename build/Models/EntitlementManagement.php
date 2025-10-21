@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EntitlementManagement
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Approval stages for decisions associated with access package assignment requests. */
         public array $accessPackageAssignmentApprovals = [],
         /** Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessReviewInstanceDecisionItemServicePrincipalResource resources
  *
  * Available select fields:
- * - appId
  */
 class AccessReviewInstanceDecisionItemServicePrincipalResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessReviewInstanceDecisionItemServicePrincipalResource
      */
-    public const FIELD_APP_ID = 'appId';
 
     /**
      * Select specific AccessReviewInstanceDecisionItemServicePrincipalResource properties

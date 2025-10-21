@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EndUserNotificationDetail
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Email HTML content. */
         public ?string $emailContent = null,
         /** Indicates whether this language is default. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DetectedApp
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The number of devices that have installed this application */
         public ?float $deviceCount = null,
         /** Name of the discovered application. Read-only */

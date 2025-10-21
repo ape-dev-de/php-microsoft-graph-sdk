@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityUserEvidence resources
  *
  * Available select fields:
- * - stream
- * - userAccount
  */
 class SecurityUserEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityUserEvidence
      */
-    public const FIELD_STREAM = 'stream';
-    public const FIELD_USER_ACCOUNT = 'userAccount';
 
     /**
      * Select specific SecurityUserEvidence properties

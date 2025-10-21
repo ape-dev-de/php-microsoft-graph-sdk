@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Win32LobAppPowerShellScriptRule
 {
     public function __construct(
+        /** A base complex type to store the detection or requirement rule data for a Win32 LOB app. */
+        public ?string $ruleType = null,
         /** The script output comparison value. Do not specify a value if the rule is used for detection. */
         public ?string $comparisonValue = null,
         /** The display name for the rule. Do not specify this value if the rule is used for detection. */

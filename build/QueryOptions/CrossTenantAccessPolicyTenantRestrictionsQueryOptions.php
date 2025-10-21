@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CrossTenantAccessPolicyTenantRestrictions resources
  *
  * Available select fields:
- * - devices
  */
 class CrossTenantAccessPolicyTenantRestrictionsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CrossTenantAccessPolicyTenantRestrictions
      */
-    public const FIELD_DEVICES = 'devices';
 
     /**
      * Select specific CrossTenantAccessPolicyTenantRestrictions properties

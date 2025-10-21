@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationExternalResource resources
  *
  * Available select fields:
- * - webUrl
  */
 class EducationExternalResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationExternalResource
      */
-    public const FIELD_WEB_URL = 'webUrl';
 
     /**
      * Select specific EducationExternalResource properties

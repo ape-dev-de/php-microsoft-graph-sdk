@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PrintService resources
  *
  * Available select fields:
- * - endpoints
  */
 class PrintServiceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PrintService
      */
-    public const FIELD_ENDPOINTS = 'endpoints';
 
     /**
      * Select specific PrintService properties

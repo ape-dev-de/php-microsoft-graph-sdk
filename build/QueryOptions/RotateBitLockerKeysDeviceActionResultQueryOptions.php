@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RotateBitLockerKeysDeviceActionResult resources
  *
  * Available select fields:
- * - errorCode
  */
 class RotateBitLockerKeysDeviceActionResultQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RotateBitLockerKeysDeviceActionResult
      */
-    public const FIELD_ERROR_CODE = 'errorCode';
 
     /**
      * Select specific RotateBitLockerKeysDeviceActionResult properties

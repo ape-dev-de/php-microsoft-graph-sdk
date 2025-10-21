@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for VirtualEventWebinarRegistrationConfiguration resources
  *
  * Available select fields:
- * - isManualApprovalEnabled
- * - isWaitlistEnabled
  */
 class VirtualEventWebinarRegistrationConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for VirtualEventWebinarRegistrationConfiguration
      */
-    public const FIELD_IS_MANUAL_APPROVAL_ENABLED = 'isManualApprovalEnabled';
-    public const FIELD_IS_WAITLIST_ENABLED = 'isWaitlistEnabled';
 
     /**
      * Select specific VirtualEventWebinarRegistrationConfiguration properties

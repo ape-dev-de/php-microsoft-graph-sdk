@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ProcessingError resources
  *
  * Available select fields:
- * - errorType
  */
 class ProcessingErrorQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ProcessingError
      */
-    public const FIELD_ERROR_TYPE = 'errorType';
 
     /**
      * Select specific ProcessingError properties

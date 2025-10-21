@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EducationUser
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter. */
         public ?bool $accountEnabled = null,
         /** The licenses that are assigned to the user. Not nullable. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SynchronizationJob
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Schedule used to run the job. Read-only. */
         public ?string $schedule = null,
         /** Status of the job, which includes when the job was last run, current job state, and errors. */

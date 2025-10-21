@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DomainDnsCnameRecord resources
  *
  * Available select fields:
- * - canonicalName
  */
 class DomainDnsCnameRecordQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DomainDnsCnameRecord
      */
-    public const FIELD_CANONICAL_NAME = 'canonicalName';
 
     /**
      * Select specific DomainDnsCnameRecord properties

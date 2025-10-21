@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserExperienceAnalyticsMetricHistory resources
  *
  * Available select fields:
- * - deviceId
- * - metricDateTime
- * - metricType
  */
 class UserExperienceAnalyticsMetricHistoryQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserExperienceAnalyticsMetricHistory
      */
-    public const FIELD_DEVICE_ID = 'deviceId';
-    public const FIELD_METRIC_DATE_TIME = 'metricDateTime';
-    public const FIELD_METRIC_TYPE = 'metricType';
 
     /**
      * Select specific UserExperienceAnalyticsMetricHistory properties

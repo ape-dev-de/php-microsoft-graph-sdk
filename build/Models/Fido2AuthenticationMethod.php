@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Fido2AuthenticationMethod
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
         public ?string $aaGuid = null,
         /** @var string[] The attestation certificate(s) attached to this security key. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AppConsentRequest
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
         public ?string $appDisplayName = null,
         /** The identifier of the application. Required. Supports $filter (eq only) and $orderby. */

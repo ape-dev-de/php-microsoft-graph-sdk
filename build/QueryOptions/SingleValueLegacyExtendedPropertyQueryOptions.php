@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SingleValueLegacyExtendedProperty resources
  *
  * Available select fields:
- * - value
  */
 class SingleValueLegacyExtendedPropertyQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SingleValueLegacyExtendedProperty
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific SingleValueLegacyExtendedProperty properties

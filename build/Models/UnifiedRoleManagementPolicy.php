@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UnifiedRoleManagementPolicy
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Description for the policy. */
         public ?string $description = null,
         /** Display name for the policy. */

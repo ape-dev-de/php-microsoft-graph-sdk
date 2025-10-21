@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp resources
  *
  * Available select fields:
- * - isSignUpAllowed
  */
 class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUpQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp
      */
-    public const FIELD_IS_SIGN_UP_ALLOWED = 'isSignUpAllowed';
 
     /**
      * Select specific OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp properties

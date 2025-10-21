@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SignIn
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** App name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith). */
         public ?string $appDisplayName = null,
         /** Unique GUID that represents the app ID in the Microsoft Entra ID.  Supports $filter (eq). */

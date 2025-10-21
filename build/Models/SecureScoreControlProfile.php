@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecureScoreControlProfile
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Control action type (Config, Review, Behavior). */
         public ?string $actionType = null,
         /** URL to where the control can be actioned. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AttackSimulationRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents an end user's notification for an attack simulation training. */
         public array $endUserNotifications = [],
         /** Represents an attack simulation training landing page. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityRetentionDurationInDays resources
  *
  * Available select fields:
- * - days
  */
 class SecurityRetentionDurationInDaysQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityRetentionDurationInDays
      */
-    public const FIELD_DAYS = 'days';
 
     /**
      * Select specific SecurityRetentionDurationInDays properties

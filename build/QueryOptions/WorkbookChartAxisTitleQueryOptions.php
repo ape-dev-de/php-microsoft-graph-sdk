@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookChartAxisTitle resources
  *
  * Available select fields:
- * - text
- * - visible
- * - format
  */
 class WorkbookChartAxisTitleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookChartAxisTitle
      */
-    public const FIELD_TEXT = 'text';
-    public const FIELD_VISIBLE = 'visible';
-    public const FIELD_FORMAT = 'format';
 
     /**
      * Select specific WorkbookChartAxisTitle properties

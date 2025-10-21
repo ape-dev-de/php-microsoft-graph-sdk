@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CustomExtensionStageSetting resources
  *
  * Available select fields:
- * - stage
- * - customExtension
  */
 class CustomExtensionStageSettingQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CustomExtensionStageSetting
      */
-    public const FIELD_STAGE = 'stage';
-    public const FIELD_CUSTOM_EXTENSION = 'customExtension';
 
     /**
      * Select specific CustomExtensionStageSetting properties

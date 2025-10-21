@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PinnedChatMessageInfo
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents details about the chat message that is pinned. */
         public ?string $message = null
     ) {}

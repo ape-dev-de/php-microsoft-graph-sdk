@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IdentityGovernanceTriggerAndScopeBasedConditions resources
  *
  * Available select fields:
- * - scope
- * - trigger
  */
 class IdentityGovernanceTriggerAndScopeBasedConditionsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IdentityGovernanceTriggerAndScopeBasedConditions
      */
-    public const FIELD_SCOPE = 'scope';
-    public const FIELD_TRIGGER = 'trigger';
 
     /**
      * Select specific IdentityGovernanceTriggerAndScopeBasedConditions properties

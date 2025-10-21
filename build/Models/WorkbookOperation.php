@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookOperation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The error returned by the operation. */
         public ?string $error = null,
         /** The resource URI for the result. */

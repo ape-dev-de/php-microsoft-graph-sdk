@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AuthenticationCombinationConfiguration resources
  *
  * Available select fields:
- * - appliesToCombinations
  */
 class AuthenticationCombinationConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AuthenticationCombinationConfiguration
      */
-    public const FIELD_APPLIES_TO_COMBINATIONS = 'appliesToCombinations';
 
     /**
      * Select specific AuthenticationCombinationConfiguration properties

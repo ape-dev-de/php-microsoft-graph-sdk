@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for LocationConstraintItem resources
  *
  * Available select fields:
- * - resolveAvailability
  */
 class LocationConstraintItemQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for LocationConstraintItem
      */
-    public const FIELD_RESOLVE_AVAILABILITY = 'resolveAvailability';
 
     /**
      * Select specific LocationConstraintItem properties

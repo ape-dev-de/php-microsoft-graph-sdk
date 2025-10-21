@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PinnedChatMessageInfo resources
  *
  * Available select fields:
- * - message
  */
 class PinnedChatMessageInfoQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PinnedChatMessageInfo
      */
-    public const FIELD_MESSAGE = 'message';
 
     /**
      * Select specific PinnedChatMessageInfo properties

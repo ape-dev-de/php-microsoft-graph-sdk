@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class GroupLifecyclePolicy
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon. */
         public ?string $alternateNotificationEmails = null,
         /** Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined. */

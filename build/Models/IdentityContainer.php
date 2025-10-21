@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IdentityContainer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents entry point for API connectors. */
         public array $apiConnectors = [],
         /** Represents listeners for custom authentication extension events in Azure AD for workforce and customers. */

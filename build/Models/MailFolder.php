@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MailFolder
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The number of immediate child mailFolders in the current mailFolder. */
         public ?float $childFolderCount = null,
         /** The mailFolder's display name. */

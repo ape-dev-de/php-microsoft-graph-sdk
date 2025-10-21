@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ServiceHealth resources
  *
  * Available select fields:
- * - service
- * - status
- * - issues
  */
 class ServiceHealthQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ServiceHealth
      */
-    public const FIELD_SERVICE = 'service';
-    public const FIELD_STATUS = 'status';
-    public const FIELD_ISSUES = 'issues';
 
     /**
      * Select specific ServiceHealth properties

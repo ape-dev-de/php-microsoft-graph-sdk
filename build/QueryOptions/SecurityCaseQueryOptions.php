@@ -8,24 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityCase resources
  *
  * Available select fields:
- * - createdDateTime
- * - description
- * - displayName
- * - lastModifiedBy
- * - lastModifiedDateTime
- * - status
  */
 class SecurityCaseQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityCase
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
-    public const FIELD_DESCRIPTION = 'description';
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    public const FIELD_LAST_MODIFIED_DATE_TIME = 'lastModifiedDateTime';
-    public const FIELD_STATUS = 'status';
 
     /**
      * Select specific SecurityCase properties

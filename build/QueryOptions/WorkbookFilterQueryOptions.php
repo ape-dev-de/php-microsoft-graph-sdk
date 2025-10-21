@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookFilter resources
  *
  * Available select fields:
- * - criteria
  */
 class WorkbookFilterQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookFilter
      */
-    public const FIELD_CRITERIA = 'criteria';
 
     /**
      * Select specific WorkbookFilter properties

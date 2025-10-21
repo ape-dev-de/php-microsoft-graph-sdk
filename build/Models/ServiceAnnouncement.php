@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ServiceAnnouncement
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
         public array $healthOverviews = [],
         /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */

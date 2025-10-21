@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserLastSignInRecommendationInsightSetting resources
  *
  * Available select fields:
- * - recommendationLookBackDuration
- * - signInScope
  */
 class UserLastSignInRecommendationInsightSettingQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserLastSignInRecommendationInsightSetting
      */
-    public const FIELD_RECOMMENDATION_LOOK_BACK_DURATION = 'recommendationLookBackDuration';
-    public const FIELD_SIGN_IN_SCOPE = 'signInScope';
 
     /**
      * Select specific UserLastSignInRecommendationInsightSetting properties

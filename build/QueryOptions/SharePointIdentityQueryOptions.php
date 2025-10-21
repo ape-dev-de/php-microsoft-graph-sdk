@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SharePointIdentity resources
  *
  * Available select fields:
- * - loginName
  */
 class SharePointIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SharePointIdentity
      */
-    public const FIELD_LOGIN_NAME = 'loginName';
 
     /**
      * Select specific SharePointIdentity properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for InviteParticipantsOperation resources
  *
  * Available select fields:
- * - participants
  */
 class InviteParticipantsOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for InviteParticipantsOperation
      */
-    public const FIELD_PARTICIPANTS = 'participants';
 
     /**
      * Select specific InviteParticipantsOperation properties

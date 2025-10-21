@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Win32LobAppProductCodeRule
 {
     public function __construct(
+        /** A base complex type to store the detection or requirement rule data for a Win32 LOB app. */
+        public ?string $ruleType = null,
         /** The product code of the app. */
         public ?string $productCode = null,
         /** The product version comparison value. */

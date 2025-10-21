@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeviceEnrollmentLimitConfiguration resources
  *
  * Available select fields:
- * - limit
  */
 class DeviceEnrollmentLimitConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeviceEnrollmentLimitConfiguration
      */
-    public const FIELD_LIMIT = 'limit';
 
     /**
      * Select specific DeviceEnrollmentLimitConfiguration properties

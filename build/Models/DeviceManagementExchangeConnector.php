@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceManagementExchangeConnector
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The name of the server hosting the Exchange Connector. */
         public ?string $connectorServerName = null,
         /** An alias assigned to the Exchange server */

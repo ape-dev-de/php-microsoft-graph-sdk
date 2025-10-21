@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for HttpRequestEndpoint resources
  *
  * Available select fields:
- * - targetUrl
  */
 class HttpRequestEndpointQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for HttpRequestEndpoint
      */
-    public const FIELD_TARGET_URL = 'targetUrl';
 
     /**
      * Select specific HttpRequestEndpoint properties

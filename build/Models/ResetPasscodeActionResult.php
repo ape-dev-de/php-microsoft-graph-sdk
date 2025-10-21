@@ -10,6 +10,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ResetPasscodeActionResult
 {
     public function __construct(
+        /** Action name */
+        public ?string $actionName = null,
+        /**  */
+        public ?string $actionState = null,
+        /** Time the action state was last updated */
+        public ?\DateTimeInterface $lastUpdatedDateTime = null,
+        /** Device action result */
+        public ?\DateTimeInterface $startDateTime = null,
         /** RotateBitLockerKeys action error code. Valid values 0 to 2147483647 */
         public ?float $errorCode = null,
         /** Reset passcode action result */

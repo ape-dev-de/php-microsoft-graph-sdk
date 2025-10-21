@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ServiceHealth
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
         public ?string $service = null,
         /**  */

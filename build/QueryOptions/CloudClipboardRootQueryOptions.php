@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CloudClipboardRoot resources
  *
  * Available select fields:
- * - items
  */
 class CloudClipboardRootQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CloudClipboardRoot
      */
-    public const FIELD_ITEMS = 'items';
 
     /**
      * Select specific CloudClipboardRoot properties

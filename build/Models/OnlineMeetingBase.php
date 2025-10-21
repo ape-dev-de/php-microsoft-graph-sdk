@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OnlineMeetingBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether attendees can turn on their camera. */
         public ?bool $allowAttendeeToEnableCamera = null,
         /** Indicates whether attendees can turn on their microphone. */

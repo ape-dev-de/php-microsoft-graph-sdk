@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SynchronizationSchema
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate. */
         public array $synchronizationRules = [],
         /** The version of the schema, updated automatically with every schema change. */

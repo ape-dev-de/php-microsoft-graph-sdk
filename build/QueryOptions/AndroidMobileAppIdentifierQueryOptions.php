@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AndroidMobileAppIdentifier resources
  *
  * Available select fields:
- * - packageId
  */
 class AndroidMobileAppIdentifierQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AndroidMobileAppIdentifier
      */
-    public const FIELD_PACKAGE_ID = 'packageId';
 
     /**
      * Select specific AndroidMobileAppIdentifier properties

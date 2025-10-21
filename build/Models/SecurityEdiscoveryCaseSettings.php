@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityEdiscoveryCaseSettings
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public ?string $caseType = null,
         /** The OCR (Optical Character Recognition) settings for the case. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MultiTenantOrganizationIdentitySyncPolicyTemplate
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public ?string $templateApplicationLevel = null,
         /** Defines whether users can be synchronized from the partner tenant. */

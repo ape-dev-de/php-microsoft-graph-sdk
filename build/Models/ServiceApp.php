@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ServiceApp
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The Entra ID application ID. */
         public ?string $application = null,
         /** Timestamp of the effective activation of the service app. */

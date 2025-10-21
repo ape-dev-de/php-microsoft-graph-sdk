@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceLocalCredential
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The name of the local admin account for which LAPS is enabled. */
         public ?string $accountName = null,
         /** The SID of the local admin account for which LAPS is enabled. */

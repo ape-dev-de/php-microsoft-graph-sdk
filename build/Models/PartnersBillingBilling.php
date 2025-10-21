@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PartnersBillingBilling
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents metadata for the exported data. */
         public array $manifests = [],
         /** Represents an operation to export the billing data of a partner. */

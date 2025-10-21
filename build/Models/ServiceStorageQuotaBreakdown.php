@@ -10,5 +10,13 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ServiceStorageQuotaBreakdown
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /**  */
+        public ?string $displayName = null,
+        /**  */
+        public ?string $manageWebUrl = null,
+        /**  */
+        public ?string $used = null
     ) {}
 }

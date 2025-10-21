@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PlannerTask
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Number of checklist items with value set to false, representing incomplete items. */
         public ?float $activeChecklistItemCount = null,
         /** The categories to which the task has been applied. See applied Categories for possible values. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Bitlocker resources
  *
  * Available select fields:
- * - recoveryKeys
  */
 class BitlockerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Bitlocker
      */
-    public const FIELD_RECOVERY_KEYS = 'recoveryKeys';
 
     /**
      * Select specific Bitlocker properties

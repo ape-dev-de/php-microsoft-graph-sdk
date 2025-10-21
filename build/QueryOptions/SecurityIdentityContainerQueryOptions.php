@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityIdentityContainer resources
  *
  * Available select fields:
- * - healthIssues
- * - sensors
  */
 class SecurityIdentityContainerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityIdentityContainer
      */
-    public const FIELD_HEALTH_ISSUES = 'healthIssues';
-    public const FIELD_SENSORS = 'sensors';
 
     /**
      * Select specific SecurityIdentityContainer properties

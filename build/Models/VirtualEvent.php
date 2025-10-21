@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class VirtualEvent
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The identity information for the creator of the virtual event. Inherited from virtualEvent. */
         public ?string $createdBy = null,
         /** A description of the virtual event. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ProfilePhoto
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The height of the photo. Read-only. */
         public ?float $height = null,
         /** The width of the photo. Read-only. */

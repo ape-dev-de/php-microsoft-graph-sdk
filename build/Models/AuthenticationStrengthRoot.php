@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AuthenticationStrengthRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public array $combinations = [],
         /** Names and descriptions of all valid authentication method modes in the system. */

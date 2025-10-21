@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Organization
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** The collection of service plans associated with the tenant. Not nullable. */
         public array $assignedPlans = [],
         /** @var string[] Telephone number for the organization. Although this property is a string collection, only one number can be set. */

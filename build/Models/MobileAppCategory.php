@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MobileAppCategory
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The name of the app category. */
         public ?string $displayName = null,
         /** Contains properties for a single Intune app category. */

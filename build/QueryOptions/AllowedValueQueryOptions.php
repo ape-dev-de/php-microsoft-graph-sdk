@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AllowedValue resources
  *
  * Available select fields:
- * - isActive
  */
 class AllowedValueQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AllowedValue
      */
-    public const FIELD_IS_ACTIVE = 'isActive';
 
     /**
      * Select specific AllowedValue properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CertificateBasedAuthConfiguration resources
  *
  * Available select fields:
- * - certificateAuthorities
  */
 class CertificateBasedAuthConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CertificateBasedAuthConfiguration
      */
-    public const FIELD_CERTIFICATE_AUTHORITIES = 'certificateAuthorities';
 
     /**
      * Select specific CertificateBasedAuthConfiguration properties

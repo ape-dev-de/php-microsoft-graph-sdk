@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamsAppDefinition
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Authorization requirements specified in the Teams app manifest. */
         public ?string $authorization = null,
         /**  */

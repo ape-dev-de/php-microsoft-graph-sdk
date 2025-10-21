@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnAttributeCollectionListener resources
  *
  * Available select fields:
- * - handler
  */
 class OnAttributeCollectionListenerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnAttributeCollectionListener
      */
-    public const FIELD_HANDLER = 'handler';
 
     /**
      * Select specific OnAttributeCollectionListener properties

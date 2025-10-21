@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MicrosoftAuthenticatorAuthenticationMethodConfiguration resources
  *
  * Available select fields:
- * - featureSettings
- * - isSoftwareOathEnabled
- * - includeTargets
  */
 class MicrosoftAuthenticatorAuthenticationMethodConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MicrosoftAuthenticatorAuthenticationMethodConfiguration
      */
-    public const FIELD_FEATURE_SETTINGS = 'featureSettings';
-    public const FIELD_IS_SOFTWARE_OATH_ENABLED = 'isSoftwareOathEnabled';
-    public const FIELD_INCLUDE_TARGETS = 'includeTargets';
 
     /**
      * Select specific MicrosoftAuthenticatorAuthenticationMethodConfiguration properties

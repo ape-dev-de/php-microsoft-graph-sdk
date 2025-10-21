@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ComplianceManagementPartner
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** User groups which enroll Android devices through partner. */
         public array $androidEnrollmentAssignments = [],
         /** Partner onboarded for Android devices. */

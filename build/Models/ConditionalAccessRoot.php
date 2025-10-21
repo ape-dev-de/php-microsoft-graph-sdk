@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ConditionalAccessRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Read-only. Nullable. Returns a collection of the specified authentication context class references. */
         public array $authenticationContextClassReferences = [],
         /**  */

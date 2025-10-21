@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CloudClipboardRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] Represents a collection of Cloud Clipboard items. */
         public array $items = []
     ) {}

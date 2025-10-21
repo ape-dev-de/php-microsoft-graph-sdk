@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ManagedAppStatusRaw resources
  *
  * Available select fields:
- * - content
  */
 class ManagedAppStatusRawQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ManagedAppStatusRaw
      */
-    public const FIELD_CONTENT = 'content';
 
     /**
      * Select specific ManagedAppStatusRaw properties

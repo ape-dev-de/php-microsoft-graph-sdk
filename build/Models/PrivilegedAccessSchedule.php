@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrivilegedAccessSchedule
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** When the schedule was created. Optional. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The identifier of the access assignment or eligibility request that created this schedule. Optional. */

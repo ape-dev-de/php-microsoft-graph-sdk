@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RestoreArtifactBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The time when restoration of restore artifact is completed. */
         public ?\DateTimeInterface $completionDateTime = null,
         /** Indicates the restoration destination. The possible values are: new, inPlace, unknownFutureValue. */

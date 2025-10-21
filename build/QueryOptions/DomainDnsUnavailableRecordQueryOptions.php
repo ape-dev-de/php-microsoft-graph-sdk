@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DomainDnsUnavailableRecord resources
  *
  * Available select fields:
- * - description
  */
 class DomainDnsUnavailableRecordQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DomainDnsUnavailableRecord
      */
-    public const FIELD_DESCRIPTION = 'description';
 
     /**
      * Select specific DomainDnsUnavailableRecord properties

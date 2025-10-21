@@ -10,10 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewInstanceDecisionItemResource
 {
     public function __construct(
-        /** Display name of the resource */
-        public ?string $displayName = null,
         /** Identifier of the resource */
         public ?string $id = null,
+        /** Display name of the resource */
+        public ?string $displayName = null,
         /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
         public ?string $type = null
     ) {}

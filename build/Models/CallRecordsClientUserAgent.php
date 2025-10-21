@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallRecordsClientUserAgent
 {
     public function __construct(
+        /** Identifies the version of application software used by this endpoint. */
+        public ?string $applicationVersion = null,
+        /** User-agent header value reported by this endpoint. */
+        public ?string $headerValue = null,
         /** The unique identifier of the Microsoft Entra application used by this endpoint. */
         public ?string $azureADAppId = null,
         /** Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs. */

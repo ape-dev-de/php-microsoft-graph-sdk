@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserInstallStateSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Failed Device Count. */
         public ?float $failedDeviceCount = null,
         /** Installed Device Count. */

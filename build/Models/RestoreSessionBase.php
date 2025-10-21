@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RestoreSessionBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The time of completion of the restore session. */
         public ?\DateTimeInterface $completedDateTime = null,
         /** The identity of person who created the restore session. */

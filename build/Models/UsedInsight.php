@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UsedInsight
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Information about when the item was last viewed or modified by the user. Read-only. */
         public ?string $lastUsed = null,
         /** Reference properties of the used document, such as the URL and type of the document. Read-only */

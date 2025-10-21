@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ServicePrincipal
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** true if the service principal account is enabled; otherwise, false. If set to false, then no users are able to sign in to this app, even if they''re assigned to it. Supports $filter (eq, ne, not, in). */
         public ?bool $accountEnabled = null,
         /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its ''FileHandler'' functionality. This lets services like Microsoft 365 call the application in the context of a document the user is working on. */

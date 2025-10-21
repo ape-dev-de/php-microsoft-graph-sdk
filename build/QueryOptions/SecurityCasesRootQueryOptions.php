@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityCasesRoot resources
  *
  * Available select fields:
- * - ediscoveryCases
  */
 class SecurityCasesRootQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityCasesRoot
      */
-    public const FIELD_EDISCOVERY_CASES = 'ediscoveryCases';
 
     /**
      * Select specific SecurityCasesRoot properties

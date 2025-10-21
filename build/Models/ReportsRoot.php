@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ReportsRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Details of submitted reading assignments. */
         public array $readingAssignmentSubmissions = [],
         /** @var string[] Details of check-in responses. */

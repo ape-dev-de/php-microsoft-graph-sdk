@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookFormatProtection resources
  *
  * Available select fields:
- * - formulaHidden
- * - locked
  */
 class WorkbookFormatProtectionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookFormatProtection
      */
-    public const FIELD_FORMULA_HIDDEN = 'formulaHidden';
-    public const FIELD_LOCKED = 'locked';
 
     /**
      * Select specific WorkbookFormatProtection properties

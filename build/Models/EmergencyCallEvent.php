@@ -10,6 +10,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EmergencyCallEvent
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /**  */
+        public ?string $callEventType = null,
+        /**  */
+        public ?\DateTimeInterface $eventDateTime = null,
+        /** @var string[]  */
+        public array $participants = [],
         /**  */
         public ?string $callerInfo = null,
         /**  */

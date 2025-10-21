@@ -10,6 +10,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OnenoteOperation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The start time of the operation. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** The time of the last action of the operation. */
+        public ?\DateTimeInterface $lastActionDateTime = null,
+        /** The current status of the operation: notStarted, running, completed, failed */
+        public ?string $status = null,
         /** The error returned by the operation. */
         public ?string $error = null,
         /** The operation percent complete if the operation is still in running status. */

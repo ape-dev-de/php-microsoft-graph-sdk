@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TermsAndConditionsAssignment resources
  *
  * Available select fields:
- * - target
  */
 class TermsAndConditionsAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TermsAndConditionsAssignment
      */
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific TermsAndConditionsAssignment properties

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookChartGridlines resources
  *
  * Available select fields:
- * - visible
- * - format
  */
 class WorkbookChartGridlinesQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookChartGridlines
      */
-    public const FIELD_VISIBLE = 'visible';
-    public const FIELD_FORMAT = 'format';
 
     /**
      * Select specific WorkbookChartGridlines properties

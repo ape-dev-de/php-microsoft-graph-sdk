@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PlannerBucket resources
  *
  * Available select fields:
- * - name
- * - orderHint
- * - planId
- * - tasks
  */
 class PlannerBucketQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PlannerBucket
      */
-    public const FIELD_NAME = 'name';
-    public const FIELD_ORDER_HINT = 'orderHint';
-    public const FIELD_PLAN_ID = 'planId';
-    public const FIELD_TASKS = 'tasks';
 
     /**
      * Select specific PlannerBucket properties

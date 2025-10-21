@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CommunicationsApplicationIdentity resources
  *
  * Available select fields:
- * - applicationType
- * - hidden
  */
 class CommunicationsApplicationIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CommunicationsApplicationIdentity
      */
-    public const FIELD_APPLICATION_TYPE = 'applicationType';
-    public const FIELD_HIDDEN = 'hidden';
 
     /**
      * Select specific CommunicationsApplicationIdentity properties

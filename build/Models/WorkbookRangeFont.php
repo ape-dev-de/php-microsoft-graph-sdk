@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookRangeFont
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Inidicates whether the font is bold. */
         public ?bool $bold = null,
         /** The HTML color code representation of the text color. For example, #FF0000 represents the color red. */

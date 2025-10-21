@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for BasicAuthentication resources
  *
  * Available select fields:
- * - password
- * - username
  */
 class BasicAuthenticationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for BasicAuthentication
      */
-    public const FIELD_PASSWORD = 'password';
-    public const FIELD_USERNAME = 'username';
 
     /**
      * Select specific BasicAuthentication properties

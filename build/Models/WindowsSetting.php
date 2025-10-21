@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WindowsSetting
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The type of setting payloads contained in the instances navigation property. */
         public ?string $payloadType = null,
         /**  */

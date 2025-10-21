@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IdentityGovernanceRuleBasedSubjectSet resources
  *
  * Available select fields:
- * - rule
  */
 class IdentityGovernanceRuleBasedSubjectSetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IdentityGovernanceRuleBasedSubjectSet
      */
-    public const FIELD_RULE = 'rule';
 
     /**
      * Select specific IdentityGovernanceRuleBasedSubjectSet properties

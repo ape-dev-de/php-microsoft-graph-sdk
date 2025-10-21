@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for StandardWebPart resources
  *
  * Available select fields:
- * - containerTextWebPartId
- * - data
- * - webPartType
  */
 class StandardWebPartQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for StandardWebPart
      */
-    public const FIELD_CONTAINER_TEXT_WEB_PART_ID = 'containerTextWebPartId';
-    public const FIELD_DATA = 'data';
-    public const FIELD_WEB_PART_TYPE = 'webPartType';
 
     /**
      * Select specific StandardWebPart properties

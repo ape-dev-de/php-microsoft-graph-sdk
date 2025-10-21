@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MembersAddedEventMessageDetail resources
  *
  * Available select fields:
- * - initiator
- * - members
- * - visibleHistoryStartDateTime
  */
 class MembersAddedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MembersAddedEventMessageDetail
      */
-    public const FIELD_INITIATOR = 'initiator';
-    public const FIELD_MEMBERS = 'members';
-    public const FIELD_VISIBLE_HISTORY_START_DATE_TIME = 'visibleHistoryStartDateTime';
 
     /**
      * Select specific MembersAddedEventMessageDetail properties

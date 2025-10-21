@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ServiceHostedMediaConfig resources
  *
  * Available select fields:
- * - preFetchMedia
  */
 class ServiceHostedMediaConfigQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ServiceHostedMediaConfig
      */
-    public const FIELD_PRE_FETCH_MEDIA = 'preFetchMedia';
 
     /**
      * Select specific ServiceHostedMediaConfig properties

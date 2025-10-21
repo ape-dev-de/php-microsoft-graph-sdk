@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CallRecordsServiceUserAgent resources
  *
  * Available select fields:
- * - role
  */
 class CallRecordsServiceUserAgentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CallRecordsServiceUserAgent
      */
-    public const FIELD_ROLE = 'role';
 
     /**
      * Select specific CallRecordsServiceUserAgent properties

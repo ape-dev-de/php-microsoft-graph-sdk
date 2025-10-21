@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AuditEvent
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Friendly name of the activity. */
         public ?string $activity = null,
         /** The date time in UTC when the activity was performed. */

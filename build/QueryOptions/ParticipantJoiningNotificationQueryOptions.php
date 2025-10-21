@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ParticipantJoiningNotification resources
  *
  * Available select fields:
- * - call
  */
 class ParticipantJoiningNotificationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ParticipantJoiningNotification
      */
-    public const FIELD_CALL = 'call';
 
     /**
      * Select specific ParticipantJoiningNotification properties

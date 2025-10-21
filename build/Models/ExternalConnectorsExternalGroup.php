@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ExternalConnectorsExternalGroup
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The description of the external group. Optional. */
         public ?string $description = null,
         /** The friendly name of the external group. Optional. */

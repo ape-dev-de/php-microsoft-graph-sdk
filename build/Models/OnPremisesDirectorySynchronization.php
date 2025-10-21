@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OnPremisesDirectorySynchronization
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant. Nullable. */
         public ?string $configuration = null,
         /**  */

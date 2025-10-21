@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessPackageResourceRole
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A description for the resource role. */
         public ?string $description = null,
         /** The display name of the resource role such as the role defined by the application. */

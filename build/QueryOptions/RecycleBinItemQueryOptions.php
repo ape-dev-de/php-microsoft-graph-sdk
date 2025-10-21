@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RecycleBinItem resources
  *
  * Available select fields:
- * - deletedDateTime
- * - deletedFromLocation
- * - size
  */
 class RecycleBinItemQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RecycleBinItem
      */
-    public const FIELD_DELETED_DATE_TIME = 'deletedDateTime';
-    public const FIELD_DELETED_FROM_LOCATION = 'deletedFromLocation';
-    public const FIELD_SIZE = 'size';
 
     /**
      * Select specific RecycleBinItem properties

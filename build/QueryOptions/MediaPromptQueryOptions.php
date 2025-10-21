@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MediaPrompt resources
  *
  * Available select fields:
- * - mediaInfo
  */
 class MediaPromptQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MediaPrompt
      */
-    public const FIELD_MEDIA_INFO = 'mediaInfo';
 
     /**
      * Select specific MediaPrompt properties

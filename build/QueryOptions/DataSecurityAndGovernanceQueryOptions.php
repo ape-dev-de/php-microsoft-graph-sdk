@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DataSecurityAndGovernance resources
  *
  * Available select fields:
- * - sensitivityLabels
  */
 class DataSecurityAndGovernanceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DataSecurityAndGovernance
      */
-    public const FIELD_SENSITIVITY_LABELS = 'sensitivityLabels';
 
     /**
      * Select specific DataSecurityAndGovernance properties

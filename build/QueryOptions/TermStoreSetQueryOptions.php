@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TermStoreSet resources
  *
  * Available select fields:
- * - createdDateTime
- * - description
- * - localizedNames
- * - items
  */
 class TermStoreSetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TermStoreSet
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
-    public const FIELD_DESCRIPTION = 'description';
-    public const FIELD_LOCALIZED_NAMES = 'localizedNames';
-    public const FIELD_ITEMS = 'items';
 
     /**
      * Select specific TermStoreSet properties

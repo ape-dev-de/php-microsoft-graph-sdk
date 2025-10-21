@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BookingAppointment
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Additional information that is sent to the customer when an appointment is confirmed. */
         public ?string $additionalInformation = null,
         /** The URL of the meeting to join anonymously. */

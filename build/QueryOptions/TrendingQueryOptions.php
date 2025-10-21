@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Trending resources
  *
  * Available select fields:
- * - lastModifiedDateTime
- * - resourceReference
- * - resourceVisualization
- * - weight
- * - resource
  */
 class TrendingQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Trending
      */
-    public const FIELD_LAST_MODIFIED_DATE_TIME = 'lastModifiedDateTime';
-    public const FIELD_RESOURCE_REFERENCE = 'resourceReference';
-    public const FIELD_RESOURCE_VISUALIZATION = 'resourceVisualization';
-    public const FIELD_WEIGHT = 'weight';
-    public const FIELD_RESOURCE = 'resource';
 
     /**
      * Select specific Trending properties

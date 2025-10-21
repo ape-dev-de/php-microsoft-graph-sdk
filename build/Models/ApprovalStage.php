@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ApprovalStage
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
         public ?bool $assignedToMe = null,
         /** The label provided by the policy creator to identify an approval stage. Read-only. */

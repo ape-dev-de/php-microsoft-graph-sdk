@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallTranscript
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The unique identifier for the call that is related to this transcript. Read-only. */
         public ?string $callId = null,
         /** The content of the transcript. Read-only. */

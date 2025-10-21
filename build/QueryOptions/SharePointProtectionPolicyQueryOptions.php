@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SharePointProtectionPolicy resources
  *
  * Available select fields:
- * - siteInclusionRules
- * - siteProtectionUnits
- * - siteProtectionUnitsBulkAdditionJobs
  */
 class SharePointProtectionPolicyQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SharePointProtectionPolicy
      */
-    public const FIELD_SITE_INCLUSION_RULES = 'siteInclusionRules';
-    public const FIELD_SITE_PROTECTION_UNITS = 'siteProtectionUnits';
-    public const FIELD_SITE_PROTECTION_UNITS_BULK_ADDITION_JOBS = 'siteProtectionUnitsBulkAdditionJobs';
 
     /**
      * Select specific SharePointProtectionPolicy properties

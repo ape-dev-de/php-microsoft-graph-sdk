@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OmaSettingInteger
 {
     public function __construct(
+        /** Description. */
+        public ?string $description = null,
+        /** Display Name. */
+        public ?string $displayName = null,
+        /** OMA Settings definition. */
+        public ?string $omaUri = null,
         /** OMA Settings Integer definition. */
         public ?string $value = null
     ) {}

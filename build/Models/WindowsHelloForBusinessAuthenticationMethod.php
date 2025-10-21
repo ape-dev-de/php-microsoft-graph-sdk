@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WindowsHelloForBusinessAuthenticationMethod
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date and time that this Windows Hello for Business key was registered. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The name of the device on which Windows Hello for Business is registered */

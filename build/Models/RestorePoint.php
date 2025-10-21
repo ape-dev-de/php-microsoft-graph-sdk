@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RestorePoint
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Expiration date time of the restore point. */
         public ?\DateTimeInterface $expirationDateTime = null,
         /** Date time when the restore point was created. */

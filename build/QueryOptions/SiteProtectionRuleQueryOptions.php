@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SiteProtectionRule resources
  *
  * Available select fields:
- * - siteExpression
  */
 class SiteProtectionRuleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SiteProtectionRule
      */
-    public const FIELD_SITE_EXPRESSION = 'siteExpression';
 
     /**
      * Select specific SiteProtectionRule properties

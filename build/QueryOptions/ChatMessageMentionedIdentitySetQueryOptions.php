@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ChatMessageMentionedIdentitySet resources
  *
  * Available select fields:
- * - conversation
  */
 class ChatMessageMentionedIdentitySetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ChatMessageMentionedIdentitySet
      */
-    public const FIELD_CONVERSATION = 'conversation';
 
     /**
      * Select specific ChatMessageMentionedIdentitySet properties

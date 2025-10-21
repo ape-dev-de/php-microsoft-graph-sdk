@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ProfilePhoto resources
  *
  * Available select fields:
- * - height
- * - width
  */
 class ProfilePhotoQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ProfilePhoto
      */
-    public const FIELD_HEIGHT = 'height';
-    public const FIELD_WIDTH = 'width';
 
     /**
      * Select specific ProfilePhoto properties

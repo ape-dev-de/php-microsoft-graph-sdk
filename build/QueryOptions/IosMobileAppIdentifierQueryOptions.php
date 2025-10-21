@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IosMobileAppIdentifier resources
  *
  * Available select fields:
- * - bundleId
  */
 class IosMobileAppIdentifierQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IosMobileAppIdentifier
      */
-    public const FIELD_BUNDLE_ID = 'bundleId';
 
     /**
      * Select specific IosMobileAppIdentifier properties

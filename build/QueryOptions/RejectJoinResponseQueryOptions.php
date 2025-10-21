@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RejectJoinResponse resources
  *
  * Available select fields:
- * - reason
  */
 class RejectJoinResponseQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RejectJoinResponse
      */
-    public const FIELD_REASON = 'reason';
 
     /**
      * Select specific RejectJoinResponse properties

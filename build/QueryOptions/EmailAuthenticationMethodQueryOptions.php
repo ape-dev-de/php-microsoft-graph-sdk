@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EmailAuthenticationMethod resources
  *
  * Available select fields:
- * - emailAddress
  */
 class EmailAuthenticationMethodQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EmailAuthenticationMethod
      */
-    public const FIELD_EMAIL_ADDRESS = 'emailAddress';
 
     /**
      * Select specific EmailAuthenticationMethod properties

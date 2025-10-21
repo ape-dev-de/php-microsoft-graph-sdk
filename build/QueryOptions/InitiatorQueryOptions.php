@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Initiator resources
  *
  * Available select fields:
- * - initiatorType
  */
 class InitiatorQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Initiator
      */
-    public const FIELD_INITIATOR_TYPE = 'initiatorType';
 
     /**
      * Select specific Initiator properties

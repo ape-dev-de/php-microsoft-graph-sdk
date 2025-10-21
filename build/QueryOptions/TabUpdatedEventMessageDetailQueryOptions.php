@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TabUpdatedEventMessageDetail resources
  *
  * Available select fields:
- * - initiator
- * - tabId
  */
 class TabUpdatedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TabUpdatedEventMessageDetail
      */
-    public const FIELD_INITIATOR = 'initiator';
-    public const FIELD_TAB_ID = 'tabId';
 
     /**
      * Select specific TabUpdatedEventMessageDetail properties

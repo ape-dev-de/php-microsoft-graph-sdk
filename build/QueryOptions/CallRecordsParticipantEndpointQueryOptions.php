@@ -8,26 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CallRecordsParticipantEndpoint resources
  *
  * Available select fields:
- * - associatedIdentity
- * - cpuCoresCount
- * - cpuName
- * - cpuProcessorSpeedInMhz
- * - feedback
- * - identity
- * - name
  */
 class CallRecordsParticipantEndpointQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CallRecordsParticipantEndpoint
      */
-    public const FIELD_ASSOCIATED_IDENTITY = 'associatedIdentity';
-    public const FIELD_CPU_CORES_COUNT = 'cpuCoresCount';
-    public const FIELD_CPU_NAME = 'cpuName';
-    public const FIELD_CPU_PROCESSOR_SPEED_IN_MHZ = 'cpuProcessorSpeedInMhz';
-    public const FIELD_FEEDBACK = 'feedback';
-    public const FIELD_IDENTITY = 'identity';
-    public const FIELD_NAME = 'name';
 
     /**
      * Select specific CallRecordsParticipantEndpoint properties

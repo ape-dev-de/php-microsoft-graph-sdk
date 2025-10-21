@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OutlookUser resources
  *
  * Available select fields:
- * - masterCategories
  */
 class OutlookUserQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OutlookUser
      */
-    public const FIELD_MASTER_CATEGORIES = 'masterCategories';
 
     /**
      * Select specific OutlookUser properties

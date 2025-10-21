@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeletedTeam
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] The channels that are either shared with this deleted team or created in this deleted team. */
         public array $channels = []
     ) {}

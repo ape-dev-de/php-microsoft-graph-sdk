@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RiskyUserHistoryItem resources
  *
  * Available select fields:
- * - activity
- * - initiatedBy
- * - userId
  */
 class RiskyUserHistoryItemQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RiskyUserHistoryItem
      */
-    public const FIELD_ACTIVITY = 'activity';
-    public const FIELD_INITIATED_BY = 'initiatedBy';
-    public const FIELD_USER_ID = 'userId';
 
     /**
      * Select specific RiskyUserHistoryItem properties

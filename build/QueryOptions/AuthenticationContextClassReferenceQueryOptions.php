@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AuthenticationContextClassReference resources
  *
  * Available select fields:
- * - description
- * - displayName
- * - isAvailable
  */
 class AuthenticationContextClassReferenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AuthenticationContextClassReference
      */
-    public const FIELD_DESCRIPTION = 'description';
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_IS_AVAILABLE = 'isAvailable';
 
     /**
      * Select specific AuthenticationContextClassReference properties

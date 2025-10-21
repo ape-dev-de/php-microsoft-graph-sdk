@@ -8,28 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SharedDriveItem resources
  *
  * Available select fields:
- * - owner
- * - driveItem
- * - items
- * - list
- * - listItem
- * - permission
- * - root
- * - site
  */
 class SharedDriveItemQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SharedDriveItem
      */
-    public const FIELD_OWNER = 'owner';
-    public const FIELD_DRIVE_ITEM = 'driveItem';
-    public const FIELD_ITEMS = 'items';
-    public const FIELD_LIST = 'list';
-    public const FIELD_LIST_ITEM = 'listItem';
-    public const FIELD_PERMISSION = 'permission';
-    public const FIELD_ROOT = 'root';
-    public const FIELD_SITE = 'site';
 
     /**
      * Select specific SharedDriveItem properties

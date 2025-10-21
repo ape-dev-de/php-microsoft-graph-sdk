@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TaskFileAttachment resources
  *
  * Available select fields:
- * - contentBytes
  */
 class TaskFileAttachmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TaskFileAttachment
      */
-    public const FIELD_CONTENT_BYTES = 'contentBytes';
 
     /**
      * Select specific TaskFileAttachment properties

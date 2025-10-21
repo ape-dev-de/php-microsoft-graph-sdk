@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ManagedAppStatus
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Friendly name of the status report. */
         public ?string $displayName = null,
         /** Represents app protection and configuration status for the organization. */

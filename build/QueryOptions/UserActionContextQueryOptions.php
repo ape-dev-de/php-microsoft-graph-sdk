@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserActionContext resources
  *
  * Available select fields:
- * - userAction
  */
 class UserActionContextQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserActionContext
      */
-    public const FIELD_USER_ACTION = 'userAction';
 
     /**
      * Select specific UserActionContext properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SearchEntity
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Administrative answer in Microsoft Search results to define common acronyms in an organization. */
         public array $acronyms = [],
         /** Administrative answer in Microsoft Search results for common search queries in an organization. */

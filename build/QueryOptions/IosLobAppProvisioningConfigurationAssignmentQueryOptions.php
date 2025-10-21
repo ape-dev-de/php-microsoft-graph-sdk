@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IosLobAppProvisioningConfigurationAssignment resources
  *
  * Available select fields:
- * - target
  */
 class IosLobAppProvisioningConfigurationAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IosLobAppProvisioningConfigurationAssignment
      */
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific IosLobAppProvisioningConfigurationAssignment properties

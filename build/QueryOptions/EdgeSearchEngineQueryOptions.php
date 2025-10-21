@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EdgeSearchEngine resources
  *
  * Available select fields:
- * - edgeSearchEngineType
  */
 class EdgeSearchEngineQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EdgeSearchEngine
      */
-    public const FIELD_EDGE_SEARCH_ENGINE_TYPE = 'edgeSearchEngineType';
 
     /**
      * Select specific EdgeSearchEngine properties

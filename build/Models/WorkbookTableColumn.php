@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookTableColumn
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The index of the column within the columns collection of the table. Zero-indexed. Read-only. */
         public ?float $index = null,
         /** The name of the table column. */

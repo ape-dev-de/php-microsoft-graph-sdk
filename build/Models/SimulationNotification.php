@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SimulationNotification
 {
     public function __construct(
+        /** The default language for the end user notification. */
+        public ?string $defaultLanguage = null,
+        /**  */
+        public ?string $endUserNotification = null,
         /** Target user type. Possible values are: unknown, clicked, compromised, allUsers, unknownFutureValue. */
         public ?string $targettedUserType = null
     ) {}

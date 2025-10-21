@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RiskyUser
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether the user is deleted. Possible values are: true, false. */
         public ?bool $isDeleted = null,
         /** Indicates whether the backend is processing a user's risky state. */

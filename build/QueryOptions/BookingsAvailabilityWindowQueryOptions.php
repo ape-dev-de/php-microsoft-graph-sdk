@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for BookingsAvailabilityWindow resources
  *
  * Available select fields:
- * - endDate
- * - startDate
  */
 class BookingsAvailabilityWindowQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for BookingsAvailabilityWindow
      */
-    public const FIELD_END_DATE = 'endDate';
-    public const FIELD_START_DATE = 'startDate';
 
     /**
      * Select specific BookingsAvailabilityWindow properties

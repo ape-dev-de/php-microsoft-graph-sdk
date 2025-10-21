@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Todo resources
  *
  * Available select fields:
- * - lists
  */
 class TodoQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Todo
      */
-    public const FIELD_LISTS = 'lists';
 
     /**
      * Select specific Todo properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class VirtualEventPresenter
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Email address of the presenter. */
         public ?string $email = null,
         /** Identity information of the presenter. The supported identities are: communicationsGuestIdentity and communicationsUserIdentity. */

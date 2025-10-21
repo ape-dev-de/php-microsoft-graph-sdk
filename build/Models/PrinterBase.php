@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrinterBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The capabilities of the printer/printerShare. */
         public ?string $capabilities = null,
         /** The default print settings of printer/printerShare. */

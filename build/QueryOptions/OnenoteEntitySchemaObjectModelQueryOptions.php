@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnenoteEntitySchemaObjectModel resources
  *
  * Available select fields:
- * - createdDateTime
  */
 class OnenoteEntitySchemaObjectModelQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnenoteEntitySchemaObjectModel
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
 
     /**
      * Select specific OnenoteEntitySchemaObjectModel properties

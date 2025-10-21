@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityDispositionReviewStage
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Name representing each stage within a collection. */
         public ?string $name = null,
         /** @var string[] A collection of reviewers at each stage. */

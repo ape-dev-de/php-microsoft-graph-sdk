@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserStorage resources
  *
  * Available select fields:
- * - quota
  */
 class UserStorageQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserStorage
      */
-    public const FIELD_QUOTA = 'quota';
 
     /**
      * Select specific UserStorage properties

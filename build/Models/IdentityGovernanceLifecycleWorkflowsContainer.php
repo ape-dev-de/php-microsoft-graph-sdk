@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IdentityGovernanceLifecycleWorkflowsContainer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The customTaskExtension instance. */
         public array $customTaskExtensions = [],
         /** Deleted workflows in your lifecycle workflows instance. */

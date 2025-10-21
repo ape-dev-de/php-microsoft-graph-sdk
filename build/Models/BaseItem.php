@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BaseItem
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Identity of the user, device, or application that created the item. Read-only. */
         public ?string $createdBy = null,
         /** Date and time of item creation. Read-only. */

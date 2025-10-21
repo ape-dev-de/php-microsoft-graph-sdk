@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamsAppInstallation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The set of resource-specific permissions consented to while installing or upgrading the teamsApp. */
         public ?string $consentedPermissionSet = null,
         /** The app that is installed. */

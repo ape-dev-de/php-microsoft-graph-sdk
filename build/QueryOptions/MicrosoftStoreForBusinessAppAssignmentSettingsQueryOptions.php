@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MicrosoftStoreForBusinessAppAssignmentSettings resources
  *
  * Available select fields:
- * - useDeviceContext
  */
 class MicrosoftStoreForBusinessAppAssignmentSettingsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MicrosoftStoreForBusinessAppAssignmentSettings
      */
-    public const FIELD_USE_DEVICE_CONTEXT = 'useDeviceContext';
 
     /**
      * Select specific MicrosoftStoreForBusinessAppAssignmentSettings properties

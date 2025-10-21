@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AgreementAcceptance
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The identifier of the agreement file accepted by the user. */
         public ?string $agreementFileId = null,
         /** The identifier of the agreement. */

@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ResourceSpecificPermissionGrant
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** ID of the service principal of the Microsoft Entra app that has been granted access. Read-only. */
         public ?string $clientAppId = null,
         /** ID of the Microsoft Entra app that has been granted access. Read-only. */

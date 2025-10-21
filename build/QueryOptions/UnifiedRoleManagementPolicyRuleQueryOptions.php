@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UnifiedRoleManagementPolicyRule resources
  *
  * Available select fields:
- * - target
  */
 class UnifiedRoleManagementPolicyRuleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UnifiedRoleManagementPolicyRule
      */
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific UnifiedRoleManagementPolicyRule properties

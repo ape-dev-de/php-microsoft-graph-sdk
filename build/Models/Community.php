@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Community
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The description of the community. The maximum length is 1,024 characters. */
         public ?string $description = null,
         /** The name of the community. The maximum length is 255 characters. */

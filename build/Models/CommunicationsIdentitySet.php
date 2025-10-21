@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CommunicationsIdentitySet
 {
     public function __construct(
+        /** Optional. The application associated with this action. */
+        public ?string $application = null,
+        /** Optional. The device associated with this action. */
+        public ?string $device = null,
+        /** Optional. The user associated with this action. */
+        public ?string $user = null,
         /** The application instance associated with this action. */
         public ?string $applicationInstance = null,
         /** An identity the participant would like to present itself as to the other participants in the call. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for GovernanceInsight resources
  *
  * Available select fields:
- * - insightCreatedDateTime
  */
 class GovernanceInsightQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for GovernanceInsight
      */
-    public const FIELD_INSIGHT_CREATED_DATE_TIME = 'insightCreatedDateTime';
 
     /**
      * Select specific GovernanceInsight properties

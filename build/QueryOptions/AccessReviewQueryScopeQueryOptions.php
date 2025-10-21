@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessReviewQueryScope resources
  *
  * Available select fields:
- * - query
- * - queryRoot
- * - queryType
  */
 class AccessReviewQueryScopeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessReviewQueryScope
      */
-    public const FIELD_QUERY = 'query';
-    public const FIELD_QUERY_ROOT = 'queryRoot';
-    public const FIELD_QUERY_TYPE = 'queryType';
 
     /**
      * Select specific AccessReviewQueryScope properties

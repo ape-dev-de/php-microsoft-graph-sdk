@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MicrosoftAuthenticatorAuthenticationMethodTarget resources
  *
  * Available select fields:
- * - authenticationMode
  */
 class MicrosoftAuthenticatorAuthenticationMethodTargetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MicrosoftAuthenticatorAuthenticationMethodTarget
      */
-    public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
      * Select specific MicrosoftAuthenticatorAuthenticationMethodTarget properties

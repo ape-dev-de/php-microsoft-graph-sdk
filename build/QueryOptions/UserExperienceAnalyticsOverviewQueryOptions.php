@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserExperienceAnalyticsOverview resources
  *
  * Available select fields:
- * - insights
  */
 class UserExperienceAnalyticsOverviewQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserExperienceAnalyticsOverview
      */
-    public const FIELD_INSIGHTS = 'insights';
 
     /**
      * Select specific UserExperienceAnalyticsOverview properties

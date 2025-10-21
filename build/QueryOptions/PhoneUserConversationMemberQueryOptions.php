@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PhoneUserConversationMember resources
  *
  * Available select fields:
- * - phoneNumber
  */
 class PhoneUserConversationMemberQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PhoneUserConversationMember
      */
-    public const FIELD_PHONE_NUMBER = 'phoneNumber';
 
     /**
      * Select specific PhoneUserConversationMember properties

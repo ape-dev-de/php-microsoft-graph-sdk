@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IosMobileAppConfiguration resources
  *
  * Available select fields:
- * - encodedSettingXml
- * - settings
  */
 class IosMobileAppConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IosMobileAppConfiguration
      */
-    public const FIELD_ENCODED_SETTING_XML = 'encodedSettingXml';
-    public const FIELD_SETTINGS = 'settings';
 
     /**
      * Select specific IosMobileAppConfiguration properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BackupRestoreRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents the tenant-level status of the Backup Storage service. */
         public ?string $serviceStatus = null,
         /** The list of drive inclusion rules applied to the tenant. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ImportedWindowsAutopilotDeviceIdentityUpload
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** DateTime when the entity is created. */
         public ?\DateTimeInterface $createdDateTimeUtc = null,
         /**  */

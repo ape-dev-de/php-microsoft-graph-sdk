@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ChatMembersNotificationRecipient resources
  *
  * Available select fields:
- * - chatId
  */
 class ChatMembersNotificationRecipientQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ChatMembersNotificationRecipient
      */
-    public const FIELD_CHAT_ID = 'chatId';
 
     /**
      * Select specific ChatMembersNotificationRecipient properties

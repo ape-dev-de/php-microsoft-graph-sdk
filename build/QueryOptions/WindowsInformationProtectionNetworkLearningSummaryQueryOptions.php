@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsInformationProtectionNetworkLearningSummary resources
  *
  * Available select fields:
- * - deviceCount
- * - url
  */
 class WindowsInformationProtectionNetworkLearningSummaryQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsInformationProtectionNetworkLearningSummary
      */
-    public const FIELD_DEVICE_COUNT = 'deviceCount';
-    public const FIELD_URL = 'url';
 
     /**
      * Select specific WindowsInformationProtectionNetworkLearningSummary properties

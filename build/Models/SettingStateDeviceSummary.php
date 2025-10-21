@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SettingStateDeviceSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Device Compliant count for the setting */
         public ?float $compliantDeviceCount = null,
         /** Device conflict error count for the setting */

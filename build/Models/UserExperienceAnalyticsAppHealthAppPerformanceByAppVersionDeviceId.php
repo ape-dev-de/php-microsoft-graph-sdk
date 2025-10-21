@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The number of crashes for the app. Valid values -2147483648 to 2147483647 */
         public ?float $appCrashCount = null,
         /** The friendly name of the application. */

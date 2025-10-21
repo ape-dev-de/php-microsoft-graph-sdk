@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationAssignmentResource resources
  *
  * Available select fields:
- * - distributeForStudentWork
- * - resource
  */
 class EducationAssignmentResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationAssignmentResource
      */
-    public const FIELD_DISTRIBUTE_FOR_STUDENT_WORK = 'distributeForStudentWork';
-    public const FIELD_RESOURCE = 'resource';
 
     /**
      * Select specific EducationAssignmentResource properties

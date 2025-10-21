@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DriveProtectionRule resources
  *
  * Available select fields:
- * - driveExpression
  */
 class DriveProtectionRuleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DriveProtectionRule
      */
-    public const FIELD_DRIVE_EXPRESSION = 'driveExpression';
 
     /**
      * Select specific DriveProtectionRule properties

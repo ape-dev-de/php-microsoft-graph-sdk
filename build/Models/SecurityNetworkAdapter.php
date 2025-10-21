@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityNetworkAdapter
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether the network adapter is selected for capturing and analyzing network traffic. */
         public ?bool $isEnabled = null,
         /** The name of the network adapter. */

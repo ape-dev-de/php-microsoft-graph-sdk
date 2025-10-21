@@ -10,6 +10,16 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ScheduleChangeRequest
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Identity of the creator of the entity. */
+        public ?string $createdBy = null,
+        /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** Identity of the person who last modified the entity. */
+        public ?string $lastModifiedBy = null,
+        /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** Indicates who the request is assigned to. Possible values are: sender, recipient, manager, system, unknownFutureValue. */
         public ?string $assignedTo = null,
         /** The date and time when the manager approved or declined the scheduleChangeRequest. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */

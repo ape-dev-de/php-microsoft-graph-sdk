@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OpenTypeExtension resources
  *
  * Available select fields:
- * - extensionName
  */
 class OpenTypeExtensionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OpenTypeExtension
      */
-    public const FIELD_EXTENSION_NAME = 'extensionName';
 
     /**
      * Select specific OpenTypeExtension properties

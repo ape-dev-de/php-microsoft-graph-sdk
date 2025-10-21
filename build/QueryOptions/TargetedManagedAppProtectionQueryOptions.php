@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TargetedManagedAppProtection resources
  *
  * Available select fields:
- * - isAssigned
- * - assignments
  */
 class TargetedManagedAppProtectionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TargetedManagedAppProtection
      */
-    public const FIELD_IS_ASSIGNED = 'isAssigned';
-    public const FIELD_ASSIGNMENTS = 'assignments';
 
     /**
      * Select specific TargetedManagedAppProtection properties

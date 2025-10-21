@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsUpdateScheduledInstall resources
  *
  * Available select fields:
- * - scheduledInstallDay
- * - scheduledInstallTime
  */
 class WindowsUpdateScheduledInstallQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsUpdateScheduledInstall
      */
-    public const FIELD_SCHEDULED_INSTALL_DAY = 'scheduledInstallDay';
-    public const FIELD_SCHEDULED_INSTALL_TIME = 'scheduledInstallTime';
 
     /**
      * Select specific WindowsUpdateScheduledInstall properties

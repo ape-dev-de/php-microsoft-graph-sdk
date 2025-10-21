@@ -8,26 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessPackageSubject resources
  *
  * Available select fields:
- * - displayName
- * - email
- * - objectId
- * - onPremisesSecurityIdentifier
- * - principalName
- * - subjectType
- * - connectedOrganization
  */
 class AccessPackageSubjectQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessPackageSubject
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_EMAIL = 'email';
-    public const FIELD_OBJECT_ID = 'objectId';
-    public const FIELD_ON_PREMISES_SECURITY_IDENTIFIER = 'onPremisesSecurityIdentifier';
-    public const FIELD_PRINCIPAL_NAME = 'principalName';
-    public const FIELD_SUBJECT_TYPE = 'subjectType';
-    public const FIELD_CONNECTED_ORGANIZATION = 'connectedOrganization';
 
     /**
      * Select specific AccessPackageSubject properties

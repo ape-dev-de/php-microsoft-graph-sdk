@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Alert
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Name or alias of the activity group (attacker) this alert is attributed to. */
         public ?string $activityGroupName = null,
         /**  */

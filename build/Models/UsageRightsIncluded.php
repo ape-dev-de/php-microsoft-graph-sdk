@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UsageRightsIncluded
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The email of owner label rights. */
         public ?string $ownerEmail = null,
         /** The email of user with label user rights. */

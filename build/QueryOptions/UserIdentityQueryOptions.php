@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserIdentity resources
  *
  * Available select fields:
- * - ipAddress
- * - userPrincipalName
  */
 class UserIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserIdentity
      */
-    public const FIELD_IP_ADDRESS = 'ipAddress';
-    public const FIELD_USER_PRINCIPAL_NAME = 'userPrincipalName';
 
     /**
      * Select specific UserIdentity properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Training
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Training availability status. Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue. */
         public ?string $availabilityStatus = null,
         /** Identity of the user who created the training. */

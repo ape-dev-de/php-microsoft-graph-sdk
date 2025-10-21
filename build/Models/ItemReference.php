@@ -10,12 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ItemReference
 {
     public function __construct(
+        /** Unique identifier of the driveItem in the drive or a listItem in a list. Read-only. */
+        public ?string $id = null,
         /** Unique identifier of the drive instance that contains the driveItem. Only returned if the item is located in a drive. Read-only. */
         public ?string $driveId = null,
         /** Identifies the type of drive. Only returned if the item is located in a drive. See drive resource for values. */
         public ?string $driveType = null,
-        /** Unique identifier of the driveItem in the drive or a listItem in a list. Read-only. */
-        public ?string $id = null,
         /** The name of the item being referenced. Read-only. */
         public ?string $name = null,
         /** Percent-encoded path that can be used to navigate to the item. Read-only. */

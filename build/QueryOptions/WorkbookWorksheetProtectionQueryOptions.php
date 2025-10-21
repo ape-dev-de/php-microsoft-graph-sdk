@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookWorksheetProtection resources
  *
  * Available select fields:
- * - options
- * - protected
  */
 class WorkbookWorksheetProtectionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookWorksheetProtection
      */
-    public const FIELD_OPTIONS = 'options';
-    public const FIELD_PROTECTED = 'protected';
 
     /**
      * Select specific WorkbookWorksheetProtection properties

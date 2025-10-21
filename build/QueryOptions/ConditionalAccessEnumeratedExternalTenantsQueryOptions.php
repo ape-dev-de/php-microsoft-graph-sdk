@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ConditionalAccessEnumeratedExternalTenants resources
  *
  * Available select fields:
- * - members
  */
 class ConditionalAccessEnumeratedExternalTenantsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ConditionalAccessEnumeratedExternalTenants
      */
-    public const FIELD_MEMBERS = 'members';
 
     /**
      * Select specific ConditionalAccessEnumeratedExternalTenants properties

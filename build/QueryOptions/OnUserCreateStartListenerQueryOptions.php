@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnUserCreateStartListener resources
  *
  * Available select fields:
- * - handler
  */
 class OnUserCreateStartListenerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnUserCreateStartListener
      */
-    public const FIELD_HANDLER = 'handler';
 
     /**
      * Select specific OnUserCreateStartListener properties

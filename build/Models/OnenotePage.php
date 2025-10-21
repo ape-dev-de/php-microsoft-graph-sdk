@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OnenotePage
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The endpoint where you can get details about the page. Read-only. */
+        public ?string $self = null,
+        /** The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+        public ?\DateTimeInterface $createdDateTime = null,
         /** The page's HTML content. */
         public ?string $content = null,
         /** The URL for the page's HTML content.  Read-only. */

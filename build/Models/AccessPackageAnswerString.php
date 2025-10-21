@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessPackageAnswerString
 {
     public function __construct(
+        /** The localized display value shown to the requestor and approvers. */
+        public ?string $displayValue = null,
+        /**  */
+        public ?string $answeredQuestion = null,
         /** The value stored on the requestor''s user profile, if this answer is configured to be stored as a specific attribute. */
         public ?string $value = null
     ) {}

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityUnifiedGroupSource resources
  *
  * Available select fields:
- * - includedSources
- * - group
  */
 class SecurityUnifiedGroupSourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityUnifiedGroupSource
      */
-    public const FIELD_INCLUDED_SOURCES = 'includedSources';
-    public const FIELD_GROUP = 'group';
 
     /**
      * Select specific SecurityUnifiedGroupSource properties

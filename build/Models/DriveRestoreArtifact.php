@@ -10,6 +10,20 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DriveRestoreArtifact
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The time when restoration of restore artifact is completed. */
+        public ?\DateTimeInterface $completionDateTime = null,
+        /** Indicates the restoration destination. The possible values are: new, inPlace, unknownFutureValue. */
+        public ?string $destinationType = null,
+        /** Contains error details if the restore session fails or completes with an error. */
+        public ?string $error = null,
+        /** The time when restoration of restore artifact is started. */
+        public ?\DateTimeInterface $startDateTime = null,
+        /** The individual restoration status of the restore artifact. The possible values are: added, scheduling, scheduled, inProgress, succeeded, failed, unknownFutureValue. */
+        public ?string $status = null,
+        /** Represents the date and time when an artifact is protected by a protectionPolicy and can be restored. */
+        public ?string $restorePoint = null,
         /** The new site identifier if destinationType is new, and the input site ID if the destinationType is inPlace. */
         public ?string $restoredSiteId = null,
         /** The name of the restored site. */

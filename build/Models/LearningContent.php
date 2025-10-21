@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class LearningContent
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] Keywords, topics, and other tags associated with the learning content. Optional. */
         public array $additionalTags = [],
         /** The content web URL for the learning content. Required. */

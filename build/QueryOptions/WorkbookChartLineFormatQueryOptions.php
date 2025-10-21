@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookChartLineFormat resources
  *
  * Available select fields:
- * - color
  */
 class WorkbookChartLineFormatQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookChartLineFormat
      */
-    public const FIELD_COLOR = 'color';
 
     /**
      * Select specific WorkbookChartLineFormat properties

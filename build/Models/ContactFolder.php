@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ContactFolder
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The folder's display name. */
         public ?string $displayName = null,
         /** The ID of the folder's parent folder. */

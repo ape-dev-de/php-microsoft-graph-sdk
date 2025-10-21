@@ -10,5 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IncludeAllAccountTargetContent
 {
     public function __construct(
+        /** The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue. */
+        public ?string $type = null
     ) {}
 }

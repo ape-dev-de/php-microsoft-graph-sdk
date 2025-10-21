@@ -8,28 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PrivilegedAccessGroupAssignmentSchedule resources
  *
  * Available select fields:
- * - accessId
- * - assignmentType
- * - groupId
- * - memberType
- * - principalId
- * - activatedUsing
- * - group
- * - principal
  */
 class PrivilegedAccessGroupAssignmentScheduleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PrivilegedAccessGroupAssignmentSchedule
      */
-    public const FIELD_ACCESS_ID = 'accessId';
-    public const FIELD_ASSIGNMENT_TYPE = 'assignmentType';
-    public const FIELD_GROUP_ID = 'groupId';
-    public const FIELD_MEMBER_TYPE = 'memberType';
-    public const FIELD_PRINCIPAL_ID = 'principalId';
-    public const FIELD_ACTIVATED_USING = 'activatedUsing';
-    public const FIELD_GROUP = 'group';
-    public const FIELD_PRINCIPAL = 'principal';
 
     /**
      * Select specific PrivilegedAccessGroupAssignmentSchedule properties

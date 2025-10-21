@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BrowserSharedCookie
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The comment for the shared cookie. */
         public ?string $comment = null,
         /** The date and time when the shared cookie was created. */

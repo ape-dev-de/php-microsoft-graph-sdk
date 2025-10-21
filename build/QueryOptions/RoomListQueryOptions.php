@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RoomList resources
  *
  * Available select fields:
- * - emailAddress
- * - rooms
  */
 class RoomListQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RoomList
      */
-    public const FIELD_EMAIL_ADDRESS = 'emailAddress';
-    public const FIELD_ROOMS = 'rooms';
 
     /**
      * Select specific RoomList properties

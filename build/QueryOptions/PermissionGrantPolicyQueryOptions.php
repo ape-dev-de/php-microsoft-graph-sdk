@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PermissionGrantPolicy resources
  *
  * Available select fields:
- * - excludes
- * - includes
  */
 class PermissionGrantPolicyQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PermissionGrantPolicy
      */
-    public const FIELD_EXCLUDES = 'excludes';
-    public const FIELD_INCLUDES = 'includes';
 
     /**
      * Select specific PermissionGrantPolicy properties

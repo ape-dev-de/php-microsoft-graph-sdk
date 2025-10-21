@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Synchronization resources
  *
  * Available select fields:
- * - secrets
- * - jobs
- * - templates
  */
 class SynchronizationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Synchronization
      */
-    public const FIELD_SECRETS = 'secrets';
-    public const FIELD_JOBS = 'jobs';
-    public const FIELD_TEMPLATES = 'templates';
 
     /**
      * Select specific Synchronization properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsDeviceStartupProcess
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The Intune device id of the device. Supports: $select, $OrderBy. Read-only. */
         public ?string $managedDeviceId = null,
         /** The name of the process. Examples: outlook, excel. Supports: $select, $OrderBy. Read-only. */

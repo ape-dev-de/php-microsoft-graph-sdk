@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeamworkTagMember resources
  *
  * Available select fields:
- * - displayName
- * - tenantId
- * - userId
  */
 class TeamworkTagMemberQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeamworkTagMember
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_TENANT_ID = 'tenantId';
-    public const FIELD_USER_ID = 'userId';
 
     /**
      * Select specific TeamworkTagMember properties

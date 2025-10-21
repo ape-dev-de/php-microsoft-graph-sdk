@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnEmailOtpSendListener resources
  *
  * Available select fields:
- * - handler
  */
 class OnEmailOtpSendListenerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnEmailOtpSendListener
      */
-    public const FIELD_HANDLER = 'handler';
 
     /**
      * Select specific OnEmailOtpSendListener properties

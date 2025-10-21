@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AppleManagedIdentityProvider
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The display name of the identity provider. */
+        public ?string $displayName = null,
         /** The certificate data, which is a long string of text from the certificate. Can be null. */
         public ?string $certificateData = null,
         /** The Apple developer identifier. Required. */

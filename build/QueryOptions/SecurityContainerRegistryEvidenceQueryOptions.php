@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityContainerRegistryEvidence resources
  *
  * Available select fields:
- * - registry
  */
 class SecurityContainerRegistryEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityContainerRegistryEvidence
      */
-    public const FIELD_REGISTRY = 'registry';
 
     /**
      * Select specific SecurityContainerRegistryEvidence properties

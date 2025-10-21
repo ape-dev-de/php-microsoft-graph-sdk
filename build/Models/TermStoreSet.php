@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TermStoreSet
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Date and time of set creation. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Description that gives details on the term usage. */

@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EmailFileAssessmentRequest resources
  *
  * Available select fields:
- * - contentData
- * - destinationRoutingReason
- * - recipientEmail
  */
 class EmailFileAssessmentRequestQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EmailFileAssessmentRequest
      */
-    public const FIELD_CONTENT_DATA = 'contentData';
-    public const FIELD_DESTINATION_ROUTING_REASON = 'destinationRoutingReason';
-    public const FIELD_RECIPIENT_EMAIL = 'recipientEmail';
 
     /**
      * Select specific EmailFileAssessmentRequest properties

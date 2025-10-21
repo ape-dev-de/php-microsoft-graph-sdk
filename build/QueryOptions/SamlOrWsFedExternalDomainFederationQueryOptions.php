@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SamlOrWsFedExternalDomainFederation resources
  *
  * Available select fields:
- * - domains
  */
 class SamlOrWsFedExternalDomainFederationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SamlOrWsFedExternalDomainFederation
      */
-    public const FIELD_DOMAINS = 'domains';
 
     /**
      * Select specific SamlOrWsFedExternalDomainFederation properties

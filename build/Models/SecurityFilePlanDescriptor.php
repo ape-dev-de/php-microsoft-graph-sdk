@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityFilePlanDescriptor
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents the file plan descriptor of type authority applied to a particular retention label. */
         public ?string $authority = null,
         /**  */

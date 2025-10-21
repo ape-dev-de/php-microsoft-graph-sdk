@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for VirtualEventPresenter resources
  *
  * Available select fields:
- * - email
- * - identity
- * - presenterDetails
  */
 class VirtualEventPresenterQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for VirtualEventPresenter
      */
-    public const FIELD_EMAIL = 'email';
-    public const FIELD_IDENTITY = 'identity';
-    public const FIELD_PRESENTER_DETAILS = 'presenterDetails';
 
     /**
      * Select specific VirtualEventPresenter properties

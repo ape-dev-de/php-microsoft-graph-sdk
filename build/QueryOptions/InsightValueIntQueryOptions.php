@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for InsightValueInt resources
  *
  * Available select fields:
- * - value
  */
 class InsightValueIntQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for InsightValueInt
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific InsightValueInt properties

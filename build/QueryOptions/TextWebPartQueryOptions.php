@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TextWebPart resources
  *
  * Available select fields:
- * - innerHtml
  */
 class TextWebPartQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TextWebPart
      */
-    public const FIELD_INNER_HTML = 'innerHtml';
 
     /**
      * Select specific TextWebPart properties

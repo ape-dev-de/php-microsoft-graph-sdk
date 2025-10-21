@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceCompliancePolicyDeviceStateSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Number of compliant devices */
         public ?float $compliantDeviceCount = null,
         /** Number of devices that have compliance managed by System Center Configuration Manager */

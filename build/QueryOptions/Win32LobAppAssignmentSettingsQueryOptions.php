@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Win32LobAppAssignmentSettings resources
  *
  * Available select fields:
- * - autoUpdateSettings
- * - deliveryOptimizationPriority
- * - installTimeSettings
- * - notifications
- * - restartSettings
  */
 class Win32LobAppAssignmentSettingsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Win32LobAppAssignmentSettings
      */
-    public const FIELD_AUTO_UPDATE_SETTINGS = 'autoUpdateSettings';
-    public const FIELD_DELIVERY_OPTIMIZATION_PRIORITY = 'deliveryOptimizationPriority';
-    public const FIELD_INSTALL_TIME_SETTINGS = 'installTimeSettings';
-    public const FIELD_NOTIFICATIONS = 'notifications';
-    public const FIELD_RESTART_SETTINGS = 'restartSettings';
 
     /**
      * Select specific Win32LobAppAssignmentSettings properties

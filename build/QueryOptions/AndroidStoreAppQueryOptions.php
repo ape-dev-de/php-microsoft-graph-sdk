@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AndroidStoreApp resources
  *
  * Available select fields:
- * - appStoreUrl
- * - minimumSupportedOperatingSystem
- * - packageId
  */
 class AndroidStoreAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AndroidStoreApp
      */
-    public const FIELD_APP_STORE_URL = 'appStoreUrl';
-    public const FIELD_MINIMUM_SUPPORTED_OPERATING_SYSTEM = 'minimumSupportedOperatingSystem';
-    public const FIELD_PACKAGE_ID = 'packageId';
 
     /**
      * Select specific AndroidStoreApp properties

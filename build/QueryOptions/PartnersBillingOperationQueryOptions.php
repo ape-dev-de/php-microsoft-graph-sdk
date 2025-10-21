@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PartnersBillingOperation resources
  *
  * Available select fields:
- * - createdDateTime
- * - lastActionDateTime
- * - status
  */
 class PartnersBillingOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PartnersBillingOperation
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
-    public const FIELD_LAST_ACTION_DATE_TIME = 'lastActionDateTime';
-    public const FIELD_STATUS = 'status';
 
     /**
      * Select specific PartnersBillingOperation properties

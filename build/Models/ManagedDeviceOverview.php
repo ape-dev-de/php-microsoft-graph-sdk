@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ManagedDeviceOverview
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Distribution of Exchange Access State in Intune */
         public ?string $deviceExchangeAccessStateSummary = null,
         /** Device operating system summary. */

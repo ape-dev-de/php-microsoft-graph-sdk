@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EmployeeExperienceUser resources
  *
  * Available select fields:
- * - learningCourseActivities
  */
 class EmployeeExperienceUserQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EmployeeExperienceUser
      */
-    public const FIELD_LEARNING_COURSE_ACTIVITIES = 'learningCourseActivities';
 
     /**
      * Select specific EmployeeExperienceUser properties

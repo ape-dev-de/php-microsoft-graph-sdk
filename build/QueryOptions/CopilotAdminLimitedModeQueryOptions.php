@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CopilotAdminLimitedMode resources
  *
  * Available select fields:
- * - groupId
- * - isEnabledForGroup
  */
 class CopilotAdminLimitedModeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CopilotAdminLimitedMode
      */
-    public const FIELD_GROUP_ID = 'groupId';
-    public const FIELD_IS_ENABLED_FOR_GROUP = 'isEnabledForGroup';
 
     /**
      * Select specific CopilotAdminLimitedMode properties

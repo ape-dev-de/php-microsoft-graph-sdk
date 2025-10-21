@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AuthenticationFlowsPolicy
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Inherited property. A description of the policy. Optional. Read-only. */
         public ?string $description = null,
         /** Inherited property. The human-readable name of the policy. Optional. Read-only. */

@@ -11,13 +11,13 @@ class CopyNotebookModel
 {
     public function __construct(
         /**  */
+        public ?string $id = null,
+        /**  */
         public ?string $createdBy = null,
         /**  */
         public ?string $createdByIdentity = null,
         /**  */
         public ?\DateTimeInterface $createdTime = null,
-        /**  */
-        public ?string $id = null,
         /**  */
         public ?bool $isDefault = null,
         /**  */

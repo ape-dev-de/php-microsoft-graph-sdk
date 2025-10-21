@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AdminReportSettings resources
  *
  * Available select fields:
- * - displayConcealedNames
  */
 class AdminReportSettingsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AdminReportSettings
      */
-    public const FIELD_DISPLAY_CONCEALED_NAMES = 'displayConcealedNames';
 
     /**
      * Select specific AdminReportSettings properties

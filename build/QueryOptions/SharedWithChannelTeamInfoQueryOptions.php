@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SharedWithChannelTeamInfo resources
  *
  * Available select fields:
- * - isHostTeam
- * - allowedMembers
  */
 class SharedWithChannelTeamInfoQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SharedWithChannelTeamInfo
      */
-    public const FIELD_IS_HOST_TEAM = 'isHostTeam';
-    public const FIELD_ALLOWED_MEMBERS = 'allowedMembers';
 
     /**
      * Select specific SharedWithChannelTeamInfo properties

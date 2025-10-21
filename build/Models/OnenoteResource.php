@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class OnenoteResource
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The endpoint where you can get details about the page. Read-only. */
+        public ?string $self = null,
         /** The content stream */
         public ?string $content = null,
         /** The URL for downloading the content */

@@ -8,26 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeviceComplianceDeviceOverview resources
  *
  * Available select fields:
- * - configurationVersion
- * - errorCount
- * - failedCount
- * - lastUpdateDateTime
- * - notApplicableCount
- * - pendingCount
- * - successCount
  */
 class DeviceComplianceDeviceOverviewQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeviceComplianceDeviceOverview
      */
-    public const FIELD_CONFIGURATION_VERSION = 'configurationVersion';
-    public const FIELD_ERROR_COUNT = 'errorCount';
-    public const FIELD_FAILED_COUNT = 'failedCount';
-    public const FIELD_LAST_UPDATE_DATE_TIME = 'lastUpdateDateTime';
-    public const FIELD_NOT_APPLICABLE_COUNT = 'notApplicableCount';
-    public const FIELD_PENDING_COUNT = 'pendingCount';
-    public const FIELD_SUCCESS_COUNT = 'successCount';
 
     /**
      * Select specific DeviceComplianceDeviceOverview properties

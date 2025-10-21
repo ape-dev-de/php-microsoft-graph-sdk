@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnUserCreateStartExternalUsersSelfServiceSignUp resources
  *
  * Available select fields:
- * - userTypeToCreate
  */
 class OnUserCreateStartExternalUsersSelfServiceSignUpQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnUserCreateStartExternalUsersSelfServiceSignUp
      */
-    public const FIELD_USER_TYPE_TO_CREATE = 'userTypeToCreate';
 
     /**
      * Select specific OnUserCreateStartExternalUsersSelfServiceSignUp properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for InsightValueDouble resources
  *
  * Available select fields:
- * - value
  */
 class InsightValueDoubleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for InsightValueDouble
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific InsightValueDouble properties

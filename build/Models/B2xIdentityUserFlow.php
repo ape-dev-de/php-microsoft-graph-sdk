@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class B2xIdentityUserFlow
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /**  */
+        public ?string $userFlowType = null,
+        /**  */
+        public ?string $userFlowTypeVersion = null,
         /** Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
         public ?string $apiConnectorConfiguration = null,
         /** The identity providers included in the user flow. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RiskyServicePrincipal
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The globally unique identifier for the associated application (its appId property), if any. */
         public ?string $appId = null,
         /** The display name for the service principal. */

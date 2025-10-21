@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsUniversalAppXContainedApp resources
  *
  * Available select fields:
- * - appUserModelId
  */
 class WindowsUniversalAppXContainedAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsUniversalAppXContainedApp
      */
-    public const FIELD_APP_USER_MODEL_ID = 'appUserModelId';
 
     /**
      * Select specific WindowsUniversalAppXContainedApp properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PartnersBillingFailedOperation resources
  *
  * Available select fields:
- * - error
  */
 class PartnersBillingFailedOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PartnersBillingFailedOperation
      */
-    public const FIELD_ERROR = 'error';
 
     /**
      * Select specific PartnersBillingFailedOperation properties

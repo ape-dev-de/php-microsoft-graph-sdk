@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MultiTenantOrganization
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Date when multitenant organization was created. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Description of the multitenant organization. */

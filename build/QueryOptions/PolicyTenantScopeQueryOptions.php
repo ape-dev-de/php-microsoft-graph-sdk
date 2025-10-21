@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PolicyTenantScope resources
  *
  * Available select fields:
- * - policyScope
  */
 class PolicyTenantScopeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PolicyTenantScope
      */
-    public const FIELD_POLICY_SCOPE = 'policyScope';
 
     /**
      * Select specific PolicyTenantScope properties

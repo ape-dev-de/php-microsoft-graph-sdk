@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class LearningCourseActivity
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Date and time when the assignment was completed. Optional. */
         public ?\DateTimeInterface $completedDateTime = null,
         /** The percentage completion value of the course activity. Optional. */

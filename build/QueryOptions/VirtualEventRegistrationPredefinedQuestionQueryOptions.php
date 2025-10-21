@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for VirtualEventRegistrationPredefinedQuestion resources
  *
  * Available select fields:
- * - label
  */
 class VirtualEventRegistrationPredefinedQuestionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for VirtualEventRegistrationPredefinedQuestion
      */
-    public const FIELD_LABEL = 'label';
 
     /**
      * Select specific VirtualEventRegistrationPredefinedQuestion properties

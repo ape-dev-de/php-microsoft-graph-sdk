@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceLocalCredentialInfo
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The credentials of the device's local administrator account backed up to Azure Active Directory. */
         public array $credentials = [],
         /** Display name of the device that the local credentials are associated with. */

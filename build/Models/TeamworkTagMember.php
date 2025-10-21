@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamworkTagMember
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The member's display name. */
         public ?string $displayName = null,
         /** The ID of the tenant that the tag member is a part of. */

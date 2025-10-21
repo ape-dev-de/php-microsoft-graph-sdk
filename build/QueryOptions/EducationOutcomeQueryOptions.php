@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationOutcome resources
  *
  * Available select fields:
- * - lastModifiedBy
- * - lastModifiedDateTime
  */
 class EducationOutcomeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationOutcome
      */
-    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    public const FIELD_LAST_MODIFIED_DATE_TIME = 'lastModifiedDateTime';
 
     /**
      * Select specific EducationOutcome properties

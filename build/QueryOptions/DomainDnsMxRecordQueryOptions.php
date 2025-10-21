@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DomainDnsMxRecord resources
  *
  * Available select fields:
- * - mailExchange
- * - preference
  */
 class DomainDnsMxRecordQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DomainDnsMxRecord
      */
-    public const FIELD_MAIL_EXCHANGE = 'mailExchange';
-    public const FIELD_PREFERENCE = 'preference';
 
     /**
      * Select specific DomainDnsMxRecord properties

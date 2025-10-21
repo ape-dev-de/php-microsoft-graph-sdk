@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PlannerBucket
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Name of the bucket. */
         public ?string $name = null,
         /** Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner. */

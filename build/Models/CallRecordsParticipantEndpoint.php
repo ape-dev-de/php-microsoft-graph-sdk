@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallRecordsParticipantEndpoint
 {
     public function __construct(
+        /** User-agent reported by this endpoint. */
+        public ?string $userAgent = null,
         /** Identity associated with the endpoint. */
         public ?string $associatedIdentity = null,
         /** CPU number of cores used by the media endpoint. */

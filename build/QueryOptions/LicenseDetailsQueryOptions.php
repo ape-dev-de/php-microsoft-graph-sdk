@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for LicenseDetails resources
  *
  * Available select fields:
- * - servicePlans
- * - skuId
- * - skuPartNumber
  */
 class LicenseDetailsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for LicenseDetails
      */
-    public const FIELD_SERVICE_PLANS = 'servicePlans';
-    public const FIELD_SKU_ID = 'skuId';
-    public const FIELD_SKU_PART_NUMBER = 'skuPartNumber';
 
     /**
      * Select specific LicenseDetails properties

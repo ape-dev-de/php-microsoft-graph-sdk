@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewReviewer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date when the reviewer was added for the access review. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Name of reviewer. */

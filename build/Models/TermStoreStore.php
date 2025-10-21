@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TermStoreStore
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Default language of the term store. */
         public ?string $defaultLanguageTag = null,
         /** @var string[] List of languages for the term store. */

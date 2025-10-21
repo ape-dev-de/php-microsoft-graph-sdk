@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for InviteNewBotResponse resources
  *
  * Available select fields:
- * - inviteUri
  */
 class InviteNewBotResponseQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for InviteNewBotResponse
      */
-    public const FIELD_INVITE_URI = 'inviteUri';
 
     /**
      * Select specific InviteNewBotResponse properties

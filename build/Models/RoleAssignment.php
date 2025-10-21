@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RoleAssignment
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Description of the Role Assignment. */
         public ?string $description = null,
         /** The display or friendly name of the role Assignment. */

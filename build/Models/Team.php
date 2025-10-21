@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Team
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a preconfigured set in the tenant's directory. */
         public ?string $classification = null,
         /** Timestamp at which the team was created. */

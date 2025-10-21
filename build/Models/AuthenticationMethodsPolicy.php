@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AuthenticationMethodsPolicy
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A description of the policy. Read-only. */
         public ?string $description = null,
         /** The name of the policy. Read-only. */

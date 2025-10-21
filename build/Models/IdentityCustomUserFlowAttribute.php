@@ -10,5 +10,15 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IdentityCustomUserFlowAttribute
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /**  */
+        public ?string $dataType = null,
+        /** The description of the user flow attribute that's shown to the user at the time of sign up. */
+        public ?string $description = null,
+        /** The display name of the user flow attribute.  Supports $filter (eq, ne). */
+        public ?string $displayName = null,
+        /**  */
+        public ?string $userFlowAttributeType = null
     ) {}
 }

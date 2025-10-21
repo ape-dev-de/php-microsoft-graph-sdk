@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ProtectionPolicyBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The identity of person who created the policy. */
         public ?string $createdBy = null,
         /** The time of creation of the policy. */

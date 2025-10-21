@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookChartPoint
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The value of a chart point. Read-only. */
         public ?string $value = null,
         /** The format properties of the chart point. Read-only. */

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AuthenticationMethodConfiguration resources
  *
  * Available select fields:
- * - excludeTargets
- * - state
  */
 class AuthenticationMethodConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AuthenticationMethodConfiguration
      */
-    public const FIELD_EXCLUDE_TARGETS = 'excludeTargets';
-    public const FIELD_STATE = 'state';
 
     /**
      * Select specific AuthenticationMethodConfiguration properties

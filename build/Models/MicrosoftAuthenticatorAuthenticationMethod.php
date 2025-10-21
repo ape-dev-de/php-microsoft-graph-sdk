@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MicrosoftAuthenticatorAuthenticationMethod
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date and time that this app was registered. This property is null if the device isn't registered for passwordless Phone Sign-In. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Tags containing app metadata. */

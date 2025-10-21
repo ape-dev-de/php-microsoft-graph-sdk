@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AttachmentSession
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The content streams that are uploaded. */
         public ?string $content = null,
         /** The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached. */

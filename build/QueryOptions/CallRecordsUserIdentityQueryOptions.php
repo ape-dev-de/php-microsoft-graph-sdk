@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CallRecordsUserIdentity resources
  *
  * Available select fields:
- * - userPrincipalName
  */
 class CallRecordsUserIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CallRecordsUserIdentity
      */
-    public const FIELD_USER_PRINCIPAL_NAME = 'userPrincipalName';
 
     /**
      * Select specific CallRecordsUserIdentity properties

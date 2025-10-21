@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Partners resources
  *
  * Available select fields:
- * - billing
  */
 class PartnersQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Partners
      */
-    public const FIELD_BILLING = 'billing';
 
     /**
      * Select specific Partners properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeamworkUserIdentity resources
  *
  * Available select fields:
- * - userIdentityType
  */
 class TeamworkUserIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeamworkUserIdentity
      */
-    public const FIELD_USER_IDENTITY_TYPE = 'userIdentityType';
 
     /**
      * Select specific TeamworkUserIdentity properties

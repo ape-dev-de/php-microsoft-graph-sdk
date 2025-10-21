@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityEdiscoveryReviewSet resources
  *
  * Available select fields:
- * - queries
  */
 class SecurityEdiscoveryReviewSetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityEdiscoveryReviewSet
      */
-    public const FIELD_QUERIES = 'queries';
 
     /**
      * Select specific SecurityEdiscoveryReviewSet properties

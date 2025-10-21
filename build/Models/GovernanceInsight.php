@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class GovernanceInsight
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates when the insight was created. */
         public ?\DateTimeInterface $insightCreatedDateTime = null
     ) {}

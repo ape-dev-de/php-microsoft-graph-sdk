@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookRangeView
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The cell addresses. */
         public ?string $cellAddresses = null,
         /** The number of visible columns. Read-only. */

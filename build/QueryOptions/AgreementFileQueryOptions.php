@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AgreementFile resources
  *
  * Available select fields:
- * - localizations
  */
 class AgreementFileQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AgreementFile
      */
-    public const FIELD_LOCALIZATIONS = 'localizations';
 
     /**
      * Select specific AgreementFile properties

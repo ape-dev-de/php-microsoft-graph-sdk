@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OpenShiftItem resources
  *
  * Available select fields:
- * - openSlotCount
  */
 class OpenShiftItemQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OpenShiftItem
      */
-    public const FIELD_OPEN_SLOT_COUNT = 'openSlotCount';
 
     /**
      * Select specific OpenShiftItem properties

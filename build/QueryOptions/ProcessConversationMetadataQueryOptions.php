@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ProcessConversationMetadata resources
  *
  * Available select fields:
- * - accessedResources
- * - parentMessageId
- * - plugins
  */
 class ProcessConversationMetadataQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ProcessConversationMetadata
      */
-    public const FIELD_ACCESSED_RESOURCES = 'accessedResources';
-    public const FIELD_PARENT_MESSAGE_ID = 'parentMessageId';
-    public const FIELD_PLUGINS = 'plugins';
 
     /**
      * Select specific ProcessConversationMetadata properties

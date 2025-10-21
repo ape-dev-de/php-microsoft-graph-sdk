@@ -10,14 +10,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ChatMessageAttachment
 {
     public function __construct(
+        /** Read-only. The unique ID of the attachment. */
+        public ?string $id = null,
         /** The content of the attachment. If the attachment is a rich card, set the property to the rich card object. This property and contentUrl are mutually exclusive. */
         public ?string $content = null,
         /** The media type of the content attachment. The possible values are: reference: The attachment is a link to another file. Populate the contentURL with the link to the object.forwardedMessageReference: The attachment is a reference to a forwarded message. Populate the content with the original message context.Any contentType that is supported by the Bot Framework''s Attachment object.application/vnd.microsoft.card.codesnippet: A code snippet. application/vnd.microsoft.card.announcement: An announcement header. */
         public ?string $contentType = null,
         /** The URL for the content of the attachment. */
         public ?string $contentUrl = null,
-        /** Read-only. The unique ID of the attachment. */
-        public ?string $id = null,
         /** The name of the attachment. */
         public ?string $name = null,
         /** The ID of the Teams app that is associated with the attachment. The property is used to attribute a Teams message card to the specified app. */

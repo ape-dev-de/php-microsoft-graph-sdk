@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MembershipOutlierInsight
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Indicates when the insight was created. */
+        public ?\DateTimeInterface $insightCreatedDateTime = null,
         /** Indicates the identifier of the container, for example, a group ID. */
         public ?string $containerId = null,
         /** Indicates the identifier of the user. */

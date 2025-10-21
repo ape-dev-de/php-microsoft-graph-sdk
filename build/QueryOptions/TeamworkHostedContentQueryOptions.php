@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeamworkHostedContent resources
  *
  * Available select fields:
- * - contentBytes
- * - contentType
  */
 class TeamworkHostedContentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeamworkHostedContent
      */
-    public const FIELD_CONTENT_BYTES = 'contentBytes';
-    public const FIELD_CONTENT_TYPE = 'contentType';
 
     /**
      * Select specific TeamworkHostedContent properties

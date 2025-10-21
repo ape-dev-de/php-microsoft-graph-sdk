@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Pkcs12Certificate resources
  *
  * Available select fields:
- * - password
- * - pkcs12Value
  */
 class Pkcs12CertificateQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Pkcs12Certificate
      */
-    public const FIELD_PASSWORD = 'password';
-    public const FIELD_PKCS12VALUE = 'pkcs12Value';
 
     /**
      * Select specific Pkcs12Certificate properties

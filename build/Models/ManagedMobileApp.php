@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ManagedMobileApp
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The identifier for an app with it's operating system type. */
         public ?string $mobileAppIdentifier = null,
         /** The identifier for the deployment an app. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SkypeUserConversationMember resources
  *
  * Available select fields:
- * - skypeId
  */
 class SkypeUserConversationMemberQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SkypeUserConversationMember
      */
-    public const FIELD_SKYPE_ID = 'skypeId';
 
     /**
      * Select specific SkypeUserConversationMember properties

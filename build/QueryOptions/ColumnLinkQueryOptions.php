@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ColumnLink resources
  *
  * Available select fields:
- * - name
  */
 class ColumnLinkQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ColumnLink
      */
-    public const FIELD_NAME = 'name';
 
     /**
      * Select specific ColumnLink properties

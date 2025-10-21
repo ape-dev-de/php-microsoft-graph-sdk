@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Operation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The start time of the operation. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The time of the last action of the operation. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsWebApp resources
  *
  * Available select fields:
- * - appUrl
  */
 class WindowsWebAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsWebApp
      */
-    public const FIELD_APP_URL = 'appUrl';
 
     /**
      * Select specific WindowsWebApp properties

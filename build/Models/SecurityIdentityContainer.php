@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityIdentityContainer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration. */
         public array $healthIssues = [],
         /** @var string[] Represents a customer's Microsoft Defender for Identity sensors. */

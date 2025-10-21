@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnTokenIssuanceStartListener resources
  *
  * Available select fields:
- * - handler
  */
 class OnTokenIssuanceStartListenerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnTokenIssuanceStartListener
      */
-    public const FIELD_HANDLER = 'handler';
 
     /**
      * Select specific OnTokenIssuanceStartListener properties

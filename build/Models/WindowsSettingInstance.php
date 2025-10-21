@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WindowsSettingInstance
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Set by the server. Represents the dateTime in UTC when the object was created on the server. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Set by the server. The object expires at the specified dateTime in UTC, making it unavailable after that time. */

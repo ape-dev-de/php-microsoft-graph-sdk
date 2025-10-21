@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SubjectRightsRequestEnumeratedSiteLocation resources
  *
  * Available select fields:
- * - urls
  */
 class SubjectRightsRequestEnumeratedSiteLocationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SubjectRightsRequestEnumeratedSiteLocation
      */
-    public const FIELD_URLS = 'urls';
 
     /**
      * Select specific SubjectRightsRequestEnumeratedSiteLocation properties

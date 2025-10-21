@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeleteUserFromSharedAppleDeviceActionResult resources
  *
  * Available select fields:
- * - userPrincipalName
  */
 class DeleteUserFromSharedAppleDeviceActionResultQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeleteUserFromSharedAppleDeviceActionResult
      */
-    public const FIELD_USER_PRINCIPAL_NAME = 'userPrincipalName';
 
     /**
      * Select specific DeleteUserFromSharedAppleDeviceActionResult properties

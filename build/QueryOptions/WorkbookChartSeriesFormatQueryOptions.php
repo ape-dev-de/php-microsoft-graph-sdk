@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookChartSeriesFormat resources
  *
  * Available select fields:
- * - fill
- * - line
  */
 class WorkbookChartSeriesFormatQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookChartSeriesFormat
      */
-    public const FIELD_FILL = 'fill';
-    public const FIELD_LINE = 'line';
 
     /**
      * Select specific WorkbookChartSeriesFormat properties

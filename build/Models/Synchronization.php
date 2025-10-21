@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Synchronization
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents a collection of credentials to access provisioned cloud applications. */
         public array $secrets = [],
         /** Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory. */

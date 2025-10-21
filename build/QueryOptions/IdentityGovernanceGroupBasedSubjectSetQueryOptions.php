@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IdentityGovernanceGroupBasedSubjectSet resources
  *
  * Available select fields:
- * - groups
  */
 class IdentityGovernanceGroupBasedSubjectSetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IdentityGovernanceGroupBasedSubjectSet
      */
-    public const FIELD_GROUPS = 'groups';
 
     /**
      * Select specific IdentityGovernanceGroupBasedSubjectSet properties

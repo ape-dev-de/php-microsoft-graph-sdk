@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamsAsyncOperation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Number of times the operation was attempted before being marked successful or failed. */
         public ?float $attemptsCount = null,
         /** Time when the operation was created. */

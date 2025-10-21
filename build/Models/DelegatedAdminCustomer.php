@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DelegatedAdminCustomer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The Microsoft Entra ID display name of the customer tenant. Read-only. Supports $orderby. */
         public ?string $displayName = null,
         /** The Microsoft Entra ID-assigned tenant ID of the customer. Read-only. */

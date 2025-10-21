@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationLinkedAssignmentResource resources
  *
  * Available select fields:
- * - url
  */
 class EducationLinkedAssignmentResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationLinkedAssignmentResource
      */
-    public const FIELD_URL = 'url';
 
     /**
      * Select specific EducationLinkedAssignmentResource properties

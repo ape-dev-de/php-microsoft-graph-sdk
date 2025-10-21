@@ -8,34 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AuditEvent resources
  *
  * Available select fields:
- * - activity
- * - activityDateTime
- * - activityOperationType
- * - activityResult
- * - activityType
- * - actor
- * - category
- * - componentName
- * - correlationId
- * - displayName
- * - resources
  */
 class AuditEventQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AuditEvent
      */
-    public const FIELD_ACTIVITY = 'activity';
-    public const FIELD_ACTIVITY_DATE_TIME = 'activityDateTime';
-    public const FIELD_ACTIVITY_OPERATION_TYPE = 'activityOperationType';
-    public const FIELD_ACTIVITY_RESULT = 'activityResult';
-    public const FIELD_ACTIVITY_TYPE = 'activityType';
-    public const FIELD_ACTOR = 'actor';
-    public const FIELD_CATEGORY = 'category';
-    public const FIELD_COMPONENT_NAME = 'componentName';
-    public const FIELD_CORRELATION_ID = 'correlationId';
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_RESOURCES = 'resources';
 
     /**
      * Select specific AuditEvent properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class VirtualEndpoint
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A collection of Cloud PC audit events. */
         public array $auditEvents = [],
         /** A collection of cloud-managed virtual desktops. */

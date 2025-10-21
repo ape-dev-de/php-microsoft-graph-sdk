@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AadUserConversationMemberResult resources
  *
  * Available select fields:
- * - userId
  */
 class AadUserConversationMemberResultQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AadUserConversationMemberResult
      */
-    public const FIELD_USER_ID = 'userId';
 
     /**
      * Select specific AadUserConversationMemberResult properties

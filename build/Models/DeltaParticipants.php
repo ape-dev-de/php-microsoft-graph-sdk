@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeltaParticipants
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The sequence number for the roster update that is used to identify the notification order. */
         public ?float $sequenceNumber = null,
         /** @var string[] The collection of participants that were updated since the last roster update. */

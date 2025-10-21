@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnAuthenticationMethodLoadStartListener resources
  *
  * Available select fields:
- * - handler
  */
 class OnAuthenticationMethodLoadStartListenerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnAuthenticationMethodLoadStartListener
      */
-    public const FIELD_HANDLER = 'handler';
 
     /**
      * Select specific OnAuthenticationMethodLoadStartListener properties

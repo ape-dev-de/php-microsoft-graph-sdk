@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WindowsAutopilotDeviceIdentity
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Addressable user name. */
         public ?string $addressableUserName = null,
         /** AAD Device ID - to be deprecated */

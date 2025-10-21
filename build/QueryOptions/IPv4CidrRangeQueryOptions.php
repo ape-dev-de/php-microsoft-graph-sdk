@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IPv4CidrRange resources
  *
  * Available select fields:
- * - cidrAddress
  */
 class IPv4CidrRangeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IPv4CidrRange
      */
-    public const FIELD_CIDR_ADDRESS = 'cidrAddress';
 
     /**
      * Select specific IPv4CidrRange properties

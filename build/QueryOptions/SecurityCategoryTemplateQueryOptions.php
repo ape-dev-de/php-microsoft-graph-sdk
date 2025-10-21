@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityCategoryTemplate resources
  *
  * Available select fields:
- * - subcategories
  */
 class SecurityCategoryTemplateQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityCategoryTemplate
      */
-    public const FIELD_SUBCATEGORIES = 'subcategories';
 
     /**
      * Select specific SecurityCategoryTemplate properties

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserConsentRequest resources
  *
  * Available select fields:
- * - reason
- * - approval
  */
 class UserConsentRequestQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserConsentRequest
      */
-    public const FIELD_REASON = 'reason';
-    public const FIELD_APPROVAL = 'approval';
 
     /**
      * Select specific UserConsentRequest properties

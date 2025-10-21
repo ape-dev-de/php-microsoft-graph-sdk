@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeviceAndAppManagementRoleAssignment resources
  *
  * Available select fields:
- * - members
  */
 class DeviceAndAppManagementRoleAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeviceAndAppManagementRoleAssignment
      */
-    public const FIELD_MEMBERS = 'members';
 
     /**
      * Select specific DeviceAndAppManagementRoleAssignment properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class VppToken
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The Apple ID associated with the given Apple Volume Purchase Program Token. */
         public ?string $appleId = null,
         /** Whether or not apps for the VPP token will be automatically updated. */

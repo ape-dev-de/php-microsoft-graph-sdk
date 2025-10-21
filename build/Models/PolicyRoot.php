@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PolicyRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The policy that controls the idle time out for web sessions for applications. */
         public array $activityBasedTimeoutPolicies = [],
         /** The policy by which consent requests are created and managed for the entire tenant. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsDeviceStartupHistory
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The device core boot time in milliseconds. Supports: $select, $OrderBy. Read-only. */
         public ?float $coreBootTimeInMs = null,
         /** The device core login time in milliseconds. Supports: $select, $OrderBy. Read-only. */

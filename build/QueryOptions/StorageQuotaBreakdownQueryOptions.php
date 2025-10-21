@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for StorageQuotaBreakdown resources
  *
  * Available select fields:
- * - displayName
- * - manageWebUrl
- * - used
  */
 class StorageQuotaBreakdownQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for StorageQuotaBreakdown
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_MANAGE_WEB_URL = 'manageWebUrl';
-    public const FIELD_USED = 'used';
 
     /**
      * Select specific StorageQuotaBreakdown properties

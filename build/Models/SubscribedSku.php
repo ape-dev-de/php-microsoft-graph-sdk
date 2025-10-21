@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SubscribedSku
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The unique ID of the account this SKU belongs to. */
         public ?string $accountId = null,
         /** The name of the account this SKU belongs to. */

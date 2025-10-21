@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ManagedMobileApp resources
  *
  * Available select fields:
- * - mobileAppIdentifier
- * - version
  */
 class ManagedMobileAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ManagedMobileApp
      */
-    public const FIELD_MOBILE_APP_IDENTIFIER = 'mobileAppIdentifier';
-    public const FIELD_VERSION = 'version';
 
     /**
      * Select specific ManagedMobileApp properties

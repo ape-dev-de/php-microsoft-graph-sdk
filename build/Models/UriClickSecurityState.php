@@ -11,11 +11,11 @@ class UriClickSecurityState
 {
     public function __construct(
         /**  */
+        public ?string $id = null,
+        /**  */
         public ?string $clickAction = null,
         /**  */
         public ?\DateTimeInterface $clickDateTime = null,
-        /**  */
-        public ?string $id = null,
         /**  */
         public ?string $sourceId = null,
         /**  */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for BookingCurrency resources
  *
  * Available select fields:
- * - symbol
  */
 class BookingCurrencyQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for BookingCurrency
      */
-    public const FIELD_SYMBOL = 'symbol';
 
     /**
      * Select specific BookingCurrency properties

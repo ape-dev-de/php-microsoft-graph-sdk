@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AndroidCustomConfiguration resources
  *
  * Available select fields:
- * - omaSettings
  */
 class AndroidCustomConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AndroidCustomConfiguration
      */
-    public const FIELD_OMA_SETTINGS = 'omaSettings';
 
     /**
      * Select specific AndroidCustomConfiguration properties

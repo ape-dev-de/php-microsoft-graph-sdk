@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeletedItemContainer resources
  *
  * Available select fields:
- * - workflows
  */
 class DeletedItemContainerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeletedItemContainer
      */
-    public const FIELD_WORKFLOWS = 'workflows';
 
     /**
      * Select specific DeletedItemContainer properties

@@ -10,5 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallRecordsServiceEndpoint
 {
     public function __construct(
+        /** User-agent reported by this endpoint. */
+        public ?string $userAgent = null
     ) {}
 }

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookChart
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents the height, in points, of the chart object. */
         public ?string $height = null,
         /** The distance, in points, from the left side of the chart to the worksheet origin. */

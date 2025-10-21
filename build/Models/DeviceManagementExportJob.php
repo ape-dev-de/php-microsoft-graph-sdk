@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceManagementExportJob
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Time that the exported report expires */
         public ?\DateTimeInterface $expirationDateTime = null,
         /** Filters applied on the report */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallRecordsPstnCallLogRow
 {
     public function __construct(
+        /** Unique call identifier. GUID. */
+        public ?string $id = null,
         /** The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator can provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft. */
         public ?string $callDurationSource = null,
         /** Number dialed in E.164 format. */
@@ -36,8 +38,6 @@ class CallRecordsPstnCallLogRow
         public ?float $duration = null,
         /** Call end time. */
         public ?\DateTimeInterface $endDateTime = null,
-        /** Unique call identifier. GUID. */
-        public ?string $id = null,
         /** User''s phone number type, such as a service of toll-free number. */
         public ?string $inventoryType = null,
         /** The license used for the call. */

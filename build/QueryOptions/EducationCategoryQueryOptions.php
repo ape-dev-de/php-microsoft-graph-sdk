@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationCategory resources
  *
  * Available select fields:
- * - displayName
  */
 class EducationCategoryQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationCategory
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
 
     /**
      * Select specific EducationCategory properties

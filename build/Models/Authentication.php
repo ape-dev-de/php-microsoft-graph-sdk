@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Authentication
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The email address registered to a user for authentication. */
         public array $emailMethods = [],
         /** Represents the FIDO2 security keys registered to a user for authentication. */

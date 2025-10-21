@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ChatMessage
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** References to attached objects like files, tabs, meetings etc. */
         public array $attachments = [],
         /**  */

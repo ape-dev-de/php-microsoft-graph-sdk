@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookChartAxes resources
  *
  * Available select fields:
- * - categoryAxis
- * - seriesAxis
- * - valueAxis
  */
 class WorkbookChartAxesQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookChartAxes
      */
-    public const FIELD_CATEGORY_AXIS = 'categoryAxis';
-    public const FIELD_SERIES_AXIS = 'seriesAxis';
-    public const FIELD_VALUE_AXIS = 'valueAxis';
 
     /**
      * Select specific WorkbookChartAxes properties

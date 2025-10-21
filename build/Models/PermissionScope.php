@@ -10,12 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PermissionScope
 {
     public function __construct(
+        /** Unique delegated permission identifier inside the collection of delegated permissions defined for a resource application. */
+        public ?string $id = null,
         /** A description of the delegated permissions, intended to be read by an administrator granting the permission on behalf of all users. This text appears in tenant-wide admin consent experiences. */
         public ?string $adminConsentDescription = null,
         /** The permission''s title, intended to be read by an administrator granting the permission on behalf of all users. */
         public ?string $adminConsentDisplayName = null,
-        /** Unique delegated permission identifier inside the collection of delegated permissions defined for a resource application. */
-        public ?string $id = null,
         /** When you create or update a permission, this property must be set to true (which is the default). To delete a permission, this property must first be set to false.  At that point, in a subsequent call, the permission may be removed. */
         public ?bool $isEnabled = null,
         /**  */

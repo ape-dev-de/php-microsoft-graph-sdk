@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TrainingReminderNotification
 {
     public function __construct(
+        /** The default language for the end user notification. */
+        public ?string $defaultLanguage = null,
+        /**  */
+        public ?string $endUserNotification = null,
         /** Configurable frequency for the reminder email introduced during simulation creation. Possible values are: unknown, weekly, biWeekly, unknownFutureValue. */
         public ?string $deliveryFrequency = null
     ) {}

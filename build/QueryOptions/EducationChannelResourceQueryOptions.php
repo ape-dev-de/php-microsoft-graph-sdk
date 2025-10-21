@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationChannelResource resources
  *
  * Available select fields:
- * - url
  */
 class EducationChannelResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationChannelResource
      */
-    public const FIELD_URL = 'url';
 
     /**
      * Select specific EducationChannelResource properties

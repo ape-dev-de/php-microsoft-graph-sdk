@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WebApp resources
  *
  * Available select fields:
- * - appUrl
- * - useManagedBrowser
  */
 class WebAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WebApp
      */
-    public const FIELD_APP_URL = 'appUrl';
-    public const FIELD_USE_MANAGED_BROWSER = 'useManagedBrowser';
 
     /**
      * Select specific WebApp properties

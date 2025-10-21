@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Endpoint resources
  *
  * Available select fields:
- * - capability
- * - providerId
- * - providerName
- * - providerResourceId
- * - uri
  */
 class EndpointQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Endpoint
      */
-    public const FIELD_CAPABILITY = 'capability';
-    public const FIELD_PROVIDER_ID = 'providerId';
-    public const FIELD_PROVIDER_NAME = 'providerName';
-    public const FIELD_PROVIDER_RESOURCE_ID = 'providerResourceId';
-    public const FIELD_URI = 'uri';
 
     /**
      * Select specific Endpoint properties

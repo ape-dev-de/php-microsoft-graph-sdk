@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EducationSubmission
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The unique identifier for the assignment with which this submission is associated. A submission is always associated with one and only one assignment. */
         public ?string $assignmentId = null,
         /** The user that marked the submission as excused. */

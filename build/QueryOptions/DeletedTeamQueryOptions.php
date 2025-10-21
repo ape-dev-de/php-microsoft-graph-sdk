@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeletedTeam resources
  *
  * Available select fields:
- * - channels
  */
 class DeletedTeamQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeletedTeam
      */
-    public const FIELD_CHANNELS = 'channels';
 
     /**
      * Select specific DeletedTeam properties

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsDeviceADAccount resources
  *
  * Available select fields:
- * - domainName
- * - userName
  */
 class WindowsDeviceADAccountQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsDeviceADAccount
      */
-    public const FIELD_DOMAIN_NAME = 'domainName';
-    public const FIELD_USER_NAME = 'userName';
 
     /**
      * Select specific WindowsDeviceADAccount properties

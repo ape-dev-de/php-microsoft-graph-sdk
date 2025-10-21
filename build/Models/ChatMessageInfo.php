@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ChatMessageInfo
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object doesn't return @mentions and attachments. */
         public ?string $body = null,
         /** Date time object representing the time at which message was created. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UnifiedRoleManagementPolicyAssignment
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The id of the policy. Inherited from entity. */
         public ?string $policyId = null,
         /** For Microsoft Entra roles policy, it''s the identifier of the role definition object where the policy applies. For PIM for Groups membership and ownership, it''s either member or owner. Supports $filter (eq). */

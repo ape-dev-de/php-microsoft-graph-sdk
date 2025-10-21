@@ -10,6 +10,22 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceEnrollmentWindowsHelloForBusinessConfiguration
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Created date time in UTC of the device enrollment configuration */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** The description of the device enrollment configuration */
+        public ?string $description = null,
+        /** The display name of the device enrollment configuration */
+        public ?string $displayName = null,
+        /** Last modified date time in UTC of the device enrollment configuration */
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
+        /** Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value. */
+        public ?float $priority = null,
+        /** The version of the device enrollment configuration */
+        public ?float $version = null,
+        /** @var string[] The Base Class of Device Enrollment Configuration */
+        public array $assignments = [],
         /**  */
         public ?string $enhancedBiometricsState = null,
         /** Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user''s PIN will never expire */

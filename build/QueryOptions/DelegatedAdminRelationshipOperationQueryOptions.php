@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DelegatedAdminRelationshipOperation resources
  *
  * Available select fields:
- * - createdDateTime
- * - data
- * - lastModifiedDateTime
- * - operationType
- * - status
  */
 class DelegatedAdminRelationshipOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DelegatedAdminRelationshipOperation
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
-    public const FIELD_DATA = 'data';
-    public const FIELD_LAST_MODIFIED_DATE_TIME = 'lastModifiedDateTime';
-    public const FIELD_OPERATION_TYPE = 'operationType';
-    public const FIELD_STATUS = 'status';
 
     /**
      * Select specific DelegatedAdminRelationshipOperation properties

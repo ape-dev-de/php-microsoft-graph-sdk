@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DelegatedAdminCustomer resources
  *
  * Available select fields:
- * - displayName
- * - tenantId
- * - serviceManagementDetails
  */
 class DelegatedAdminCustomerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DelegatedAdminCustomer
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_TENANT_ID = 'tenantId';
-    public const FIELD_SERVICE_MANAGEMENT_DETAILS = 'serviceManagementDetails';
 
     /**
      * Select specific DelegatedAdminCustomer properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UrlAssessmentRequest resources
  *
  * Available select fields:
- * - url
  */
 class UrlAssessmentRequestQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UrlAssessmentRequest
      */
-    public const FIELD_URL = 'url';
 
     /**
      * Select specific UrlAssessmentRequest properties

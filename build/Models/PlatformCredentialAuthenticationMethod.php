@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PlatformCredentialAuthenticationMethod
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date and time that this Platform Credential Key was registered. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The name of the device on which Platform Credential is registered. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OmaSettingBoolean resources
  *
  * Available select fields:
- * - value
  */
 class OmaSettingBooleanQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OmaSettingBoolean
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific OmaSettingBoolean properties

@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeamsTab resources
  *
  * Available select fields:
- * - configuration
- * - displayName
- * - webUrl
- * - teamsApp
  */
 class TeamsTabQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeamsTab
      */
-    public const FIELD_CONFIGURATION = 'configuration';
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_WEB_URL = 'webUrl';
-    public const FIELD_TEAMS_APP = 'teamsApp';
 
     /**
      * Select specific TeamsTab properties

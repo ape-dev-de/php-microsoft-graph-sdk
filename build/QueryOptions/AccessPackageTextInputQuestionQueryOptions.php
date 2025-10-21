@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessPackageTextInputQuestion resources
  *
  * Available select fields:
- * - isSingleLineQuestion
- * - regexPattern
  */
 class AccessPackageTextInputQuestionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessPackageTextInputQuestion
      */
-    public const FIELD_IS_SINGLE_LINE_QUESTION = 'isSingleLineQuestion';
-    public const FIELD_REGEX_PATTERN = 'regexPattern';
 
     /**
      * Select specific AccessPackageTextInputQuestion properties

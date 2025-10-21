@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class FileStorageContainer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Container type ID of the fileStorageContainer. For details about container types, see Container Types. Each container must have only one container type. Read-only. */
         public ?string $containerTypeId = null,
         /** Date and time of the fileStorageContainer creation. Read-only. */

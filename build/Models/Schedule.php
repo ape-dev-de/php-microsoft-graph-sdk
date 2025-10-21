@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Schedule
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether the schedule is enabled for the team. Required. */
         public ?bool $enabled = null,
         /** Indicates whether copied shifts include activities from the original shift. */

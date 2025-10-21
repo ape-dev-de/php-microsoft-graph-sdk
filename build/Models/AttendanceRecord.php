@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AttendanceRecord
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** List of time periods between joining and leaving a meeting. */
         public array $attendanceIntervals = [],
         /** Email address of the user associated with this attendance record. */

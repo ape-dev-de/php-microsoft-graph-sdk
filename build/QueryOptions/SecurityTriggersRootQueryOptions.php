@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityTriggersRoot resources
  *
  * Available select fields:
- * - retentionEvents
  */
 class SecurityTriggersRootQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityTriggersRoot
      */
-    public const FIELD_RETENTION_EVENTS = 'retentionEvents';
 
     /**
      * Select specific SecurityTriggersRoot properties

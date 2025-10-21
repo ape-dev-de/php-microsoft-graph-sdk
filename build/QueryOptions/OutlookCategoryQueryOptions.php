@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OutlookCategory resources
  *
  * Available select fields:
- * - color
- * - displayName
  */
 class OutlookCategoryQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OutlookCategory
      */
-    public const FIELD_COLOR = 'color';
-    public const FIELD_DISPLAY_NAME = 'displayName';
 
     /**
      * Select specific OutlookCategory properties

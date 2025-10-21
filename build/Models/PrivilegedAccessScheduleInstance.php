@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrivilegedAccessScheduleInstance
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** When the schedule instance ends. Required. */
         public ?\DateTimeInterface $endDateTime = null,
         /** When this instance starts. Required. */

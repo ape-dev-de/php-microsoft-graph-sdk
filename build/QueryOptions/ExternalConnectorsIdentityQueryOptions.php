@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ExternalConnectorsIdentity resources
  *
  * Available select fields:
- * - type
  */
 class ExternalConnectorsIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ExternalConnectorsIdentity
      */
-    public const FIELD_TYPE = 'type';
 
     /**
      * Select specific ExternalConnectorsIdentity properties

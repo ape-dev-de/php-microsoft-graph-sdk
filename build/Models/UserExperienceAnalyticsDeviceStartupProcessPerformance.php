@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsDeviceStartupProcessPerformance
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The count of devices which initiated this process on startup. Supports: $filter, $select, $OrderBy. Read-only. */
         public ?float $deviceCount = null,
         /** The median impact of startup process on device boot time in milliseconds. Supports: $filter, $select, $OrderBy. Read-only. */

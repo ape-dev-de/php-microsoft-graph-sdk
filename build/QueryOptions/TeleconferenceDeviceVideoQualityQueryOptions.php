@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeleconferenceDeviceVideoQuality resources
  *
  * Available select fields:
- * - averageInboundBitRate
- * - averageInboundFrameRate
- * - averageOutboundBitRate
- * - averageOutboundFrameRate
  */
 class TeleconferenceDeviceVideoQualityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeleconferenceDeviceVideoQuality
      */
-    public const FIELD_AVERAGE_INBOUND_BIT_RATE = 'averageInboundBitRate';
-    public const FIELD_AVERAGE_INBOUND_FRAME_RATE = 'averageInboundFrameRate';
-    public const FIELD_AVERAGE_OUTBOUND_BIT_RATE = 'averageOutboundBitRate';
-    public const FIELD_AVERAGE_OUTBOUND_FRAME_RATE = 'averageOutboundFrameRate';
 
     /**
      * Select specific TeleconferenceDeviceVideoQuality properties

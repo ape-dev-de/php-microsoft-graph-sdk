@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrintJob
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The dateTimeOffset when the job was acknowledged. Read-only. */
         public ?\DateTimeInterface $acknowledgedDateTime = null,
         /**  */

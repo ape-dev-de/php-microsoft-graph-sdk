@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IosHomeScreenApp resources
  *
  * Available select fields:
- * - bundleID
  */
 class IosHomeScreenAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IosHomeScreenApp
      */
-    public const FIELD_BUNDLE_ID = 'bundleID';
 
     /**
      * Select specific IosHomeScreenApp properties

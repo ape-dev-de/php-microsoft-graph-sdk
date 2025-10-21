@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ApplePushNotificationCertificate
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Apple Id of the account used to create the MDM push certificate. */
         public ?string $appleIdentifier = null,
         /** Not yet documented */

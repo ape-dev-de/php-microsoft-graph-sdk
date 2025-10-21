@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ManagedEBook
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date and time when the eBook file was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Description. */

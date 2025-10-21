@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class FeatureRolloutPolicy
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** A description for this feature rollout policy. */
         public ?string $description = null,
         /** The display name for this  feature rollout policy. */

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsWorkFromAnywhereMetric
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] The user experience analytics metric for work from anywhere report. */
         public array $metricDevices = []
     ) {}

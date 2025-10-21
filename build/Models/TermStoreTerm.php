@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TermStoreTerm
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Date and time of term creation. Read-only. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Description about term that is dependent on the languageTag. */

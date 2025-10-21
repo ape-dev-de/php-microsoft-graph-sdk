@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrintDocument
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The document's content (MIME) type. Read-only. */
         public ?string $contentType = null,
         /** The document's name. Read-only. */

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CallRecordsParticipantBase resources
  *
  * Available select fields:
- * - administrativeUnitInfos
- * - identity
  */
 class CallRecordsParticipantBaseQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CallRecordsParticipantBase
      */
-    public const FIELD_ADMINISTRATIVE_UNIT_INFOS = 'administrativeUnitInfos';
-    public const FIELD_IDENTITY = 'identity';
 
     /**
      * Select specific CallRecordsParticipantBase properties

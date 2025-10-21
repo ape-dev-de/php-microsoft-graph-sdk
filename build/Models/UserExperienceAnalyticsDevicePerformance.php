@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsDevicePerformance
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999 */
         public ?string $averageBlueScreens = null,
         /** Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999 */

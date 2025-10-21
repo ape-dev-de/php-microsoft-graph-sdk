@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SynchronizationTemplate
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Identifier of the application this template belongs to. */
         public ?string $applicationId = null,
         /** true if this template is recommended to be the default for the application. */

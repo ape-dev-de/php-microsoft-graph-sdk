@@ -10,6 +10,22 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityEdiscoverySearch
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /**  */
+        public ?string $contentQuery = null,
+        /**  */
+        public ?string $createdBy = null,
+        /**  */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /**  */
+        public ?string $description = null,
+        /**  */
+        public ?string $displayName = null,
+        /**  */
+        public ?string $lastModifiedBy = null,
+        /**  */
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
         /** When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources. */
         public ?string $dataSourceScopes = null,
         /** Adds an additional source to the eDiscovery search. */

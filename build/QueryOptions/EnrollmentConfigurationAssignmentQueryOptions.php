@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EnrollmentConfigurationAssignment resources
  *
  * Available select fields:
- * - target
  */
 class EnrollmentConfigurationAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EnrollmentConfigurationAssignment
      */
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific EnrollmentConfigurationAssignment properties

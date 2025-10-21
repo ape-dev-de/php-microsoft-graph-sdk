@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessPackageResourceRoleScope resources
  *
  * Available select fields:
- * - createdDateTime
- * - role
- * - scope
  */
 class AccessPackageResourceRoleScopeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessPackageResourceRoleScope
      */
-    public const FIELD_CREATED_DATE_TIME = 'createdDateTime';
-    public const FIELD_ROLE = 'role';
-    public const FIELD_SCOPE = 'scope';
 
     /**
      * Select specific AccessPackageResourceRoleScope properties

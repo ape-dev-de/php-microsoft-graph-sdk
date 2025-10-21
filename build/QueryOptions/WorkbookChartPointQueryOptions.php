@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookChartPoint resources
  *
  * Available select fields:
- * - value
- * - format
  */
 class WorkbookChartPointQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookChartPoint
      */
-    public const FIELD_VALUE = 'value';
-    public const FIELD_FORMAT = 'format';
 
     /**
      * Select specific WorkbookChartPoint properties

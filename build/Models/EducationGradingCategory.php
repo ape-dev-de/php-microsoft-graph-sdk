@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EducationGradingCategory
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The name of the grading category. */
         public ?string $displayName = null,
         /** The weight of the category; an integer between 0 and 100. */

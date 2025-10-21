@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityDataSource
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The user who created the dataSource. */
         public ?string $createdBy = null,
         /** The date and time the dataSource was created. */

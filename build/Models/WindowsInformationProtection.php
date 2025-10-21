@@ -10,6 +10,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WindowsInformationProtection
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The date and time the policy was created. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** The policy's description. */
+        public ?string $description = null,
+        /** Policy display name. */
+        public ?string $displayName = null,
+        /** Last time the policy was modified. */
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
+        /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
+        public ?string $version = null,
         /** Specifies whether to allow Azure RMS encryption for WIP */
         public ?bool $azureRightsManagementServicesAllowed = null,
         /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS) */

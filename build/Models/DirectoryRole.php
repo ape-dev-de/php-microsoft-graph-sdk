@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DirectoryRole
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** The description for the directory role. Read-only. Supports $filter (eq), $search, $select. */
         public ?string $description = null,
         /** The display name for the directory role. Read-only. Supports $filter (eq), $search, $select. */

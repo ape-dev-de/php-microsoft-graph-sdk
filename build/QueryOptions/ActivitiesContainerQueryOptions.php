@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ActivitiesContainer resources
  *
  * Available select fields:
- * - contentActivities
  */
 class ActivitiesContainerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ActivitiesContainer
      */
-    public const FIELD_CONTENT_ACTIVITIES = 'contentActivities';
 
     /**
      * Select specific ActivitiesContainer properties

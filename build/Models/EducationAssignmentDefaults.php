@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EducationAssignmentDefaults
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen. */
         public ?string $addedStudentAction = null,
         /** Optional field to control adding assignments to students'' and teachers'' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: studentsOnly. The default value is none. */

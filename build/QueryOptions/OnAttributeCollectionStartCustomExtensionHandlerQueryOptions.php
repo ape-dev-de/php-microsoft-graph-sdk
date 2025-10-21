@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnAttributeCollectionStartCustomExtensionHandler resources
  *
  * Available select fields:
- * - configuration
- * - customExtension
  */
 class OnAttributeCollectionStartCustomExtensionHandlerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnAttributeCollectionStartCustomExtensionHandler
      */
-    public const FIELD_CONFIGURATION = 'configuration';
-    public const FIELD_CUSTOM_EXTENSION = 'customExtension';
 
     /**
      * Select specific OnAttributeCollectionStartCustomExtensionHandler properties

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityKubernetesServiceAccountEvidence resources
  *
  * Available select fields:
- * - name
- * - namespace
  */
 class SecurityKubernetesServiceAccountEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityKubernetesServiceAccountEvidence
      */
-    public const FIELD_NAME = 'name';
-    public const FIELD_NAMESPACE = 'namespace';
 
     /**
      * Select specific SecurityKubernetesServiceAccountEvidence properties

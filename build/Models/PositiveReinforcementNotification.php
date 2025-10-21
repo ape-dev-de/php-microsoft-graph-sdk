@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PositiveReinforcementNotification
 {
     public function __construct(
+        /** The default language for the end user notification. */
+        public ?string $defaultLanguage = null,
+        /**  */
+        public ?string $endUserNotification = null,
         /** Delivery preference. Possible values are: unknown, deliverImmedietly, deliverAfterCampaignEnd, unknownFutureValue. */
         public ?string $deliveryPreference = null
     ) {}

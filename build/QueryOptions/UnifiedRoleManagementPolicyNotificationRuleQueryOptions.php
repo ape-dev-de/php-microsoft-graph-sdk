@@ -8,22 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UnifiedRoleManagementPolicyNotificationRule resources
  *
  * Available select fields:
- * - isDefaultRecipientsEnabled
- * - notificationLevel
- * - notificationRecipients
- * - notificationType
- * - recipientType
  */
 class UnifiedRoleManagementPolicyNotificationRuleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UnifiedRoleManagementPolicyNotificationRule
      */
-    public const FIELD_IS_DEFAULT_RECIPIENTS_ENABLED = 'isDefaultRecipientsEnabled';
-    public const FIELD_NOTIFICATION_LEVEL = 'notificationLevel';
-    public const FIELD_NOTIFICATION_RECIPIENTS = 'notificationRecipients';
-    public const FIELD_NOTIFICATION_TYPE = 'notificationType';
-    public const FIELD_RECIPIENT_TYPE = 'recipientType';
 
     /**
      * Select specific UnifiedRoleManagementPolicyNotificationRule properties

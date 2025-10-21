@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PlannerTaskDetails
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The collection of checklist items on the task. */
         public ?string $checklist = null,
         /** Description of the task. */

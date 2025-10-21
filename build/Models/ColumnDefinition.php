@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ColumnDefinition
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** This column stores Boolean values. */
         public ?string $boolean = null,
         /** This column's data is calculated based on other columns. */

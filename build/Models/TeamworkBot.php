@@ -10,5 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamworkBot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null
     ) {}
 }

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TextContent resources
  *
  * Available select fields:
- * - data
  */
 class TextContentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TextContent
      */
-    public const FIELD_DATA = 'data';
 
     /**
      * Select specific TextContent properties

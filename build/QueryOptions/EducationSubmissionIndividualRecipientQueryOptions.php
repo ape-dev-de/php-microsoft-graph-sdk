@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationSubmissionIndividualRecipient resources
  *
  * Available select fields:
- * - userId
  */
 class EducationSubmissionIndividualRecipientQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationSubmissionIndividualRecipient
      */
-    public const FIELD_USER_ID = 'userId';
 
     /**
      * Select specific EducationSubmissionIndividualRecipient properties

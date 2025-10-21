@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityFilePlanCitation
 {
     public function __construct(
+        /** Unique string that defines the name for the file plan descriptor associated with a particular retention label. */
+        public ?string $displayName = null,
         /** Represents the jurisdiction or agency that published the filePlanCitation. */
         public ?string $citationJurisdiction = null,
         /** Represents the URL to the published filePlanCitation. */

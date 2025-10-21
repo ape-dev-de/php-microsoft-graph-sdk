@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewScheduleDefinition
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Defines the list of additional users or group members to be notified of the access review progress. */
         public array $additionalNotificationRecipients = [],
         /** User who created this review. Read-only. */

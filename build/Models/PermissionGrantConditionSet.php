@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PermissionGrantConditionSet
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
         public array $clientApplicationIds = [],
         /** @var string[] A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all. */

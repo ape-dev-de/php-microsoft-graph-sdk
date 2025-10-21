@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TelecomExpenseManagementPartner
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Whether the partner's AAD app has been authorized to access Intune. */
         public ?bool $appAuthorized = null,
         /** Display name of the TEM partner. */

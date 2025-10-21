@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityIpEvidence resources
  *
  * Available select fields:
- * - countryLetterCode
- * - ipAddress
- * - location
- * - stream
  */
 class SecurityIpEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityIpEvidence
      */
-    public const FIELD_COUNTRY_LETTER_CODE = 'countryLetterCode';
-    public const FIELD_IP_ADDRESS = 'ipAddress';
-    public const FIELD_LOCATION = 'location';
-    public const FIELD_STREAM = 'stream';
 
     /**
      * Select specific SecurityIpEvidence properties

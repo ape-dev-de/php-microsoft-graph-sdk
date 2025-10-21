@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class DeviceEnrollmentConfiguration
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Created date time in UTC of the device enrollment configuration */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The description of the device enrollment configuration */

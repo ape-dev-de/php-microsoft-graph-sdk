@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IosUpdateDeviceStatus
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The DateTime when device compliance grace period expires */
         public ?\DateTimeInterface $complianceGracePeriodExpirationDateTime = null,
         /** Device name of the DevicePolicyStatus. */

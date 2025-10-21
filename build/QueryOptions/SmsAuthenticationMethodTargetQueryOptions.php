@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SmsAuthenticationMethodTarget resources
  *
  * Available select fields:
- * - isUsableForSignIn
  */
 class SmsAuthenticationMethodTargetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SmsAuthenticationMethodTarget
      */
-    public const FIELD_IS_USABLE_FOR_SIGN_IN = 'isUsableForSignIn';
 
     /**
      * Select specific SmsAuthenticationMethodTarget properties

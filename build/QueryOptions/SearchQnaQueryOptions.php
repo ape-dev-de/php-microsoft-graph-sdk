@@ -8,30 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SearchQna resources
  *
  * Available select fields:
- * - availabilityEndDateTime
- * - availabilityStartDateTime
- * - groupIds
- * - isSuggested
- * - keywords
- * - languageTags
- * - platforms
- * - state
- * - targetedVariations
  */
 class SearchQnaQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SearchQna
      */
-    public const FIELD_AVAILABILITY_END_DATE_TIME = 'availabilityEndDateTime';
-    public const FIELD_AVAILABILITY_START_DATE_TIME = 'availabilityStartDateTime';
-    public const FIELD_GROUP_IDS = 'groupIds';
-    public const FIELD_IS_SUGGESTED = 'isSuggested';
-    public const FIELD_KEYWORDS = 'keywords';
-    public const FIELD_LANGUAGE_TAGS = 'languageTags';
-    public const FIELD_PLATFORMS = 'platforms';
-    public const FIELD_STATE = 'state';
-    public const FIELD_TARGETED_VARIATIONS = 'targetedVariations';
 
     /**
      * Select specific SearchQna properties

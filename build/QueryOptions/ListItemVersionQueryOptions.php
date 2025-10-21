@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ListItemVersion resources
  *
  * Available select fields:
- * - fields
  */
 class ListItemVersionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ListItemVersion
      */
-    public const FIELD_FIELDS = 'fields';
 
     /**
      * Select specific ListItemVersion properties

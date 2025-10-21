@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BitlockerRecoveryKey
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date and time when the key was originally backed up to Microsoft Entra ID. Not nullable. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Identifier of the device the BitLocker key is originally backed up from. Supports $filter (eq). */

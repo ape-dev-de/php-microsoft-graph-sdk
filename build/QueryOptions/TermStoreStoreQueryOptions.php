@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TermStoreStore resources
  *
  * Available select fields:
- * - defaultLanguageTag
- * - languageTags
- * - groups
- * - sets
  */
 class TermStoreStoreQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TermStoreStore
      */
-    public const FIELD_DEFAULT_LANGUAGE_TAG = 'defaultLanguageTag';
-    public const FIELD_LANGUAGE_TAGS = 'languageTags';
-    public const FIELD_GROUPS = 'groups';
-    public const FIELD_SETS = 'sets';
 
     /**
      * Select specific TermStoreStore properties

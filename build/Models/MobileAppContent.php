@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MobileAppContent
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The collection of contained apps in a MobileLobApp acting as a package. */
         public array $containedApps = [],
         /** @var string[] Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile. */

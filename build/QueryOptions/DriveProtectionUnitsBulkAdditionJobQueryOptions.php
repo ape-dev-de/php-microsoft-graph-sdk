@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DriveProtectionUnitsBulkAdditionJob resources
  *
  * Available select fields:
- * - directoryObjectIds
- * - drives
  */
 class DriveProtectionUnitsBulkAdditionJobQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DriveProtectionUnitsBulkAdditionJob
      */
-    public const FIELD_DIRECTORY_OBJECT_IDS = 'directoryObjectIds';
-    public const FIELD_DRIVES = 'drives';
 
     /**
      * Select specific DriveProtectionUnitsBulkAdditionJob properties

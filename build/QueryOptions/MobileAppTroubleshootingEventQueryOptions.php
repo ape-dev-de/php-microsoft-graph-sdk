@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MobileAppTroubleshootingEvent resources
  *
  * Available select fields:
- * - appLogCollectionRequests
  */
 class MobileAppTroubleshootingEventQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MobileAppTroubleshootingEvent
      */
-    public const FIELD_APP_LOG_COLLECTION_REQUESTS = 'appLogCollectionRequests';
 
     /**
      * Select specific MobileAppTroubleshootingEvent properties

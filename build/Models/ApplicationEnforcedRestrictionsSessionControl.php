@@ -10,5 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ApplicationEnforcedRestrictionsSessionControl
 {
     public function __construct(
+        /** Specifies whether the session control is enabled. */
+        public ?string $isEnabled = null
     ) {}
 }

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamsApp
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package. */
         public ?string $displayName = null,
         /** The method of distribution for the app. Read-only. */

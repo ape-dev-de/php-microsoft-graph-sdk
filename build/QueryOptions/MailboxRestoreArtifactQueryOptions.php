@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MailboxRestoreArtifact resources
  *
  * Available select fields:
- * - restoredFolderId
- * - restoredFolderName
- * - restoredItemCount
  */
 class MailboxRestoreArtifactQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MailboxRestoreArtifact
      */
-    public const FIELD_RESTORED_FOLDER_ID = 'restoredFolderId';
-    public const FIELD_RESTORED_FOLDER_NAME = 'restoredFolderName';
-    public const FIELD_RESTORED_ITEM_COUNT = 'restoredItemCount';
 
     /**
      * Select specific MailboxRestoreArtifact properties

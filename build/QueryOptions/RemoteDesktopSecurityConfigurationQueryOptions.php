@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RemoteDesktopSecurityConfiguration resources
  *
  * Available select fields:
- * - isRemoteDesktopProtocolEnabled
- * - targetDeviceGroups
  */
 class RemoteDesktopSecurityConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RemoteDesktopSecurityConfiguration
      */
-    public const FIELD_IS_REMOTE_DESKTOP_PROTOCOL_ENABLED = 'isRemoteDesktopProtocolEnabled';
-    public const FIELD_TARGET_DEVICE_GROUPS = 'targetDeviceGroups';
 
     /**
      * Select specific RemoteDesktopSecurityConfiguration properties

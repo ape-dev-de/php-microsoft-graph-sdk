@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AppLogCollectionRequest
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Time at which the upload log request reached a completed state if not completed yet NULL will be returned. */
         public ?\DateTimeInterface $completedDateTime = null,
         /** @var string[] List of log folders. */

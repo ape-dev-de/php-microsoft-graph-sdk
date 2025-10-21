@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookChartLegendFormat
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents the fill format of an object, which includes background formating information. Read-only. */
         public ?string $fill = null,
         /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */

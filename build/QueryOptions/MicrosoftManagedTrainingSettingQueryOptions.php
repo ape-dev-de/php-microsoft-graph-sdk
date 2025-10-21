@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MicrosoftManagedTrainingSetting resources
  *
  * Available select fields:
- * - completionDateTime
- * - trainingCompletionDuration
  */
 class MicrosoftManagedTrainingSettingQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MicrosoftManagedTrainingSetting
      */
-    public const FIELD_COMPLETION_DATE_TIME = 'completionDateTime';
-    public const FIELD_TRAINING_COMPLETION_DURATION = 'trainingCompletionDuration';
 
     /**
      * Select specific MicrosoftManagedTrainingSetting properties

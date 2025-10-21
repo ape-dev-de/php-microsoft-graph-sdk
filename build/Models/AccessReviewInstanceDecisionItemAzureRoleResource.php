@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewInstanceDecisionItemAzureRoleResource
 {
     public function __construct(
+        /** Identifier of the resource */
+        public ?string $id = null,
+        /** Display name of the resource */
+        public ?string $displayName = null,
+        /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
+        public ?string $type = null,
         /** Details of the scope this role is associated with. */
         public ?string $scope = null
     ) {}

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OmaSettingString resources
  *
  * Available select fields:
- * - value
  */
 class OmaSettingStringQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OmaSettingString
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific OmaSettingString properties

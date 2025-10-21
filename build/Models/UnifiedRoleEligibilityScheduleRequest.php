@@ -10,6 +10,20 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UnifiedRoleEligibilityScheduleRequest
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The identifier of the approval of the request. */
+        public ?string $approvalId = null,
+        /** The request completion date time. */
+        public ?\DateTimeInterface $completedDateTime = null,
+        /** The principal that created the request. */
+        public ?string $createdBy = null,
+        /** The request creation date time. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** Free text field to define any custom data for the request. Not used. */
+        public ?string $customData = null,
+        /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. */
+        public ?string $status = null,
         /** Represents the type of operation on the role eligibility request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign eligible roles to principals.adminRemove: For administrators to remove eligible roles from principals. adminUpdate: For administrators to change existing role eligibilities.adminExtend: For administrators to extend expiring role eligibilities.adminRenew: For administrators to renew expired eligibilities.selfActivate: For users to activate their assignments.selfDeactivate: For users to deactivate their active assignments.selfExtend: For users to request to extend their expiring assignments.selfRenew: For users to request to renew their expired assignments. */
         public ?string $action = null,
         /** Identifier of the app-specific scope when the role eligibility is scoped to an app. The scope of a role eligibility determines the set of resources for which the principal is eligible to access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, ne, and on null values). */

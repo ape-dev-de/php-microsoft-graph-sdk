@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PersistentBrowserSessionControl resources
  *
  * Available select fields:
- * - mode
  */
 class PersistentBrowserSessionControlQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PersistentBrowserSessionControl
      */
-    public const FIELD_MODE = 'mode';
 
     /**
      * Select specific PersistentBrowserSessionControl properties

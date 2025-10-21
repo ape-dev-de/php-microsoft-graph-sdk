@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ShiftPreferences resources
  *
  * Available select fields:
- * - availability
  */
 class ShiftPreferencesQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ShiftPreferences
      */
-    public const FIELD_AVAILABILITY = 'availability';
 
     /**
      * Select specific ShiftPreferences properties

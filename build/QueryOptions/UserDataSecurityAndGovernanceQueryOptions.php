@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserDataSecurityAndGovernance resources
  *
  * Available select fields:
- * - activities
- * - protectionScopes
  */
 class UserDataSecurityAndGovernanceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserDataSecurityAndGovernance
      */
-    public const FIELD_ACTIVITIES = 'activities';
-    public const FIELD_PROTECTION_SCOPES = 'protectionScopes';
 
     /**
      * Select specific UserDataSecurityAndGovernance properties

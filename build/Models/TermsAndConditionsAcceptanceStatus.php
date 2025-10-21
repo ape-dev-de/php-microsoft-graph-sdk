@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TermsAndConditionsAcceptanceStatus
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** DateTime when the terms were last accepted by the user. */
         public ?\DateTimeInterface $acceptedDateTime = null,
         /** Most recent version number of the T&C accepted by the user. */

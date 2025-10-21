@@ -10,6 +10,16 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EducationSchool
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Organization description. */
+        public ?string $description = null,
+        /** Organization display name. */
+        public ?string $displayName = null,
+        /** Source where this organization was created from. Possible values are: sis, manual. */
+        public ?string $externalSource = null,
+        /** The name of the external source this resource was generated from. */
+        public ?string $externalSourceDetail = null,
         /** Address of the school. */
         public ?string $address = null,
         /** Entity who created the school. */

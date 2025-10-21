@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SendDtmfTonesOperation resources
  *
  * Available select fields:
- * - completionReason
  */
 class SendDtmfTonesOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SendDtmfTonesOperation
      */
-    public const FIELD_COMPLETION_REASON = 'completionReason';
 
     /**
      * Select specific SendDtmfTonesOperation properties

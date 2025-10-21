@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ServiceAnnouncementBase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** More details about service event. This property doesn't support filters. */
         public array $details = [],
         /** The end time of the service event. */

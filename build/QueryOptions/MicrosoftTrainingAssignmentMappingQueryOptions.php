@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MicrosoftTrainingAssignmentMapping resources
  *
  * Available select fields:
- * - assignedTo
- * - training
  */
 class MicrosoftTrainingAssignmentMappingQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MicrosoftTrainingAssignmentMapping
      */
-    public const FIELD_ASSIGNED_TO = 'assignedTo';
-    public const FIELD_TRAINING = 'training';
 
     /**
      * Select specific MicrosoftTrainingAssignmentMapping properties

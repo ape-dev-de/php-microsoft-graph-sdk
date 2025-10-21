@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityUrlEvidence resources
  *
  * Available select fields:
- * - url
  */
 class SecurityUrlEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityUrlEvidence
      */
-    public const FIELD_URL = 'url';
 
     /**
      * Select specific SecurityUrlEvidence properties

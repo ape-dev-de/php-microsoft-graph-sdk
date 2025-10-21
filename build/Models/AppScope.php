@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AppScope
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Provides the display name of the app-specific resource represented by the app scope. Read-only. */
         public ?string $displayName = null,
         /** Describes the type of app-specific resource represented by the app scope. Read-only. */

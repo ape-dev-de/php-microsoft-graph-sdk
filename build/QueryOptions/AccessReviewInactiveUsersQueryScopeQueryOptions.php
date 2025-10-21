@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessReviewInactiveUsersQueryScope resources
  *
  * Available select fields:
- * - inactiveDuration
  */
 class AccessReviewInactiveUsersQueryScopeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessReviewInactiveUsersQueryScope
      */
-    public const FIELD_INACTIVE_DURATION = 'inactiveDuration';
 
     /**
      * Select specific AccessReviewInactiveUsersQueryScope properties

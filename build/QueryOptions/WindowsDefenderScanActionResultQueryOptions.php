@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsDefenderScanActionResult resources
  *
  * Available select fields:
- * - scanType
  */
 class WindowsDefenderScanActionResultQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsDefenderScanActionResult
      */
-    public const FIELD_SCAN_TYPE = 'scanType';
 
     /**
      * Select specific WindowsDefenderScanActionResult properties

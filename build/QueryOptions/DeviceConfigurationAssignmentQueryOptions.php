@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DeviceConfigurationAssignment resources
  *
  * Available select fields:
- * - target
  */
 class DeviceConfigurationAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DeviceConfigurationAssignment
      */
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific DeviceConfigurationAssignment properties

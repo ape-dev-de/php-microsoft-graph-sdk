@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookTableSort
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The list of the current conditions last used to sort the table. Read-only. */
         public array $fields = [],
         /** Indicates whether the casing impacted the last sort of the table. Read-only. */

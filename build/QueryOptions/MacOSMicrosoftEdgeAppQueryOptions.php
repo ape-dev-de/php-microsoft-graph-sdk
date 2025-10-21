@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MacOSMicrosoftEdgeApp resources
  *
  * Available select fields:
- * - channel
  */
 class MacOSMicrosoftEdgeAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MacOSMicrosoftEdgeApp
      */
-    public const FIELD_CHANNEL = 'channel';
 
     /**
      * Select specific MacOSMicrosoftEdgeApp properties

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ExternalConnectorsItemIdResolver resources
  *
  * Available select fields:
- * - itemId
- * - urlMatchInfo
  */
 class ExternalConnectorsItemIdResolverQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ExternalConnectorsItemIdResolver
      */
-    public const FIELD_ITEM_ID = 'itemId';
-    public const FIELD_URL_MATCH_INFO = 'urlMatchInfo';
 
     /**
      * Select specific ExternalConnectorsItemIdResolver properties

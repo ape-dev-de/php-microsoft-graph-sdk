@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityWhoisBaseRecord
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The contact information for the abuse contact. */
         public ?string $abuse = null,
         /** The contact information for the admin contact. */

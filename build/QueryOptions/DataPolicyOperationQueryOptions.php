@@ -8,24 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for DataPolicyOperation resources
  *
  * Available select fields:
- * - completedDateTime
- * - progress
- * - status
- * - storageLocation
- * - submittedDateTime
- * - userId
  */
 class DataPolicyOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for DataPolicyOperation
      */
-    public const FIELD_COMPLETED_DATE_TIME = 'completedDateTime';
-    public const FIELD_PROGRESS = 'progress';
-    public const FIELD_STATUS = 'status';
-    public const FIELD_STORAGE_LOCATION = 'storageLocation';
-    public const FIELD_SUBMITTED_DATE_TIME = 'submittedDateTime';
-    public const FIELD_USER_ID = 'userId';
 
     /**
      * Select specific DataPolicyOperation properties

@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for GroupSetting resources
  *
  * Available select fields:
- * - displayName
- * - templateId
- * - values
  */
 class GroupSettingQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for GroupSetting
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_TEMPLATE_ID = 'templateId';
-    public const FIELD_VALUES = 'values';
 
     /**
      * Select specific GroupSetting properties

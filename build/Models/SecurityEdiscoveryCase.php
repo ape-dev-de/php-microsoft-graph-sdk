@@ -10,6 +10,20 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityEdiscoveryCase
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /**  */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /**  */
+        public ?string $description = null,
+        /**  */
+        public ?string $displayName = null,
+        /**  */
+        public ?string $lastModifiedBy = null,
+        /**  */
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
+        /**  */
+        public ?string $status = null,
         /** The user who closed the case. */
         public ?string $closedBy = null,
         /** The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */

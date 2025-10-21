@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TargetedManagedAppPolicyAssignment resources
  *
  * Available select fields:
- * - target
  */
 class TargetedManagedAppPolicyAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TargetedManagedAppPolicyAssignment
      */
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific TargetedManagedAppPolicyAssignment properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SimulationAutomation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Identity of the user who created the attack simulation automation. */
         public ?string $createdBy = null,
         /** Date and time when the attack simulation automation was created. */

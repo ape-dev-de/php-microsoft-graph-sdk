@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CommunicationsUserIdentity resources
  *
  * Available select fields:
- * - tenantId
  */
 class CommunicationsUserIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CommunicationsUserIdentity
      */
-    public const FIELD_TENANT_ID = 'tenantId';
 
     /**
      * Select specific CommunicationsUserIdentity properties

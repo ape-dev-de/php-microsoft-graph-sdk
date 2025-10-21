@@ -10,5 +10,11 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ChatMessageFromIdentitySet
 {
     public function __construct(
+        /** Optional. The application associated with this action. */
+        public ?string $application = null,
+        /** Optional. The device associated with this action. */
+        public ?string $device = null,
+        /** Optional. The user associated with this action. */
+        public ?string $user = null
     ) {}
 }

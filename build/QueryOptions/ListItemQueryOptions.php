@@ -8,26 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ListItem resources
  *
  * Available select fields:
- * - contentType
- * - sharepointIds
- * - analytics
- * - documentSetVersions
- * - driveItem
- * - fields
- * - versions
  */
 class ListItemQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ListItem
      */
-    public const FIELD_CONTENT_TYPE = 'contentType';
-    public const FIELD_SHAREPOINT_IDS = 'sharepointIds';
-    public const FIELD_ANALYTICS = 'analytics';
-    public const FIELD_DOCUMENT_SET_VERSIONS = 'documentSetVersions';
-    public const FIELD_DRIVE_ITEM = 'driveItem';
-    public const FIELD_FIELDS = 'fields';
-    public const FIELD_VERSIONS = 'versions';
 
     /**
      * Select specific ListItem properties

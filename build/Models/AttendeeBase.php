@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AttendeeBase
 {
     public function __construct(
+        /** The recipient's email address. */
+        public ?string $emailAddress = null,
         /** The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type. */
         public ?string $type = null
     ) {}

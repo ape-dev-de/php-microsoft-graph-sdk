@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ManagedAppStatus resources
  *
  * Available select fields:
- * - displayName
- * - version
  */
 class ManagedAppStatusQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ManagedAppStatus
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_VERSION = 'version';
 
     /**
      * Select specific ManagedAppStatus properties

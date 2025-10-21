@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CloudAppSecuritySessionControl resources
  *
  * Available select fields:
- * - cloudAppSecurityType
  */
 class CloudAppSecuritySessionControlQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CloudAppSecuritySessionControl
      */
-    public const FIELD_CLOUD_APP_SECURITY_TYPE = 'cloudAppSecurityType';
 
     /**
      * Select specific CloudAppSecuritySessionControl properties

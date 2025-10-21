@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TenantDataSecurityAndGovernance resources
  *
  * Available select fields:
- * - protectionScopes
  */
 class TenantDataSecurityAndGovernanceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TenantDataSecurityAndGovernance
      */
-    public const FIELD_PROTECTION_SCOPES = 'protectionScopes';
 
     /**
      * Select specific TenantDataSecurityAndGovernance properties

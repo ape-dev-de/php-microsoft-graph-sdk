@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsInformationProtectionAppLearningSummary resources
  *
  * Available select fields:
- * - applicationName
- * - applicationType
- * - deviceCount
  */
 class WindowsInformationProtectionAppLearningSummaryQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsInformationProtectionAppLearningSummary
      */
-    public const FIELD_APPLICATION_NAME = 'applicationName';
-    public const FIELD_APPLICATION_TYPE = 'applicationType';
-    public const FIELD_DEVICE_COUNT = 'deviceCount';
 
     /**
      * Select specific WindowsInformationProtectionAppLearningSummary properties

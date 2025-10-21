@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RecycleBin resources
  *
  * Available select fields:
- * - settings
- * - items
  */
 class RecycleBinQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RecycleBin
      */
-    public const FIELD_SETTINGS = 'settings';
-    public const FIELD_ITEMS = 'items';
 
     /**
      * Select specific RecycleBin properties

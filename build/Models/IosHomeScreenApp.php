@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IosHomeScreenApp
 {
     public function __construct(
+        /** Represents an item on the iOS Home Screen */
+        public ?string $displayName = null,
         /** Represents an icon for an app on the Home Screen */
         public ?string $bundleID = null
     ) {}

@@ -8,24 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessPackageResourceScope resources
  *
  * Available select fields:
- * - description
- * - displayName
- * - isRootScope
- * - originId
- * - originSystem
- * - resource
  */
 class AccessPackageResourceScopeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessPackageResourceScope
      */
-    public const FIELD_DESCRIPTION = 'description';
-    public const FIELD_DISPLAY_NAME = 'displayName';
-    public const FIELD_IS_ROOT_SCOPE = 'isRootScope';
-    public const FIELD_ORIGIN_ID = 'originId';
-    public const FIELD_ORIGIN_SYSTEM = 'originSystem';
-    public const FIELD_RESOURCE = 'resource';
 
     /**
      * Select specific AccessPackageResourceScope properties

@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrinterCreateOperation
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** The DateTimeOffset when the operation was created. Read-only. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /**  */
+        public ?string $status = null,
         /** The signed certificate created during the registration process. Read-only. */
         public ?string $certificate = null,
         /** The created printer entity. Read-only. */

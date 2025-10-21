@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserExperienceAnalyticsMetric resources
  *
  * Available select fields:
- * - unit
- * - value
  */
 class UserExperienceAnalyticsMetricQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserExperienceAnalyticsMetric
      */
-    public const FIELD_UNIT = 'unit';
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific UserExperienceAnalyticsMetric properties

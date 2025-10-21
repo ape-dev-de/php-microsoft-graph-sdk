@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AppHostedMediaConfig resources
  *
  * Available select fields:
- * - blob
  */
 class AppHostedMediaConfigQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AppHostedMediaConfig
      */
-    public const FIELD_BLOB = 'blob';
 
     /**
      * Select specific AppHostedMediaConfig properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SmsAuthenticationMethodConfiguration resources
  *
  * Available select fields:
- * - includeTargets
  */
 class SmsAuthenticationMethodConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SmsAuthenticationMethodConfiguration
      */
-    public const FIELD_INCLUDE_TARGETS = 'includeTargets';
 
     /**
      * Select specific SmsAuthenticationMethodConfiguration properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CloudPcOnPremisesConnection
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Maximum length is 255. Optional. */
         public ?string $adDomainName = null,
         /** The password associated with the username of an Active Directory account (adDomainUsername). */

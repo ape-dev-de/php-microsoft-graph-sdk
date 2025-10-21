@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ReflectCheckInResponse
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Identifier for the Reflect check-in. */
         public ?string $checkInId = null,
         /** The question or prompt of the Reflect check-in that this response addresses. */

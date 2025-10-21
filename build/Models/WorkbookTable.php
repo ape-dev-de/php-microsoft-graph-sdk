@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookTable
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether the first column contains special formatting. */
         public ?bool $highlightFirstColumn = null,
         /** Indicates whether the last column contains special formatting. */

@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IosStoreApp resources
  *
  * Available select fields:
- * - applicableDeviceType
- * - appStoreUrl
- * - bundleId
- * - minimumSupportedOperatingSystem
  */
 class IosStoreAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IosStoreApp
      */
-    public const FIELD_APPLICABLE_DEVICE_TYPE = 'applicableDeviceType';
-    public const FIELD_APP_STORE_URL = 'appStoreUrl';
-    public const FIELD_BUNDLE_ID = 'bundleId';
-    public const FIELD_MINIMUM_SUPPORTED_OPERATING_SYSTEM = 'minimumSupportedOperatingSystem';
 
     /**
      * Select specific IosStoreApp properties

@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrivilegedAccessGroupEligibilityScheduleInstance
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** When the schedule instance ends. Required. */
+        public ?\DateTimeInterface $endDateTime = null,
+        /** When this instance starts. Required. */
+        public ?\DateTimeInterface $startDateTime = null,
         /** The identifier of the membership or ownership eligibility relationship to the group. Required. The possible values are: owner, member. Supports $filter (eq). */
         public ?string $accessId = null,
         /** The identifier of the privilegedAccessGroupEligibilitySchedule from which this instance was created. Required. Supports $filter (eq, ne). */

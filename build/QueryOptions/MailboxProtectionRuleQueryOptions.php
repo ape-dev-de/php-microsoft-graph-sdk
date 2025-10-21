@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MailboxProtectionRule resources
  *
  * Available select fields:
- * - mailboxExpression
  */
 class MailboxProtectionRuleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MailboxProtectionRule
      */
-    public const FIELD_MAILBOX_EXPRESSION = 'mailboxExpression';
 
     /**
      * Select specific MailboxProtectionRule properties

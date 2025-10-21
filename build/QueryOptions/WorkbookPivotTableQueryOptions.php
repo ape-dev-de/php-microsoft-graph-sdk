@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookPivotTable resources
  *
  * Available select fields:
- * - name
- * - worksheet
  */
 class WorkbookPivotTableQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookPivotTable
      */
-    public const FIELD_NAME = 'name';
-    public const FIELD_WORKSHEET = 'worksheet';
 
     /**
      * Select specific WorkbookPivotTable properties

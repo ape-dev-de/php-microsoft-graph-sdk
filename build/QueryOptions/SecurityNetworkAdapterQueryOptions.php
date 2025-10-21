@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityNetworkAdapter resources
  *
  * Available select fields:
- * - isEnabled
- * - name
  */
 class SecurityNetworkAdapterQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityNetworkAdapter
      */
-    public const FIELD_IS_ENABLED = 'isEnabled';
-    public const FIELD_NAME = 'name';
 
     /**
      * Select specific SecurityNetworkAdapter properties

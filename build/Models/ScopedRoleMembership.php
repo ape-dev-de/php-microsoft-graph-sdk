@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ScopedRoleMembership
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Unique identifier for the administrative unit that the directory role is scoped to */
         public ?string $administrativeUnitId = null,
         /** Unique identifier for the directory role that the member is in. */

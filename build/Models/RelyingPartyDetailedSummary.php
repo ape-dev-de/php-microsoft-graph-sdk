@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class RelyingPartyDetailedSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Number of failed sign ins on AD FS in the period specified. Supports $orderby, $filter (eq). */
         public ?float $failedSignInCount = null,
         /**  */

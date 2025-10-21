@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PlannerGroup resources
  *
  * Available select fields:
- * - plans
  */
 class PlannerGroupQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PlannerGroup
      */
-    public const FIELD_PLANS = 'plans';
 
     /**
      * Select specific PlannerGroup properties

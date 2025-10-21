@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SimulationAutomationRun
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Date and time when the run ends in an attack simulation automation. */
         public ?\DateTimeInterface $endDateTime = null,
         /** Unique identifier for the attack simulation campaign initiated in the attack simulation automation run. */

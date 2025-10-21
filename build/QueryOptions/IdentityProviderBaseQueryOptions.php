@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IdentityProviderBase resources
  *
  * Available select fields:
- * - displayName
  */
 class IdentityProviderBaseQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IdentityProviderBase
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
 
     /**
      * Select specific IdentityProviderBase properties

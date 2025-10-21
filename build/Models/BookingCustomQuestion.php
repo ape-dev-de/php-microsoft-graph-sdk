@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BookingCustomQuestion
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The expected answer type. The possible values are: text, radioButton, unknownFutureValue. */
         public ?string $answerInputType = null,
         /** @var string[] List of possible answer values. */

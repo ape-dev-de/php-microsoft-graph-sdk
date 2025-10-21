@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for BuiltInIdentityProvider resources
  *
  * Available select fields:
- * - identityProviderType
  */
 class BuiltInIdentityProviderQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for BuiltInIdentityProvider
      */
-    public const FIELD_IDENTITY_PROVIDER_TYPE = 'identityProviderType';
 
     /**
      * Select specific BuiltInIdentityProvider properties

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for RequestorManager resources
  *
  * Available select fields:
- * - managerLevel
  */
 class RequestorManagerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for RequestorManager
      */
-    public const FIELD_MANAGER_LEVEL = 'managerLevel';
 
     /**
      * Select specific RequestorManager properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SharepointSettings
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] Collection of trusted domain GUIDs for the OneDrive sync app. */
         public array $allowedDomainGuidsForSyncApp = [],
         /** @var string[] Collection of managed paths available for site creation. Read-only. */

@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for CustomAuthenticationExtension resources
  *
  * Available select fields:
- * - behaviorOnError
  */
 class CustomAuthenticationExtensionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for CustomAuthenticationExtension
      */
-    public const FIELD_BEHAVIOR_ON_ERROR = 'behaviorOnError';
 
     /**
      * Select specific CustomAuthenticationExtension properties

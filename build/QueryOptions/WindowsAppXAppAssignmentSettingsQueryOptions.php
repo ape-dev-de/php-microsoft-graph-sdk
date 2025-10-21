@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WindowsAppXAppAssignmentSettings resources
  *
  * Available select fields:
- * - useDeviceContext
  */
 class WindowsAppXAppAssignmentSettingsQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WindowsAppXAppAssignmentSettings
      */
-    public const FIELD_USE_DEVICE_CONTEXT = 'useDeviceContext';
 
     /**
      * Select specific WindowsAppXAppAssignmentSettings properties

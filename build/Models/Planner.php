@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Planner
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Read-only. Nullable. Returns a collection of the specified buckets */
         public array $buckets = [],
         /** Read-only. Nullable. Returns a collection of the specified plans */

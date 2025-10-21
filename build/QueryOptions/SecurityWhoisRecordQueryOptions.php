@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityWhoisRecord resources
  *
  * Available select fields:
- * - history
  */
 class SecurityWhoisRecordQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityWhoisRecord
      */
-    public const FIELD_HISTORY = 'history';
 
     /**
      * Select specific SecurityWhoisRecord properties

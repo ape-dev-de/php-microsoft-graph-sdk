@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrivilegedAccessGroup
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /**  */
         public array $assignmentApprovals = [],
         /** The instances of assignment schedules to activate a just-in-time access. */

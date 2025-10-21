@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnInteractiveAuthFlowStartListener resources
  *
  * Available select fields:
- * - handler
  */
 class OnInteractiveAuthFlowStartListenerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnInteractiveAuthFlowStartListener
      */
-    public const FIELD_HANDLER = 'handler';
 
     /**
      * Select specific OnInteractiveAuthFlowStartListener properties

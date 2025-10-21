@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TargetDeviceGroup resources
  *
  * Available select fields:
- * - displayName
  */
 class TargetDeviceGroupQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TargetDeviceGroup
      */
-    public const FIELD_DISPLAY_NAME = 'displayName';
 
     /**
      * Select specific TargetDeviceGroup properties

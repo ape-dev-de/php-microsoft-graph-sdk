@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for IdentityGovernanceMembershipChangeTrigger resources
  *
  * Available select fields:
- * - changeType
  */
 class IdentityGovernanceMembershipChangeTriggerQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for IdentityGovernanceMembershipChangeTrigger
      */
-    public const FIELD_CHANGE_TYPE = 'changeType';
 
     /**
      * Select specific IdentityGovernanceMembershipChangeTrigger properties

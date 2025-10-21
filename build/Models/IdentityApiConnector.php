@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class IdentityApiConnector
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
         public ?string $authenticationConfiguration = null,
         /** The name of the API connector. */

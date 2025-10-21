@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewHistoryInstance
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Uri that can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required. */
         public ?string $downloadUri = null,
         /** Timestamp when this instance and associated data expires and the history is deleted. Required. */

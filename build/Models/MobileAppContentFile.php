@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MobileAppContentFile
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The Azure Storage URI. */
         public ?string $azureStorageUri = null,
         /** The time the Azure storage Uri expires. */

@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AttachmentSession resources
  *
  * Available select fields:
- * - content
- * - expirationDateTime
- * - nextExpectedRanges
  */
 class AttachmentSessionQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AttachmentSession
      */
-    public const FIELD_CONTENT = 'content';
-    public const FIELD_EXPIRATION_DATE_TIME = 'expirationDateTime';
-    public const FIELD_NEXT_EXPECTED_RANGES = 'nextExpectedRanges';
 
     /**
      * Select specific AttachmentSession properties

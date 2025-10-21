@@ -10,5 +10,11 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityArticleIndicator
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /**  */
+        public ?string $source = null,
+        /**  */
+        public ?string $artifact = null
     ) {}
 }

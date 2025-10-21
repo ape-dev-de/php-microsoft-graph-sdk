@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MembersDeletedEventMessageDetail resources
  *
  * Available select fields:
- * - initiator
- * - members
  */
 class MembersDeletedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MembersDeletedEventMessageDetail
      */
-    public const FIELD_INITIATOR = 'initiator';
-    public const FIELD_MEMBERS = 'members';
 
     /**
      * Select specific MembersDeletedEventMessageDetail properties

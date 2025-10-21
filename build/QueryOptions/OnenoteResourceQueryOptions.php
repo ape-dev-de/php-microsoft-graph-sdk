@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OnenoteResource resources
  *
  * Available select fields:
- * - content
- * - contentUrl
  */
 class OnenoteResourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OnenoteResource
      */
-    public const FIELD_CONTENT = 'content';
-    public const FIELD_CONTENT_URL = 'contentUrl';
 
     /**
      * Select specific OnenoteResource properties

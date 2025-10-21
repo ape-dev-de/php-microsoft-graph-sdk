@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PartnersBillingBillingReconciliation resources
  *
  * Available select fields:
- * - billed
- * - unbilled
  */
 class PartnersBillingBillingReconciliationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PartnersBillingBillingReconciliation
      */
-    public const FIELD_BILLED = 'billed';
-    public const FIELD_UNBILLED = 'unbilled';
 
     /**
      * Select specific PartnersBillingBillingReconciliation properties

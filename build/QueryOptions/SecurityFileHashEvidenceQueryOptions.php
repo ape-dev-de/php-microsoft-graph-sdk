@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityFileHashEvidence resources
  *
  * Available select fields:
- * - algorithm
- * - value
  */
 class SecurityFileHashEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityFileHashEvidence
      */
-    public const FIELD_ALGORITHM = 'algorithm';
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific SecurityFileHashEvidence properties

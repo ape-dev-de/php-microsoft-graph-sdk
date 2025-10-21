@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecuritySiteSource resources
  *
  * Available select fields:
- * - site
  */
 class SecuritySiteSourceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecuritySiteSource
      */
-    public const FIELD_SITE = 'site';
 
     /**
      * Select specific SecuritySiteSource properties

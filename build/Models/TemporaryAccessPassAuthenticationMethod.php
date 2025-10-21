@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TemporaryAccessPassAuthenticationMethod
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The date and time when the Temporary Access Pass was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** The state of the authentication method that indicates whether it's currently usable by the user. */

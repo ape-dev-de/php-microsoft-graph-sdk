@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserExperienceAnalyticsWorkFromAnywhereDevice
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** When TRUE, indicates the intune device''s autopilot profile is assigned. When FALSE, indicates it''s not Assigned. Supports: $select, $OrderBy. Read-only. */
         public ?bool $autoPilotProfileAssigned = null,
         /** When TRUE, indicates the intune device''s autopilot is registered. When FALSE, indicates it''s not registered. Supports: $select, $OrderBy. Read-only. */

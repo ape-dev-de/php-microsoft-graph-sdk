@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SearchSearchAnswer
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The search answer description that is shown on the search results page. */
         public ?string $description = null,
         /** The search answer name that is displayed in search results. */

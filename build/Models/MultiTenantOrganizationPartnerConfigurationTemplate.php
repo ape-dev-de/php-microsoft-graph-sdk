@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MultiTenantOrganizationPartnerConfigurationTemplate
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Determines the partner-specific configuration for automatic user consent settings. Unless configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false. */
         public ?string $automaticUserConsentSettings = null,
         /** Defines your partner-specific configuration for users from other organizations accessing your resources via Microsoft Entra B2B collaboration. */

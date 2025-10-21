@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for WorkbookChartAxisFormat resources
  *
  * Available select fields:
- * - font
- * - line
  */
 class WorkbookChartAxisFormatQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for WorkbookChartAxisFormat
      */
-    public const FIELD_FONT = 'font';
-    public const FIELD_LINE = 'line';
 
     /**
      * Select specific WorkbookChartAxisFormat properties

@@ -10,6 +10,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AuthorizationPolicy
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
+        /** Description for this policy. Required. */
+        public ?string $description = null,
+        /** Display name for this policy. Required. */
+        public ?string $displayName = null,
         /** Indicates whether users can sign up for email based subscriptions. */
         public ?bool $allowedToSignUpEmailBasedSubscriptions = null,
         /** Indicates whether administrators of the tenant can use the Self-Service Password Reset (SSPR). For more information, see Self-service password reset for administrators. */

@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AudioRoutingGroup resources
  *
  * Available select fields:
- * - receivers
- * - routingMode
- * - sources
  */
 class AudioRoutingGroupQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AudioRoutingGroup
      */
-    public const FIELD_RECEIVERS = 'receivers';
-    public const FIELD_ROUTING_MODE = 'routingMode';
-    public const FIELD_SOURCES = 'sources';
 
     /**
      * Select specific AudioRoutingGroup properties

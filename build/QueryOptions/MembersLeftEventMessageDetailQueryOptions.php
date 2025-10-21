@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MembersLeftEventMessageDetail resources
  *
  * Available select fields:
- * - initiator
- * - members
  */
 class MembersLeftEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MembersLeftEventMessageDetail
      */
-    public const FIELD_INITIATOR = 'initiator';
-    public const FIELD_MEMBERS = 'members';
 
     /**
      * Select specific MembersLeftEventMessageDetail properties

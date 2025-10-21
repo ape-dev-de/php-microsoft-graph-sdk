@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Win32LobAppRegistryRule
 {
     public function __construct(
+        /** A base complex type to store the detection or requirement rule data for a Win32 LOB app. */
+        public ?string $ruleType = null,
         /** A value indicating whether to search the 32-bit registry on 64-bit systems. */
         public ?bool $check32BitOn64System = null,
         /** The registry comparison value. */

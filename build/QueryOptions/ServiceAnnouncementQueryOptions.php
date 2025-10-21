@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ServiceAnnouncement resources
  *
  * Available select fields:
- * - healthOverviews
- * - issues
- * - messages
  */
 class ServiceAnnouncementQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ServiceAnnouncement
      */
-    public const FIELD_HEALTH_OVERVIEWS = 'healthOverviews';
-    public const FIELD_ISSUES = 'issues';
-    public const FIELD_MESSAGES = 'messages';
 
     /**
      * Select specific ServiceAnnouncement properties

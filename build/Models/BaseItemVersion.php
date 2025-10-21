@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BaseItemVersion
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Identity of the user which last modified the version. Read-only. */
         public ?string $lastModifiedBy = null,
         /** Date and time the version was last modified. Read-only. */

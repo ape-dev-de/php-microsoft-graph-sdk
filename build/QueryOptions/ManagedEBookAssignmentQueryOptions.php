@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ManagedEBookAssignment resources
  *
  * Available select fields:
- * - installIntent
- * - target
  */
 class ManagedEBookAssignmentQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ManagedEBookAssignment
      */
-    public const FIELD_INSTALL_INTENT = 'installIntent';
-    public const FIELD_TARGET = 'target';
 
     /**
      * Select specific ManagedEBookAssignment properties

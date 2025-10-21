@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for VoiceAuthenticationMethodConfiguration resources
  *
  * Available select fields:
- * - isOfficePhoneAllowed
- * - includeTargets
  */
 class VoiceAuthenticationMethodConfigurationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for VoiceAuthenticationMethodConfiguration
      */
-    public const FIELD_IS_OFFICE_PHONE_ALLOWED = 'isOfficePhoneAllowed';
-    public const FIELD_INCLUDE_TARGETS = 'includeTargets';
 
     /**
      * Select specific VoiceAuthenticationMethodConfiguration properties

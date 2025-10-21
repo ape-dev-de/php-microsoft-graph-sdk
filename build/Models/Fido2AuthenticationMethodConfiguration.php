@@ -10,6 +10,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Fido2AuthenticationMethodConfiguration
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Groups of users that are excluded from a policy. */
+        public array $excludeTargets = [],
+        /** The state of the policy. Possible values are: enabled, disabled. */
+        public ?string $state = null,
         /** Determines whether attestation must be enforced for FIDO2 security key registration. */
         public ?bool $isAttestationEnforced = null,
         /** Determines if users can register new FIDO2 security keys. */

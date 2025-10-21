@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PrivilegedAccessRoot resources
  *
  * Available select fields:
- * - group
  */
 class PrivilegedAccessRootQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PrivilegedAccessRoot
      */
-    public const FIELD_GROUP = 'group';
 
     /**
      * Select specific PrivilegedAccessRoot properties

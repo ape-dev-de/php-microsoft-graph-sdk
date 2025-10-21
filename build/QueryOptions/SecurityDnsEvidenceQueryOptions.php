@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityDnsEvidence resources
  *
  * Available select fields:
- * - dnsServerIp
- * - domainName
- * - hostIpAddress
- * - ipAddresses
  */
 class SecurityDnsEvidenceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityDnsEvidence
      */
-    public const FIELD_DNS_SERVER_IP = 'dnsServerIp';
-    public const FIELD_DOMAIN_NAME = 'domainName';
-    public const FIELD_HOST_IP_ADDRESS = 'hostIpAddress';
-    public const FIELD_IP_ADDRESSES = 'ipAddresses';
 
     /**
      * Select specific SecurityDnsEvidence properties

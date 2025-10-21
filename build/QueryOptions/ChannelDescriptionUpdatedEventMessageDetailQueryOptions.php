@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ChannelDescriptionUpdatedEventMessageDetail resources
  *
  * Available select fields:
- * - channelDescription
- * - channelId
- * - initiator
  */
 class ChannelDescriptionUpdatedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ChannelDescriptionUpdatedEventMessageDetail
      */
-    public const FIELD_CHANNEL_DESCRIPTION = 'channelDescription';
-    public const FIELD_CHANNEL_ID = 'channelId';
-    public const FIELD_INITIATOR = 'initiator';
 
     /**
      * Select specific ChannelDescriptionUpdatedEventMessageDetail properties

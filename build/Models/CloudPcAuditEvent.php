@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CloudPcAuditEvent
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The friendly name of the audit activity. */
         public ?string $activity = null,
         /** The date time in UTC when the activity was performed. Read-only. */

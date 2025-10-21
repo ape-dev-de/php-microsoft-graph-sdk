@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OmaSettingDateTime resources
  *
  * Available select fields:
- * - value
  */
 class OmaSettingDateTimeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OmaSettingDateTime
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific OmaSettingDateTime properties

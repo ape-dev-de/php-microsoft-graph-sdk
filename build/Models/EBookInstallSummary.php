@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class EBookInstallSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Number of Devices that have failed to install this book. */
         public ?float $failedDeviceCount = null,
         /** Number of Users that have 1 or more device that failed to install this book. */

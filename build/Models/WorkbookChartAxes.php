@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookChartAxes
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents the category axis in a chart. Read-only. */
         public ?string $categoryAxis = null,
         /** Represents the series axis of a 3-dimensional chart. Read-only. */

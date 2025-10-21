@@ -8,26 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ManagedDeviceMobileAppConfigurationDeviceStatus resources
  *
  * Available select fields:
- * - complianceGracePeriodExpirationDateTime
- * - deviceDisplayName
- * - deviceModel
- * - lastReportedDateTime
- * - status
- * - userName
- * - userPrincipalName
  */
 class ManagedDeviceMobileAppConfigurationDeviceStatusQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ManagedDeviceMobileAppConfigurationDeviceStatus
      */
-    public const FIELD_COMPLIANCE_GRACE_PERIOD_EXPIRATION_DATE_TIME = 'complianceGracePeriodExpirationDateTime';
-    public const FIELD_DEVICE_DISPLAY_NAME = 'deviceDisplayName';
-    public const FIELD_DEVICE_MODEL = 'deviceModel';
-    public const FIELD_LAST_REPORTED_DATE_TIME = 'lastReportedDateTime';
-    public const FIELD_STATUS = 'status';
-    public const FIELD_USER_NAME = 'userName';
-    public const FIELD_USER_PRINCIPAL_NAME = 'userPrincipalName';
 
     /**
      * Select specific ManagedDeviceMobileAppConfigurationDeviceStatus properties

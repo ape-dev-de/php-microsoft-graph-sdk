@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UnifiedRoleManagementPolicyEnablementRule resources
  *
  * Available select fields:
- * - enabledRules
  */
 class UnifiedRoleManagementPolicyEnablementRuleQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UnifiedRoleManagementPolicyEnablementRule
      */
-    public const FIELD_ENABLED_RULES = 'enabledRules';
 
     /**
      * Select specific UnifiedRoleManagementPolicyEnablementRule properties

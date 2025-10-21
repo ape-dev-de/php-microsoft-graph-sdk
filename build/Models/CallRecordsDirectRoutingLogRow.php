@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallRecordsDirectRoutingLogRow
 {
     public function __construct(
+        /** Unique call identifier. GUID. */
+        public ?string $id = null,
         /** Number of the user or bot who received the call. E.164 format, but might include other data. */
         public ?string $calleeNumber = null,
         /** In addition to the SIP codes, Microsoft has subcodes that indicate the specific issue. */
@@ -30,8 +32,6 @@ class CallRecordsDirectRoutingLogRow
         public ?float $finalSipCode = null,
         /** Description of the SIP code and Microsoft subcode. */
         public ?string $finalSipCodePhrase = null,
-        /** Unique call identifier. GUID. */
-        public ?string $id = null,
         /** The date and time when the initial invite was sent. */
         public ?\DateTimeInterface $inviteDateTime = null,
         /** Indicates whether the trunk was enabled for media bypass. */

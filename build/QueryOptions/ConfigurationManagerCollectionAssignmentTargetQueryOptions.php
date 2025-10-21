@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ConfigurationManagerCollectionAssignmentTarget resources
  *
  * Available select fields:
- * - collectionId
  */
 class ConfigurationManagerCollectionAssignmentTargetQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ConfigurationManagerCollectionAssignmentTarget
      */
-    public const FIELD_COLLECTION_ID = 'collectionId';
 
     /**
      * Select specific ConfigurationManagerCollectionAssignmentTarget properties

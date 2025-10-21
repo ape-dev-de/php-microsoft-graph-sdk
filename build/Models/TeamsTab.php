@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class TeamsTab
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
         public ?string $configuration = null,
         /** Name of the tab. */

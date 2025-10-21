@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityLabelsRoot
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Specifies the underlying authority that describes the type of content to be retained and its retention schedule. */
         public array $authorities = [],
         /** Specifies a group of similar types of content in a particular department. */

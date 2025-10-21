@@ -10,6 +10,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CertificateAuthorityDetail
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+        public ?\DateTimeInterface $deletedDateTime = null,
         /** The public key of the certificate authority. */
         public ?string $certificate = null,
         /** The type of certificate authority. The possible values are: root, intermediate, unknownFutureValue. Supports $filter (eq). */

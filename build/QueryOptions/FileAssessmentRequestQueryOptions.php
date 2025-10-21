@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for FileAssessmentRequest resources
  *
  * Available select fields:
- * - contentData
- * - fileName
  */
 class FileAssessmentRequestQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for FileAssessmentRequest
      */
-    public const FIELD_CONTENT_DATA = 'contentData';
-    public const FIELD_FILE_NAME = 'fileName';
 
     /**
      * Select specific FileAssessmentRequest properties

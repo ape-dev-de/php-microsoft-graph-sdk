@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class ExternalConnectorsExternalConnection
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Collects configurable settings related to activities involving connector content. */
         public ?string $activitySettings = null,
         /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */

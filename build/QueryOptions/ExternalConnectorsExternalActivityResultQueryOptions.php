@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ExternalConnectorsExternalActivityResult resources
  *
  * Available select fields:
- * - error
  */
 class ExternalConnectorsExternalActivityResultQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ExternalConnectorsExternalActivityResult
      */
-    public const FIELD_ERROR = 'error';
 
     /**
      * Select specific ExternalConnectorsExternalActivityResult properties

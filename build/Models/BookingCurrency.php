@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class BookingCurrency
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $. */
         public ?string $symbol = null
     ) {}

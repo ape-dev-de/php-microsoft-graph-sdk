@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserScopeTeamsAppInstallation resources
  *
  * Available select fields:
- * - chat
  */
 class UserScopeTeamsAppInstallationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserScopeTeamsAppInstallation
      */
-    public const FIELD_CHAT = 'chat';
 
     /**
      * Select specific UserScopeTeamsAppInstallation properties

@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SingleServicePrincipal resources
  *
  * Available select fields:
- * - description
- * - servicePrincipalId
  */
 class SingleServicePrincipalQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SingleServicePrincipal
      */
-    public const FIELD_DESCRIPTION = 'description';
-    public const FIELD_SERVICE_PRINCIPAL_ID = 'servicePrincipalId';
 
     /**
      * Select specific SingleServicePrincipal properties

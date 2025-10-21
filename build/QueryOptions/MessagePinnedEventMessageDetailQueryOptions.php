@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MessagePinnedEventMessageDetail resources
  *
  * Available select fields:
- * - eventDateTime
- * - initiator
  */
 class MessagePinnedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MessagePinnedEventMessageDetail
      */
-    public const FIELD_EVENT_DATE_TIME = 'eventDateTime';
-    public const FIELD_INITIATOR = 'initiator';
 
     /**
      * Select specific MessagePinnedEventMessageDetail properties

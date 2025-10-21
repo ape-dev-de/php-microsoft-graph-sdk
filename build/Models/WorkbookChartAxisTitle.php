@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookChartAxisTitle
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Represents the axis title. */
         public ?string $text = null,
         /** A Boolean that specifies the visibility of an axis title. */

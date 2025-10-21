@@ -10,6 +10,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class PrivilegedAccessGroupAssignmentSchedule
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
+        /** When the schedule was created. Optional. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** The identifier of the access assignment or eligibility request that created this schedule. Optional. */
+        public ?string $createdUsing = null,
+        /** When the schedule was last modified. Optional. */
+        public ?\DateTimeInterface $modifiedDateTime = null,
+        /** Represents the period of the access assignment or eligibility. The scheduleInfo can represent a single occurrence or multiple recurring instances. Required. */
+        public ?string $scheduleInfo = null,
+        /** The status of the access assignment or eligibility request. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. Optional. */
+        public ?string $status = null,
         /** The identifier of the membership or ownership assignment to the group that is governed through PIM. Required. The possible values are: owner, member, unknownFutureValue. Supports $filter (eq). */
         public ?string $accessId = null,
         /** Indicates whether the membership or ownership assignment for the principal is granted through activation or direct assignment. Required. The possible values are: assigned, activated, unknownFutureValue. Supports $filter (eq). */

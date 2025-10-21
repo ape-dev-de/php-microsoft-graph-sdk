@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for TeamRenamedEventMessageDetail resources
  *
  * Available select fields:
- * - initiator
- * - teamDisplayName
- * - teamId
  */
 class TeamRenamedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for TeamRenamedEventMessageDetail
      */
-    public const FIELD_INITIATOR = 'initiator';
-    public const FIELD_TEAM_DISPLAY_NAME = 'teamDisplayName';
-    public const FIELD_TEAM_ID = 'teamId';
 
     /**
      * Select specific TeamRenamedEventMessageDetail properties

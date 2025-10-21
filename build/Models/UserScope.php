@@ -10,5 +10,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class UserScope
 {
     public function __construct(
+        /** The identifier for the scope. This could be a user ID, group ID, or a keyword like ''All'' for tenant scope. */
+        public ?string $identity = null
     ) {}
 }

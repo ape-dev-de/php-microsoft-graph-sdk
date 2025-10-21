@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for PrinterCreateOperation resources
  *
  * Available select fields:
- * - certificate
- * - printer
  */
 class PrinterCreateOperationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for PrinterCreateOperation
      */
-    public const FIELD_CERTIFICATE = 'certificate';
-    public const FIELD_PRINTER = 'printer';
 
     /**
      * Select specific PrinterCreateOperation properties

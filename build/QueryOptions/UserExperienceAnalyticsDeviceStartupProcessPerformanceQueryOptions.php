@@ -8,24 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for UserExperienceAnalyticsDeviceStartupProcessPerformance resources
  *
  * Available select fields:
- * - deviceCount
- * - medianImpactInMs
- * - processName
- * - productName
- * - publisher
- * - totalImpactInMs
  */
 class UserExperienceAnalyticsDeviceStartupProcessPerformanceQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for UserExperienceAnalyticsDeviceStartupProcessPerformance
      */
-    public const FIELD_DEVICE_COUNT = 'deviceCount';
-    public const FIELD_MEDIAN_IMPACT_IN_MS = 'medianImpactInMs';
-    public const FIELD_PROCESS_NAME = 'processName';
-    public const FIELD_PRODUCT_NAME = 'productName';
-    public const FIELD_PUBLISHER = 'publisher';
-    public const FIELD_TOTAL_IMPACT_IN_MS = 'totalImpactInMs';
 
     /**
      * Select specific UserExperienceAnalyticsDeviceStartupProcessPerformance properties

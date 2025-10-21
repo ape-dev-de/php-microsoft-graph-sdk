@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for Attendee resources
  *
  * Available select fields:
- * - proposedNewTime
- * - status
  */
 class AttendeeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for Attendee
      */
-    public const FIELD_PROPOSED_NEW_TIME = 'proposedNewTime';
-    public const FIELD_STATUS = 'status';
 
     /**
      * Select specific Attendee properties

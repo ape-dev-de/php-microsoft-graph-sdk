@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SoftwareUpdateStatusSummary
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Number of compliant devices. */
         public ?float $compliantDeviceCount = null,
         /** Number of compliant users. */

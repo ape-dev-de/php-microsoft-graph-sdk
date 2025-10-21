@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityThreatIntelligence
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported. */
         public array $articleIndicators = [],
         /** A list of article objects. */

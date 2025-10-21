@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AccessReviewInstanceDecisionItem
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */
         public ?string $accessReviewId = null,
         /** The identifier of the user who applied the decision. Read-only. */

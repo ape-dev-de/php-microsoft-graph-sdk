@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for OmaSettingFloatingPoint resources
  *
  * Available select fields:
- * - value
  */
 class OmaSettingFloatingPointQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for OmaSettingFloatingPoint
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific OmaSettingFloatingPoint properties

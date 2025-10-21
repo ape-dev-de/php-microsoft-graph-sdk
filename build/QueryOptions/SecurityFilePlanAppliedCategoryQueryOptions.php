@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityFilePlanAppliedCategory resources
  *
  * Available select fields:
- * - subcategory
  */
 class SecurityFilePlanAppliedCategoryQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityFilePlanAppliedCategory
      */
-    public const FIELD_SUBCATEGORY = 'subcategory';
 
     /**
      * Select specific SecurityFilePlanAppliedCategory properties

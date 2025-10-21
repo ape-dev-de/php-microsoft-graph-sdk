@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationFeedbackResourceOutcome resources
  *
  * Available select fields:
- * - feedbackResource
- * - resourceStatus
  */
 class EducationFeedbackResourceOutcomeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationFeedbackResourceOutcome
      */
-    public const FIELD_FEEDBACK_RESOURCE = 'feedbackResource';
-    public const FIELD_RESOURCE_STATUS = 'resourceStatus';
 
     /**
      * Select specific EducationFeedbackResourceOutcome properties

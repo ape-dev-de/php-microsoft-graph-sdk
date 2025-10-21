@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MultiTenantOrganizationIdentitySyncPolicyTemplate resources
  *
  * Available select fields:
- * - templateApplicationLevel
- * - userSyncInbound
  */
 class MultiTenantOrganizationIdentitySyncPolicyTemplateQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MultiTenantOrganizationIdentitySyncPolicyTemplate
      */
-    public const FIELD_TEMPLATE_APPLICATION_LEVEL = 'templateApplicationLevel';
-    public const FIELD_USER_SYNC_INBOUND = 'userSyncInbound';
 
     /**
      * Select specific MultiTenantOrganizationIdentitySyncPolicyTemplate properties

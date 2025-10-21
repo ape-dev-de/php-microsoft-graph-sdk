@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Channel
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Read only. Timestamp at which the channel was created. */
         public ?\DateTimeInterface $createdDateTime = null,
         /** Optional textual description for the channel. */

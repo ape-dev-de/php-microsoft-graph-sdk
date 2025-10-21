@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SecurityIntelligenceProfile
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] A list of commonly-known aliases for the threat intelligence included in the intelligenceProfile. */
         public array $aliases = [],
         /** The country/region of origin for the given actor or threat associated with this intelligenceProfile. */

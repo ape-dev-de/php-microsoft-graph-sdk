@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SecurityHostReputation resources
  *
  * Available select fields:
- * - classification
- * - rules
- * - score
  */
 class SecurityHostReputationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SecurityHostReputation
      */
-    public const FIELD_CLASSIFICATION = 'classification';
-    public const FIELD_RULES = 'rules';
-    public const FIELD_SCORE = 'score';
 
     /**
      * Select specific SecurityHostReputation properties

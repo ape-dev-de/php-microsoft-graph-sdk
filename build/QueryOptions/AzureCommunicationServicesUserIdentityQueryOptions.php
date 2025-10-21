@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AzureCommunicationServicesUserIdentity resources
  *
  * Available select fields:
- * - azureCommunicationServicesResourceId
  */
 class AzureCommunicationServicesUserIdentityQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AzureCommunicationServicesUserIdentity
      */
-    public const FIELD_AZURE_COMMUNICATION_SERVICES_RESOURCE_ID = 'azureCommunicationServicesResourceId';
 
     /**
      * Select specific AzureCommunicationServicesUserIdentity properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class SharedInsight
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Details about the shared item. Read only. */
         public ?string $lastShared = null,
         /** Reference properties of the shared document, such as the url and type of the document. Read-only */

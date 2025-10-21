@@ -8,18 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for MeetingPolicyUpdatedEventMessageDetail resources
  *
  * Available select fields:
- * - initiator
- * - meetingChatEnabled
- * - meetingChatId
  */
 class MeetingPolicyUpdatedEventMessageDetailQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for MeetingPolicyUpdatedEventMessageDetail
      */
-    public const FIELD_INITIATOR = 'initiator';
-    public const FIELD_MEETING_CHAT_ENABLED = 'meetingChatEnabled';
-    public const FIELD_MEETING_CHAT_ID = 'meetingChatId';
 
     /**
      * Select specific MeetingPolicyUpdatedEventMessageDetail properties

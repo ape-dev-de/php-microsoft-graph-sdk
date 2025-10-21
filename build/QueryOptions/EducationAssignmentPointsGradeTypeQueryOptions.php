@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for EducationAssignmentPointsGradeType resources
  *
  * Available select fields:
- * - maxPoints
  */
 class EducationAssignmentPointsGradeTypeQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for EducationAssignmentPointsGradeType
      */
-    public const FIELD_MAX_POINTS = 'maxPoints';
 
     /**
      * Select specific EducationAssignmentPointsGradeType properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class WorkbookChartSeries
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The name of a series in a chart. */
         public ?string $name = null,
         /** The formatting of a chart series, which includes fill and line formatting. Read-only. */

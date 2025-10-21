@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SubjectRightsRequestEnumeratedMailboxLocation resources
  *
  * Available select fields:
- * - userPrincipalNames
  */
 class SubjectRightsRequestEnumeratedMailboxLocationQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SubjectRightsRequestEnumeratedMailboxLocation
      */
-    public const FIELD_USER_PRINCIPAL_NAMES = 'userPrincipalNames';
 
     /**
      * Select specific SubjectRightsRequestEnumeratedMailboxLocation properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class AllowedValue
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Indicates whether the predefined value is active or deactivated. If set to false, this predefined value can''t be assigned to any other supported directory objects. */
         public ?string $isActive = null
     ) {}

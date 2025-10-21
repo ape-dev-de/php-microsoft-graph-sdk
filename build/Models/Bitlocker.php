@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class Bitlocker
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** @var string[] The recovery keys associated with the bitlocker entity. */
         public array $recoveryKeys = []
     ) {}

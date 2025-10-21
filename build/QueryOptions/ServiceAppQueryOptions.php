@@ -8,24 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ServiceApp resources
  *
  * Available select fields:
- * - application
- * - effectiveDateTime
- * - lastModifiedBy
- * - lastModifiedDateTime
- * - registrationDateTime
- * - status
  */
 class ServiceAppQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ServiceApp
      */
-    public const FIELD_APPLICATION = 'application';
-    public const FIELD_EFFECTIVE_DATE_TIME = 'effectiveDateTime';
-    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    public const FIELD_LAST_MODIFIED_DATE_TIME = 'lastModifiedDateTime';
-    public const FIELD_REGISTRATION_DATE_TIME = 'registrationDateTime';
-    public const FIELD_STATUS = 'status';
 
     /**
      * Select specific ServiceApp properties

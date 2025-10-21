@@ -8,20 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for SignInFrequencySessionControl resources
  *
  * Available select fields:
- * - authenticationType
- * - frequencyInterval
- * - type
- * - value
  */
 class SignInFrequencySessionControlQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for SignInFrequencySessionControl
      */
-    public const FIELD_AUTHENTICATION_TYPE = 'authenticationType';
-    public const FIELD_FREQUENCY_INTERVAL = 'frequencyInterval';
-    public const FIELD_TYPE = 'type';
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific SignInFrequencySessionControl properties

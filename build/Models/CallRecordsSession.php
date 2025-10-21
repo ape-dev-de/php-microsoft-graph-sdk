@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class CallRecordsSession
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** Endpoint that answered the session. */
         public ?string $callee = null,
         /** Endpoint that initiated the session. */

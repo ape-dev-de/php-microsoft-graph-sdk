@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class LinkedResource
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The app name of the source that sends the linkedResource. */
         public ?string $applicationName = null,
         /** The title of the linkedResource. */

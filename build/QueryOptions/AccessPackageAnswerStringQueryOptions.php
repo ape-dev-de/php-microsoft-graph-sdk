@@ -8,14 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for AccessPackageAnswerString resources
  *
  * Available select fields:
- * - value
  */
 class AccessPackageAnswerStringQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for AccessPackageAnswerString
      */
-    public const FIELD_VALUE = 'value';
 
     /**
      * Select specific AccessPackageAnswerString properties

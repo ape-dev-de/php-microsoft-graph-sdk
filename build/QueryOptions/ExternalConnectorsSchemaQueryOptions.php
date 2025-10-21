@@ -8,16 +8,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
  * Query options for ExternalConnectorsSchema resources
  *
  * Available select fields:
- * - baseType
- * - items
  */
 class ExternalConnectorsSchemaQueryOptions extends QueryOptions
 {
     /**
      * Available select fields for ExternalConnectorsSchema
      */
-    public const FIELD_BASE_TYPE = 'baseType';
-    public const FIELD_ITEMS = 'items';
 
     /**
      * Select specific ExternalConnectorsSchema properties

@@ -10,6 +10,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class MeetingAttendanceReport
 {
     public function __construct(
+        /** The unique identifier for an entity. Read-only. */
+        public ?string $id = null,
         /** The external information of a virtual event. Returned only for event organizers or coorganizers. Read-only. */
         public array $externalEventInformation = [],
         /** UTC time when the meeting ended. Read-only. */
