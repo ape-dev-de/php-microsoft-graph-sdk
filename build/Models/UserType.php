@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserType
 {
-
+    public function __construct(
+    ) {}
 }

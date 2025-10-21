@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationModuleResource
 {
-    /**
-     * Resource object that is with this module.
-     */
-    private ?string $resource;
-
-
-    public function getResource(): ?string
-    {
-        return $this->resource;
-    }
-
-    public function setResource(?string $resource): self
-    {
-        $this->resource = $resource;
-        return $this;
-    }
-
+    public function __construct(
+        /** Resource object that is with this module. */
+        public ?string $resource = null
+    ) {}
 }

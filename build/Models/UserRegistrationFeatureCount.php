@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserRegistrationFeatureCount
 {
-    /**
-     */
-    private ?string $feature;
-
-    /**
-     * Number of users.
-     */
-    private ?string $userCount;
-
-
-    public function getFeature(): ?string
-    {
-        return $this->feature;
-    }
-
-    public function setFeature(?string $feature): self
-    {
-        $this->feature = $feature;
-        return $this;
-    }
-
-    public function getUserCount(): ?string
-    {
-        return $this->userCount;
-    }
-
-    public function setUserCount(?string $userCount): self
-    {
-        $this->userCount = $userCount;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $feature = null,
+        /** Number of users. */
+        public ?string $userCount = null
+    ) {}
 }

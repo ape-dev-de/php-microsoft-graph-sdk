@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProcessContentResponses
 {
-    /**
-     * The unique identifier that matches the requestId provided in the corresponding processContentBatchRequest.
-     */
-    private ?string $requestId;
-
-    /**
-     */
-    private ?string $results;
-
-
-    public function getRequestId(): ?string
-    {
-        return $this->requestId;
-    }
-
-    public function setRequestId(?string $requestId): self
-    {
-        $this->requestId = $requestId;
-        return $this;
-    }
-
-    public function getResults(): ?string
-    {
-        return $this->results;
-    }
-
-    public function setResults(?string $results): self
-    {
-        $this->results = $results;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier that matches the requestId provided in the corresponding processContentBatchRequest. */
+        public ?string $requestId = null,
+        /**  */
+        public ?string $results = null
+    ) {}
 }

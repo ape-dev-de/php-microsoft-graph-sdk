@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ParticipantJoiningNotification
 {
-    /**
-     */
-    private ?string $call;
-
-
-    public function getCall(): ?string
-    {
-        return $this->call;
-    }
-
-    public function setCall(?string $call): self
-    {
-        $this->call = $call;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $call = null
+    ) {}
 }

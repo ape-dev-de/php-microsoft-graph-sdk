@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenotePatchActionType
 {
-
+    public function __construct(
+    ) {}
 }

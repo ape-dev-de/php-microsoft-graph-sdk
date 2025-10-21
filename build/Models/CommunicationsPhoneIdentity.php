@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommunicationsPhoneIdentity
 {
-
+    public function __construct(
+    ) {}
 }

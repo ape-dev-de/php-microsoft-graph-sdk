@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsArchitecture
 {
-
+    public function __construct(
+    ) {}
 }

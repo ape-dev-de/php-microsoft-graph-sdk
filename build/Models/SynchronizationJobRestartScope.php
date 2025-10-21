@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationJobRestartScope
 {
-
+    public function __construct(
+    ) {}
 }

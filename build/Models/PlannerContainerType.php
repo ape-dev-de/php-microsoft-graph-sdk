@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerContainerType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BaseAuthenticationMethod
 {
-
+    public function __construct(
+    ) {}
 }

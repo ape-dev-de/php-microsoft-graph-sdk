@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecuritySiteSource
 {
-    /**
-     */
-    private ?string $site;
-
-
-    public function getSite(): ?string
-    {
-        return $this->site;
-    }
-
-    public function setSite(?string $site): self
-    {
-        $this->site = $site;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $site = null
+    ) {}
 }

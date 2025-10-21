@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Windows10EnterpriseModernAppManagementConfiguration
 {
-    /**
-     * Windows10 Enterprise Modern App Management Configuration.
-     */
-    private ?string $uninstallBuiltInApps;
-
-
-    public function getUninstallBuiltInApps(): ?string
-    {
-        return $this->uninstallBuiltInApps;
-    }
-
-    public function setUninstallBuiltInApps(?string $uninstallBuiltInApps): self
-    {
-        $this->uninstallBuiltInApps = $uninstallBuiltInApps;
-        return $this;
-    }
-
+    public function __construct(
+        /** Windows10 Enterprise Modern App Management Configuration. */
+        public ?string $uninstallBuiltInApps = null
+    ) {}
 }

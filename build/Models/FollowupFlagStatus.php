@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FollowupFlagStatus
 {
-
+    public function __construct(
+    ) {}
 }

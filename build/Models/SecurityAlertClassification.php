@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityAlertClassification
 {
-
+    public function __construct(
+    ) {}
 }

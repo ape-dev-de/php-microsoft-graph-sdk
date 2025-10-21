@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityIntelligenceProfileCountryOrRegionOfOrigin
 {
-    /**
-     * A codified representation for this country/region of origin.
-     */
-    private ?string $code;
-
-    /**
-     * A display label for this ountry/region of origin.
-     */
-    private ?string $label;
-
-
-    public function getCode(): ?string
-    {
-        return $this->code;
-    }
-
-    public function setCode(?string $code): self
-    {
-        $this->code = $code;
-        return $this;
-    }
-
-    public function getLabel(): ?string
-    {
-        return $this->label;
-    }
-
-    public function setLabel(?string $label): self
-    {
-        $this->label = $label;
-        return $this;
-    }
-
+    public function __construct(
+        /** A codified representation for this country/region of origin. */
+        public ?string $code = null,
+        /** A display label for this ountry/region of origin. */
+        public ?string $label = null
+    ) {}
 }

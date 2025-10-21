@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppResourceSpecificPermission
 {
-    /**
-     * The type of resource-specific permission.
-     */
-    private ?string $permissionType;
-
-    /**
-     * The name of the resource-specific permission.
-     */
-    private ?string $permissionValue;
-
-
-    public function getPermissionType(): ?string
-    {
-        return $this->permissionType;
-    }
-
-    public function setPermissionType(?string $permissionType): self
-    {
-        $this->permissionType = $permissionType;
-        return $this;
-    }
-
-    public function getPermissionValue(): ?string
-    {
-        return $this->permissionValue;
-    }
-
-    public function setPermissionValue(?string $permissionValue): self
-    {
-        $this->permissionValue = $permissionValue;
-        return $this;
-    }
-
+    public function __construct(
+        /** The type of resource-specific permission. */
+        public ?string $permissionType = null,
+        /** The name of the resource-specific permission. */
+        public ?string $permissionValue = null
+    ) {}
 }

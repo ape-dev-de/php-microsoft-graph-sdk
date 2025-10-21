@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WeeklySchedule
 {
-
+    public function __construct(
+    ) {}
 }

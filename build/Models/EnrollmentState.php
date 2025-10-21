@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EnrollmentState
 {
-
+    public function __construct(
+    ) {}
 }

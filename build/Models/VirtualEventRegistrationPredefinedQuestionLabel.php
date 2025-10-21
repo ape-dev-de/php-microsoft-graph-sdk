@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventRegistrationPredefinedQuestionLabel
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnOtpSendCustomExtensionHandler
 {
-    /**
-     * Configuration regarding properties of the custom extension that are can be overwritten for the onEmailOtpSendListener event listener.
-     */
-    private ?string $configuration;
-
-    /**
-     */
-    private ?string $customExtension;
-
-
-    public function getConfiguration(): ?string
-    {
-        return $this->configuration;
-    }
-
-    public function setConfiguration(?string $configuration): self
-    {
-        $this->configuration = $configuration;
-        return $this;
-    }
-
-    public function getCustomExtension(): ?string
-    {
-        return $this->customExtension;
-    }
-
-    public function setCustomExtension(?string $customExtension): self
-    {
-        $this->customExtension = $customExtension;
-        return $this;
-    }
-
+    public function __construct(
+        /** Configuration regarding properties of the custom extension that are can be overwritten for the onEmailOtpSendListener event listener. */
+        public ?string $configuration = null,
+        /**  */
+        public ?string $customExtension = null
+    ) {}
 }

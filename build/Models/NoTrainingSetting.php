@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NoTrainingSetting
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PasswordResetResponse
 {
-    /**
-     * The Microsoft Entra ID-generated password.
-     */
-    private ?string $newPassword;
-
-
-    public function getNewPassword(): ?string
-    {
-        return $this->newPassword;
-    }
-
-    public function setNewPassword(?string $newPassword): self
-    {
-        $this->newPassword = $newPassword;
-        return $this;
-    }
-
+    public function __construct(
+        /** The Microsoft Entra ID-generated password. */
+        public ?string $newPassword = null
+    ) {}
 }

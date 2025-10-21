@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSolutionRoot
 {
-    /**
-     * The working time schedule entity associated with the solution.
-     */
-    private ?string $workingTimeSchedule;
-
-
-    public function getWorkingTimeSchedule(): ?string
-    {
-        return $this->workingTimeSchedule;
-    }
-
-    public function setWorkingTimeSchedule(?string $workingTimeSchedule): self
-    {
-        $this->workingTimeSchedule = $workingTimeSchedule;
-        return $this;
-    }
-
+    public function __construct(
+        /** The working time schedule entity associated with the solution. */
+        public ?string $workingTimeSchedule = null
+    ) {}
 }

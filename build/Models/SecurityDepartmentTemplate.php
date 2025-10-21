@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDepartmentTemplate
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UpdateRecordingStatusOperation
 {
-
+    public function __construct(
+    ) {}
 }

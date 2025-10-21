@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OpenShiftItem
 {
-    /**
-     * Count of the number of slots for the given open shift.
-     */
-    private ?string $openSlotCount;
-
-
-    public function getOpenSlotCount(): ?string
-    {
-        return $this->openSlotCount;
-    }
-
-    public function setOpenSlotCount(?string $openSlotCount): self
-    {
-        $this->openSlotCount = $openSlotCount;
-        return $this;
-    }
-
+    public function __construct(
+        /** Count of the number of slots for the given open shift. */
+        public ?string $openSlotCount = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingCustomerInformationBase
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrinterDiscoverySettings
 {
-    /**
-     */
-    private ?string $airPrint;
-
-
-    public function getAirPrint(): ?string
-    {
-        return $this->airPrint;
-    }
-
-    public function setAirPrint(?string $airPrint): self
-    {
-        $this->airPrint = $airPrint;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $airPrint = null
+    ) {}
 }

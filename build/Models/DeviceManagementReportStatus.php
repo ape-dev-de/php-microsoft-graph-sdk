@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementReportStatus
 {
-
+    public function __construct(
+    ) {}
 }

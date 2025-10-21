@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FilterOperand
 {
-    /**
-     * Collection of values.
-     * @var string[]
-     */
-    private array $values = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getValues(): array
-    {
-        return $this->values;
-    }
-
-    /**
-     * @param string[] $values
-     */
-    public function setValues(array $values): self
-    {
-        $this->values = $values;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Collection of values. */
+        public array $values = []
+    ) {}
 }

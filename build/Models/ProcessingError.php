@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProcessingError
 {
-    /**
-     */
-    private ?string $errorType;
-
-
-    public function getErrorType(): ?string
-    {
-        return $this->errorType;
-    }
-
-    public function setErrorType(?string $errorType): self
-    {
-        $this->errorType = $errorType;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $errorType = null
+    ) {}
 }

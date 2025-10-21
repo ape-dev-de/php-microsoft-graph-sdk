@@ -9,76 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsDisplayTemplate
 {
-    /**
-     * The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed.
-     */
-    private ?string $id;
-
-    /**
-     * The definition of the content''s appearance, represented by an Adaptive Card, which is a JSON-serialized card object model.
-     */
-    private ?string $layout;
-
-    /**
-     * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value.
-     */
-    private ?float $priority;
-
-    /**
-     * Specifies additional rules for selecting this display template based on the item schema. Optional.
-     * @var string[]
-     */
-    private array $rules = [];
-
-
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    public function getLayout(): ?string
-    {
-        return $this->layout;
-    }
-
-    public function setLayout(?string $layout): self
-    {
-        $this->layout = $layout;
-        return $this;
-    }
-
-    public function getPriority(): ?float
-    {
-        return $this->priority;
-    }
-
-    public function setPriority(?float $priority): self
-    {
-        $this->priority = $priority;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getRules(): array
-    {
-        return $this->rules;
-    }
-
-    /**
-     * @param string[] $rules
-     */
-    public function setRules(array $rules): self
-    {
-        $this->rules = $rules;
-        return $this;
-    }
-
+    public function __construct(
+        /** The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed. */
+        public ?string $id = null,
+        /** The definition of the content''s appearance, represented by an Adaptive Card, which is a JSON-serialized card object model. */
+        public ?string $layout = null,
+        /** Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value. */
+        public ?float $priority = null,
+        /** @var string[] Specifies additional rules for selecting this display template based on the item schema. Optional. */
+        public array $rules = []
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAlterationType
 {
-
+    public function __construct(
+    ) {}
 }

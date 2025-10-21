@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartAxes
 {
-    /**
-     * Represents the category axis in a chart. Read-only.
-     */
-    private ?string $categoryAxis;
-
-    /**
-     * Represents the series axis of a 3-dimensional chart. Read-only.
-     */
-    private ?string $seriesAxis;
-
-    /**
-     * Represents the value axis in an axis. Read-only.
-     */
-    private ?string $valueAxis;
-
-
-    public function getCategoryAxis(): ?string
-    {
-        return $this->categoryAxis;
-    }
-
-    public function setCategoryAxis(?string $categoryAxis): self
-    {
-        $this->categoryAxis = $categoryAxis;
-        return $this;
-    }
-
-    public function getSeriesAxis(): ?string
-    {
-        return $this->seriesAxis;
-    }
-
-    public function setSeriesAxis(?string $seriesAxis): self
-    {
-        $this->seriesAxis = $seriesAxis;
-        return $this;
-    }
-
-    public function getValueAxis(): ?string
-    {
-        return $this->valueAxis;
-    }
-
-    public function setValueAxis(?string $valueAxis): self
-    {
-        $this->valueAxis = $valueAxis;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the category axis in a chart. Read-only. */
+        public ?string $categoryAxis = null,
+        /** Represents the series axis of a 3-dimensional chart. Read-only. */
+        public ?string $seriesAxis = null,
+        /** Represents the value axis in an axis. Read-only. */
+        public ?string $valueAxis = null
+    ) {}
 }

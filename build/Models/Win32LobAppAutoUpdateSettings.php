@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppAutoUpdateSettings
 {
-    /**
-     * Contains properties used to perform the auto-update of an application.
-     */
-    private ?string $autoUpdateSupersededAppsState;
-
-
-    public function getAutoUpdateSupersededAppsState(): ?string
-    {
-        return $this->autoUpdateSupersededAppsState;
-    }
-
-    public function setAutoUpdateSupersededAppsState(?string $autoUpdateSupersededAppsState): self
-    {
-        $this->autoUpdateSupersededAppsState = $autoUpdateSupersededAppsState;
-        return $this;
-    }
-
+    public function __construct(
+        /** Contains properties used to perform the auto-update of an application. */
+        public ?string $autoUpdateSupersededAppsState = null
+    ) {}
 }

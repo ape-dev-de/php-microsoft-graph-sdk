@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkHostedContent
 {
-    /**
-     * Write only. Bytes for the hosted content (such as images).
-     */
-    private ?string $contentBytes;
-
-    /**
-     * Write only. Content type. such as image/png, image/jpg.
-     */
-    private ?string $contentType;
-
-
-    public function getContentBytes(): ?string
-    {
-        return $this->contentBytes;
-    }
-
-    public function setContentBytes(?string $contentBytes): self
-    {
-        $this->contentBytes = $contentBytes;
-        return $this;
-    }
-
-    public function getContentType(): ?string
-    {
-        return $this->contentType;
-    }
-
-    public function setContentType(?string $contentType): self
-    {
-        $this->contentType = $contentType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Write only. Bytes for the hosted content (such as images). */
+        public ?string $contentBytes = null,
+        /** Write only. Content type. such as image/png, image/jpg. */
+        public ?string $contentType = null
+    ) {}
 }

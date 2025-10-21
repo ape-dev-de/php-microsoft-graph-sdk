@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResetPasscodeActionResult
 {
-    /**
-     * RotateBitLockerKeys action error code. Valid values 0 to 2147483647
-     */
-    private ?float $errorCode;
-
-    /**
-     * Reset passcode action result
-     */
-    private ?string $passcode;
-
-
-    public function getErrorCode(): ?float
-    {
-        return $this->errorCode;
-    }
-
-    public function setErrorCode(?float $errorCode): self
-    {
-        $this->errorCode = $errorCode;
-        return $this;
-    }
-
-    public function getPasscode(): ?string
-    {
-        return $this->passcode;
-    }
-
-    public function setPasscode(?string $passcode): self
-    {
-        $this->passcode = $passcode;
-        return $this;
-    }
-
+    public function __construct(
+        /** RotateBitLockerKeys action error code. Valid values 0 to 2147483647 */
+        public ?float $errorCode = null,
+        /** Reset passcode action result */
+        public ?string $passcode = null
+    ) {}
 }

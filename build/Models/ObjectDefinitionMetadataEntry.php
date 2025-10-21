@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectDefinitionMetadataEntry
 {
-    /**
-     * Possible values are: PropertyNameAccountEnabled, PropertyNameSoftDeleted, IsSoftDeletionSupported, IsSynchronizeAllSupported, ConnectorDataStorageRequired, Extensions, LinkTypeName.
-     */
-    private ?string $key;
-
-    /**
-     * Value of the metadata property.
-     */
-    private ?string $value;
-
-
-    public function getKey(): ?string
-    {
-        return $this->key;
-    }
-
-    public function setKey(?string $key): self
-    {
-        $this->key = $key;
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** Possible values are: PropertyNameAccountEnabled, PropertyNameSoftDeleted, IsSoftDeletionSupported, IsSynchronizeAllSupported, ConnectorDataStorageRequired, Extensions, LinkTypeName. */
+        public ?string $key = null,
+        /** Value of the metadata property. */
+        public ?string $value = null
+    ) {}
 }

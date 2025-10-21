@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationNotification
 {
-    /**
-     * Target user type. Possible values are: unknown, clicked, compromised, allUsers, unknownFutureValue.
-     */
-    private ?string $targettedUserType;
-
-
-    public function getTargettedUserType(): ?string
-    {
-        return $this->targettedUserType;
-    }
-
-    public function setTargettedUserType(?string $targettedUserType): self
-    {
-        $this->targettedUserType = $targettedUserType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Target user type. Possible values are: unknown, clicked, compromised, allUsers, unknownFutureValue. */
+        public ?string $targettedUserType = null
+    ) {}
 }

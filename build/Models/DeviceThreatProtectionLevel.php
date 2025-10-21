@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceThreatProtectionLevel
 {
-
+    public function __construct(
+    ) {}
 }

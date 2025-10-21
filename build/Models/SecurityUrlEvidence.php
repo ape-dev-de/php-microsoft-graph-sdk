@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityUrlEvidence
 {
-    /**
-     * The Unique Resource Locator (URL).
-     */
-    private ?string $url;
-
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(?string $url): self
-    {
-        $this->url = $url;
-        return $this;
-    }
-
+    public function __construct(
+        /** The Unique Resource Locator (URL). */
+        public ?string $url = null
+    ) {}
 }

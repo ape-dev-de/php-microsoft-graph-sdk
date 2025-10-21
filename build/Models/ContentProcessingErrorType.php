@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentProcessingErrorType
 {
-
+    public function __construct(
+    ) {}
 }

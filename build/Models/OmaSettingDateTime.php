@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OmaSettingDateTime
 {
-    /**
-     * OMA Settings DateTime definition.
-     */
-    private ?\DateTimeInterface $value;
-
-
-    public function getValue(): ?\DateTimeInterface
-    {
-        return $this->value;
-    }
-
-    public function setValue(?\DateTimeInterface $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** OMA Settings DateTime definition. */
+        public ?\DateTimeInterface $value = null
+    ) {}
 }

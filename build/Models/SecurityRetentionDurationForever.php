@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityRetentionDurationForever
 {
-
+    public function __construct(
+    ) {}
 }

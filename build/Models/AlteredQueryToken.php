@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlteredQueryToken
 {
-    /**
-     * Defines the length of a changed segment.
-     */
-    private ?float $length;
-
-    /**
-     * Defines the offset of a changed segment.
-     */
-    private ?float $offset;
-
-    /**
-     * Represents the corrected segment string.
-     */
-    private ?string $suggestion;
-
-
-    public function getLength(): ?float
-    {
-        return $this->length;
-    }
-
-    public function setLength(?float $length): self
-    {
-        $this->length = $length;
-        return $this;
-    }
-
-    public function getOffset(): ?float
-    {
-        return $this->offset;
-    }
-
-    public function setOffset(?float $offset): self
-    {
-        $this->offset = $offset;
-        return $this;
-    }
-
-    public function getSuggestion(): ?string
-    {
-        return $this->suggestion;
-    }
-
-    public function setSuggestion(?string $suggestion): self
-    {
-        $this->suggestion = $suggestion;
-        return $this;
-    }
-
+    public function __construct(
+        /** Defines the length of a changed segment. */
+        public ?float $length = null,
+        /** Defines the offset of a changed segment. */
+        public ?float $offset = null,
+        /** Represents the corrected segment string. */
+        public ?string $suggestion = null
+    ) {}
 }

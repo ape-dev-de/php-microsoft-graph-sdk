@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeType
 {
-
+    public function __construct(
+    ) {}
 }

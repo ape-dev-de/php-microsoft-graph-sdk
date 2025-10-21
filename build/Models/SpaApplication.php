@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SpaApplication
 {
-    /**
-     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
-     * @var string[]
-     */
-    private array $redirectUris = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getRedirectUris(): array
-    {
-        return $this->redirectUris;
-    }
-
-    /**
-     * @param string[] $redirectUris
-     */
-    public function setRedirectUris(array $redirectUris): self
-    {
-        $this->redirectUris = $redirectUris;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
+        public array $redirectUris = []
+    ) {}
 }

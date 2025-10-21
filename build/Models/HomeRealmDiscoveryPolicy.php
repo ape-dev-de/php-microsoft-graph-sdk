@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HomeRealmDiscoveryPolicy
 {
-
+    public function __construct(
+    ) {}
 }

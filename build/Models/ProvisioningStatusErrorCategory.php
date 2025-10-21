@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningStatusErrorCategory
 {
-
+    public function __construct(
+    ) {}
 }

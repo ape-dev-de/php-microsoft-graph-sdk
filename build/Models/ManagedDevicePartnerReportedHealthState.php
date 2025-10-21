@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedDevicePartnerReportedHealthState
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingRunningOperation
 {
-
+    public function __construct(
+    ) {}
 }

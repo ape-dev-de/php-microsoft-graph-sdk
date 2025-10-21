@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FirewallCertificateRevocationListCheckMethodType
 {
-
+    public function __construct(
+    ) {}
 }

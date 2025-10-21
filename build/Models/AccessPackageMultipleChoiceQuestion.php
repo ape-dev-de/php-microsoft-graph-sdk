@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageMultipleChoiceQuestion
 {
-    /**
-     * List of answer choices.
-     */
-    private array $choices = [];
-
-    /**
-     * Indicates whether requestor can select multiple choices as their answer.
-     */
-    private ?string $isMultipleSelectionAllowed;
-
-
-    public function getChoices(): array
-    {
-        return $this->choices;
-    }
-
-    public function setChoices(array $choices): self
-    {
-        $this->choices = $choices;
-        return $this;
-    }
-
-    public function getIsMultipleSelectionAllowed(): ?string
-    {
-        return $this->isMultipleSelectionAllowed;
-    }
-
-    public function setIsMultipleSelectionAllowed(?string $isMultipleSelectionAllowed): self
-    {
-        $this->isMultipleSelectionAllowed = $isMultipleSelectionAllowed;
-        return $this;
-    }
-
+    public function __construct(
+        /** List of answer choices. */
+        public array $choices = [],
+        /** Indicates whether requestor can select multiple choices as their answer. */
+        public ?string $isMultipleSelectionAllowed = null
+    ) {}
 }

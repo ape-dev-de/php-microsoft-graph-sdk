@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppReturnCode
 {
-    /**
-     * Return code.
-     */
-    private ?float $returnCode;
-
-    /**
-     * Contains return code properties for a Win32 App
-     */
-    private ?string $type;
-
-
-    public function getReturnCode(): ?float
-    {
-        return $this->returnCode;
-    }
-
-    public function setReturnCode(?float $returnCode): self
-    {
-        $this->returnCode = $returnCode;
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
+    public function __construct(
+        /** Return code. */
+        public ?float $returnCode = null,
+        /** Contains return code properties for a Win32 App */
+        public ?string $type = null
+    ) {}
 }

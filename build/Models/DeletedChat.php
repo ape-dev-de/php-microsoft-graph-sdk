@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeletedChat
 {
-
+    public function __construct(
+    ) {}
 }

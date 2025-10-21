@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersistentBrowserSessionControl
 {
-    /**
-     * Possible values are: always, never.
-     */
-    private ?string $mode;
-
-
-    public function getMode(): ?string
-    {
-        return $this->mode;
-    }
-
-    public function setMode(?string $mode): self
-    {
-        $this->mode = $mode;
-        return $this;
-    }
-
+    public function __construct(
+        /** Possible values are: always, never. */
+        public ?string $mode = null
+    ) {}
 }

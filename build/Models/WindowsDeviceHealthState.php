@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeviceHealthState
 {
-
+    public function __construct(
+    ) {}
 }

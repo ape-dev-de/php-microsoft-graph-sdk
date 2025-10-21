@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GovernanceInsight
 {
-    /**
-     * Indicates when the insight was created.
-     */
-    private ?\DateTimeInterface $insightCreatedDateTime;
-
-
-    public function getInsightCreatedDateTime(): ?\DateTimeInterface
-    {
-        return $this->insightCreatedDateTime;
-    }
-
-    public function setInsightCreatedDateTime(?\DateTimeInterface $insightCreatedDateTime): self
-    {
-        $this->insightCreatedDateTime = $insightCreatedDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates when the insight was created. */
+        public ?\DateTimeInterface $insightCreatedDateTime = null
+    ) {}
 }

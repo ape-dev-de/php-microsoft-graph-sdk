@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppInstalledEventMessageDetail
 {
-    /**
-     * Initiator of the event.
-     */
-    private ?string $initiator;
-
-    /**
-     * Display name of the teamsApp.
-     */
-    private ?string $teamsAppDisplayName;
-
-    /**
-     * Unique identifier of the teamsApp.
-     */
-    private ?string $teamsAppId;
-
-
-    public function getInitiator(): ?string
-    {
-        return $this->initiator;
-    }
-
-    public function setInitiator(?string $initiator): self
-    {
-        $this->initiator = $initiator;
-        return $this;
-    }
-
-    public function getTeamsAppDisplayName(): ?string
-    {
-        return $this->teamsAppDisplayName;
-    }
-
-    public function setTeamsAppDisplayName(?string $teamsAppDisplayName): self
-    {
-        $this->teamsAppDisplayName = $teamsAppDisplayName;
-        return $this;
-    }
-
-    public function getTeamsAppId(): ?string
-    {
-        return $this->teamsAppId;
-    }
-
-    public function setTeamsAppId(?string $teamsAppId): self
-    {
-        $this->teamsAppId = $teamsAppId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Initiator of the event. */
+        public ?string $initiator = null,
+        /** Display name of the teamsApp. */
+        public ?string $teamsAppDisplayName = null,
+        /** Unique identifier of the teamsApp. */
+        public ?string $teamsAppId = null
+    ) {}
 }

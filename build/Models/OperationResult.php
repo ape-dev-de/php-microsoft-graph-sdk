@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OperationResult
 {
-
+    public function __construct(
+    ) {}
 }

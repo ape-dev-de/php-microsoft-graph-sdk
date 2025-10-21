@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnAttributeCollectionStartCustomExtension
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActivityMetadata
 {
-    /**
-     */
-    private ?string $activity;
-
-
-    public function getActivity(): ?string
-    {
-        return $this->activity;
-    }
-
-    public function setActivity(?string $activity): self
-    {
-        $this->activity = $activity;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $activity = null
+    ) {}
 }

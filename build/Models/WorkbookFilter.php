@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookFilter
 {
-    /**
-     * The currently applied filter on the given column. Read-only.
-     */
-    private ?string $criteria;
-
-
-    public function getCriteria(): ?string
-    {
-        return $this->criteria;
-    }
-
-    public function setCriteria(?string $criteria): self
-    {
-        $this->criteria = $criteria;
-        return $this;
-    }
-
+    public function __construct(
+        /** The currently applied filter on the given column. Read-only. */
+        public ?string $criteria = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceWorkflowVersion
 {
-    /**
-     * The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     */
-    private ?string $versionNumber;
-
-
-    public function getVersionNumber(): ?string
-    {
-        return $this->versionNumber;
-    }
-
-    public function setVersionNumber(?string $versionNumber): self
-    {
-        $this->versionNumber = $versionNumber;
-        return $this;
-    }
-
+    public function __construct(
+        /** The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+        public ?string $versionNumber = null
+    ) {}
 }

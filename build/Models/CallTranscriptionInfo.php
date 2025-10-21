@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallTranscriptionInfo
 {
-    /**
-     * The state modified time in UTC.
-     */
-    private ?\DateTimeInterface $lastModifiedDateTime;
-
-    /**
-     */
-    private ?string $state;
-
-
-    public function getLastModifiedDateTime(): ?\DateTimeInterface
-    {
-        return $this->lastModifiedDateTime;
-    }
-
-    public function setLastModifiedDateTime(?\DateTimeInterface $lastModifiedDateTime): self
-    {
-        $this->lastModifiedDateTime = $lastModifiedDateTime;
-        return $this;
-    }
-
-    public function getState(): ?string
-    {
-        return $this->state;
-    }
-
-    public function setState(?string $state): self
-    {
-        $this->state = $state;
-        return $this;
-    }
-
+    public function __construct(
+        /** The state modified time in UTC. */
+        public ?\DateTimeInterface $lastModifiedDateTime = null,
+        /**  */
+        public ?string $state = null
+    ) {}
 }

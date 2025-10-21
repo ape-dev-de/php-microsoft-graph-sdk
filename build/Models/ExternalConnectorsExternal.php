@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsExternal
 {
-    /**
-     * @var string[]
-     */
-    private array $connections = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getConnections(): array
-    {
-        return $this->connections;
-    }
-
-    /**
-     * @param string[] $connections
-     */
-    public function setConnections(array $connections): self
-    {
-        $this->connections = $connections;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $connections = []
+    ) {}
 }

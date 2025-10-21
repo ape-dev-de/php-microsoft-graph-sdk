@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ItemAttachment
 {
-    /**
-     * The attached message or event. Navigation property.
-     */
-    private ?string $item;
-
-
-    public function getItem(): ?string
-    {
-        return $this->item;
-    }
-
-    public function setItem(?string $item): self
-    {
-        $this->item = $item;
-        return $this;
-    }
-
+    public function __construct(
+        /** The attached message or event. Navigation property. */
+        public ?string $item = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SingleUser
 {
-    /**
-     * The name of the user in Microsoft Entra ID. Read-only.
-     */
-    private ?string $description;
-
-    /**
-     * The ID of the user in Microsoft Entra ID.
-     */
-    private ?string $userId;
-
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the user in Microsoft Entra ID. Read-only. */
+        public ?string $description = null,
+        /** The ID of the user in Microsoft Entra ID. */
+        public ?string $userId = null
+    ) {}
 }

@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SamlOrWsFedExternalDomainFederation
 {
-    /**
-     * Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).
-     * @var string[]
-     */
-    private array $domains = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getDomains(): array
-    {
-        return $this->domains;
-    }
-
-    /**
-     * @param string[] $domains
-     */
-    public function setDomains(array $domains): self
-    {
-        $this->domains = $domains;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq). */
+        public array $domains = []
+    ) {}
 }

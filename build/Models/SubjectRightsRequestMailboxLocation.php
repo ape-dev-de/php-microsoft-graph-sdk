@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestMailboxLocation
 {
-
+    public function __construct(
+    ) {}
 }

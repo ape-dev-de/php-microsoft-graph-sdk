@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkforceIntegrationEncryptionProtocol
 {
-
+    public function __construct(
+    ) {}
 }

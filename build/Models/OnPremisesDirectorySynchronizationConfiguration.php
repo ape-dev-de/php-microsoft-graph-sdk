@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesDirectorySynchronizationConfiguration
 {
-    /**
-     * Contains the accidental deletion prevention configuration for a tenant.
-     */
-    private ?string $accidentalDeletionPrevention;
-
-
-    public function getAccidentalDeletionPrevention(): ?string
-    {
-        return $this->accidentalDeletionPrevention;
-    }
-
-    public function setAccidentalDeletionPrevention(?string $accidentalDeletionPrevention): self
-    {
-        $this->accidentalDeletionPrevention = $accidentalDeletionPrevention;
-        return $this;
-    }
-
+    public function __construct(
+        /** Contains the accidental deletion prevention configuration for a tenant. */
+        public ?string $accidentalDeletionPrevention = null
+    ) {}
 }

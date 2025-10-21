@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAddedStudentAction
 {
-
+    public function __construct(
+    ) {}
 }

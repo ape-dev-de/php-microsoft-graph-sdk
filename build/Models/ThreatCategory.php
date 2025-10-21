@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ThreatCategory
 {
-
+    public function __construct(
+    ) {}
 }

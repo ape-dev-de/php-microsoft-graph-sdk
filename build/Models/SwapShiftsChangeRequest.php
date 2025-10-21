@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SwapShiftsChangeRequest
 {
-    /**
-     * The recipient's Shift ID
-     */
-    private ?string $recipientShiftId;
-
-
-    public function getRecipientShiftId(): ?string
-    {
-        return $this->recipientShiftId;
-    }
-
-    public function setRecipientShiftId(?string $recipientShiftId): self
-    {
-        $this->recipientShiftId = $recipientShiftId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The recipient's Shift ID */
+        public ?string $recipientShiftId = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SendDtmfTonesOperation
 {
-    /**
-     * The results of the action. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled, unknownfutureValue.
-     */
-    private ?string $completionReason;
-
-
-    public function getCompletionReason(): ?string
-    {
-        return $this->completionReason;
-    }
-
-    public function setCompletionReason(?string $completionReason): self
-    {
-        $this->completionReason = $completionReason;
-        return $this;
-    }
-
+    public function __construct(
+        /** The results of the action. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled, unknownfutureValue. */
+        public ?string $completionReason = null
+    ) {}
 }

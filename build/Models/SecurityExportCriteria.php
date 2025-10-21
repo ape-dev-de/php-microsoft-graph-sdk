@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityExportCriteria
 {
-
+    public function __construct(
+    ) {}
 }

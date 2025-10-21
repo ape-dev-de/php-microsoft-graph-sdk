@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewStageFilterByCurrentUserOptions
 {
-
+    public function __construct(
+    ) {}
 }

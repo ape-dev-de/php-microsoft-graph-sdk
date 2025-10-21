@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationStrengthPolicyType
 {
-
+    public function __construct(
+    ) {}
 }

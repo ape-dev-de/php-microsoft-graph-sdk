@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProtectionPolicyStatus
 {
-
+    public function __construct(
+    ) {}
 }

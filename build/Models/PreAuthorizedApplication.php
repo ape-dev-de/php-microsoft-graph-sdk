@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PreAuthorizedApplication
 {
-    /**
-     * The unique identifier for the application.
-     */
-    private ?string $appId;
-
-    /**
-     * The unique identifier for the oauth2PermissionScopes the application requires.
-     * @var string[]
-     */
-    private array $delegatedPermissionIds = [];
-
-
-    public function getAppId(): ?string
-    {
-        return $this->appId;
-    }
-
-    public function setAppId(?string $appId): self
-    {
-        $this->appId = $appId;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getDelegatedPermissionIds(): array
-    {
-        return $this->delegatedPermissionIds;
-    }
-
-    /**
-     * @param string[] $delegatedPermissionIds
-     */
-    public function setDelegatedPermissionIds(array $delegatedPermissionIds): self
-    {
-        $this->delegatedPermissionIds = $delegatedPermissionIds;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier for the application. */
+        public ?string $appId = null,
+        /** @var string[] The unique identifier for the oauth2PermissionScopes the application requires. */
+        public array $delegatedPermissionIds = []
+    ) {}
 }

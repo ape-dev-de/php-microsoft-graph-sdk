@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceHealthOrigin
 {
-
+    public function __construct(
+    ) {}
 }

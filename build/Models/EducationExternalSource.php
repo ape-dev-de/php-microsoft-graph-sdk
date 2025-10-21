@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationExternalSource
 {
-
+    public function __construct(
+    ) {}
 }

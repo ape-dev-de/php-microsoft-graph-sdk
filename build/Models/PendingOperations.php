@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PendingOperations
 {
-    /**
-     * A property that indicates that an operation that might update the binary content of a file is pending completion.
-     */
-    private ?string $pendingContentUpdate;
-
-
-    public function getPendingContentUpdate(): ?string
-    {
-        return $this->pendingContentUpdate;
-    }
-
-    public function setPendingContentUpdate(?string $pendingContentUpdate): self
-    {
-        $this->pendingContentUpdate = $pendingContentUpdate;
-        return $this;
-    }
-
+    public function __construct(
+        /** A property that indicates that an operation that might update the binary content of a file is pending completion. */
+        public ?string $pendingContentUpdate = null
+    ) {}
 }

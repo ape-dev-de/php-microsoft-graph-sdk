@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationWordResource
 {
-    /**
-     * Location of the file on disk.
-     */
-    private ?string $fileUrl;
-
-
-    public function getFileUrl(): ?string
-    {
-        return $this->fileUrl;
-    }
-
-    public function setFileUrl(?string $fileUrl): self
-    {
-        $this->fileUrl = $fileUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /** Location of the file on disk. */
+        public ?string $fileUrl = null
+    ) {}
 }

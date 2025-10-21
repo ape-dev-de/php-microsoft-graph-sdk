@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageSubjectType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDefenderScanActionResult
 {
-    /**
-     * Windows Defender last scan result
-     */
-    private ?string $scanType;
-
-
-    public function getScanType(): ?string
-    {
-        return $this->scanType;
-    }
-
-    public function setScanType(?string $scanType): self
-    {
-        $this->scanType = $scanType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Windows Defender last scan result */
+        public ?string $scanType = null
+    ) {}
 }

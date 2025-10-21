@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookApplication
 {
-    /**
-     * Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
-     */
-    private ?string $calculationMode;
-
-
-    public function getCalculationMode(): ?string
-    {
-        return $this->calculationMode;
-    }
-
-    public function setCalculationMode(?string $calculationMode): self
-    {
-        $this->calculationMode = $calculationMode;
-        return $this;
-    }
-
+    public function __construct(
+        /** Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual. */
+        public ?string $calculationMode = null
+    ) {}
 }

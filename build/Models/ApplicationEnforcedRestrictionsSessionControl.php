@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApplicationEnforcedRestrictionsSessionControl
 {
-
+    public function __construct(
+    ) {}
 }

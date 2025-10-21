@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WebPart
 {
-
+    public function __construct(
+    ) {}
 }

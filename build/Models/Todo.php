@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Todo
 {
-    /**
-     * The task lists in the users mailbox.
-     * @var string[]
-     */
-    private array $lists = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getLists(): array
-    {
-        return $this->lists;
-    }
-
-    /**
-     * @param string[] $lists
-     */
-    public function setLists(array $lists): self
-    {
-        $this->lists = $lists;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The task lists in the users mailbox. */
+        public array $lists = []
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsTemplate
 {
-
+    public function __construct(
+    ) {}
 }

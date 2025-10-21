@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsWebApp
 {
-    /**
-     * Contains properties and inherited properties for Windows web apps.
-     */
-    private ?string $appUrl;
-
-
-    public function getAppUrl(): ?string
-    {
-        return $this->appUrl;
-    }
-
-    public function setAppUrl(?string $appUrl): self
-    {
-        $this->appUrl = $appUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /** Contains properties and inherited properties for Windows web apps. */
+        public ?string $appUrl = null
+    ) {}
 }

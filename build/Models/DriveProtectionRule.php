@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DriveProtectionRule
 {
-    /**
-     * Contains a drive expression. For examples, see driveExpression examples.
-     */
-    private ?string $driveExpression;
-
-
-    public function getDriveExpression(): ?string
-    {
-        return $this->driveExpression;
-    }
-
-    public function setDriveExpression(?string $driveExpression): self
-    {
-        $this->driveExpression = $driveExpression;
-        return $this;
-    }
-
+    public function __construct(
+        /** Contains a drive expression. For examples, see driveExpression examples. */
+        public ?string $driveExpression = null
+    ) {}
 }

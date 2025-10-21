@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingBillingReconciliation
 {
-    /**
-     */
-    private ?string $billed;
-
-    /**
-     */
-    private ?string $unbilled;
-
-
-    public function getBilled(): ?string
-    {
-        return $this->billed;
-    }
-
-    public function setBilled(?string $billed): self
-    {
-        $this->billed = $billed;
-        return $this;
-    }
-
-    public function getUnbilled(): ?string
-    {
-        return $this->unbilled;
-    }
-
-    public function setUnbilled(?string $unbilled): self
-    {
-        $this->unbilled = $unbilled;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $billed = null,
+        /**  */
+        public ?string $unbilled = null
+    ) {}
 }

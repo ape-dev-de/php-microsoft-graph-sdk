@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerAppliedCategories
 {
-
+    public function __construct(
+    ) {}
 }

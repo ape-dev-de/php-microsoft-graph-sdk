@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class StoragePlanInformation
 {
-    /**
-     * Indicates whether there are higher storage quota plans available. Read-only.
-     */
-    private ?string $upgradeAvailable;
-
-
-    public function getUpgradeAvailable(): ?string
-    {
-        return $this->upgradeAvailable;
-    }
-
-    public function setUpgradeAvailable(?string $upgradeAvailable): self
-    {
-        $this->upgradeAvailable = $upgradeAvailable;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether there are higher storage quota plans available. Read-only. */
+        public ?string $upgradeAvailable = null
+    ) {}
 }

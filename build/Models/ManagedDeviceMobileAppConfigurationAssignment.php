@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedDeviceMobileAppConfigurationAssignment
 {
-    /**
-     * Contains the properties used to assign an MDM app configuration to a group.
-     */
-    private ?string $target;
-
-
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-        return $this;
-    }
-
+    public function __construct(
+        /** Contains the properties used to assign an MDM app configuration to a group. */
+        public ?string $target = null
+    ) {}
 }

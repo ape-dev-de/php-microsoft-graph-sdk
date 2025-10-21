@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharedPCAllowedAccountType
 {
-
+    public function __construct(
+    ) {}
 }

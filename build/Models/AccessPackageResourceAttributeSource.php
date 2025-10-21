@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageResourceAttributeSource
 {
-
+    public function __construct(
+    ) {}
 }

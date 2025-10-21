@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsClientPlatform
 {
-
+    public function __construct(
+    ) {}
 }

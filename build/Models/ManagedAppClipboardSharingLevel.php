@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppClipboardSharingLevel
 {
-
+    public function __construct(
+    ) {}
 }

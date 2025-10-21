@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SafeSearchFilterType
 {
-
+    public function __construct(
+    ) {}
 }

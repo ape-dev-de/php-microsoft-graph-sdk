@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DriveItemVersion
 {
-    /**
-     * The content stream for this version of the item.
-     */
-    private ?string $content;
-
-    /**
-     * Indicates the size of the content stream for this version of the item.
-     */
-    private ?string $size;
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(?string $size): self
-    {
-        $this->size = $size;
-        return $this;
-    }
-
+    public function __construct(
+        /** The content stream for this version of the item. */
+        public ?string $content = null,
+        /** Indicates the size of the content stream for this version of the item. */
+        public ?string $size = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeleteUserFromSharedAppleDeviceActionResult
 {
-    /**
-     * Delete user from shared apple device action result
-     */
-    private ?string $userPrincipalName;
-
-
-    public function getUserPrincipalName(): ?string
-    {
-        return $this->userPrincipalName;
-    }
-
-    public function setUserPrincipalName(?string $userPrincipalName): self
-    {
-        $this->userPrincipalName = $userPrincipalName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Delete user from shared apple device action result */
+        public ?string $userPrincipalName = null
+    ) {}
 }

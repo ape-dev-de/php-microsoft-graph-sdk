@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationMethodTargetType
 {
-
+    public function __construct(
+    ) {}
 }

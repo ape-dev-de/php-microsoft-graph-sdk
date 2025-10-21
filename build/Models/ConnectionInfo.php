@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConnectionInfo
 {
-    /**
-     * The endpoint that is used by Entitlement Management to communicate with the access package resource.
-     */
-    private ?string $url;
-
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(?string $url): self
-    {
-        $this->url = $url;
-        return $this;
-    }
-
+    public function __construct(
+        /** The endpoint that is used by Entitlement Management to communicate with the access package resource. */
+        public ?string $url = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EligibilityFilteringEnabledEntities
 {
-
+    public function __construct(
+    ) {}
 }

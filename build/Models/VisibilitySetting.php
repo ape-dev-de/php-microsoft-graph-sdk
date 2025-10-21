@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VisibilitySetting
 {
-
+    public function __construct(
+    ) {}
 }

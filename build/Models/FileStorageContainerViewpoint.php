@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileStorageContainerViewpoint
 {
-    /**
-     * The current user's effective role. Read-only.
-     */
-    private ?string $effectiveRole;
-
-
-    public function getEffectiveRole(): ?string
-    {
-        return $this->effectiveRole;
-    }
-
-    public function setEffectiveRole(?string $effectiveRole): self
-    {
-        $this->effectiveRole = $effectiveRole;
-        return $this;
-    }
-
+    public function __construct(
+        /** The current user's effective role. Read-only. */
+        public ?string $effectiveRole = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MiracastChannel
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResourcePermission
 {
-    /**
-     */
-    private ?string $type;
-
-    /**
-     */
-    private ?string $value;
-
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $type = null,
+        /**  */
+        public ?string $value = null
+    ) {}
 }

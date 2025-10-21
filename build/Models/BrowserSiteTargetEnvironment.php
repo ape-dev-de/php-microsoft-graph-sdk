@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSiteTargetEnvironment
 {
-
+    public function __construct(
+    ) {}
 }

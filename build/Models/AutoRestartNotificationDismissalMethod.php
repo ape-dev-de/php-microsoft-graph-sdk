@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AutoRestartNotificationDismissalMethod
 {
-
+    public function __construct(
+    ) {}
 }

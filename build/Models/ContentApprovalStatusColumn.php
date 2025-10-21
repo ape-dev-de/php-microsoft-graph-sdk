@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentApprovalStatusColumn
 {
-
+    public function __construct(
+    ) {}
 }

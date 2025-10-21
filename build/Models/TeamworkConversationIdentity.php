@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkConversationIdentity
 {
-    /**
-     * Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
-     */
-    private ?string $conversationIdentityType;
-
-
-    public function getConversationIdentityType(): ?string
-    {
-        return $this->conversationIdentityType;
-    }
-
-    public function setConversationIdentityType(?string $conversationIdentityType): self
-    {
-        $this->conversationIdentityType = $conversationIdentityType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue. */
+        public ?string $conversationIdentityType = null
+    ) {}
 }

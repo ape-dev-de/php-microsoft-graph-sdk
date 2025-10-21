@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserPrint
 {
-    /**
-     * @var string[]
-     */
-    private array $recentPrinterShares = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getRecentPrinterShares(): array
-    {
-        return $this->recentPrinterShares;
-    }
-
-    /**
-     * @param string[] $recentPrinterShares
-     */
-    public function setRecentPrinterShares(array $recentPrinterShares): self
-    {
-        $this->recentPrinterShares = $recentPrinterShares;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $recentPrinterShares = []
+    ) {}
 }

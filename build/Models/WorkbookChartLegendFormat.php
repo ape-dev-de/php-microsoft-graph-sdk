@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartLegendFormat
 {
-    /**
-     * Represents the fill format of an object, which includes background formating information. Read-only.
-     */
-    private ?string $fill;
-
-    /**
-     * Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only.
-     */
-    private ?string $font;
-
-
-    public function getFill(): ?string
-    {
-        return $this->fill;
-    }
-
-    public function setFill(?string $fill): self
-    {
-        $this->fill = $fill;
-        return $this;
-    }
-
-    public function getFont(): ?string
-    {
-        return $this->font;
-    }
-
-    public function setFont(?string $font): self
-    {
-        $this->font = $font;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the fill format of an object, which includes background formating information. Read-only. */
+        public ?string $fill = null,
+        /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
+        public ?string $font = null
+    ) {}
 }

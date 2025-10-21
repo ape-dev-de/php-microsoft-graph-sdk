@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSMicrosoftDefenderApp
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthContext
 {
-    /**
-     * Supported values are c1 through c99.
-     */
-    private ?string $authenticationContextValue;
-
-
-    public function getAuthenticationContextValue(): ?string
-    {
-        return $this->authenticationContextValue;
-    }
-
-    public function setAuthenticationContextValue(?string $authenticationContextValue): self
-    {
-        $this->authenticationContextValue = $authenticationContextValue;
-        return $this;
-    }
-
+    public function __construct(
+        /** Supported values are c1 through c99. */
+        public ?string $authenticationContextValue = null
+    ) {}
 }

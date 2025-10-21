@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionResourceCollection
 {
-    /**
-     * Display name
-     */
-    private ?string $displayName;
-
-    /**
-     * Windows Information Protection Resource Collection
-     * @var string[]
-     */
-    private array $resources = [];
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getResources(): array
-    {
-        return $this->resources;
-    }
-
-    /**
-     * @param string[] $resources
-     */
-    public function setResources(array $resources): self
-    {
-        $this->resources = $resources;
-        return $this;
-    }
-
+    public function __construct(
+        /** Display name */
+        public ?string $displayName = null,
+        /** @var string[] Windows Information Protection Resource Collection */
+        public array $resources = []
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ColumnLink
 {
-    /**
-     * The name of the column  in this content type.
-     */
-    private ?string $name;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the column  in this content type. */
+        public ?string $name = null
+    ) {}
 }

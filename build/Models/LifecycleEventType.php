@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LifecycleEventType
 {
-
+    public function __construct(
+    ) {}
 }

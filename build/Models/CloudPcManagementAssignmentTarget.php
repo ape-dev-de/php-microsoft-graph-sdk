@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcManagementAssignmentTarget
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TokenLifetimePolicy
 {
-
+    public function __construct(
+    ) {}
 }

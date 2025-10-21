@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OutgoingCallOptions
 {
-
+    public function __construct(
+    ) {}
 }

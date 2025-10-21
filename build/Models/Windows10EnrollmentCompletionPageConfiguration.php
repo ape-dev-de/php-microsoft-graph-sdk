@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Windows10EnrollmentCompletionPageConfiguration
 {
-    /**
-     * Windows 10 Enrollment Status Page Configuration
-     */
-    private ?string $allowNonBlockingAppInstallation;
-
-
-    public function getAllowNonBlockingAppInstallation(): ?string
-    {
-        return $this->allowNonBlockingAppInstallation;
-    }
-
-    public function setAllowNonBlockingAppInstallation(?string $allowNonBlockingAppInstallation): self
-    {
-        $this->allowNonBlockingAppInstallation = $allowNonBlockingAppInstallation;
-        return $this;
-    }
-
+    public function __construct(
+        /** Windows 10 Enrollment Status Page Configuration */
+        public ?string $allowNonBlockingAppInstallation = null
+    ) {}
 }

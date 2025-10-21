@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeOffReasonIconType
 {
-
+    public function __construct(
+    ) {}
 }

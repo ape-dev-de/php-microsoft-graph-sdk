@@ -9,60 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventRegistrationConfiguration
 {
-    /**
-     * Total capacity of the virtual event.
-     */
-    private ?float $capacity;
-
-    /**
-     * Registration URL of the virtual event.
-     */
-    private ?string $registrationWebUrl;
-
-    /**
-     * Registration questions.
-     * @var string[]
-     */
-    private array $questions = [];
-
-
-    public function getCapacity(): ?float
-    {
-        return $this->capacity;
-    }
-
-    public function setCapacity(?float $capacity): self
-    {
-        $this->capacity = $capacity;
-        return $this;
-    }
-
-    public function getRegistrationWebUrl(): ?string
-    {
-        return $this->registrationWebUrl;
-    }
-
-    public function setRegistrationWebUrl(?string $registrationWebUrl): self
-    {
-        $this->registrationWebUrl = $registrationWebUrl;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getQuestions(): array
-    {
-        return $this->questions;
-    }
-
-    /**
-     * @param string[] $questions
-     */
-    public function setQuestions(array $questions): self
-    {
-        $this->questions = $questions;
-        return $this;
-    }
-
+    public function __construct(
+        /** Total capacity of the virtual event. */
+        public ?float $capacity = null,
+        /** Registration URL of the virtual event. */
+        public ?string $registrationWebUrl = null,
+        /** @var string[] Registration questions. */
+        public array $questions = []
+    ) {}
 }

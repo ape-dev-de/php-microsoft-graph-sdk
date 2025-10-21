@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SelectionLikelihoodInfo
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintJobStateDetail
 {
-
+    public function __construct(
+    ) {}
 }

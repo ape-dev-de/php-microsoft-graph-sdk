@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityContentFormat
 {
-
+    public function __construct(
+    ) {}
 }

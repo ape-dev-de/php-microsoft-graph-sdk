@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDynamicColumnValue
 {
-
+    public function __construct(
+    ) {}
 }

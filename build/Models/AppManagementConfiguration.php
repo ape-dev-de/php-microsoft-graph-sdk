@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppManagementConfiguration
 {
-    /**
-     * Collection of keyCredential restrictions settings to be applied to an application or service principal.
-     */
-    private array $keyCredentials = [];
-
-    /**
-     * Collection of password restrictions settings to be applied to an application or service principal.
-     * @var string[]
-     */
-    private array $passwordCredentials = [];
-
-
-    public function getKeyCredentials(): array
-    {
-        return $this->keyCredentials;
-    }
-
-    public function setKeyCredentials(array $keyCredentials): self
-    {
-        $this->keyCredentials = $keyCredentials;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPasswordCredentials(): array
-    {
-        return $this->passwordCredentials;
-    }
-
-    /**
-     * @param string[] $passwordCredentials
-     */
-    public function setPasswordCredentials(array $passwordCredentials): self
-    {
-        $this->passwordCredentials = $passwordCredentials;
-        return $this;
-    }
-
+    public function __construct(
+        /** Collection of keyCredential restrictions settings to be applied to an application or service principal. */
+        public array $keyCredentials = [],
+        /** @var string[] Collection of password restrictions settings to be applied to an application or service principal. */
+        public array $passwordCredentials = []
+    ) {}
 }

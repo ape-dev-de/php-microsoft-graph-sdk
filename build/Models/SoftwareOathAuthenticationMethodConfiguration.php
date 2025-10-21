@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SoftwareOathAuthenticationMethodConfiguration
 {
-    /**
-     * A collection of groups that are enabled to use the authentication method. Expanded by default.
-     * @var string[]
-     */
-    private array $includeTargets = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getIncludeTargets(): array
-    {
-        return $this->includeTargets;
-    }
-
-    /**
-     * @param string[] $includeTargets
-     */
-    public function setIncludeTargets(array $includeTargets): self
-    {
-        $this->includeTargets = $includeTargets;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A collection of groups that are enabled to use the authentication method. Expanded by default. */
+        public array $includeTargets = []
+    ) {}
 }

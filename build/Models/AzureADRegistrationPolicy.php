@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AzureADRegistrationPolicy
 {
-    /**
-     */
-    private ?string $allowedToRegister;
-
-    /**
-     */
-    private ?string $isAdminConfigurable;
-
-
-    public function getAllowedToRegister(): ?string
-    {
-        return $this->allowedToRegister;
-    }
-
-    public function setAllowedToRegister(?string $allowedToRegister): self
-    {
-        $this->allowedToRegister = $allowedToRegister;
-        return $this;
-    }
-
-    public function getIsAdminConfigurable(): ?string
-    {
-        return $this->isAdminConfigurable;
-    }
-
-    public function setIsAdminConfigurable(?string $isAdminConfigurable): self
-    {
-        $this->isAdminConfigurable = $isAdminConfigurable;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $allowedToRegister = null,
+        /**  */
+        public ?string $isAdminConfigurable = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityKubernetesServiceAccountEvidence
 {
-    /**
-     * The service account name.
-     */
-    private ?string $name;
-
-    /**
-     * The service account namespace.
-     */
-    private ?string $namespace;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getNamespace(): ?string
-    {
-        return $this->namespace;
-    }
-
-    public function setNamespace(?string $namespace): self
-    {
-        $this->namespace = $namespace;
-        return $this;
-    }
-
+    public function __construct(
+        /** The service account name. */
+        public ?string $name = null,
+        /** The service account namespace. */
+        public ?string $namespace = null
+    ) {}
 }

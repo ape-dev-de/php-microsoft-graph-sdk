@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityTeamsDeliveryLocation
 {
-
+    public function __construct(
+    ) {}
 }

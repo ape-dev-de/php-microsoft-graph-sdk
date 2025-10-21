@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosHomeScreenPage
 {
-    /**
-     * Name of the page
-     */
-    private ?string $displayName;
-
-    /**
-     * A page containing apps, folders, and web clips on the Home Screen.
-     * @var string[]
-     */
-    private array $icons = [];
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getIcons(): array
-    {
-        return $this->icons;
-    }
-
-    /**
-     * @param string[] $icons
-     */
-    public function setIcons(array $icons): self
-    {
-        $this->icons = $icons;
-        return $this;
-    }
-
+    public function __construct(
+        /** Name of the page */
+        public ?string $displayName = null,
+        /** @var string[] A page containing apps, folders, and web clips on the Home Screen. */
+        public array $icons = []
+    ) {}
 }

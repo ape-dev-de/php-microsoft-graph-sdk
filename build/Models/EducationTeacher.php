@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationTeacher
 {
-    /**
-     * ID of the teacher in the source system.
-     */
-    private ?string $externalId;
-
-    /**
-     * Teacher number.
-     */
-    private ?string $teacherNumber;
-
-
-    public function getExternalId(): ?string
-    {
-        return $this->externalId;
-    }
-
-    public function setExternalId(?string $externalId): self
-    {
-        $this->externalId = $externalId;
-        return $this;
-    }
-
-    public function getTeacherNumber(): ?string
-    {
-        return $this->teacherNumber;
-    }
-
-    public function setTeacherNumber(?string $teacherNumber): self
-    {
-        $this->teacherNumber = $teacherNumber;
-        return $this;
-    }
-
+    public function __construct(
+        /** ID of the teacher in the source system. */
+        public ?string $externalId = null,
+        /** Teacher number. */
+        public ?string $teacherNumber = null
+    ) {}
 }

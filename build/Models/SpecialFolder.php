@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SpecialFolder
 {
-    /**
-     * The unique identifier for this item in the /drive/special collection
-     */
-    private ?string $name;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier for this item in the /drive/special collection */
+        public ?string $name = null
+    ) {}
 }

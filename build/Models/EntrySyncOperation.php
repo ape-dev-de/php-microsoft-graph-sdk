@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EntrySyncOperation
 {
-
+    public function __construct(
+    ) {}
 }

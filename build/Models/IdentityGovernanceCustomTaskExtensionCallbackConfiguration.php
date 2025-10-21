@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceCustomTaskExtensionCallbackConfiguration
 {
-    /**
-     * @var string[]
-     */
-    private array $authorizedApps = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getAuthorizedApps(): array
-    {
-        return $this->authorizedApps;
-    }
-
-    /**
-     * @param string[] $authorizedApps
-     */
-    public function setAuthorizedApps(array $authorizedApps): self
-    {
-        $this->authorizedApps = $authorizedApps;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $authorizedApps = []
+    ) {}
 }

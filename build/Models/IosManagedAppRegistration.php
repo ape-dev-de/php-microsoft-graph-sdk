@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosManagedAppRegistration
 {
-
+    public function __construct(
+    ) {}
 }

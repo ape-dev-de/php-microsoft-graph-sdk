@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RegistryOperation
 {
-
+    public function __construct(
+    ) {}
 }

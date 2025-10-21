@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventRegistrationQuestionAnswerInputType
 {
-
+    public function __construct(
+    ) {}
 }

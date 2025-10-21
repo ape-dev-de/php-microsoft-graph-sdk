@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintMultipageLayout
 {
-
+    public function __construct(
+    ) {}
 }

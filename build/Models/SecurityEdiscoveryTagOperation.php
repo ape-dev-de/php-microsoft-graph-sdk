@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryTagOperation
 {
-
+    public function __construct(
+    ) {}
 }

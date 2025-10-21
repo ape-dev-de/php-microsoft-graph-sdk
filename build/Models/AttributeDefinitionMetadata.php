@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeDefinitionMetadata
 {
-
+    public function __construct(
+    ) {}
 }

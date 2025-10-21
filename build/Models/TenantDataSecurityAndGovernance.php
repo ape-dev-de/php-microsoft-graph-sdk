@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TenantDataSecurityAndGovernance
 {
-    /**
-     */
-    private ?string $protectionScopes;
-
-
-    public function getProtectionScopes(): ?string
-    {
-        return $this->protectionScopes;
-    }
-
-    public function setProtectionScopes(?string $protectionScopes): self
-    {
-        $this->protectionScopes = $protectionScopes;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $protectionScopes = null
+    ) {}
 }

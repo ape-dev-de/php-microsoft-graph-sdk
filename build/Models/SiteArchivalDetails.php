@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SiteArchivalDetails
 {
-    /**
-     * Represents the current archive status of the site collection. Returned only on $select. The possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue.
-     */
-    private ?string $archiveStatus;
-
-
-    public function getArchiveStatus(): ?string
-    {
-        return $this->archiveStatus;
-    }
-
-    public function setArchiveStatus(?string $archiveStatus): self
-    {
-        $this->archiveStatus = $archiveStatus;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the current archive status of the site collection. Returned only on $select. The possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue. */
+        public ?string $archiveStatus = null
+    ) {}
 }

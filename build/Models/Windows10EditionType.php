@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Windows10EditionType
 {
-
+    public function __construct(
+    ) {}
 }

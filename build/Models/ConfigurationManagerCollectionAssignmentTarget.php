@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConfigurationManagerCollectionAssignmentTarget
 {
-    /**
-     * Represents an assignment to a Configuration Manager Collection.
-     */
-    private ?string $collectionId;
-
-
-    public function getCollectionId(): ?string
-    {
-        return $this->collectionId;
-    }
-
-    public function setCollectionId(?string $collectionId): self
-    {
-        $this->collectionId = $collectionId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents an assignment to a Configuration Manager Collection. */
+        public ?string $collectionId = null
+    ) {}
 }

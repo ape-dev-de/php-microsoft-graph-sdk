@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SiteProtectionRule
 {
-    /**
-     * Contains a site expression. For examples, see siteExpression example.
-     */
-    private ?string $siteExpression;
-
-
-    public function getSiteExpression(): ?string
-    {
-        return $this->siteExpression;
-    }
-
-    public function setSiteExpression(?string $siteExpression): self
-    {
-        $this->siteExpression = $siteExpression;
-        return $this;
-    }
-
+    public function __construct(
+        /** Contains a site expression. For examples, see siteExpression example. */
+        public ?string $siteExpression = null
+    ) {}
 }

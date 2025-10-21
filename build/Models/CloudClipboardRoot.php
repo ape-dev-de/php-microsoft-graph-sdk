@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudClipboardRoot
 {
-    /**
-     * Represents a collection of Cloud Clipboard items.
-     * @var string[]
-     */
-    private array $items = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getItems(): array
-    {
-        return $this->items;
-    }
-
-    /**
-     * @param string[] $items
-     */
-    public function setItems(array $items): self
-    {
-        $this->items = $items;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Represents a collection of Cloud Clipboard items. */
+        public array $items = []
+    ) {}
 }

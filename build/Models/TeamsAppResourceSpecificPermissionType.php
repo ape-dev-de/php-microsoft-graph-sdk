@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppResourceSpecificPermissionType
 {
-
+    public function __construct(
+    ) {}
 }

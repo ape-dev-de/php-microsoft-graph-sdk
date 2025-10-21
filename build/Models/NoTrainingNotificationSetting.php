@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NoTrainingNotificationSetting
 {
-    /**
-     * The notification for the user who is part of the simulation.
-     */
-    private ?string $simulationNotification;
-
-
-    public function getSimulationNotification(): ?string
-    {
-        return $this->simulationNotification;
-    }
-
-    public function setSimulationNotification(?string $simulationNotification): self
-    {
-        $this->simulationNotification = $simulationNotification;
-        return $this;
-    }
-
+    public function __construct(
+        /** The notification for the user who is part of the simulation. */
+        public ?string $simulationNotification = null
+    ) {}
 }

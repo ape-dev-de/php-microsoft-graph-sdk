@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ODataErrorsInnerError
 {
-    /**
-     * Date when the error occured.
-     */
-    private ?\DateTimeInterface $date;
-
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(?\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-        return $this;
-    }
-
+    public function __construct(
+        /** Date when the error occured. */
+        public ?\DateTimeInterface $date = null
+    ) {}
 }

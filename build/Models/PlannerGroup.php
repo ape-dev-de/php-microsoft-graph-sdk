@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerGroup
 {
-    /**
-     * Read-only. Nullable. Returns the plannerPlans owned by the group.
-     * @var string[]
-     */
-    private array $plans = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getPlans(): array
-    {
-        return $this->plans;
-    }
-
-    /**
-     * @param string[] $plans
-     */
-    public function setPlans(array $plans): self
-    {
-        $this->plans = $plans;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Read-only. Nullable. Returns the plannerPlans owned by the group. */
+        public array $plans = []
+    ) {}
 }

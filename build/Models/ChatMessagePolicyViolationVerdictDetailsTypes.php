@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessagePolicyViolationVerdictDetailsTypes
 {
-
+    public function __construct(
+    ) {}
 }

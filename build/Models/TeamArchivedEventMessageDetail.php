@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamArchivedEventMessageDetail
 {
-    /**
-     * Initiator of the event.
-     */
-    private ?string $initiator;
-
-    /**
-     * Unique identifier of the team.
-     */
-    private ?string $teamId;
-
-
-    public function getInitiator(): ?string
-    {
-        return $this->initiator;
-    }
-
-    public function setInitiator(?string $initiator): self
-    {
-        $this->initiator = $initiator;
-        return $this;
-    }
-
-    public function getTeamId(): ?string
-    {
-        return $this->teamId;
-    }
-
-    public function setTeamId(?string $teamId): self
-    {
-        $this->teamId = $teamId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Initiator of the event. */
+        public ?string $initiator = null,
+        /** Unique identifier of the team. */
+        public ?string $teamId = null
+    ) {}
 }

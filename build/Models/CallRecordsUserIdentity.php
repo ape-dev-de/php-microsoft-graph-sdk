@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsUserIdentity
 {
-    /**
-     */
-    private ?string $userPrincipalName;
-
-
-    public function getUserPrincipalName(): ?string
-    {
-        return $this->userPrincipalName;
-    }
-
-    public function setUserPrincipalName(?string $userPrincipalName): self
-    {
-        $this->userPrincipalName = $userPrincipalName;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $userPrincipalName = null
+    ) {}
 }

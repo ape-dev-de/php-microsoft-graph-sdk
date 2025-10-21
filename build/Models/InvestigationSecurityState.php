@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InvestigationSecurityState
 {
-    /**
-     */
-    private ?string $name;
-
-    /**
-     */
-    private ?string $status;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?string $status): self
-    {
-        $this->status = $status;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $name = null,
+        /**  */
+        public ?string $status = null
+    ) {}
 }

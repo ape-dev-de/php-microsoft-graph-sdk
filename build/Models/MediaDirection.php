@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaDirection
 {
-
+    public function __construct(
+    ) {}
 }

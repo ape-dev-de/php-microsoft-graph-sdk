@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PendingContentUpdate
 {
-    /**
-     * Date and time the pending binary operation was queued in UTC time. Read-only.
-     */
-    private ?\DateTimeInterface $queuedDateTime;
-
-
-    public function getQueuedDateTime(): ?\DateTimeInterface
-    {
-        return $this->queuedDateTime;
-    }
-
-    public function setQueuedDateTime(?\DateTimeInterface $queuedDateTime): self
-    {
-        $this->queuedDateTime = $queuedDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** Date and time the pending binary operation was queued in UTC time. Read-only. */
+        public ?\DateTimeInterface $queuedDateTime = null
+    ) {}
 }

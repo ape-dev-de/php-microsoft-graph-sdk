@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WebsiteType
 {
-
+    public function __construct(
+    ) {}
 }

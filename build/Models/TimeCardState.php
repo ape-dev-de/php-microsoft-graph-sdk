@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeCardState
 {
-
+    public function __construct(
+    ) {}
 }

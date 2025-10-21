@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionNetworkLearningSummary
 {
-    /**
-     * Device Count
-     */
-    private ?float $deviceCount;
-
-    /**
-     * Windows Information Protection Network learning Summary entity.
-     */
-    private ?string $url;
-
-
-    public function getDeviceCount(): ?float
-    {
-        return $this->deviceCount;
-    }
-
-    public function setDeviceCount(?float $deviceCount): self
-    {
-        $this->deviceCount = $deviceCount;
-        return $this;
-    }
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(?string $url): self
-    {
-        $this->url = $url;
-        return $this;
-    }
-
+    public function __construct(
+        /** Device Count */
+        public ?float $deviceCount = null,
+        /** Windows Information Protection Network learning Summary entity. */
+        public ?string $url = null
+    ) {}
 }

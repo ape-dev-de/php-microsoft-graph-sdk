@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecentNotebookLinks
 {
-    /**
-     * Opens the notebook in the OneNote native client if it's installed.
-     */
-    private ?string $oneNoteClientUrl;
-
-    /**
-     * Opens the notebook in OneNote on the web.
-     */
-    private ?string $oneNoteWebUrl;
-
-
-    public function getOneNoteClientUrl(): ?string
-    {
-        return $this->oneNoteClientUrl;
-    }
-
-    public function setOneNoteClientUrl(?string $oneNoteClientUrl): self
-    {
-        $this->oneNoteClientUrl = $oneNoteClientUrl;
-        return $this;
-    }
-
-    public function getOneNoteWebUrl(): ?string
-    {
-        return $this->oneNoteWebUrl;
-    }
-
-    public function setOneNoteWebUrl(?string $oneNoteWebUrl): self
-    {
-        $this->oneNoteWebUrl = $oneNoteWebUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /** Opens the notebook in the OneNote native client if it's installed. */
+        public ?string $oneNoteClientUrl = null,
+        /** Opens the notebook in OneNote on the web. */
+        public ?string $oneNoteWebUrl = null
+    ) {}
 }

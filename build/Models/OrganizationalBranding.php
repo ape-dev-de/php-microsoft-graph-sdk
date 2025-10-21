@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OrganizationalBranding
 {
-    /**
-     * Add different branding based on a locale.
-     * @var string[]
-     */
-    private array $localizations = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getLocalizations(): array
-    {
-        return $this->localizations;
-    }
-
-    /**
-     * @param string[] $localizations
-     */
-    public function setLocalizations(array $localizations): self
-    {
-        $this->localizations = $localizations;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Add different branding based on a locale. */
+        public array $localizations = []
+    ) {}
 }

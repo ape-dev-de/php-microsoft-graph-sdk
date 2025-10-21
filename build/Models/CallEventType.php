@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallEventType
 {
-
+    public function __construct(
+    ) {}
 }

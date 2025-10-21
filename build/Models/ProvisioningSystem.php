@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningSystem
 {
-    /**
-     * Details of the system.
-     */
-    private ?string $details;
-
-
-    public function getDetails(): ?string
-    {
-        return $this->details;
-    }
-
-    public function setDetails(?string $details): self
-    {
-        $this->details = $details;
-        return $this;
-    }
-
+    public function __construct(
+        /** Details of the system. */
+        public ?string $details = null
+    ) {}
 }

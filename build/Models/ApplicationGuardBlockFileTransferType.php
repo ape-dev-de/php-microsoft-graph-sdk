@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApplicationGuardBlockFileTransferType
 {
-
+    public function __construct(
+    ) {}
 }

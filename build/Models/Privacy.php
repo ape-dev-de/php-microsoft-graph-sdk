@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Privacy
 {
-    /**
-     * @var string[]
-     */
-    private array $subjectRightsRequests = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getSubjectRightsRequests(): array
-    {
-        return $this->subjectRightsRequests;
-    }
-
-    /**
-     * @param string[] $subjectRightsRequests
-     */
-    public function setSubjectRightsRequests(array $subjectRightsRequests): self
-    {
-        $this->subjectRightsRequests = $subjectRightsRequests;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $subjectRightsRequests = []
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcRestorePointFrequencyType
 {
-
+    public function __construct(
+    ) {}
 }

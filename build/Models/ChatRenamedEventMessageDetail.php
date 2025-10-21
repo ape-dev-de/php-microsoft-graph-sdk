@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatRenamedEventMessageDetail
 {
-    /**
-     * The updated name of the chat.
-     */
-    private ?string $chatDisplayName;
-
-    /**
-     * Unique identifier of the chat.
-     */
-    private ?string $chatId;
-
-    /**
-     * Initiator of the event.
-     */
-    private ?string $initiator;
-
-
-    public function getChatDisplayName(): ?string
-    {
-        return $this->chatDisplayName;
-    }
-
-    public function setChatDisplayName(?string $chatDisplayName): self
-    {
-        $this->chatDisplayName = $chatDisplayName;
-        return $this;
-    }
-
-    public function getChatId(): ?string
-    {
-        return $this->chatId;
-    }
-
-    public function setChatId(?string $chatId): self
-    {
-        $this->chatId = $chatId;
-        return $this;
-    }
-
-    public function getInitiator(): ?string
-    {
-        return $this->initiator;
-    }
-
-    public function setInitiator(?string $initiator): self
-    {
-        $this->initiator = $initiator;
-        return $this;
-    }
-
+    public function __construct(
+        /** The updated name of the chat. */
+        public ?string $chatDisplayName = null,
+        /** Unique identifier of the chat. */
+        public ?string $chatId = null,
+        /** Initiator of the event. */
+        public ?string $initiator = null
+    ) {}
 }

@@ -9,43 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeConstraint
 {
-    /**
-     * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
-     */
-    private ?string $activityDomain;
-
-    /**
-     * @var string[]
-     */
-    private array $timeSlots = [];
-
-
-    public function getActivityDomain(): ?string
-    {
-        return $this->activityDomain;
-    }
-
-    public function setActivityDomain(?string $activityDomain): self
-    {
-        $this->activityDomain = $activityDomain;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getTimeSlots(): array
-    {
-        return $this->timeSlots;
-    }
-
-    /**
-     * @param string[] $timeSlots
-     */
-    public function setTimeSlots(array $timeSlots): self
-    {
-        $this->timeSlots = $timeSlots;
-        return $this;
-    }
-
+    public function __construct(
+        /** The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown. */
+        public ?string $activityDomain = null,
+        /** @var string[]  */
+        public array $timeSlots = []
+    ) {}
 }

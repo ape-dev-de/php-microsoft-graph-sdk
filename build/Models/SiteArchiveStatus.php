@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SiteArchiveStatus
 {
-
+    public function __construct(
+    ) {}
 }

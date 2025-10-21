@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FederatedIdpMfaBehavior
 {
-
+    public function __construct(
+    ) {}
 }

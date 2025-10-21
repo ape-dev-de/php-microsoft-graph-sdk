@@ -9,92 +9,16 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventRegistrationQuestionAnswer
 {
-    /**
-     * Boolean answer of the virtual event registration question. Only appears when answerInputType is boolean.
-     */
-    private ?bool $booleanValue;
-
-    /**
-     * Display name of the registration question.
-     */
-    private ?string $displayName;
-
-    /**
-     * Collection of text answer of the virtual event registration question. Only appears when answerInputType is multiChoice.
-     * @var string[]
-     */
-    private array $multiChoiceValues = [];
-
-    /**
-     * id of the virtual event registration question.
-     */
-    private ?string $questionId;
-
-    /**
-     * Text answer of the virtual event registration question. Appears when answerInputType is text, multilineText or singleChoice.
-     */
-    private ?string $value;
-
-
-    public function getBooleanValue(): ?bool
-    {
-        return $this->booleanValue;
-    }
-
-    public function setBooleanValue(?bool $booleanValue): self
-    {
-        $this->booleanValue = $booleanValue;
-        return $this;
-    }
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getMultiChoiceValues(): array
-    {
-        return $this->multiChoiceValues;
-    }
-
-    /**
-     * @param string[] $multiChoiceValues
-     */
-    public function setMultiChoiceValues(array $multiChoiceValues): self
-    {
-        $this->multiChoiceValues = $multiChoiceValues;
-        return $this;
-    }
-
-    public function getQuestionId(): ?string
-    {
-        return $this->questionId;
-    }
-
-    public function setQuestionId(?string $questionId): self
-    {
-        $this->questionId = $questionId;
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** Boolean answer of the virtual event registration question. Only appears when answerInputType is boolean. */
+        public ?bool $booleanValue = null,
+        /** Display name of the registration question. */
+        public ?string $displayName = null,
+        /** @var string[] Collection of text answer of the virtual event registration question. Only appears when answerInputType is multiChoice. */
+        public array $multiChoiceValues = [],
+        /** id of the virtual event registration question. */
+        public ?string $questionId = null,
+        /** Text answer of the virtual event registration question. Appears when answerInputType is text, multilineText or singleChoice. */
+        public ?string $value = null
+    ) {}
 }

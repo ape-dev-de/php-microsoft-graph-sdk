@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventExternalRegistrationInformation
 {
-    /**
-     * A URL or string that represents the location from which the registrant registered. Optional.
-     */
-    private ?string $referrer;
-
-    /**
-     * The identifier for a virtualEventExternalRegistrationInformation object. Optional. If set, the maximum supported length is 256 characters.
-     */
-    private ?string $registrationId;
-
-
-    public function getReferrer(): ?string
-    {
-        return $this->referrer;
-    }
-
-    public function setReferrer(?string $referrer): self
-    {
-        $this->referrer = $referrer;
-        return $this;
-    }
-
-    public function getRegistrationId(): ?string
-    {
-        return $this->registrationId;
-    }
-
-    public function setRegistrationId(?string $registrationId): self
-    {
-        $this->registrationId = $registrationId;
-        return $this;
-    }
-
+    public function __construct(
+        /** A URL or string that represents the location from which the registrant registered. Optional. */
+        public ?string $referrer = null,
+        /** The identifier for a virtualEventExternalRegistrationInformation object. Optional. If set, the maximum supported length is 256 characters. */
+        public ?string $registrationId = null
+    ) {}
 }

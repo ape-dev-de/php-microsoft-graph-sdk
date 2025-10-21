@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserProtectionScopeContainer
 {
-
+    public function __construct(
+    ) {}
 }

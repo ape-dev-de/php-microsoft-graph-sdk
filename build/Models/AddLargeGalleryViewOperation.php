@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AddLargeGalleryViewOperation
 {
-
+    public function __construct(
+    ) {}
 }

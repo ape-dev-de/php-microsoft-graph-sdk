@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestoreJobType
 {
-
+    public function __construct(
+    ) {}
 }

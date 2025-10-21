@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProxiedDomain
 {
-    /**
-     * The IP address or FQDN
-     */
-    private ?string $ipAddressOrFQDN;
-
-    /**
-     * Proxied Domain
-     */
-    private ?string $proxy;
-
-
-    public function getIpAddressOrFQDN(): ?string
-    {
-        return $this->ipAddressOrFQDN;
-    }
-
-    public function setIpAddressOrFQDN(?string $ipAddressOrFQDN): self
-    {
-        $this->ipAddressOrFQDN = $ipAddressOrFQDN;
-        return $this;
-    }
-
-    public function getProxy(): ?string
-    {
-        return $this->proxy;
-    }
-
-    public function setProxy(?string $proxy): self
-    {
-        $this->proxy = $proxy;
-        return $this;
-    }
-
+    public function __construct(
+        /** The IP address or FQDN */
+        public ?string $ipAddressOrFQDN = null,
+        /** Proxied Domain */
+        public ?string $proxy = null
+    ) {}
 }

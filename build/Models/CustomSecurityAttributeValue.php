@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomSecurityAttributeValue
 {
-
+    public function __construct(
+    ) {}
 }

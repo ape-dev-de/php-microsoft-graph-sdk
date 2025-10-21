@@ -9,75 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsSetting
 {
-    /**
-     * The type of setting payloads contained in the instances navigation property.
-     */
-    private ?string $payloadType;
-
-    /**
-     */
-    private ?string $settingType;
-
-    /**
-     * A unique identifier for the device the setting might belong to if it is of the settingType backup.
-     */
-    private ?string $windowsDeviceId;
-
-    /**
-     * A collection of setting values for a given windowsSetting.
-     * @var string[]
-     */
-    private array $instances = [];
-
-
-    public function getPayloadType(): ?string
-    {
-        return $this->payloadType;
-    }
-
-    public function setPayloadType(?string $payloadType): self
-    {
-        $this->payloadType = $payloadType;
-        return $this;
-    }
-
-    public function getSettingType(): ?string
-    {
-        return $this->settingType;
-    }
-
-    public function setSettingType(?string $settingType): self
-    {
-        $this->settingType = $settingType;
-        return $this;
-    }
-
-    public function getWindowsDeviceId(): ?string
-    {
-        return $this->windowsDeviceId;
-    }
-
-    public function setWindowsDeviceId(?string $windowsDeviceId): self
-    {
-        $this->windowsDeviceId = $windowsDeviceId;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getInstances(): array
-    {
-        return $this->instances;
-    }
-
-    /**
-     * @param string[] $instances
-     */
-    public function setInstances(array $instances): self
-    {
-        $this->instances = $instances;
-        return $this;
-    }
-
+    public function __construct(
+        /** The type of setting payloads contained in the instances navigation property. */
+        public ?string $payloadType = null,
+        /**  */
+        public ?string $settingType = null,
+        /** A unique identifier for the device the setting might belong to if it is of the settingType backup. */
+        public ?string $windowsDeviceId = null,
+        /** @var string[] A collection of setting values for a given windowsSetting. */
+        public array $instances = []
+    ) {}
 }

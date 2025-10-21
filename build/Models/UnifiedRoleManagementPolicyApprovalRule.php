@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRoleManagementPolicyApprovalRule
 {
-    /**
-     * The settings for approval of the role assignment.
-     */
-    private ?string $setting;
-
-
-    public function getSetting(): ?string
-    {
-        return $this->setting;
-    }
-
-    public function setSetting(?string $setting): self
-    {
-        $this->setting = $setting;
-        return $this;
-    }
-
+    public function __construct(
+        /** The settings for approval of the role assignment. */
+        public ?string $setting = null
+    ) {}
 }

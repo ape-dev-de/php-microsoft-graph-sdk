@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OmaSettingInteger
 {
-    /**
-     * OMA Settings Integer definition.
-     */
-    private ?string $value;
-
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** OMA Settings Integer definition. */
+        public ?string $value = null
+    ) {}
 }

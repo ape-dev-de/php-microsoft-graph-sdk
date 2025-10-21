@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EventMessageDetail
 {
-
+    public function __construct(
+    ) {}
 }

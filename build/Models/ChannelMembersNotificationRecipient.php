@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChannelMembersNotificationRecipient
 {
-    /**
-     * The unique identifier for the channel whose members should receive the notification.
-     */
-    private ?string $channelId;
-
-    /**
-     * The unique identifier for the team under which the channel resides.
-     */
-    private ?string $teamId;
-
-
-    public function getChannelId(): ?string
-    {
-        return $this->channelId;
-    }
-
-    public function setChannelId(?string $channelId): self
-    {
-        $this->channelId = $channelId;
-        return $this;
-    }
-
-    public function getTeamId(): ?string
-    {
-        return $this->teamId;
-    }
-
-    public function setTeamId(?string $teamId): self
-    {
-        $this->teamId = $teamId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier for the channel whose members should receive the notification. */
+        public ?string $channelId = null,
+        /** The unique identifier for the team under which the channel resides. */
+        public ?string $teamId = null
+    ) {}
 }

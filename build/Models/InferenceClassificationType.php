@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InferenceClassificationType
 {
-
+    public function __construct(
+    ) {}
 }

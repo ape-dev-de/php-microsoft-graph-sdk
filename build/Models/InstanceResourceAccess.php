@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InstanceResourceAccess
 {
-    /**
-     */
-    private array $permissions = [];
-
-    /**
-     */
-    private ?string $resourceAppId;
-
-
-    public function getPermissions(): array
-    {
-        return $this->permissions;
-    }
-
-    public function setPermissions(array $permissions): self
-    {
-        $this->permissions = $permissions;
-        return $this;
-    }
-
-    public function getResourceAppId(): ?string
-    {
-        return $this->resourceAppId;
-    }
-
-    public function setResourceAppId(?string $resourceAppId): self
-    {
-        $this->resourceAppId = $resourceAppId;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public array $permissions = [],
+        /**  */
+        public ?string $resourceAppId = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnAttributeCollectionStartListener
 {
-    /**
-     * Configuration for what to invoke if the event resolves to this listener.
-     */
-    private ?string $handler;
-
-
-    public function getHandler(): ?string
-    {
-        return $this->handler;
-    }
-
-    public function setHandler(?string $handler): self
-    {
-        $this->handler = $handler;
-        return $this;
-    }
-
+    public function __construct(
+        /** Configuration for what to invoke if the event resolves to this listener. */
+        public ?string $handler = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RunAsAccountType
 {
-
+    public function __construct(
+    ) {}
 }

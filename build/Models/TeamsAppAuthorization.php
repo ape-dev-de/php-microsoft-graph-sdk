@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppAuthorization
 {
-    /**
-     * The registration ID of the Microsoft Entra app ID associated with the teamsApp.
-     */
-    private ?string $clientAppId;
-
-    /**
-     * Set of permissions required by the teamsApp.
-     */
-    private ?string $requiredPermissionSet;
-
-
-    public function getClientAppId(): ?string
-    {
-        return $this->clientAppId;
-    }
-
-    public function setClientAppId(?string $clientAppId): self
-    {
-        $this->clientAppId = $clientAppId;
-        return $this;
-    }
-
-    public function getRequiredPermissionSet(): ?string
-    {
-        return $this->requiredPermissionSet;
-    }
-
-    public function setRequiredPermissionSet(?string $requiredPermissionSet): self
-    {
-        $this->requiredPermissionSet = $requiredPermissionSet;
-        return $this;
-    }
-
+    public function __construct(
+        /** The registration ID of the Microsoft Entra app ID associated with the teamsApp. */
+        public ?string $clientAppId = null,
+        /** Set of permissions required by the teamsApp. */
+        public ?string $requiredPermissionSet = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationOnPremisesInfo
 {
-    /**
-     * Unique identifier for the user object in Active Directory.
-     */
-    private ?string $immutableId;
-
-
-    public function getImmutableId(): ?string
-    {
-        return $this->immutableId;
-    }
-
-    public function setImmutableId(?string $immutableId): self
-    {
-        $this->immutableId = $immutableId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Unique identifier for the user object in Active Directory. */
+        public ?string $immutableId = null
+    ) {}
 }

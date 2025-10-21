@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkUserIdentityType
 {
-
+    public function __construct(
+    ) {}
 }

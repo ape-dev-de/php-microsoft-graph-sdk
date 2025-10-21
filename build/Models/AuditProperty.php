@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuditProperty
 {
-    /**
-     * Display name.
-     */
-    private ?string $displayName;
-
-    /**
-     * New value.
-     */
-    private ?string $newValue;
-
-    /**
-     * A class containing the properties for Audit Property.
-     */
-    private ?string $oldValue;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getNewValue(): ?string
-    {
-        return $this->newValue;
-    }
-
-    public function setNewValue(?string $newValue): self
-    {
-        $this->newValue = $newValue;
-        return $this;
-    }
-
-    public function getOldValue(): ?string
-    {
-        return $this->oldValue;
-    }
-
-    public function setOldValue(?string $oldValue): self
-    {
-        $this->oldValue = $oldValue;
-        return $this;
-    }
-
+    public function __construct(
+        /** Display name. */
+        public ?string $displayName = null,
+        /** New value. */
+        public ?string $newValue = null,
+        /** A class containing the properties for Audit Property. */
+        public ?string $oldValue = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExpressionInputObject
 {
-    /**
-     * Definition of the test object.
-     */
-    private array $definition = [];
-
-    /**
-     * Property values of the test object.
-     */
-    private ?string $items;
-
-
-    public function getDefinition(): array
-    {
-        return $this->definition;
-    }
-
-    public function setDefinition(array $definition): self
-    {
-        $this->definition = $definition;
-        return $this;
-    }
-
-    public function getItems(): ?string
-    {
-        return $this->items;
-    }
-
-    public function setItems(?string $items): self
-    {
-        $this->items = $items;
-        return $this;
-    }
-
+    public function __construct(
+        /** Definition of the test object. */
+        public array $definition = [],
+        /** Property values of the test object. */
+        public ?string $items = null
+    ) {}
 }

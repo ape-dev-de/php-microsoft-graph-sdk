@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProtectionUnitsBulkJobStatus
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcAuditActivityResult
 {
-
+    public function __construct(
+    ) {}
 }

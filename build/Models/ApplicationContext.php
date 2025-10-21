@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApplicationContext
 {
-    /**
-     * Collection of appId values for the applications.
-     * @var string[]
-     */
-    private array $includeApplications = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getIncludeApplications(): array
-    {
-        return $this->includeApplications;
-    }
-
-    /**
-     * @param string[] $includeApplications
-     */
-    public function setIncludeApplications(array $includeApplications): self
-    {
-        $this->includeApplications = $includeApplications;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Collection of appId values for the applications. */
+        public array $includeApplications = []
+    ) {}
 }

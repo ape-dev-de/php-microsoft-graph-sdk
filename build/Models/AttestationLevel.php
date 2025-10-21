@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttestationLevel
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningServicePrincipal
 {
-
+    public function __construct(
+    ) {}
 }

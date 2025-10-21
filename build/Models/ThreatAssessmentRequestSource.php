@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ThreatAssessmentRequestSource
 {
-
+    public function __construct(
+    ) {}
 }

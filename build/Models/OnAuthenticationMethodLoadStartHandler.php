@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnAuthenticationMethodLoadStartHandler
 {
-
+    public function __construct(
+    ) {}
 }

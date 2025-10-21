@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemoteLockActionResult
 {
-    /**
-     * Lock action result with a pin to unlock
-     */
-    private ?string $unlockPin;
-
-
-    public function getUnlockPin(): ?string
-    {
-        return $this->unlockPin;
-    }
-
-    public function setUnlockPin(?string $unlockPin): self
-    {
-        $this->unlockPin = $unlockPin;
-        return $this;
-    }
-
+    public function __construct(
+        /** Lock action result with a pin to unlock */
+        public ?string $unlockPin = null
+    ) {}
 }

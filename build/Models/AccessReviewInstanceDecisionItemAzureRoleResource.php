@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewInstanceDecisionItemAzureRoleResource
 {
-    /**
-     * Details of the scope this role is associated with.
-     */
-    private ?string $scope;
-
-
-    public function getScope(): ?string
-    {
-        return $this->scope;
-    }
-
-    public function setScope(?string $scope): self
-    {
-        $this->scope = $scope;
-        return $this;
-    }
-
+    public function __construct(
+        /** Details of the scope this role is associated with. */
+        public ?string $scope = null
+    ) {}
 }

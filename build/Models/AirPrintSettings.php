@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AirPrintSettings
 {
-    /**
-     */
-    private ?string $incompatiblePrinters;
-
-
-    public function getIncompatiblePrinters(): ?string
-    {
-        return $this->incompatiblePrinters;
-    }
-
-    public function setIncompatiblePrinters(?string $incompatiblePrinters): self
-    {
-        $this->incompatiblePrinters = $incompatiblePrinters;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $incompatiblePrinters = null
+    ) {}
 }

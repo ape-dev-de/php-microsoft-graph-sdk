@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDocumentVersion
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CountryLookupMethodType
 {
-
+    public function __construct(
+    ) {}
 }

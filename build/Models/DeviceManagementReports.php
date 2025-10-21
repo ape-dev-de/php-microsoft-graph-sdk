@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementReports
 {
-    /**
-     * Entity representing a job to export a report
-     * @var string[]
-     */
-    private array $exportJobs = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getExportJobs(): array
-    {
-        return $this->exportJobs;
-    }
-
-    /**
-     * @param string[] $exportJobs
-     */
-    public function setExportJobs(array $exportJobs): self
-    {
-        $this->exportJobs = $exportJobs;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Entity representing a job to export a report */
+        public array $exportJobs = []
+    ) {}
 }

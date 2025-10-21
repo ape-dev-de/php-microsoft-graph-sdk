@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAcronym
 {
-    /**
-     * What the acronym stands for.
-     */
-    private ?string $standsFor;
-
-    /**
-     */
-    private ?string $state;
-
-
-    public function getStandsFor(): ?string
-    {
-        return $this->standsFor;
-    }
-
-    public function setStandsFor(?string $standsFor): self
-    {
-        $this->standsFor = $standsFor;
-        return $this;
-    }
-
-    public function getState(): ?string
-    {
-        return $this->state;
-    }
-
-    public function setState(?string $state): self
-    {
-        $this->state = $state;
-        return $this;
-    }
-
+    public function __construct(
+        /** What the acronym stands for. */
+        public ?string $standsFor = null,
+        /**  */
+        public ?string $state = null
+    ) {}
 }

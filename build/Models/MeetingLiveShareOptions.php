@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingLiveShareOptions
 {
-
+    public function __construct(
+    ) {}
 }

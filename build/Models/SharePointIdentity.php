@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharePointIdentity
 {
-    /**
-     * The sign in name of the SharePoint identity.
-     */
-    private ?string $loginName;
-
-
-    public function getLoginName(): ?string
-    {
-        return $this->loginName;
-    }
-
-    public function setLoginName(?string $loginName): self
-    {
-        $this->loginName = $loginName;
-        return $this;
-    }
-
+    public function __construct(
+        /** The sign in name of the SharePoint identity. */
+        public ?string $loginName = null
+    ) {}
 }

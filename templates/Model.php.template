@@ -12,16 +12,16 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class <?= $MODEL_NAME ?>
 
 {
-<?php foreach ($PROPERTIES as $propName => $propDef): ?>
-<?php
+    public function __construct(
+<?php 
+$propCount = count($PROPERTIES);
+$currentIndex = 0;
+foreach ($PROPERTIES as $propName => $propDef): 
+    $currentIndex++;
     $type = $propDef['type'];
     $description = $propDef['description'] ?? '';
+    $isLast = $currentIndex === $propCount;
 ?>
-    /**
-<?php if ($description): ?>
-     * <?= $description ?>
-
-<?php endif; ?>
 <?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
 <?php
     $itemType = $propDef['items']['type'];
@@ -33,60 +33,12 @@ class <?= $MODEL_NAME ?>
         default => 'mixed'
     };
 ?>
-     * @var <?= $phpItemType ?>[]
+        /** @var <?= $phpItemType ?>[] <?= $description ? $description : '' ?> */
+<?php else: ?>
+        /** <?= $description ? $description : '' ?> */
 <?php endif; ?>
-     */
-    private <?= $type ?> $<?= $propName ?><?= $type === 'array' ? ' = []' : '' ?>;
+        public <?= $type ?> $<?= $propName ?> = <?= $type === 'array' ? '[]' : 'null' ?><?= $isLast ? '' : ',' ?>
 
 <?php endforeach; ?>
-
-<?php foreach ($PROPERTIES as $propName => $propDef): ?>
-<?php
-    $type = $propDef['type'];
-    $methodName = ucfirst($propName);
-?>
-<?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
-<?php
-    $itemType = $propDef['items']['type'];
-    $phpItemType = match($itemType) {
-        'string' => 'string',
-        'integer' => 'int',
-        'number' => 'float',
-        'boolean' => 'bool',
-        default => 'mixed'
-    };
-?>
-    /**
-     * @return <?= $phpItemType ?>[]
-     */
-<?php endif; ?>
-    public function get<?= $methodName ?>(): <?= $type ?>
-
-    {
-        return $this-><?= $propName ?>;
-    }
-
-<?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
-<?php
-    $itemType = $propDef['items']['type'];
-    $phpItemType = match($itemType) {
-        'string' => 'string',
-        'integer' => 'int',
-        'number' => 'float',
-        'boolean' => 'bool',
-        default => 'mixed'
-    };
-?>
-    /**
-     * @param <?= $phpItemType ?>[] $<?= $propName ?>
-
-     */
-<?php endif; ?>
-    public function set<?= $methodName ?>(<?= $type ?> $<?= $propName ?>): self
-    {
-        $this-><?= $propName ?> = $<?= $propName ?>;
-        return $this;
-    }
-
-<?php endforeach; ?>
+    ) {}
 }

@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCategoryTemplate
 {
-    /**
-     * Represents all subcategories under a particular category.
-     * @var string[]
-     */
-    private array $subcategories = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getSubcategories(): array
-    {
-        return $this->subcategories;
-    }
-
-    /**
-     * @param string[] $subcategories
-     */
-    public function setSubcategories(array $subcategories): self
-    {
-        $this->subcategories = $subcategories;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Represents all subcategories under a particular category. */
+        public array $subcategories = []
+    ) {}
 }

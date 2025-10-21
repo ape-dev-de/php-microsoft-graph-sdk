@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecureSignInSessionControl
 {
-
+    public function __construct(
+    ) {}
 }

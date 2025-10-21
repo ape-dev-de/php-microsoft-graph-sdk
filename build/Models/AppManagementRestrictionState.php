@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppManagementRestrictionState
 {
-
+    public function __construct(
+    ) {}
 }

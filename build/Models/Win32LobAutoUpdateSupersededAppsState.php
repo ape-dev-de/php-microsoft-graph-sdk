@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAutoUpdateSupersededAppsState
 {
-
+    public function __construct(
+    ) {}
 }

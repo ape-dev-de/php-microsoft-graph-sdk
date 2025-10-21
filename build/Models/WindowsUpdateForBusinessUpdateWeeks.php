@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsUpdateForBusinessUpdateWeeks
 {
-
+    public function __construct(
+    ) {}
 }

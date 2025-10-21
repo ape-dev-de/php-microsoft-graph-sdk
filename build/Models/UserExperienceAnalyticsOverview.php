@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsOverview
 {
-    /**
-     * The user experience analytics overview entity contains the overall score and the scores and insights of every metric of all categories.
-     * @var string[]
-     */
-    private array $insights = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getInsights(): array
-    {
-        return $this->insights;
-    }
-
-    /**
-     * @param string[] $insights
-     */
-    public function setInsights(array $insights): self
-    {
-        $this->insights = $insights;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The user experience analytics overview entity contains the overall score and the scores and insights of every metric of all categories. */
+        public array $insights = []
+    ) {}
 }

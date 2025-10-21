@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegatedAdminAccessAssignmentStatus
 {
-
+    public function __construct(
+    ) {}
 }

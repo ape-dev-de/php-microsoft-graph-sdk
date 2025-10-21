@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResultInfo
 {
-    /**
-     * The result code.
-     */
-    private ?float $code;
-
-    /**
-     * The message.
-     */
-    private ?string $message;
-
-    /**
-     * The result subcode.
-     */
-    private ?string $subcode;
-
-
-    public function getCode(): ?float
-    {
-        return $this->code;
-    }
-
-    public function setCode(?float $code): self
-    {
-        $this->code = $code;
-        return $this;
-    }
-
-    public function getMessage(): ?string
-    {
-        return $this->message;
-    }
-
-    public function setMessage(?string $message): self
-    {
-        $this->message = $message;
-        return $this;
-    }
-
-    public function getSubcode(): ?string
-    {
-        return $this->subcode;
-    }
-
-    public function setSubcode(?string $subcode): self
-    {
-        $this->subcode = $subcode;
-        return $this;
-    }
-
+    public function __construct(
+        /** The result code. */
+        public ?float $code = null,
+        /** The message. */
+        public ?string $message = null,
+        /** The result subcode. */
+        public ?string $subcode = null
+    ) {}
 }

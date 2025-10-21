@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PromptLoginBehavior
 {
-
+    public function __construct(
+    ) {}
 }

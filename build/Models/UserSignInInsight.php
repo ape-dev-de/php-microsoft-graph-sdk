@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSignInInsight
 {
-    /**
-     * Indicates when the user last signed in.
-     */
-    private ?\DateTimeInterface $lastSignInDateTime;
-
-
-    public function getLastSignInDateTime(): ?\DateTimeInterface
-    {
-        return $this->lastSignInDateTime;
-    }
-
-    public function setLastSignInDateTime(?\DateTimeInterface $lastSignInDateTime): self
-    {
-        $this->lastSignInDateTime = $lastSignInDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates when the user last signed in. */
+        public ?\DateTimeInterface $lastSignInDateTime = null
+    ) {}
 }

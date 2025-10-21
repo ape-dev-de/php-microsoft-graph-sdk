@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DetailsInfo
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationExcelResource
 {
-    /**
-     * Pointer to the Excel file object.
-     */
-    private ?string $fileUrl;
-
-
-    public function getFileUrl(): ?string
-    {
-        return $this->fileUrl;
-    }
-
-    public function setFileUrl(?string $fileUrl): self
-    {
-        $this->fileUrl = $fileUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /** Pointer to the Excel file object. */
+        public ?string $fileUrl = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeRange
 {
-    /**
-     * End time for the time range.
-     */
-    private ?string $endTime;
-
-    /**
-     * Start time for the time range.
-     */
-    private ?string $startTime;
-
-
-    public function getEndTime(): ?string
-    {
-        return $this->endTime;
-    }
-
-    public function setEndTime(?string $endTime): self
-    {
-        $this->endTime = $endTime;
-        return $this;
-    }
-
-    public function getStartTime(): ?string
-    {
-        return $this->startTime;
-    }
-
-    public function setStartTime(?string $startTime): self
-    {
-        $this->startTime = $startTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** End time for the time range. */
+        public ?string $endTime = null,
+        /** Start time for the time range. */
+        public ?string $startTime = null
+    ) {}
 }

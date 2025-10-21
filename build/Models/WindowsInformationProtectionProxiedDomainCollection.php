@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionProxiedDomainCollection
 {
-    /**
-     * Display name
-     */
-    private ?string $displayName;
-
-    /**
-     * Windows Information Protection Proxied Domain Collection
-     * @var string[]
-     */
-    private array $proxiedDomains = [];
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getProxiedDomains(): array
-    {
-        return $this->proxiedDomains;
-    }
-
-    /**
-     * @param string[] $proxiedDomains
-     */
-    public function setProxiedDomains(array $proxiedDomains): self
-    {
-        $this->proxiedDomains = $proxiedDomains;
-        return $this;
-    }
-
+    public function __construct(
+        /** Display name */
+        public ?string $displayName = null,
+        /** @var string[] Windows Information Protection Proxied Domain Collection */
+        public array $proxiedDomains = []
+    ) {}
 }

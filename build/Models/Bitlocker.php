@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Bitlocker
 {
-    /**
-     * The recovery keys associated with the bitlocker entity.
-     * @var string[]
-     */
-    private array $recoveryKeys = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getRecoveryKeys(): array
-    {
-        return $this->recoveryKeys;
-    }
-
-    /**
-     * @param string[] $recoveryKeys
-     */
-    public function setRecoveryKeys(array $recoveryKeys): self
-    {
-        $this->recoveryKeys = $recoveryKeys;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The recovery keys associated with the bitlocker entity. */
+        public array $recoveryKeys = []
+    ) {}
 }

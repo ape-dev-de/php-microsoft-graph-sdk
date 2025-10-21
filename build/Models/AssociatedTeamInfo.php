@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AssociatedTeamInfo
 {
-
+    public function __construct(
+    ) {}
 }

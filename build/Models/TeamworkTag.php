@@ -9,108 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkTag
 {
-    /**
-     * The description of the tag as it appears to the user in Microsoft Teams. A teamworkTag can't have more than 200 teamworkTagMembers.
-     */
-    private ?string $description;
-
-    /**
-     * The name of the tag as it appears to the user in Microsoft Teams.
-     */
-    private ?string $displayName;
-
-    /**
-     * The number of users assigned to the tag.
-     */
-    private ?float $memberCount;
-
-    /**
-     * The type of the tag. Default is standard.
-     */
-    private ?string $tagType;
-
-    /**
-     * ID of the team in which the tag is defined.
-     */
-    private ?string $teamId;
-
-    /**
-     * Users assigned to the tag.
-     * @var string[]
-     */
-    private array $members = [];
-
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getMemberCount(): ?float
-    {
-        return $this->memberCount;
-    }
-
-    public function setMemberCount(?float $memberCount): self
-    {
-        $this->memberCount = $memberCount;
-        return $this;
-    }
-
-    public function getTagType(): ?string
-    {
-        return $this->tagType;
-    }
-
-    public function setTagType(?string $tagType): self
-    {
-        $this->tagType = $tagType;
-        return $this;
-    }
-
-    public function getTeamId(): ?string
-    {
-        return $this->teamId;
-    }
-
-    public function setTeamId(?string $teamId): self
-    {
-        $this->teamId = $teamId;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getMembers(): array
-    {
-        return $this->members;
-    }
-
-    /**
-     * @param string[] $members
-     */
-    public function setMembers(array $members): self
-    {
-        $this->members = $members;
-        return $this;
-    }
-
+    public function __construct(
+        /** The description of the tag as it appears to the user in Microsoft Teams. A teamworkTag can't have more than 200 teamworkTagMembers. */
+        public ?string $description = null,
+        /** The name of the tag as it appears to the user in Microsoft Teams. */
+        public ?string $displayName = null,
+        /** The number of users assigned to the tag. */
+        public ?float $memberCount = null,
+        /** The type of the tag. Default is standard. */
+        public ?string $tagType = null,
+        /** ID of the team in which the tag is defined. */
+        public ?string $teamId = null,
+        /** @var string[] Users assigned to the tag. */
+        public array $members = []
+    ) {}
 }

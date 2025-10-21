@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationLinkedAssignmentResource
 {
-    /**
-     * URL of the actual assignment.
-     */
-    private ?string $url;
-
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(?string $url): self
-    {
-        $this->url = $url;
-        return $this;
-    }
-
+    public function __construct(
+        /** URL of the actual assignment. */
+        public ?string $url = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CalendarSharingActionType
 {
-
+    public function __construct(
+    ) {}
 }

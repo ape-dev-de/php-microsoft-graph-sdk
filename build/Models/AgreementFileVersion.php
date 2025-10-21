@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AgreementFileVersion
 {
-
+    public function __construct(
+    ) {}
 }

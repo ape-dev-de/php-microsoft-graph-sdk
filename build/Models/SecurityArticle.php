@@ -9,161 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityArticle
 {
-    /**
-     */
-    private ?string $body;
-
-    /**
-     * The date and time when this article was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     */
-    private ?\DateTimeInterface $createdDateTime;
-
-    /**
-     * URL of the header image for this article, used for display purposes.
-     */
-    private ?string $imageUrl;
-
-    /**
-     * Indicates whether this article is currently featured by Microsoft.
-     */
-    private ?bool $isFeatured;
-
-    /**
-     * The most recent date and time when this article was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     */
-    private ?\DateTimeInterface $lastUpdatedDateTime;
-
-    /**
-     */
-    private ?string $summary;
-
-    /**
-     * Tags for this article, communicating keywords, or key concepts.
-     * @var string[]
-     */
-    private array $tags = [];
-
-    /**
-     * The title of this article.
-     */
-    private ?string $title;
-
-    /**
-     * Indicators related to this article.
-     * @var string[]
-     */
-    private array $indicators = [];
-
-
-    public function getBody(): ?string
-    {
-        return $this->body;
-    }
-
-    public function setBody(?string $body): self
-    {
-        $this->body = $body;
-        return $this;
-    }
-
-    public function getCreatedDateTime(): ?\DateTimeInterface
-    {
-        return $this->createdDateTime;
-    }
-
-    public function setCreatedDateTime(?\DateTimeInterface $createdDateTime): self
-    {
-        $this->createdDateTime = $createdDateTime;
-        return $this;
-    }
-
-    public function getImageUrl(): ?string
-    {
-        return $this->imageUrl;
-    }
-
-    public function setImageUrl(?string $imageUrl): self
-    {
-        $this->imageUrl = $imageUrl;
-        return $this;
-    }
-
-    public function getIsFeatured(): ?bool
-    {
-        return $this->isFeatured;
-    }
-
-    public function setIsFeatured(?bool $isFeatured): self
-    {
-        $this->isFeatured = $isFeatured;
-        return $this;
-    }
-
-    public function getLastUpdatedDateTime(): ?\DateTimeInterface
-    {
-        return $this->lastUpdatedDateTime;
-    }
-
-    public function setLastUpdatedDateTime(?\DateTimeInterface $lastUpdatedDateTime): self
-    {
-        $this->lastUpdatedDateTime = $lastUpdatedDateTime;
-        return $this;
-    }
-
-    public function getSummary(): ?string
-    {
-        return $this->summary;
-    }
-
-    public function setSummary(?string $summary): self
-    {
-        $this->summary = $summary;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getTags(): array
-    {
-        return $this->tags;
-    }
-
-    /**
-     * @param string[] $tags
-     */
-    public function setTags(array $tags): self
-    {
-        $this->tags = $tags;
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(?string $title): self
-    {
-        $this->title = $title;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getIndicators(): array
-    {
-        return $this->indicators;
-    }
-
-    /**
-     * @param string[] $indicators
-     */
-    public function setIndicators(array $indicators): self
-    {
-        $this->indicators = $indicators;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $body = null,
+        /** The date and time when this article was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** URL of the header image for this article, used for display purposes. */
+        public ?string $imageUrl = null,
+        /** Indicates whether this article is currently featured by Microsoft. */
+        public ?bool $isFeatured = null,
+        /** The most recent date and time when this article was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+        public ?\DateTimeInterface $lastUpdatedDateTime = null,
+        /**  */
+        public ?string $summary = null,
+        /** @var string[] Tags for this article, communicating keywords, or key concepts. */
+        public array $tags = [],
+        /** The title of this article. */
+        public ?string $title = null,
+        /** @var string[] Indicators related to this article. */
+        public array $indicators = []
+    ) {}
 }

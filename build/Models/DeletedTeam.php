@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeletedTeam
 {
-    /**
-     * The channels that are either shared with this deleted team or created in this deleted team.
-     * @var string[]
-     */
-    private array $channels = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getChannels(): array
-    {
-        return $this->channels;
-    }
-
-    /**
-     * @param string[] $channels
-     */
-    public function setChannels(array $channels): self
-    {
-        $this->channels = $channels;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The channels that are either shared with this deleted team or created in this deleted team. */
+        public array $channels = []
+    ) {}
 }

@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintTaskTrigger
 {
-    /**
-     */
-    private ?string $event;
-
-    /**
-     */
-    private ?string $definition;
-
-
-    public function getEvent(): ?string
-    {
-        return $this->event;
-    }
-
-    public function setEvent(?string $event): self
-    {
-        $this->event = $event;
-        return $this;
-    }
-
-    public function getDefinition(): ?string
-    {
-        return $this->definition;
-    }
-
-    public function setDefinition(?string $definition): self
-    {
-        $this->definition = $definition;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $event = null,
+        /**  */
+        public ?string $definition = null
+    ) {}
 }

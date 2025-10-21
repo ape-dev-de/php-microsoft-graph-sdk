@@ -9,50 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionContext
 {
-    /**
-     */
-    private ?string $contextReference;
-
-    /**
-     */
-    private ?string $contextType;
-
-    /**
-     */
-    private ?string $displayName;
-
-
-    public function getContextReference(): ?string
-    {
-        return $this->contextReference;
-    }
-
-    public function setContextReference(?string $contextReference): self
-    {
-        $this->contextReference = $contextReference;
-        return $this;
-    }
-
-    public function getContextType(): ?string
-    {
-        return $this->contextType;
-    }
-
-    public function setContextType(?string $contextType): self
-    {
-        $this->contextType = $contextType;
-        return $this;
-    }
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $contextReference = null,
+        /**  */
+        public ?string $contextType = null,
+        /**  */
+        public ?string $displayName = null
+    ) {}
 }

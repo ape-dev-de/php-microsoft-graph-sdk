@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionHistory
 {
-
+    public function __construct(
+    ) {}
 }

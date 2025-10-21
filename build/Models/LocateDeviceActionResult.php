@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LocateDeviceActionResult
 {
-    /**
-     * Locate device action result
-     */
-    private ?string $deviceLocation;
-
-
-    public function getDeviceLocation(): ?string
-    {
-        return $this->deviceLocation;
-    }
-
-    public function setDeviceLocation(?string $deviceLocation): self
-    {
-        $this->deviceLocation = $deviceLocation;
-        return $this;
-    }
-
+    public function __construct(
+        /** Locate device action result */
+        public ?string $deviceLocation = null
+    ) {}
 }

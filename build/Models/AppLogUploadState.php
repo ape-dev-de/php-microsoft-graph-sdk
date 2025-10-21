@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppLogUploadState
 {
-
+    public function __construct(
+    ) {}
 }

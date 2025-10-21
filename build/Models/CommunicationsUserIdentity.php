@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommunicationsUserIdentity
 {
-    /**
-     * The user's tenant ID.
-     */
-    private ?string $tenantId;
-
-
-    public function getTenantId(): ?string
-    {
-        return $this->tenantId;
-    }
-
-    public function setTenantId(?string $tenantId): self
-    {
-        $this->tenantId = $tenantId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The user's tenant ID. */
+        public ?string $tenantId = null
+    ) {}
 }

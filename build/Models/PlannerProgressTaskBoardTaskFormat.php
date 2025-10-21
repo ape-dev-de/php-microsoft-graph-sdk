@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerProgressTaskBoardTaskFormat
 {
-    /**
-     * Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner.
-     */
-    private ?string $orderHint;
-
-
-    public function getOrderHint(): ?string
-    {
-        return $this->orderHint;
-    }
-
-    public function setOrderHint(?string $orderHint): self
-    {
-        $this->orderHint = $orderHint;
-        return $this;
-    }
-
+    public function __construct(
+        /** Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner. */
+        public ?string $orderHint = null
+    ) {}
 }

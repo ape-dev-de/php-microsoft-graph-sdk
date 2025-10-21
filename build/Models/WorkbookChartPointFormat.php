@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartPointFormat
 {
-    /**
-     * Represents the fill format of a chart, which includes background formatting information. Read-only.
-     */
-    private ?string $fill;
-
-
-    public function getFill(): ?string
-    {
-        return $this->fill;
-    }
-
-    public function setFill(?string $fill): self
-    {
-        $this->fill = $fill;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the fill format of a chart, which includes background formatting information. Read-only. */
+        public ?string $fill = null
+    ) {}
 }

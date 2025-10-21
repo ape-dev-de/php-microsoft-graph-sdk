@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityArticleIndicator
 {
-
+    public function __construct(
+    ) {}
 }

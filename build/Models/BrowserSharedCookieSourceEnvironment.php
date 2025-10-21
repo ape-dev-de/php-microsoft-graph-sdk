@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSharedCookieSourceEnvironment
 {
-
+    public function __construct(
+    ) {}
 }

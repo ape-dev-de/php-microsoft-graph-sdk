@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSOfficeSuiteApp
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsConnectionState
 {
-
+    public function __construct(
+    ) {}
 }

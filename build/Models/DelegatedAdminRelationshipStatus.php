@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegatedAdminRelationshipStatus
 {
-
+    public function __construct(
+    ) {}
 }

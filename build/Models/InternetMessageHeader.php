@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InternetMessageHeader
 {
-    /**
-     * Represents the key in a key-value pair.
-     */
-    private ?string $name;
-
-    /**
-     * The value in a key-value pair.
-     */
-    private ?string $value;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the key in a key-value pair. */
+        public ?string $name = null,
+        /** The value in a key-value pair. */
+        public ?string $value = null
+    ) {}
 }

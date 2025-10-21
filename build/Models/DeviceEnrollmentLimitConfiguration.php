@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceEnrollmentLimitConfiguration
 {
-    /**
-     * Device Enrollment Configuration that restricts the number of devices a user can enroll
-     */
-    private ?string $limit;
-
-
-    public function getLimit(): ?string
-    {
-        return $this->limit;
-    }
-
-    public function setLimit(?string $limit): self
-    {
-        $this->limit = $limit;
-        return $this;
-    }
-
+    public function __construct(
+        /** Device Enrollment Configuration that restricts the number of devices a user can enroll */
+        public ?string $limit = null
+    ) {}
 }

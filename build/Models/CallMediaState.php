@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallMediaState
 {
-    /**
-     * The audio media state. Possible values are: active, inactive, unknownFutureValue.
-     */
-    private ?string $audio;
-
-
-    public function getAudio(): ?string
-    {
-        return $this->audio;
-    }
-
-    public function setAudio(?string $audio): self
-    {
-        $this->audio = $audio;
-        return $this;
-    }
-
+    public function __construct(
+        /** The audio media state. Possible values are: active, inactive, unknownFutureValue. */
+        public ?string $audio = null
+    ) {}
 }

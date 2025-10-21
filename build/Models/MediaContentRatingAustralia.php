@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaContentRatingAustralia
 {
-    /**
-     */
-    private ?string $movieRating;
-
-    /**
-     */
-    private ?string $tvRating;
-
-
-    public function getMovieRating(): ?string
-    {
-        return $this->movieRating;
-    }
-
-    public function setMovieRating(?string $movieRating): self
-    {
-        $this->movieRating = $movieRating;
-        return $this;
-    }
-
-    public function getTvRating(): ?string
-    {
-        return $this->tvRating;
-    }
-
-    public function setTvRating(?string $tvRating): self
-    {
-        $this->tvRating = $tvRating;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $movieRating = null,
+        /**  */
+        public ?string $tvRating = null
+    ) {}
 }

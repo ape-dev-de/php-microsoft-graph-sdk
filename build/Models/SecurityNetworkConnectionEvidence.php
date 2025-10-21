@@ -9,80 +9,16 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityNetworkConnectionEvidence
 {
-    /**
-     */
-    private ?string $destinationAddress;
-
-    /**
-     */
-    private ?float $destinationPort;
-
-    /**
-     */
-    private ?string $protocol;
-
-    /**
-     */
-    private ?string $sourceAddress;
-
-    /**
-     */
-    private ?string $sourcePort;
-
-
-    public function getDestinationAddress(): ?string
-    {
-        return $this->destinationAddress;
-    }
-
-    public function setDestinationAddress(?string $destinationAddress): self
-    {
-        $this->destinationAddress = $destinationAddress;
-        return $this;
-    }
-
-    public function getDestinationPort(): ?float
-    {
-        return $this->destinationPort;
-    }
-
-    public function setDestinationPort(?float $destinationPort): self
-    {
-        $this->destinationPort = $destinationPort;
-        return $this;
-    }
-
-    public function getProtocol(): ?string
-    {
-        return $this->protocol;
-    }
-
-    public function setProtocol(?string $protocol): self
-    {
-        $this->protocol = $protocol;
-        return $this;
-    }
-
-    public function getSourceAddress(): ?string
-    {
-        return $this->sourceAddress;
-    }
-
-    public function setSourceAddress(?string $sourceAddress): self
-    {
-        $this->sourceAddress = $sourceAddress;
-        return $this;
-    }
-
-    public function getSourcePort(): ?string
-    {
-        return $this->sourcePort;
-    }
-
-    public function setSourcePort(?string $sourcePort): self
-    {
-        $this->sourcePort = $sourcePort;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $destinationAddress = null,
+        /**  */
+        public ?float $destinationPort = null,
+        /**  */
+        public ?string $protocol = null,
+        /**  */
+        public ?string $sourceAddress = null,
+        /**  */
+        public ?string $sourcePort = null
+    ) {}
 }

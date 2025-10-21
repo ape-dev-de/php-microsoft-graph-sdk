@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventWebinarRegistrationConfiguration
 {
-    /**
-     */
-    private ?bool $isManualApprovalEnabled;
-
-    /**
-     */
-    private ?string $isWaitlistEnabled;
-
-
-    public function getIsManualApprovalEnabled(): ?bool
-    {
-        return $this->isManualApprovalEnabled;
-    }
-
-    public function setIsManualApprovalEnabled(?bool $isManualApprovalEnabled): self
-    {
-        $this->isManualApprovalEnabled = $isManualApprovalEnabled;
-        return $this;
-    }
-
-    public function getIsWaitlistEnabled(): ?string
-    {
-        return $this->isWaitlistEnabled;
-    }
-
-    public function setIsWaitlistEnabled(?string $isWaitlistEnabled): self
-    {
-        $this->isWaitlistEnabled = $isWaitlistEnabled;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?bool $isManualApprovalEnabled = null,
+        /**  */
+        public ?string $isWaitlistEnabled = null
+    ) {}
 }

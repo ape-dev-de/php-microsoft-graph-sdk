@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ListItemVersion
 {
-    /**
-     * A collection of the fields and values for this version of the list item.
-     */
-    private ?string $fields;
-
-
-    public function getFields(): ?string
-    {
-        return $this->fields;
-    }
-
-    public function setFields(?string $fields): self
-    {
-        $this->fields = $fields;
-        return $this;
-    }
-
+    public function __construct(
+        /** A collection of the fields and values for this version of the list item. */
+        public ?string $fields = null
+    ) {}
 }

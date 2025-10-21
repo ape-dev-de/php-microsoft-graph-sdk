@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceMembershipChangeTrigger
 {
-    /**
-     */
-    private ?string $changeType;
-
-
-    public function getChangeType(): ?string
-    {
-        return $this->changeType;
-    }
-
-    public function setChangeType(?string $changeType): self
-    {
-        $this->changeType = $changeType;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $changeType = null
+    ) {}
 }

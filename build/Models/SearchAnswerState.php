@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAnswerState
 {
-
+    public function __construct(
+    ) {}
 }

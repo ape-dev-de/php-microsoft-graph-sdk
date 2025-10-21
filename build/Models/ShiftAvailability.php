@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ShiftAvailability
 {
-    /**
-     * Specifies the pattern for recurrence
-     */
-    private ?string $recurrence;
-
-    /**
-     * The time slot(s) preferred by the user.
-     */
-    private array $timeSlots = [];
-
-    /**
-     * Specifies the time zone for the indicated time.
-     */
-    private ?string $timeZone;
-
-
-    public function getRecurrence(): ?string
-    {
-        return $this->recurrence;
-    }
-
-    public function setRecurrence(?string $recurrence): self
-    {
-        $this->recurrence = $recurrence;
-        return $this;
-    }
-
-    public function getTimeSlots(): array
-    {
-        return $this->timeSlots;
-    }
-
-    public function setTimeSlots(array $timeSlots): self
-    {
-        $this->timeSlots = $timeSlots;
-        return $this;
-    }
-
-    public function getTimeZone(): ?string
-    {
-        return $this->timeZone;
-    }
-
-    public function setTimeZone(?string $timeZone): self
-    {
-        $this->timeZone = $timeZone;
-        return $this;
-    }
-
+    public function __construct(
+        /** Specifies the pattern for recurrence */
+        public ?string $recurrence = null,
+        /** The time slot(s) preferred by the user. */
+        public array $timeSlots = [],
+        /** Specifies the time zone for the indicated time. */
+        public ?string $timeZone = null
+    ) {}
 }

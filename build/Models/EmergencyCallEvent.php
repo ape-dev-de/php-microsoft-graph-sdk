@@ -9,50 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmergencyCallEvent
 {
-    /**
-     */
-    private ?string $callerInfo;
-
-    /**
-     */
-    private ?string $emergencyNumberDialed;
-
-    /**
-     */
-    private ?string $policyName;
-
-
-    public function getCallerInfo(): ?string
-    {
-        return $this->callerInfo;
-    }
-
-    public function setCallerInfo(?string $callerInfo): self
-    {
-        $this->callerInfo = $callerInfo;
-        return $this;
-    }
-
-    public function getEmergencyNumberDialed(): ?string
-    {
-        return $this->emergencyNumberDialed;
-    }
-
-    public function setEmergencyNumberDialed(?string $emergencyNumberDialed): self
-    {
-        $this->emergencyNumberDialed = $emergencyNumberDialed;
-        return $this;
-    }
-
-    public function getPolicyName(): ?string
-    {
-        return $this->policyName;
-    }
-
-    public function setPolicyName(?string $policyName): self
-    {
-        $this->policyName = $policyName;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $callerInfo = null,
+        /**  */
+        public ?string $emergencyNumberDialed = null,
+        /**  */
+        public ?string $policyName = null
+    ) {}
 }

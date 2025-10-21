@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosHomeScreenItem
 {
-    /**
-     * Represents an item on the iOS Home Screen
-     */
-    private ?string $displayName;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents an item on the iOS Home Screen */
+        public ?string $displayName = null
+    ) {}
 }

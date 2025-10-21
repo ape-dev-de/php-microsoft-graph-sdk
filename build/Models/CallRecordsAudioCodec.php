@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsAudioCodec
 {
-
+    public function __construct(
+    ) {}
 }

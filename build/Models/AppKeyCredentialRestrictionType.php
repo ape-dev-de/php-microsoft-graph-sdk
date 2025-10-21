@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppKeyCredentialRestrictionType
 {
-
+    public function __construct(
+    ) {}
 }

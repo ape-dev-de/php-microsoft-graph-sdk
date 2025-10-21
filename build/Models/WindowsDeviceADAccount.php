@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeviceADAccount
 {
-    /**
-     * Not yet documented
-     */
-    private ?string $domainName;
-
-    /**
-     * Not yet documented
-     */
-    private ?string $userName;
-
-
-    public function getDomainName(): ?string
-    {
-        return $this->domainName;
-    }
-
-    public function setDomainName(?string $domainName): self
-    {
-        $this->domainName = $domainName;
-        return $this;
-    }
-
-    public function getUserName(): ?string
-    {
-        return $this->userName;
-    }
-
-    public function setUserName(?string $userName): self
-    {
-        $this->userName = $userName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Not yet documented */
+        public ?string $domainName = null,
+        /** Not yet documented */
+        public ?string $userName = null
+    ) {}
 }

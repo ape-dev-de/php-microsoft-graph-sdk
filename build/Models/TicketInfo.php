@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TicketInfo
 {
-    /**
-     * The ticket number.
-     */
-    private ?string $ticketNumber;
-
-    /**
-     * The description of the ticket system.
-     */
-    private ?string $ticketSystem;
-
-
-    public function getTicketNumber(): ?string
-    {
-        return $this->ticketNumber;
-    }
-
-    public function setTicketNumber(?string $ticketNumber): self
-    {
-        $this->ticketNumber = $ticketNumber;
-        return $this;
-    }
-
-    public function getTicketSystem(): ?string
-    {
-        return $this->ticketSystem;
-    }
-
-    public function setTicketSystem(?string $ticketSystem): self
-    {
-        $this->ticketSystem = $ticketSystem;
-        return $this;
-    }
-
+    public function __construct(
+        /** The ticket number. */
+        public ?string $ticketNumber = null,
+        /** The description of the ticket system. */
+        public ?string $ticketSystem = null
+    ) {}
 }

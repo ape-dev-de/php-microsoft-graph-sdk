@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InstallIntent
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class StringKeyObjectValuePair
 {
-    /**
-     * Key.
-     */
-    private ?string $key;
-
-
-    public function getKey(): ?string
-    {
-        return $this->key;
-    }
-
-    public function setKey(?string $key): self
-    {
-        $this->key = $key;
-        return $this;
-    }
-
+    public function __construct(
+        /** Key. */
+        public ?string $key = null
+    ) {}
 }

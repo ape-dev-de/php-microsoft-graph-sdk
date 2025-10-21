@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GroupFilter
 {
-    /**
-     * @var string[]
-     */
-    private array $includedGroups = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getIncludedGroups(): array
-    {
-        return $this->includedGroups;
-    }
-
-    /**
-     * @param string[] $includedGroups
-     */
-    public function setIncludedGroups(array $includedGroups): self
-    {
-        $this->includedGroups = $includedGroups;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $includedGroups = []
+    ) {}
 }

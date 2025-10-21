@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecordingStatus
 {
-
+    public function __construct(
+    ) {}
 }

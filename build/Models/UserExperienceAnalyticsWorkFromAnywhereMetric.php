@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsWorkFromAnywhereMetric
 {
-    /**
-     * The user experience analytics metric for work from anywhere report.
-     * @var string[]
-     */
-    private array $metricDevices = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getMetricDevices(): array
-    {
-        return $this->metricDevices;
-    }
-
-    /**
-     * @param string[] $metricDevices
-     */
-    public function setMetricDevices(array $metricDevices): self
-    {
-        $this->metricDevices = $metricDevices;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The user experience analytics metric for work from anywhere report. */
+        public array $metricDevices = []
+    ) {}
 }

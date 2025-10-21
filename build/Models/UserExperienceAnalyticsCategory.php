@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsCategory
 {
-    /**
-     * The insights for the category. Read-only.
-     */
-    private array $insights = [];
-
-    /**
-     * The user experience analytics category entity contains the scores and insights for the various metrics of a category.
-     * @var string[]
-     */
-    private array $metricValues = [];
-
-
-    public function getInsights(): array
-    {
-        return $this->insights;
-    }
-
-    public function setInsights(array $insights): self
-    {
-        $this->insights = $insights;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getMetricValues(): array
-    {
-        return $this->metricValues;
-    }
-
-    /**
-     * @param string[] $metricValues
-     */
-    public function setMetricValues(array $metricValues): self
-    {
-        $this->metricValues = $metricValues;
-        return $this;
-    }
-
+    public function __construct(
+        /** The insights for the category. Read-only. */
+        public array $insights = [],
+        /** @var string[] The user experience analytics category entity contains the scores and insights for the various metrics of a category. */
+        public array $metricValues = []
+    ) {}
 }

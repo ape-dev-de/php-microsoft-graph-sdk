@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AzureAdPopTokenAuthentication
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyUserScope
 {
-
+    public function __construct(
+    ) {}
 }

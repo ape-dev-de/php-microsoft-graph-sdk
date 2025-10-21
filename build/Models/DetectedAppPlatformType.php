@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DetectedAppPlatformType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SoftwareOathAuthenticationMethod
 {
-    /**
-     * The secret key of the method. Always returns null.
-     */
-    private ?string $secretKey;
-
-
-    public function getSecretKey(): ?string
-    {
-        return $this->secretKey;
-    }
-
-    public function setSecretKey(?string $secretKey): self
-    {
-        $this->secretKey = $secretKey;
-        return $this;
-    }
-
+    public function __construct(
+        /** The secret key of the method. Always returns null. */
+        public ?string $secretKey = null
+    ) {}
 }

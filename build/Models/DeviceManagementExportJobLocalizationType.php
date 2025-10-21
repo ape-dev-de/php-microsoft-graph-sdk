@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementExportJobLocalizationType
 {
-
+    public function __construct(
+    ) {}
 }

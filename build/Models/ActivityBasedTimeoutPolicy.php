@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActivityBasedTimeoutPolicy
 {
-
+    public function __construct(
+    ) {}
 }

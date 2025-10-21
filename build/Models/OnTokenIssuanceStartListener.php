@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnTokenIssuanceStartListener
 {
-    /**
-     * The handler to invoke when conditions are met for this onTokenIssuanceStartListener.
-     */
-    private ?string $handler;
-
-
-    public function getHandler(): ?string
-    {
-        return $this->handler;
-    }
-
-    public function setHandler(?string $handler): self
-    {
-        $this->handler = $handler;
-        return $this;
-    }
-
+    public function __construct(
+        /** The handler to invoke when conditions are met for this onTokenIssuanceStartListener. */
+        public ?string $handler = null
+    ) {}
 }

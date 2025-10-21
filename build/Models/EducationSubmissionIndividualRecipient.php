@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationSubmissionIndividualRecipient
 {
-    /**
-     * User ID of the user to whom the submission is assigned.
-     */
-    private ?string $userId;
-
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
+    public function __construct(
+        /** User ID of the user to whom the submission is assigned. */
+        public ?string $userId = null
+    ) {}
 }

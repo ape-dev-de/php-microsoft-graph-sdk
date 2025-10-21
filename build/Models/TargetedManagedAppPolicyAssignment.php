@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TargetedManagedAppPolicyAssignment
 {
-    /**
-     * The type for deployment of groups or apps.
-     */
-    private ?string $target;
-
-
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-        return $this;
-    }
-
+    public function __construct(
+        /** The type for deployment of groups or apps. */
+        public ?string $target = null
+    ) {}
 }

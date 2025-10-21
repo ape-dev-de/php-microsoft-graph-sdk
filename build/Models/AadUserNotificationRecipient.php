@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AadUserNotificationRecipient
 {
-    /**
-     * Microsoft Entra user identifier. Use the List users method to get this ID.
-     */
-    private ?string $userId;
-
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Microsoft Entra user identifier. Use the List users method to get this ID. */
+        public ?string $userId = null
+    ) {}
 }

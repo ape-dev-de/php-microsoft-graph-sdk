@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationLinkResource
 {
-    /**
-     * URL to the resource.
-     */
-    private ?string $link;
-
-
-    public function getLink(): ?string
-    {
-        return $this->link;
-    }
-
-    public function setLink(?string $link): self
-    {
-        $this->link = $link;
-        return $this;
-    }
-
+    public function __construct(
+        /** URL to the resource. */
+        public ?string $link = null
+    ) {}
 }

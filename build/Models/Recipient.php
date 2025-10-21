@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Recipient
 {
-    /**
-     * The recipient's email address.
-     */
-    private ?string $emailAddress;
-
-
-    public function getEmailAddress(): ?string
-    {
-        return $this->emailAddress;
-    }
-
-    public function setEmailAddress(?string $emailAddress): self
-    {
-        $this->emailAddress = $emailAddress;
-        return $this;
-    }
-
+    public function __construct(
+        /** The recipient's email address. */
+        public ?string $emailAddress = null
+    ) {}
 }

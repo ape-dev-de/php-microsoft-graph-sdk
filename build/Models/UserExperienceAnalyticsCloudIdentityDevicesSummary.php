@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsCloudIdentityDevicesSummary
 {
-    /**
-     * The user experience analytics work from anywhere cloud identity devices summary.
-     */
-    private ?string $deviceWithoutCloudIdentityCount;
-
-
-    public function getDeviceWithoutCloudIdentityCount(): ?string
-    {
-        return $this->deviceWithoutCloudIdentityCount;
-    }
-
-    public function setDeviceWithoutCloudIdentityCount(?string $deviceWithoutCloudIdentityCount): self
-    {
-        $this->deviceWithoutCloudIdentityCount = $deviceWithoutCloudIdentityCount;
-        return $this;
-    }
-
+    public function __construct(
+        /** The user experience analytics work from anywhere cloud identity devices summary. */
+        public ?string $deviceWithoutCloudIdentityCount = null
+    ) {}
 }

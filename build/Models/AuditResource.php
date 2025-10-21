@@ -9,69 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuditResource
 {
-    /**
-     * Audit resource's type.
-     */
-    private ?string $auditResourceType;
-
-    /**
-     * Display name.
-     */
-    private ?string $displayName;
-
-    /**
-     * List of modified properties.
-     */
-    private array $modifiedProperties = [];
-
-    /**
-     * A class containing the properties for Audit Resource.
-     */
-    private ?string $resourceId;
-
-
-    public function getAuditResourceType(): ?string
-    {
-        return $this->auditResourceType;
-    }
-
-    public function setAuditResourceType(?string $auditResourceType): self
-    {
-        $this->auditResourceType = $auditResourceType;
-        return $this;
-    }
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getModifiedProperties(): array
-    {
-        return $this->modifiedProperties;
-    }
-
-    public function setModifiedProperties(array $modifiedProperties): self
-    {
-        $this->modifiedProperties = $modifiedProperties;
-        return $this;
-    }
-
-    public function getResourceId(): ?string
-    {
-        return $this->resourceId;
-    }
-
-    public function setResourceId(?string $resourceId): self
-    {
-        $this->resourceId = $resourceId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Audit resource's type. */
+        public ?string $auditResourceType = null,
+        /** Display name. */
+        public ?string $displayName = null,
+        /** List of modified properties. */
+        public array $modifiedProperties = [],
+        /** A class containing the properties for Audit Resource. */
+        public ?string $resourceId = null
+    ) {}
 }

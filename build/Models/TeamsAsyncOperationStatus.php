@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAsyncOperationStatus
 {
-
+    public function __construct(
+    ) {}
 }

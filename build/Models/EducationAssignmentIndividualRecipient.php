@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAssignmentIndividualRecipient
 {
-    /**
-     * A collection of IDs of the recipients.
-     * @var string[]
-     */
-    private array $recipients = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getRecipients(): array
-    {
-        return $this->recipients;
-    }
-
-    /**
-     * @param string[] $recipients
-     */
-    public function setRecipients(array $recipients): self
-    {
-        $this->recipients = $recipients;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A collection of IDs of the recipients. */
+        public array $recipients = []
+    ) {}
 }

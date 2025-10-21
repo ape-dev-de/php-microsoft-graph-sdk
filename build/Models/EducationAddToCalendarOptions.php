@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAddToCalendarOptions
 {
-
+    public function __construct(
+    ) {}
 }

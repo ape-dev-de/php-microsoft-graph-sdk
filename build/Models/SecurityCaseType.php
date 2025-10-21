@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCaseType
 {
-
+    public function __construct(
+    ) {}
 }

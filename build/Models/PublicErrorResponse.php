@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PublicErrorResponse
 {
-    /**
-     */
-    private ?string $error;
-
-
-    public function getError(): ?string
-    {
-        return $this->error;
-    }
-
-    public function setError(?string $error): self
-    {
-        $this->error = $error;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $error = null
+    ) {}
 }

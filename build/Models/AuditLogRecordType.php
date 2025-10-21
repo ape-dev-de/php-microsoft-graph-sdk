@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuditLogRecordType
 {
-
+    public function __construct(
+    ) {}
 }

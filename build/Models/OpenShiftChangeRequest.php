@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OpenShiftChangeRequest
 {
-    /**
-     * ID for the open shift.
-     */
-    private ?string $openShiftId;
-
-
-    public function getOpenShiftId(): ?string
-    {
-        return $this->openShiftId;
-    }
-
-    public function setOpenShiftId(?string $openShiftId): self
-    {
-        $this->openShiftId = $openShiftId;
-        return $this;
-    }
-
+    public function __construct(
+        /** ID for the open shift. */
+        public ?string $openShiftId = null
+    ) {}
 }

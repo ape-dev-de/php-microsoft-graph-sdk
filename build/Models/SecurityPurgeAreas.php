@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityPurgeAreas
 {
-
+    public function __construct(
+    ) {}
 }

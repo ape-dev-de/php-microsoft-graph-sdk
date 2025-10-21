@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileStorageContainerStatus
 {
-
+    public function __construct(
+    ) {}
 }

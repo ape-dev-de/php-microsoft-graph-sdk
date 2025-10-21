@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthorizationInfo
 {
-    /**
-     * @var string[]
-     */
-    private array $certificateUserIds = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getCertificateUserIds(): array
-    {
-        return $this->certificateUserIds;
-    }
-
-    /**
-     * @param string[] $certificateUserIds
-     */
-    public function setCertificateUserIds(array $certificateUserIds): self
-    {
-        $this->certificateUserIds = $certificateUserIds;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $certificateUserIds = []
+    ) {}
 }

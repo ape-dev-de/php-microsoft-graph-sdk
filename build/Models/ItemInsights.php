@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ItemInsights
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppsInstallationOptionsForMac
 {
-    /**
-     * Specifies whether users can install Microsoft 365 apps on their MAC devices. The default value is true.
-     */
-    private ?bool $isMicrosoft365AppsEnabled;
-
-    /**
-     * Specifies whether users can install Skype for Business on their MAC devices running OS X El Capitan 10.11 or later. The default value is true.
-     */
-    private ?string $isSkypeForBusinessEnabled;
-
-
-    public function getIsMicrosoft365AppsEnabled(): ?bool
-    {
-        return $this->isMicrosoft365AppsEnabled;
-    }
-
-    public function setIsMicrosoft365AppsEnabled(?bool $isMicrosoft365AppsEnabled): self
-    {
-        $this->isMicrosoft365AppsEnabled = $isMicrosoft365AppsEnabled;
-        return $this;
-    }
-
-    public function getIsSkypeForBusinessEnabled(): ?string
-    {
-        return $this->isSkypeForBusinessEnabled;
-    }
-
-    public function setIsSkypeForBusinessEnabled(?string $isSkypeForBusinessEnabled): self
-    {
-        $this->isSkypeForBusinessEnabled = $isSkypeForBusinessEnabled;
-        return $this;
-    }
-
+    public function __construct(
+        /** Specifies whether users can install Microsoft 365 apps on their MAC devices. The default value is true. */
+        public ?bool $isMicrosoft365AppsEnabled = null,
+        /** Specifies whether users can install Skype for Business on their MAC devices running OS X El Capitan 10.11 or later. The default value is true. */
+        public ?string $isSkypeForBusinessEnabled = null
+    ) {}
 }

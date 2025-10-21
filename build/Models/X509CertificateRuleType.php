@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateRuleType
 {
-
+    public function __construct(
+    ) {}
 }

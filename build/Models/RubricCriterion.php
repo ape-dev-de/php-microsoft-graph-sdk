@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RubricCriterion
 {
-    /**
-     * The description of this criterion.
-     */
-    private ?string $description;
-
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
+    public function __construct(
+        /** The description of this criterion. */
+        public ?string $description = null
+    ) {}
 }

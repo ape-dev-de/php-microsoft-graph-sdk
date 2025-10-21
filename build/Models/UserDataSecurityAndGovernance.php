@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserDataSecurityAndGovernance
 {
-    /**
-     * Container for activity logs (content processing and audit) related to this user. ContainsTarget: true.
-     */
-    private ?string $activities;
-
-    /**
-     */
-    private ?string $protectionScopes;
-
-
-    public function getActivities(): ?string
-    {
-        return $this->activities;
-    }
-
-    public function setActivities(?string $activities): self
-    {
-        $this->activities = $activities;
-        return $this;
-    }
-
-    public function getProtectionScopes(): ?string
-    {
-        return $this->protectionScopes;
-    }
-
-    public function setProtectionScopes(?string $protectionScopes): self
-    {
-        $this->protectionScopes = $protectionScopes;
-        return $this;
-    }
-
+    public function __construct(
+        /** Container for activity logs (content processing and audit) related to this user. ContainsTarget: true. */
+        public ?string $activities = null,
+        /**  */
+        public ?string $protectionScopes = null
+    ) {}
 }

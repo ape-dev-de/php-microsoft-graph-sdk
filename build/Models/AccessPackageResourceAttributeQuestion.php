@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageResourceAttributeQuestion
 {
-    /**
-     */
-    private ?string $question;
-
-
-    public function getQuestion(): ?string
-    {
-        return $this->question;
-    }
-
-    public function setQuestion(?string $question): self
-    {
-        $this->question = $question;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $question = null
+    ) {}
 }

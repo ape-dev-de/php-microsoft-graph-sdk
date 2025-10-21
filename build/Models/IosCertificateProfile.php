@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosCertificateProfile
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TextWebPart
 {
-    /**
-     * The HTML string in text web part.
-     */
-    private ?string $innerHtml;
-
-
-    public function getInnerHtml(): ?string
-    {
-        return $this->innerHtml;
-    }
-
-    public function setInnerHtml(?string $innerHtml): self
-    {
-        $this->innerHtml = $innerHtml;
-        return $this;
-    }
-
+    public function __construct(
+        /** The HTML string in text web part. */
+        public ?string $innerHtml = null
+    ) {}
 }

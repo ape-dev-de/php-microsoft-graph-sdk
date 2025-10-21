@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnEmailOtpSendListener
 {
-    /**
-     * Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages.
-     */
-    private ?string $handler;
-
-
-    public function getHandler(): ?string
-    {
-        return $this->handler;
-    }
-
-    public function setHandler(?string $handler): self
-    {
-        $this->handler = $handler;
-        return $this;
-    }
-
+    public function __construct(
+        /** Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages. */
+        public ?string $handler = null
+    ) {}
 }

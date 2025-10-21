@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceProvisioningXmlError
 {
-    /**
-     * Error Information published by the Federated Service as an xml string.
-     */
-    private ?string $errorDetail;
-
-
-    public function getErrorDetail(): ?string
-    {
-        return $this->errorDetail;
-    }
-
-    public function setErrorDetail(?string $errorDetail): self
-    {
-        $this->errorDetail = $errorDetail;
-        return $this;
-    }
-
+    public function __construct(
+        /** Error Information published by the Federated Service as an xml string. */
+        public ?string $errorDetail = null
+    ) {}
 }

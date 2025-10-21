@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessageHostedContent
 {
-
+    public function __construct(
+    ) {}
 }

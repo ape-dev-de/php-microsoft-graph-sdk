@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IPv4CidrRange
 {
-    /**
-     * IPv4 address in CIDR notation. Not nullable.
-     */
-    private ?string $cidrAddress;
-
-
-    public function getCidrAddress(): ?string
-    {
-        return $this->cidrAddress;
-    }
-
-    public function setCidrAddress(?string $cidrAddress): self
-    {
-        $this->cidrAddress = $cidrAddress;
-        return $this;
-    }
-
+    public function __construct(
+        /** IPv4 address in CIDR notation. Not nullable. */
+        public ?string $cidrAddress = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationPhoneType
 {
-
+    public function __construct(
+    ) {}
 }

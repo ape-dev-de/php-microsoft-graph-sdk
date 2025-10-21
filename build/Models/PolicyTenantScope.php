@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyTenantScope
 {
-    /**
-     * Specifies the users and groups included in or excluded from this tenant-level policy scope.
-     */
-    private ?string $policyScope;
-
-
-    public function getPolicyScope(): ?string
-    {
-        return $this->policyScope;
-    }
-
-    public function setPolicyScope(?string $policyScope): self
-    {
-        $this->policyScope = $policyScope;
-        return $this;
-    }
-
+    public function __construct(
+        /** Specifies the users and groups included in or excluded from this tenant-level policy scope. */
+        public ?string $policyScope = null
+    ) {}
 }

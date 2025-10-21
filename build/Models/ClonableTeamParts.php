@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ClonableTeamParts
 {
-
+    public function __construct(
+    ) {}
 }

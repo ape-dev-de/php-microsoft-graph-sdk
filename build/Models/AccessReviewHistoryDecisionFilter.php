@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewHistoryDecisionFilter
 {
-
+    public function __construct(
+    ) {}
 }

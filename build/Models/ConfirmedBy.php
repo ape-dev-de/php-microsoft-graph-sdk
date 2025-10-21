@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConfirmedBy
 {
-
+    public function __construct(
+    ) {}
 }

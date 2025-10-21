@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcGalleryImageStatus
 {
-
+    public function __construct(
+    ) {}
 }

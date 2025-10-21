@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GiphyRatingType
 {
-
+    public function __construct(
+    ) {}
 }

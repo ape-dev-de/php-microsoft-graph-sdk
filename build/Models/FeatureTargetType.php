@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FeatureTargetType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResultTemplate
 {
-    /**
-     * JSON schema of the result template.
-     */
-    private ?string $body;
-
-    /**
-     * Name of the result template.
-     */
-    private ?string $displayName;
-
-
-    public function getBody(): ?string
-    {
-        return $this->body;
-    }
-
-    public function setBody(?string $body): self
-    {
-        $this->body = $body;
-        return $this;
-    }
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
+    public function __construct(
+        /** JSON schema of the result template. */
+        public ?string $body = null,
+        /** Name of the result template. */
+        public ?string $displayName = null
+    ) {}
 }

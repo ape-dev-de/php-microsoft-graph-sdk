@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TermStoreTermGroupScope
 {
-
+    public function __construct(
+    ) {}
 }

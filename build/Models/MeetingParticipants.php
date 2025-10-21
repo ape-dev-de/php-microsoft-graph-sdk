@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingParticipants
 {
-    /**
-     * Information about the meeting attendees.
-     */
-    private array $attendees = [];
-
-    /**
-     * Information about the meeting organizer.
-     */
-    private ?string $organizer;
-
-
-    public function getAttendees(): array
-    {
-        return $this->attendees;
-    }
-
-    public function setAttendees(array $attendees): self
-    {
-        $this->attendees = $attendees;
-        return $this;
-    }
-
-    public function getOrganizer(): ?string
-    {
-        return $this->organizer;
-    }
-
-    public function setOrganizer(?string $organizer): self
-    {
-        $this->organizer = $organizer;
-        return $this;
-    }
-
+    public function __construct(
+        /** Information about the meeting attendees. */
+        public array $attendees = [],
+        /** Information about the meeting organizer. */
+        public ?string $organizer = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyLocationUrl
 {
-
+    public function __construct(
+    ) {}
 }

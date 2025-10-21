@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LocalAdminPasswordSettings
 {
-    /**
-     */
-    private ?string $isEnabled;
-
-
-    public function getIsEnabled(): ?string
-    {
-        return $this->isEnabled;
-    }
-
-    public function setIsEnabled(?string $isEnabled): self
-    {
-        $this->isEnabled = $isEnabled;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $isEnabled = null
+    ) {}
 }

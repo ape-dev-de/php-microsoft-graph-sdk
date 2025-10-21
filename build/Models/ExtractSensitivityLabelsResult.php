@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExtractSensitivityLabelsResult
 {
-    /**
-     * List of sensitivity labels assigned to a file.
-     * @var string[]
-     */
-    private array $labels = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getLabels(): array
-    {
-        return $this->labels;
-    }
-
-    /**
-     * @param string[] $labels
-     */
-    public function setLabels(array $labels): self
-    {
-        $this->labels = $labels;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] List of sensitivity labels assigned to a file. */
+        public array $labels = []
+    ) {}
 }

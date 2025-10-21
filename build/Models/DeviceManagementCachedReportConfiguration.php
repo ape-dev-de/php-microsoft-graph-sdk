@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementCachedReportConfiguration
 {
-
+    public function __construct(
+    ) {}
 }

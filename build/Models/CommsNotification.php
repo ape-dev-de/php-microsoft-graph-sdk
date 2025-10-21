@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommsNotification
 {
-    /**
-     */
-    private ?string $changeType;
-
-    /**
-     * URI of the resource that was changed.
-     */
-    private ?string $resourceUrl;
-
-
-    public function getChangeType(): ?string
-    {
-        return $this->changeType;
-    }
-
-    public function setChangeType(?string $changeType): self
-    {
-        $this->changeType = $changeType;
-        return $this;
-    }
-
-    public function getResourceUrl(): ?string
-    {
-        return $this->resourceUrl;
-    }
-
-    public function setResourceUrl(?string $resourceUrl): self
-    {
-        $this->resourceUrl = $resourceUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $changeType = null,
+        /** URI of the resource that was changed. */
+        public ?string $resourceUrl = null
+    ) {}
 }

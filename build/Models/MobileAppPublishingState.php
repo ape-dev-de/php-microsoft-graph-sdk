@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileAppPublishingState
 {
-
+    public function __construct(
+    ) {}
 }

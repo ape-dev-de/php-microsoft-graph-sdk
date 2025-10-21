@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewApplyAction
 {
-
+    public function __construct(
+    ) {}
 }

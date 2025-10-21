@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DomainDnsTxtRecord
 {
-    /**
-     * Value used when configuring the text property at the DNS host.
-     */
-    private ?string $text;
-
-
-    public function getText(): ?string
-    {
-        return $this->text;
-    }
-
-    public function setText(?string $text): self
-    {
-        $this->text = $text;
-        return $this;
-    }
-
+    public function __construct(
+        /** Value used when configuring the text property at the DNS host. */
+        public ?string $text = null
+    ) {}
 }

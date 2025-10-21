@@ -9,74 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyScopeBase
 {
-    /**
-     */
-    private ?string $activities;
-
-    /**
-     */
-    private ?string $executionMode;
-
-    /**
-     * The locations (like domains or URLs) to be protected. Required.
-     */
-    private array $locations = [];
-
-    /**
-     * The enforcement actions to take if the policy conditions are met within this scope. Required.
-     * @var string[]
-     */
-    private array $policyActions = [];
-
-
-    public function getActivities(): ?string
-    {
-        return $this->activities;
-    }
-
-    public function setActivities(?string $activities): self
-    {
-        $this->activities = $activities;
-        return $this;
-    }
-
-    public function getExecutionMode(): ?string
-    {
-        return $this->executionMode;
-    }
-
-    public function setExecutionMode(?string $executionMode): self
-    {
-        $this->executionMode = $executionMode;
-        return $this;
-    }
-
-    public function getLocations(): array
-    {
-        return $this->locations;
-    }
-
-    public function setLocations(array $locations): self
-    {
-        $this->locations = $locations;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPolicyActions(): array
-    {
-        return $this->policyActions;
-    }
-
-    /**
-     * @param string[] $policyActions
-     */
-    public function setPolicyActions(array $policyActions): self
-    {
-        $this->policyActions = $policyActions;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $activities = null,
+        /**  */
+        public ?string $executionMode = null,
+        /** The locations (like domains or URLs) to be protected. Required. */
+        public array $locations = [],
+        /** @var string[] The enforcement actions to take if the policy conditions are met within this scope. Required. */
+        public array $policyActions = []
+    ) {}
 }

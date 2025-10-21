@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CertificationControl
 {
-    /**
-     * Certification control name
-     */
-    private ?string $name;
-
-    /**
-     * URL for the Microsoft Service Trust Portal
-     */
-    private ?string $url;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(?string $url): self
-    {
-        $this->url = $url;
-        return $this;
-    }
-
+    public function __construct(
+        /** Certification control name */
+        public ?string $name = null,
+        /** URL for the Microsoft Service Trust Portal */
+        public ?string $url = null
+    ) {}
 }

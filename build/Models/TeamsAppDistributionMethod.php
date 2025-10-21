@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppDistributionMethod
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CalendarRoleType
 {
-
+    public function __construct(
+    ) {}
 }

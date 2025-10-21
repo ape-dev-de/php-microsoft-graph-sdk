@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SkypeUserConversationMember
 {
-    /**
-     * Skype ID of the user.
-     */
-    private ?string $skypeId;
-
-
-    public function getSkypeId(): ?string
-    {
-        return $this->skypeId;
-    }
-
-    public function setSkypeId(?string $skypeId): self
-    {
-        $this->skypeId = $skypeId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Skype ID of the user. */
+        public ?string $skypeId = null
+    ) {}
 }

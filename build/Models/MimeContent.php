@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MimeContent
 {
-    /**
-     * Indicates the content mime type.
-     */
-    private ?string $type;
-
-    /**
-     * Contains properties for a generic mime content.
-     */
-    private ?string $value;
-
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates the content mime type. */
+        public ?string $type = null,
+        /** Contains properties for a generic mime content. */
+        public ?string $value = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceInsights
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OrganizationalBrandingLocalization
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisionChannelEmailResult
 {
-    /**
-     * Represents the provisioned email address.
-     */
-    private ?string $email;
-
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(?string $email): self
-    {
-        $this->email = $email;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the provisioned email address. */
+        public ?string $email = null
+    ) {}
 }

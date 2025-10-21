@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryReviewSet
 {
-    /**
-     * Represents queries within the review set.
-     * @var string[]
-     */
-    private array $queries = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getQueries(): array
-    {
-        return $this->queries;
-    }
-
-    /**
-     * @param string[] $queries
-     */
-    public function setQueries(array $queries): self
-    {
-        $this->queries = $queries;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Represents queries within the review set. */
+        public array $queries = []
+    ) {}
 }

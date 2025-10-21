@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Initiator
 {
-    /**
-     * Type of initiator. Possible values are: user, application, system, unknownFutureValue.
-     */
-    private ?string $initiatorType;
-
-
-    public function getInitiatorType(): ?string
-    {
-        return $this->initiatorType;
-    }
-
-    public function setInitiatorType(?string $initiatorType): self
-    {
-        $this->initiatorType = $initiatorType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
+        public ?string $initiatorType = null
+    ) {}
 }

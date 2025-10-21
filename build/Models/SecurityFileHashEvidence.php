@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFileHashEvidence
 {
-    /**
-     */
-    private ?string $algorithm;
-
-    /**
-     */
-    private ?string $value;
-
-
-    public function getAlgorithm(): ?string
-    {
-        return $this->algorithm;
-    }
-
-    public function setAlgorithm(?string $algorithm): self
-    {
-        $this->algorithm = $algorithm;
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $algorithm = null,
+        /**  */
+        public ?string $value = null
+    ) {}
 }

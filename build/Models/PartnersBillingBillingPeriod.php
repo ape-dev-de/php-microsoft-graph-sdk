@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingBillingPeriod
 {
-
+    public function __construct(
+    ) {}
 }

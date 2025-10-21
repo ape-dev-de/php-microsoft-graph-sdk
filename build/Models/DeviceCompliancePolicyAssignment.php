@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceCompliancePolicyAssignment
 {
-    /**
-     * Device compliance policy assignment.
-     */
-    private ?string $target;
-
-
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-        return $this;
-    }
-
+    public function __construct(
+        /** Device compliance policy assignment. */
+        public ?string $target = null
+    ) {}
 }

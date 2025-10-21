@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationFeedbackOutcome
 {
-    /**
-     * Teacher's written feedback to the student.
-     */
-    private ?string $feedback;
-
-    /**
-     * A copy of the feedback property that is made when the grade is released to the student.
-     */
-    private ?string $publishedFeedback;
-
-
-    public function getFeedback(): ?string
-    {
-        return $this->feedback;
-    }
-
-    public function setFeedback(?string $feedback): self
-    {
-        $this->feedback = $feedback;
-        return $this;
-    }
-
-    public function getPublishedFeedback(): ?string
-    {
-        return $this->publishedFeedback;
-    }
-
-    public function setPublishedFeedback(?string $publishedFeedback): self
-    {
-        $this->publishedFeedback = $publishedFeedback;
-        return $this;
-    }
-
+    public function __construct(
+        /** Teacher's written feedback to the student. */
+        public ?string $feedback = null,
+        /** A copy of the feedback property that is made when the grade is released to the student. */
+        public ?string $publishedFeedback = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSignInRecommendationScope
 {
-
+    public function __construct(
+    ) {}
 }

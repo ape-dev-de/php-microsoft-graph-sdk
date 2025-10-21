@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FirewallPreSharedKeyEncodingMethodType
 {
-
+    public function __construct(
+    ) {}
 }

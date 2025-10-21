@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingStaffMembershipStatus
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessDevices
 {
-    /**
-     * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
-     */
-    private ?string $deviceFilter;
-
-
-    public function getDeviceFilter(): ?string
-    {
-        return $this->deviceFilter;
-    }
-
-    public function setDeviceFilter(?string $deviceFilter): self
-    {
-        $this->deviceFilter = $deviceFilter;
-        return $this;
-    }
-
+    public function __construct(
+        /** Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. */
+        public ?string $deviceFilter = null
+    ) {}
 }

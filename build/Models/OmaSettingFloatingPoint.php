@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OmaSettingFloatingPoint
 {
-    /**
-     * OMA Settings Floating Point definition.
-     */
-    private ?string $value;
-
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** OMA Settings Floating Point definition. */
+        public ?string $value = null
+    ) {}
 }

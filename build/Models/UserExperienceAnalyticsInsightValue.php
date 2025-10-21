@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsInsightValue
 {
-
+    public function __construct(
+    ) {}
 }

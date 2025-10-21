@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RubricQualitySelectedColumnModel
 {
-    /**
-     * ID of the selected level for this quality.
-     */
-    private ?string $columnId;
-
-    /**
-     * ID of the associated quality.
-     */
-    private ?string $qualityId;
-
-
-    public function getColumnId(): ?string
-    {
-        return $this->columnId;
-    }
-
-    public function setColumnId(?string $columnId): self
-    {
-        $this->columnId = $columnId;
-        return $this;
-    }
-
-    public function getQualityId(): ?string
-    {
-        return $this->qualityId;
-    }
-
-    public function setQualityId(?string $qualityId): self
-    {
-        $this->qualityId = $qualityId;
-        return $this;
-    }
-
+    public function __construct(
+        /** ID of the selected level for this quality. */
+        public ?string $columnId = null,
+        /** ID of the associated quality. */
+        public ?string $qualityId = null
+    ) {}
 }

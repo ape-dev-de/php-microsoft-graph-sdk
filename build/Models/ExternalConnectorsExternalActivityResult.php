@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsExternalActivityResult
 {
-    /**
-     * Error information that explains the failure to process an external activity.
-     */
-    private ?string $error;
-
-
-    public function getError(): ?string
-    {
-        return $this->error;
-    }
-
-    public function setError(?string $error): self
-    {
-        $this->error = $error;
-        return $this;
-    }
-
+    public function __construct(
+        /** Error information that explains the failure to process an external activity. */
+        public ?string $error = null
+    ) {}
 }

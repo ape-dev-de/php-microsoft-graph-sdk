@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileAttachment
 {
-    /**
-     * The base64-encoded contents of the file.
-     */
-    private ?string $contentBytes;
-
-    /**
-     * The ID of the attachment in the Exchange store.
-     */
-    private ?string $contentId;
-
-    /**
-     * Don't use this property as it isn't supported.
-     */
-    private ?string $contentLocation;
-
-
-    public function getContentBytes(): ?string
-    {
-        return $this->contentBytes;
-    }
-
-    public function setContentBytes(?string $contentBytes): self
-    {
-        $this->contentBytes = $contentBytes;
-        return $this;
-    }
-
-    public function getContentId(): ?string
-    {
-        return $this->contentId;
-    }
-
-    public function setContentId(?string $contentId): self
-    {
-        $this->contentId = $contentId;
-        return $this;
-    }
-
-    public function getContentLocation(): ?string
-    {
-        return $this->contentLocation;
-    }
-
-    public function setContentLocation(?string $contentLocation): self
-    {
-        $this->contentLocation = $contentLocation;
-        return $this;
-    }
-
+    public function __construct(
+        /** The base64-encoded contents of the file. */
+        public ?string $contentBytes = null,
+        /** The ID of the attachment in the Exchange store. */
+        public ?string $contentId = null,
+        /** Don't use this property as it isn't supported. */
+        public ?string $contentLocation = null
+    ) {}
 }

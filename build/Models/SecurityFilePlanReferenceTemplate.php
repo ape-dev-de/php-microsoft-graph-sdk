@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFilePlanReferenceTemplate
 {
-
+    public function __construct(
+    ) {}
 }

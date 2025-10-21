@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceConfigurationAssignment
 {
-    /**
-     * The device configuration assignment entity assigns an AAD group to a specific device configuration.
-     */
-    private ?string $target;
-
-
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-        return $this;
-    }
-
+    public function __construct(
+        /** The device configuration assignment entity assigns an AAD group to a specific device configuration. */
+        public ?string $target = null
+    ) {}
 }

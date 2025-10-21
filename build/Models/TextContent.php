@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TextContent
 {
-    /**
-     * The text content data. Inherits properties from contentBase.
-     */
-    private ?string $data;
-
-
-    public function getData(): ?string
-    {
-        return $this->data;
-    }
-
-    public function setData(?string $data): self
-    {
-        $this->data = $data;
-        return $this;
-    }
-
+    public function __construct(
+        /** The text content data. Inherits properties from contentBase. */
+        public ?string $data = null
+    ) {}
 }

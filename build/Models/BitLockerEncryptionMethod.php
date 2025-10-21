@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BitLockerEncryptionMethod
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProcessIntegrityLevel
 {
-
+    public function __construct(
+    ) {}
 }

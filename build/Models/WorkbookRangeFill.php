@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookRangeFill
 {
-    /**
-     * HTML color code representing the color of the border line. Can either be of the form #RRGGBB, for example ''FFA500'', or be a named HTML color, for example ''orange''.
-     */
-    private ?string $color;
-
-
-    public function getColor(): ?string
-    {
-        return $this->color;
-    }
-
-    public function setColor(?string $color): self
-    {
-        $this->color = $color;
-        return $this;
-    }
-
+    public function __construct(
+        /** HTML color code representing the color of the border line. Can either be of the form #RRGGBB, for example ''FFA500'', or be a named HTML color, for example ''orange''. */
+        public ?string $color = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SettingValue
 {
-    /**
-     * Name of the setting (as defined by the groupSettingTemplate).
-     */
-    private ?string $name;
-
-    /**
-     * Value of the setting.
-     */
-    private ?string $value;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** Name of the setting (as defined by the groupSettingTemplate). */
+        public ?string $name = null,
+        /** Value of the setting. */
+        public ?string $value = null
+    ) {}
 }

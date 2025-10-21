@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsNetworkConnectionType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInIdentity
 {
-
+    public function __construct(
+    ) {}
 }

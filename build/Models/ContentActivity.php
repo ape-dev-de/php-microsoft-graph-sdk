@@ -9,52 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentActivity
 {
-    /**
-     */
-    private ?string $contentMetadata;
-
-    /**
-     * The scope identified from computed protection scopes.
-     */
-    private ?string $scopeIdentifier;
-
-    /**
-     * ID of the user.
-     */
-    private ?string $userId;
-
-
-    public function getContentMetadata(): ?string
-    {
-        return $this->contentMetadata;
-    }
-
-    public function setContentMetadata(?string $contentMetadata): self
-    {
-        $this->contentMetadata = $contentMetadata;
-        return $this;
-    }
-
-    public function getScopeIdentifier(): ?string
-    {
-        return $this->scopeIdentifier;
-    }
-
-    public function setScopeIdentifier(?string $scopeIdentifier): self
-    {
-        $this->scopeIdentifier = $scopeIdentifier;
-        return $this;
-    }
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $contentMetadata = null,
+        /** The scope identified from computed protection scopes. */
+        public ?string $scopeIdentifier = null,
+        /** ID of the user. */
+        public ?string $userId = null
+    ) {}
 }

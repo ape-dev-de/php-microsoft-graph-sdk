@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerOrderHintsByAssignee
 {
-
+    public function __construct(
+    ) {}
 }

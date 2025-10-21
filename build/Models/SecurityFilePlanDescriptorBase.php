@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFilePlanDescriptorBase
 {
-    /**
-     * Unique string that defines the name for the file plan descriptor associated with a particular retention label.
-     */
-    private ?string $displayName;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Unique string that defines the name for the file plan descriptor associated with a particular retention label. */
+        public ?string $displayName = null
+    ) {}
 }

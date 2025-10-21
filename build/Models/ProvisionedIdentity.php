@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisionedIdentity
 {
-    /**
-     * Details of the identity.
-     */
-    private ?string $details;
-
-    /**
-     * Type of identity that has been provisioned, such as ''user'' or ''group''. Supports $filter (eq, contains).
-     */
-    private ?string $identityType;
-
-
-    public function getDetails(): ?string
-    {
-        return $this->details;
-    }
-
-    public function setDetails(?string $details): self
-    {
-        $this->details = $details;
-        return $this;
-    }
-
-    public function getIdentityType(): ?string
-    {
-        return $this->identityType;
-    }
-
-    public function setIdentityType(?string $identityType): self
-    {
-        $this->identityType = $identityType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Details of the identity. */
+        public ?string $details = null,
+        /** Type of identity that has been provisioned, such as ''user'' or ''group''. Supports $filter (eq, contains). */
+        public ?string $identityType = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsHelloForBusinessPinUsage
 {
-
+    public function __construct(
+    ) {}
 }

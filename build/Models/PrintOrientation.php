@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintOrientation
 {
-
+    public function __construct(
+    ) {}
 }

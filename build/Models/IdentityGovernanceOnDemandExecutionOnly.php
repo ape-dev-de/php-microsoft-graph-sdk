@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceOnDemandExecutionOnly
 {
-
+    public function __construct(
+    ) {}
 }

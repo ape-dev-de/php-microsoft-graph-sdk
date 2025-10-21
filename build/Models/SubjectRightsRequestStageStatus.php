@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestStageStatus
 {
-
+    public function __construct(
+    ) {}
 }

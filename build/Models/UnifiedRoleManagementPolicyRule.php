@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRoleManagementPolicyRule
 {
-    /**
-     * Defines details of scope that''s targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
-     */
-    private ?string $target;
-
-
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-        return $this;
-    }
-
+    public function __construct(
+        /** Defines details of scope that''s targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
+        public ?string $target = null
+    ) {}
 }

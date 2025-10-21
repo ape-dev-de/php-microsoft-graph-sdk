@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCaseOperationStatus
 {
-
+    public function __construct(
+    ) {}
 }

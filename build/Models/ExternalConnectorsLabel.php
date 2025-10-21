@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsLabel
 {
-
+    public function __construct(
+    ) {}
 }

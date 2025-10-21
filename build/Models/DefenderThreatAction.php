@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DefenderThreatAction
 {
-
+    public function __construct(
+    ) {}
 }

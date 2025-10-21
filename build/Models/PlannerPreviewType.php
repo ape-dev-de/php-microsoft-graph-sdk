@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerPreviewType
 {
-
+    public function __construct(
+    ) {}
 }

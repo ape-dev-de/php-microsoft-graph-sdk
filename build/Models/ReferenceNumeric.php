@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReferenceNumeric
 {
-
+    public function __construct(
+    ) {}
 }

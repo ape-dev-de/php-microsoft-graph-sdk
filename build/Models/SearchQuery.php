@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchQuery
 {
-    /**
-     * The search query containing the search terms. Required.
-     */
-    private ?string $queryString;
-
-    /**
-     * Provides a way to decorate the query string. Supports both KQL and query variables. Optional.
-     */
-    private ?string $queryTemplate;
-
-
-    public function getQueryString(): ?string
-    {
-        return $this->queryString;
-    }
-
-    public function setQueryString(?string $queryString): self
-    {
-        $this->queryString = $queryString;
-        return $this;
-    }
-
-    public function getQueryTemplate(): ?string
-    {
-        return $this->queryTemplate;
-    }
-
-    public function setQueryTemplate(?string $queryTemplate): self
-    {
-        $this->queryTemplate = $queryTemplate;
-        return $this;
-    }
-
+    public function __construct(
+        /** The search query containing the search terms. Required. */
+        public ?string $queryString = null,
+        /** Provides a way to decorate the query string. Supports both KQL and query variables. Optional. */
+        public ?string $queryTemplate = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityNetworkAdapter
 {
-    /**
-     * Indicates whether the network adapter is selected for capturing and analyzing network traffic.
-     */
-    private ?bool $isEnabled;
-
-    /**
-     * The name of the network adapter.
-     */
-    private ?string $name;
-
-
-    public function getIsEnabled(): ?bool
-    {
-        return $this->isEnabled;
-    }
-
-    public function setIsEnabled(?bool $isEnabled): self
-    {
-        $this->isEnabled = $isEnabled;
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether the network adapter is selected for capturing and analyzing network traffic. */
+        public ?bool $isEnabled = null,
+        /** The name of the network adapter. */
+        public ?string $name = null
+    ) {}
 }

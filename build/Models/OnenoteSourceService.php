@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenoteSourceService
 {
-
+    public function __construct(
+    ) {}
 }

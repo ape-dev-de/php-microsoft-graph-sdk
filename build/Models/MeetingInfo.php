@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingInfo
 {
-
+    public function __construct(
+    ) {}
 }

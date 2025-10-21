@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RegistrationEnforcement
 {
-    /**
-     * Run campaigns to remind users to set up targeted authentication methods.
-     */
-    private ?string $authenticationMethodsRegistrationCampaign;
-
-
-    public function getAuthenticationMethodsRegistrationCampaign(): ?string
-    {
-        return $this->authenticationMethodsRegistrationCampaign;
-    }
-
-    public function setAuthenticationMethodsRegistrationCampaign(?string $authenticationMethodsRegistrationCampaign): self
-    {
-        $this->authenticationMethodsRegistrationCampaign = $authenticationMethodsRegistrationCampaign;
-        return $this;
-    }
-
+    public function __construct(
+        /** Run campaigns to remind users to set up targeted authentication methods. */
+        public ?string $authenticationMethodsRegistrationCampaign = null
+    ) {}
 }

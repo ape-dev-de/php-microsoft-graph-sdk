@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityWhoisRecord
 {
-    /**
-     * The collection of historical records associated to this WHOIS object.
-     * @var string[]
-     */
-    private array $history = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getHistory(): array
-    {
-        return $this->history;
-    }
-
-    /**
-     * @param string[] $history
-     */
-    public function setHistory(array $history): self
-    {
-        $this->history = $history;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The collection of historical records associated to this WHOIS object. */
+        public array $history = []
+    ) {}
 }

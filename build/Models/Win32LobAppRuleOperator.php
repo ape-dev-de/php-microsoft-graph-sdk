@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppRuleOperator
 {
-
+    public function __construct(
+    ) {}
 }

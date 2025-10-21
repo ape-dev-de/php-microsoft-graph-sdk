@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintUsageByUser
 {
-    /**
-     * The UPN of the user represented by these statistics.
-     */
-    private ?string $userPrincipalName;
-
-
-    public function getUserPrincipalName(): ?string
-    {
-        return $this->userPrincipalName;
-    }
-
-    public function setUserPrincipalName(?string $userPrincipalName): self
-    {
-        $this->userPrincipalName = $userPrincipalName;
-        return $this;
-    }
-
+    public function __construct(
+        /** The UPN of the user represented by these statistics. */
+        public ?string $userPrincipalName = null
+    ) {}
 }

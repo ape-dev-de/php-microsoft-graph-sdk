@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedBrowserType
 {
-
+    public function __construct(
+    ) {}
 }

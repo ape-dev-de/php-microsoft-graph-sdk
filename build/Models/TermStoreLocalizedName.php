@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TermStoreLocalizedName
 {
-    /**
-     * The language tag for the label.
-     */
-    private ?string $languageTag;
-
-    /**
-     * The name in the localized language.
-     */
-    private ?string $name;
-
-
-    public function getLanguageTag(): ?string
-    {
-        return $this->languageTag;
-    }
-
-    public function setLanguageTag(?string $languageTag): self
-    {
-        $this->languageTag = $languageTag;
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
+    public function __construct(
+        /** The language tag for the label. */
+        public ?string $languageTag = null,
+        /** The name in the localized language. */
+        public ?string $name = null
+    ) {}
 }

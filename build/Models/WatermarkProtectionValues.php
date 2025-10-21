@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WatermarkProtectionValues
 {
-    /**
-     * Indicates whether to apply a watermark to any shared content.
-     */
-    private ?bool $isEnabledForContentSharing;
-
-    /**
-     * Indicates whether to apply a watermark to everyone's video feed.
-     */
-    private ?string $isEnabledForVideo;
-
-
-    public function getIsEnabledForContentSharing(): ?bool
-    {
-        return $this->isEnabledForContentSharing;
-    }
-
-    public function setIsEnabledForContentSharing(?bool $isEnabledForContentSharing): self
-    {
-        $this->isEnabledForContentSharing = $isEnabledForContentSharing;
-        return $this;
-    }
-
-    public function getIsEnabledForVideo(): ?string
-    {
-        return $this->isEnabledForVideo;
-    }
-
-    public function setIsEnabledForVideo(?string $isEnabledForVideo): self
-    {
-        $this->isEnabledForVideo = $isEnabledForVideo;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether to apply a watermark to any shared content. */
+        public ?bool $isEnabledForContentSharing = null,
+        /** Indicates whether to apply a watermark to everyone's video feed. */
+        public ?string $isEnabledForVideo = null
+    ) {}
 }

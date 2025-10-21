@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyBinding
 {
-    /**
-     * Specifies the users or groups to be explicitly excluded from this policy scope. Can be null or empty.
-     */
-    private array $exclusions = [];
-
-    /**
-     * Specifies the users or groups to be included in this policy scope. Often set to tenantScope for 'All users'.
-     * @var string[]
-     */
-    private array $inclusions = [];
-
-
-    public function getExclusions(): array
-    {
-        return $this->exclusions;
-    }
-
-    public function setExclusions(array $exclusions): self
-    {
-        $this->exclusions = $exclusions;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getInclusions(): array
-    {
-        return $this->inclusions;
-    }
-
-    /**
-     * @param string[] $inclusions
-     */
-    public function setInclusions(array $inclusions): self
-    {
-        $this->inclusions = $inclusions;
-        return $this;
-    }
-
+    public function __construct(
+        /** Specifies the users or groups to be explicitly excluded from this policy scope. Can be null or empty. */
+        public array $exclusions = [],
+        /** @var string[] Specifies the users or groups to be included in this policy scope. Often set to tenantScope for 'All users'. */
+        public array $inclusions = []
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDefenderProductStatus
 {
-
+    public function __construct(
+    ) {}
 }

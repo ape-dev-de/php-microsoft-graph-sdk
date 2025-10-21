@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EdgeSearchEngineBase
 {
-
+    public function __construct(
+    ) {}
 }

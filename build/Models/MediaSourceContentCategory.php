@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaSourceContentCategory
 {
-
+    public function __construct(
+    ) {}
 }

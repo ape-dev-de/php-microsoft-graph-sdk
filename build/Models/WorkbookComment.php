@@ -9,60 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookComment
 {
-    /**
-     * The content of the comment.
-     */
-    private ?string $content;
-
-    /**
-     * The content type of the comment.
-     */
-    private ?string $contentType;
-
-    /**
-     * The list of replies to the comment. Read-only. Nullable.
-     * @var string[]
-     */
-    private array $replies = [];
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function getContentType(): ?string
-    {
-        return $this->contentType;
-    }
-
-    public function setContentType(?string $contentType): self
-    {
-        $this->contentType = $contentType;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getReplies(): array
-    {
-        return $this->replies;
-    }
-
-    /**
-     * @param string[] $replies
-     */
-    public function setReplies(array $replies): self
-    {
-        $this->replies = $replies;
-        return $this;
-    }
-
+    public function __construct(
+        /** The content of the comment. */
+        public ?string $content = null,
+        /** The content type of the comment. */
+        public ?string $contentType = null,
+        /** @var string[] The list of replies to the comment. Read-only. Nullable. */
+        public array $replies = []
+    ) {}
 }

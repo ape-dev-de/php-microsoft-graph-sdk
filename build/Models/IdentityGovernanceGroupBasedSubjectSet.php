@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceGroupBasedSubjectSet
 {
-    /**
-     * @var string[]
-     */
-    private array $groups = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getGroups(): array
-    {
-        return $this->groups;
-    }
-
-    /**
-     * @param string[] $groups
-     */
-    public function setGroups(array $groups): self
-    {
-        $this->groups = $groups;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $groups = []
+    ) {}
 }

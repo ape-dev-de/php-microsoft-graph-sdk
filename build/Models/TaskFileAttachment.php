@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TaskFileAttachment
 {
-    /**
-     * The base64-encoded contents of the file.
-     */
-    private ?string $contentBytes;
-
-
-    public function getContentBytes(): ?string
-    {
-        return $this->contentBytes;
-    }
-
-    public function setContentBytes(?string $contentBytes): self
-    {
-        $this->contentBytes = $contentBytes;
-        return $this;
-    }
-
+    public function __construct(
+        /** The base64-encoded contents of the file. */
+        public ?string $contentBytes = null
+    ) {}
 }

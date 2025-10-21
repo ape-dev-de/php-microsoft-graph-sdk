@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BodyType
 {
-
+    public function __construct(
+    ) {}
 }

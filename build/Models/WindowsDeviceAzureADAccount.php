@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeviceAzureADAccount
 {
-    /**
-     * Not yet documented
-     */
-    private ?string $userPrincipalName;
-
-
-    public function getUserPrincipalName(): ?string
-    {
-        return $this->userPrincipalName;
-    }
-
-    public function setUserPrincipalName(?string $userPrincipalName): self
-    {
-        $this->userPrincipalName = $userPrincipalName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Not yet documented */
+        public ?string $userPrincipalName = null
+    ) {}
 }

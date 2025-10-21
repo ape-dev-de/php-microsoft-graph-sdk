@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlayPromptOperation
 {
-
+    public function __construct(
+    ) {}
 }

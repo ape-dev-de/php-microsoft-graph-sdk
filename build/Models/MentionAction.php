@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MentionAction
 {
-    /**
-     * The identities of the users mentioned in this action.
-     * @var string[]
-     */
-    private array $mentionees = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getMentionees(): array
-    {
-        return $this->mentionees;
-    }
-
-    /**
-     * @param string[] $mentionees
-     */
-    public function setMentionees(array $mentionees): self
-    {
-        $this->mentionees = $mentionees;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The identities of the users mentioned in this action. */
+        public array $mentionees = []
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TaskStatus
 {
-
+    public function __construct(
+    ) {}
 }

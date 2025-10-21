@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkUserIdentity
 {
-    /**
-     * Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
-     */
-    private ?string $userIdentityType;
-
-
-    public function getUserIdentityType(): ?string
-    {
-        return $this->userIdentityType;
-    }
-
-    public function setUserIdentityType(?string $userIdentityType): self
-    {
-        $this->userIdentityType = $userIdentityType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser. */
+        public ?string $userIdentityType = null
+    ) {}
 }

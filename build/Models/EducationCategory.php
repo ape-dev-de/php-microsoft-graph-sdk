@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationCategory
 {
-    /**
-     * Unique identifier for the category.
-     */
-    private ?string $displayName;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Unique identifier for the category. */
+        public ?string $displayName = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MailboxProtectionRule
 {
-    /**
-     * Contains a mailbox expression. For examples, see mailboxExpression examples.
-     */
-    private ?string $mailboxExpression;
-
-
-    public function getMailboxExpression(): ?string
-    {
-        return $this->mailboxExpression;
-    }
-
-    public function setMailboxExpression(?string $mailboxExpression): self
-    {
-        $this->mailboxExpression = $mailboxExpression;
-        return $this;
-    }
-
+    public function __construct(
+        /** Contains a mailbox expression. For examples, see mailboxExpression examples. */
+        public ?string $mailboxExpression = null
+    ) {}
 }

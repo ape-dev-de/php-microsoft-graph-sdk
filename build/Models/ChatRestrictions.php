@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatRestrictions
 {
-    /**
-     * Indicates whether only text is allowed in the meeting chat. Optional.
-     */
-    private ?string $allowTextOnly;
-
-
-    public function getAllowTextOnly(): ?string
-    {
-        return $this->allowTextOnly;
-    }
-
-    public function setAllowTextOnly(?string $allowTextOnly): self
-    {
-        $this->allowTextOnly = $allowTextOnly;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether only text is allowed in the meeting chat. Optional. */
+        public ?string $allowTextOnly = null
+    ) {}
 }

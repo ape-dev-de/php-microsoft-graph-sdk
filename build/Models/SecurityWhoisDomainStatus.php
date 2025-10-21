@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityWhoisDomainStatus
 {
-
+    public function __construct(
+    ) {}
 }

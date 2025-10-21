@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryHoldOperation
 {
-
+    public function __construct(
+    ) {}
 }

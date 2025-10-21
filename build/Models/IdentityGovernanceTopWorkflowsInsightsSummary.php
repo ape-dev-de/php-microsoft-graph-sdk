@@ -9,164 +9,26 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceTopWorkflowsInsightsSummary
 {
-    /**
-     * Count of failed runs for workflow.
-     */
-    private ?float $failedRuns;
-
-    /**
-     * Count of failed users who were processed.
-     */
-    private ?float $failedUsers;
-
-    /**
-     * Count of successful runs of the workflow.
-     */
-    private ?float $successfulRuns;
-
-    /**
-     * Count of successful users processed by the workflow.
-     */
-    private ?float $successfulUsers;
-
-    /**
-     * Count of total runs of workflow.
-     */
-    private ?float $totalRuns;
-
-    /**
-     * Total number of users processed by the workflow.
-     */
-    private ?float $totalUsers;
-
-    /**
-     */
-    private ?string $workflowCategory;
-
-    /**
-     * The name of the workflow.
-     */
-    private ?string $workflowDisplayName;
-
-    /**
-     * The workflow ID.
-     */
-    private ?string $workflowId;
-
-    /**
-     * The version of the workflow that was a top workflow ran.
-     */
-    private ?string $workflowVersion;
-
-
-    public function getFailedRuns(): ?float
-    {
-        return $this->failedRuns;
-    }
-
-    public function setFailedRuns(?float $failedRuns): self
-    {
-        $this->failedRuns = $failedRuns;
-        return $this;
-    }
-
-    public function getFailedUsers(): ?float
-    {
-        return $this->failedUsers;
-    }
-
-    public function setFailedUsers(?float $failedUsers): self
-    {
-        $this->failedUsers = $failedUsers;
-        return $this;
-    }
-
-    public function getSuccessfulRuns(): ?float
-    {
-        return $this->successfulRuns;
-    }
-
-    public function setSuccessfulRuns(?float $successfulRuns): self
-    {
-        $this->successfulRuns = $successfulRuns;
-        return $this;
-    }
-
-    public function getSuccessfulUsers(): ?float
-    {
-        return $this->successfulUsers;
-    }
-
-    public function setSuccessfulUsers(?float $successfulUsers): self
-    {
-        $this->successfulUsers = $successfulUsers;
-        return $this;
-    }
-
-    public function getTotalRuns(): ?float
-    {
-        return $this->totalRuns;
-    }
-
-    public function setTotalRuns(?float $totalRuns): self
-    {
-        $this->totalRuns = $totalRuns;
-        return $this;
-    }
-
-    public function getTotalUsers(): ?float
-    {
-        return $this->totalUsers;
-    }
-
-    public function setTotalUsers(?float $totalUsers): self
-    {
-        $this->totalUsers = $totalUsers;
-        return $this;
-    }
-
-    public function getWorkflowCategory(): ?string
-    {
-        return $this->workflowCategory;
-    }
-
-    public function setWorkflowCategory(?string $workflowCategory): self
-    {
-        $this->workflowCategory = $workflowCategory;
-        return $this;
-    }
-
-    public function getWorkflowDisplayName(): ?string
-    {
-        return $this->workflowDisplayName;
-    }
-
-    public function setWorkflowDisplayName(?string $workflowDisplayName): self
-    {
-        $this->workflowDisplayName = $workflowDisplayName;
-        return $this;
-    }
-
-    public function getWorkflowId(): ?string
-    {
-        return $this->workflowId;
-    }
-
-    public function setWorkflowId(?string $workflowId): self
-    {
-        $this->workflowId = $workflowId;
-        return $this;
-    }
-
-    public function getWorkflowVersion(): ?string
-    {
-        return $this->workflowVersion;
-    }
-
-    public function setWorkflowVersion(?string $workflowVersion): self
-    {
-        $this->workflowVersion = $workflowVersion;
-        return $this;
-    }
-
+    public function __construct(
+        /** Count of failed runs for workflow. */
+        public ?float $failedRuns = null,
+        /** Count of failed users who were processed. */
+        public ?float $failedUsers = null,
+        /** Count of successful runs of the workflow. */
+        public ?float $successfulRuns = null,
+        /** Count of successful users processed by the workflow. */
+        public ?float $successfulUsers = null,
+        /** Count of total runs of workflow. */
+        public ?float $totalRuns = null,
+        /** Total number of users processed by the workflow. */
+        public ?float $totalUsers = null,
+        /**  */
+        public ?string $workflowCategory = null,
+        /** The name of the workflow. */
+        public ?string $workflowDisplayName = null,
+        /** The workflow ID. */
+        public ?string $workflowId = null,
+        /** The version of the workflow that was a top workflow ran. */
+        public ?string $workflowVersion = null
+    ) {}
 }

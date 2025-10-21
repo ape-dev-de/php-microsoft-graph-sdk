@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Windows10CustomConfiguration
 {
-    /**
-     * This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10CustomConfiguration resource.
-     * @var string[]
-     */
-    private array $omaSettings = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getOmaSettings(): array
-    {
-        return $this->omaSettings;
-    }
-
-    /**
-     * @param string[] $omaSettings
-     */
-    public function setOmaSettings(array $omaSettings): self
-    {
-        $this->omaSettings = $omaSettings;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10CustomConfiguration resource. */
+        public array $omaSettings = []
+    ) {}
 }

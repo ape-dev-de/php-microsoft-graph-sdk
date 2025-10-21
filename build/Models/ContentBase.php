@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentBase
 {
-
+    public function __construct(
+    ) {}
 }

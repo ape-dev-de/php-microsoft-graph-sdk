@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosLobAppProvisioningConfigurationAssignment
 {
-    /**
-     * A class containing the properties used for Group Assignment of an iOS LOB App Provisioning and Configuration.
-     */
-    private ?string $target;
-
-
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-        return $this;
-    }
-
+    public function __construct(
+        /** A class containing the properties used for Group Assignment of an iOS LOB App Provisioning and Configuration. */
+        public ?string $target = null
+    ) {}
 }

@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityTriggersRoot
 {
-    /**
-     * @var string[]
-     */
-    private array $retentionEvents = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getRetentionEvents(): array
-    {
-        return $this->retentionEvents;
-    }
-
-    /**
-     * @param string[] $retentionEvents
-     */
-    public function setRetentionEvents(array $retentionEvents): self
-    {
-        $this->retentionEvents = $retentionEvents;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $retentionEvents = []
+    ) {}
 }

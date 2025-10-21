@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkTagMember
 {
-    /**
-     * The member's display name.
-     */
-    private ?string $displayName;
-
-    /**
-     * The ID of the tenant that the tag member is a part of.
-     */
-    private ?string $tenantId;
-
-    /**
-     * The user ID of the member.
-     */
-    private ?string $userId;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getTenantId(): ?string
-    {
-        return $this->tenantId;
-    }
-
-    public function setTenantId(?string $tenantId): self
-    {
-        $this->tenantId = $tenantId;
-        return $this;
-    }
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The member's display name. */
+        public ?string $displayName = null,
+        /** The ID of the tenant that the tag member is a part of. */
+        public ?string $tenantId = null,
+        /** The user ID of the member. */
+        public ?string $userId = null
+    ) {}
 }

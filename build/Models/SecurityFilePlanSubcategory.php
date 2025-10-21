@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFilePlanSubcategory
 {
-
+    public function __construct(
+    ) {}
 }

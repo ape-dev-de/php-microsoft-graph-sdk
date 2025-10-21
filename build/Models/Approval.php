@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Approval
 {
-    /**
-     * A collection of stages in the approval decision.
-     * @var string[]
-     */
-    private array $stages = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getStages(): array
-    {
-        return $this->stages;
-    }
-
-    /**
-     * @param string[] $stages
-     */
-    public function setStages(array $stages): self
-    {
-        $this->stages = $stages;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A collection of stages in the approval decision. */
+        public array $stages = []
+    ) {}
 }

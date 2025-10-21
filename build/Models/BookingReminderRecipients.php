@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingReminderRecipients
 {
-
+    public function __construct(
+    ) {}
 }

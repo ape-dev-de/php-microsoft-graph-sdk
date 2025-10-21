@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceAndAppManagementRoleDefinition
 {
-
+    public function __construct(
+    ) {}
 }

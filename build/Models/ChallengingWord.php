@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChallengingWord
 {
-    /**
-     * Number of times the word was found challenging by the student during the reading session.
-     */
-    private ?float $count;
-
-    /**
-     * The specific word that the student found challenging during the reading session.
-     */
-    private ?string $word;
-
-
-    public function getCount(): ?float
-    {
-        return $this->count;
-    }
-
-    public function setCount(?float $count): self
-    {
-        $this->count = $count;
-        return $this;
-    }
-
-    public function getWord(): ?string
-    {
-        return $this->word;
-    }
-
-    public function setWord(?string $word): self
-    {
-        $this->word = $word;
-        return $this;
-    }
-
+    public function __construct(
+        /** Number of times the word was found challenging by the student during the reading session. */
+        public ?float $count = null,
+        /** The specific word that the student found challenging during the reading session. */
+        public ?string $word = null
+    ) {}
 }

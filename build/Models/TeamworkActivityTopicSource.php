@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkActivityTopicSource
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionPinCharacterRequirements
 {
-
+    public function __construct(
+    ) {}
 }

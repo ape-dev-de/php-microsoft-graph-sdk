@@ -9,67 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TermColumn
 {
-    /**
-     * Specifies whether the column allows more than one value.
-     */
-    private ?bool $allowMultipleValues;
-
-    /**
-     * Specifies whether to display the entire term path or only the term label.
-     */
-    private ?bool $showFullyQualifiedName;
-
-    /**
-     */
-    private ?string $parentTerm;
-
-    /**
-     */
-    private ?string $termSet;
-
-
-    public function getAllowMultipleValues(): ?bool
-    {
-        return $this->allowMultipleValues;
-    }
-
-    public function setAllowMultipleValues(?bool $allowMultipleValues): self
-    {
-        $this->allowMultipleValues = $allowMultipleValues;
-        return $this;
-    }
-
-    public function getShowFullyQualifiedName(): ?bool
-    {
-        return $this->showFullyQualifiedName;
-    }
-
-    public function setShowFullyQualifiedName(?bool $showFullyQualifiedName): self
-    {
-        $this->showFullyQualifiedName = $showFullyQualifiedName;
-        return $this;
-    }
-
-    public function getParentTerm(): ?string
-    {
-        return $this->parentTerm;
-    }
-
-    public function setParentTerm(?string $parentTerm): self
-    {
-        $this->parentTerm = $parentTerm;
-        return $this;
-    }
-
-    public function getTermSet(): ?string
-    {
-        return $this->termSet;
-    }
-
-    public function setTermSet(?string $termSet): self
-    {
-        $this->termSet = $termSet;
-        return $this;
-    }
-
+    public function __construct(
+        /** Specifies whether the column allows more than one value. */
+        public ?bool $allowMultipleValues = null,
+        /** Specifies whether to display the entire term path or only the term label. */
+        public ?bool $showFullyQualifiedName = null,
+        /**  */
+        public ?string $parentTerm = null,
+        /**  */
+        public ?string $termSet = null
+    ) {}
 }

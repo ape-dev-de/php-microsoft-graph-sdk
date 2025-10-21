@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityReviewSetSettings
 {
-
+    public function __construct(
+    ) {}
 }

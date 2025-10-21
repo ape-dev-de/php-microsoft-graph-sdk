@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileAppContentFileUploadState
 {
-
+    public function __construct(
+    ) {}
 }

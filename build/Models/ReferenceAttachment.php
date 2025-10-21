@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReferenceAttachment
 {
-
+    public function __construct(
+    ) {}
 }

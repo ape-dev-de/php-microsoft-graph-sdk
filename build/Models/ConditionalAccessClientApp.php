@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessClientApp
 {
-
+    public function __construct(
+    ) {}
 }

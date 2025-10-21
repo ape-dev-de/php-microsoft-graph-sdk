@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcDomainJoinType
 {
-
+    public function __construct(
+    ) {}
 }

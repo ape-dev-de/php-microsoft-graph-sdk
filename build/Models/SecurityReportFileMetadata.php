@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityReportFileMetadata
 {
-    /**
-     * The URL to download the report.
-     */
-    private ?string $downloadUrl;
-
-    /**
-     * The name of the file.
-     */
-    private ?string $fileName;
-
-    /**
-     * The size of the file.
-     */
-    private ?string $size;
-
-
-    public function getDownloadUrl(): ?string
-    {
-        return $this->downloadUrl;
-    }
-
-    public function setDownloadUrl(?string $downloadUrl): self
-    {
-        $this->downloadUrl = $downloadUrl;
-        return $this;
-    }
-
-    public function getFileName(): ?string
-    {
-        return $this->fileName;
-    }
-
-    public function setFileName(?string $fileName): self
-    {
-        $this->fileName = $fileName;
-        return $this;
-    }
-
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(?string $size): self
-    {
-        $this->size = $size;
-        return $this;
-    }
-
+    public function __construct(
+        /** The URL to download the report. */
+        public ?string $downloadUrl = null,
+        /** The name of the file. */
+        public ?string $fileName = null,
+        /** The size of the file. */
+        public ?string $size = null
+    ) {}
 }

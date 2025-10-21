@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalDomainFederation
 {
-    /**
-     * The name of the identity source, typically also the domain name. Read only.
-     */
-    private ?string $displayName;
-
-    /**
-     * The domain name. Read only.
-     */
-    private ?string $domainName;
-
-    /**
-     * The issuerURI of the incoming federation. Read only.
-     */
-    private ?string $issuerUri;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getDomainName(): ?string
-    {
-        return $this->domainName;
-    }
-
-    public function setDomainName(?string $domainName): self
-    {
-        $this->domainName = $domainName;
-        return $this;
-    }
-
-    public function getIssuerUri(): ?string
-    {
-        return $this->issuerUri;
-    }
-
-    public function setIssuerUri(?string $issuerUri): self
-    {
-        $this->issuerUri = $issuerUri;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the identity source, typically also the domain name. Read only. */
+        public ?string $displayName = null,
+        /** The domain name. Read only. */
+        public ?string $domainName = null,
+        /** The issuerURI of the incoming federation. Read only. */
+        public ?string $issuerUri = null
+    ) {}
 }

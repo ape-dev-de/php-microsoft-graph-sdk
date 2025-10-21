@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CertificateBasedAuthConfiguration
 {
-    /**
-     * Collection of certificate authorities which creates a trusted certificate chain.
-     * @var string[]
-     */
-    private array $certificateAuthorities = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getCertificateAuthorities(): array
-    {
-        return $this->certificateAuthorities;
-    }
-
-    /**
-     * @param string[] $certificateAuthorities
-     */
-    public function setCertificateAuthorities(array $certificateAuthorities): self
-    {
-        $this->certificateAuthorities = $certificateAuthorities;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Collection of certificate authorities which creates a trusted certificate chain. */
+        public array $certificateAuthorities = []
+    ) {}
 }

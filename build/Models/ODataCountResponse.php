@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ODataCountResponse
 {
-
+    public function __construct(
+    ) {}
 }

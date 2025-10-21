@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppDataTransferLevel
 {
-
+    public function __construct(
+    ) {}
 }

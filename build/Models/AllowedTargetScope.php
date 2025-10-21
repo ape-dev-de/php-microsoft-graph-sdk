@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AllowedTargetScope
 {
-
+    public function __construct(
+    ) {}
 }

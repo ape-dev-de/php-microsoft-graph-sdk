@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EditionUpgradeLicenseType
 {
-
+    public function __construct(
+    ) {}
 }

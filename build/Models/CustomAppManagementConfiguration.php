@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomAppManagementConfiguration
 {
-
+    public function __construct(
+    ) {}
 }

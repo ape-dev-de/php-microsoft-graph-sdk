@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AllowInvitesFrom
 {
-
+    public function __construct(
+    ) {}
 }

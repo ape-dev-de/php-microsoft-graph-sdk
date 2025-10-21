@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Root
 {
-
+    public function __construct(
+    ) {}
 }

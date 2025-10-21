@@ -9,76 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TermStoreSet
 {
-    /**
-     * Date and time of set creation. Read-only.
-     */
-    private ?\DateTimeInterface $createdDateTime;
-
-    /**
-     * Description that gives details on the term usage.
-     */
-    private ?string $description;
-
-    /**
-     * Name of the set for each languageTag.
-     * @var mixed[]
-     */
-    private array $localizedNames = [];
-
-    /**
-     * Custom properties for the set.
-     */
-    private ?string $items;
-
-
-    public function getCreatedDateTime(): ?\DateTimeInterface
-    {
-        return $this->createdDateTime;
-    }
-
-    public function setCreatedDateTime(?\DateTimeInterface $createdDateTime): self
-    {
-        $this->createdDateTime = $createdDateTime;
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function getLocalizedNames(): array
-    {
-        return $this->localizedNames;
-    }
-
-    /**
-     * @param mixed[] $localizedNames
-     */
-    public function setLocalizedNames(array $localizedNames): self
-    {
-        $this->localizedNames = $localizedNames;
-        return $this;
-    }
-
-    public function getItems(): ?string
-    {
-        return $this->items;
-    }
-
-    public function setItems(?string $items): self
-    {
-        $this->items = $items;
-        return $this;
-    }
-
+    public function __construct(
+        /** Date and time of set creation. Read-only. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** Description that gives details on the term usage. */
+        public ?string $description = null,
+        /** @var mixed[] Name of the set for each languageTag. */
+        public array $localizedNames = [],
+        /** Custom properties for the set. */
+        public ?string $items = null
+    ) {}
 }

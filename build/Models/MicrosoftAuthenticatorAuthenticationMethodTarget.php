@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftAuthenticatorAuthenticationMethodTarget
 {
-    /**
-     */
-    private ?string $authenticationMode;
-
-
-    public function getAuthenticationMode(): ?string
-    {
-        return $this->authenticationMode;
-    }
-
-    public function setAuthenticationMode(?string $authenticationMode): self
-    {
-        $this->authenticationMode = $authenticationMode;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $authenticationMode = null
+    ) {}
 }

@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Sharepoint
 {
-    /**
-     */
-    private ?string $settings;
-
-
-    public function getSettings(): ?string
-    {
-        return $this->settings;
-    }
-
-    public function setSettings(?string $settings): self
-    {
-        $this->settings = $settings;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $settings = null
+    ) {}
 }

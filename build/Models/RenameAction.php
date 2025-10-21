@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RenameAction
 {
-    /**
-     * The new name of the item.
-     */
-    private ?string $newName;
-
-    /**
-     * The previous name of the item.
-     */
-    private ?string $oldName;
-
-
-    public function getNewName(): ?string
-    {
-        return $this->newName;
-    }
-
-    public function setNewName(?string $newName): self
-    {
-        $this->newName = $newName;
-        return $this;
-    }
-
-    public function getOldName(): ?string
-    {
-        return $this->oldName;
-    }
-
-    public function setOldName(?string $oldName): self
-    {
-        $this->oldName = $oldName;
-        return $this;
-    }
-
+    public function __construct(
+        /** The new name of the item. */
+        public ?string $newName = null,
+        /** The previous name of the item. */
+        public ?string $oldName = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrivilegedAccessScheduleInstance
 {
-    /**
-     * When the schedule instance ends. Required.
-     */
-    private ?\DateTimeInterface $endDateTime;
-
-    /**
-     * When this instance starts. Required.
-     */
-    private ?\DateTimeInterface $startDateTime;
-
-
-    public function getEndDateTime(): ?\DateTimeInterface
-    {
-        return $this->endDateTime;
-    }
-
-    public function setEndDateTime(?\DateTimeInterface $endDateTime): self
-    {
-        $this->endDateTime = $endDateTime;
-        return $this;
-    }
-
-    public function getStartDateTime(): ?\DateTimeInterface
-    {
-        return $this->startDateTime;
-    }
-
-    public function setStartDateTime(?\DateTimeInterface $startDateTime): self
-    {
-        $this->startDateTime = $startDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** When the schedule instance ends. Required. */
+        public ?\DateTimeInterface $endDateTime = null,
+        /** When this instance starts. Required. */
+        public ?\DateTimeInterface $startDateTime = null
+    ) {}
 }

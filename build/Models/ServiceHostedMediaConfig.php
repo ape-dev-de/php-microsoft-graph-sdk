@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceHostedMediaConfig
 {
-    /**
-     * The list of media to pre-fetch.
-     * @var string[]
-     */
-    private array $preFetchMedia = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getPreFetchMedia(): array
-    {
-        return $this->preFetchMedia;
-    }
-
-    /**
-     * @param string[] $preFetchMedia
-     */
-    public function setPreFetchMedia(array $preFetchMedia): self
-    {
-        $this->preFetchMedia = $preFetchMedia;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The list of media to pre-fetch. */
+        public array $preFetchMedia = []
+    ) {}
 }

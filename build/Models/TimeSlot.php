@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeSlot
 {
-    /**
-     */
-    private ?string $end;
-
-    /**
-     */
-    private ?string $start;
-
-
-    public function getEnd(): ?string
-    {
-        return $this->end;
-    }
-
-    public function setEnd(?string $end): self
-    {
-        $this->end = $end;
-        return $this;
-    }
-
-    public function getStart(): ?string
-    {
-        return $this->start;
-    }
-
-    public function setStart(?string $start): self
-    {
-        $this->start = $start;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $end = null,
+        /**  */
+        public ?string $start = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BroadcastMeetingAudience
 {
-
+    public function __construct(
+    ) {}
 }

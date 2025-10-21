@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrivilegedAccessRoot
 {
-    /**
-     * A group that's governed through Privileged Identity Management (PIM).
-     */
-    private ?string $group;
-
-
-    public function getGroup(): ?string
-    {
-        return $this->group;
-    }
-
-    public function setGroup(?string $group): self
-    {
-        $this->group = $group;
-        return $this;
-    }
-
+    public function __construct(
+        /** A group that's governed through Privileged Identity Management (PIM). */
+        public ?string $group = null
+    ) {}
 }

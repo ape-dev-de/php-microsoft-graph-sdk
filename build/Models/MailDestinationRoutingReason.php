@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MailDestinationRoutingReason
 {
-
+    public function __construct(
+    ) {}
 }

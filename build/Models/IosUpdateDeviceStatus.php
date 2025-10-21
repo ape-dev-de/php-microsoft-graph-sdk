@@ -9,179 +9,28 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosUpdateDeviceStatus
 {
-    /**
-     * The DateTime when device compliance grace period expires
-     */
-    private ?\DateTimeInterface $complianceGracePeriodExpirationDateTime;
-
-    /**
-     * Device name of the DevicePolicyStatus.
-     */
-    private ?string $deviceDisplayName;
-
-    /**
-     * The device id that is being reported.
-     */
-    private ?string $deviceId;
-
-    /**
-     * The device model that is being reported
-     */
-    private ?string $deviceModel;
-
-    /**
-     */
-    private ?string $installStatus;
-
-    /**
-     * Last modified date time of the policy report.
-     */
-    private ?\DateTimeInterface $lastReportedDateTime;
-
-    /**
-     * The device version that is being reported.
-     */
-    private ?string $osVersion;
-
-    /**
-     */
-    private ?string $status;
-
-    /**
-     * The User id that is being reported.
-     */
-    private ?string $userId;
-
-    /**
-     * The User Name that is being reported
-     */
-    private ?string $userName;
-
-    /**
-     * UserPrincipalName.
-     */
-    private ?string $userPrincipalName;
-
-
-    public function getComplianceGracePeriodExpirationDateTime(): ?\DateTimeInterface
-    {
-        return $this->complianceGracePeriodExpirationDateTime;
-    }
-
-    public function setComplianceGracePeriodExpirationDateTime(?\DateTimeInterface $complianceGracePeriodExpirationDateTime): self
-    {
-        $this->complianceGracePeriodExpirationDateTime = $complianceGracePeriodExpirationDateTime;
-        return $this;
-    }
-
-    public function getDeviceDisplayName(): ?string
-    {
-        return $this->deviceDisplayName;
-    }
-
-    public function setDeviceDisplayName(?string $deviceDisplayName): self
-    {
-        $this->deviceDisplayName = $deviceDisplayName;
-        return $this;
-    }
-
-    public function getDeviceId(): ?string
-    {
-        return $this->deviceId;
-    }
-
-    public function setDeviceId(?string $deviceId): self
-    {
-        $this->deviceId = $deviceId;
-        return $this;
-    }
-
-    public function getDeviceModel(): ?string
-    {
-        return $this->deviceModel;
-    }
-
-    public function setDeviceModel(?string $deviceModel): self
-    {
-        $this->deviceModel = $deviceModel;
-        return $this;
-    }
-
-    public function getInstallStatus(): ?string
-    {
-        return $this->installStatus;
-    }
-
-    public function setInstallStatus(?string $installStatus): self
-    {
-        $this->installStatus = $installStatus;
-        return $this;
-    }
-
-    public function getLastReportedDateTime(): ?\DateTimeInterface
-    {
-        return $this->lastReportedDateTime;
-    }
-
-    public function setLastReportedDateTime(?\DateTimeInterface $lastReportedDateTime): self
-    {
-        $this->lastReportedDateTime = $lastReportedDateTime;
-        return $this;
-    }
-
-    public function getOsVersion(): ?string
-    {
-        return $this->osVersion;
-    }
-
-    public function setOsVersion(?string $osVersion): self
-    {
-        $this->osVersion = $osVersion;
-        return $this;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?string $status): self
-    {
-        $this->status = $status;
-        return $this;
-    }
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
-    public function getUserName(): ?string
-    {
-        return $this->userName;
-    }
-
-    public function setUserName(?string $userName): self
-    {
-        $this->userName = $userName;
-        return $this;
-    }
-
-    public function getUserPrincipalName(): ?string
-    {
-        return $this->userPrincipalName;
-    }
-
-    public function setUserPrincipalName(?string $userPrincipalName): self
-    {
-        $this->userPrincipalName = $userPrincipalName;
-        return $this;
-    }
-
+    public function __construct(
+        /** The DateTime when device compliance grace period expires */
+        public ?\DateTimeInterface $complianceGracePeriodExpirationDateTime = null,
+        /** Device name of the DevicePolicyStatus. */
+        public ?string $deviceDisplayName = null,
+        /** The device id that is being reported. */
+        public ?string $deviceId = null,
+        /** The device model that is being reported */
+        public ?string $deviceModel = null,
+        /**  */
+        public ?string $installStatus = null,
+        /** Last modified date time of the policy report. */
+        public ?\DateTimeInterface $lastReportedDateTime = null,
+        /** The device version that is being reported. */
+        public ?string $osVersion = null,
+        /**  */
+        public ?string $status = null,
+        /** The User id that is being reported. */
+        public ?string $userId = null,
+        /** The User Name that is being reported */
+        public ?string $userName = null,
+        /** UserPrincipalName. */
+        public ?string $userPrincipalName = null
+    ) {}
 }

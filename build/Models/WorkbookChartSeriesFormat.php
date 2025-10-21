@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartSeriesFormat
 {
-    /**
-     * Represents the fill format of a chart series, which includes background formatting information. Read-only.
-     */
-    private ?string $fill;
-
-    /**
-     * Represents line formatting. Read-only.
-     */
-    private ?string $line;
-
-
-    public function getFill(): ?string
-    {
-        return $this->fill;
-    }
-
-    public function setFill(?string $fill): self
-    {
-        $this->fill = $fill;
-        return $this;
-    }
-
-    public function getLine(): ?string
-    {
-        return $this->line;
-    }
-
-    public function setLine(?string $line): self
-    {
-        $this->line = $line;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the fill format of a chart series, which includes background formatting information. Read-only. */
+        public ?string $fill = null,
+        /** Represents line formatting. Read-only. */
+        public ?string $line = null
+    ) {}
 }

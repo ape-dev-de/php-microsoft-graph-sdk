@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SettingSourceType
 {
-
+    public function __construct(
+    ) {}
 }

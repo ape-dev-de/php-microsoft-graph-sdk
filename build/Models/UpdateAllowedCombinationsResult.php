@@ -9,83 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UpdateAllowedCombinationsResult
 {
-    /**
-     * Information about why the updateAllowedCombinations action was successful or failed.
-     */
-    private ?string $additionalInformation;
-
-    /**
-     * References to existing Conditional Access policies that use this authentication strength.
-     * @var string[]
-     */
-    private array $conditionalAccessReferences = [];
-
-    /**
-     * The list of current authentication method combinations allowed by the authentication strength.
-     */
-    private array $currentCombinations = [];
-
-    /**
-     * The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.
-     * @var string[]
-     */
-    private array $previousCombinations = [];
-
-
-    public function getAdditionalInformation(): ?string
-    {
-        return $this->additionalInformation;
-    }
-
-    public function setAdditionalInformation(?string $additionalInformation): self
-    {
-        $this->additionalInformation = $additionalInformation;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getConditionalAccessReferences(): array
-    {
-        return $this->conditionalAccessReferences;
-    }
-
-    /**
-     * @param string[] $conditionalAccessReferences
-     */
-    public function setConditionalAccessReferences(array $conditionalAccessReferences): self
-    {
-        $this->conditionalAccessReferences = $conditionalAccessReferences;
-        return $this;
-    }
-
-    public function getCurrentCombinations(): array
-    {
-        return $this->currentCombinations;
-    }
-
-    public function setCurrentCombinations(array $currentCombinations): self
-    {
-        $this->currentCombinations = $currentCombinations;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPreviousCombinations(): array
-    {
-        return $this->previousCombinations;
-    }
-
-    /**
-     * @param string[] $previousCombinations
-     */
-    public function setPreviousCombinations(array $previousCombinations): self
-    {
-        $this->previousCombinations = $previousCombinations;
-        return $this;
-    }
-
+    public function __construct(
+        /** Information about why the updateAllowedCombinations action was successful or failed. */
+        public ?string $additionalInformation = null,
+        /** @var string[] References to existing Conditional Access policies that use this authentication strength. */
+        public array $conditionalAccessReferences = [],
+        /** The list of current authentication method combinations allowed by the authentication strength. */
+        public array $currentCombinations = [],
+        /** @var string[] The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action. */
+        public array $previousCombinations = []
+    ) {}
 }

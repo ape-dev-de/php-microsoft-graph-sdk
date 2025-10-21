@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeMappingSourceType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class QuarantineReason
 {
-
+    public function __construct(
+    ) {}
 }

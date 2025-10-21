@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionMentionedIdentitySet
 {
-    /**
-     */
-    private ?string $conversation;
-
-    /**
-     */
-    private ?string $tag;
-
-
-    public function getConversation(): ?string
-    {
-        return $this->conversation;
-    }
-
-    public function setConversation(?string $conversation): self
-    {
-        $this->conversation = $conversation;
-        return $this;
-    }
-
-    public function getTag(): ?string
-    {
-        return $this->tag;
-    }
-
-    public function setTag(?string $tag): self
-    {
-        $this->tag = $tag;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $conversation = null,
+        /**  */
+        public ?string $tag = null
+    ) {}
 }

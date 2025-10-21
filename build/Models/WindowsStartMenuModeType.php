@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsStartMenuModeType
 {
-
+    public function __construct(
+    ) {}
 }

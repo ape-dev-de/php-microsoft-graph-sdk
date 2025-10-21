@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConnectionStatus
 {
-
+    public function __construct(
+    ) {}
 }

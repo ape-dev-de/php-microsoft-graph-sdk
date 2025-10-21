@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsWifiBand
 {
-
+    public function __construct(
+    ) {}
 }

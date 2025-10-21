@@ -9,52 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAndroidStoreApp
 {
-    /**
-     * The Android AppStoreUrl.
-     */
-    private ?string $appStoreUrl;
-
-    /**
-     */
-    private ?string $minimumSupportedOperatingSystem;
-
-    /**
-     * Contains properties and inherited properties for Android store apps that you can manage with an Intune app protection policy.
-     */
-    private ?string $packageId;
-
-
-    public function getAppStoreUrl(): ?string
-    {
-        return $this->appStoreUrl;
-    }
-
-    public function setAppStoreUrl(?string $appStoreUrl): self
-    {
-        $this->appStoreUrl = $appStoreUrl;
-        return $this;
-    }
-
-    public function getMinimumSupportedOperatingSystem(): ?string
-    {
-        return $this->minimumSupportedOperatingSystem;
-    }
-
-    public function setMinimumSupportedOperatingSystem(?string $minimumSupportedOperatingSystem): self
-    {
-        $this->minimumSupportedOperatingSystem = $minimumSupportedOperatingSystem;
-        return $this;
-    }
-
-    public function getPackageId(): ?string
-    {
-        return $this->packageId;
-    }
-
-    public function setPackageId(?string $packageId): self
-    {
-        $this->packageId = $packageId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The Android AppStoreUrl. */
+        public ?string $appStoreUrl = null,
+        /**  */
+        public ?string $minimumSupportedOperatingSystem = null,
+        /** Contains properties and inherited properties for Android store apps that you can manage with an Intune app protection policy. */
+        public ?string $packageId = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsUrlToItemResolverBase
 {
-    /**
-     * The priority which defines the sequence in which the urlToItemResolverBase instances are evaluated.
-     */
-    private ?string $priority;
-
-
-    public function getPriority(): ?string
-    {
-        return $this->priority;
-    }
-
-    public function setPriority(?string $priority): self
-    {
-        $this->priority = $priority;
-        return $this;
-    }
-
+    public function __construct(
+        /** The priority which defines the sequence in which the urlToItemResolverBase instances are evaluated. */
+        public ?string $priority = null
+    ) {}
 }

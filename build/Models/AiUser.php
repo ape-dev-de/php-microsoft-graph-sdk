@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiUser
 {
-    /**
-     */
-    private ?string $interactionHistory;
-
-
-    public function getInteractionHistory(): ?string
-    {
-        return $this->interactionHistory;
-    }
-
-    public function setInteractionHistory(?string $interactionHistory): self
-    {
-        $this->interactionHistory = $interactionHistory;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $interactionHistory = null
+    ) {}
 }

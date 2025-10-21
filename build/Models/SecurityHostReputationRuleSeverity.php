@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostReputationRuleSeverity
 {
-
+    public function __construct(
+    ) {}
 }

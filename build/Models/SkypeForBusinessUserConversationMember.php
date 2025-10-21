@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SkypeForBusinessUserConversationMember
 {
-    /**
-     * ID of the tenant that the user belongs to.
-     */
-    private ?string $tenantId;
-
-    /**
-     * Microsoft Entra ID of the user.
-     */
-    private ?string $userId;
-
-
-    public function getTenantId(): ?string
-    {
-        return $this->tenantId;
-    }
-
-    public function setTenantId(?string $tenantId): self
-    {
-        $this->tenantId = $tenantId;
-        return $this;
-    }
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
+    public function __construct(
+        /** ID of the tenant that the user belongs to. */
+        public ?string $tenantId = null,
+        /** Microsoft Entra ID of the user. */
+        public ?string $userId = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AllowedLobbyAdmitterRoles
 {
-
+    public function __construct(
+    ) {}
 }

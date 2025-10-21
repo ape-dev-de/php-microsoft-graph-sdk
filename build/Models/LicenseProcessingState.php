@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LicenseProcessingState
 {
-    /**
-     */
-    private ?string $state;
-
-
-    public function getState(): ?string
-    {
-        return $this->state;
-    }
-
-    public function setState(?string $state): self
-    {
-        $this->state = $state;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $state = null
+    ) {}
 }

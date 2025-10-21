@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedDeviceOwnerType
 {
-
+    public function __construct(
+    ) {}
 }

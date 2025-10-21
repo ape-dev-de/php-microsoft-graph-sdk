@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ClassificationError
 {
-    /**
-     * A collection of more specific errors contributing to the overall error.
-     * @var string[]
-     */
-    private array $details = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getDetails(): array
-    {
-        return $this->details;
-    }
-
-    /**
-     * @param string[] $details
-     */
-    public function setDetails(array $details): self
-    {
-        $this->details = $details;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A collection of more specific errors contributing to the overall error. */
+        public array $details = []
+    ) {}
 }

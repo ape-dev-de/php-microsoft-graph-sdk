@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityStringValueDictionary
 {
-
+    public function __construct(
+    ) {}
 }

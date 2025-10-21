@@ -9,98 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceConfigurationState
 {
-    /**
-     * The name of the policy for this policyBase
-     */
-    private ?string $displayName;
-
-    /**
-     */
-    private ?string $platformType;
-
-    /**
-     * Count of how many setting a policy holds
-     */
-    private ?float $settingCount;
-
-    /**
-     */
-    private array $settingStates = [];
-
-    /**
-     */
-    private ?string $state;
-
-    /**
-     * Support for this Entity is being deprecated starting May 2026 & will no longer be supported.
-     */
-    private ?string $version;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getPlatformType(): ?string
-    {
-        return $this->platformType;
-    }
-
-    public function setPlatformType(?string $platformType): self
-    {
-        $this->platformType = $platformType;
-        return $this;
-    }
-
-    public function getSettingCount(): ?float
-    {
-        return $this->settingCount;
-    }
-
-    public function setSettingCount(?float $settingCount): self
-    {
-        $this->settingCount = $settingCount;
-        return $this;
-    }
-
-    public function getSettingStates(): array
-    {
-        return $this->settingStates;
-    }
-
-    public function setSettingStates(array $settingStates): self
-    {
-        $this->settingStates = $settingStates;
-        return $this;
-    }
-
-    public function getState(): ?string
-    {
-        return $this->state;
-    }
-
-    public function setState(?string $state): self
-    {
-        $this->state = $state;
-        return $this;
-    }
-
-    public function getVersion(): ?string
-    {
-        return $this->version;
-    }
-
-    public function setVersion(?string $version): self
-    {
-        $this->version = $version;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the policy for this policyBase */
+        public ?string $displayName = null,
+        /**  */
+        public ?string $platformType = null,
+        /** Count of how many setting a policy holds */
+        public ?float $settingCount = null,
+        /**  */
+        public array $settingStates = [],
+        /**  */
+        public ?string $state = null,
+        /** Support for this Entity is being deprecated starting May 2026 & will no longer be supported. */
+        public ?string $version = null
+    ) {}
 }

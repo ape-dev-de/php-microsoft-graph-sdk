@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewReviewer
 {
-    /**
-     * The date when the reviewer was added for the access review.
-     */
-    private ?\DateTimeInterface $createdDateTime;
-
-    /**
-     * Name of reviewer.
-     */
-    private ?string $displayName;
-
-    /**
-     * User principal name of the reviewer.
-     */
-    private ?string $userPrincipalName;
-
-
-    public function getCreatedDateTime(): ?\DateTimeInterface
-    {
-        return $this->createdDateTime;
-    }
-
-    public function setCreatedDateTime(?\DateTimeInterface $createdDateTime): self
-    {
-        $this->createdDateTime = $createdDateTime;
-        return $this;
-    }
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getUserPrincipalName(): ?string
-    {
-        return $this->userPrincipalName;
-    }
-
-    public function setUserPrincipalName(?string $userPrincipalName): self
-    {
-        $this->userPrincipalName = $userPrincipalName;
-        return $this;
-    }
-
+    public function __construct(
+        /** The date when the reviewer was added for the access review. */
+        public ?\DateTimeInterface $createdDateTime = null,
+        /** Name of reviewer. */
+        public ?string $displayName = null,
+        /** User principal name of the reviewer. */
+        public ?string $userPrincipalName = null
+    ) {}
 }

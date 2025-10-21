@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IncludedUserRoles
 {
-
+    public function __construct(
+    ) {}
 }

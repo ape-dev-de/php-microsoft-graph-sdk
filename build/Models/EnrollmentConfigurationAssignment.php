@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EnrollmentConfigurationAssignment
 {
-    /**
-     * Enrollment Configuration Assignment
-     */
-    private ?string $target;
-
-
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-        return $this;
-    }
-
+    public function __construct(
+        /** Enrollment Configuration Assignment */
+        public ?string $target = null
+    ) {}
 }

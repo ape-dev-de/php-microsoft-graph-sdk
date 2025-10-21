@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewRecommendationInsightSetting
 {
-
+    public function __construct(
+    ) {}
 }

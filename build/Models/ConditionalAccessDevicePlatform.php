@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessDevicePlatform
 {
-
+    public function __construct(
+    ) {}
 }

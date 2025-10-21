@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagementAgentType
 {
-
+    public function __construct(
+    ) {}
 }

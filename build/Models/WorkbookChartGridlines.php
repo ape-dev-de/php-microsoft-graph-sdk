@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartGridlines
 {
-    /**
-     * Indicates whether the axis gridlines are visible.
-     */
-    private ?bool $visible;
-
-    /**
-     * Represents the formatting of chart gridlines. Read-only.
-     */
-    private ?string $format;
-
-
-    public function getVisible(): ?bool
-    {
-        return $this->visible;
-    }
-
-    public function setVisible(?bool $visible): self
-    {
-        $this->visible = $visible;
-        return $this;
-    }
-
-    public function getFormat(): ?string
-    {
-        return $this->format;
-    }
-
-    public function setFormat(?string $format): self
-    {
-        $this->format = $format;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether the axis gridlines are visible. */
+        public ?bool $visible = null,
+        /** Represents the formatting of chart gridlines. Read-only. */
+        public ?string $format = null
+    ) {}
 }

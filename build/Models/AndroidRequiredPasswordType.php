@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AndroidRequiredPasswordType
 {
-
+    public function __construct(
+    ) {}
 }

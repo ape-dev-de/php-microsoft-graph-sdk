@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WhatIfAnalysisReasons
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AnswerInputType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationConditions
 {
-    /**
-     * Applications which trigger a custom authentication extension.
-     */
-    private ?string $applications;
-
-
-    public function getApplications(): ?string
-    {
-        return $this->applications;
-    }
-
-    public function setApplications(?string $applications): self
-    {
-        $this->applications = $applications;
-        return $this;
-    }
-
+    public function __construct(
+        /** Applications which trigger a custom authentication extension. */
+        public ?string $applications = null
+    ) {}
 }

@@ -9,108 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsMedia
 {
-    /**
-     * Device information associated with the callee endpoint of this media.
-     */
-    private ?string $calleeDevice;
-
-    /**
-     * Network information associated with the callee endpoint of this media.
-     */
-    private ?string $calleeNetwork;
-
-    /**
-     * Device information associated with the caller endpoint of this media.
-     */
-    private ?string $callerDevice;
-
-    /**
-     * Network information associated with the caller endpoint of this media.
-     */
-    private ?string $callerNetwork;
-
-    /**
-     * How the media was identified during media negotiation stage.
-     */
-    private ?string $label;
-
-    /**
-     * Network streams associated with this media.
-     * @var string[]
-     */
-    private array $streams = [];
-
-
-    public function getCalleeDevice(): ?string
-    {
-        return $this->calleeDevice;
-    }
-
-    public function setCalleeDevice(?string $calleeDevice): self
-    {
-        $this->calleeDevice = $calleeDevice;
-        return $this;
-    }
-
-    public function getCalleeNetwork(): ?string
-    {
-        return $this->calleeNetwork;
-    }
-
-    public function setCalleeNetwork(?string $calleeNetwork): self
-    {
-        $this->calleeNetwork = $calleeNetwork;
-        return $this;
-    }
-
-    public function getCallerDevice(): ?string
-    {
-        return $this->callerDevice;
-    }
-
-    public function setCallerDevice(?string $callerDevice): self
-    {
-        $this->callerDevice = $callerDevice;
-        return $this;
-    }
-
-    public function getCallerNetwork(): ?string
-    {
-        return $this->callerNetwork;
-    }
-
-    public function setCallerNetwork(?string $callerNetwork): self
-    {
-        $this->callerNetwork = $callerNetwork;
-        return $this;
-    }
-
-    public function getLabel(): ?string
-    {
-        return $this->label;
-    }
-
-    public function setLabel(?string $label): self
-    {
-        $this->label = $label;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getStreams(): array
-    {
-        return $this->streams;
-    }
-
-    /**
-     * @param string[] $streams
-     */
-    public function setStreams(array $streams): self
-    {
-        $this->streams = $streams;
-        return $this;
-    }
-
+    public function __construct(
+        /** Device information associated with the callee endpoint of this media. */
+        public ?string $calleeDevice = null,
+        /** Network information associated with the callee endpoint of this media. */
+        public ?string $calleeNetwork = null,
+        /** Device information associated with the caller endpoint of this media. */
+        public ?string $callerDevice = null,
+        /** Network information associated with the caller endpoint of this media. */
+        public ?string $callerNetwork = null,
+        /** How the media was identified during media negotiation stage. */
+        public ?string $label = null,
+        /** @var string[] Network streams associated with this media. */
+        public array $streams = []
+    ) {}
 }

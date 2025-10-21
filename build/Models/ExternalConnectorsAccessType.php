@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsAccessType
 {
-
+    public function __construct(
+    ) {}
 }

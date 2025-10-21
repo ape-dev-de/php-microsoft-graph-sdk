@@ -9,67 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessTemplate
 {
-    /**
-     * The user-friendly name of the template.
-     */
-    private ?string $description;
-
-    /**
-     */
-    private ?string $details;
-
-    /**
-     * The user-friendly name of the template.
-     */
-    private ?string $name;
-
-    /**
-     */
-    private ?string $scenarios;
-
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    public function getDetails(): ?string
-    {
-        return $this->details;
-    }
-
-    public function setDetails(?string $details): self
-    {
-        $this->details = $details;
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getScenarios(): ?string
-    {
-        return $this->scenarios;
-    }
-
-    public function setScenarios(?string $scenarios): self
-    {
-        $this->scenarios = $scenarios;
-        return $this;
-    }
-
+    public function __construct(
+        /** The user-friendly name of the template. */
+        public ?string $description = null,
+        /**  */
+        public ?string $details = null,
+        /** The user-friendly name of the template. */
+        public ?string $name = null,
+        /**  */
+        public ?string $scenarios = null
+    ) {}
 }

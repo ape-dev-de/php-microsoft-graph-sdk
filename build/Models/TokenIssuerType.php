@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TokenIssuerType
 {
-
+    public function __construct(
+    ) {}
 }

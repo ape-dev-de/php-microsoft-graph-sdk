@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TargetDeviceGroup
 {
-    /**
-     * Display name for the target device group.
-     */
-    private ?string $displayName;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Display name for the target device group. */
+        public ?string $displayName = null
+    ) {}
 }

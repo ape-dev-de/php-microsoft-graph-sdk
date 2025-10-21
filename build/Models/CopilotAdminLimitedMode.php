@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CopilotAdminLimitedMode
 {
-    /**
-     */
-    private ?string $groupId;
-
-    /**
-     */
-    private ?string $isEnabledForGroup;
-
-
-    public function getGroupId(): ?string
-    {
-        return $this->groupId;
-    }
-
-    public function setGroupId(?string $groupId): self
-    {
-        $this->groupId = $groupId;
-        return $this;
-    }
-
-    public function getIsEnabledForGroup(): ?string
-    {
-        return $this->isEnabledForGroup;
-    }
-
-    public function setIsEnabledForGroup(?string $isEnabledForGroup): self
-    {
-        $this->isEnabledForGroup = $isEnabledForGroup;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $groupId = null,
+        /**  */
+        public ?string $isEnabledForGroup = null
+    ) {}
 }

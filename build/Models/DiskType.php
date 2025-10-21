@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DiskType
 {
-
+    public function __construct(
+    ) {}
 }

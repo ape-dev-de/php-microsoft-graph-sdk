@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkingTimeSchedule
 {
-
+    public function __construct(
+    ) {}
 }

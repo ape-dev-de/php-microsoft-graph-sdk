@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AzureActiveDirectoryTenant
 {
-    /**
-     * The name of the Microsoft Entra tenant. Read only.
-     */
-    private ?string $displayName;
-
-    /**
-     * The ID of the Microsoft Entra tenant. Read only.
-     */
-    private ?string $tenantId;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getTenantId(): ?string
-    {
-        return $this->tenantId;
-    }
-
-    public function setTenantId(?string $tenantId): self
-    {
-        $this->tenantId = $tenantId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the Microsoft Entra tenant. Read only. */
+        public ?string $displayName = null,
+        /** The ID of the Microsoft Entra tenant. Read only. */
+        public ?string $tenantId = null
+    ) {}
 }

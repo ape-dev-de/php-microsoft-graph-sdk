@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkBot
 {
-
+    public function __construct(
+    ) {}
 }

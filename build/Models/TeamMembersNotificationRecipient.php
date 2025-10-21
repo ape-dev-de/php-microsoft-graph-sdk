@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamMembersNotificationRecipient
 {
-    /**
-     * The unique identifier for the team whose members should receive the notification.
-     */
-    private ?string $teamId;
-
-
-    public function getTeamId(): ?string
-    {
-        return $this->teamId;
-    }
-
-    public function setTeamId(?string $teamId): self
-    {
-        $this->teamId = $teamId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier for the team whose members should receive the notification. */
+        public ?string $teamId = null
+    ) {}
 }

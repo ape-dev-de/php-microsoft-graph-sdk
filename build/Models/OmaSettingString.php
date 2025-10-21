@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OmaSettingString
 {
-    /**
-     * OMA Settings String definition.
-     */
-    private ?string $value;
-
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** OMA Settings String definition. */
+        public ?string $value = null
+    ) {}
 }

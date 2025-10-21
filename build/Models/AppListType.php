@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppListType
 {
-
+    public function __construct(
+    ) {}
 }

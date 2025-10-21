@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileContainedApp
 {
-
+    public function __construct(
+    ) {}
 }

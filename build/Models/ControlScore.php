@@ -9,69 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ControlScore
 {
-    /**
-     * Control action category (Identity, Data, Device, Apps, Infrastructure).
-     */
-    private ?string $controlCategory;
-
-    /**
-     * Control unique name.
-     */
-    private ?string $controlName;
-
-    /**
-     * Description of the control.
-     */
-    private ?string $description;
-
-    /**
-     * Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
-     */
-    private ?string $score;
-
-
-    public function getControlCategory(): ?string
-    {
-        return $this->controlCategory;
-    }
-
-    public function setControlCategory(?string $controlCategory): self
-    {
-        $this->controlCategory = $controlCategory;
-        return $this;
-    }
-
-    public function getControlName(): ?string
-    {
-        return $this->controlName;
-    }
-
-    public function setControlName(?string $controlName): self
-    {
-        $this->controlName = $controlName;
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    public function getScore(): ?string
-    {
-        return $this->score;
-    }
-
-    public function setScore(?string $score): self
-    {
-        $this->score = $score;
-        return $this;
-    }
-
+    public function __construct(
+        /** Control action category (Identity, Data, Device, Apps, Infrastructure). */
+        public ?string $controlCategory = null,
+        /** Control unique name. */
+        public ?string $controlName = null,
+        /** Description of the control. */
+        public ?string $description = null,
+        /** Tenant achieved score for the control (it varies day by day depending on tenant operations on the control). */
+        public ?string $score = null
+    ) {}
 }

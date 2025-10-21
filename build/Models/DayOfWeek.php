@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DayOfWeek
 {
-
+    public function __construct(
+    ) {}
 }

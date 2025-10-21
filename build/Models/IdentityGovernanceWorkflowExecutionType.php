@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceWorkflowExecutionType
 {
-
+    public function __construct(
+    ) {}
 }

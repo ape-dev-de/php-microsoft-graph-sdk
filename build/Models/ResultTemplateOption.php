@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResultTemplateOption
 {
-    /**
-     * Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. Optional.
-     */
-    private ?string $enableResultTemplate;
-
-
-    public function getEnableResultTemplate(): ?string
-    {
-        return $this->enableResultTemplate;
-    }
-
-    public function setEnableResultTemplate(?string $enableResultTemplate): self
-    {
-        $this->enableResultTemplate = $enableResultTemplate;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. Optional. */
+        public ?string $enableResultTemplate = null
+    ) {}
 }

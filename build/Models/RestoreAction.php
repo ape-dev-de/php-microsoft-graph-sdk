@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestoreAction
 {
-
+    public function __construct(
+    ) {}
 }

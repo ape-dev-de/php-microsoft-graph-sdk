@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamClassSettings
 {
-    /**
-     * If set to true, enables sending of weekly assignments digest emails to parents/guardians, provided the tenant admin has enabled the setting globally.
-     */
-    private ?string $notifyGuardiansAboutAssignments;
-
-
-    public function getNotifyGuardiansAboutAssignments(): ?string
-    {
-        return $this->notifyGuardiansAboutAssignments;
-    }
-
-    public function setNotifyGuardiansAboutAssignments(?string $notifyGuardiansAboutAssignments): self
-    {
-        $this->notifyGuardiansAboutAssignments = $notifyGuardiansAboutAssignments;
-        return $this;
-    }
-
+    public function __construct(
+        /** If set to true, enables sending of weekly assignments digest emails to parents/guardians, provided the tenant admin has enabled the setting globally. */
+        public ?string $notifyGuardiansAboutAssignments = null
+    ) {}
 }

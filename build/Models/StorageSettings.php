@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class StorageSettings
 {
-    /**
-     */
-    private ?string $quota;
-
-
-    public function getQuota(): ?string
-    {
-        return $this->quota;
-    }
-
-    public function setQuota(?string $quota): self
-    {
-        $this->quota = $quota;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $quota = null
+    ) {}
 }

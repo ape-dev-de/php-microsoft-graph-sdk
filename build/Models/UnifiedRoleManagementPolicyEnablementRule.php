@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRoleManagementPolicyEnablementRule
 {
-    /**
-     * The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification.
-     * @var string[]
-     */
-    private array $enabledRules = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getEnabledRules(): array
-    {
-        return $this->enabledRules;
-    }
-
-    /**
-     * @param string[] $enabledRules
-     */
-    public function setEnabledRules(array $enabledRules): self
-    {
-        $this->enabledRules = $enabledRules;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification. */
+        public array $enabledRules = []
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityRetentionTrigger
 {
-
+    public function __construct(
+    ) {}
 }

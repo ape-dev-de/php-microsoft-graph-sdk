@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConnectedOrganizationMembers
 {
-    /**
-     * The ID of the connected organization in entitlement management.
-     */
-    private ?string $connectedOrganizationId;
-
-    /**
-     * The name of the connected organization.
-     */
-    private ?string $description;
-
-
-    public function getConnectedOrganizationId(): ?string
-    {
-        return $this->connectedOrganizationId;
-    }
-
-    public function setConnectedOrganizationId(?string $connectedOrganizationId): self
-    {
-        $this->connectedOrganizationId = $connectedOrganizationId;
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
+    public function __construct(
+        /** The ID of the connected organization in entitlement management. */
+        public ?string $connectedOrganizationId = null,
+        /** The name of the connected organization. */
+        public ?string $description = null
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ComplianceInformation
 {
-    /**
-     * Collection of the certification controls associated with the certification.
-     */
-    private array $certificationControls = [];
-
-    /**
-     * The name of the compliance certification, for example, ISO 27018:2014, GDPR, FedRAMP, and NIST 800-171.
-     */
-    private ?string $certificationName;
-
-
-    public function getCertificationControls(): array
-    {
-        return $this->certificationControls;
-    }
-
-    public function setCertificationControls(array $certificationControls): self
-    {
-        $this->certificationControls = $certificationControls;
-        return $this;
-    }
-
-    public function getCertificationName(): ?string
-    {
-        return $this->certificationName;
-    }
-
-    public function setCertificationName(?string $certificationName): self
-    {
-        $this->certificationName = $certificationName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Collection of the certification controls associated with the certification. */
+        public array $certificationControls = [],
+        /** The name of the compliance certification, for example, ISO 27018:2014, GDPR, FedRAMP, and NIST 800-171. */
+        public ?string $certificationName = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppConsentRequestScope
 {
-    /**
-     * The name of the scope.
-     */
-    private ?string $displayName;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the scope. */
+        public ?string $displayName = null
+    ) {}
 }

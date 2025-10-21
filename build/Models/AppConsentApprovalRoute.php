@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppConsentApprovalRoute
 {
-    /**
-     * A collection of appConsentRequest objects representing apps for which admin consent has been requested by one or more users.
-     * @var string[]
-     */
-    private array $appConsentRequests = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getAppConsentRequests(): array
-    {
-        return $this->appConsentRequests;
-    }
-
-    /**
-     * @param string[] $appConsentRequests
-     */
-    public function setAppConsentRequests(array $appConsentRequests): self
-    {
-        $this->appConsentRequests = $appConsentRequests;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A collection of appConsentRequest objects representing apps for which admin consent has been requested by one or more users. */
+        public array $appConsentRequests = []
+    ) {}
 }

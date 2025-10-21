@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserDefaultAuthenticationMethod
 {
-
+    public function __construct(
+    ) {}
 }

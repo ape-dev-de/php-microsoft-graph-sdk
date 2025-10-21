@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityContainerRegistryEvidence
 {
-    /**
-     * The registry URI.
-     */
-    private ?string $registry;
-
-
-    public function getRegistry(): ?string
-    {
-        return $this->registry;
-    }
-
-    public function setRegistry(?string $registry): self
-    {
-        $this->registry = $registry;
-        return $this;
-    }
-
+    public function __construct(
+        /** The registry URI. */
+        public ?string $registry = null
+    ) {}
 }

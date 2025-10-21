@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosHomeScreenApp
 {
-    /**
-     * Represents an icon for an app on the Home Screen
-     */
-    private ?string $bundleID;
-
-
-    public function getBundleID(): ?string
-    {
-        return $this->bundleID;
-    }
-
-    public function setBundleID(?string $bundleID): self
-    {
-        $this->bundleID = $bundleID;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents an icon for an app on the Home Screen */
+        public ?string $bundleID = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAssignmentPointsGradeType
 {
-    /**
-     * Max points possible for this assignment.
-     */
-    private ?string $maxPoints;
-
-
-    public function getMaxPoints(): ?string
-    {
-        return $this->maxPoints;
-    }
-
-    public function setMaxPoints(?string $maxPoints): self
-    {
-        $this->maxPoints = $maxPoints;
-        return $this;
-    }
-
+    public function __construct(
+        /** Max points possible for this assignment. */
+        public ?string $maxPoints = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateAuthenticationMode
 {
-
+    public function __construct(
+    ) {}
 }

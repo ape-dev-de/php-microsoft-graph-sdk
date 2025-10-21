@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartFill
 {
-
+    public function __construct(
+    ) {}
 }

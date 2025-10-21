@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResponseFeedbackType
 {
-
+    public function __construct(
+    ) {}
 }

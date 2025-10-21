@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GroupAssignmentTarget
 {
-    /**
-     * Represents an assignment to a group.
-     */
-    private ?string $groupId;
-
-
-    public function getGroupId(): ?string
-    {
-        return $this->groupId;
-    }
-
-    public function setGroupId(?string $groupId): self
-    {
-        $this->groupId = $groupId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents an assignment to a group. */
+        public ?string $groupId = null
+    ) {}
 }

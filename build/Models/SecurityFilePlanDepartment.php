@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFilePlanDepartment
 {
-
+    public function __construct(
+    ) {}
 }

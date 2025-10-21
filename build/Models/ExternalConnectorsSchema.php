@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsSchema
 {
-    /**
-     * Must be set to microsoft.graph.externalConnector.externalItem. Required.
-     */
-    private array $baseType = [];
-
-    /**
-     * The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
-     */
-    private ?string $items;
-
-
-    public function getBaseType(): array
-    {
-        return $this->baseType;
-    }
-
-    public function setBaseType(array $baseType): self
-    {
-        $this->baseType = $baseType;
-        return $this;
-    }
-
-    public function getItems(): ?string
-    {
-        return $this->items;
-    }
-
-    public function setItems(?string $items): self
-    {
-        $this->items = $items;
-        return $this;
-    }
-
+    public function __construct(
+        /** Must be set to microsoft.graph.externalConnector.externalItem. Required. */
+        public array $baseType = [],
+        /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128. */
+        public ?string $items = null
+    ) {}
 }

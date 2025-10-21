@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCloudLogonRequestEvidence
 {
-    /**
-     * The unique identifier for the sign-in request.
-     */
-    private ?string $requestId;
-
-
-    public function getRequestId(): ?string
-    {
-        return $this->requestId;
-    }
-
-    public function setRequestId(?string $requestId): self
-    {
-        $this->requestId = $requestId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier for the sign-in request. */
+        public ?string $requestId = null
+    ) {}
 }

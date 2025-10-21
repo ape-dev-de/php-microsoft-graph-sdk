@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DlpActionInfo
 {
-    /**
-     * The type of DLP action. Possible value is restrictAccessAction.
-     */
-    private ?string $action;
-
-
-    public function getAction(): ?string
-    {
-        return $this->action;
-    }
-
-    public function setAction(?string $action): self
-    {
-        $this->action = $action;
-        return $this;
-    }
-
+    public function __construct(
+        /** The type of DLP action. Possible value is restrictAccessAction. */
+        public ?string $action = null
+    ) {}
 }

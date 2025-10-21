@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingBilledReconciliation
 {
-
+    public function __construct(
+    ) {}
 }

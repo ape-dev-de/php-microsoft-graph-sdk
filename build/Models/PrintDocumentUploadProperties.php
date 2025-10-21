@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintDocumentUploadProperties
 {
-    /**
-     * The document's content (MIME) type.
-     */
-    private ?string $contentType;
-
-    /**
-     * The document's name.
-     */
-    private ?string $documentName;
-
-    /**
-     * The document's size in bytes.
-     */
-    private ?string $size;
-
-
-    public function getContentType(): ?string
-    {
-        return $this->contentType;
-    }
-
-    public function setContentType(?string $contentType): self
-    {
-        $this->contentType = $contentType;
-        return $this;
-    }
-
-    public function getDocumentName(): ?string
-    {
-        return $this->documentName;
-    }
-
-    public function setDocumentName(?string $documentName): self
-    {
-        $this->documentName = $documentName;
-        return $this;
-    }
-
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(?string $size): self
-    {
-        $this->size = $size;
-        return $this;
-    }
-
+    public function __construct(
+        /** The document's content (MIME) type. */
+        public ?string $contentType = null,
+        /** The document's name. */
+        public ?string $documentName = null,
+        /** The document's size in bytes. */
+        public ?string $size = null
+    ) {}
 }

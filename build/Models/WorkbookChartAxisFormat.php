@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartAxisFormat
 {
-    /**
-     * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
-     */
-    private ?string $font;
-
-    /**
-     * Represents chart line formatting. Read-only.
-     */
-    private ?string $line;
-
-
-    public function getFont(): ?string
-    {
-        return $this->font;
-    }
-
-    public function setFont(?string $font): self
-    {
-        $this->font = $font;
-        return $this;
-    }
-
-    public function getLine(): ?string
-    {
-        return $this->line;
-    }
-
-    public function setLine(?string $line): self
-    {
-        $this->line = $line;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
+        public ?string $font = null,
+        /** Represents chart line formatting. Read-only. */
+        public ?string $line = null
+    ) {}
 }

@@ -9,35 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SocialIdentitySource
 {
-    /**
-     */
-    private ?string $displayName;
-
-    /**
-     */
-    private ?string $socialIdentitySourceType;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getSocialIdentitySourceType(): ?string
-    {
-        return $this->socialIdentitySourceType;
-    }
-
-    public function setSocialIdentitySourceType(?string $socialIdentitySourceType): self
-    {
-        $this->socialIdentitySourceType = $socialIdentitySourceType;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $displayName = null,
+        /**  */
+        public ?string $socialIdentitySourceType = null
+    ) {}
 }

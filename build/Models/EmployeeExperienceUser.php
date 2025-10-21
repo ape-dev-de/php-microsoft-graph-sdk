@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmployeeExperienceUser
 {
-    /**
-     * @var string[]
-     */
-    private array $learningCourseActivities = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getLearningCourseActivities(): array
-    {
-        return $this->learningCourseActivities;
-    }
-
-    /**
-     * @param string[] $learningCourseActivities
-     */
-    public function setLearningCourseActivities(array $learningCourseActivities): self
-    {
-        $this->learningCourseActivities = $learningCourseActivities;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $learningCourseActivities = []
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ImplicitGrantSettings
 {
-    /**
-     * Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow.
-     */
-    private ?bool $enableAccessTokenIssuance;
-
-    /**
-     * Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow.
-     */
-    private ?string $enableIdTokenIssuance;
-
-
-    public function getEnableAccessTokenIssuance(): ?bool
-    {
-        return $this->enableAccessTokenIssuance;
-    }
-
-    public function setEnableAccessTokenIssuance(?bool $enableAccessTokenIssuance): self
-    {
-        $this->enableAccessTokenIssuance = $enableAccessTokenIssuance;
-        return $this;
-    }
-
-    public function getEnableIdTokenIssuance(): ?string
-    {
-        return $this->enableIdTokenIssuance;
-    }
-
-    public function setEnableIdTokenIssuance(?string $enableIdTokenIssuance): self
-    {
-        $this->enableIdTokenIssuance = $enableIdTokenIssuance;
-        return $this;
-    }
-
+    public function __construct(
+        /** Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow. */
+        public ?bool $enableAccessTokenIssuance = null,
+        /** Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow. */
+        public ?string $enableIdTokenIssuance = null
+    ) {}
 }

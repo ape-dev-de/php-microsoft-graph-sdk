@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationFeedbackResourceOutcomeStatus
 {
-
+    public function __construct(
+    ) {}
 }

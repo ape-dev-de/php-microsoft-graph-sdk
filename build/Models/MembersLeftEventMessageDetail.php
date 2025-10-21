@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MembersLeftEventMessageDetail
 {
-    /**
-     * Initiator of the event.
-     */
-    private ?string $initiator;
-
-    /**
-     * List of members who left the chat.
-     * @var string[]
-     */
-    private array $members = [];
-
-
-    public function getInitiator(): ?string
-    {
-        return $this->initiator;
-    }
-
-    public function setInitiator(?string $initiator): self
-    {
-        $this->initiator = $initiator;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getMembers(): array
-    {
-        return $this->members;
-    }
-
-    /**
-     * @param string[] $members
-     */
-    public function setMembers(array $members): self
-    {
-        $this->members = $members;
-        return $this;
-    }
-
+    public function __construct(
+        /** Initiator of the event. */
+        public ?string $initiator = null,
+        /** @var string[] List of members who left the chat. */
+        public array $members = []
+    ) {}
 }

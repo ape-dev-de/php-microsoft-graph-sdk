@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Fido2CombinationConfiguration
 {
-    /**
-     * A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
-     * @var string[]
-     */
-    private array $allowedAAGUIDs = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getAllowedAAGUIDs(): array
-    {
-        return $this->allowedAAGUIDs;
-    }
-
-    /**
-     * @param string[] $allowedAAGUIDs
-     */
-    public function setAllowedAAGUIDs(array $allowedAAGUIDs): self
-    {
-        $this->allowedAAGUIDs = $allowedAAGUIDs;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A list of AAGUIDs allowed to be used as part of the specified authentication method combinations. */
+        public array $allowedAAGUIDs = []
+    ) {}
 }

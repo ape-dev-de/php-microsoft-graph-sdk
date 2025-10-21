@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TrainingSetting
 {
-    /**
-     * Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue.
-     */
-    private ?string $settingType;
-
-
-    public function getSettingType(): ?string
-    {
-        return $this->settingType;
-    }
-
-    public function setSettingType(?string $settingType): self
-    {
-        $this->settingType = $settingType;
-        return $this;
-    }
-
+    public function __construct(
+        /** Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue. */
+        public ?string $settingType = null
+    ) {}
 }

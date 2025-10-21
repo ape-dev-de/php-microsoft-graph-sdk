@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityResourceType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TabUpdatedEventMessageDetail
 {
-    /**
-     * Initiator of the event.
-     */
-    private ?string $initiator;
-
-    /**
-     * Unique identifier of the tab.
-     */
-    private ?string $tabId;
-
-
-    public function getInitiator(): ?string
-    {
-        return $this->initiator;
-    }
-
-    public function setInitiator(?string $initiator): self
-    {
-        $this->initiator = $initiator;
-        return $this;
-    }
-
-    public function getTabId(): ?string
-    {
-        return $this->tabId;
-    }
-
-    public function setTabId(?string $tabId): self
-    {
-        $this->tabId = $tabId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Initiator of the event. */
+        public ?string $initiator = null,
+        /** Unique identifier of the tab. */
+        public ?string $tabId = null
+    ) {}
 }

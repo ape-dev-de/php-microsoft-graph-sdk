@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessageReactionIdentitySet
 {
-
+    public function __construct(
+    ) {}
 }

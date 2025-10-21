@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceAndAppManagementRoleAssignment
 {
-    /**
-     * The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles.
-     * @var string[]
-     */
-    private array $members = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getMembers(): array
-    {
-        return $this->members;
-    }
-
-    /**
-     * @param string[] $members
-     */
-    public function setMembers(array $members): self
-    {
-        $this->members = $members;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
+        public array $members = []
+    ) {}
 }

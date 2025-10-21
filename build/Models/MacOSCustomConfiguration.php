@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSCustomConfiguration
 {
-    /**
-     * Payload. (UTF8 encoded byte array)
-     */
-    private ?string $payload;
-
-    /**
-     * Payload file name (.mobileconfig
-     */
-    private ?string $payloadFileName;
-
-    /**
-     * This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource.
-     */
-    private ?string $payloadName;
-
-
-    public function getPayload(): ?string
-    {
-        return $this->payload;
-    }
-
-    public function setPayload(?string $payload): self
-    {
-        $this->payload = $payload;
-        return $this;
-    }
-
-    public function getPayloadFileName(): ?string
-    {
-        return $this->payloadFileName;
-    }
-
-    public function setPayloadFileName(?string $payloadFileName): self
-    {
-        $this->payloadFileName = $payloadFileName;
-        return $this;
-    }
-
-    public function getPayloadName(): ?string
-    {
-        return $this->payloadName;
-    }
-
-    public function setPayloadName(?string $payloadName): self
-    {
-        $this->payloadName = $payloadName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Payload. (UTF8 encoded byte array) */
+        public ?string $payload = null,
+        /** Payload file name (.mobileconfig */
+        public ?string $payloadFileName = null,
+        /** This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource. */
+        public ?string $payloadName = null
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDeploymentAccessKeyType
 {
-    /**
-     * The deployment access key.
-     */
-    private ?string $deploymentAccessKey;
-
-
-    public function getDeploymentAccessKey(): ?string
-    {
-        return $this->deploymentAccessKey;
-    }
-
-    public function setDeploymentAccessKey(?string $deploymentAccessKey): self
-    {
-        $this->deploymentAccessKey = $deploymentAccessKey;
-        return $this;
-    }
-
+    public function __construct(
+        /** The deployment access key. */
+        public ?string $deploymentAccessKey = null
+    ) {}
 }

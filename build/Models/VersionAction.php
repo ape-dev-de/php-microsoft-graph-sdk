@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VersionAction
 {
-    /**
-     * The name of the new version that was created by this action.
-     */
-    private ?string $newVersion;
-
-
-    public function getNewVersion(): ?string
-    {
-        return $this->newVersion;
-    }
-
-    public function setNewVersion(?string $newVersion): self
-    {
-        $this->newVersion = $newVersion;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the new version that was created by this action. */
+        public ?string $newVersion = null
+    ) {}
 }

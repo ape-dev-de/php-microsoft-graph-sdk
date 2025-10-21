@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentSharingSession
 {
-
+    public function __construct(
+    ) {}
 }

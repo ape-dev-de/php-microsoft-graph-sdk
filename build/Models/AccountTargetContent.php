@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccountTargetContent
 {
-    /**
-     * The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue.
-     */
-    private ?string $type;
-
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
+    public function __construct(
+        /** The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue. */
+        public ?string $type = null
+    ) {}
 }

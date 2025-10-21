@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsAutopilotDeviceType
 {
-
+    public function __construct(
+    ) {}
 }

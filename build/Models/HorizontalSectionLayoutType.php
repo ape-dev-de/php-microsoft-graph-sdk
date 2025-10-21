@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HorizontalSectionLayoutType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppPinCharacterSet
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IntegratedApplicationMetadata
 {
-    /**
-     * The name of the integrated application.
-     */
-    private ?string $name;
-
-    /**
-     * The version number of the integrated application.
-     */
-    private ?string $version;
-
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getVersion(): ?string
-    {
-        return $this->version;
-    }
-
-    public function setVersion(?string $version): self
-    {
-        $this->version = $version;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the integrated application. */
+        public ?string $name = null,
+        /** The version number of the integrated application. */
+        public ?string $version = null
+    ) {}
 }

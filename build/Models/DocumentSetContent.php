@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DocumentSetContent
 {
-    /**
-     * Content type information of the file.
-     */
-    private ?string $contentType;
-
-    /**
-     * Name of the file in resource folder that should be added as a default content or a template in the document set.
-     */
-    private ?string $fileName;
-
-    /**
-     * Folder name in which the file will be placed when a new document set is created in the library.
-     */
-    private ?string $folderName;
-
-
-    public function getContentType(): ?string
-    {
-        return $this->contentType;
-    }
-
-    public function setContentType(?string $contentType): self
-    {
-        $this->contentType = $contentType;
-        return $this;
-    }
-
-    public function getFileName(): ?string
-    {
-        return $this->fileName;
-    }
-
-    public function setFileName(?string $fileName): self
-    {
-        $this->fileName = $fileName;
-        return $this;
-    }
-
-    public function getFolderName(): ?string
-    {
-        return $this->folderName;
-    }
-
-    public function setFolderName(?string $folderName): self
-    {
-        $this->folderName = $folderName;
-        return $this;
-    }
-
+    public function __construct(
+        /** Content type information of the file. */
+        public ?string $contentType = null,
+        /** Name of the file in resource folder that should be added as a default content or a template in the document set. */
+        public ?string $fileName = null,
+        /** Folder name in which the file will be placed when a new document set is created in the library. */
+        public ?string $folderName = null
+    ) {}
 }

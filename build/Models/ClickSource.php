@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ClickSource
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemovedState
 {
-    /**
-     * The removal reason for the participant resource.
-     */
-    private ?string $reason;
-
-
-    public function getReason(): ?string
-    {
-        return $this->reason;
-    }
-
-    public function setReason(?string $reason): self
-    {
-        $this->reason = $reason;
-        return $this;
-    }
-
+    public function __construct(
+        /** The removal reason for the participant resource. */
+        public ?string $reason = null
+    ) {}
 }

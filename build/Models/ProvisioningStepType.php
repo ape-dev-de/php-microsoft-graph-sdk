@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningStepType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InviteNewBotResponse
 {
-    /**
-     * URI to receive new incoming call notification.
-     */
-    private ?string $inviteUri;
-
-
-    public function getInviteUri(): ?string
-    {
-        return $this->inviteUri;
-    }
-
-    public function setInviteUri(?string $inviteUri): self
-    {
-        $this->inviteUri = $inviteUri;
-        return $this;
-    }
-
+    public function __construct(
+        /** URI to receive new incoming call notification. */
+        public ?string $inviteUri = null
+    ) {}
 }

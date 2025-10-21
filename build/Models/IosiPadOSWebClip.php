@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosiPadOSWebClip
 {
-    /**
-     * Indicates iOS/iPadOS web clip app URL. Example: ''https://www.contoso.com
-     */
-    private ?string $appUrl;
-
-    /**
-     * Contains properties and inherited properties for iOS web apps.
-     */
-    private ?string $useManagedBrowser;
-
-
-    public function getAppUrl(): ?string
-    {
-        return $this->appUrl;
-    }
-
-    public function setAppUrl(?string $appUrl): self
-    {
-        $this->appUrl = $appUrl;
-        return $this;
-    }
-
-    public function getUseManagedBrowser(): ?string
-    {
-        return $this->useManagedBrowser;
-    }
-
-    public function setUseManagedBrowser(?string $useManagedBrowser): self
-    {
-        $this->useManagedBrowser = $useManagedBrowser;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates iOS/iPadOS web clip app URL. Example: ''https://www.contoso.com */
+        public ?string $appUrl = null,
+        /** Contains properties and inherited properties for iOS web apps. */
+        public ?string $useManagedBrowser = null
+    ) {}
 }

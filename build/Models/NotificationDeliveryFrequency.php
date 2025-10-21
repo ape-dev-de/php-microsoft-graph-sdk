@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NotificationDeliveryFrequency
 {
-
+    public function __construct(
+    ) {}
 }

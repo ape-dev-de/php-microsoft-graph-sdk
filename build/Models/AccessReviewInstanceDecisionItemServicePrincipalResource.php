@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewInstanceDecisionItemServicePrincipalResource
 {
-    /**
-     * The globally unique identifier of the application to which access has been granted.
-     */
-    private ?string $appId;
-
-
-    public function getAppId(): ?string
-    {
-        return $this->appId;
-    }
-
-    public function setAppId(?string $appId): self
-    {
-        $this->appId = $appId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The globally unique identifier of the application to which access has been granted. */
+        public ?string $appId = null
+    ) {}
 }

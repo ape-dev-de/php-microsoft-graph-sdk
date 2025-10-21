@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeviceAccount
 {
-    /**
-     * Not yet documented
-     */
-    private ?string $password;
-
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(?string $password): self
-    {
-        $this->password = $password;
-        return $this;
-    }
-
+    public function __construct(
+        /** Not yet documented */
+        public ?string $password = null
+    ) {}
 }

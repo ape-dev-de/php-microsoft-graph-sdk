@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMembersNotificationRecipient
 {
-    /**
-     * The unique identifier for the chat whose members should receive the notifications.
-     */
-    private ?string $chatId;
-
-
-    public function getChatId(): ?string
-    {
-        return $this->chatId;
-    }
-
-    public function setChatId(?string $chatId): self
-    {
-        $this->chatId = $chatId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier for the chat whose members should receive the notifications. */
+        public ?string $chatId = null
+    ) {}
 }

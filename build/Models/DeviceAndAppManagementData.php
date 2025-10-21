@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceAndAppManagementData
 {
-    /**
-     * Exported Data
-     */
-    private ?string $content;
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
+    public function __construct(
+        /** Exported Data */
+        public ?string $content = null
+    ) {}
 }

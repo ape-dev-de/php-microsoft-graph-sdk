@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationSubmissionRecipient
 {
-
+    public function __construct(
+    ) {}
 }

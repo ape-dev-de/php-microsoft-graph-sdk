@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GroupPeerOutlierRecommendationInsightSettings
 {
-
+    public function __construct(
+    ) {}
 }

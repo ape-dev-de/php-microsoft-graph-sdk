@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MultiTenantOrganizationMemberRole
 {
-
+    public function __construct(
+    ) {}
 }

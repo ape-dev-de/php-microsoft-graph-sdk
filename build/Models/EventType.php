@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EventType
 {
-
+    public function __construct(
+    ) {}
 }

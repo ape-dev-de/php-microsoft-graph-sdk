@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCloudAttachmentVersion
 {
-
+    public function __construct(
+    ) {}
 }

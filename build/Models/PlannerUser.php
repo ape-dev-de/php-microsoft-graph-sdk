@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerUser
 {
-    /**
-     * Read-only. Nullable. Returns the plannerTasks assigned to the user.
-     */
-    private array $plans = [];
-
-    /**
-     * Read-only. Nullable. Returns the plannerPlans shared with the user.
-     * @var string[]
-     */
-    private array $tasks = [];
-
-
-    public function getPlans(): array
-    {
-        return $this->plans;
-    }
-
-    public function setPlans(array $plans): self
-    {
-        $this->plans = $plans;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getTasks(): array
-    {
-        return $this->tasks;
-    }
-
-    /**
-     * @param string[] $tasks
-     */
-    public function setTasks(array $tasks): self
-    {
-        $this->tasks = $tasks;
-        return $this;
-    }
-
+    public function __construct(
+        /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
+        public array $plans = [],
+        /** @var string[] Read-only. Nullable. Returns the plannerPlans shared with the user. */
+        public array $tasks = []
+    ) {}
 }

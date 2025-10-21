@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityReportsRoot
 {
-
+    public function __construct(
+    ) {}
 }

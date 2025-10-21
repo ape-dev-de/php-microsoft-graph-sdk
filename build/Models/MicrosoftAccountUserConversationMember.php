@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftAccountUserConversationMember
 {
-    /**
-     * Microsoft Account ID of the user.
-     */
-    private ?string $userId;
-
-
-    public function getUserId(): ?string
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(?string $userId): self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Microsoft Account ID of the user. */
+        public ?string $userId = null
+    ) {}
 }

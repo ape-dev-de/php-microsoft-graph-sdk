@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApprovalFilterByCurrentUserOptions
 {
-
+    public function __construct(
+    ) {}
 }

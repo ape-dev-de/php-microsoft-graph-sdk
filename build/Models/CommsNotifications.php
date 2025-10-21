@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommsNotifications
 {
-    /**
-     * The notification of a change in the resource.
-     * @var string[]
-     */
-    private array $value = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getValue(): array
-    {
-        return $this->value;
-    }
-
-    /**
-     * @param string[] $value
-     */
-    public function setValue(array $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The notification of a change in the resource. */
+        public array $value = []
+    ) {}
 }

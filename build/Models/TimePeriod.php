@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimePeriod
 {
-    /**
-     * The date time of the end of the time period.
-     */
-    private ?\DateTimeInterface $endDateTime;
-
-    /**
-     * The date time of the start of the time period.
-     */
-    private ?\DateTimeInterface $startDateTime;
-
-
-    public function getEndDateTime(): ?\DateTimeInterface
-    {
-        return $this->endDateTime;
-    }
-
-    public function setEndDateTime(?\DateTimeInterface $endDateTime): self
-    {
-        $this->endDateTime = $endDateTime;
-        return $this;
-    }
-
-    public function getStartDateTime(): ?\DateTimeInterface
-    {
-        return $this->startDateTime;
-    }
-
-    public function setStartDateTime(?\DateTimeInterface $startDateTime): self
-    {
-        $this->startDateTime = $startDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** The date time of the end of the time period. */
+        public ?\DateTimeInterface $endDateTime = null,
+        /** The date time of the start of the time period. */
+        public ?\DateTimeInterface $startDateTime = null
+    ) {}
 }

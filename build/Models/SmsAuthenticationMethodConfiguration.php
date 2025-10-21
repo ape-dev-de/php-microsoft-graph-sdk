@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SmsAuthenticationMethodConfiguration
 {
-    /**
-     * A collection of groups that are enabled to use the authentication method.
-     * @var string[]
-     */
-    private array $includeTargets = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getIncludeTargets(): array
-    {
-        return $this->includeTargets;
-    }
-
-    /**
-     * @param string[] $includeTargets
-     */
-    public function setIncludeTargets(array $includeTargets): self
-    {
-        $this->includeTargets = $includeTargets;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A collection of groups that are enabled to use the authentication method. */
+        public array $includeTargets = []
+    ) {}
 }

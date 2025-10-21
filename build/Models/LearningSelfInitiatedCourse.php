@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LearningSelfInitiatedCourse
 {
-    /**
-     * The date and time on which the learner started the self-initiated course. Optional.
-     */
-    private ?\DateTimeInterface $startedDateTime;
-
-
-    public function getStartedDateTime(): ?\DateTimeInterface
-    {
-        return $this->startedDateTime;
-    }
-
-    public function setStartedDateTime(?\DateTimeInterface $startedDateTime): self
-    {
-        $this->startedDateTime = $startedDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** The date and time on which the learner started the self-initiated course. Optional. */
+        public ?\DateTimeInterface $startedDateTime = null
+    ) {}
 }

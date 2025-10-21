@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProtectionScopeState
 {
-
+    public function __construct(
+    ) {}
 }

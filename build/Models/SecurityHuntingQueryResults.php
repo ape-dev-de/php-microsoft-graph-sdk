@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHuntingQueryResults
 {
-    /**
-     * The results of the hunting query.
-     */
-    private array $results = [];
-
-    /**
-     * The schema for the response.
-     * @var string[]
-     */
-    private array $schema = [];
-
-
-    public function getResults(): array
-    {
-        return $this->results;
-    }
-
-    public function setResults(array $results): self
-    {
-        $this->results = $results;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getSchema(): array
-    {
-        return $this->schema;
-    }
-
-    /**
-     * @param string[] $schema
-     */
-    public function setSchema(array $schema): self
-    {
-        $this->schema = $schema;
-        return $this;
-    }
-
+    public function __construct(
+        /** The results of the hunting query. */
+        public array $results = [],
+        /** @var string[] The schema for the response. */
+        public array $schema = []
+    ) {}
 }

@@ -9,51 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DriveProtectionUnitsBulkAdditionJob
 {
-    /**
-     * The list of OneDrive directoryObjectIds to add to the OneDrive protection policy.
-     * @var string[]
-     */
-    private array $directoryObjectIds = [];
-
-    /**
-     * The list of email addresses to add to the OneDrive protection policy.
-     * @var string[]
-     */
-    private array $drives = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getDirectoryObjectIds(): array
-    {
-        return $this->directoryObjectIds;
-    }
-
-    /**
-     * @param string[] $directoryObjectIds
-     */
-    public function setDirectoryObjectIds(array $directoryObjectIds): self
-    {
-        $this->directoryObjectIds = $directoryObjectIds;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getDrives(): array
-    {
-        return $this->drives;
-    }
-
-    /**
-     * @param string[] $drives
-     */
-    public function setDrives(array $drives): self
-    {
-        $this->drives = $drives;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] The list of OneDrive directoryObjectIds to add to the OneDrive protection policy. */
+        public array $directoryObjectIds = [],
+        /** @var string[] The list of email addresses to add to the OneDrive protection policy. */
+        public array $drives = []
+    ) {}
 }

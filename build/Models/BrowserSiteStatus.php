@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSiteStatus
 {
-
+    public function __construct(
+    ) {}
 }

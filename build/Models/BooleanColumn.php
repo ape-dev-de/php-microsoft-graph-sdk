@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BooleanColumn
 {
-
+    public function __construct(
+    ) {}
 }

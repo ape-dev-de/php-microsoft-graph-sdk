@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NotificationTemplateBrandingOptions
 {
-
+    public function __construct(
+    ) {}
 }

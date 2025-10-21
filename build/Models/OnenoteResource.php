@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenoteResource
 {
-    /**
-     * The content stream
-     */
-    private ?string $content;
-
-    /**
-     * The URL for downloading the content
-     */
-    private ?string $contentUrl;
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function getContentUrl(): ?string
-    {
-        return $this->contentUrl;
-    }
-
-    public function setContentUrl(?string $contentUrl): self
-    {
-        $this->contentUrl = $contentUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /** The content stream */
+        public ?string $content = null,
+        /** The URL for downloading the content */
+        public ?string $contentUrl = null
+    ) {}
 }

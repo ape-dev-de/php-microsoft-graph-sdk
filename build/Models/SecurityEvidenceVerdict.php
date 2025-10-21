@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEvidenceVerdict
 {
-
+    public function __construct(
+    ) {}
 }

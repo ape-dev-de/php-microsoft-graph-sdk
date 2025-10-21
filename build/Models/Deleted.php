@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Deleted
 {
-    /**
-     * Represents the state of the deleted item.
-     */
-    private ?string $state;
-
-
-    public function getState(): ?string
-    {
-        return $this->state;
-    }
-
-    public function setState(?string $state): self
-    {
-        $this->state = $state;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents the state of the deleted item. */
+        public ?string $state = null
+    ) {}
 }

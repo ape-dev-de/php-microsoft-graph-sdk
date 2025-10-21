@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSiteCompatibilityMode
 {
-
+    public function __construct(
+    ) {}
 }

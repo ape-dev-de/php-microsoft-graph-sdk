@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InitiatorType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosMobileAppIdentifier
 {
-    /**
-     * The identifier for an iOS app.
-     */
-    private ?string $bundleId;
-
-
-    public function getBundleId(): ?string
-    {
-        return $this->bundleId;
-    }
-
-    public function setBundleId(?string $bundleId): self
-    {
-        $this->bundleId = $bundleId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The identifier for an iOS app. */
+        public ?string $bundleId = null
+    ) {}
 }

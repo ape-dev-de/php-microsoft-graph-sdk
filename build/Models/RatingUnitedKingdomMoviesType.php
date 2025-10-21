@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RatingUnitedKingdomMoviesType
 {
-
+    public function __construct(
+    ) {}
 }

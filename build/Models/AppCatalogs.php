@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppCatalogs
 {
-    /**
-     * @var string[]
-     */
-    private array $teamsApps = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getTeamsApps(): array
-    {
-        return $this->teamsApps;
-    }
-
-    /**
-     * @param string[] $teamsApps
-     */
-    public function setTeamsApps(array $teamsApps): self
-    {
-        $this->teamsApps = $teamsApps;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $teamsApps = []
+    ) {}
 }

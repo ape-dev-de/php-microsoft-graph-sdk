@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserScopeTeamsAppInstallation
 {
-    /**
-     * The chat between the user and Teams app.
-     */
-    private ?string $chat;
-
-
-    public function getChat(): ?string
-    {
-        return $this->chat;
-    }
-
-    public function setChat(?string $chat): self
-    {
-        $this->chat = $chat;
-        return $this;
-    }
-
+    public function __construct(
+        /** The chat between the user and Teams app. */
+        public ?string $chat = null
+    ) {}
 }

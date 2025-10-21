@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaSource
 {
-    /**
-     * Enumeration value that indicates the media content category.
-     */
-    private ?string $contentCategory;
-
-
-    public function getContentCategory(): ?string
-    {
-        return $this->contentCategory;
-    }
-
-    public function setContentCategory(?string $contentCategory): self
-    {
-        $this->contentCategory = $contentCategory;
-        return $this;
-    }
-
+    public function __construct(
+        /** Enumeration value that indicates the media content category. */
+        public ?string $contentCategory = null
+    ) {}
 }

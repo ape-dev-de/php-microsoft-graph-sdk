@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TemplateScenarios
 {
-
+    public function __construct(
+    ) {}
 }

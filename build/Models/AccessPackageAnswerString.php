@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAnswerString
 {
-    /**
-     * The value stored on the requestor''s user profile, if this answer is configured to be stored as a specific attribute.
-     */
-    private ?string $value;
-
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(?string $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
+    public function __construct(
+        /** The value stored on the requestor''s user profile, if this answer is configured to be stored as a specific attribute. */
+        public ?string $value = null
+    ) {}
 }

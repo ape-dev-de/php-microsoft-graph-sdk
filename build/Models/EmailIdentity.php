@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmailIdentity
 {
-    /**
-     * Email address of the user.
-     */
-    private ?string $email;
-
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(?string $email): self
-    {
-        $this->email = $email;
-        return $this;
-    }
-
+    public function __construct(
+        /** Email address of the user. */
+        public ?string $email = null
+    ) {}
 }

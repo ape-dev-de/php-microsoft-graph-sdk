@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BulkUpload
 {
-
+    public function __construct(
+    ) {}
 }

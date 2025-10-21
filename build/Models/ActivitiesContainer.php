@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActivitiesContainer
 {
-    /**
-     * Collection of activity logs related to content processing.
-     * @var string[]
-     */
-    private array $contentActivities = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getContentActivities(): array
-    {
-        return $this->contentActivities;
-    }
-
-    /**
-     * @param string[] $contentActivities
-     */
-    public function setContentActivities(array $contentActivities): self
-    {
-        $this->contentActivities = $contentActivities;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Collection of activity logs related to content processing. */
+        public array $contentActivities = []
+    ) {}
 }

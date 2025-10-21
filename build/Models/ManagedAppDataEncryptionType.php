@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppDataEncryptionType
 {
-
+    public function __construct(
+    ) {}
 }

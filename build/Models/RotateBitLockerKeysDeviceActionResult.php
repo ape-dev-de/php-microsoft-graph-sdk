@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RotateBitLockerKeysDeviceActionResult
 {
-    /**
-     * RotateBitLockerKeys device action result
-     */
-    private ?string $errorCode;
-
-
-    public function getErrorCode(): ?string
-    {
-        return $this->errorCode;
-    }
-
-    public function setErrorCode(?string $errorCode): self
-    {
-        $this->errorCode = $errorCode;
-        return $this;
-    }
-
+    public function __construct(
+        /** RotateBitLockerKeys device action result */
+        public ?string $errorCode = null
+    ) {}
 }

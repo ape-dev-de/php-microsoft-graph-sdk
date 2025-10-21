@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventRegistrationQuestionBase
 {
-    /**
-     * Display name of the registration question.
-     */
-    private ?string $displayName;
-
-    /**
-     * Indicates whether an answer to the question is required. The default value is false.
-     */
-    private ?string $isRequired;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getIsRequired(): ?string
-    {
-        return $this->isRequired;
-    }
-
-    public function setIsRequired(?string $isRequired): self
-    {
-        $this->isRequired = $isRequired;
-        return $this;
-    }
-
+    public function __construct(
+        /** Display name of the registration question. */
+        public ?string $displayName = null,
+        /** Indicates whether an answer to the question is required. The default value is false. */
+        public ?string $isRequired = null
+    ) {}
 }

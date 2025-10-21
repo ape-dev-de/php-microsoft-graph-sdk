@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Partners
 {
-    /**
-     * Represents billing details for billed and unbilled data.
-     */
-    private ?string $billing;
-
-
-    public function getBilling(): ?string
-    {
-        return $this->billing;
-    }
-
-    public function setBilling(?string $billing): self
-    {
-        $this->billing = $billing;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents billing details for billed and unbilled data. */
+        public ?string $billing = null
+    ) {}
 }

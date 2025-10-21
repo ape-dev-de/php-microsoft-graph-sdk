@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TrainingAssignedTo
 {
-
+    public function __construct(
+    ) {}
 }

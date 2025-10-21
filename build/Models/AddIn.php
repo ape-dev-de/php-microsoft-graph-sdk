@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AddIn
 {
-    /**
-     * The unique identifier for the addIn object.
-     */
-    private array $id = [];
-
-    /**
-     * The unique name for the functionality exposed by the app.
-     */
-    private ?string $items;
-
-
-    public function getId(): array
-    {
-        return $this->id;
-    }
-
-    public function setId(array $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    public function getItems(): ?string
-    {
-        return $this->items;
-    }
-
-    public function setItems(?string $items): self
-    {
-        $this->items = $items;
-        return $this;
-    }
-
+    public function __construct(
+        /** The unique identifier for the addIn object. */
+        public array $id = [],
+        /** The unique name for the functionality exposed by the app. */
+        public ?string $items = null
+    ) {}
 }

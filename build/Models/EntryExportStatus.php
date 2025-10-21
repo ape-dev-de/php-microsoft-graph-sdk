@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EntryExportStatus
 {
-
+    public function __construct(
+    ) {}
 }

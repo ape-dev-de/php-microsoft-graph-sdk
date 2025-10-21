@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubscribeToToneOperation
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsAdministrativeUnitInfo
 {
-    /**
-     * Unique identifier for the administrative unit.
-     */
-    private ?string $id;
-
-
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
+    public function __construct(
+        /** Unique identifier for the administrative unit. */
+        public ?string $id = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingPageAccessControl
 {
-
+    public function __construct(
+    ) {}
 }

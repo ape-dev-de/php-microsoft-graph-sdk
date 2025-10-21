@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WellknownListName
 {
-
+    public function __construct(
+    ) {}
 }

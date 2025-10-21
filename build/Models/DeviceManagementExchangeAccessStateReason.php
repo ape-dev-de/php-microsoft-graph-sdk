@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementExchangeAccessStateReason
 {
-
+    public function __construct(
+    ) {}
 }

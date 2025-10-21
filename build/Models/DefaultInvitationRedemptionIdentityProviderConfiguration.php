@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DefaultInvitationRedemptionIdentityProviderConfiguration
 {
-
+    public function __construct(
+    ) {}
 }

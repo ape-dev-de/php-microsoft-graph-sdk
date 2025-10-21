@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppReturnCodeType
 {
-
+    public function __construct(
+    ) {}
 }

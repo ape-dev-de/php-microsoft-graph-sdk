@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Fido2RestrictionEnforcementType
 {
-
+    public function __construct(
+    ) {}
 }

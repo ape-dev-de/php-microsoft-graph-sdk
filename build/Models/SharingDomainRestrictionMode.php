@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharingDomainRestrictionMode
 {
-
+    public function __construct(
+    ) {}
 }

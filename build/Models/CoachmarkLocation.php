@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CoachmarkLocation
 {
-    /**
-     * Length of coachmark.
-     */
-    private ?float $length;
-
-    /**
-     * Offset of coachmark.
-     */
-    private ?float $offset;
-
-    /**
-     * Type of coachmark location. The possible values are: unknown, fromEmail, subject, externalTag, displayName, messageBody, unknownFutureValue.
-     */
-    private ?string $type;
-
-
-    public function getLength(): ?float
-    {
-        return $this->length;
-    }
-
-    public function setLength(?float $length): self
-    {
-        $this->length = $length;
-        return $this;
-    }
-
-    public function getOffset(): ?float
-    {
-        return $this->offset;
-    }
-
-    public function setOffset(?float $offset): self
-    {
-        $this->offset = $offset;
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
+    public function __construct(
+        /** Length of coachmark. */
+        public ?float $length = null,
+        /** Offset of coachmark. */
+        public ?float $offset = null,
+        /** Type of coachmark location. The possible values are: unknown, fromEmail, subject, externalTag, displayName, messageBody, unknownFutureValue. */
+        public ?string $type = null
+    ) {}
 }

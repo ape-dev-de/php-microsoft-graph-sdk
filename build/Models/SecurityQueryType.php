@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityQueryType
 {
-
+    public function __construct(
+    ) {}
 }

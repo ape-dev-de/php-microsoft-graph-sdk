@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserScope
 {
-
+    public function __construct(
+    ) {}
 }

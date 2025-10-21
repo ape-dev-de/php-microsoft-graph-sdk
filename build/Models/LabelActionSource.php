@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LabelActionSource
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReportsRoot
 {
-    /**
-     * Details of submitted reading assignments.
-     */
-    private array $readingAssignmentSubmissions = [];
-
-    /**
-     * Details of check-in responses.
-     * @var string[]
-     */
-    private array $reflectCheckInResponses = [];
-
-
-    public function getReadingAssignmentSubmissions(): array
-    {
-        return $this->readingAssignmentSubmissions;
-    }
-
-    public function setReadingAssignmentSubmissions(array $readingAssignmentSubmissions): self
-    {
-        $this->readingAssignmentSubmissions = $readingAssignmentSubmissions;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getReflectCheckInResponses(): array
-    {
-        return $this->reflectCheckInResponses;
-    }
-
-    /**
-     * @param string[] $reflectCheckInResponses
-     */
-    public function setReflectCheckInResponses(array $reflectCheckInResponses): self
-    {
-        $this->reflectCheckInResponses = $reflectCheckInResponses;
-        return $this;
-    }
-
+    public function __construct(
+        /** Details of submitted reading assignments. */
+        public array $readingAssignmentSubmissions = [],
+        /** @var string[] Details of check-in responses. */
+        public array $reflectCheckInResponses = []
+    ) {}
 }

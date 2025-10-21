@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventAttendeeRegistrationStatus
 {
-
+    public function __construct(
+    ) {}
 }

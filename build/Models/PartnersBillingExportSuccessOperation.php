@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingExportSuccessOperation
 {
-    /**
-     */
-    private ?string $resourceLocation;
-
-
-    public function getResourceLocation(): ?string
-    {
-        return $this->resourceLocation;
-    }
-
-    public function setResourceLocation(?string $resourceLocation): self
-    {
-        $this->resourceLocation = $resourceLocation;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $resourceLocation = null
+    ) {}
 }

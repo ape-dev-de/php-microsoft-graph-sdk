@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityItemsToInclude
 {
-
+    public function __construct(
+    ) {}
 }

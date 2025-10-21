@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Report
 {
-    /**
-     * Device Configuration profile History reports.
-     */
-    private ?string $content;
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
+    public function __construct(
+        /** Device Configuration profile History reports. */
+        public ?string $content = null
+    ) {}
 }

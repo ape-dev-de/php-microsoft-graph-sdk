@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookRangeSort
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityAdditionalDataOptions
 {
-
+    public function __construct(
+    ) {}
 }

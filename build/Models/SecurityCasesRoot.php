@@ -9,27 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCasesRoot
 {
-    /**
-     * @var string[]
-     */
-    private array $ediscoveryCases = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getEdiscoveryCases(): array
-    {
-        return $this->ediscoveryCases;
-    }
-
-    /**
-     * @param string[] $ediscoveryCases
-     */
-    public function setEdiscoveryCases(array $ediscoveryCases): self
-    {
-        $this->ediscoveryCases = $ediscoveryCases;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[]  */
+        public array $ediscoveryCases = []
+    ) {}
 }

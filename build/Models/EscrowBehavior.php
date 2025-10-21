@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EscrowBehavior
 {
-
+    public function __construct(
+    ) {}
 }

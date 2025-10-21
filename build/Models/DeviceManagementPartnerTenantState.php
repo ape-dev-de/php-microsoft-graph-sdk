@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementPartnerTenantState
 {
-
+    public function __construct(
+    ) {}
 }

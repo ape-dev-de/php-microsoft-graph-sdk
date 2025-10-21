@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestrictAccessActionBase
 {
-    /**
-     * Action for the app to take. The possible values are: warn, audit, block.
-     */
-    private ?string $restrictionAction;
-
-
-    public function getRestrictionAction(): ?string
-    {
-        return $this->restrictionAction;
-    }
-
-    public function setRestrictionAction(?string $restrictionAction): self
-    {
-        $this->restrictionAction = $restrictionAction;
-        return $this;
-    }
-
+    public function __construct(
+        /** Action for the app to take. The possible values are: warn, audit, block. */
+        public ?string $restrictionAction = null
+    ) {}
 }

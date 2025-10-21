@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallParticipantInfo
 {
-    /**
-     * Identity of the call participant.
-     */
-    private ?string $participant;
-
-
-    public function getParticipant(): ?string
-    {
-        return $this->participant;
-    }
-
-    public function setParticipant(?string $participant): self
-    {
-        $this->participant = $participant;
-        return $this;
-    }
-
+    public function __construct(
+        /** Identity of the call participant. */
+        public ?string $participant = null
+    ) {}
 }

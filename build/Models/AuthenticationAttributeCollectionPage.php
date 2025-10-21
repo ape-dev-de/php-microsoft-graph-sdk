@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationAttributeCollectionPage
 {
-    /**
-     * A collection of displays of the attribute collection page.
-     * @var string[]
-     */
-    private array $views = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getViews(): array
-    {
-        return $this->views;
-    }
-
-    /**
-     * @param string[] $views
-     */
-    public function setViews(array $views): self
-    {
-        $this->views = $views;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] A collection of displays of the attribute collection page. */
+        public array $views = []
+    ) {}
 }

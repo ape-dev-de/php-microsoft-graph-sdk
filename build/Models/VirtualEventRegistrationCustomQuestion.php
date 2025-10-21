@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventRegistrationCustomQuestion
 {
-    /**
-     * Answer choices when answerInputType is singleChoice or multiChoice.
-     * @var string[]
-     */
-    private array $answerChoices = [];
-
-    /**
-     * Input type of the registration question answer. Possible values are text, multilineText, singleChoice, multiChoice, boolean, and unknownFutureValue.
-     */
-    private ?string $answerInputType;
-
-
-    /**
-     * @return string[]
-     */
-    public function getAnswerChoices(): array
-    {
-        return $this->answerChoices;
-    }
-
-    /**
-     * @param string[] $answerChoices
-     */
-    public function setAnswerChoices(array $answerChoices): self
-    {
-        $this->answerChoices = $answerChoices;
-        return $this;
-    }
-
-    public function getAnswerInputType(): ?string
-    {
-        return $this->answerInputType;
-    }
-
-    public function setAnswerInputType(?string $answerInputType): self
-    {
-        $this->answerInputType = $answerInputType;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Answer choices when answerInputType is singleChoice or multiChoice. */
+        public array $answerChoices = [],
+        /** Input type of the registration question answer. Possible values are text, multilineText, singleChoice, multiChoice, boolean, and unknownFutureValue. */
+        public ?string $answerInputType = null
+    ) {}
 }

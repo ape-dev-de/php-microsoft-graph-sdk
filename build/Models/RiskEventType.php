@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RiskEventType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ShiftPreferences
 {
-    /**
-     * Availability of the user to be scheduled for work and its recurrence pattern.
-     * @var string[]
-     */
-    private array $availability = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getAvailability(): array
-    {
-        return $this->availability;
-    }
-
-    /**
-     * @param string[] $availability
-     */
-    public function setAvailability(array $availability): self
-    {
-        $this->availability = $availability;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Availability of the user to be scheduled for work and its recurrence pattern. */
+        public array $availability = []
+    ) {}
 }

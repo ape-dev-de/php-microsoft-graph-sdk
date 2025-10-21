@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileAppCategory
 {
-    /**
-     * The name of the app category.
-     */
-    private ?string $displayName;
-
-    /**
-     * Contains properties for a single Intune app category.
-     */
-    private ?\DateTimeInterface $lastModifiedDateTime;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getLastModifiedDateTime(): ?\DateTimeInterface
-    {
-        return $this->lastModifiedDateTime;
-    }
-
-    public function setLastModifiedDateTime(?\DateTimeInterface $lastModifiedDateTime): self
-    {
-        $this->lastModifiedDateTime = $lastModifiedDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** The name of the app category. */
+        public ?string $displayName = null,
+        /** Contains properties for a single Intune app category. */
+        public ?\DateTimeInterface $lastModifiedDateTime = null
+    ) {}
 }

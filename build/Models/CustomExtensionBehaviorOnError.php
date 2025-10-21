@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionBehaviorOnError
 {
-
+    public function __construct(
+    ) {}
 }

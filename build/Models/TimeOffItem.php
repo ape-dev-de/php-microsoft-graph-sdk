@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeOffItem
 {
-    /**
-     * ID of the timeOffReason for this timeOffItem. Required.
-     */
-    private ?string $timeOffReasonId;
-
-
-    public function getTimeOffReasonId(): ?string
-    {
-        return $this->timeOffReasonId;
-    }
-
-    public function setTimeOffReasonId(?string $timeOffReasonId): self
-    {
-        $this->timeOffReasonId = $timeOffReasonId;
-        return $this;
-    }
-
+    public function __construct(
+        /** ID of the timeOffReason for this timeOffItem. Required. */
+        public ?string $timeOffReasonId = null
+    ) {}
 }

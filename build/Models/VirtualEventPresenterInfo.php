@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventPresenterInfo
 {
-    /**
-     */
-    private ?string $presenterDetails;
-
-
-    public function getPresenterDetails(): ?string
-    {
-        return $this->presenterDetails;
-    }
-
-    public function setPresenterDetails(?string $presenterDetails): self
-    {
-        $this->presenterDetails = $presenterDetails;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $presenterDetails = null
+    ) {}
 }

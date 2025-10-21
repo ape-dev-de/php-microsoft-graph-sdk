@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SectionEmphasisType
 {
-
+    public function __construct(
+    ) {}
 }

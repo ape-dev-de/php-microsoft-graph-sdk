@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenotePagePreviewLinks
 {
-    /**
-     */
-    private ?string $previewImageUrl;
-
-
-    public function getPreviewImageUrl(): ?string
-    {
-        return $this->previewImageUrl;
-    }
-
-    public function setPreviewImageUrl(?string $previewImageUrl): self
-    {
-        $this->previewImageUrl = $previewImageUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $previewImageUrl = null
+    ) {}
 }

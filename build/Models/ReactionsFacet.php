@@ -9,53 +9,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReactionsFacet
 {
-    /**
-     * Count of comments.
-     */
-    private ?float $commentCount;
-
-    /**
-     * Count of likes.
-     */
-    private ?float $likeCount;
-
-    /**
-     * Count of shares.
-     */
-    private ?string $shareCount;
-
-
-    public function getCommentCount(): ?float
-    {
-        return $this->commentCount;
-    }
-
-    public function setCommentCount(?float $commentCount): self
-    {
-        $this->commentCount = $commentCount;
-        return $this;
-    }
-
-    public function getLikeCount(): ?float
-    {
-        return $this->likeCount;
-    }
-
-    public function setLikeCount(?float $likeCount): self
-    {
-        $this->likeCount = $likeCount;
-        return $this;
-    }
-
-    public function getShareCount(): ?string
-    {
-        return $this->shareCount;
-    }
-
-    public function setShareCount(?string $shareCount): self
-    {
-        $this->shareCount = $shareCount;
-        return $this;
-    }
-
+    public function __construct(
+        /** Count of comments. */
+        public ?float $commentCount = null,
+        /** Count of likes. */
+        public ?float $likeCount = null,
+        /** Count of shares. */
+        public ?string $shareCount = null
+    ) {}
 }

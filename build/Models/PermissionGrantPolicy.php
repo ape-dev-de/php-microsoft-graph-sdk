@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PermissionGrantPolicy
 {
-    /**
-     * Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.
-     */
-    private array $excludes = [];
-
-    /**
-     * Condition sets that are included in this permission grant policy. Automatically expanded on GET.
-     * @var string[]
-     */
-    private array $includes = [];
-
-
-    public function getExcludes(): array
-    {
-        return $this->excludes;
-    }
-
-    public function setExcludes(array $excludes): self
-    {
-        $this->excludes = $excludes;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getIncludes(): array
-    {
-        return $this->includes;
-    }
-
-    /**
-     * @param string[] $includes
-     */
-    public function setIncludes(array $includes): self
-    {
-        $this->includes = $includes;
-        return $this;
-    }
-
+    public function __construct(
+        /** Condition sets that are excluded in this permission grant policy. Automatically expanded on GET. */
+        public array $excludes = [],
+        /** @var string[] Condition sets that are included in this permission grant policy. Automatically expanded on GET. */
+        public array $includes = []
+    ) {}
 }

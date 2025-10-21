@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnAuthenticationMethodLoadStartListener
 {
-    /**
-     * Required. Configuration for what to invoke if the event resolves to this listener. This property lets us define potential handler configurations per-event.
-     */
-    private ?string $handler;
-
-
-    public function getHandler(): ?string
-    {
-        return $this->handler;
-    }
-
-    public function setHandler(?string $handler): self
-    {
-        $this->handler = $handler;
-        return $this;
-    }
-
+    public function __construct(
+        /** Required. Configuration for what to invoke if the event resolves to this listener. This property lets us define potential handler configurations per-event. */
+        public ?string $handler = null
+    ) {}
 }

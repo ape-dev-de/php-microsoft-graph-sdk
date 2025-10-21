@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartGridlinesFormat
 {
-    /**
-     * Represents chart line formatting. Read-only.
-     */
-    private ?string $line;
-
-
-    public function getLine(): ?string
-    {
-        return $this->line;
-    }
-
-    public function setLine(?string $line): self
-    {
-        $this->line = $line;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents chart line formatting. Read-only. */
+        public ?string $line = null
+    ) {}
 }

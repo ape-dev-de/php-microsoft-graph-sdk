@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChangeType
 {
-
+    public function __construct(
+    ) {}
 }

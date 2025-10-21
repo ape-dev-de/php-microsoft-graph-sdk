@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnmuteParticipantOperation
 {
-
+    public function __construct(
+    ) {}
 }

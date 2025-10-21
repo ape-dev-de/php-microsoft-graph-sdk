@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookCommentReply
 {
-    /**
-     * The content of the reply.
-     */
-    private ?string $content;
-
-    /**
-     * The content type for the reply.
-     */
-    private ?string $contentType;
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function getContentType(): ?string
-    {
-        return $this->contentType;
-    }
-
-    public function setContentType(?string $contentType): self
-    {
-        $this->contentType = $contentType;
-        return $this;
-    }
-
+    public function __construct(
+        /** The content of the reply. */
+        public ?string $content = null,
+        /** The content type for the reply. */
+        public ?string $contentType = null
+    ) {}
 }

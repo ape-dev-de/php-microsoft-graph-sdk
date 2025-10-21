@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IpRange
 {
-
+    public function __construct(
+    ) {}
 }

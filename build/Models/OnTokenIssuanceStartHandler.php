@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnTokenIssuanceStartHandler
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDataSourceScopes
 {
-
+    public function __construct(
+    ) {}
 }

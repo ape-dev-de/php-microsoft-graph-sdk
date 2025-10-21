@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SystemFacet
 {
-
+    public function __construct(
+    ) {}
 }

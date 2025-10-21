@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudClipboardItemPayload
 {
-    /**
-     * The formatName version of the value of a cloud clipboard encoded in base64.
-     */
-    private ?string $content;
-
-    /**
-     * For a list of possible values see formatName values.
-     */
-    private ?string $formatName;
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function getFormatName(): ?string
-    {
-        return $this->formatName;
-    }
-
-    public function setFormatName(?string $formatName): self
-    {
-        $this->formatName = $formatName;
-        return $this;
-    }
-
+    public function __construct(
+        /** The formatName version of the value of a cloud clipboard encoded in base64. */
+        public ?string $content = null,
+        /** For a list of possible values see formatName values. */
+        public ?string $formatName = null
+    ) {}
 }

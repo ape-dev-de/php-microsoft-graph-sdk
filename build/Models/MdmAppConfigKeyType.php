@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MdmAppConfigKeyType
 {
-
+    public function __construct(
+    ) {}
 }

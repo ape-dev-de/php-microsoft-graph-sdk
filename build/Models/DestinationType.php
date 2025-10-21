@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DestinationType
 {
-
+    public function __construct(
+    ) {}
 }

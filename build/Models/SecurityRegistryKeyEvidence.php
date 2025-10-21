@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityRegistryKeyEvidence
 {
-    /**
-     * Registry hive of the key that the recorded action was applied to.
-     */
-    private ?string $registryHive;
-
-    /**
-     * Registry key that the recorded action was applied to.
-     */
-    private ?string $registryKey;
-
-
-    public function getRegistryHive(): ?string
-    {
-        return $this->registryHive;
-    }
-
-    public function setRegistryHive(?string $registryHive): self
-    {
-        $this->registryHive = $registryHive;
-        return $this;
-    }
-
-    public function getRegistryKey(): ?string
-    {
-        return $this->registryKey;
-    }
-
-    public function setRegistryKey(?string $registryKey): self
-    {
-        $this->registryKey = $registryKey;
-        return $this;
-    }
-
+    public function __construct(
+        /** Registry hive of the key that the recorded action was applied to. */
+        public ?string $registryHive = null,
+        /** Registry key that the recorded action was applied to. */
+        public ?string $registryKey = null
+    ) {}
 }

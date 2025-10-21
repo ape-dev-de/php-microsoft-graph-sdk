@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DaylightTimeZoneOffset
 {
-    /**
-     * The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes.
-     */
-    private ?string $daylightBias;
-
-
-    public function getDaylightBias(): ?string
-    {
-        return $this->daylightBias;
-    }
-
-    public function setDaylightBias(?string $daylightBias): self
-    {
-        $this->daylightBias = $daylightBias;
-        return $this;
-    }
-
+    public function __construct(
+        /** The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes. */
+        public ?string $daylightBias = null
+    ) {}
 }

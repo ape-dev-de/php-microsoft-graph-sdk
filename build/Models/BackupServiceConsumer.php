@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BackupServiceConsumer
 {
-
+    public function __construct(
+    ) {}
 }

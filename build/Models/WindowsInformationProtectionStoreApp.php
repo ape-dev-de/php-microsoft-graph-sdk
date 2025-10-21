@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionStoreApp
 {
-
+    public function __construct(
+    ) {}
 }

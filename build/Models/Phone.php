@@ -9,67 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Phone
 {
-    /**
-     */
-    private ?string $language;
-
-    /**
-     * The phone number.
-     */
-    private ?string $number;
-
-    /**
-     */
-    private ?string $region;
-
-    /**
-     * The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
-     */
-    private ?string $type;
-
-
-    public function getLanguage(): ?string
-    {
-        return $this->language;
-    }
-
-    public function setLanguage(?string $language): self
-    {
-        $this->language = $language;
-        return $this;
-    }
-
-    public function getNumber(): ?string
-    {
-        return $this->number;
-    }
-
-    public function setNumber(?string $number): self
-    {
-        $this->number = $number;
-        return $this;
-    }
-
-    public function getRegion(): ?string
-    {
-        return $this->region;
-    }
-
-    public function setRegion(?string $region): self
-    {
-        $this->region = $region;
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $language = null,
+        /** The phone number. */
+        public ?string $number = null,
+        /**  */
+        public ?string $region = null,
+        /** The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
+        public ?string $type = null
+    ) {}
 }

@@ -9,20 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OrganizerMeetingInfo
 {
-    /**
-     */
-    private ?string $organizer;
-
-
-    public function getOrganizer(): ?string
-    {
-        return $this->organizer;
-    }
-
-    public function setOrganizer(?string $organizer): self
-    {
-        $this->organizer = $organizer;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $organizer = null
+    ) {}
 }

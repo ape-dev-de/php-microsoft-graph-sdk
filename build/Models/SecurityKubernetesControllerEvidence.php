@@ -9,69 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityKubernetesControllerEvidence
 {
-    /**
-     * The labels for the Kubernetes pod.
-     */
-    private ?string $labels;
-
-    /**
-     * The controller name.
-     */
-    private ?string $name;
-
-    /**
-     * The service account namespace.
-     */
-    private ?string $namespace;
-
-    /**
-     * The controller type.
-     */
-    private ?string $type;
-
-
-    public function getLabels(): ?string
-    {
-        return $this->labels;
-    }
-
-    public function setLabels(?string $labels): self
-    {
-        $this->labels = $labels;
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getNamespace(): ?string
-    {
-        return $this->namespace;
-    }
-
-    public function setNamespace(?string $namespace): self
-    {
-        $this->namespace = $namespace;
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
+    public function __construct(
+        /** The labels for the Kubernetes pod. */
+        public ?string $labels = null,
+        /** The controller name. */
+        public ?string $name = null,
+        /** The service account namespace. */
+        public ?string $namespace = null,
+        /** The controller type. */
+        public ?string $type = null
+    ) {}
 }

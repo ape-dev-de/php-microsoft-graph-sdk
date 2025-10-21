@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EndUserNotificationType
 {
-
+    public function __construct(
+    ) {}
 }

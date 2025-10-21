@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AssignmentScheduleFilterByCurrentUserOptions
 {
-
+    public function __construct(
+    ) {}
 }

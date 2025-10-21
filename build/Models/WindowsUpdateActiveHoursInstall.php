@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsUpdateActiveHoursInstall
 {
-    /**
-     * Active Hours End
-     */
-    private ?string $activeHoursEnd;
-
-    /**
-     * Active Hours Start
-     */
-    private ?string $activeHoursStart;
-
-
-    public function getActiveHoursEnd(): ?string
-    {
-        return $this->activeHoursEnd;
-    }
-
-    public function setActiveHoursEnd(?string $activeHoursEnd): self
-    {
-        $this->activeHoursEnd = $activeHoursEnd;
-        return $this;
-    }
-
-    public function getActiveHoursStart(): ?string
-    {
-        return $this->activeHoursStart;
-    }
-
-    public function setActiveHoursStart(?string $activeHoursStart): self
-    {
-        $this->activeHoursStart = $activeHoursStart;
-        return $this;
-    }
-
+    public function __construct(
+        /** Active Hours End */
+        public ?string $activeHoursEnd = null,
+        /** Active Hours Start */
+        public ?string $activeHoursStart = null
+    ) {}
 }

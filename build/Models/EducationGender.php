@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationGender
 {
-
+    public function __construct(
+    ) {}
 }

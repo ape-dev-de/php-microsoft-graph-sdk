@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeleconferenceDeviceScreenSharingQuality
 {
-
+    public function __construct(
+    ) {}
 }

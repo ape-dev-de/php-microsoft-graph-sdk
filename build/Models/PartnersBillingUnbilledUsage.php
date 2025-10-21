@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingUnbilledUsage
 {
-
+    public function __construct(
+    ) {}
 }

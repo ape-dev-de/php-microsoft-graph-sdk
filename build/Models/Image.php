@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Image
 {
-    /**
-     * Optional. Height of the image, in pixels. Read-only.
-     */
-    private ?float $height;
-
-    /**
-     * Optional. Width of the image, in pixels. Read-only.
-     */
-    private ?string $width;
-
-
-    public function getHeight(): ?float
-    {
-        return $this->height;
-    }
-
-    public function setHeight(?float $height): self
-    {
-        $this->height = $height;
-        return $this;
-    }
-
-    public function getWidth(): ?string
-    {
-        return $this->width;
-    }
-
-    public function setWidth(?string $width): self
-    {
-        $this->width = $width;
-        return $this;
-    }
-
+    public function __construct(
+        /** Optional. Height of the image, in pixels. Read-only. */
+        public ?float $height = null,
+        /** Optional. Width of the image, in pixels. Read-only. */
+        public ?string $width = null
+    ) {}
 }

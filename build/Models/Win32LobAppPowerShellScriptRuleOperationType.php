@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppPowerShellScriptRuleOperationType
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,80 +9,16 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityGeoLocation
 {
-    /**
-     */
-    private ?string $city;
-
-    /**
-     */
-    private ?string $countryName;
-
-    /**
-     */
-    private ?string $latitude;
-
-    /**
-     */
-    private ?string $longitude;
-
-    /**
-     */
-    private ?string $state;
-
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(?string $city): self
-    {
-        $this->city = $city;
-        return $this;
-    }
-
-    public function getCountryName(): ?string
-    {
-        return $this->countryName;
-    }
-
-    public function setCountryName(?string $countryName): self
-    {
-        $this->countryName = $countryName;
-        return $this;
-    }
-
-    public function getLatitude(): ?string
-    {
-        return $this->latitude;
-    }
-
-    public function setLatitude(?string $latitude): self
-    {
-        $this->latitude = $latitude;
-        return $this;
-    }
-
-    public function getLongitude(): ?string
-    {
-        return $this->longitude;
-    }
-
-    public function setLongitude(?string $longitude): self
-    {
-        $this->longitude = $longitude;
-        return $this;
-    }
-
-    public function getState(): ?string
-    {
-        return $this->state;
-    }
-
-    public function setState(?string $state): self
-    {
-        $this->state = $state;
-        return $this;
-    }
-
+    public function __construct(
+        /**  */
+        public ?string $city = null,
+        /**  */
+        public ?string $countryName = null,
+        /**  */
+        public ?string $latitude = null,
+        /**  */
+        public ?string $longitude = null,
+        /**  */
+        public ?string $state = null
+    ) {}
 }

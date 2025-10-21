@@ -9,28 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeletedItemContainer
 {
-    /**
-     * Deleted workflows that end up in the deletedItemsContainer.
-     * @var string[]
-     */
-    private array $workflows = [];
-
-
-    /**
-     * @return string[]
-     */
-    public function getWorkflows(): array
-    {
-        return $this->workflows;
-    }
-
-    /**
-     * @param string[] $workflows
-     */
-    public function setWorkflows(array $workflows): self
-    {
-        $this->workflows = $workflows;
-        return $this;
-    }
-
+    public function __construct(
+        /** @var string[] Deleted workflows that end up in the deletedItemsContainer. */
+        public array $workflows = []
+    ) {}
 }

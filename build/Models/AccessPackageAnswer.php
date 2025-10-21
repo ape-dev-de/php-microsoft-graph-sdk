@@ -9,36 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAnswer
 {
-    /**
-     * The localized display value shown to the requestor and approvers.
-     */
-    private ?string $displayValue;
-
-    /**
-     */
-    private ?string $answeredQuestion;
-
-
-    public function getDisplayValue(): ?string
-    {
-        return $this->displayValue;
-    }
-
-    public function setDisplayValue(?string $displayValue): self
-    {
-        $this->displayValue = $displayValue;
-        return $this;
-    }
-
-    public function getAnsweredQuestion(): ?string
-    {
-        return $this->answeredQuestion;
-    }
-
-    public function setAnsweredQuestion(?string $answeredQuestion): self
-    {
-        $this->answeredQuestion = $answeredQuestion;
-        return $this;
-    }
-
+    public function __construct(
+        /** The localized display value shown to the requestor and approvers. */
+        public ?string $displayValue = null,
+        /**  */
+        public ?string $answeredQuestion = null
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Extension
 {
-
+    public function __construct(
+    ) {}
 }

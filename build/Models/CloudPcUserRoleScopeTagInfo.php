@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcUserRoleScopeTagInfo
 {
-    /**
-     * Scope tag display name.
-     */
-    private ?string $displayName;
-
-    /**
-     * Scope tag identity.
-     */
-    private ?string $roleScopeTagId;
-
-
-    public function getDisplayName(): ?string
-    {
-        return $this->displayName;
-    }
-
-    public function setDisplayName(?string $displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
-
-    public function getRoleScopeTagId(): ?string
-    {
-        return $this->roleScopeTagId;
-    }
-
-    public function setRoleScopeTagId(?string $roleScopeTagId): self
-    {
-        $this->roleScopeTagId = $roleScopeTagId;
-        return $this;
-    }
-
+    public function __construct(
+        /** Scope tag display name. */
+        public ?string $displayName = null,
+        /** Scope tag identity. */
+        public ?string $roleScopeTagId = null
+    ) {}
 }

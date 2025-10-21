@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UrlAssessmentRequest
 {
-    /**
-     * The URL string.
-     */
-    private ?string $url;
-
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(?string $url): self
-    {
-        $this->url = $url;
-        return $this;
-    }
-
+    public function __construct(
+        /** The URL string. */
+        public ?string $url = null
+    ) {}
 }

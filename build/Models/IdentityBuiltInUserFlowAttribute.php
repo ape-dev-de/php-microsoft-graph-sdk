@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityBuiltInUserFlowAttribute
 {
-
+    public function __construct(
+    ) {}
 }

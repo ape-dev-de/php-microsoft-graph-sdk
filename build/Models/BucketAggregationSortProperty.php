@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BucketAggregationSortProperty
 {
-
+    public function __construct(
+    ) {}
 }

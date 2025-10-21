@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualAppointmentMessageType
 {
-
+    public function __construct(
+    ) {}
 }

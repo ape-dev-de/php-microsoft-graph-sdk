@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Sensitivity
 {
-
+    public function __construct(
+    ) {}
 }

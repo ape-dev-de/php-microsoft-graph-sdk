@@ -9,69 +9,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SettingTemplateValue
 {
-    /**
-     * Default value for the setting.
-     */
-    private ?string $defaultValue;
-
-    /**
-     * Description of the setting.
-     */
-    private ?string $description;
-
-    /**
-     * Name of the setting.
-     */
-    private ?string $name;
-
-    /**
-     * Type of the setting.
-     */
-    private ?string $type;
-
-
-    public function getDefaultValue(): ?string
-    {
-        return $this->defaultValue;
-    }
-
-    public function setDefaultValue(?string $defaultValue): self
-    {
-        $this->defaultValue = $defaultValue;
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
+    public function __construct(
+        /** Default value for the setting. */
+        public ?string $defaultValue = null,
+        /** Description of the setting. */
+        public ?string $description = null,
+        /** Name of the setting. */
+        public ?string $name = null,
+        /** Type of the setting. */
+        public ?string $type = null
+    ) {}
 }

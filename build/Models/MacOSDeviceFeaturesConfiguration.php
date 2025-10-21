@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSDeviceFeaturesConfiguration
 {
-
+    public function __construct(
+    ) {}
 }

@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GeolocationColumn
 {
-
+    public function __construct(
+    ) {}
 }

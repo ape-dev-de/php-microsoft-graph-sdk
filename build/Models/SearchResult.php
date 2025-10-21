@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchResult
 {
-    /**
-     * A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.
-     */
-    private ?string $onClickTelemetryUrl;
-
-
-    public function getOnClickTelemetryUrl(): ?string
-    {
-        return $this->onClickTelemetryUrl;
-    }
-
-    public function setOnClickTelemetryUrl(?string $onClickTelemetryUrl): self
-    {
-        $this->onClickTelemetryUrl = $onClickTelemetryUrl;
-        return $this;
-    }
-
+    public function __construct(
+        /** A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results. */
+        public ?string $onClickTelemetryUrl = null
+    ) {}
 }

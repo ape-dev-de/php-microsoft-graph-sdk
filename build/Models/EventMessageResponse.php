@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EventMessageResponse
 {
-    /**
-     * An alternate date/time proposed by an invitee for a meeting request to start and end. Read-only. Not filterable.
-     */
-    private ?string $proposedNewTime;
-
-    /**
-     * Specifies the type of response to a meeting request. Possible values are: tentativelyAccepted, accepted, declined. For the eventMessageResponse type, none, organizer, and notResponded are not supported. Read-only. Not filterable.
-     */
-    private ?string $responseType;
-
-
-    public function getProposedNewTime(): ?string
-    {
-        return $this->proposedNewTime;
-    }
-
-    public function setProposedNewTime(?string $proposedNewTime): self
-    {
-        $this->proposedNewTime = $proposedNewTime;
-        return $this;
-    }
-
-    public function getResponseType(): ?string
-    {
-        return $this->responseType;
-    }
-
-    public function setResponseType(?string $responseType): self
-    {
-        $this->responseType = $responseType;
-        return $this;
-    }
-
+    public function __construct(
+        /** An alternate date/time proposed by an invitee for a meeting request to start and end. Read-only. Not filterable. */
+        public ?string $proposedNewTime = null,
+        /** Specifies the type of response to a meeting request. Possible values are: tentativelyAccepted, accepted, declined. For the eventMessageResponse type, none, organizer, and notResponded are not supported. Read-only. Not filterable. */
+        public ?string $responseType = null
+    ) {}
 }

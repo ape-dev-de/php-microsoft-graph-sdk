@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AzureCommunicationServicesUserIdentity
 {
-    /**
-     * The Azure Communication Services resource ID associated with the user.
-     */
-    private ?string $azureCommunicationServicesResourceId;
-
-
-    public function getAzureCommunicationServicesResourceId(): ?string
-    {
-        return $this->azureCommunicationServicesResourceId;
-    }
-
-    public function setAzureCommunicationServicesResourceId(?string $azureCommunicationServicesResourceId): self
-    {
-        $this->azureCommunicationServicesResourceId = $azureCommunicationServicesResourceId;
-        return $this;
-    }
-
+    public function __construct(
+        /** The Azure Communication Services resource ID associated with the user. */
+        public ?string $azureCommunicationServicesResourceId = null
+    ) {}
 }

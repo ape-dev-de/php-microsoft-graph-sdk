@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppLogDecryptionAlgorithm
 {
-
+    public function __construct(
+    ) {}
 }

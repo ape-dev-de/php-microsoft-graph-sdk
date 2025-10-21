@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementTroubleshootingEvent
 {
-    /**
-     * Id used for tracing the failure in the service.
-     */
-    private ?string $correlationId;
-
-    /**
-     * Event representing an general failure.
-     */
-    private ?\DateTimeInterface $eventDateTime;
-
-
-    public function getCorrelationId(): ?string
-    {
-        return $this->correlationId;
-    }
-
-    public function setCorrelationId(?string $correlationId): self
-    {
-        $this->correlationId = $correlationId;
-        return $this;
-    }
-
-    public function getEventDateTime(): ?\DateTimeInterface
-    {
-        return $this->eventDateTime;
-    }
-
-    public function setEventDateTime(?\DateTimeInterface $eventDateTime): self
-    {
-        $this->eventDateTime = $eventDateTime;
-        return $this;
-    }
-
+    public function __construct(
+        /** Id used for tracing the failure in the service. */
+        public ?string $correlationId = null,
+        /** Event representing an general failure. */
+        public ?\DateTimeInterface $eventDateTime = null
+    ) {}
 }

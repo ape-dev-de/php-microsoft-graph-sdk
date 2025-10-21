@@ -9,21 +9,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsLicensingDetails
 {
-    /**
-     * Indicates whether the user has a valid license to use Microsoft Teams.
-     */
-    private ?string $hasTeamsLicense;
-
-
-    public function getHasTeamsLicense(): ?string
-    {
-        return $this->hasTeamsLicense;
-    }
-
-    public function setHasTeamsLicense(?string $hasTeamsLicense): self
-    {
-        $this->hasTeamsLicense = $hasTeamsLicense;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether the user has a valid license to use Microsoft Teams. */
+        public ?string $hasTeamsLicense = null
+    ) {}
 }

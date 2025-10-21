@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryReviewSetQuery
 {
-
+    public function __construct(
+    ) {}
 }

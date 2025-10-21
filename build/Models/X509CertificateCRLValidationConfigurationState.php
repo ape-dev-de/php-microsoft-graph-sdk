@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateCRLValidationConfigurationState
 {
-
+    public function __construct(
+    ) {}
 }

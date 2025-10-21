@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FilterMode
 {
-
+    public function __construct(
+    ) {}
 }

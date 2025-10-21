@@ -9,37 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentTypeOrder
 {
-    /**
-     * Indicates whether this is the default content type
-     */
-    private ?bool $default;
-
-    /**
-     * Specifies the position in which the content type appears in the selection UI.
-     */
-    private ?string $position;
-
-
-    public function getDefault(): ?bool
-    {
-        return $this->default;
-    }
-
-    public function setDefault(?bool $default): self
-    {
-        $this->default = $default;
-        return $this;
-    }
-
-    public function getPosition(): ?string
-    {
-        return $this->position;
-    }
-
-    public function setPosition(?string $position): self
-    {
-        $this->position = $position;
-        return $this;
-    }
-
+    public function __construct(
+        /** Indicates whether this is the default content type */
+        public ?bool $default = null,
+        /** Specifies the position in which the content type appears in the selection UI. */
+        public ?string $position = null
+    ) {}
 }

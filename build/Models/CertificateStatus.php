@@ -9,5 +9,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CertificateStatus
 {
-
+    public function __construct(
+    ) {}
 }

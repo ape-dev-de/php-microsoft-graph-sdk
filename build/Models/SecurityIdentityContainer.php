@@ -9,44 +9,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityIdentityContainer
 {
-    /**
-     * Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration.
-     */
-    private array $healthIssues = [];
-
-    /**
-     * Represents a customer's Microsoft Defender for Identity sensors.
-     * @var string[]
-     */
-    private array $sensors = [];
-
-
-    public function getHealthIssues(): array
-    {
-        return $this->healthIssues;
-    }
-
-    public function setHealthIssues(array $healthIssues): self
-    {
-        $this->healthIssues = $healthIssues;
-        return $this;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getSensors(): array
-    {
-        return $this->sensors;
-    }
-
-    /**
-     * @param string[] $sensors
-     */
-    public function setSensors(array $sensors): self
-    {
-        $this->sensors = $sensors;
-        return $this;
-    }
-
+    public function __construct(
+        /** Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration. */
+        public array $healthIssues = [],
+        /** @var string[] Represents a customer's Microsoft Defender for Identity sensors. */
+        public array $sensors = []
+    ) {}
 }
