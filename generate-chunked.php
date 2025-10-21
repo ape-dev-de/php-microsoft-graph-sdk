@@ -327,96 +327,20 @@ function generateModelCode(string $modelName, array $properties): string
     // Escape reserved keywords
     $escapedModelName = escapeReservedKeyword($modelName);
     
-    $propertiesCode = '';
-    $gettersSettersCode = '';
-    
-    // Properties
+    // Map property types
+    $mappedProperties = [];
     foreach ($properties as $propName => $propDef) {
-        $type = mapPropertyType($propDef);
-        $description = $propDef['description'] ?? '';
-        
-        $propertiesCode .= "    /**\n";
-        if ($description) {
-            $propertiesCode .= "     * {$description}\n";
-        }
-        
-        // Add PHPDoc type hint for arrays
-        if ($type === 'array' && isset($propDef['items']['type'])) {
-            $itemType = $propDef['items']['type'];
-            $phpItemType = match($itemType) {
-                'string' => 'string',
-                'integer' => 'int',
-                'number' => 'float',
-                'boolean' => 'bool',
-                default => 'mixed'
-            };
-            $propertiesCode .= "     * @var {$phpItemType}[]\n";
-        }
-        
-        $propertiesCode .= "     */\n";
-        $propertiesCode .= "    private {$type} \${$propName}";
-        
-        if ($type === 'array') {
-            $propertiesCode .= " = []";
-        }
-        
-        $propertiesCode .= ";\n\n";
+        $mappedProperties[$propName] = [
+            'type' => mapPropertyType($propDef),
+            'description' => $propDef['description'] ?? '',
+            'items' => $propDef['items'] ?? null
+        ];
     }
     
-    // Getters and setters
-    foreach ($properties as $propName => $propDef) {
-        $type = mapPropertyType($propDef);
-        $methodName = ucfirst($propName);
-        
-        // Add PHPDoc for array return types
-        if ($type === 'array' && isset($propDef['items']['type'])) {
-            $itemType = $propDef['items']['type'];
-            $phpItemType = match($itemType) {
-                'string' => 'string',
-                'integer' => 'int',
-                'number' => 'float',
-                'boolean' => 'bool',
-                default => 'mixed'
-            };
-            $gettersSettersCode .= "    /**\n";
-            $gettersSettersCode .= "     * @return {$phpItemType}[]\n";
-            $gettersSettersCode .= "     */\n";
-        }
-        
-        $gettersSettersCode .= "    public function get{$methodName}(): {$type}\n";
-        $gettersSettersCode .= "    {\n";
-        $gettersSettersCode .= "        return \$this->{$propName};\n";
-        $gettersSettersCode .= "    }\n\n";
-        
-        // Add PHPDoc for array parameter types
-        if ($type === 'array' && isset($propDef['items']['type'])) {
-            $itemType = $propDef['items']['type'];
-            $phpItemType = match($itemType) {
-                'string' => 'string',
-                'integer' => 'int',
-                'number' => 'float',
-                'boolean' => 'bool',
-                default => 'mixed'
-            };
-            $gettersSettersCode .= "    /**\n";
-            $gettersSettersCode .= "     * @param {$phpItemType}[] \${$propName}\n";
-            $gettersSettersCode .= "     */\n";
-        }
-        
-        $gettersSettersCode .= "    public function set{$methodName}({$type} \${$propName}): self\n";
-        $gettersSettersCode .= "    {\n";
-        $gettersSettersCode .= "        \$this->{$propName} = \${$propName};\n";
-        $gettersSettersCode .= "        return \$this;\n";
-        $gettersSettersCode .= "    }\n\n";
-    }
-    
-    $template = loadTemplate('Model.php.template');
-    
-    return str_replace(
-        ['{{MODEL_NAME}}', '{{PROPERTIES}}', '{{GETTERS_SETTERS}}'],
-        [$escapedModelName, rtrim($propertiesCode), rtrim($gettersSettersCode)],
-        $template
-    );
+    return renderTemplate('Model.php.template', [
+        'MODEL_NAME' => $escapedModelName,
+        'PROPERTIES' => $mappedProperties
+    ]);
 }
 
 /**
@@ -465,12 +389,16 @@ function generateAllCollectionModels(array $schemas, $output): void
     $modelsDir = BUILD_DIR . '/Models';
     $generated = 0;
     
-    foreach ($schemas as $schemaName => $schemaData) {
-        if (empty($schemaData['properties'])) {
+    // Generate CollectionResponse for all existing models (not just schemas with properties)
+    $modelFiles = glob($modelsDir . '/*.php');
+    foreach ($modelFiles as $modelFile) {
+        $modelName = basename($modelFile, '.php');
+        
+        // Skip if already a collection response
+        if (str_ends_with($modelName, 'CollectionResponse')) {
             continue;
         }
         
-        $modelName = normalizeModelName($schemaName);
         $collectionName = "{$modelName}CollectionResponse";
         $filePath = $modelsDir . "/{$collectionName}.php";
         
@@ -507,9 +435,9 @@ function copyBaseQueryOptions(): void
 }
 
 /**
- * Load template file
+ * Render template with variables using PHP output buffering
  */
-function loadTemplate(string $templateName): string
+function renderTemplate(string $templateName, array $data): string
 {
     $templateFile = __DIR__ . '/templates/' . $templateName;
     
@@ -517,7 +445,17 @@ function loadTemplate(string $templateName): string
         throw new Exception("Template file not found: {$templateFile}");
     }
     
-    return file_get_contents($templateFile);
+    // Extract variables into current scope
+    extract($data, EXTR_SKIP);
+    
+    // Start output buffering
+    ob_start();
+    
+    // Include the template file
+    include $templateFile;
+    
+    // Get the buffer contents and clean
+    return ob_get_clean();
 }
 
 /**
@@ -556,17 +494,13 @@ function escapeReservedKeyword(string $name): string
  */
 function generateCollectionResponseCode(string $collectionName, string $modelName): string
 {
-    $template = loadTemplate('CollectionResponse.php.template');
-    
     // Escape reserved keywords
     $escapedModelName = escapeReservedKeyword($modelName);
     
-    return str_replace(
-        ['{{COLLECTION_NAME}}', '{{MODEL_NAME}}'],
-        [$collectionName, $escapedModelName],
-        $template
-    );
-    
+    return renderTemplate('CollectionResponse.php.template', [
+        'COLLECTION_NAME' => $collectionName,
+        'MODEL_NAME' => $escapedModelName
+    ]);
 }
 
 /**
@@ -579,14 +513,19 @@ function generateAllQueryOptions(array $schemas, $output): void
         mkdir($queryOptionsDir, 0755, true);
     }
     
+    $modelsDir = BUILD_DIR . '/Models';
     $generated = 0;
     
-    foreach ($schemas as $schemaName => $schemaData) {
-        if (empty($schemaData['properties'])) {
+    // Generate QueryOptions for all existing models (not just schemas with properties)
+    $modelFiles = glob($modelsDir . '/*.php');
+    foreach ($modelFiles as $modelFile) {
+        $modelName = basename($modelFile, '.php');
+        
+        // Skip collection responses - they have their own QueryOptions
+        if (str_ends_with($modelName, 'CollectionResponse')) {
             continue;
         }
         
-        $modelName = normalizeModelName($schemaName);
         $className = "{$modelName}QueryOptions";
         $filePath = $queryOptionsDir . "/{$className}.php";
         
@@ -594,7 +533,16 @@ function generateAllQueryOptions(array $schemas, $output): void
             continue;
         }
         
-        $code = generateQueryOptionsCode($modelName, $schemaData['properties']);
+        // Get properties from schema if available, otherwise use empty array
+        $properties = [];
+        foreach ($schemas as $schemaName => $schemaData) {
+            if (normalizeModelName($schemaName) === $modelName && !empty($schemaData['properties'])) {
+                $properties = $schemaData['properties'];
+                break;
+            }
+        }
+        
+        $code = generateQueryOptionsCode($modelName, $properties);
         file_put_contents($filePath, $code);
         $generated++;
     }
@@ -609,23 +557,11 @@ function generateQueryOptionsCode(string $modelName, array $properties): string
 {
     $className = "{$modelName}QueryOptions";
     
-    // Generate field constants
-    $constants = '';
-    $selectDoc = " * Available select fields:\n";
-    
-    foreach ($properties as $propName => $propDef) {
-        $constantName = 'FIELD_' . strtoupper(preg_replace('/([a-z])([A-Z])/', '$1_$2', $propName));
-        $constants .= "    public const {$constantName} = '{$propName}';\n";
-        $selectDoc .= " * - {$propName}\n";
-    }
-    
-    $template = loadTemplate('ModelQueryOptions.php.template');
-    
-    return str_replace(
-        ['{{CLASS_NAME}}', '{{MODEL_NAME}}', '{{SELECT_DOC}}', '{{CONSTANTS}}'],
-        [$className, $modelName, $selectDoc, $constants],
-        $template
-    );
+    return renderTemplate('ModelQueryOptions.php.template', [
+        'CLASS_NAME' => $className,
+        'MODEL_NAME' => $modelName,
+        'PROPERTIES' => $properties
+    ]);
 }
 
 /**
@@ -913,13 +849,18 @@ function generateSubpathBuilder(string $subresource, array $paths, string $dir, 
         return;
     }
     
+    // Skip workbook functions namespace (contains Excel function endpoints without models)
+    if ($subresource === 'functions' || $className === 'FunctionsRequestBuilder') {
+        return;
+    }
+    
     // Skip if already exists
     if (file_exists($filePath)) {
         return;
     }
     
     // Analyze operations for this subpath
-    $operations = analyzePathOperations($paths);
+    $operations = analyzePathOperations($paths, $subresource);
     
     // Determine model name and response type
     $modelName = ucfirst($subresource);
@@ -1187,6 +1128,11 @@ function generateModelFromDefinition(string $dir, string $name, array $definitio
         return;
     }
     
+    // Note: This function generates models with extends/abstract support
+    // which is not currently supported by the Model.php.template
+    // For now, keeping the inline generation for these special cases
+    // TODO: Extend Model.php.template to support extends and abstract
+    
     $extendsClause = $extends ? " extends {$extends}" : '';
     $abstractKeyword = $isAbstract ? 'abstract ' : '';
     
@@ -1249,13 +1195,18 @@ function generateRequestBuildersForNamespace(string $namespace, array $paths, $o
         return;
     }
     
+    // Skip workbook functions namespace (contains Excel function endpoints without models)
+    if ($namespace === 'functions' || $className === 'FunctionsRequestBuilder') {
+        return;
+    }
+    
     // Skip if already exists
     if (file_exists($filePath)) {
         return;
     }
     
     // Analyze paths to determine operations
-    $operations = analyzePathOperations($paths);
+    $operations = analyzePathOperations($paths, $namespace);
     
     if (empty($operations)) {
         return;
@@ -1275,7 +1226,7 @@ function generateRequestBuildersForNamespace(string $namespace, array $paths, $o
 /**
  * Analyze path operations
  */
-function analyzePathOperations(array $paths): array
+function analyzePathOperations(array $paths, string $namespace = ''): array
 {
     $operations = [
         'hasGet' => false,
@@ -1315,6 +1266,12 @@ function analyzePathOperations(array $paths): array
             $operations['hasList'] = true;
         } else {
             $operations['hasById'] = true;
+            // Store the path for extracting singular name from parameter
+            // Prefer paths that end with /{namespace}/{id} pattern
+            $pattern = '#/' . preg_quote($namespace, '#') . '/\{[^}]+-id\}' . '$#';
+            if (!isset($operations['byIdPath']) || preg_match($pattern, $path)) {
+                $operations['byIdPath'] = $path;
+            }
         }
         
         foreach ($methods as $method => $operation) {
@@ -1447,12 +1404,15 @@ function generateRequestBuilderClass(string $namespace, string $className, array
         }
     }
     
-    // Escape reserved keywords
+    // Escape reserved keywords for model references
     $singularModel = escapeReservedKeyword($singularModel);
     $responseModel = escapeReservedKeyword($responseModel);
     
-    $collectionResponse = $isCollection ? $responseModel : "{$singularModel}CollectionResponse";
+    // QueryOptions use escaped model names (they're generated from model files)
     $queryOptionsClass = "{$singularModel}QueryOptions";
+    
+    // CollectionResponse always uses escaped singular model name
+    $collectionResponse = "{$singularModel}CollectionResponse";
     
     $code = <<<PHP
 <?php
@@ -1462,16 +1422,45 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\\{$singularModel};
 
 PHP;
+
+    // Only import singular model if it exists (for POST/GET methods)
+    // Use the response model (singularModel), not path-based extraction
+    $escapedSingularModel = escapeReservedKeyword($singularModel);
+    $modelFile = BUILD_DIR . "/Models/{$escapedSingularModel}.php";
+    $modelExists = file_exists($modelFile);
+    
+    // Extract the actual singular name from path (for byId accuracy)
+    // This might be different from the response model
+    $byIdSingularModel = $singularModel;
+    if ($isCollection && isset($operations['byIdPath'])) {
+        $path = $operations['byIdPath'];
+        if (preg_match('/\{([^}]+)-id\}[^{]*$/', $path, $matches)) {
+            $byIdSingularModel = ucfirst($matches[1]);
+        }
+    }
+    
+    // Check if byId model exists (might be different from response model)
+    $escapedByIdModel = escapeReservedKeyword($byIdSingularModel);
+    $byIdModelFile = BUILD_DIR . "/Models/{$escapedByIdModel}.php";
+    $byIdModelExists = file_exists($byIdModelFile);
+    
+    if ($modelExists) {
+        $code .= "use ApeDevDe\MicrosoftGraphSdk\Models\\{$escapedSingularModel};\n";
+    }
 
     // Only include collection response if it's actually a collection
     if ($isCollection) {
         $code .= "use ApeDevDe\MicrosoftGraphSdk\Models\\{$collectionResponse};\n";
     }
     
-    $code .= "use ApeDevDe\MicrosoftGraphSdk\QueryOptions\\{$queryOptionsClass};\n\n";
+    // Only import QueryOptions if model exists (QueryOptions are generated for models)
+    if ($modelExists) {
+        $code .= "use ApeDevDe\MicrosoftGraphSdk\QueryOptions\\{$queryOptionsClass};\n";
+    }
+    
+    $code .= "\n";
     
     $code .= <<<PHP
 /**
@@ -1482,19 +1471,20 @@ class {$className} extends BaseRequestBuilder
 
 PHP;
     
-    // Add get method
-    if ($operations['hasList'] || $operations['hasGet']) {
-        $code .= generateGetMethod($operations, $responseModel, $singularModel, $isCollection);
+    // Add get method (only if model exists)
+    if (($operations['hasList'] || $operations['hasGet']) && $modelExists) {
+        $returnType = $isCollection ? $collectionResponse : $singularModel;
+        $code .= generateGetMethod($operations, $returnType, $singularModel, $isCollection);
     }
     
-    // Add post method
-    if ($operations['hasPost']) {
+    // Add post method (only if model exists)
+    if ($operations['hasPost'] && $modelExists) {
         $code .= generatePostMethod($singularModel);
     }
     
-    // Add byId method (only for collections)
-    if ($isCollection) {
-        $code .= generateByIdMethod($namespace, $singularModel);
+    // Add byId method (only for collections where the byId model exists)
+    if ($isCollection && $byIdModelExists) {
+        $code .= generateByIdMethod($namespace, $byIdSingularModel, $operations);
     }
     
     // Add count method if supported
@@ -1515,39 +1505,13 @@ function generateGetMethod(array $operations, string $returnType, string $modelN
     $queryOptionsClass = "{$modelName}QueryOptions";
     $methodDescription = $isCollection ? 'Get collection with optional query parameters' : 'Get the resource';
     
-    $code = "    /**\n";
-    $code .= "     * {$methodDescription}\n";
-    $code .= "     *\n";
-    
-    if ($isCollection) {
-        $code .= "     * You can use either:\n";
-        $code .= "     * 1. Type-safe QueryOptions: get(options: (new {$queryOptionsClass}())->top(10)->select(['displayName', 'mail']))\n";
-        $code .= "     * 2. Array parameters: get(queryParameters: ['\$top' => 10, '\$select' => 'displayName,mail'])\n";
-        $code .= "     *\n";
-    }
-    
-    $code .= "     * Supported query parameters:\n";
-    if ($operations['supportsSelect']) $code .= "     * - \$select: Select specific properties\n";
-    if ($operations['supportsFilter']) $code .= "     * - \$filter: Filter results\n";
-    if ($operations['supportsOrderBy']) $code .= "     * - \$orderby: Order results\n";
-    if ($operations['supportsTop']) $code .= "     * - \$top: Limit number of results\n";
-    if ($operations['supportsSkip']) $code .= "     * - \$skip: Skip number of results\n";
-    if ($operations['supportsExpand']) $code .= "     * - \$expand: Expand related resources\n";
-    if ($operations['supportsSearch']) $code .= "     * - \$search: Search query\n";
-    if ($operations['supportsCount']) $code .= "     * - \$count: Include count of items\n";
-    $code .= "     *\n";
-    $code .= "     * @param {$queryOptionsClass}|null \$options Type-safe query options\n";
-    $code .= "     * @param array|null \$queryParameters Raw query parameters (alternative to \$options)\n";
-    $code .= "     * @return {$returnType}\n";
-    $code .= "     */\n";
-    $code .= "    public function get(?{$queryOptionsClass} \$options = null, ?array \$queryParameters = null): {$returnType}\n";
-    $code .= "    {\n";
-    $code .= "        \$params = \$options ? \$options->toArray() : (\$queryParameters ?? []);\n";
-    $code .= "        \$response = \$this->client->get(\$this->getFullPath(), \$params);\n";
-    $code .= "        return \$this->client->deserialize(\$response, {$returnType}::class);\n";
-    $code .= "    }\n\n";
-    
-    return $code;
+    return renderTemplate('GetMethod.php', [
+        'methodDescription' => $methodDescription,
+        'isCollection' => $isCollection,
+        'operations' => $operations,
+        'queryOptionsClass' => $queryOptionsClass,
+        'returnType' => $returnType
+    ]) . "\n";
 }
 
 /**
@@ -1555,48 +1519,44 @@ function generateGetMethod(array $operations, string $returnType, string $modelN
  */
 function generatePostMethod(string $modelName): string
 {
-    $code = "    /**\n";
-    $code .= "     * Create a new {$modelName}\n";
-    $code .= "     *\n";
-    $code .= "     * @param {$modelName} \$item The item to create\n";
-    $code .= "     * @return {$modelName}\n";
-    $code .= "     */\n";
-    $code .= "    public function post({$modelName} \$item): {$modelName}\n";
-    $code .= "    {\n";
-    $code .= "        \$response = \$this->client->post(\$this->getFullPath(), \$item);\n";
-    $code .= "        return \$this->client->deserialize(\$response, {$modelName}::class);\n";
-    $code .= "    }\n\n";
+    $escapedModelName = escapeReservedKeyword($modelName);
     
-    return $code;
+    return renderTemplate('PostMethod.php', [
+        'modelName' => $escapedModelName
+    ]) . "\n";
 }
 
 /**
  * Generate byId method
  */
-function generateByIdMethod(string $namespace, string $modelName): string
+function generateByIdMethod(string $namespace, string $modelName, array $operations): string
 {
-    // Normalize namespace for item builder
-    $normalizedNamespace = ucfirst($namespace);
-    if (substr($normalizedNamespace, -1) === 's' && $normalizedNamespace !== 'News') {
-        $singularNamespace = substr($normalizedNamespace, 0, -1);
-    } else {
-        $singularNamespace = $normalizedNamespace;
+    // Try to extract singular name from path parameter
+    // e.g., /contentActivities/{contentActivity-id} -> ContentActivity
+    $singularNamespace = null;
+    if (isset($operations['byIdPath'])) {
+        $path = $operations['byIdPath'];
+        // Extract the LAST parameter in the path (the one for this collection)
+        if (preg_match('/\{([^}]+)-id\}[^{]*$/', $path, $matches)) {
+            $singularNamespace = ucfirst($matches[1]);
+        }
+    }
+    
+    // Fallback to simple singularization if no path found
+    if (!$singularNamespace) {
+        $normalizedNamespace = ucfirst($namespace);
+        if (substr($normalizedNamespace, -1) === 's' && $normalizedNamespace !== 'News') {
+            $singularNamespace = substr($normalizedNamespace, 0, -1);
+        } else {
+            $singularNamespace = $normalizedNamespace;
+        }
     }
     
     $itemBuilderClass = $singularNamespace . 'ItemRequestBuilder';
     
-    $code = "    /**\n";
-    $code .= "     * Get request builder for specific item by ID\n";
-    $code .= "     *\n";
-    $code .= "     * @param string \$id The item ID\n";
-    $code .= "     * @return {$itemBuilderClass}\n";
-    $code .= "     */\n";
-    $code .= "    public function byId(string \$id): {$itemBuilderClass}\n";
-    $code .= "    {\n";
-    $code .= "        return new {$itemBuilderClass}(\$this->client, \$this->buildPath(\$id));\n";
-    $code .= "    }\n\n";
-    
-    return $code;
+    return renderTemplate('ByIdMethod.php', [
+        'itemBuilderClass' => $itemBuilderClass
+    ]) . "\n";
 }
 
 /**
@@ -1604,18 +1564,7 @@ function generateByIdMethod(string $namespace, string $modelName): string
  */
 function generateCountMethod(): string
 {
-    $code = "    /**\n";
-    $code .= "     * Get count of items in collection\n";
-    $code .= "     *\n";
-    $code .= "     * @return int\n";
-    $code .= "     */\n";
-    $code .= "    public function count(): int\n";
-    $code .= "    {\n";
-    $code .= "        \$response = \$this->client->get(\$this->buildPath('\$count'));\n";
-    $code .= "        return (int) \$response->getBody()->getContents();\n";
-    $code .= "    }\n\n";
-    
-    return $code;
+    return renderTemplate('CountMethod.php', []) . "\n";
 }
 
 // Base classes and authentication are now in generator-functions.php
@@ -1625,20 +1574,39 @@ function generateCountMethod(): string
  */
 function generateItemRequestBuilder(string $namespace, array $operations, array $paths, string $dir, $output): void
 {
-    // Normalize names
-    $normalizedNamespace = ucfirst($namespace);
-    if (substr($normalizedNamespace, -1) === 's' && $normalizedNamespace !== 'News') {
-        $singularNamespace = substr($normalizedNamespace, 0, -1);
-    } else {
-        $singularNamespace = $normalizedNamespace;
+    // Extract singular name from path parameter (same logic as byId method)
+    $singularNamespace = null;
+    if (isset($operations['byIdPath'])) {
+        $path = $operations['byIdPath'];
+        // Extract the LAST parameter in the path
+        if (preg_match('/\{([^}]+)-id\}[^{]*$/', $path, $matches)) {
+            $singularNamespace = ucfirst($matches[1]);
+        }
+    }
+    
+    // Fallback to simple singularization if no path found
+    if (!$singularNamespace) {
+        $normalizedNamespace = ucfirst($namespace);
+        if (substr($normalizedNamespace, -1) === 's' && $normalizedNamespace !== 'News') {
+            $singularNamespace = substr($normalizedNamespace, 0, -1);
+        } else {
+            $singularNamespace = $normalizedNamespace;
+        }
     }
     
     $className = $singularNamespace . 'ItemRequestBuilder';
     $modelName = $singularNamespace;
+    $escapedModelName = escapeReservedKeyword($modelName);
     $filePath = $dir . "/{$className}.php";
     
     // Skip if already exists
     if (file_exists($filePath)) {
+        return;
+    }
+    
+    // Skip if model doesn't exist (e.g., virtual collections, navigation properties)
+    $modelFile = BUILD_DIR . "/Models/{$escapedModelName}.php";
+    if (!file_exists($modelFile)) {
         return;
     }
     
@@ -1665,7 +1633,7 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\\{$modelName};
+use ApeDevDe\MicrosoftGraphSdk\Models\\{$escapedModelName};
 
 /**
  * Request builder for individual {$modelName} item
@@ -1711,20 +1679,19 @@ function generateSubpathMethod(string $subresource): string
         return ""; // Skip invalid method names
     }
     
+    // Skip workbook functions (Excel function endpoints without models)
+    if ($subresource === 'functions') {
+        return "";
+    }
+    
     $methodName = lcfirst($subresource);
     $builderClass = ucfirst($subresource) . 'RequestBuilder';
     
-    $code = "    /**\n";
-    $code .= "     * Get {$subresource} request builder\n";
-    $code .= "     *\n";
-    $code .= "     * @return {$builderClass}\n";
-    $code .= "     */\n";
-    $code .= "    public function {$methodName}(): {$builderClass}\n";
-    $code .= "    {\n";
-    $code .= "        return new {$builderClass}(\$this->client, \$this->buildPath('{$subresource}'));\n";
-    $code .= "    }\n\n";
-    
-    return $code;
+    return renderTemplate('SubpathMethod.php', [
+        'subresource' => $subresource,
+        'methodName' => $methodName,
+        'builderClass' => $builderClass
+    ]) . "\n";
 }
 
 /**
@@ -1732,25 +1699,11 @@ function generateSubpathMethod(string $subresource): string
  */
 function generateGetItemMethod(string $modelName, array $operations): string
 {
-    $code = "    /**\n";
-    $code .= "     * Get {$modelName} item\n";
-    $code .= "     *\n";
-    if ($operations['supportsSelect'] || $operations['supportsExpand']) {
-        $code .= "     * Supported query parameters:\n";
-        if ($operations['supportsSelect']) $code .= "     * - \$select: Select specific properties\n";
-        if ($operations['supportsExpand']) $code .= "     * - \$expand: Expand related resources\n";
-        $code .= "     *\n";
-    }
-    $code .= "     * @param array|null \$queryParameters Query parameters\n";
-    $code .= "     * @return {$modelName}\n";
-    $code .= "     */\n";
-    $code .= "    public function get(?array \$queryParameters = null): {$modelName}\n";
-    $code .= "    {\n";
-    $code .= "        \$response = \$this->client->get(\$this->getFullPath(), \$queryParameters);\n";
-    $code .= "        return \$this->client->deserialize(\$response, {$modelName}::class);\n";
-    $code .= "    }\n\n";
+    $escapedModelName = escapeReservedKeyword($modelName);
     
-    return $code;
+    return renderTemplate('GetItemMethod.php', [
+        'modelName' => $escapedModelName
+    ]) . "\n";
 }
 
 /**
@@ -1758,19 +1711,11 @@ function generateGetItemMethod(string $modelName, array $operations): string
  */
 function generatePatchMethod(string $modelName): string
 {
-    $code = "    /**\n";
-    $code .= "     * Update {$modelName} item\n";
-    $code .= "     *\n";
-    $code .= "     * @param {$modelName} \$item The item with updated properties\n";
-    $code .= "     * @return {$modelName}\n";
-    $code .= "     */\n";
-    $code .= "    public function patch({$modelName} \$item): {$modelName}\n";
-    $code .= "    {\n";
-    $code .= "        \$response = \$this->client->patch(\$this->getFullPath(), \$item);\n";
-    $code .= "        return \$this->client->deserialize(\$response, {$modelName}::class);\n";
-    $code .= "    }\n\n";
+    $escapedModelName = escapeReservedKeyword($modelName);
     
-    return $code;
+    return renderTemplate('PatchMethod.php', [
+        'modelName' => $escapedModelName
+    ]) . "\n";
 }
 
 /**
@@ -1778,17 +1723,7 @@ function generatePatchMethod(string $modelName): string
  */
 function generateDeleteMethod(): string
 {
-    $code = "    /**\n";
-    $code .= "     * Delete item\n";
-    $code .= "     *\n";
-    $code .= "     * @return void\n";
-    $code .= "     */\n";
-    $code .= "    public function delete(): void\n";
-    $code .= "    {\n";
-    $code .= "        \$this->client->delete(\$this->getFullPath());\n";
-    $code .= "    }\n\n";
-    
-    return $code;
+    return renderTemplate('DeleteMethod.php', []) . "\n";
 }
 
 /**
@@ -1836,36 +1771,10 @@ function generateRootRequestBuilder(string $buildDir, array $rootNamespaces): vo
         }
     }
     
-    // Generate GraphRequestBuilder
-    $code = <<<'PHP'
-<?php
-
-declare(strict_types=1);
-
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
-
-use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-
-class GraphRequestBuilder extends BaseRequestBuilder
-{
-    public function __construct(GraphClient $client)
-    {
-        parent::__construct($client, '');
-    }
-
-
-PHP;
-    
-    foreach ($namespaces as $namespace => $className) {
-        $code .= "    public function {$namespace}(): {$className}\n";
-        $code .= "    {\n";
-        $code .= "        return new {$className}(\$this->client, '/{$namespace}');\n";
-        $code .= "    }\n\n";
-    }
-    
-    $code .= "}\n";
+    // Generate GraphRequestBuilder using template
+    $code = renderTemplate('GraphRequestBuilder.php.template', [
+        'NAMESPACES' => $namespaces
+    ]);
     
     file_put_contents($builderDir . '/GraphRequestBuilder.php', $code);
-
-
 }

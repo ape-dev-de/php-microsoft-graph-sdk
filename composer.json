@@ -32,7 +32,8 @@
         "guzzlehttp/guzzle": "^7.8",
         "guzzlehttp/psr7": "^2.6",
         "symfony/console": "^6.0|^7.0",
-        "symfony/yaml": "^6.0|^7.0"
+        "symfony/yaml": "^6.0|^7.0",
+        "phpstan/phpstan": "^2.1"
     },
     "autoload-dev": {
         "psr-4": {
@@ -41,7 +42,8 @@
     },
     "scripts": {
         "test": "phpunit",
-        "test:coverage": "phpunit --coverage-html coverage"
+        "test:coverage": "phpunit --coverage-html coverage",
+        "analyze": "phpstan analyze src build"
     },
     "config": {
         "allow-plugins": {

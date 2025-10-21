@@ -1,0 +1,93 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\Models;
+
+/**
+ * SamlOrWsFedProvider
+ */
+class SamlOrWsFedProvider
+{
+    /**
+     * Issuer URI of the federation server.
+     */
+    private ?string $issuerUri;
+
+    /**
+     * URI of the metadata exchange endpoint used for authentication from rich client applications.
+     */
+    private ?string $metadataExchangeUri;
+
+    /**
+     * URI that web-based clients are directed to when signing in to Microsoft Entra services.
+     */
+    private ?string $passiveSignInUri;
+
+    /**
+     * Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue.
+     */
+    private ?string $preferredAuthenticationProtocol;
+
+    /**
+     * Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP''s token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn''t present in the federation properties after the federation service certificate has been updated.   Microsoft Entra ID updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn''t available, Microsoft Entra ID monitors the metadata daily and will update the federation settings for the domain when a new certificate is available.
+     */
+    private ?string $signingCertificate;
+
+
+    public function getIssuerUri(): ?string
+    {
+        return $this->issuerUri;
+    }
+
+    public function setIssuerUri(?string $issuerUri): self
+    {
+        $this->issuerUri = $issuerUri;
+        return $this;
+    }
+
+    public function getMetadataExchangeUri(): ?string
+    {
+        return $this->metadataExchangeUri;
+    }
+
+    public function setMetadataExchangeUri(?string $metadataExchangeUri): self
+    {
+        $this->metadataExchangeUri = $metadataExchangeUri;
+        return $this;
+    }
+
+    public function getPassiveSignInUri(): ?string
+    {
+        return $this->passiveSignInUri;
+    }
+
+    public function setPassiveSignInUri(?string $passiveSignInUri): self
+    {
+        $this->passiveSignInUri = $passiveSignInUri;
+        return $this;
+    }
+
+    public function getPreferredAuthenticationProtocol(): ?string
+    {
+        return $this->preferredAuthenticationProtocol;
+    }
+
+    public function setPreferredAuthenticationProtocol(?string $preferredAuthenticationProtocol): self
+    {
+        $this->preferredAuthenticationProtocol = $preferredAuthenticationProtocol;
+        return $this;
+    }
+
+    public function getSigningCertificate(): ?string
+    {
+        return $this->signingCertificate;
+    }
+
+    public function setSigningCertificate(?string $signingCertificate): self
+    {
+        $this->signingCertificate = $signingCertificate;
+        return $this;
+    }
+
+}

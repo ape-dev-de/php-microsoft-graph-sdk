@@ -1,15 +1,92 @@
-<?php
+<?= "<?php" ?>
+
 
 declare(strict_types=1);
 
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * {{MODEL_NAME}}
- */
-class {{MODEL_NAME}}
-{
-{{PROPERTIES}}
+ * <?= $MODEL_NAME ?>
 
-{{GETTERS_SETTERS}}
+ */
+class <?= $MODEL_NAME ?>
+
+{
+<?php foreach ($PROPERTIES as $propName => $propDef): ?>
+<?php
+    $type = $propDef['type'];
+    $description = $propDef['description'] ?? '';
+?>
+    /**
+<?php if ($description): ?>
+     * <?= $description ?>
+
+<?php endif; ?>
+<?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
+<?php
+    $itemType = $propDef['items']['type'];
+    $phpItemType = match($itemType) {
+        'string' => 'string',
+        'integer' => 'int',
+        'number' => 'float',
+        'boolean' => 'bool',
+        default => 'mixed'
+    };
+?>
+     * @var <?= $phpItemType ?>[]
+<?php endif; ?>
+     */
+    private <?= $type ?> $<?= $propName ?><?= $type === 'array' ? ' = []' : '' ?>;
+
+<?php endforeach; ?>
+
+<?php foreach ($PROPERTIES as $propName => $propDef): ?>
+<?php
+    $type = $propDef['type'];
+    $methodName = ucfirst($propName);
+?>
+<?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
+<?php
+    $itemType = $propDef['items']['type'];
+    $phpItemType = match($itemType) {
+        'string' => 'string',
+        'integer' => 'int',
+        'number' => 'float',
+        'boolean' => 'bool',
+        default => 'mixed'
+    };
+?>
+    /**
+     * @return <?= $phpItemType ?>[]
+     */
+<?php endif; ?>
+    public function get<?= $methodName ?>(): <?= $type ?>
+
+    {
+        return $this-><?= $propName ?>;
+    }
+
+<?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
+<?php
+    $itemType = $propDef['items']['type'];
+    $phpItemType = match($itemType) {
+        'string' => 'string',
+        'integer' => 'int',
+        'number' => 'float',
+        'boolean' => 'bool',
+        default => 'mixed'
+    };
+?>
+    /**
+     * @param <?= $phpItemType ?>[] $<?= $propName ?>
+
+     */
+<?php endif; ?>
+    public function set<?= $methodName ?>(<?= $type ?> $<?= $propName ?>): self
+    {
+        $this-><?= $propName ?> = $<?= $propName ?>;
+        return $this;
+    }
+
+<?php endforeach; ?>
 }

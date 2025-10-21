@@ -1,0 +1,79 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\Models\TargetDeviceGroup;
+use ApeDevDe\MicrosoftGraphSdk\Models\TargetDeviceGroupCollectionResponse;
+use ApeDevDe\MicrosoftGraphSdk\QueryOptions\TargetDeviceGroupQueryOptions;
+
+/**
+ * Request builder for TargetDeviceGroup
+ */
+class TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder
+{
+    /**
+     * Get collection with optional query parameters
+     *
+     * You can use either:
+     * 1. Type-safe QueryOptions: get(options: (new TargetDeviceGroupQueryOptions())->top(10)->select(['displayName', 'mail']))
+     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
+     *
+     * Supported query parameters:
+     * - $select: Select specific properties
+     * - $filter: Filter results
+     * - $orderby: Order results
+     * - $top: Limit number of results
+     * - $skip: Skip number of results
+     * - $expand: Expand related resources
+     * - $search: Search query
+     * - $count: Include count of items
+     *
+     * @param TargetDeviceGroupQueryOptions|null $options Type-safe query options
+     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @return TargetDeviceGroupCollectionResponse
+     */
+    public function get(?TargetDeviceGroupQueryOptions $options = null, ?array $queryParameters = null): TargetDeviceGroupCollectionResponse
+    {
+        $params = $options ? $options->toArray() : ($queryParameters ?? []);
+        $response = $this->client->get($this->getFullPath(), $params);
+        return $this->client->deserialize($response, TargetDeviceGroupCollectionResponse::class);
+    }
+
+    /**
+     * Create a new TargetDeviceGroup
+     *
+     * @param TargetDeviceGroup $item The item to create
+     * @return TargetDeviceGroup
+     */
+    public function post(TargetDeviceGroup $item): TargetDeviceGroup
+    {
+        $response = $this->client->post($this->getFullPath(), $item);
+        return $this->client->deserialize($response, TargetDeviceGroup::class);
+    }
+
+    /**
+     * Get request builder for specific item by ID
+     *
+     * @param string $id The item ID
+     * @return TargetDeviceGroupItemRequestBuilder
+     */
+    public function byId(string $id): TargetDeviceGroupItemRequestBuilder
+    {
+        return new TargetDeviceGroupItemRequestBuilder($this->client, $this->buildPath($id));
+    }
+
+    /**
+     * Get count of items in collection
+     *
+     * @return int
+     */
+    public function count(): int
+    {
+        $response = $this->client->get($this->getFullPath() . '/$count');
+        return (int) $response->getBody()->getContents();
+    }
+
+}

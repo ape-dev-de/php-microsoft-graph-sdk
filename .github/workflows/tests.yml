@@ -1,0 +1,59 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        php: ['8.3']
+
+    name: PHP ${{ matrix.php }} - ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          coverage: xdebug
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Generate SDK
+        run: php generate-chunked.php
+
+      - name: Generate tests
+        run: php generate-tests.php
+
+      - name: Run tests
+        env:
+          GRAPH_AUTH_METHOD: ${{ secrets.GRAPH_AUTH_METHOD }}
+          GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+          GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+          GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
+          GRAPH_BEARER_TOKEN: ${{ secrets.GRAPH_BEARER_TOKEN }}
+          TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
+          TEST_GROUP_ID: ${{ secrets.TEST_GROUP_ID }}
+          TEST_SKIP_DESTRUCTIVE: true
+        run: composer test
+
+      - name: Upload coverage reports
+        if: matrix.php == '8.2' && matrix.os == 'ubuntu-latest'
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false

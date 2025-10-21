@@ -1,0 +1,25 @@
+<?= "<?php" ?>
+
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+
+class GraphRequestBuilder extends BaseRequestBuilder
+{
+    public function __construct(GraphClient $client)
+    {
+        parent::__construct($client, '');
+    }
+
+<?php foreach ($NAMESPACES as $namespace => $className): ?>
+    public function <?= $namespace ?>(): <?= $className ?>
+
+    {
+        return new <?= $className ?>($this->client, '/<?= $namespace ?>');
+    }
+
+<?php endforeach; ?>
+}

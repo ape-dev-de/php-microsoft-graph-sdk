@@ -5,11 +5,13 @@ A production-ready PHP SDK for Microsoft Graph API, automatically generated from
 ## Features
 
 - ✅ **Request Builder Architecture** - Fluent, chainable API calls
-- ✅ **Strict Type-Safe DTOs** - Full property validation and type hints
+- ✅ **Strict Type-Safe DTOs** - Full property validation and type hints with array support
+- ✅ **Array-like Collections** - CollectionResponse implements ArrayAccess, Countable, and IteratorAggregate
 - ✅ **PSR-7/PSR-18 Compliant** - Standard HTTP client integration
 - ✅ **Multiple Authentication Methods** - Bearer token and Client Credentials flow
 - ✅ **Auto-generated from OpenAPI** - Always up-to-date with Microsoft Graph API
 - ✅ **Symfony Serializer** - Robust request/response handling
+- ✅ **Interactive Tinker Shell** - REPL for debugging and exploration
 
 ## Installation
 
@@ -108,6 +110,13 @@ echo $me->getMail();
 
 ```php
 $users = $graphClient->users()->get();
+
+// Collections implement ArrayAccess, Countable, and IteratorAggregate
+foreach ($users as $user) {
+    echo $user->getDisplayName() . "\n";
+}
+
+// Or use traditional getValue()
 foreach ($users->getValue() as $user) {
     echo $user->getDisplayName() . "\n";
 }
@@ -153,9 +162,15 @@ $graphClient->users()->byId('user-id')->delete();
 
 ```php
 $messages = $graphClient->me()->messages()->get();
-foreach ($messages->getValue() as $message) {
+
+// Direct iteration
+foreach ($messages as $message) {
     echo $message->getSubject() . "\n";
 }
+
+// Array-like access
+echo $messages[0]->getSubject();  // First message
+echo count($messages);  // Count messages
 ```
 
 #### Query Parameters
@@ -176,6 +191,80 @@ $users = $graphClient->users()->get([
 $users = $graphClient->users()->get([
     '$orderby' => 'displayName'
 ]);
+```
+
+## Collection Responses
+
+All collection responses implement `ArrayAccess`, `Countable`, and `IteratorAggregate` for intuitive array-like behavior:
+
+```php
+$users = $graphClient->users()->get();
+
+// ArrayAccess - Access like an array
+$firstUser = $users[0];
+$secondUser = $users[1];
+
+// Countable - Use count() directly
+$count = count($users);
+
+// IteratorAggregate - Direct iteration
+foreach ($users as $user) {
+    echo $user->getDisplayName() . "\n";
+}
+
+// Check existence
+if (isset($users[0])) {
+    echo "Has users!";
+}
+
+// Traditional method still works
+$users->getValue();  // Returns array of User objects
+```
+
+### Array Properties
+
+Model properties that are arrays are properly typed with PHPDoc annotations:
+
+```php
+$user = $graphClient->me()->get();
+
+// businessPhones is typed as array with string[] PHPDoc
+$phones = $user->getBusinessPhones();  // Returns: string[]
+
+// All array properties work correctly
+$licenses = $user->getAssignedLicenses();  // Returns: AssignedLicense[]
+$addresses = $user->getProxyAddresses();  // Returns: string[]
+```
+
+## Interactive Tinker Shell
+
+Debug and explore the Graph API with the interactive REPL:
+
+```bash
+php tinker.php
+```
+
+Features:
+- ✅ **Arrow key history** - Navigate previous commands with Up/Down
+- ✅ **Tab completion** - Autocomplete commands
+- ✅ **Error handling** - Errors don't crash the shell
+- ✅ **Keyboard shortcuts** - Ctrl+D to exit, Ctrl+C to interrupt
+
+Example session:
+```php
+[1] > $users = $client->users()->get()
+=> UserCollectionResponse { count: 42 }
+
+[2] > $users[0]->getDisplayName()
+=> "John Doe"
+
+[3] > count($users)
+=> 42
+
+[4] > foreach ($users as $u) { echo $u->getDisplayName() . "\n"; }
+John Doe
+Jane Smith
+...
 ```
 
 ## Architecture

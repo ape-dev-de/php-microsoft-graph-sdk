@@ -1,20 +1,37 @@
-<?php
+<?= "<?php" ?>
+
 
 declare(strict_types=1);
 
 namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
 
 /**
- * Query options for {{MODEL_NAME}} resources
+ * Query options for <?= $MODEL_NAME ?> resources
  *
-{{SELECT_DOC}} */
-class {{CLASS_NAME}} extends QueryOptions
+ * Available select fields:
+<?php foreach ($PROPERTIES as $propName => $propDef): ?>
+ * - <?= $propName ?>
+
+<?php endforeach; ?>
+ */
+class <?= $CLASS_NAME ?> extends QueryOptions
 {
-{{CONSTANTS}}
     /**
-     * Select specific {{MODEL_NAME}} properties
-     * 
-     * @param array<string> $select Use {{CLASS_NAME}}::FIELD_* constants or property names
+     * Available select fields for <?= $MODEL_NAME ?>
+
+     */
+<?php foreach ($PROPERTIES as $propName => $propDef): ?>
+<?php
+    $constantName = 'FIELD_' . strtoupper(preg_replace('/([a-z])([A-Z])/', '$1_$2', $propName));
+?>
+    public const <?= $constantName ?> = '<?= $propName ?>';
+<?php endforeach; ?>
+
+    /**
+     * Select specific <?= $MODEL_NAME ?> properties
+     *
+     * @param array<string> $select
+     * @return static
      */
     public function select(array $select): static
     {

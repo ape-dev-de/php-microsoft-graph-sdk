@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+
+/**
+ * Request builder for ErfC_Precise
+ */
+class ErfC_PreciseRequestBuilder extends BaseRequestBuilder
+{
+}

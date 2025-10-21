@@ -3,7 +3,6 @@
 composer.lock
 
 # Generated SDK code
-build/
 tmp/
 openapi.yaml
 .env
@@ -25,8 +24,9 @@ tests/Namespaces/*Test.php
 Thumbs.db
 
 # Environment
-.env
 .env.local
 
 # PHP CS Fixer
 .php-cs-fixer.cache
+.tinker_history
+

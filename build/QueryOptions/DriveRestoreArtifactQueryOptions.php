@@ -1,0 +1,34 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\QueryOptions;
+
+/**
+ * Query options for DriveRestoreArtifact resources
+ *
+ * Available select fields:
+ * - restoredSiteId
+ * - restoredSiteName
+ * - restoredSiteWebUrl
+ */
+class DriveRestoreArtifactQueryOptions extends QueryOptions
+{
+    /**
+     * Available select fields for DriveRestoreArtifact
+     */
+    public const FIELD_RESTORED_SITE_ID = 'restoredSiteId';
+    public const FIELD_RESTORED_SITE_NAME = 'restoredSiteName';
+    public const FIELD_RESTORED_SITE_WEB_URL = 'restoredSiteWebUrl';
+
+    /**
+     * Select specific DriveRestoreArtifact properties
+     *
+     * @param array<string> $select
+     * @return static
+     */
+    public function select(array $select): static
+    {
+        return parent::select($select);
+    }
+}

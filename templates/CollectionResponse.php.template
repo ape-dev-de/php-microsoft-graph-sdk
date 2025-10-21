@@ -1,18 +1,20 @@
-<?php
+<?= "<?php" ?>
+
 
 declare(strict_types=1);
 
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Collection response for {{MODEL_NAME}}
+ * Collection response for <?= $MODEL_NAME ?>
+
  * 
  * Implements ArrayAccess, Countable, and IteratorAggregate for array-like behavior
  */
-class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregate
+class <?= $COLLECTION_NAME ?> implements \ArrayAccess, \Countable, \IteratorAggregate
 {
     /**
-     * @var {{MODEL_NAME}}[]
+     * @var <?= $MODEL_NAME ?>[]
      */
     private array $value = [];
 
@@ -22,7 +24,7 @@ class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregat
     /**
      * Get the collection items
      * 
-     * @return {{MODEL_NAME}}[]
+     * @return <?= $MODEL_NAME ?>[]
      */
     public function getValue(): array
     {
@@ -32,19 +34,16 @@ class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregat
     /**
      * Set the collection items
      * 
-     * Accepts either an array or variadic parameters for flexibility
-     * 
-     * @param {{MODEL_NAME}}[]|{{MODEL_NAME}} $items Array of items or first item
-     * @param {{MODEL_NAME}} ...$moreItems Additional items (variadic)
+     * @param <?= $MODEL_NAME ?>[] $items
      * @return self
      */
-    public function setValue(array|{{MODEL_NAME}} $items, {{MODEL_NAME}} ...$moreItems): self
+    public function setValue(array|<?= $MODEL_NAME ?> $items, <?= $MODEL_NAME ?> ...$moreItems): self
     {
         if (is_array($items)) {
             // Called with array (e.g., from deserializer)
             $this->value = $items;
         } else {
-            // Called with variadic parameters
+           // Called with variadic parameters
             $this->value = array_merge([$items], $moreItems);
         }
         return $this;
@@ -53,7 +52,7 @@ class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregat
     /**
      * Set the collection items from array (for deserialization)
      * 
-     * @param array<{{MODEL_NAME}}> $value
+     * @param array<<?= $MODEL_NAME ?>> $value
      * @return self
      * @internal Used by deserializer
      */
@@ -66,10 +65,10 @@ class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregat
     /**
      * Add a single item to the collection
      * 
-     * @param {{MODEL_NAME}} $item
+     * @param <?= $MODEL_NAME ?> $item
      * @return self
      */
-    public function addValue({{MODEL_NAME}} $item): self
+    public function addValue(<?= $MODEL_NAME ?> $item): self
     {
         $this->value[] = $item;
         return $this;
@@ -158,7 +157,7 @@ class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregat
      * Get value at offset
      * 
      * @param mixed $offset
-     * @return {{MODEL_NAME}}|null
+     * @return <?= $MODEL_NAME ?>|null
      */
     public function offsetGet(mixed $offset): mixed
     {
@@ -217,7 +216,7 @@ class {{COLLECTION_NAME}} implements \ArrayAccess, \Countable, \IteratorAggregat
     /**
      * Get iterator for foreach loops
      * 
-     * @return \ArrayIterator<int, {{MODEL_NAME}}>
+     * @return \ArrayIterator<int, <?= $MODEL_NAME ?>>
      */
     public function getIterator(): \ArrayIterator
     {
