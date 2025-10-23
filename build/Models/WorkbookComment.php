@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookComment
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The content of the comment. */
-        public ?string $content = null,
-        /** The content type of the comment. */
-        public ?string $contentType = null,
-        /** The list of replies to the comment. Read-only. Nullable. */
-        public array $replies = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The content of the comment. */
+    public ?string $content = null;
+
+    /** The content type of the comment. */
+    public ?string $contentType = null;
+
+    /** 
+     * The list of replies to the comment. Read-only. Nullable.
+     * @var WorkbookCommentReply[]
+     */
+    public array $replies = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['content'])) {
+            $this->content = $data['content'];
+        }
+        if (isset($data['contentType'])) {
+            $this->contentType = $data['contentType'];
+        }
+        if (isset($data['replies'])) {
+            $this->replies = $data['replies'];
+        }
+    }
 }

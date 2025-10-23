@@ -9,16 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerExternalReference
 {
-    public function __construct(
-        /** A name alias to describe the reference. */
-        public ?string $alias = null,
-        /** Read-only. User ID by which this is last modified. */
-        public ?IdentitySet $lastModifiedBy = null,
-        /** Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** Used to set the relative priority order in which the reference will be shown as a preview on the task. */
-        public ?string $previewPriority = null,
-        /** Used to describe the type of the reference. Types include: PowerPoint, Word, Excel, Other. */
-        public ?string $type = null
-    ) {}
+    /** A name alias to describe the reference. */
+    public ?string $alias = null;
+
+    /** 
+     * Read-only. User ID by which this is last modified.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /** Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** Used to set the relative priority order in which the reference will be shown as a preview on the task. */
+    public ?string $previewPriority = null;
+
+    /** Used to describe the type of the reference. Types include: PowerPoint, Word, Excel, Other. */
+    public ?string $type = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['alias'])) {
+            $this->alias = $data['alias'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['previewPriority'])) {
+            $this->previewPriority = $data['previewPriority'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+    }
 }

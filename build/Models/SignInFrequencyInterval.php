@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInFrequencyInterval
 {
-    public function __construct(
-    ) {}
 }

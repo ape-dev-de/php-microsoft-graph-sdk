@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsStartMenuAppListVisibilityType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserFlowType
 {
-    public function __construct(
-    ) {}
 }

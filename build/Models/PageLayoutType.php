@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PageLayoutType
 {
-    public function __construct(
-    ) {}
 }

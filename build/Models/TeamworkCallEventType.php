@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkCallEventType
 {
-    public function __construct(
-    ) {}
 }

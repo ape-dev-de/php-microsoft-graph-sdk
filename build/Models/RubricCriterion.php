@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RubricCriterion
 {
-    public function __construct(
-        /** The description of this criterion. */
-        public ?EducationItemBody $description = null
-    ) {}
+    /** 
+     * The description of this criterion.
+     * @var EducationItemBody|\stdClass|null
+     */
+    public mixed $description = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+    }
 }

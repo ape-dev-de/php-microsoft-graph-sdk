@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityTeamsMessageDeliveryAction
 {
-    public function __construct(
-    ) {}
 }

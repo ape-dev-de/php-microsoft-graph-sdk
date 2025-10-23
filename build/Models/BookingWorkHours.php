@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingWorkHours
 {
-    public function __construct(
-        /**  */
-        public ?DayOfWeek $day = null,
-        /** A list of start/end times during a day. */
-        public array $timeSlots = []
-    ) {}
+    /**  */
+    public ?DayOfWeek $day = null;
+
+    /** 
+     * A list of start/end times during a day.
+     * @var BookingWorkTimeSlot[]
+     */
+    public array $timeSlots = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['day'])) {
+            $this->day = $data['day'];
+        }
+        if (isset($data['timeSlots'])) {
+            $this->timeSlots = $data['timeSlots'];
+        }
+    }
 }

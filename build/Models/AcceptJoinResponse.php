@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AcceptJoinResponse
 {
-    public function __construct(
-    ) {}
 }

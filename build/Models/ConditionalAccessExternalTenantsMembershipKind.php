@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessExternalTenantsMembershipKind
 {
-    public function __construct(
-    ) {}
 }

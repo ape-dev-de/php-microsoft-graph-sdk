@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GovernanceInsight
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Indicates when the insight was created. */
-        public ?\DateTimeInterface $insightCreatedDateTime = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Indicates when the insight was created. */
+    public ?\DateTimeInterface $insightCreatedDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['insightCreatedDateTime'])) {
+            $this->insightCreatedDateTime = $data['insightCreatedDateTime'];
+        }
+    }
 }

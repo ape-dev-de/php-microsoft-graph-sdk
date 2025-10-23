@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInFrequencyAuthenticationType
 {
-    public function __construct(
-    ) {}
 }

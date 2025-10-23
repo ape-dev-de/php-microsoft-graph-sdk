@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectMappingMetadata
 {
-    public function __construct(
-    ) {}
 }

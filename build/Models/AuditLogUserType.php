@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuditLogUserType
 {
-    public function __construct(
-    ) {}
 }

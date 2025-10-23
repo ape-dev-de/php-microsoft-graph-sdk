@@ -9,18 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedDeviceMobileAppConfigurationUserStatus
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Devices count for that user. */
-        public ?float $devicesCount = null,
-        /** Last modified date time of the policy report. */
-        public ?\DateTimeInterface $lastReportedDateTime = null,
-        /**  */
-        public ?ComplianceStatus $status = null,
-        /** User name of the DevicePolicyStatus. */
-        public ?string $userDisplayName = null,
-        /** UserPrincipalName. */
-        public ?string $userPrincipalName = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Devices count for that user. */
+    public ?float $devicesCount = null;
+
+    /** Last modified date time of the policy report. */
+    public ?\DateTimeInterface $lastReportedDateTime = null;
+
+    /**  */
+    public ?ComplianceStatus $status = null;
+
+    /** User name of the DevicePolicyStatus. */
+    public ?string $userDisplayName = null;
+
+    /** UserPrincipalName. */
+    public ?string $userPrincipalName = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['devicesCount'])) {
+            $this->devicesCount = $data['devicesCount'];
+        }
+        if (isset($data['lastReportedDateTime'])) {
+            $this->lastReportedDateTime = $data['lastReportedDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['userDisplayName'])) {
+            $this->userDisplayName = $data['userDisplayName'];
+        }
+        if (isset($data['userPrincipalName'])) {
+            $this->userPrincipalName = $data['userPrincipalName'];
+        }
+    }
 }

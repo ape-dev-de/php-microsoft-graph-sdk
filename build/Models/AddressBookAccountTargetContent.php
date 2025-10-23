@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AddressBookAccountTargetContent
 {
-    public function __construct(
-        /** The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue. */
-        public ?AccountTargetContentType $type = null,
-        /** @var string[] List of user emails targeted for an attack simulation training campaign. */
-        public array $accountTargetEmails = []
-    ) {}
+    /** 
+     * The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue.
+     * @var AccountTargetContentType|\stdClass|null
+     */
+    public mixed $type = null;
+
+    /** 
+     * List of user emails targeted for an attack simulation training campaign.
+     * @var string[]
+     */
+    public array $accountTargetEmails = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+        if (isset($data['accountTargetEmails'])) {
+            $this->accountTargetEmails = $data['accountTargetEmails'];
+        }
+    }
 }

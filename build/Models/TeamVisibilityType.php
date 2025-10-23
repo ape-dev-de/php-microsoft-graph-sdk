@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamVisibilityType
 {
-    public function __construct(
-    ) {}
 }

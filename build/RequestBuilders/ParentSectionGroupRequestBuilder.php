@@ -6,29 +6,50 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\SectionGroup;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\SectionGroupQueryOptions;
 
 /**
- * Request builder for SectionGroup
+ * Request builder for parentSectionGroup
  */
 class ParentSectionGroupRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get parentSectionGroup from groups
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $expand: Expand related resources
-     *
-     * @param SectionGroupQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return SectionGroup
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?SectionGroupQueryOptions $options = null, ?array $queryParameters = null): SectionGroup
+    public function get(?array $select = null, ?array $expand = null): SectionGroup
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, SectionGroup::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
+    /**
+     * Deserialize response to SectionGroup
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new SectionGroup($data);
+    }
 }

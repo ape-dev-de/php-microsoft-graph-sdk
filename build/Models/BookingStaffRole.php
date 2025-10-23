@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingStaffRole
 {
-    public function __construct(
-    ) {}
 }

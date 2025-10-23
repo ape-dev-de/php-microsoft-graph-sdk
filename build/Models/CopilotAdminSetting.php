@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CopilotAdminSetting
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?CopilotAdminLimitedMode $limitedMode = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * 
+     * @var CopilotAdminLimitedMode|\stdClass|null
+     */
+    public mixed $limitedMode = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['limitedMode'])) {
+            $this->limitedMode = $data['limitedMode'];
+        }
+    }
 }

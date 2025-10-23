@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookOperation
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The error returned by the operation. */
-        public ?WorkbookOperationError $error = null,
-        /** The resource URI for the result. */
-        public ?string $resourceLocation = null,
-        /**  */
-        public ?WorkbookOperationStatus $status = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * The error returned by the operation.
+     * @var WorkbookOperationError|\stdClass|null
+     */
+    public mixed $error = null;
+
+    /** The resource URI for the result. */
+    public ?string $resourceLocation = null;
+
+    /**  */
+    public ?WorkbookOperationStatus $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+        if (isset($data['resourceLocation'])) {
+            $this->resourceLocation = $data['resourceLocation'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

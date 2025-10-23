@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaConfig
 {
-    public function __construct(
-    ) {}
 }

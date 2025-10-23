@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceComplianceActionType
 {
-    public function __construct(
-    ) {}
 }

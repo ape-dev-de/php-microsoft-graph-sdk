@@ -5,64 +5,149 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternalActivity;
-use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternalActivityCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\ExternalConnectorsExternalActivityQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserActivityCollectionResponse;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserActivity;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\UserActivityRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RecentRequestBuilder;
 
 /**
- * Request builder for ExternalConnectorsExternalActivity
+ * Request builder for activities
  */
 class ActivitiesRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Get user activities
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new ExternalConnectorsExternalActivityQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param ExternalConnectorsExternalActivityQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return ExternalConnectorsExternalActivityCollectionResponse
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
+     * @return UserActivityCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?ExternalConnectorsExternalActivityQueryOptions $options = null, ?array $queryParameters = null): ExternalConnectorsExternalActivityCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserActivityCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, ExternalConnectorsExternalActivityCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new ExternalConnectorsExternalActivity
-     *
-     * @param ExternalConnectorsExternalActivity $item The item to create
-     * @return ExternalConnectorsExternalActivity
+     * Deserialize response to UserActivityCollectionResponse
      */
-    public function post(ExternalConnectorsExternalActivity $item): ExternalConnectorsExternalActivity
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, ExternalConnectorsExternalActivity::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new UserActivity($item);
+        }
+        $collection = new UserActivityCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Create new navigation property to activities for me
+     * @param UserActivity $body Request body
+     * @return UserActivity
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(UserActivity $body): UserActivity
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
     /**
-     * Get count of items in collection
-     *
-     * @return int
+     * Deserialize response to UserActivity
      */
-    public function count(): int
+    private function deserializePost(string $body): mixed
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UserActivity($data);
     }
-
+    /**
+     * Get request builder for specific item by ID
+     *
+     * @param string $userActivityId The item ID
+     * @return UserActivityRequestBuilder
+     */
+    public function byId(string $userActivityId): UserActivityRequestBuilder
+    {
+        return new UserActivityRequestBuilder($this->client, $this->requestUrl . '/' . $userActivityId);
+    }
+    /**
+     * Navigate to $count
+     *
+     * @return CountRequestBuilder
+     */
+    public function count(): CountRequestBuilder
+    {
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
+    }
+    /**
+     * Navigate to recent()
+     *
+     * @return RecentRequestBuilder
+     */
+    public function recent(): RecentRequestBuilder
+    {
+        return new RecentRequestBuilder($this->client, $this->requestUrl . '/recent()');
+    }
 }

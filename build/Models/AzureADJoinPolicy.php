@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AzureADJoinPolicy
 {
-    public function __construct(
-        /**  */
-        public ?DeviceRegistrationMembership $allowedToJoin = null,
-        /**  */
-        public ?bool $isAdminConfigurable = null
-    ) {}
+    /** 
+     * 
+     * @var DeviceRegistrationMembership|\stdClass|null
+     */
+    public mixed $allowedToJoin = null;
+
+    /**  */
+    public ?bool $isAdminConfigurable = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowedToJoin'])) {
+            $this->allowedToJoin = $data['allowedToJoin'];
+        }
+        if (isset($data['isAdminConfigurable'])) {
+            $this->isAdminConfigurable = $data['isAdminConfigurable'];
+        }
+    }
 }

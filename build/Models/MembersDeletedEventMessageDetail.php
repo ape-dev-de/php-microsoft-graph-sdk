@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MembersDeletedEventMessageDetail
 {
-    public function __construct(
-        /** Initiator of the event. */
-        public ?IdentitySet $initiator = null,
-        /** List of members deleted. */
-        public array $members = []
-    ) {}
+    /** 
+     * Initiator of the event.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+    /** 
+     * List of members deleted.
+     * @var TeamworkUserIdentity[]
+     */
+    public array $members = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+        if (isset($data['members'])) {
+            $this->members = $data['members'];
+        }
+    }
 }

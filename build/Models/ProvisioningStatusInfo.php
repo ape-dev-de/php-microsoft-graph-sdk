@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningStatusInfo
 {
-    public function __construct(
-        /** If status isn't success/ skipped details for the error are contained in this. */
-        public ?ProvisioningErrorInfo $errorInformation = null,
-        /** Possible values are: success, warning, failure, skipped, unknownFutureValue. */
-        public ?ProvisioningResult $status = null
-    ) {}
+    /** 
+     * If status isn't success/ skipped details for the error are contained in this.
+     * @var ProvisioningErrorInfo|\stdClass|null
+     */
+    public mixed $errorInformation = null;
+
+    /** 
+     * Possible values are: success, warning, failure, skipped, unknownFutureValue.
+     * @var ProvisioningResult|\stdClass|null
+     */
+    public mixed $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['errorInformation'])) {
+            $this->errorInformation = $data['errorInformation'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

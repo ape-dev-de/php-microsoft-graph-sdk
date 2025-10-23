@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersistentBrowserSessionControl
 {
-    public function __construct(
-        /** Specifies whether the session control is enabled. */
-        public ?bool $isEnabled = null,
-        /** Possible values are: always, never. */
-        public ?PersistentBrowserSessionMode $mode = null
-    ) {}
+    /** Specifies whether the session control is enabled. */
+    public ?bool $isEnabled = null;
+
+    /** 
+     * Possible values are: always, never.
+     * @var PersistentBrowserSessionMode|\stdClass|null
+     */
+    public mixed $mode = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isEnabled'])) {
+            $this->isEnabled = $data['isEnabled'];
+        }
+        if (isset($data['mode'])) {
+            $this->mode = $data['mode'];
+        }
+    }
 }

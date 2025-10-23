@@ -6,86 +6,159 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\Synchronization;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\SynchronizationQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\JobsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AcquireAccessTokenRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SecretsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TemplatesRequestBuilder;
 
 /**
- * Request builder for Synchronization
+ * Request builder for synchronization
  */
 class SynchronizationRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get synchronization from applications
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param SynchronizationQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return Synchronization
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?SynchronizationQueryOptions $options = null, ?array $queryParameters = null): Synchronization
+    public function get(?array $select = null, ?array $expand = null): Synchronization
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, Synchronization::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Synchronization
-     *
-     * @param Synchronization $item The item to create
-     * @return Synchronization
+     * Deserialize response to Synchronization
      */
-    public function post(Synchronization $item): Synchronization
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Synchronization::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Synchronization($data);
     }
     /**
-     * Get jobs request builder
+     * Update the navigation property synchronization in applications
+     * @param Synchronization $body Request body
+     * @return Synchronization
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function put(Synchronization $body): Synchronization
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->put($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePut($responseBody);
+    }
+
+    /**
+     * Deserialize response to Synchronization
+     */
+    private function deserializePut(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Synchronization($data);
+    }
+    /**
+     * Delete navigation property synchronization for applications
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to jobs
      *
      * @return JobsRequestBuilder
      */
     public function jobs(): JobsRequestBuilder
     {
-        return new JobsRequestBuilder($this->client, $this->buildPath('jobs'));
+        return new JobsRequestBuilder($this->client, $this->requestUrl . '/jobs');
     }
-
     /**
-     * Get acquireAccessToken request builder
+     * Navigate to acquireAccessToken
      *
      * @return AcquireAccessTokenRequestBuilder
      */
     public function acquireAccessToken(): AcquireAccessTokenRequestBuilder
     {
-        return new AcquireAccessTokenRequestBuilder($this->client, $this->buildPath('acquireAccessToken'));
+        return new AcquireAccessTokenRequestBuilder($this->client, $this->requestUrl . '/acquireAccessToken');
     }
-
     /**
-     * Get secrets request builder
+     * Navigate to secrets
      *
      * @return SecretsRequestBuilder
      */
     public function secrets(): SecretsRequestBuilder
     {
-        return new SecretsRequestBuilder($this->client, $this->buildPath('secrets'));
+        return new SecretsRequestBuilder($this->client, $this->requestUrl . '/secrets');
     }
-
     /**
-     * Get templates request builder
+     * Navigate to templates
      *
      * @return TemplatesRequestBuilder
      */
     public function templates(): TemplatesRequestBuilder
     {
-        return new TemplatesRequestBuilder($this->client, $this->buildPath('templates'));
+        return new TemplatesRequestBuilder($this->client, $this->requestUrl . '/templates');
     }
-
 }

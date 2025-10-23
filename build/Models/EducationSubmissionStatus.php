@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationSubmissionStatus
 {
-    public function __construct(
-    ) {}
 }

@@ -6,50 +6,129 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\Permission;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\PermissionQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GrantRequestBuilder;
 
 /**
- * Request builder for Permission
+ * Request builder for {permission-id}
  */
 class PermissionRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get permissions from groups
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $expand: Expand related resources
-     *
-     * @param PermissionQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return Permission
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?PermissionQueryOptions $options = null, ?array $queryParameters = null): Permission
+    public function get(?array $select = null, ?array $expand = null): Permission
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, Permission::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Permission
-     *
-     * @param Permission $item The item to create
-     * @return Permission
+     * Deserialize response to Permission
      */
-    public function post(Permission $item): Permission
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Permission::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Permission($data);
     }
     /**
-     * Get grant request builder
+     * Update the navigation property permissions in groups
+     * @param Permission $body Request body
+     * @return Permission
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(Permission $body): Permission
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to Permission
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Permission($data);
+    }
+    /**
+     * Delete navigation property permissions for groups
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to grant
      *
      * @return GrantRequestBuilder
      */
     public function grant(): GrantRequestBuilder
     {
-        return new GrantRequestBuilder($this->client, $this->buildPath('grant'));
+        return new GrantRequestBuilder($this->client, $this->requestUrl . '/grant');
     }
-
 }

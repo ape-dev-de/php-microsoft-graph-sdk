@@ -5,63 +5,149 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\ManagedAppRegistration;
 use ApeDevDe\MicrosoftGraphSdk\Models\ManagedAppRegistrationCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\ManagedAppRegistrationQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\ManagedAppRegistration;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ManagedAppRegistrationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GetUserIdsWithFlaggedAppRegistrationRequestBuilder;
 
 /**
- * Request builder for ManagedAppRegistration
+ * Request builder for managedAppRegistrations
  */
 class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * List iosManagedAppRegistrations
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new ManagedAppRegistrationQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param ManagedAppRegistrationQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
      * @return ManagedAppRegistrationCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?ManagedAppRegistrationQueryOptions $options = null, ?array $queryParameters = null): ManagedAppRegistrationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ManagedAppRegistrationCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, ManagedAppRegistrationCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
+    /**
+     * Deserialize response to ManagedAppRegistrationCollectionResponse
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new ManagedAppRegistration($item);
+        }
+        $collection = new ManagedAppRegistrationCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Create androidManagedAppRegistration
+     * @param ManagedAppRegistration $body Request body
+     * @return ManagedAppRegistration
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(ManagedAppRegistration $body): ManagedAppRegistration
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
+    }
+
+    /**
+     * Deserialize response to ManagedAppRegistration
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new ManagedAppRegistration($data);
+    }
     /**
      * Get request builder for specific item by ID
      *
-     * @param string $id The item ID
-     * @return ManagedAppRegistrationItemRequestBuilder
+     * @param string $managedAppRegistrationId The item ID
+     * @return ManagedAppRegistrationRequestBuilder
      */
-    public function byId(string $id): ManagedAppRegistrationItemRequestBuilder
+    public function byId(string $managedAppRegistrationId): ManagedAppRegistrationRequestBuilder
     {
-        return new ManagedAppRegistrationItemRequestBuilder($this->client, $this->buildPath($id));
+        return new ManagedAppRegistrationRequestBuilder($this->client, $this->requestUrl . '/' . $managedAppRegistrationId);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to $count
      *
-     * @return int
+     * @return CountRequestBuilder
      */
-    public function count(): int
+    public function count(): CountRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
+    /**
+     * Navigate to getUserIdsWithFlaggedAppRegistration()
+     *
+     * @return GetUserIdsWithFlaggedAppRegistrationRequestBuilder
+     */
+    public function getUserIdsWithFlaggedAppRegistration(): GetUserIdsWithFlaggedAppRegistrationRequestBuilder
+    {
+        return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder($this->client, $this->requestUrl . '/getUserIdsWithFlaggedAppRegistration()');
+    }
 }

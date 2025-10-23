@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnlineMeetingProviderType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResourceData
 {
-    public function __construct(
-    ) {}
 }

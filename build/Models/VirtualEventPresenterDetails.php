@@ -9,20 +9,57 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventPresenterDetails
 {
-    public function __construct(
-        /** Bio of the presenter. */
-        public ?ItemBody $bio = null,
-        /** The presenter's company name. */
-        public ?string $company = null,
-        /** The presenter's job title. */
-        public ?string $jobTitle = null,
-        /** The presenter's LinkedIn profile URL. */
-        public ?string $linkedInProfileWebUrl = null,
-        /** The presenter's personal website URL. */
-        public ?string $personalSiteWebUrl = null,
-        /** The content stream of the presenter's photo. */
-        public ?string $photo = null,
-        /** The presenter's Twitter profile URL. */
-        public ?string $twitterProfileWebUrl = null
-    ) {}
+    /** 
+     * Bio of the presenter.
+     * @var ItemBody|\stdClass|null
+     */
+    public mixed $bio = null;
+
+    /** The presenter's company name. */
+    public ?string $company = null;
+
+    /** The presenter's job title. */
+    public ?string $jobTitle = null;
+
+    /** The presenter's LinkedIn profile URL. */
+    public ?string $linkedInProfileWebUrl = null;
+
+    /** The presenter's personal website URL. */
+    public ?string $personalSiteWebUrl = null;
+
+    /** The content stream of the presenter's photo. */
+    public ?string $photo = null;
+
+    /** The presenter's Twitter profile URL. */
+    public ?string $twitterProfileWebUrl = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['bio'])) {
+            $this->bio = $data['bio'];
+        }
+        if (isset($data['company'])) {
+            $this->company = $data['company'];
+        }
+        if (isset($data['jobTitle'])) {
+            $this->jobTitle = $data['jobTitle'];
+        }
+        if (isset($data['linkedInProfileWebUrl'])) {
+            $this->linkedInProfileWebUrl = $data['linkedInProfileWebUrl'];
+        }
+        if (isset($data['personalSiteWebUrl'])) {
+            $this->personalSiteWebUrl = $data['personalSiteWebUrl'];
+        }
+        if (isset($data['photo'])) {
+            $this->photo = $data['photo'];
+        }
+        if (isset($data['twitterProfileWebUrl'])) {
+            $this->twitterProfileWebUrl = $data['twitterProfileWebUrl'];
+        }
+    }
 }

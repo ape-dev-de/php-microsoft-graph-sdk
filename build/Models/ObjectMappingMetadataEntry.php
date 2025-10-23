@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectMappingMetadataEntry
 {
-    public function __construct(
-        /** Possible values are: EscrowBehavior, DisableMonitoringForChanges, OriginalJoiningProperty, Disposition, IsCustomerDefined, ExcludeFromReporting, Unsynchronized. */
-        public ?ObjectMappingMetadata $key = null,
-        /** Value of the metadata property. */
-        public ?string $value = null
-    ) {}
+    /** 
+     * Possible values are: EscrowBehavior, DisableMonitoringForChanges, OriginalJoiningProperty, Disposition, IsCustomerDefined, ExcludeFromReporting, Unsynchronized.
+     * @var ObjectMappingMetadata|\stdClass|null
+     */
+    public mixed $key = null;
+
+    /** Value of the metadata property. */
+    public ?string $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['key'])) {
+            $this->key = $data['key'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

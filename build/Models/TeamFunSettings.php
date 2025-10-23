@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamFunSettings
 {
-    public function __construct(
-        /** If set to true, enables users to include custom memes. */
-        public ?bool $allowCustomMemes = null,
-        /** If set to true, enables Giphy use. */
-        public ?bool $allowGiphy = null,
-        /** If set to true, enables users to include stickers and memes. */
-        public ?bool $allowStickersAndMemes = null,
-        /** Giphy content rating. Possible values are: moderate, strict. */
-        public ?GiphyRatingType $giphyContentRating = null
-    ) {}
+    /** If set to true, enables users to include custom memes. */
+    public ?bool $allowCustomMemes = null;
+
+    /** If set to true, enables Giphy use. */
+    public ?bool $allowGiphy = null;
+
+    /** If set to true, enables users to include stickers and memes. */
+    public ?bool $allowStickersAndMemes = null;
+
+    /** 
+     * Giphy content rating. Possible values are: moderate, strict.
+     * @var GiphyRatingType|\stdClass|null
+     */
+    public mixed $giphyContentRating = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowCustomMemes'])) {
+            $this->allowCustomMemes = $data['allowCustomMemes'];
+        }
+        if (isset($data['allowGiphy'])) {
+            $this->allowGiphy = $data['allowGiphy'];
+        }
+        if (isset($data['allowStickersAndMemes'])) {
+            $this->allowStickersAndMemes = $data['allowStickersAndMemes'];
+        }
+        if (isset($data['giphyContentRating'])) {
+            $this->giphyContentRating = $data['giphyContentRating'];
+        }
+    }
 }

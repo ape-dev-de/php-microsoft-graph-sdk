@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityRetentionDuration
 {
-    public function __construct(
-    ) {}
 }

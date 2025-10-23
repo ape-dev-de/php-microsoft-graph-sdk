@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnOtpSendHandler
 {
-    public function __construct(
-    ) {}
 }

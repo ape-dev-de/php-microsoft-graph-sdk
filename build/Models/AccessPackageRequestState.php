@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageRequestState
 {
-    public function __construct(
-    ) {}
 }

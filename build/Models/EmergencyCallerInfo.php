@@ -9,16 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmergencyCallerInfo
 {
-    public function __construct(
-        /**  */
-        public ?string $displayName = null,
-        /**  */
-        public ?Location $location = null,
-        /**  */
-        public ?string $phoneNumber = null,
-        /**  */
-        public ?string $tenantId = null,
-        /**  */
-        public ?string $upn = null
-    ) {}
+    /**  */
+    public ?string $displayName = null;
+
+    /** 
+     * 
+     * @var Location|\stdClass|null
+     */
+    public mixed $location = null;
+
+    /**  */
+    public ?string $phoneNumber = null;
+
+    /**  */
+    public ?string $tenantId = null;
+
+    /**  */
+    public ?string $upn = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['location'])) {
+            $this->location = $data['location'];
+        }
+        if (isset($data['phoneNumber'])) {
+            $this->phoneNumber = $data['phoneNumber'];
+        }
+        if (isset($data['tenantId'])) {
+            $this->tenantId = $data['tenantId'];
+        }
+        if (isset($data['upn'])) {
+            $this->upn = $data['upn'];
+        }
+    }
 }

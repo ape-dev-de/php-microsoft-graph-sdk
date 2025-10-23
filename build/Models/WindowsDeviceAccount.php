@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeviceAccount
 {
-    public function __construct(
-        /** Not yet documented */
-        public ?string $password = null
-    ) {}
+    /** Not yet documented */
+    public ?string $password = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['password'])) {
+            $this->password = $data['password'];
+        }
+    }
 }

@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResourceAction
 {
-    public function __construct(
-        /** @var string[] Allowed Actions */
-        public array $allowedResourceActions = [],
-        /** @var string[] Not Allowed Actions. */
-        public array $notAllowedResourceActions = []
-    ) {}
+    /** 
+     * Allowed Actions
+     * @var string[]
+     */
+    public array $allowedResourceActions = [];
+
+    /** 
+     * Not Allowed Actions.
+     * @var string[]
+     */
+    public array $notAllowedResourceActions = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowedResourceActions'])) {
+            $this->allowedResourceActions = $data['allowedResourceActions'];
+        }
+        if (isset($data['notAllowedResourceActions'])) {
+            $this->notAllowedResourceActions = $data['notAllowedResourceActions'];
+        }
+    }
 }

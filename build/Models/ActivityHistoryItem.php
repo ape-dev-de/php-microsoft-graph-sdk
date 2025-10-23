@@ -9,26 +9,75 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActivityHistoryItem
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
-        public ?float $activeDurationSeconds = null,
-        /** Set by the server. DateTime in UTC when the object was created on the server. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Optional. UTC DateTime when the activityHistoryItem will undergo hard-delete. Can be set by the client. */
-        public ?\DateTimeInterface $expirationDateTime = null,
-        /** Optional. UTC DateTime when the activityHistoryItem (activity session) was last understood as active or finished - if null, activityHistoryItem status should be Ongoing. */
-        public ?\DateTimeInterface $lastActiveDateTime = null,
-        /** Set by the server. DateTime in UTC when the object was modified on the server. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** Required. UTC DateTime when the activityHistoryItem (activity session) was started. Required for timeline history. */
-        public ?\DateTimeInterface $startedDateTime = null,
-        /** Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored. */
-        public ?Status $status = null,
-        /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation. */
-        public ?string $userTimezone = null,
-        /**  */
-        public ?UserActivity $activity = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
+    public ?float $activeDurationSeconds = null;
+
+    /** Set by the server. DateTime in UTC when the object was created on the server. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** Optional. UTC DateTime when the activityHistoryItem will undergo hard-delete. Can be set by the client. */
+    public ?\DateTimeInterface $expirationDateTime = null;
+
+    /** Optional. UTC DateTime when the activityHistoryItem (activity session) was last understood as active or finished - if null, activityHistoryItem status should be Ongoing. */
+    public ?\DateTimeInterface $lastActiveDateTime = null;
+
+    /** Set by the server. DateTime in UTC when the object was modified on the server. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** Required. UTC DateTime when the activityHistoryItem (activity session) was started. Required for timeline history. */
+    public ?\DateTimeInterface $startedDateTime = null;
+
+    /** 
+     * Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+     * @var Status|\stdClass|null
+     */
+    public mixed $status = null;
+
+    /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation. */
+    public ?string $userTimezone = null;
+
+    /**  */
+    public ?UserActivity $activity = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['activeDurationSeconds'])) {
+            $this->activeDurationSeconds = $data['activeDurationSeconds'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['expirationDateTime'])) {
+            $this->expirationDateTime = $data['expirationDateTime'];
+        }
+        if (isset($data['lastActiveDateTime'])) {
+            $this->lastActiveDateTime = $data['lastActiveDateTime'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['startedDateTime'])) {
+            $this->startedDateTime = $data['startedDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['userTimezone'])) {
+            $this->userTimezone = $data['userTimezone'];
+        }
+        if (isset($data['activity'])) {
+            $this->activity = $data['activity'];
+        }
+    }
 }

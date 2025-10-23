@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityOnboardingStatus
 {
-    public function __construct(
-    ) {}
 }

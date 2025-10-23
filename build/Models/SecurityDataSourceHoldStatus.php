@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDataSourceHoldStatus
 {
-    public function __construct(
-    ) {}
 }

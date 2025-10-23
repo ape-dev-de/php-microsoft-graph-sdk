@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharingCapabilities
 {
-    public function __construct(
-    ) {}
 }

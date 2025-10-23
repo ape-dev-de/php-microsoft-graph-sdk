@@ -9,22 +9,63 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAssignmentRequestorSettings
 {
-    public function __construct(
-        /** False indicates that the requestor isn't permitted to include a schedule in their request. */
-        public ?bool $allowCustomAssignmentSchedule = null,
-        /** True allows on-behalf-of requestors to create a request to add access for another principal. */
-        public ?bool $enableOnBehalfRequestorsToAddAccess = null,
-        /** True allows on-behalf-of requestors to create a request to remove access for another principal. */
-        public ?bool $enableOnBehalfRequestorsToRemoveAccess = null,
-        /** True allows on-behalf-of requestors to create a request to update access for another principal. */
-        public ?bool $enableOnBehalfRequestorsToUpdateAccess = null,
-        /** True allows requestors to create a request to add access for themselves. */
-        public ?bool $enableTargetsToSelfAddAccess = null,
-        /** True allows requestors to create a request to remove their access. */
-        public ?bool $enableTargetsToSelfRemoveAccess = null,
-        /** True allows requestors to create a request to update their access. */
-        public ?bool $enableTargetsToSelfUpdateAccess = null,
-        /** The principals who can request on-behalf-of others. */
-        public array $onBehalfRequestors = []
-    ) {}
+    /** False indicates that the requestor isn't permitted to include a schedule in their request. */
+    public ?bool $allowCustomAssignmentSchedule = null;
+
+    /** True allows on-behalf-of requestors to create a request to add access for another principal. */
+    public ?bool $enableOnBehalfRequestorsToAddAccess = null;
+
+    /** True allows on-behalf-of requestors to create a request to remove access for another principal. */
+    public ?bool $enableOnBehalfRequestorsToRemoveAccess = null;
+
+    /** True allows on-behalf-of requestors to create a request to update access for another principal. */
+    public ?bool $enableOnBehalfRequestorsToUpdateAccess = null;
+
+    /** True allows requestors to create a request to add access for themselves. */
+    public ?bool $enableTargetsToSelfAddAccess = null;
+
+    /** True allows requestors to create a request to remove their access. */
+    public ?bool $enableTargetsToSelfRemoveAccess = null;
+
+    /** True allows requestors to create a request to update their access. */
+    public ?bool $enableTargetsToSelfUpdateAccess = null;
+
+    /** 
+     * The principals who can request on-behalf-of others.
+     * @var SubjectSet[]
+     */
+    public array $onBehalfRequestors = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowCustomAssignmentSchedule'])) {
+            $this->allowCustomAssignmentSchedule = $data['allowCustomAssignmentSchedule'];
+        }
+        if (isset($data['enableOnBehalfRequestorsToAddAccess'])) {
+            $this->enableOnBehalfRequestorsToAddAccess = $data['enableOnBehalfRequestorsToAddAccess'];
+        }
+        if (isset($data['enableOnBehalfRequestorsToRemoveAccess'])) {
+            $this->enableOnBehalfRequestorsToRemoveAccess = $data['enableOnBehalfRequestorsToRemoveAccess'];
+        }
+        if (isset($data['enableOnBehalfRequestorsToUpdateAccess'])) {
+            $this->enableOnBehalfRequestorsToUpdateAccess = $data['enableOnBehalfRequestorsToUpdateAccess'];
+        }
+        if (isset($data['enableTargetsToSelfAddAccess'])) {
+            $this->enableTargetsToSelfAddAccess = $data['enableTargetsToSelfAddAccess'];
+        }
+        if (isset($data['enableTargetsToSelfRemoveAccess'])) {
+            $this->enableTargetsToSelfRemoveAccess = $data['enableTargetsToSelfRemoveAccess'];
+        }
+        if (isset($data['enableTargetsToSelfUpdateAccess'])) {
+            $this->enableTargetsToSelfUpdateAccess = $data['enableTargetsToSelfUpdateAccess'];
+        }
+        if (isset($data['onBehalfRequestors'])) {
+            $this->onBehalfRequestors = $data['onBehalfRequestors'];
+        }
+    }
 }

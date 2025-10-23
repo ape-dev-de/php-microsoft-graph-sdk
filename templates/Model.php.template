@@ -12,7 +12,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class <?= $MODEL_NAME ?>
 
 {
-    public function __construct(
 <?php 
 // Sort properties to put 'id' first if it exists
 $sortedProperties = [];
@@ -34,24 +33,47 @@ foreach ($sortedProperties as $propName => $propDef):
     $isLast = $currentIndex === $propCount;
     // Normalize property name: convert dashes to camelCase for valid PHP variable names
     $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $propName))));
+    $hasUnion = str_contains($type, '|');
+    $isArray = $type === 'array';
 ?>
-<?php if ($type === 'array' && isset($propDef['items']['type'])): ?>
-<?php
-    $itemType = $propDef['items']['type'];
-    $phpItemType = match($itemType) {
-        'string' => 'string',
-        'integer' => 'int',
-        'number' => 'float',
-        'boolean' => 'bool',
-        default => 'mixed'
-    };
-?>
-        /** @var <?= $phpItemType ?>[] <?= $description ? $description : '' ?> */
-<?php else: ?>
-        /** <?= $description ? $description : '' ?> */
-<?php endif; ?>
-        public <?= $type ?> $<?= $phpPropName ?> = <?= $type === 'array' ? '[]' : 'null' ?><?= $isLast ? '' : ',' ?>
+<?php if ($isArray): ?>
+    /** 
+     * <?= $description ? $description : '' ?>
 
+     * @var <?= !empty($propDef['itemType']) ? $propDef['itemType'] . '[]' : 'array<int, mixed>' ?>
+
+     */
+    public array $<?= $phpPropName ?> = [];
+
+<?php elseif ($hasUnion): ?>
+    /** 
+     * <?= $description ? $description : '' ?>
+
+     * @var <?= str_replace('?', '', $type) ?>|null
+     */
+    public mixed $<?= $phpPropName ?> = null;
+
+<?php else: ?>
+    /** <?= $description ? $description : '' ?> */
+    public <?= str_starts_with($type, '?') ? $type : '?' . $type ?> $<?= $phpPropName ?> = null;
+
+<?php endif; ?>
 <?php endforeach; ?>
-    ) {}
+<?php if (!empty($sortedProperties)): ?>
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+<?php foreach ($sortedProperties as $propName => $propDef): 
+    $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $propName))));
+?>
+        if (isset($data['<?= $propName ?>'])) {
+            $this-><?= $phpPropName ?> = $data['<?= $propName ?>'];
+        }
+<?php endforeach; ?>
+    }
+<?php endif; ?>
 }

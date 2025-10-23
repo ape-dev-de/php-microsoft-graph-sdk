@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlertStatus
 {
-    public function __construct(
-    ) {}
 }

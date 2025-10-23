@@ -9,14 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Shared
 {
-    public function __construct(
-        /** The identity of the owner of the shared item. Read-only. */
-        public ?IdentitySet $owner = null,
-        /** Indicates the scope of how the item is shared. The possible values are: anonymous, organization, or users. Read-only. */
-        public ?string $scope = null,
-        /** The identity of the user who shared the item. Read-only. */
-        public ?IdentitySet $sharedBy = null,
-        /** The UTC date and time when the item was shared. Read-only. */
-        public ?\DateTimeInterface $sharedDateTime = null
-    ) {}
+    /** 
+     * The identity of the owner of the shared item. Read-only.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $owner = null;
+
+    /** Indicates the scope of how the item is shared. The possible values are: anonymous, organization, or users. Read-only. */
+    public ?string $scope = null;
+
+    /** 
+     * The identity of the user who shared the item. Read-only.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $sharedBy = null;
+
+    /** The UTC date and time when the item was shared. Read-only. */
+    public ?\DateTimeInterface $sharedDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['owner'])) {
+            $this->owner = $data['owner'];
+        }
+        if (isset($data['scope'])) {
+            $this->scope = $data['scope'];
+        }
+        if (isset($data['sharedBy'])) {
+            $this->sharedBy = $data['sharedBy'];
+        }
+        if (isset($data['sharedDateTime'])) {
+            $this->sharedDateTime = $data['sharedDateTime'];
+        }
+    }
 }

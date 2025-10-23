@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenotePatchContentCommand
 {
-    public function __construct(
-        /**  */
-        public ?OnenotePatchActionType $action = null,
-        /** A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part. */
-        public ?string $content = null,
-        /** The location to add the supplied content, relative to the target element. The possible values are: after (default) or before. */
-        public ?OnenotePatchInsertPosition $position = null,
-        /** The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or title keyword. */
-        public ?string $target = null
-    ) {}
+    /**  */
+    public ?OnenotePatchActionType $action = null;
+
+    /** A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part. */
+    public ?string $content = null;
+
+    /** 
+     * The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.
+     * @var OnenotePatchInsertPosition|\stdClass|null
+     */
+    public mixed $position = null;
+
+    /** The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or title keyword. */
+    public ?string $target = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['action'])) {
+            $this->action = $data['action'];
+        }
+        if (isset($data['content'])) {
+            $this->content = $data['content'];
+        }
+        if (isset($data['position'])) {
+            $this->position = $data['position'];
+        }
+        if (isset($data['target'])) {
+            $this->target = $data['target'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OperatingSystemUpgradeEligibility
 {
-    public function __construct(
-    ) {}
 }

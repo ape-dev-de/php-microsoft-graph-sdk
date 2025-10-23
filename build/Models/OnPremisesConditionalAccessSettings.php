@@ -9,16 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesConditionalAccessSettings
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Indicates if on premises conditional access is enabled for this organization */
-        public ?bool $enabled = null,
-        /** @var string[] User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy. */
-        public array $excludedGroups = [],
-        /** @var string[] User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access. */
-        public array $includedGroups = [],
-        /** Override the default access rule when allowing a device to ensure access is granted. */
-        public ?bool $overrideDefaultRule = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Indicates if on premises conditional access is enabled for this organization */
+    public ?bool $enabled = null;
+
+    /** 
+     * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
+     * @var string[]
+     */
+    public array $excludedGroups = [];
+
+    /** 
+     * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+     * @var string[]
+     */
+    public array $includedGroups = [];
+
+    /** Override the default access rule when allowing a device to ensure access is granted. */
+    public ?bool $overrideDefaultRule = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['enabled'])) {
+            $this->enabled = $data['enabled'];
+        }
+        if (isset($data['excludedGroups'])) {
+            $this->excludedGroups = $data['excludedGroups'];
+        }
+        if (isset($data['includedGroups'])) {
+            $this->includedGroups = $data['includedGroups'];
+        }
+        if (isset($data['overrideDefaultRule'])) {
+            $this->overrideDefaultRule = $data['overrideDefaultRule'];
+        }
+    }
 }

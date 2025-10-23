@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WeekIndex
 {
-    public function __construct(
-    ) {}
 }

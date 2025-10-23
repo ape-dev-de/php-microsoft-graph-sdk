@@ -9,18 +9,51 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSimulationEventInfo
 {
-    public function __construct(
-        /** Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign. */
-        public ?string $browser = null,
-        /**  */
-        public ?ClickSource $clickSource = null,
-        /** Date and time of the simulation event by a user in an attack simulation and training campaign. */
-        public ?\DateTimeInterface $eventDateTime = null,
-        /** Name of the simulation event by a user in an attack simulation and training campaign. */
-        public ?string $eventName = null,
-        /** IP address from where the simulation event was initiated by a user in an attack simulation and training campaign. */
-        public ?string $ipAddress = null,
-        /** The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign. */
-        public ?string $osPlatformDeviceDetails = null
-    ) {}
+    /** Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign. */
+    public ?string $browser = null;
+
+    /** 
+     * 
+     * @var ClickSource|\stdClass|null
+     */
+    public mixed $clickSource = null;
+
+    /** Date and time of the simulation event by a user in an attack simulation and training campaign. */
+    public ?\DateTimeInterface $eventDateTime = null;
+
+    /** Name of the simulation event by a user in an attack simulation and training campaign. */
+    public ?string $eventName = null;
+
+    /** IP address from where the simulation event was initiated by a user in an attack simulation and training campaign. */
+    public ?string $ipAddress = null;
+
+    /** The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign. */
+    public ?string $osPlatformDeviceDetails = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['browser'])) {
+            $this->browser = $data['browser'];
+        }
+        if (isset($data['clickSource'])) {
+            $this->clickSource = $data['clickSource'];
+        }
+        if (isset($data['eventDateTime'])) {
+            $this->eventDateTime = $data['eventDateTime'];
+        }
+        if (isset($data['eventName'])) {
+            $this->eventName = $data['eventName'];
+        }
+        if (isset($data['ipAddress'])) {
+            $this->ipAddress = $data['ipAddress'];
+        }
+        if (isset($data['osPlatformDeviceDetails'])) {
+            $this->osPlatformDeviceDetails = $data['osPlatformDeviceDetails'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EditAction
 {
-    public function __construct(
-    ) {}
 }

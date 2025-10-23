@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EdgeSearchEngine
 {
-    public function __construct(
-        /**  */
-        public ?EdgeSearchEngineType $edgeSearchEngineType = null
-    ) {}
+    /**  */
+    public ?EdgeSearchEngineType $edgeSearchEngineType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['edgeSearchEngineType'])) {
+            $this->edgeSearchEngineType = $data['edgeSearchEngineType'];
+        }
+    }
 }

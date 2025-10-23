@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostPortStatus
 {
-    public function __construct(
-    ) {}
 }

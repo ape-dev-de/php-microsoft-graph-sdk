@@ -9,26 +9,78 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityArticle
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?SecurityFormattedContent $body = null,
-        /** The date and time when this article was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** URL of the header image for this article, used for display purposes. */
-        public ?string $imageUrl = null,
-        /** Indicates whether this article is currently featured by Microsoft. */
-        public ?bool $isFeatured = null,
-        /** The most recent date and time when this article was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /**  */
-        public ?SecurityFormattedContent $summary = null,
-        /** @var string[] Tags for this article, communicating keywords, or key concepts. */
-        public array $tags = [],
-        /** The title of this article. */
-        public ?string $title = null,
-        /** Indicators related to this article. */
-        public array $indicators = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?SecurityFormattedContent $body = null;
+
+    /** The date and time when this article was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** URL of the header image for this article, used for display purposes. */
+    public ?string $imageUrl = null;
+
+    /** Indicates whether this article is currently featured by Microsoft. */
+    public ?bool $isFeatured = null;
+
+    /** The most recent date and time when this article was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $lastUpdatedDateTime = null;
+
+    /**  */
+    public ?SecurityFormattedContent $summary = null;
+
+    /** 
+     * Tags for this article, communicating keywords, or key concepts.
+     * @var string[]
+     */
+    public array $tags = [];
+
+    /** The title of this article. */
+    public ?string $title = null;
+
+    /** 
+     * Indicators related to this article.
+     * @var SecurityArticleIndicator[]
+     */
+    public array $indicators = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['body'])) {
+            $this->body = $data['body'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['imageUrl'])) {
+            $this->imageUrl = $data['imageUrl'];
+        }
+        if (isset($data['isFeatured'])) {
+            $this->isFeatured = $data['isFeatured'];
+        }
+        if (isset($data['lastUpdatedDateTime'])) {
+            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+        }
+        if (isset($data['summary'])) {
+            $this->summary = $data['summary'];
+        }
+        if (isset($data['tags'])) {
+            $this->tags = $data['tags'];
+        }
+        if (isset($data['title'])) {
+            $this->title = $data['title'];
+        }
+        if (isset($data['indicators'])) {
+            $this->indicators = $data['indicators'];
+        }
+    }
 }

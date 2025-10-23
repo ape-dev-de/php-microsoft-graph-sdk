@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionEnforcementLevel
 {
-    public function __construct(
-    ) {}
 }

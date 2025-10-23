@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CalendarColor
 {
-    public function __construct(
-    ) {}
 }

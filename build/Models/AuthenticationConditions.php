@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationConditions
 {
-    public function __construct(
-        /** Applications which trigger a custom authentication extension. */
-        public ?AuthenticationConditionsApplications $applications = null
-    ) {}
+    /** 
+     * Applications which trigger a custom authentication extension.
+     * @var AuthenticationConditionsApplications|\stdClass|null
+     */
+    public mixed $applications = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['applications'])) {
+            $this->applications = $data['applications'];
+        }
+    }
 }

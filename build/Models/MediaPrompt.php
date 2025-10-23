@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaPrompt
 {
-    public function __construct(
-        /**  */
-        public ?MediaInfo $mediaInfo = null
-    ) {}
+    /**  */
+    public ?MediaInfo $mediaInfo = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['mediaInfo'])) {
+            $this->mediaInfo = $data['mediaInfo'];
+        }
+    }
 }

@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookRangeReference
 {
-    public function __construct(
-        /**  */
-        public ?string $address = null
-    ) {}
+    /**  */
+    public ?string $address = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['address'])) {
+            $this->address = $data['address'];
+        }
+    }
 }

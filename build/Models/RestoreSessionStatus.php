@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestoreSessionStatus
 {
-    public function __construct(
-    ) {}
 }

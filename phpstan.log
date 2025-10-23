@@ -1,0 +1,96 @@
+ ------ ------------------------------------------------------------------- 
+  Line   build/RequestBuilders/AssignedToTaskBoardFormatRequestBuilder.php  
+ ------ ------------------------------------------------------------------- 
+  66     Strict comparison using !== between string and null will always    
+         evaluate to true.                                                  
+         🪪  notIdentical.alwaysTrue                                        
+ ------ ------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------- 
+  Line   build/RequestBuilders/BucketTaskBoardFormatRequestBuilder.php    
+ ------ ----------------------------------------------------------------- 
+  66     Strict comparison using !== between string and null will always  
+         evaluate to true.                                                
+         🪪  notIdentical.alwaysTrue                                      
+ ------ ----------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------- 
+  Line   build/RequestBuilders/CalendarViewRequestBuilder.php               
+ ------ ------------------------------------------------------------------- 
+  34     Deprecated in PHP 8.0: Required parameter $end follows optional    
+         parameter $expand.                                                 
+         🪪  parameter.requiredAfterOptional                                
+  34     Deprecated in PHP 8.1: Required parameter $start follows optional  
+         parameter $expand.                                                 
+         🪪  parameter.requiredAfterOptional                                
+  43     Strict comparison using !== between string and null will always    
+         evaluate to true.                                                  
+         🪪  notIdentical.alwaysTrue                                        
+  46     Strict comparison using !== between string and null will always    
+         evaluate to true.                                                  
+         🪪  notIdentical.alwaysTrue                                        
+ ------ ------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------ 
+  Line   build/RequestBuilders/CommentsRequestBuilder.php                  
+ ------ ------------------------------------------------------------------ 
+  23     Deprecated in PHP 8.1: Required parameter $body follows optional  
+         parameter $ifMatch.                                               
+         🪪  parameter.requiredAfterOptional                               
+ ------ ------------------------------------------------------------------ 
+
+ ------ ------------------------------------------------------------------ 
+  Line   build/RequestBuilders/ContentTypeRequestBuilder.php               
+ ------ ------------------------------------------------------------------ 
+  141    Instantiated class                                                
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder is  
+         abstract.                                                         
+         🪪  new.abstract                                                  
+ ------ ------------------------------------------------------------------ 
+
+ ------ ----------------------------------------------------------------- 
+  Line   build/RequestBuilders/ProgressTaskBoardFormatRequestBuilder.php  
+ ------ ----------------------------------------------------------------- 
+  66     Strict comparison using !== between string and null will always  
+         evaluate to true.                                                
+         🪪  notIdentical.alwaysTrue                                      
+ ------ ----------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------- 
+  Line   build/RequestBuilders/RefRequestBuilder.php                      
+ ------ ----------------------------------------------------------------- 
+  120    Deprecated in PHP 8.1: Required parameter $id follows optional   
+         parameter $ifMatch.                                              
+         🪪  parameter.requiredAfterOptional                              
+  126    Strict comparison using !== between string and null will always  
+         evaluate to true.                                                
+         🪪  notIdentical.alwaysTrue                                      
+ ------ ----------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------- 
+  Line   build/RequestBuilders/VerticalSectionRequestBuilder.php             
+ ------ -------------------------------------------------------------------- 
+  9      Class                                                               
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebPartsRequestBuilder   
+         referenced with incorrect case:                                     
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebpartsRequestBuilder.  
+         🪪  class.nameCase                                                  
+  130    Class                                                               
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebPartsRequestBuilder   
+         referenced with incorrect case:                                     
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebpartsRequestBuilder.  
+         🪪  class.nameCase                                                  
+  130    Class                                                               
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebPartsRequestBuilder   
+         referenced with incorrect case:                                     
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebpartsRequestBuilder.  
+         🪪  class.nameCase                                                  
+  132    Class                                                               
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebPartsRequestBuilder   
+         referenced with incorrect case:                                     
+         ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WebpartsRequestBuilder.  
+         🪪  class.nameCase                                                  
+ ------ -------------------------------------------------------------------- 
+
+ [ERROR] Found 15 errors                                                        
+

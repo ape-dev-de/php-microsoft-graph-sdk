@@ -9,14 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityProtectionRoot
 {
-    public function __construct(
-        /** Risk detection in Microsoft Entra ID Protection and the associated information about the detection. */
-        public array $riskDetections = [],
-        /** Microsoft Entra service principals that are at risk. */
-        public array $riskyServicePrincipals = [],
-        /** Users that are flagged as at-risk by Microsoft Entra ID Protection. */
-        public array $riskyUsers = [],
-        /** Represents information about detected at-risk service principals in a Microsoft Entra tenant. */
-        public array $servicePrincipalRiskDetections = []
-    ) {}
+    /** 
+     * Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
+     * @var RiskDetection[]
+     */
+    public array $riskDetections = [];
+
+    /** 
+     * Microsoft Entra service principals that are at risk.
+     * @var RiskyServicePrincipal[]
+     */
+    public array $riskyServicePrincipals = [];
+
+    /** 
+     * Users that are flagged as at-risk by Microsoft Entra ID Protection.
+     * @var RiskyUser[]
+     */
+    public array $riskyUsers = [];
+
+    /** 
+     * Represents information about detected at-risk service principals in a Microsoft Entra tenant.
+     * @var ServicePrincipalRiskDetection[]
+     */
+    public array $servicePrincipalRiskDetections = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['riskDetections'])) {
+            $this->riskDetections = $data['riskDetections'];
+        }
+        if (isset($data['riskyServicePrincipals'])) {
+            $this->riskyServicePrincipals = $data['riskyServicePrincipals'];
+        }
+        if (isset($data['riskyUsers'])) {
+            $this->riskyUsers = $data['riskyUsers'];
+        }
+        if (isset($data['servicePrincipalRiskDetections'])) {
+            $this->servicePrincipalRiskDetections = $data['servicePrincipalRiskDetections'];
+        }
+    }
 }

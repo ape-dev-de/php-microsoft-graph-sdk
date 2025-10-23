@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppInstallExperience
 {
-    public function __construct(
-        /**  */
-        public ?Win32LobAppRestartBehavior $deviceRestartBehavior = null,
-        /**  */
-        public ?RunAsAccountType $runAsAccount = null
-    ) {}
+    /**  */
+    public ?Win32LobAppRestartBehavior $deviceRestartBehavior = null;
+
+    /**  */
+    public ?RunAsAccountType $runAsAccount = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['deviceRestartBehavior'])) {
+            $this->deviceRestartBehavior = $data['deviceRestartBehavior'];
+        }
+        if (isset($data['runAsAccount'])) {
+            $this->runAsAccount = $data['runAsAccount'];
+        }
+    }
 }

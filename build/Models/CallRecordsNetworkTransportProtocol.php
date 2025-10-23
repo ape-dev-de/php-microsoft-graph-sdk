@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsNetworkTransportProtocol
 {
-    public function __construct(
-    ) {}
 }

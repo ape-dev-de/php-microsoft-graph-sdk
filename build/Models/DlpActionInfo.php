@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DlpActionInfo
 {
-    public function __construct(
-        /** The type of DLP action. Possible value is restrictAccessAction. */
-        public ?DlpAction $action = null
-    ) {}
+    /** 
+     * The type of DLP action. Possible value is restrictAccessAction.
+     * @var DlpAction|\stdClass|null
+     */
+    public mixed $action = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['action'])) {
+            $this->action = $data['action'];
+        }
+    }
 }

@@ -9,40 +9,135 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityProcessEvidence
 {
-    public function __construct(
-        /** The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
-        public array $detailedRoles = [],
-        /**  */
-        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
-        /** Details about the remediation status. */
-        public ?string $remediationStatusDetails = null,
-        /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
-        public array $roles = [],
-        /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
-        public array $tags = [],
-        /**  */
-        public ?SecurityEvidenceVerdict $verdict = null,
-        /** The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue. */
-        public ?SecurityDetectionStatus $detectionStatus = null,
-        /** Image file details. */
-        public ?SecurityFileDetails $imageFile = null,
-        /** A unique identifier assigned to a device by Microsoft Defender for Endpoint. */
-        public ?string $mdeDeviceId = null,
-        /** Date and time when the parent of the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $parentProcessCreationDateTime = null,
-        /** Process ID (PID) of the parent process that spawned the process. */
-        public ?float $parentProcessId = null,
-        /** Parent process image file details. */
-        public ?SecurityFileDetails $parentProcessImageFile = null,
-        /** Command line used to create the new process. */
-        public ?string $processCommandLine = null,
-        /** Date and time when the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $processCreationDateTime = null,
-        /** Process ID (PID) of the newly created process. */
-        public ?float $processId = null,
-        /** User details of the user that ran the process. */
-        public ?SecurityUserAccount $userAccount = null
-    ) {}
+    /** The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** 
+     * Detailed description of the entity role/s in an alert. Values are free-form.
+     * @var string[]
+     */
+    public array $detailedRoles = [];
+
+    /**  */
+    public ?SecurityEvidenceRemediationStatus $remediationStatus = null;
+
+    /** Details about the remediation status. */
+    public ?string $remediationStatusDetails = null;
+
+    /** 
+     * The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker.
+     * @var SecurityEvidenceRole[]
+     */
+    public array $roles = [];
+
+    /** 
+     * Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc.
+     * @var string[]
+     */
+    public array $tags = [];
+
+    /**  */
+    public ?SecurityEvidenceVerdict $verdict = null;
+
+    /** 
+     * The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
+     * @var SecurityDetectionStatus|\stdClass|null
+     */
+    public mixed $detectionStatus = null;
+
+    /** 
+     * Image file details.
+     * @var SecurityFileDetails|\stdClass|null
+     */
+    public mixed $imageFile = null;
+
+    /** A unique identifier assigned to a device by Microsoft Defender for Endpoint. */
+    public ?string $mdeDeviceId = null;
+
+    /** Date and time when the parent of the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $parentProcessCreationDateTime = null;
+
+    /** Process ID (PID) of the parent process that spawned the process. */
+    public ?float $parentProcessId = null;
+
+    /** 
+     * Parent process image file details.
+     * @var SecurityFileDetails|\stdClass|null
+     */
+    public mixed $parentProcessImageFile = null;
+
+    /** Command line used to create the new process. */
+    public ?string $processCommandLine = null;
+
+    /** Date and time when the process was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $processCreationDateTime = null;
+
+    /** Process ID (PID) of the newly created process. */
+    public ?float $processId = null;
+
+    /** 
+     * User details of the user that ran the process.
+     * @var SecurityUserAccount|\stdClass|null
+     */
+    public mixed $userAccount = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['detailedRoles'])) {
+            $this->detailedRoles = $data['detailedRoles'];
+        }
+        if (isset($data['remediationStatus'])) {
+            $this->remediationStatus = $data['remediationStatus'];
+        }
+        if (isset($data['remediationStatusDetails'])) {
+            $this->remediationStatusDetails = $data['remediationStatusDetails'];
+        }
+        if (isset($data['roles'])) {
+            $this->roles = $data['roles'];
+        }
+        if (isset($data['tags'])) {
+            $this->tags = $data['tags'];
+        }
+        if (isset($data['verdict'])) {
+            $this->verdict = $data['verdict'];
+        }
+        if (isset($data['detectionStatus'])) {
+            $this->detectionStatus = $data['detectionStatus'];
+        }
+        if (isset($data['imageFile'])) {
+            $this->imageFile = $data['imageFile'];
+        }
+        if (isset($data['mdeDeviceId'])) {
+            $this->mdeDeviceId = $data['mdeDeviceId'];
+        }
+        if (isset($data['parentProcessCreationDateTime'])) {
+            $this->parentProcessCreationDateTime = $data['parentProcessCreationDateTime'];
+        }
+        if (isset($data['parentProcessId'])) {
+            $this->parentProcessId = $data['parentProcessId'];
+        }
+        if (isset($data['parentProcessImageFile'])) {
+            $this->parentProcessImageFile = $data['parentProcessImageFile'];
+        }
+        if (isset($data['processCommandLine'])) {
+            $this->processCommandLine = $data['processCommandLine'];
+        }
+        if (isset($data['processCreationDateTime'])) {
+            $this->processCreationDateTime = $data['processCreationDateTime'];
+        }
+        if (isset($data['processId'])) {
+            $this->processId = $data['processId'];
+        }
+        if (isset($data['userAccount'])) {
+            $this->userAccount = $data['userAccount'];
+        }
+    }
 }

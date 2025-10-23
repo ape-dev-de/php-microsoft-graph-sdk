@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftManagedDesktopType
 {
-    public function __construct(
-    ) {}
 }

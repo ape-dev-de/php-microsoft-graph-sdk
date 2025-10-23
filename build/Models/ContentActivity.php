@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentActivity
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?ProcessContentRequest $contentMetadata = null,
-        /** The scope identified from computed protection scopes. */
-        public ?string $scopeIdentifier = null,
-        /** ID of the user. */
-        public ?string $userId = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?ProcessContentRequest $contentMetadata = null;
+
+    /** The scope identified from computed protection scopes. */
+    public ?string $scopeIdentifier = null;
+
+    /** ID of the user. */
+    public ?string $userId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['contentMetadata'])) {
+            $this->contentMetadata = $data['contentMetadata'];
+        }
+        if (isset($data['scopeIdentifier'])) {
+            $this->scopeIdentifier = $data['scopeIdentifier'];
+        }
+        if (isset($data['userId'])) {
+            $this->userId = $data['userId'];
+        }
+    }
 }

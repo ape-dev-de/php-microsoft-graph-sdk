@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserPrint
 {
-    public function __construct(
-        /**  */
-        public array $recentPrinterShares = []
-    ) {}
+    /** 
+     * 
+     * @var PrinterShare[]
+     */
+    public array $recentPrinterShares = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['recentPrinterShares'])) {
+            $this->recentPrinterShares = $data['recentPrinterShares'];
+        }
+    }
 }

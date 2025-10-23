@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserAccountSecurityType
 {
-    public function __construct(
-    ) {}
 }

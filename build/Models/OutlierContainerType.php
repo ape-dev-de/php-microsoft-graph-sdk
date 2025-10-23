@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OutlierContainerType
 {
-    public function __construct(
-    ) {}
 }

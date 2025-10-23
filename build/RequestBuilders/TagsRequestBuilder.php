@@ -5,75 +5,149 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\TeamworkTag;
-use ApeDevDe\MicrosoftGraphSdk\Models\TeamworkTagCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\TeamworkTagQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\SecurityEdiscoveryReviewTagCollectionResponse;
+use ApeDevDe\MicrosoftGraphSdk\Models\SecurityEdiscoveryReviewTag;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EdiscoveryReviewTagRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MicrosoftgraphsecurityasHierarchyRequestBuilder;
 
 /**
- * Request builder for TeamworkTag
+ * Request builder for tags
  */
 class TagsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * List tags
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new TeamworkTagQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param TeamworkTagQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return TeamworkTagCollectionResponse
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
+     * @return SecurityEdiscoveryReviewTagCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?TeamworkTagQueryOptions $options = null, ?array $queryParameters = null): TeamworkTagCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SecurityEdiscoveryReviewTagCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, TeamworkTagCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new TeamworkTag
-     *
-     * @param TeamworkTag $item The item to create
-     * @return TeamworkTag
+     * Deserialize response to SecurityEdiscoveryReviewTagCollectionResponse
      */
-    public function post(TeamworkTag $item): TeamworkTag
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, TeamworkTag::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new SecurityEdiscoveryReviewTag($item);
+        }
+        $collection = new SecurityEdiscoveryReviewTagCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Create tags
+     * @param SecurityEdiscoveryReviewTag $body Request body
+     * @return SecurityEdiscoveryReviewTag
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(SecurityEdiscoveryReviewTag $body): SecurityEdiscoveryReviewTag
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
+    /**
+     * Deserialize response to SecurityEdiscoveryReviewTag
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new SecurityEdiscoveryReviewTag($data);
+    }
     /**
      * Get request builder for specific item by ID
      *
-     * @param string $id The item ID
-     * @return TeamworkTagItemRequestBuilder
+     * @param string $ediscoveryReviewTagId The item ID
+     * @return EdiscoveryReviewTagRequestBuilder
      */
-    public function byId(string $id): TeamworkTagItemRequestBuilder
+    public function byId(string $ediscoveryReviewTagId): EdiscoveryReviewTagRequestBuilder
     {
-        return new TeamworkTagItemRequestBuilder($this->client, $this->buildPath($id));
+        return new EdiscoveryReviewTagRequestBuilder($this->client, $this->requestUrl . '/' . $ediscoveryReviewTagId);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to $count
      *
-     * @return int
+     * @return CountRequestBuilder
      */
-    public function count(): int
+    public function count(): CountRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
+    /**
+     * Navigate to microsoft.graph.security.asHierarchy()
+     *
+     * @return MicrosoftgraphsecurityasHierarchyRequestBuilder
+     */
+    public function microsoftgraphsecurityasHierarchy(): MicrosoftgraphsecurityasHierarchyRequestBuilder
+    {
+        return new MicrosoftgraphsecurityasHierarchyRequestBuilder($this->client, $this->requestUrl . '/microsoft.graph.security.asHierarchy()');
+    }
 }

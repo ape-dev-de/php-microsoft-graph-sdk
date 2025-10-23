@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewExpirationBehavior
 {
-    public function __construct(
-    ) {}
 }

@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExpressionInputObject
 {
-    public function __construct(
-        /** Definition of the test object. */
-        public ?ObjectDefinition $definition = null,
-        /** Property values of the test object. */
-        public array $properties = []
-    ) {}
+    /** 
+     * Definition of the test object.
+     * @var ObjectDefinition|\stdClass|null
+     */
+    public mixed $definition = null;
+
+    /** 
+     * Property values of the test object.
+     * @var StringKeyObjectValuePair[]
+     */
+    public array $properties = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['definition'])) {
+            $this->definition = $data['definition'];
+        }
+        if (isset($data['properties'])) {
+            $this->properties = $data['properties'];
+        }
+    }
 }

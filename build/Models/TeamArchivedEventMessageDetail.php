@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamArchivedEventMessageDetail
 {
-    public function __construct(
-        /** Initiator of the event. */
-        public ?IdentitySet $initiator = null,
-        /** Unique identifier of the team. */
-        public ?string $teamId = null
-    ) {}
+    /** 
+     * Initiator of the event.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+    /** Unique identifier of the team. */
+    public ?string $teamId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+        if (isset($data['teamId'])) {
+            $this->teamId = $data['teamId'];
+        }
+    }
 }

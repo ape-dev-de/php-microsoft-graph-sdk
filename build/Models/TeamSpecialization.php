@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamSpecialization
 {
-    public function __construct(
-    ) {}
 }

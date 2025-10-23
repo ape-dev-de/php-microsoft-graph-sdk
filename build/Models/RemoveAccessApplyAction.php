@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemoveAccessApplyAction
 {
-    public function __construct(
-    ) {}
 }

@@ -9,18 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppleManagedIdentityProvider
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The display name of the identity provider. */
-        public ?string $displayName = null,
-        /** The certificate data, which is a long string of text from the certificate. Can be null. */
-        public ?string $certificateData = null,
-        /** The Apple developer identifier. Required. */
-        public ?string $developerId = null,
-        /** The Apple key identifier. Required. */
-        public ?string $keyId = null,
-        /** The Apple service identifier. Required. */
-        public ?string $serviceId = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The display name of the identity provider. */
+    public ?string $displayName = null;
+
+    /** The certificate data, which is a long string of text from the certificate. Can be null. */
+    public ?string $certificateData = null;
+
+    /** The Apple developer identifier. Required. */
+    public ?string $developerId = null;
+
+    /** The Apple key identifier. Required. */
+    public ?string $keyId = null;
+
+    /** The Apple service identifier. Required. */
+    public ?string $serviceId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['certificateData'])) {
+            $this->certificateData = $data['certificateData'];
+        }
+        if (isset($data['developerId'])) {
+            $this->developerId = $data['developerId'];
+        }
+        if (isset($data['keyId'])) {
+            $this->keyId = $data['keyId'];
+        }
+        if (isset($data['serviceId'])) {
+            $this->serviceId = $data['serviceId'];
+        }
+    }
 }

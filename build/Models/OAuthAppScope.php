@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OAuthAppScope
 {
-    public function __construct(
-    ) {}
 }

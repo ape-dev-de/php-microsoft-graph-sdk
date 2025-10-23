@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftEdgeChannel
 {
-    public function __construct(
-    ) {}
 }

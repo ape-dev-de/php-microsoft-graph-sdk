@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersonOrGroupColumn
 {
-    public function __construct(
-        /** Indicates whether multiple values can be selected from the source. */
-        public ?bool $allowMultipleSelection = null,
-        /** Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly. */
-        public ?string $chooseFromType = null,
-        /** How to display the information about the person or group chosen. See below. */
-        public ?string $displayAs = null
-    ) {}
+    /** Indicates whether multiple values can be selected from the source. */
+    public ?bool $allowMultipleSelection = null;
+
+    /** Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly. */
+    public ?string $chooseFromType = null;
+
+    /** How to display the information about the person or group chosen. See below. */
+    public ?string $displayAs = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowMultipleSelection'])) {
+            $this->allowMultipleSelection = $data['allowMultipleSelection'];
+        }
+        if (isset($data['chooseFromType'])) {
+            $this->chooseFromType = $data['chooseFromType'];
+        }
+        if (isset($data['displayAs'])) {
+            $this->displayAs = $data['displayAs'];
+        }
+    }
 }

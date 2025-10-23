@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosNotificationAlertType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsOperatingSystemRestartCategory
 {
-    public function __construct(
-    ) {}
 }

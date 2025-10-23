@@ -7,8 +7,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 
 /**
- * Request builder for SetVerifiedPublisher
+ * Request builder for setVerifiedPublisher
  */
 class SetVerifiedPublisherRequestBuilder extends BaseRequestBuilder
 {
+    /**
+     * Invoke action setVerifiedPublisher
+     * @param array<string, mixed> $body Request body
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(array $body): mixed
+    {
+        $response = $this->client->post($this->requestUrl, $body);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
 }

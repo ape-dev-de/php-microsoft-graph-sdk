@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsFailureInfo
 {
-    public function __construct(
-        /** Classification of why a call or portion of a call failed. */
-        public ?string $reason = null,
-        /**  */
-        public ?CallRecordsFailureStage $stage = null
-    ) {}
+    /** Classification of why a call or portion of a call failed. */
+    public ?string $reason = null;
+
+    /**  */
+    public ?CallRecordsFailureStage $stage = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['reason'])) {
+            $this->reason = $data['reason'];
+        }
+        if (isset($data['stage'])) {
+            $this->stage = $data['stage'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingAttributeSet
 {
-    public function __construct(
-    ) {}
 }

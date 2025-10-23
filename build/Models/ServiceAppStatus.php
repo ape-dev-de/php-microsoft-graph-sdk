@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceAppStatus
 {
-    public function __construct(
-    ) {}
 }

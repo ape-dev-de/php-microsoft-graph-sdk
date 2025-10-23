@@ -6,50 +6,129 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserProtectionScopeContainer;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\UserProtectionScopeContainerQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ComputeRequestBuilder;
 
 /**
- * Request builder for UserProtectionScopeContainer
+ * Request builder for protectionScopes
  */
 class ProtectionScopesRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get protectionScopes from me
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $expand: Expand related resources
-     *
-     * @param UserProtectionScopeContainerQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return UserProtectionScopeContainer
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?UserProtectionScopeContainerQueryOptions $options = null, ?array $queryParameters = null): UserProtectionScopeContainer
+    public function get(?array $select = null, ?array $expand = null): UserProtectionScopeContainer
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, UserProtectionScopeContainer::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new UserProtectionScopeContainer
-     *
-     * @param UserProtectionScopeContainer $item The item to create
-     * @return UserProtectionScopeContainer
+     * Deserialize response to UserProtectionScopeContainer
      */
-    public function post(UserProtectionScopeContainer $item): UserProtectionScopeContainer
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, UserProtectionScopeContainer::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UserProtectionScopeContainer($data);
     }
     /**
-     * Get compute request builder
+     * Update the navigation property protectionScopes in me
+     * @param UserProtectionScopeContainer $body Request body
+     * @return UserProtectionScopeContainer
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(UserProtectionScopeContainer $body): UserProtectionScopeContainer
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to UserProtectionScopeContainer
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UserProtectionScopeContainer($data);
+    }
+    /**
+     * Delete navigation property protectionScopes for me
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to compute
      *
      * @return ComputeRequestBuilder
      */
     public function compute(): ComputeRequestBuilder
     {
-        return new ComputeRequestBuilder($this->client, $this->buildPath('compute'));
+        return new ComputeRequestBuilder($this->client, $this->requestUrl . '/compute');
     }
-
 }

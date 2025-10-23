@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AndroidWorkProfileCrossProfileDataSharingType
 {
-    public function __construct(
-    ) {}
 }

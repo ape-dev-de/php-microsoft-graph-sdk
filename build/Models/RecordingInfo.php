@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecordingInfo
 {
-    public function __construct(
-        /** The identities of the recording initiator. */
-        public ?IdentitySet $initiator = null,
-        /**  */
-        public ?RecordingStatus $recordingStatus = null
-    ) {}
+    /** 
+     * The identities of the recording initiator.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+    /**  */
+    public ?RecordingStatus $recordingStatus = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+        if (isset($data['recordingStatus'])) {
+            $this->recordingStatus = $data['recordingStatus'];
+        }
+    }
 }

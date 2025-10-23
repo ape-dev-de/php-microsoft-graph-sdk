@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessTransferMethods
 {
-    public function __construct(
-    ) {}
 }

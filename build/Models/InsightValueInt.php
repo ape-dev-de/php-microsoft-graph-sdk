@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InsightValueInt
 {
-    public function __construct(
-        /** The int value of the user experience analytics insight. */
-        public ?float $value = null
-    ) {}
+    /** The int value of the user experience analytics insight. */
+    public ?float $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

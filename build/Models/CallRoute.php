@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRoute
 {
-    public function __construct(
-        /**  */
-        public ?IdentitySet $final = null,
-        /**  */
-        public ?IdentitySet $original = null,
-        /**  */
-        public ?RoutingType $routingType = null
-    ) {}
+    /**  */
+    public ?IdentitySet $final = null;
+
+    /**  */
+    public ?IdentitySet $original = null;
+
+    /**  */
+    public ?RoutingType $routingType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['final'])) {
+            $this->final = $data['final'];
+        }
+        if (isset($data['original'])) {
+            $this->original = $data['original'];
+        }
+        if (isset($data['routingType'])) {
+            $this->routingType = $data['routingType'];
+        }
+    }
 }

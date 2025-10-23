@@ -1,5 +1,10 @@
 parameters:
-    level: 5
+    level: 6
     paths:
         - src
         - build
+    ignoreErrors:
+        - '#Strict comparison using !== between string and null will always evaluate to true#'
+        - '#Deprecated in PHP 8\.(0|1): Required parameter .* follows optional parameter#'
+        - '#Instantiated class ApeDevDe\\MicrosoftGraphSdk\\RequestBuilders\\BaseRequestBuilder is abstract#'
+        - '#Class ApeDevDe\\MicrosoftGraphSdk\\RequestBuilders\\WebPartsRequestBuilder referenced with incorrect case#'

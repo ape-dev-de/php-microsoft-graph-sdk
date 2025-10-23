@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInLocation
 {
-    public function __construct(
-        /** Provides the city where the sign-in originated and is determined using latitude/longitude information from the sign-in activity. */
-        public ?string $city = null,
-        /** Provides the country code info (two letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity. */
-        public ?string $countryOrRegion = null,
-        /** Provides the latitude, longitude and altitude where the sign-in originated. */
-        public ?GeoCoordinates $geoCoordinates = null,
-        /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
-        public ?string $state = null
-    ) {}
+    /** Provides the city where the sign-in originated and is determined using latitude/longitude information from the sign-in activity. */
+    public ?string $city = null;
+
+    /** Provides the country code info (two letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity. */
+    public ?string $countryOrRegion = null;
+
+    /** 
+     * Provides the latitude, longitude and altitude where the sign-in originated.
+     * @var GeoCoordinates|\stdClass|null
+     */
+    public mixed $geoCoordinates = null;
+
+    /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
+    public ?string $state = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['city'])) {
+            $this->city = $data['city'];
+        }
+        if (isset($data['countryOrRegion'])) {
+            $this->countryOrRegion = $data['countryOrRegion'];
+        }
+        if (isset($data['geoCoordinates'])) {
+            $this->geoCoordinates = $data['geoCoordinates'];
+        }
+        if (isset($data['state'])) {
+            $this->state = $data['state'];
+        }
+    }
 }

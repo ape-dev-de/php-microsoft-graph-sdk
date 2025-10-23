@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionDataRecoveryCertificate
 {
-    public function __construct(
-        /** Data recovery Certificate */
-        public ?string $certificate = null,
-        /** Data recovery Certificate description */
-        public ?string $description = null,
-        /** Data recovery Certificate expiration datetime */
-        public ?\DateTimeInterface $expirationDateTime = null,
-        /** Data recovery Certificate subject name */
-        public ?string $subjectName = null
-    ) {}
+    /** Data recovery Certificate */
+    public ?string $certificate = null;
+
+    /** Data recovery Certificate description */
+    public ?string $description = null;
+
+    /** Data recovery Certificate expiration datetime */
+    public ?\DateTimeInterface $expirationDateTime = null;
+
+    /** Data recovery Certificate subject name */
+    public ?string $subjectName = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['certificate'])) {
+            $this->certificate = $data['certificate'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['expirationDateTime'])) {
+            $this->expirationDateTime = $data['expirationDateTime'];
+        }
+        if (isset($data['subjectName'])) {
+            $this->subjectName = $data['subjectName'];
+        }
+    }
 }

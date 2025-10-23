@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ComplianceStatus
 {
-    public function __construct(
-    ) {}
 }

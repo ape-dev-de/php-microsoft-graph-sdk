@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHealthIssueType
 {
-    public function __construct(
-    ) {}
 }

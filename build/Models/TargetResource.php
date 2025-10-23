@@ -9,18 +9,54 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TargetResource
 {
-    public function __construct(
-        /** Indicates the unique ID of the resource. */
-        public ?string $id = null,
-        /** Indicates the visible name defined for the resource. Typically specified when the resource is created. */
-        public ?string $displayName = null,
-        /** When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue */
-        public ?GroupType $groupType = null,
-        /** Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type. */
-        public array $modifiedProperties = [],
-        /** Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User. */
-        public ?string $type = null,
-        /** When type is set to User, this includes the user name that initiated the action; null for other types. */
-        public ?string $userPrincipalName = null
-    ) {}
+    /** Indicates the unique ID of the resource. */
+    public ?string $id = null;
+
+    /** Indicates the visible name defined for the resource. Typically specified when the resource is created. */
+    public ?string $displayName = null;
+
+    /** 
+     * When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue
+     * @var GroupType|\stdClass|null
+     */
+    public mixed $groupType = null;
+
+    /** 
+     * Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type.
+     * @var ModifiedProperty[]
+     */
+    public array $modifiedProperties = [];
+
+    /** Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User. */
+    public ?string $type = null;
+
+    /** When type is set to User, this includes the user name that initiated the action; null for other types. */
+    public ?string $userPrincipalName = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['groupType'])) {
+            $this->groupType = $data['groupType'];
+        }
+        if (isset($data['modifiedProperties'])) {
+            $this->modifiedProperties = $data['modifiedProperties'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+        if (isset($data['userPrincipalName'])) {
+            $this->userPrincipalName = $data['userPrincipalName'];
+        }
+    }
 }

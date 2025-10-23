@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageCustomExtensionStage
 {
-    public function __construct(
-    ) {}
 }

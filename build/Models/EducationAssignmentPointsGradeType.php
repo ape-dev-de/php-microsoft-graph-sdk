@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAssignmentPointsGradeType
 {
-    public function __construct(
-        /** Max points possible for this assignment. */
-        public ?string $maxPoints = null
-    ) {}
+    /** Max points possible for this assignment. */
+    public ?string $maxPoints = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['maxPoints'])) {
+            $this->maxPoints = $data['maxPoints'];
+        }
+    }
 }

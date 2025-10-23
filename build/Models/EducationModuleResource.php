@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationModuleResource
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Resource object that is with this module. */
-        public ?EducationResource $resource = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Resource object that is with this module.
+     * @var EducationResource|\stdClass|null
+     */
+    public mixed $resource = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['resource'])) {
+            $this->resource = $data['resource'];
+        }
+    }
 }

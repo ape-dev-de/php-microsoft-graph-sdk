@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VppTokenState
 {
-    public function __construct(
-    ) {}
 }

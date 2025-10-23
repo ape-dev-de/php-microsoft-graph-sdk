@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InsiderRiskLevel
 {
-    public function __construct(
-    ) {}
 }

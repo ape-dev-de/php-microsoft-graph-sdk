@@ -5,63 +5,40 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\Room;
-use ApeDevDe\MicrosoftGraphSdk\Models\RoomCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\RoomQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GraphRoomRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GraphRoomListRequestBuilder;
 
 /**
- * Request builder for Room
+ * Request builder for places
  */
 class PlacesRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Navigate to $count
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new RoomQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param RoomQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return RoomCollectionResponse
+     * @return CountRequestBuilder
      */
-    public function get(?RoomQueryOptions $options = null, ?array $queryParameters = null): RoomCollectionResponse
+    public function count(): CountRequestBuilder
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, RoomCollectionResponse::class);
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
     /**
-     * Get request builder for specific item by ID
+     * Navigate to graph.room
      *
-     * @param string $id The item ID
-     * @return PlaceItemRequestBuilder
+     * @return GraphRoomRequestBuilder
      */
-    public function byId(string $id): PlaceItemRequestBuilder
+    public function graphRoom(): GraphRoomRequestBuilder
     {
-        return new PlaceItemRequestBuilder($this->client, $this->buildPath($id));
+        return new GraphRoomRequestBuilder($this->client, $this->requestUrl . '/graph.room');
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to graph.roomList
      *
-     * @return int
+     * @return GraphRoomListRequestBuilder
      */
-    public function count(): int
+    public function graphRoomList(): GraphRoomListRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new GraphRoomListRequestBuilder($this->client, $this->requestUrl . '/graph.roomList');
     }
-
 }

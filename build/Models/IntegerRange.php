@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IntegerRange
 {
-    public function __construct(
-        /** The inclusive upper bound of the integer range. */
-        public ?float $end = null,
-        /** The inclusive lower bound of the integer range. */
-        public ?float $start = null
-    ) {}
+    /** The inclusive upper bound of the integer range. */
+    public ?float $end = null;
+
+    /** The inclusive lower bound of the integer range. */
+    public ?float $start = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['end'])) {
+            $this->end = $data['end'];
+        }
+        if (isset($data['start'])) {
+            $this->start = $data['start'];
+        }
+    }
 }

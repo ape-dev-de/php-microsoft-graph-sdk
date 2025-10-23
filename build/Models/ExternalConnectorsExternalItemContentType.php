@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsExternalItemContentType
 {
-    public function __construct(
-    ) {}
 }

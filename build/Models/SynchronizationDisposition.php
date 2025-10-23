@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationDisposition
 {
-    public function __construct(
-    ) {}
 }

@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttackSimulationTrainingUserCoverage
 {
-    public function __construct(
-        /** User in an attack simulation and training campaign. */
-        public ?AttackSimulationUser $attackSimulationUser = null,
-        /** List of assigned trainings and their statuses for the user. */
-        public array $userTrainings = []
-    ) {}
+    /** 
+     * User in an attack simulation and training campaign.
+     * @var AttackSimulationUser|\stdClass|null
+     */
+    public mixed $attackSimulationUser = null;
+
+    /** 
+     * List of assigned trainings and their statuses for the user.
+     * @var UserTrainingStatusInfo[]
+     */
+    public array $userTrainings = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['attackSimulationUser'])) {
+            $this->attackSimulationUser = $data['attackSimulationUser'];
+        }
+        if (isset($data['userTrainings'])) {
+            $this->userTrainings = $data['userTrainings'];
+        }
+    }
 }

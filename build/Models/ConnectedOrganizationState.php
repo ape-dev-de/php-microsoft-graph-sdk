@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConnectedOrganizationState
 {
-    public function __construct(
-    ) {}
 }

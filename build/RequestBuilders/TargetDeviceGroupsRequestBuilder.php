@@ -5,75 +5,139 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\TargetDeviceGroup;
 use ApeDevDe\MicrosoftGraphSdk\Models\TargetDeviceGroupCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\TargetDeviceGroupQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\TargetDeviceGroup;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TargetDeviceGroupRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
 
 /**
- * Request builder for TargetDeviceGroup
+ * Request builder for targetDeviceGroups
  */
 class TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * List targetDeviceGroups
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new TargetDeviceGroupQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param TargetDeviceGroupQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
      * @return TargetDeviceGroupCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?TargetDeviceGroupQueryOptions $options = null, ?array $queryParameters = null): TargetDeviceGroupCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TargetDeviceGroupCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, TargetDeviceGroupCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new TargetDeviceGroup
-     *
-     * @param TargetDeviceGroup $item The item to create
-     * @return TargetDeviceGroup
+     * Deserialize response to TargetDeviceGroupCollectionResponse
      */
-    public function post(TargetDeviceGroup $item): TargetDeviceGroup
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, TargetDeviceGroup::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new TargetDeviceGroup($item);
+        }
+        $collection = new TargetDeviceGroupCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Create targetDeviceGroup
+     * @param TargetDeviceGroup $body Request body
+     * @return TargetDeviceGroup
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(TargetDeviceGroup $body): TargetDeviceGroup
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
+    /**
+     * Deserialize response to TargetDeviceGroup
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new TargetDeviceGroup($data);
+    }
     /**
      * Get request builder for specific item by ID
      *
-     * @param string $id The item ID
-     * @return TargetDeviceGroupItemRequestBuilder
+     * @param string $targetDeviceGroupId The item ID
+     * @return TargetDeviceGroupRequestBuilder
      */
-    public function byId(string $id): TargetDeviceGroupItemRequestBuilder
+    public function byId(string $targetDeviceGroupId): TargetDeviceGroupRequestBuilder
     {
-        return new TargetDeviceGroupItemRequestBuilder($this->client, $this->buildPath($id));
+        return new TargetDeviceGroupRequestBuilder($this->client, $this->requestUrl . '/' . $targetDeviceGroupId);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to $count
      *
-     * @return int
+     * @return CountRequestBuilder
      */
-    public function count(): int
+    public function count(): CountRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
 }

@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ClientCertificateAuthentication
 {
-    public function __construct(
-        /** The list of certificates uploaded for this API connector. */
-        public array $certificateList = []
-    ) {}
+    /** 
+     * The list of certificates uploaded for this API connector.
+     * @var Pkcs12CertificateInformation[]
+     */
+    public array $certificateList = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['certificateList'])) {
+            $this->certificateList = $data['certificateList'];
+        }
+    }
 }

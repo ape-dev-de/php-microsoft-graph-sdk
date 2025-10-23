@@ -5,77 +5,124 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\ItemInsights;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\ItemInsightsQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\IdentityGovernanceInsights;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MicrosoftgraphidentityGovernancetopTasksProcessedSummarystartDateTimestartDateTimeendDateTimeendDateTimeRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MicrosoftgraphidentityGovernancetopWorkflowsProcessedSummarystartDateTimestartDateTimeendDateTimeendDateTimeRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MicrosoftgraphidentityGovernanceworkflowsProcessedByCategorystartDateTimestartDateTimeendDateTimeendDateTimeRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MicrosoftgraphidentityGovernanceworkflowsProcessedSummarystartDateTimestartDateTimeendDateTimeendDateTimeRequestBuilder;
 
 /**
- * Request builder for ItemInsights
+ * Request builder for insights
  */
 class InsightsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get insights from identityGovernance
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param ItemInsightsQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return ItemInsights
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return IdentityGovernanceInsights
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?ItemInsightsQueryOptions $options = null, ?array $queryParameters = null): ItemInsights
+    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceInsights
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, ItemInsights::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new ItemInsights
-     *
-     * @param ItemInsights $item The item to create
-     * @return ItemInsights
+     * Deserialize response to IdentityGovernanceInsights
      */
-    public function post(ItemInsights $item): ItemInsights
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, ItemInsights::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new IdentityGovernanceInsights($data);
     }
     /**
-     * Get shared request builder
-     *
-     * @return SharedRequestBuilder
+     * Update the navigation property insights in identityGovernance
+     * @param IdentityGovernanceInsights $body Request body
+     * @return IdentityGovernanceInsights
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function shared(): SharedRequestBuilder
+    public function patch(IdentityGovernanceInsights $body): IdentityGovernanceInsights
     {
-        return new SharedRequestBuilder($this->client, $this->buildPath('shared'));
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Get trending request builder
-     *
-     * @return TrendingRequestBuilder
+     * Deserialize response to IdentityGovernanceInsights
      */
-    public function trending(): TrendingRequestBuilder
+    private function deserializePatch(string $body): mixed
     {
-        return new TrendingRequestBuilder($this->client, $this->buildPath('trending'));
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new IdentityGovernanceInsights($data);
+    }
+    /**
+     * Delete navigation property insights for identityGovernance
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
     }
 
     /**
-     * Get used request builder
-     *
-     * @return UsedRequestBuilder
+     * Deserialize response to mixed
      */
-    public function used(): UsedRequestBuilder
+    private function deserializeDelete(string $body): mixed
     {
-        return new UsedRequestBuilder($this->client, $this->buildPath('used'));
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
     }
-
 }

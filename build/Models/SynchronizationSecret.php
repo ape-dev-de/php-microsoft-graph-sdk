@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationSecret
 {
-    public function __construct(
-    ) {}
 }

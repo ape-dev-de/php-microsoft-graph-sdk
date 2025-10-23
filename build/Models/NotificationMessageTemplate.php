@@ -9,20 +9,60 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NotificationMessageTemplate
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?NotificationTemplateBrandingOptions $brandingOptions = null,
-        /** The default locale to fallback onto when the requested locale is not available. */
-        public ?string $defaultLocale = null,
-        /** Display name for the Notification Message Template. */
-        public ?string $displayName = null,
-        /** DateTime the object was last modified. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** @var string[] List of Scope Tags for this Entity instance. */
-        public array $roleScopeTagIds = [],
-        /** The list of localized messages for this Notification Message Template. */
-        public array $localizedNotificationMessages = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?NotificationTemplateBrandingOptions $brandingOptions = null;
+
+    /** The default locale to fallback onto when the requested locale is not available. */
+    public ?string $defaultLocale = null;
+
+    /** Display name for the Notification Message Template. */
+    public ?string $displayName = null;
+
+    /** DateTime the object was last modified. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** 
+     * List of Scope Tags for this Entity instance.
+     * @var string[]
+     */
+    public array $roleScopeTagIds = [];
+
+    /** 
+     * The list of localized messages for this Notification Message Template.
+     * @var LocalizedNotificationMessage[]
+     */
+    public array $localizedNotificationMessages = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['brandingOptions'])) {
+            $this->brandingOptions = $data['brandingOptions'];
+        }
+        if (isset($data['defaultLocale'])) {
+            $this->defaultLocale = $data['defaultLocale'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['roleScopeTagIds'])) {
+            $this->roleScopeTagIds = $data['roleScopeTagIds'];
+        }
+        if (isset($data['localizedNotificationMessages'])) {
+            $this->localizedNotificationMessages = $data['localizedNotificationMessages'];
+        }
+    }
 }

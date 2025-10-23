@@ -9,18 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsClientUserAgent
 {
-    public function __construct(
-        /** Identifies the version of application software used by this endpoint. */
-        public ?string $applicationVersion = null,
-        /** User-agent header value reported by this endpoint. */
-        public ?string $headerValue = null,
-        /** The unique identifier of the Microsoft Entra application used by this endpoint. */
-        public ?string $azureADAppId = null,
-        /** Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs. */
-        public ?string $communicationServiceId = null,
-        /**  */
-        public ?CallRecordsClientPlatform $platform = null,
-        /**  */
-        public ?CallRecordsProductFamily $productFamily = null
-    ) {}
+    /** Identifies the version of application software used by this endpoint. */
+    public ?string $applicationVersion = null;
+
+    /** User-agent header value reported by this endpoint. */
+    public ?string $headerValue = null;
+
+    /** The unique identifier of the Microsoft Entra application used by this endpoint. */
+    public ?string $azureADAppId = null;
+
+    /** Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs. */
+    public ?string $communicationServiceId = null;
+
+    /**  */
+    public ?CallRecordsClientPlatform $platform = null;
+
+    /**  */
+    public ?CallRecordsProductFamily $productFamily = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['applicationVersion'])) {
+            $this->applicationVersion = $data['applicationVersion'];
+        }
+        if (isset($data['headerValue'])) {
+            $this->headerValue = $data['headerValue'];
+        }
+        if (isset($data['azureADAppId'])) {
+            $this->azureADAppId = $data['azureADAppId'];
+        }
+        if (isset($data['communicationServiceId'])) {
+            $this->communicationServiceId = $data['communicationServiceId'];
+        }
+        if (isset($data['platform'])) {
+            $this->platform = $data['platform'];
+        }
+        if (isset($data['productFamily'])) {
+            $this->productFamily = $data['productFamily'];
+        }
+    }
 }

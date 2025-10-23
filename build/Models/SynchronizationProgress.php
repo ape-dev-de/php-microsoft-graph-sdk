@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationProgress
 {
-    public function __construct(
-        /** The numerator of a progress ratio; the number of units of changes already processed. */
-        public ?float $completedUnits = null,
-        /** The time of a progress observation as an offset in minutes from UTC. */
-        public ?\DateTimeInterface $progressObservationDateTime = null,
-        /** The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization. */
-        public ?float $totalUnits = null,
-        /** An optional description of the units. */
-        public ?string $units = null
-    ) {}
+    /** The numerator of a progress ratio; the number of units of changes already processed. */
+    public ?float $completedUnits = null;
+
+    /** The time of a progress observation as an offset in minutes from UTC. */
+    public ?\DateTimeInterface $progressObservationDateTime = null;
+
+    /** The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization. */
+    public ?float $totalUnits = null;
+
+    /** An optional description of the units. */
+    public ?string $units = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['completedUnits'])) {
+            $this->completedUnits = $data['completedUnits'];
+        }
+        if (isset($data['progressObservationDateTime'])) {
+            $this->progressObservationDateTime = $data['progressObservationDateTime'];
+        }
+        if (isset($data['totalUnits'])) {
+            $this->totalUnits = $data['totalUnits'];
+        }
+        if (isset($data['units'])) {
+            $this->units = $data['units'];
+        }
+    }
 }

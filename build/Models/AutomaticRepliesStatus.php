@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AutomaticRepliesStatus
 {
-    public function __construct(
-    ) {}
 }

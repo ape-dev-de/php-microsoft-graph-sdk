@@ -9,34 +9,111 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedEBook
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The date and time when the eBook file was created. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Description. */
-        public ?string $description = null,
-        /** Name of the eBook. */
-        public ?string $displayName = null,
-        /** The more information Url. */
-        public ?string $informationUrl = null,
-        /** Book cover. */
-        public ?MimeContent $largeCover = null,
-        /** The date and time when the eBook was last modified. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The privacy statement Url. */
-        public ?string $privacyInformationUrl = null,
-        /** The date and time when the eBook was published. */
-        public ?\DateTimeInterface $publishedDateTime = null,
-        /** Publisher. */
-        public ?string $publisher = null,
-        /** The list of assignments for this eBook. */
-        public array $assignments = [],
-        /** The list of installation states for this eBook. */
-        public array $deviceStates = [],
-        /** Mobile App Install Summary. */
-        public ?EBookInstallSummary $installSummary = null,
-        /** The list of installation states for this eBook. */
-        public array $userStateSummary = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The date and time when the eBook file was created. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** Description. */
+    public ?string $description = null;
+
+    /** Name of the eBook. */
+    public ?string $displayName = null;
+
+    /** The more information Url. */
+    public ?string $informationUrl = null;
+
+    /** 
+     * Book cover.
+     * @var MimeContent|\stdClass|null
+     */
+    public mixed $largeCover = null;
+
+    /** The date and time when the eBook was last modified. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** The privacy statement Url. */
+    public ?string $privacyInformationUrl = null;
+
+    /** The date and time when the eBook was published. */
+    public ?\DateTimeInterface $publishedDateTime = null;
+
+    /** Publisher. */
+    public ?string $publisher = null;
+
+    /** 
+     * The list of assignments for this eBook.
+     * @var ManagedEBookAssignment[]
+     */
+    public array $assignments = [];
+
+    /** 
+     * The list of installation states for this eBook.
+     * @var DeviceInstallState[]
+     */
+    public array $deviceStates = [];
+
+    /** 
+     * Mobile App Install Summary.
+     * @var EBookInstallSummary|\stdClass|null
+     */
+    public mixed $installSummary = null;
+
+    /** 
+     * The list of installation states for this eBook.
+     * @var UserInstallStateSummary[]
+     */
+    public array $userStateSummary = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['informationUrl'])) {
+            $this->informationUrl = $data['informationUrl'];
+        }
+        if (isset($data['largeCover'])) {
+            $this->largeCover = $data['largeCover'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['privacyInformationUrl'])) {
+            $this->privacyInformationUrl = $data['privacyInformationUrl'];
+        }
+        if (isset($data['publishedDateTime'])) {
+            $this->publishedDateTime = $data['publishedDateTime'];
+        }
+        if (isset($data['publisher'])) {
+            $this->publisher = $data['publisher'];
+        }
+        if (isset($data['assignments'])) {
+            $this->assignments = $data['assignments'];
+        }
+        if (isset($data['deviceStates'])) {
+            $this->deviceStates = $data['deviceStates'];
+        }
+        if (isset($data['installSummary'])) {
+            $this->installSummary = $data['installSummary'];
+        }
+        if (isset($data['userStateSummary'])) {
+            $this->userStateSummary = $data['userStateSummary'];
+        }
+    }
 }

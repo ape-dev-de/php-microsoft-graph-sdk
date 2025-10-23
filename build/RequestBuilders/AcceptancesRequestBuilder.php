@@ -5,75 +5,139 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\AgreementAcceptance;
 use ApeDevDe\MicrosoftGraphSdk\Models\AgreementAcceptanceCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\AgreementAcceptanceQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\AgreementAcceptance;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AgreementAcceptanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
 
 /**
- * Request builder for AgreementAcceptance
+ * Request builder for acceptances
  */
 class AcceptancesRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Get acceptances from agreements
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new AgreementAcceptanceQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param AgreementAcceptanceQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
      * @return AgreementAcceptanceCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?AgreementAcceptanceQueryOptions $options = null, ?array $queryParameters = null): AgreementAcceptanceCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AgreementAcceptanceCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, AgreementAcceptanceCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new AgreementAcceptance
-     *
-     * @param AgreementAcceptance $item The item to create
-     * @return AgreementAcceptance
+     * Deserialize response to AgreementAcceptanceCollectionResponse
      */
-    public function post(AgreementAcceptance $item): AgreementAcceptance
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, AgreementAcceptance::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new AgreementAcceptance($item);
+        }
+        $collection = new AgreementAcceptanceCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Create new navigation property to acceptances for agreements
+     * @param AgreementAcceptance $body Request body
+     * @return AgreementAcceptance
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(AgreementAcceptance $body): AgreementAcceptance
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
+    /**
+     * Deserialize response to AgreementAcceptance
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AgreementAcceptance($data);
+    }
     /**
      * Get request builder for specific item by ID
      *
-     * @param string $id The item ID
-     * @return AgreementAcceptanceItemRequestBuilder
+     * @param string $agreementAcceptanceId The item ID
+     * @return AgreementAcceptanceRequestBuilder
      */
-    public function byId(string $id): AgreementAcceptanceItemRequestBuilder
+    public function byId(string $agreementAcceptanceId): AgreementAcceptanceRequestBuilder
     {
-        return new AgreementAcceptanceItemRequestBuilder($this->client, $this->buildPath($id));
+        return new AgreementAcceptanceRequestBuilder($this->client, $this->requestUrl . '/' . $agreementAcceptanceId);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to $count
      *
-     * @return int
+     * @return CountRequestBuilder
      */
-    public function count(): int
+    public function count(): CountRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
 }

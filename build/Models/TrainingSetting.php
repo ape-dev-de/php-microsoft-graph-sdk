@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TrainingSetting
 {
-    public function __construct(
-        /** Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue. */
-        public ?TrainingSettingType $settingType = null
-    ) {}
+    /** 
+     * Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue.
+     * @var TrainingSettingType|\stdClass|null
+     */
+    public mixed $settingType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['settingType'])) {
+            $this->settingType = $data['settingType'];
+        }
+    }
 }

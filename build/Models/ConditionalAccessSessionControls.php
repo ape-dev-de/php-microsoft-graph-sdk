@@ -9,18 +9,63 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessSessionControls
 {
-    public function __construct(
-        /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control. */
-        public ?ApplicationEnforcedRestrictionsSessionControl $applicationEnforcedRestrictions = null,
-        /** Session control to apply cloud app security. */
-        public ?CloudAppSecuritySessionControl $cloudAppSecurity = null,
-        /** Session control that determines whether it is acceptable for Microsoft Entra ID to extend existing sessions based on information collected prior to an outage or not. */
-        public ?bool $disableResilienceDefaults = null,
-        /** Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly. */
-        public ?PersistentBrowserSessionControl $persistentBrowser = null,
-        /**  */
-        public ?SecureSignInSessionControl $secureSignInSession = null,
-        /** Session control to enforce signin frequency. */
-        public ?SignInFrequencySessionControl $signInFrequency = null
-    ) {}
+    /** 
+     * Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.
+     * @var ApplicationEnforcedRestrictionsSessionControl|\stdClass|null
+     */
+    public mixed $applicationEnforcedRestrictions = null;
+
+    /** 
+     * Session control to apply cloud app security.
+     * @var CloudAppSecuritySessionControl|\stdClass|null
+     */
+    public mixed $cloudAppSecurity = null;
+
+    /** Session control that determines whether it is acceptable for Microsoft Entra ID to extend existing sessions based on information collected prior to an outage or not. */
+    public ?bool $disableResilienceDefaults = null;
+
+    /** 
+     * Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.
+     * @var PersistentBrowserSessionControl|\stdClass|null
+     */
+    public mixed $persistentBrowser = null;
+
+    /** 
+     * 
+     * @var SecureSignInSessionControl|\stdClass|null
+     */
+    public mixed $secureSignInSession = null;
+
+    /** 
+     * Session control to enforce signin frequency.
+     * @var SignInFrequencySessionControl|\stdClass|null
+     */
+    public mixed $signInFrequency = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['applicationEnforcedRestrictions'])) {
+            $this->applicationEnforcedRestrictions = $data['applicationEnforcedRestrictions'];
+        }
+        if (isset($data['cloudAppSecurity'])) {
+            $this->cloudAppSecurity = $data['cloudAppSecurity'];
+        }
+        if (isset($data['disableResilienceDefaults'])) {
+            $this->disableResilienceDefaults = $data['disableResilienceDefaults'];
+        }
+        if (isset($data['persistentBrowser'])) {
+            $this->persistentBrowser = $data['persistentBrowser'];
+        }
+        if (isset($data['secureSignInSession'])) {
+            $this->secureSignInSession = $data['secureSignInSession'];
+        }
+        if (isset($data['signInFrequency'])) {
+            $this->signInFrequency = $data['signInFrequency'];
+        }
+    }
 }

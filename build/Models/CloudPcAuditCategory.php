@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcAuditCategory
 {
-    public function __construct(
-    ) {}
 }

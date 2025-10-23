@@ -9,20 +9,75 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReportRoot
 {
-    public function __construct(
-        /** Container for navigation properties for Microsoft Entra authentication methods resources. */
-        public ?AuthenticationMethodsRoot $authenticationMethods = null,
-        /** Retrieve a list of daily print usage summaries, grouped by printer. */
-        public array $dailyPrintUsageByPrinter = [],
-        /** Retrieve a list of daily print usage summaries, grouped by user. */
-        public array $dailyPrintUsageByUser = [],
-        /** Retrieve a list of monthly print usage summaries, grouped by printer. */
-        public array $monthlyPrintUsageByPrinter = [],
-        /** Retrieve a list of monthly print usage summaries, grouped by user. */
-        public array $monthlyPrintUsageByUser = [],
-        /** Represents billing details for a Microsoft direct partner. */
-        public ?Partners $partners = null,
-        /** Represents an abstract type that contains resources for attack simulation and training reports. */
-        public ?SecurityReportsRoot $security = null
-    ) {}
+    /** 
+     * Container for navigation properties for Microsoft Entra authentication methods resources.
+     * @var AuthenticationMethodsRoot|\stdClass|null
+     */
+    public mixed $authenticationMethods = null;
+
+    /** 
+     * Retrieve a list of daily print usage summaries, grouped by printer.
+     * @var PrintUsageByPrinter[]
+     */
+    public array $dailyPrintUsageByPrinter = [];
+
+    /** 
+     * Retrieve a list of daily print usage summaries, grouped by user.
+     * @var PrintUsageByUser[]
+     */
+    public array $dailyPrintUsageByUser = [];
+
+    /** 
+     * Retrieve a list of monthly print usage summaries, grouped by printer.
+     * @var PrintUsageByPrinter[]
+     */
+    public array $monthlyPrintUsageByPrinter = [];
+
+    /** 
+     * Retrieve a list of monthly print usage summaries, grouped by user.
+     * @var PrintUsageByUser[]
+     */
+    public array $monthlyPrintUsageByUser = [];
+
+    /** 
+     * Represents billing details for a Microsoft direct partner.
+     * @var Partners|\stdClass|null
+     */
+    public mixed $partners = null;
+
+    /** 
+     * Represents an abstract type that contains resources for attack simulation and training reports.
+     * @var SecurityReportsRoot|\stdClass|null
+     */
+    public mixed $security = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['authenticationMethods'])) {
+            $this->authenticationMethods = $data['authenticationMethods'];
+        }
+        if (isset($data['dailyPrintUsageByPrinter'])) {
+            $this->dailyPrintUsageByPrinter = $data['dailyPrintUsageByPrinter'];
+        }
+        if (isset($data['dailyPrintUsageByUser'])) {
+            $this->dailyPrintUsageByUser = $data['dailyPrintUsageByUser'];
+        }
+        if (isset($data['monthlyPrintUsageByPrinter'])) {
+            $this->monthlyPrintUsageByPrinter = $data['monthlyPrintUsageByPrinter'];
+        }
+        if (isset($data['monthlyPrintUsageByUser'])) {
+            $this->monthlyPrintUsageByUser = $data['monthlyPrintUsageByUser'];
+        }
+        if (isset($data['partners'])) {
+            $this->partners = $data['partners'];
+        }
+        if (isset($data['security'])) {
+            $this->security = $data['security'];
+        }
+    }
 }

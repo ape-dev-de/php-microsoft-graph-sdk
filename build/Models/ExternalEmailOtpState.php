@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalEmailOtpState
 {
-    public function __construct(
-    ) {}
 }

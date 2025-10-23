@@ -9,28 +9,81 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementExportJob
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Time that the exported report expires */
-        public ?\DateTimeInterface $expirationDateTime = null,
-        /** Filters applied on the report */
-        public ?string $filter = null,
-        /**  */
-        public ?DeviceManagementReportFileFormat $format = null,
-        /**  */
-        public ?DeviceManagementExportJobLocalizationType $localizationType = null,
-        /** Name of the report */
-        public ?string $reportName = null,
-        /** Time that the exported report was requested */
-        public ?\DateTimeInterface $requestDateTime = null,
-        /** @var string[] Columns selected from the report */
-        public array $select = [],
-        /** A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. */
-        public ?string $snapshotId = null,
-        /**  */
-        public ?DeviceManagementReportStatus $status = null,
-        /** Temporary location of the exported report */
-        public ?string $url = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Time that the exported report expires */
+    public ?\DateTimeInterface $expirationDateTime = null;
+
+    /** Filters applied on the report */
+    public ?string $filter = null;
+
+    /**  */
+    public ?DeviceManagementReportFileFormat $format = null;
+
+    /**  */
+    public ?DeviceManagementExportJobLocalizationType $localizationType = null;
+
+    /** Name of the report */
+    public ?string $reportName = null;
+
+    /** Time that the exported report was requested */
+    public ?\DateTimeInterface $requestDateTime = null;
+
+    /** 
+     * Columns selected from the report
+     * @var string[]
+     */
+    public array $select = [];
+
+    /** A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. */
+    public ?string $snapshotId = null;
+
+    /**  */
+    public ?DeviceManagementReportStatus $status = null;
+
+    /** Temporary location of the exported report */
+    public ?string $url = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['expirationDateTime'])) {
+            $this->expirationDateTime = $data['expirationDateTime'];
+        }
+        if (isset($data['filter'])) {
+            $this->filter = $data['filter'];
+        }
+        if (isset($data['format'])) {
+            $this->format = $data['format'];
+        }
+        if (isset($data['localizationType'])) {
+            $this->localizationType = $data['localizationType'];
+        }
+        if (isset($data['reportName'])) {
+            $this->reportName = $data['reportName'];
+        }
+        if (isset($data['requestDateTime'])) {
+            $this->requestDateTime = $data['requestDateTime'];
+        }
+        if (isset($data['select'])) {
+            $this->select = $data['select'];
+        }
+        if (isset($data['snapshotId'])) {
+            $this->snapshotId = $data['snapshotId'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['url'])) {
+            $this->url = $data['url'];
+        }
+    }
 }

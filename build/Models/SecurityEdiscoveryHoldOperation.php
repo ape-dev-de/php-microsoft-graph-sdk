@@ -9,22 +9,72 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryHoldOperation
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult. */
-        public ?SecurityCaseAction $action = null,
-        /** The date and time the operation was completed. */
-        public ?\DateTimeInterface $completedDateTime = null,
-        /** The user that created the operation. */
-        public ?IdentitySet $createdBy = null,
-        /** The date and time the operation was created. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** The progress of the operation. */
-        public ?float $percentProgress = null,
-        /** Contains success and failure-specific result information. */
-        public ?ResultInfo $resultInfo = null,
-        /** The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed. */
-        public ?SecurityCaseOperationStatus $status = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult.
+     * @var SecurityCaseAction|\stdClass|null
+     */
+    public mixed $action = null;
+
+    /** The date and time the operation was completed. */
+    public ?\DateTimeInterface $completedDateTime = null;
+
+    /** 
+     * The user that created the operation.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** The date and time the operation was created. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** The progress of the operation. */
+    public ?float $percentProgress = null;
+
+    /** 
+     * Contains success and failure-specific result information.
+     * @var ResultInfo|\stdClass|null
+     */
+    public mixed $resultInfo = null;
+
+    /** 
+     * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
+     * @var SecurityCaseOperationStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['action'])) {
+            $this->action = $data['action'];
+        }
+        if (isset($data['completedDateTime'])) {
+            $this->completedDateTime = $data['completedDateTime'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['percentProgress'])) {
+            $this->percentProgress = $data['percentProgress'];
+        }
+        if (isset($data['resultInfo'])) {
+            $this->resultInfo = $data['resultInfo'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

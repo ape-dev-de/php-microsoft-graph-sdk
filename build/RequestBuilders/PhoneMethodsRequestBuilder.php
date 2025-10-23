@@ -5,75 +5,139 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\PhoneAuthenticationMethod;
 use ApeDevDe\MicrosoftGraphSdk\Models\PhoneAuthenticationMethodCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\PhoneAuthenticationMethodQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\PhoneAuthenticationMethod;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PhoneAuthenticationMethodRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
 
 /**
- * Request builder for PhoneAuthenticationMethod
+ * Request builder for phoneMethods
  */
 class PhoneMethodsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * List phoneMethods
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new PhoneAuthenticationMethodQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param PhoneAuthenticationMethodQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
      * @return PhoneAuthenticationMethodCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?PhoneAuthenticationMethodQueryOptions $options = null, ?array $queryParameters = null): PhoneAuthenticationMethodCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PhoneAuthenticationMethodCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, PhoneAuthenticationMethodCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new PhoneAuthenticationMethod
-     *
-     * @param PhoneAuthenticationMethod $item The item to create
-     * @return PhoneAuthenticationMethod
+     * Deserialize response to PhoneAuthenticationMethodCollectionResponse
      */
-    public function post(PhoneAuthenticationMethod $item): PhoneAuthenticationMethod
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, PhoneAuthenticationMethod::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new PhoneAuthenticationMethod($item);
+        }
+        $collection = new PhoneAuthenticationMethodCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Create new navigation property to phoneMethods for me
+     * @param PhoneAuthenticationMethod $body Request body
+     * @return PhoneAuthenticationMethod
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(PhoneAuthenticationMethod $body): PhoneAuthenticationMethod
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
+    /**
+     * Deserialize response to PhoneAuthenticationMethod
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new PhoneAuthenticationMethod($data);
+    }
     /**
      * Get request builder for specific item by ID
      *
-     * @param string $id The item ID
-     * @return PhoneAuthenticationMethodItemRequestBuilder
+     * @param string $phoneAuthenticationMethodId The item ID
+     * @return PhoneAuthenticationMethodRequestBuilder
      */
-    public function byId(string $id): PhoneAuthenticationMethodItemRequestBuilder
+    public function byId(string $phoneAuthenticationMethodId): PhoneAuthenticationMethodRequestBuilder
     {
-        return new PhoneAuthenticationMethodItemRequestBuilder($this->client, $this->buildPath($id));
+        return new PhoneAuthenticationMethodRequestBuilder($this->client, $this->requestUrl . '/' . $phoneAuthenticationMethodId);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to $count
      *
-     * @return int
+     * @return CountRequestBuilder
      */
-    public function count(): int
+    public function count(): CountRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
 }

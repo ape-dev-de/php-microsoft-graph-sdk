@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BaseEndUserNotification
 {
-    public function __construct(
-        /** The default language for the end user notification. */
-        public ?string $defaultLanguage = null,
-        /**  */
-        public ?EndUserNotification $endUserNotification = null
-    ) {}
+    /** The default language for the end user notification. */
+    public ?string $defaultLanguage = null;
+
+    /** 
+     * 
+     * @var EndUserNotification|\stdClass|null
+     */
+    public mixed $endUserNotification = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['defaultLanguage'])) {
+            $this->defaultLanguage = $data['defaultLanguage'];
+        }
+        if (isset($data['endUserNotification'])) {
+            $this->endUserNotification = $data['endUserNotification'];
+        }
+    }
 }

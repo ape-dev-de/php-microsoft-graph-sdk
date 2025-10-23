@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppFileSystemOperationType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationMetadataEntry
 {
-    public function __construct(
-        /** Possible values are: GalleryApplicationIdentifier, GalleryApplicationKey, IsOAuthEnabled, IsSynchronizationAgentAssignmentRequired, IsSynchronizationAgentRequired, IsSynchronizationInPreview, OAuthSettings, SynchronizationLearnMoreIbizaFwLink, ConfigurationFields. */
-        public ?SynchronizationMetadata $key = null,
-        /** Value of the metadata property. */
-        public ?string $value = null
-    ) {}
+    /** 
+     * Possible values are: GalleryApplicationIdentifier, GalleryApplicationKey, IsOAuthEnabled, IsSynchronizationAgentAssignmentRequired, IsSynchronizationAgentRequired, IsSynchronizationInPreview, OAuthSettings, SynchronizationLearnMoreIbizaFwLink, ConfigurationFields.
+     * @var SynchronizationMetadata|\stdClass|null
+     */
+    public mixed $key = null;
+
+    /** Value of the metadata property. */
+    public ?string $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['key'])) {
+            $this->key = $data['key'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObliterationBehavior
 {
-    public function __construct(
-    ) {}
 }

@@ -1,0 +1,154 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\Models\CallRecordsCallRecord;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\OrganizerV2RequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ParticipantsV2RequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SessionsRequestBuilder;
+
+/**
+ * Request builder for {callRecord-id}
+ */
+class CallRecordRequestBuilder extends BaseRequestBuilder
+{
+    /**
+     * Get callRecord
+     *
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return CallRecordsCallRecord
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function get(?array $select = null, ?array $expand = null): CallRecordsCallRecord
+    {
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
+    }
+
+    /**
+     * Deserialize response to CallRecordsCallRecord
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new CallRecordsCallRecord($data);
+    }
+    /**
+     * Update the navigation property callRecords in communications
+     * @param CallRecordsCallRecord $body Request body
+     * @return CallRecordsCallRecord
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(CallRecordsCallRecord $body): CallRecordsCallRecord
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to CallRecordsCallRecord
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new CallRecordsCallRecord($data);
+    }
+    /**
+     * Delete navigation property callRecords for communications
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to organizer_v2
+     *
+     * @return OrganizerV2RequestBuilder
+     */
+    public function organizerV2(): OrganizerV2RequestBuilder
+    {
+        return new OrganizerV2RequestBuilder($this->client, $this->requestUrl . '/organizer_v2');
+    }
+    /**
+     * Navigate to participants_v2
+     *
+     * @return ParticipantsV2RequestBuilder
+     */
+    public function participantsV2(): ParticipantsV2RequestBuilder
+    {
+        return new ParticipantsV2RequestBuilder($this->client, $this->requestUrl . '/participants_v2');
+    }
+    /**
+     * Navigate to sessions
+     *
+     * @return SessionsRequestBuilder
+     */
+    public function sessions(): SessionsRequestBuilder
+    {
+        return new SessionsRequestBuilder($this->client, $this->requestUrl . '/sessions');
+    }
+}

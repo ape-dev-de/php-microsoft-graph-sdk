@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceRegistrationState
 {
-    public function __construct(
-    ) {}
 }

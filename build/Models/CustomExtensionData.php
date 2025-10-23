@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionData
 {
-    public function __construct(
-    ) {}
 }

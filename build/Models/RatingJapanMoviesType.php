@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RatingJapanMoviesType
 {
-    public function __construct(
-    ) {}
 }

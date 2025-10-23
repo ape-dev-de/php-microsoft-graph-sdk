@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChannelIdentity
 {
-    public function __construct(
-        /** The identity of the channel in which the message was posted. */
-        public ?string $channelId = null,
-        /** The identity of the team in which the message was posted. */
-        public ?string $teamId = null
-    ) {}
+    /** The identity of the channel in which the message was posted. */
+    public ?string $channelId = null;
+
+    /** The identity of the team in which the message was posted. */
+    public ?string $teamId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['channelId'])) {
+            $this->channelId = $data['channelId'];
+        }
+        if (isset($data['teamId'])) {
+            $this->teamId = $data['teamId'];
+        }
+    }
 }

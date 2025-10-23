@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewHistoryStatus
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcOnPremisesConnectionType
 {
-    public function __construct(
-    ) {}
 }

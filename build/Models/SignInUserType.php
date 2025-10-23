@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInUserType
 {
-    public function __construct(
-    ) {}
 }

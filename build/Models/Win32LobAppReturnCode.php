@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppReturnCode
 {
-    public function __construct(
-        /** Return code. */
-        public ?float $returnCode = null,
-        /**  */
-        public ?Win32LobAppReturnCodeType $type = null
-    ) {}
+    /** Return code. */
+    public ?float $returnCode = null;
+
+    /**  */
+    public ?Win32LobAppReturnCodeType $type = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['returnCode'])) {
+            $this->returnCode = $data['returnCode'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+    }
 }

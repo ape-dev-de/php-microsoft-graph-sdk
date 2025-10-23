@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationConfigurationValidation
 {
-    public function __construct(
-        /** Errors in the validation result of a customAuthenticationExtension. */
-        public array $errors = [],
-        /** Warnings in the validation result of a customAuthenticationExtension. */
-        public array $warnings = []
-    ) {}
+    /** 
+     * Errors in the validation result of a customAuthenticationExtension.
+     * @var GenericError[]
+     */
+    public array $errors = [];
+
+    /** 
+     * Warnings in the validation result of a customAuthenticationExtension.
+     * @var GenericError[]
+     */
+    public array $warnings = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['errors'])) {
+            $this->errors = $data['errors'];
+        }
+        if (isset($data['warnings'])) {
+            $this->warnings = $data['warnings'];
+        }
+    }
 }

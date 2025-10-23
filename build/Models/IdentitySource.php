@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentitySource
 {
-    public function __construct(
-    ) {}
 }

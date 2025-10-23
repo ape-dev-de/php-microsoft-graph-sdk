@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchResult
 {
-    public function __construct(
-        /** A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results. */
-        public ?string $onClickTelemetryUrl = null
-    ) {}
+    /** A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results. */
+    public ?string $onClickTelemetryUrl = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['onClickTelemetryUrl'])) {
+            $this->onClickTelemetryUrl = $data['onClickTelemetryUrl'];
+        }
+    }
 }

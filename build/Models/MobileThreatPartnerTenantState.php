@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileThreatPartnerTenantState
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersistentBrowserSessionMode
 {
-    public function __construct(
-    ) {}
 }

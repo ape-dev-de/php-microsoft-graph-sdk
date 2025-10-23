@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DirectoryRoleTemplate
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
-        public ?\DateTimeInterface $deletedDateTime = null,
-        /** The description to set for the directory role. Read-only. */
-        public ?string $description = null,
-        /** The display name to set for the directory role. Read-only. */
-        public ?string $displayName = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
+    public ?\DateTimeInterface $deletedDateTime = null;
+
+    /** The description to set for the directory role. Read-only. */
+    public ?string $description = null;
+
+    /** The display name to set for the directory role. Read-only. */
+    public ?string $displayName = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['deletedDateTime'])) {
+            $this->deletedDateTime = $data['deletedDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+    }
 }

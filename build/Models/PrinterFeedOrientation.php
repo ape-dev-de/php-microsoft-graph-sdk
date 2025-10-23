@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrinterFeedOrientation
 {
-    public function __construct(
-    ) {}
 }

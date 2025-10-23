@@ -9,16 +9,51 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallEndedEventMessageDetail
 {
-    public function __construct(
-        /** Duration of the call. */
-        public ?string $callDuration = null,
-        /** Represents the call event type. Possible values are: call, meeting, screenShare, unknownFutureValue. */
-        public ?TeamworkCallEventType $callEventType = null,
-        /** Unique identifier of the call. */
-        public ?string $callId = null,
-        /** List of call participants. */
-        public array $callParticipants = [],
-        /** Initiator of the event. */
-        public ?IdentitySet $initiator = null
-    ) {}
+    /** Duration of the call. */
+    public ?string $callDuration = null;
+
+    /** 
+     * Represents the call event type. Possible values are: call, meeting, screenShare, unknownFutureValue.
+     * @var TeamworkCallEventType|\stdClass|null
+     */
+    public mixed $callEventType = null;
+
+    /** Unique identifier of the call. */
+    public ?string $callId = null;
+
+    /** 
+     * List of call participants.
+     * @var CallParticipantInfo[]
+     */
+    public array $callParticipants = [];
+
+    /** 
+     * Initiator of the event.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['callDuration'])) {
+            $this->callDuration = $data['callDuration'];
+        }
+        if (isset($data['callEventType'])) {
+            $this->callEventType = $data['callEventType'];
+        }
+        if (isset($data['callId'])) {
+            $this->callId = $data['callId'];
+        }
+        if (isset($data['callParticipants'])) {
+            $this->callParticipants = $data['callParticipants'];
+        }
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+    }
 }

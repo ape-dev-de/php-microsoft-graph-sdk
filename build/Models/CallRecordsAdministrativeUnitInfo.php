@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsAdministrativeUnitInfo
 {
-    public function __construct(
-        /** Unique identifier for the administrative unit. */
-        public ?string $id = null
-    ) {}
+    /** Unique identifier for the administrative unit. */
+    public ?string $id = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+    }
 }

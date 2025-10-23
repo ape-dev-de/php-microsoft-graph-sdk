@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthorizationInfo
 {
-    public function __construct(
-        /** @var string[]  */
-        public array $certificateUserIds = []
-    ) {}
+    /** 
+     * 
+     * @var string[]
+     */
+    public array $certificateUserIds = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['certificateUserIds'])) {
+            $this->certificateUserIds = $data['certificateUserIds'];
+        }
+    }
 }

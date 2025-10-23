@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PostType
 {
-    public function __construct(
-    ) {}
 }

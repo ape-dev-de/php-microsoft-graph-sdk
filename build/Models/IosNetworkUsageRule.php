@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosNetworkUsageRule
 {
-    public function __construct(
-        /** If set to true, corresponding managed apps will not be allowed to use cellular data at any time. */
-        public ?bool $cellularDataBlocked = null,
-        /** If set to true, corresponding managed apps will not be allowed to use cellular data when roaming. */
-        public ?bool $cellularDataBlockWhenRoaming = null,
-        /** Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements. */
-        public array $managedApps = []
-    ) {}
+    /** If set to true, corresponding managed apps will not be allowed to use cellular data at any time. */
+    public ?bool $cellularDataBlocked = null;
+
+    /** If set to true, corresponding managed apps will not be allowed to use cellular data when roaming. */
+    public ?bool $cellularDataBlockWhenRoaming = null;
+
+    /** 
+     * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
+     * @var AppListItem[]
+     */
+    public array $managedApps = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['cellularDataBlocked'])) {
+            $this->cellularDataBlocked = $data['cellularDataBlocked'];
+        }
+        if (isset($data['cellularDataBlockWhenRoaming'])) {
+            $this->cellularDataBlockWhenRoaming = $data['cellularDataBlockWhenRoaming'];
+        }
+        if (isset($data['managedApps'])) {
+            $this->managedApps = $data['managedApps'];
+        }
+    }
 }

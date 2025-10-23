@@ -9,16 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaStream
 {
-    public function __construct(
-        /**  */
-        public ?MediaDirection $direction = null,
-        /** The media stream label. */
-        public ?string $label = null,
-        /**  */
-        public ?Modality $mediaType = null,
-        /** If the media is muted by the server. */
-        public ?bool $serverMuted = null,
-        /** The source ID. */
-        public ?string $sourceId = null
-    ) {}
+    /**  */
+    public ?MediaDirection $direction = null;
+
+    /** The media stream label. */
+    public ?string $label = null;
+
+    /**  */
+    public ?Modality $mediaType = null;
+
+    /** If the media is muted by the server. */
+    public ?bool $serverMuted = null;
+
+    /** The source ID. */
+    public ?string $sourceId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['direction'])) {
+            $this->direction = $data['direction'];
+        }
+        if (isset($data['label'])) {
+            $this->label = $data['label'];
+        }
+        if (isset($data['mediaType'])) {
+            $this->mediaType = $data['mediaType'];
+        }
+        if (isset($data['serverMuted'])) {
+            $this->serverMuted = $data['serverMuted'];
+        }
+        if (isset($data['sourceId'])) {
+            $this->sourceId = $data['sourceId'];
+        }
+    }
 }

@@ -9,16 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityCustomUserFlowAttribute
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?IdentityUserFlowAttributeDataType $dataType = null,
-        /** The description of the user flow attribute that's shown to the user at the time of sign up. */
-        public ?string $description = null,
-        /** The display name of the user flow attribute.  Supports $filter (eq, ne). */
-        public ?string $displayName = null,
-        /**  */
-        public ?IdentityUserFlowAttributeType $userFlowAttributeType = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?IdentityUserFlowAttributeDataType $dataType = null;
+
+    /** The description of the user flow attribute that's shown to the user at the time of sign up. */
+    public ?string $description = null;
+
+    /** The display name of the user flow attribute.  Supports $filter (eq, ne). */
+    public ?string $displayName = null;
+
+    /**  */
+    public ?IdentityUserFlowAttributeType $userFlowAttributeType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['dataType'])) {
+            $this->dataType = $data['dataType'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['userFlowAttributeType'])) {
+            $this->userFlowAttributeType = $data['userFlowAttributeType'];
+        }
+    }
 }

@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActionResultPart
 {
-    public function __construct(
-        /** The error that occurred, if any, during the bulk operation. */
-        public ?PublicError $error = null
-    ) {}
+    /** 
+     * The error that occurred, if any, during the bulk operation.
+     * @var PublicError|\stdClass|null
+     */
+    public mixed $error = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+    }
 }

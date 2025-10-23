@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityNetworkProtocol
 {
-    public function __construct(
-    ) {}
 }

@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatViewpoint
 {
-    public function __construct(
-        /** Indicates whether the chat is hidden for the current user. */
-        public ?bool $isHidden = null,
-        /** Represents the dateTime up until which the current user has read chatMessages in a specific chat. */
-        public ?\DateTimeInterface $lastMessageReadDateTime = null
-    ) {}
+    /** Indicates whether the chat is hidden for the current user. */
+    public ?bool $isHidden = null;
+
+    /** Represents the dateTime up until which the current user has read chatMessages in a specific chat. */
+    public ?\DateTimeInterface $lastMessageReadDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isHidden'])) {
+            $this->isHidden = $data['isHidden'];
+        }
+        if (isset($data['lastMessageReadDateTime'])) {
+            $this->lastMessageReadDateTime = $data['lastMessageReadDateTime'];
+        }
+    }
 }

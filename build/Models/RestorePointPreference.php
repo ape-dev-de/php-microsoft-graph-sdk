@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestorePointPreference
 {
-    public function __construct(
-    ) {}
 }

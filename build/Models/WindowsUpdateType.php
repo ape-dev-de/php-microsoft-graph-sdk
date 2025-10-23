@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsUpdateType
 {
-    public function __construct(
-    ) {}
 }

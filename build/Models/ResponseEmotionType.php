@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResponseEmotionType
 {
-    public function __construct(
-    ) {}
 }

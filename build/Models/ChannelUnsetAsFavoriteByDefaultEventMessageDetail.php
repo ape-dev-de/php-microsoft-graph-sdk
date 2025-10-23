@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChannelUnsetAsFavoriteByDefaultEventMessageDetail
 {
-    public function __construct(
-        /** Unique identifier of the channel. */
-        public ?string $channelId = null,
-        /** Initiator of the event. */
-        public ?IdentitySet $initiator = null
-    ) {}
+    /** Unique identifier of the channel. */
+    public ?string $channelId = null;
+
+    /** 
+     * Initiator of the event.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['channelId'])) {
+            $this->channelId = $data['channelId'];
+        }
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+    }
 }

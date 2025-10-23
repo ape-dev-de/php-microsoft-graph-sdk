@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AssignmentType
 {
-    public function __construct(
-    ) {}
 }

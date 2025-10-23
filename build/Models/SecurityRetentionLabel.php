@@ -9,42 +9,150 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityRetentionLabel
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Specifies the action to take on the labeled document after the period specified by the retentionDuration property expires. The possible values are: none, delete, startDispositionReview, unknownFutureValue. */
-        public ?SecurityActionAfterRetentionPeriod $actionAfterRetentionPeriod = null,
-        /** Specifies how the behavior of a document with this label should be during the retention period. The possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue. */
-        public ?SecurityBehaviorDuringRetentionPeriod $behaviorDuringRetentionPeriod = null,
-        /** Represents the user who created the retentionLabel. */
-        public ?IdentitySet $createdBy = null,
-        /** Represents the date and time in which the retentionLabel is created. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Specifies the locked or unlocked state of a record label when it is created.The possible values are: startLocked, startUnlocked, unknownFutureValue. */
-        public ?SecurityDefaultRecordBehavior $defaultRecordBehavior = null,
-        /** Provides label information for the admin. Optional. */
-        public ?string $descriptionForAdmins = null,
-        /** Provides the label information for the user. Optional. */
-        public ?string $descriptionForUsers = null,
-        /** Unique string that defines a label name. */
-        public ?string $displayName = null,
-        /** Specifies whether the label is currently being used. */
-        public ?bool $isInUse = null,
-        /** Specifies the replacement label to be applied automatically after the retention period of the current label ends. */
-        public ?string $labelToBeApplied = null,
-        /** The user who last modified the retentionLabel. */
-        public ?IdentitySet $lastModifiedBy = null,
-        /** The latest date time when the retentionLabel was modified. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** Specifies the number of days to retain the content. */
-        public ?SecurityRetentionDuration $retentionDuration = null,
-        /** Specifies whether the retention duration is calculated from the content creation date, labeled date, or last modification date. The possible values are: dateLabeled, dateCreated, dateModified, dateOfEvent, unknownFutureValue. */
-        public ?SecurityRetentionTrigger $retentionTrigger = null,
-        /** Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label. */
-        public ?SecurityFilePlanDescriptor $descriptors = null,
-        /** When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage. */
-        public array $dispositionReviewStages = [],
-        /** Represents the type associated with a retention event. */
-        public ?SecurityRetentionEventType $retentionEventType = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Specifies the action to take on the labeled document after the period specified by the retentionDuration property expires. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
+     * @var SecurityActionAfterRetentionPeriod|\stdClass|null
+     */
+    public mixed $actionAfterRetentionPeriod = null;
+
+    /** 
+     * Specifies how the behavior of a document with this label should be during the retention period. The possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue.
+     * @var SecurityBehaviorDuringRetentionPeriod|\stdClass|null
+     */
+    public mixed $behaviorDuringRetentionPeriod = null;
+
+    /** 
+     * Represents the user who created the retentionLabel.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** Represents the date and time in which the retentionLabel is created. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** 
+     * Specifies the locked or unlocked state of a record label when it is created.The possible values are: startLocked, startUnlocked, unknownFutureValue.
+     * @var SecurityDefaultRecordBehavior|\stdClass|null
+     */
+    public mixed $defaultRecordBehavior = null;
+
+    /** Provides label information for the admin. Optional. */
+    public ?string $descriptionForAdmins = null;
+
+    /** Provides the label information for the user. Optional. */
+    public ?string $descriptionForUsers = null;
+
+    /** Unique string that defines a label name. */
+    public ?string $displayName = null;
+
+    /** Specifies whether the label is currently being used. */
+    public ?bool $isInUse = null;
+
+    /** Specifies the replacement label to be applied automatically after the retention period of the current label ends. */
+    public ?string $labelToBeApplied = null;
+
+    /** 
+     * The user who last modified the retentionLabel.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /** The latest date time when the retentionLabel was modified. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** 
+     * Specifies the number of days to retain the content.
+     * @var SecurityRetentionDuration|\stdClass|null
+     */
+    public mixed $retentionDuration = null;
+
+    /** 
+     * Specifies whether the retention duration is calculated from the content creation date, labeled date, or last modification date. The possible values are: dateLabeled, dateCreated, dateModified, dateOfEvent, unknownFutureValue.
+     * @var SecurityRetentionTrigger|\stdClass|null
+     */
+    public mixed $retentionTrigger = null;
+
+    /** 
+     * Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label.
+     * @var SecurityFilePlanDescriptor|\stdClass|null
+     */
+    public mixed $descriptors = null;
+
+    /** 
+     * When action at the end of retention is chosen as 'dispositionReview', dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
+     * @var SecurityDispositionReviewStage[]
+     */
+    public array $dispositionReviewStages = [];
+
+    /** 
+     * Represents the type associated with a retention event.
+     * @var SecurityRetentionEventType|\stdClass|null
+     */
+    public mixed $retentionEventType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['actionAfterRetentionPeriod'])) {
+            $this->actionAfterRetentionPeriod = $data['actionAfterRetentionPeriod'];
+        }
+        if (isset($data['behaviorDuringRetentionPeriod'])) {
+            $this->behaviorDuringRetentionPeriod = $data['behaviorDuringRetentionPeriod'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['defaultRecordBehavior'])) {
+            $this->defaultRecordBehavior = $data['defaultRecordBehavior'];
+        }
+        if (isset($data['descriptionForAdmins'])) {
+            $this->descriptionForAdmins = $data['descriptionForAdmins'];
+        }
+        if (isset($data['descriptionForUsers'])) {
+            $this->descriptionForUsers = $data['descriptionForUsers'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['isInUse'])) {
+            $this->isInUse = $data['isInUse'];
+        }
+        if (isset($data['labelToBeApplied'])) {
+            $this->labelToBeApplied = $data['labelToBeApplied'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['retentionDuration'])) {
+            $this->retentionDuration = $data['retentionDuration'];
+        }
+        if (isset($data['retentionTrigger'])) {
+            $this->retentionTrigger = $data['retentionTrigger'];
+        }
+        if (isset($data['descriptors'])) {
+            $this->descriptors = $data['descriptors'];
+        }
+        if (isset($data['dispositionReviewStages'])) {
+            $this->dispositionReviewStages = $data['dispositionReviewStages'];
+        }
+        if (isset($data['retentionEventType'])) {
+            $this->retentionEventType = $data['retentionEventType'];
+        }
+    }
 }

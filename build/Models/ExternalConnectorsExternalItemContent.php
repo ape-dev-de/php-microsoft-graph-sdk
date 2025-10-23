@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsExternalItemContent
 {
-    public function __construct(
-        /**  */
-        public ?ExternalConnectorsExternalItemContentType $type = null,
-        /** The content for the externalItem. Required. */
-        public ?string $value = null
-    ) {}
+    /**  */
+    public ?ExternalConnectorsExternalItemContentType $type = null;
+
+    /** The content for the externalItem. Required. */
+    public ?string $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

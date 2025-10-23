@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsAclType
 {
-    public function __construct(
-    ) {}
 }

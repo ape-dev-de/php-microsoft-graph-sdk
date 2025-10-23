@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftAuthenticatorAuthenticationMethodTarget
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Determines if the user is enforced to register the authentication method. */
-        public ?bool $isRegistrationRequired = null,
-        /**  */
-        public ?AuthenticationMethodTargetType $targetType = null,
-        /**  */
-        public ?MicrosoftAuthenticatorAuthenticationMode $authenticationMode = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Determines if the user is enforced to register the authentication method. */
+    public ?bool $isRegistrationRequired = null;
+
+    /**  */
+    public ?AuthenticationMethodTargetType $targetType = null;
+
+    /**  */
+    public ?MicrosoftAuthenticatorAuthenticationMode $authenticationMode = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['isRegistrationRequired'])) {
+            $this->isRegistrationRequired = $data['isRegistrationRequired'];
+        }
+        if (isset($data['targetType'])) {
+            $this->targetType = $data['targetType'];
+        }
+        if (isset($data['authenticationMode'])) {
+            $this->authenticationMode = $data['authenticationMode'];
+        }
+    }
 }

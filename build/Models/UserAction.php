@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserAction
 {
-    public function __construct(
-    ) {}
 }

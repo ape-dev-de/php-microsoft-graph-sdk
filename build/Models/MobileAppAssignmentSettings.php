@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileAppAssignmentSettings
 {
-    public function __construct(
-    ) {}
 }

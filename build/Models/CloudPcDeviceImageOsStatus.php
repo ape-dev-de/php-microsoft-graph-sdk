@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcDeviceImageOsStatus
 {
-    public function __construct(
-    ) {}
 }

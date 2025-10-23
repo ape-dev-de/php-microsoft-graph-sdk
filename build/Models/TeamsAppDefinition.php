@@ -9,28 +9,90 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppDefinition
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Authorization requirements specified in the Teams app manifest. */
-        public ?TeamsAppAuthorization $authorization = null,
-        /**  */
-        public ?IdentitySet $createdBy = null,
-        /** Verbose description of the application. */
-        public ?string $description = null,
-        /** The name of the app provided by the app developer. */
-        public ?string $displayName = null,
-        /**  */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The published status of a specific version of a Teams app. Possible values are:submitted—The specific version of the Teams app was submitted and is under review.published—The request to publish the specific version of the Teams app was approved by the admin and the app is published.rejected—The admin rejected the request to publish the specific version of the Teams app. */
-        public ?TeamsAppPublishingState $publishingState = null,
-        /** Short description of the application. */
-        public ?string $shortDescription = null,
-        /** The ID from the Teams app manifest. */
-        public ?string $teamsAppId = null,
-        /** The version number of the application. */
-        public ?string $version = null,
-        /** The details of the bot specified in the Teams app manifest. */
-        public ?TeamworkBot $bot = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Authorization requirements specified in the Teams app manifest.
+     * @var TeamsAppAuthorization|\stdClass|null
+     */
+    public mixed $authorization = null;
+
+    /** 
+     * 
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** Verbose description of the application. */
+    public ?string $description = null;
+
+    /** The name of the app provided by the app developer. */
+    public ?string $displayName = null;
+
+    /**  */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** 
+     * The published status of a specific version of a Teams app. Possible values are:submitted—The specific version of the Teams app was submitted and is under review.published—The request to publish the specific version of the Teams app was approved by the admin and the app is published.rejected—The admin rejected the request to publish the specific version of the Teams app.
+     * @var TeamsAppPublishingState|\stdClass|null
+     */
+    public mixed $publishingState = null;
+
+    /** Short description of the application. */
+    public ?string $shortDescription = null;
+
+    /** The ID from the Teams app manifest. */
+    public ?string $teamsAppId = null;
+
+    /** The version number of the application. */
+    public ?string $version = null;
+
+    /** 
+     * The details of the bot specified in the Teams app manifest.
+     * @var TeamworkBot|\stdClass|null
+     */
+    public mixed $bot = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['authorization'])) {
+            $this->authorization = $data['authorization'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['publishingState'])) {
+            $this->publishingState = $data['publishingState'];
+        }
+        if (isset($data['shortDescription'])) {
+            $this->shortDescription = $data['shortDescription'];
+        }
+        if (isset($data['teamsAppId'])) {
+            $this->teamsAppId = $data['teamsAppId'];
+        }
+        if (isset($data['version'])) {
+            $this->version = $data['version'];
+        }
+        if (isset($data['bot'])) {
+            $this->bot = $data['bot'];
+        }
+    }
 }

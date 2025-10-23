@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReferenceUpdate
 {
-    public function __construct(
-    ) {}
 }

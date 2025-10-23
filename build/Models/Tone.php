@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Tone
 {
-    public function __construct(
-    ) {}
 }

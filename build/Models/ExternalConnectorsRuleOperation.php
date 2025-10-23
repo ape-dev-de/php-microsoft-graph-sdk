@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsRuleOperation
 {
-    public function __construct(
-    ) {}
 }

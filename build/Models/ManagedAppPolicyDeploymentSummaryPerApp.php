@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppPolicyDeploymentSummaryPerApp
 {
-    public function __construct(
-        /** Number of users the policy is applied. */
-        public ?float $configurationAppliedUserCount = null,
-        /** Deployment of an app. */
-        public ?MobileAppIdentifier $mobileAppIdentifier = null
-    ) {}
+    /** Number of users the policy is applied. */
+    public ?float $configurationAppliedUserCount = null;
+
+    /** 
+     * Deployment of an app.
+     * @var MobileAppIdentifier|\stdClass|null
+     */
+    public mixed $mobileAppIdentifier = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['configurationAppliedUserCount'])) {
+            $this->configurationAppliedUserCount = $data['configurationAppliedUserCount'];
+        }
+        if (isset($data['mobileAppIdentifier'])) {
+            $this->mobileAppIdentifier = $data['mobileAppIdentifier'];
+        }
+    }
 }

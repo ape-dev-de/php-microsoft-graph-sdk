@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActionState
 {
-    public function __construct(
-    ) {}
 }

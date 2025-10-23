@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserActivityType
 {
-    public function __construct(
-    ) {}
 }

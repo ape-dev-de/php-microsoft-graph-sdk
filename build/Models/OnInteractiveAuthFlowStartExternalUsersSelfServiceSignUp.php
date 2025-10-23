@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp
 {
-    public function __construct(
-        /** Optional. Specifies whether the authentication flow includes an option to sign up (create account) and sign in. Default value is false meaning only sign in is enabled. */
-        public ?bool $isSignUpAllowed = null
-    ) {}
+    /** Optional. Specifies whether the authentication flow includes an option to sign up (create account) and sign in. Default value is false meaning only sign in is enabled. */
+    public ?bool $isSignUpAllowed = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isSignUpAllowed'])) {
+            $this->isSignUpAllowed = $data['isSignUpAllowed'];
+        }
+    }
 }

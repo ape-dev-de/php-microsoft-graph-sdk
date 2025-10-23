@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementReportFileFormat
 {
-    public function __construct(
-    ) {}
 }

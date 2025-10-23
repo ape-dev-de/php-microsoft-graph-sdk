@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceCustomTaskExtensionOperationStatus
 {
-    public function __construct(
-    ) {}
 }

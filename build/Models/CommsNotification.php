@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommsNotification
 {
-    public function __construct(
-        /**  */
-        public ?ChangeType $changeType = null,
-        /** URI of the resource that was changed. */
-        public ?string $resourceUrl = null
-    ) {}
+    /**  */
+    public ?ChangeType $changeType = null;
+
+    /** URI of the resource that was changed. */
+    public ?string $resourceUrl = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['changeType'])) {
+            $this->changeType = $data['changeType'];
+        }
+        if (isset($data['resourceUrl'])) {
+            $this->resourceUrl = $data['resourceUrl'];
+        }
+    }
 }

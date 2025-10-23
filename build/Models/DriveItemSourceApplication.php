@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DriveItemSourceApplication
 {
-    public function __construct(
-    ) {}
 }

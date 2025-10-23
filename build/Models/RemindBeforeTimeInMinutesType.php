@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemindBeforeTimeInMinutesType
 {
-    public function __construct(
-    ) {}
 }

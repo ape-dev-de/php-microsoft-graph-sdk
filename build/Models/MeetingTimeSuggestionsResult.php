@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingTimeSuggestionsResult
 {
-    public function __construct(
-        /** A reason for not returning any meeting suggestions. The possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions. */
-        public ?string $emptySuggestionsReason = null,
-        /** An array of meeting suggestions. */
-        public array $meetingTimeSuggestions = []
-    ) {}
+    /** A reason for not returning any meeting suggestions. The possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions. */
+    public ?string $emptySuggestionsReason = null;
+
+    /** 
+     * An array of meeting suggestions.
+     * @var MeetingTimeSuggestion[]
+     */
+    public array $meetingTimeSuggestions = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['emptySuggestionsReason'])) {
+            $this->emptySuggestionsReason = $data['emptySuggestionsReason'];
+        }
+        if (isset($data['meetingTimeSuggestions'])) {
+            $this->meetingTimeSuggestions = $data['meetingTimeSuggestions'];
+        }
+    }
 }

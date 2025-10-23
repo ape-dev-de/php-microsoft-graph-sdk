@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionEndpointConfiguration
 {
-    public function __construct(
-    ) {}
 }

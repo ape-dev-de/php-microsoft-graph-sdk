@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesAccidentalDeletionPrevention
 {
-    public function __construct(
-        /** Threshold value which triggers accidental deletion prevention. The threshold is either an absolute number of objects or a percentage number of objects. */
-        public ?float $alertThreshold = null,
-        /** The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage, unknownFutureValue. */
-        public ?OnPremisesDirectorySynchronizationDeletionPreventionType $synchronizationPreventionType = null
-    ) {}
+    /** Threshold value which triggers accidental deletion prevention. The threshold is either an absolute number of objects or a percentage number of objects. */
+    public ?float $alertThreshold = null;
+
+    /** 
+     * The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage, unknownFutureValue.
+     * @var OnPremisesDirectorySynchronizationDeletionPreventionType|\stdClass|null
+     */
+    public mixed $synchronizationPreventionType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['alertThreshold'])) {
+            $this->alertThreshold = $data['alertThreshold'];
+        }
+        if (isset($data['synchronizationPreventionType'])) {
+            $this->synchronizationPreventionType = $data['synchronizationPreventionType'];
+        }
+    }
 }

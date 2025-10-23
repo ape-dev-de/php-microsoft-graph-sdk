@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Image
 {
-    public function __construct(
-        /** Optional. Height of the image, in pixels. Read-only. */
-        public ?float $height = null,
-        /** Optional. Width of the image, in pixels. Read-only. */
-        public ?float $width = null
-    ) {}
+    /** Optional. Height of the image, in pixels. Read-only. */
+    public ?float $height = null;
+
+    /** Optional. Width of the image, in pixels. Read-only. */
+    public ?float $width = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['height'])) {
+            $this->height = $data['height'];
+        }
+        if (isset($data['width'])) {
+            $this->width = $data['width'];
+        }
+    }
 }

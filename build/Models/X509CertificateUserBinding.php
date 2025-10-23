@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateUserBinding
 {
-    public function __construct(
-        /** The priority of the binding. Microsoft Entra ID uses the binding with the highest priority. This value must be a non-negative integer and unique in the collection of objects in the certificateUserBindings property of an x509CertificateAuthenticationMethodConfiguration object. Required */
-        public ?float $priority = null,
-        /**  */
-        public ?X509CertificateAffinityLevel $trustAffinityLevel = null,
-        /** Defines the Microsoft Entra user property of the user object to use for the binding. The possible values are: userPrincipalName, onPremisesUserPrincipalName, certificateUserIds. Required. */
-        public ?string $userProperty = null,
-        /** The field on the X.509 certificate to use for the binding. The possible values are: PrincipalName, RFC822Name, SubjectKeyIdentifier, SHA1PublicKey. */
-        public ?string $x509CertificateField = null
-    ) {}
+    /** The priority of the binding. Microsoft Entra ID uses the binding with the highest priority. This value must be a non-negative integer and unique in the collection of objects in the certificateUserBindings property of an x509CertificateAuthenticationMethodConfiguration object. Required */
+    public ?float $priority = null;
+
+    /** 
+     * 
+     * @var X509CertificateAffinityLevel|\stdClass|null
+     */
+    public mixed $trustAffinityLevel = null;
+
+    /** Defines the Microsoft Entra user property of the user object to use for the binding. The possible values are: userPrincipalName, onPremisesUserPrincipalName, certificateUserIds. Required. */
+    public ?string $userProperty = null;
+
+    /** The field on the X.509 certificate to use for the binding. The possible values are: PrincipalName, RFC822Name, SubjectKeyIdentifier, SHA1PublicKey. */
+    public ?string $x509CertificateField = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['priority'])) {
+            $this->priority = $data['priority'];
+        }
+        if (isset($data['trustAffinityLevel'])) {
+            $this->trustAffinityLevel = $data['trustAffinityLevel'];
+        }
+        if (isset($data['userProperty'])) {
+            $this->userProperty = $data['userProperty'];
+        }
+        if (isset($data['x509CertificateField'])) {
+            $this->x509CertificateField = $data['x509CertificateField'];
+        }
+    }
 }

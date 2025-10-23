@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Album
 {
-    public function __construct(
-        /** Unique identifier of the driveItem that is the cover of the album. */
-        public ?string $coverImageItemId = null
-    ) {}
+    /** Unique identifier of the driveItem that is the cover of the album. */
+    public ?string $coverImageItemId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['coverImageItemId'])) {
+            $this->coverImageItemId = $data['coverImageItemId'];
+        }
+    }
 }

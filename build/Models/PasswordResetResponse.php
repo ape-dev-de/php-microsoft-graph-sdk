@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PasswordResetResponse
 {
-    public function __construct(
-        /** The Microsoft Entra ID-generated password. */
-        public ?string $newPassword = null
-    ) {}
+    /** The Microsoft Entra ID-generated password. */
+    public ?string $newPassword = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['newPassword'])) {
+            $this->newPassword = $data['newPassword'];
+        }
+    }
 }

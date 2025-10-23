@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcRegionGroup
 {
-    public function __construct(
-    ) {}
 }

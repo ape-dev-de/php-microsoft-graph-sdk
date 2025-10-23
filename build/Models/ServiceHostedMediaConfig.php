@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceHostedMediaConfig
 {
-    public function __construct(
-        /** The list of media to pre-fetch. */
-        public array $preFetchMedia = []
-    ) {}
+    /** 
+     * The list of media to pre-fetch.
+     * @var MediaInfo[]
+     */
+    public array $preFetchMedia = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['preFetchMedia'])) {
+            $this->preFetchMedia = $data['preFetchMedia'];
+        }
+    }
 }

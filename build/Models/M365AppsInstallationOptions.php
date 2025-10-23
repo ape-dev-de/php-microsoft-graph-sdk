@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class M365AppsInstallationOptions
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?AppsInstallationOptionsForMac $appsForMac = null,
-        /**  */
-        public ?AppsInstallationOptionsForWindows $appsForWindows = null,
-        /**  */
-        public ?AppsUpdateChannelType $updateChannel = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?AppsInstallationOptionsForMac $appsForMac = null;
+
+    /**  */
+    public ?AppsInstallationOptionsForWindows $appsForWindows = null;
+
+    /**  */
+    public ?AppsUpdateChannelType $updateChannel = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['appsForMac'])) {
+            $this->appsForMac = $data['appsForMac'];
+        }
+        if (isset($data['appsForWindows'])) {
+            $this->appsForWindows = $data['appsForWindows'];
+        }
+        if (isset($data['updateChannel'])) {
+            $this->updateChannel = $data['updateChannel'];
+        }
+    }
 }

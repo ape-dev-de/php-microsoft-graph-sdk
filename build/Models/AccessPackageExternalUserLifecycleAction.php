@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageExternalUserLifecycleAction
 {
-    public function __construct(
-    ) {}
 }

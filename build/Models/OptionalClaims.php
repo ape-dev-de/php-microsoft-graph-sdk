@@ -9,12 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OptionalClaims
 {
-    public function __construct(
-        /** The optional claims returned in the JWT access token. */
-        public array $accessToken = [],
-        /** The optional claims returned in the JWT ID token. */
-        public array $idToken = [],
-        /** The optional claims returned in the SAML token. */
-        public array $saml2Token = []
-    ) {}
+    /** 
+     * The optional claims returned in the JWT access token.
+     * @var OptionalClaim[]
+     */
+    public array $accessToken = [];
+
+    /** 
+     * The optional claims returned in the JWT ID token.
+     * @var OptionalClaim[]
+     */
+    public array $idToken = [];
+
+    /** 
+     * The optional claims returned in the SAML token.
+     * @var OptionalClaim[]
+     */
+    public array $saml2Token = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['accessToken'])) {
+            $this->accessToken = $data['accessToken'];
+        }
+        if (isset($data['idToken'])) {
+            $this->idToken = $data['idToken'];
+        }
+        if (isset($data['saml2Token'])) {
+            $this->saml2Token = $data['saml2Token'];
+        }
+    }
 }

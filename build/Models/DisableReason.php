@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DisableReason
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceMembershipChangeType
 {
-    public function __construct(
-    ) {}
 }

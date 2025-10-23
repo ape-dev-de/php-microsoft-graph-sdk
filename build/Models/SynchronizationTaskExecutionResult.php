@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationTaskExecutionResult
 {
-    public function __construct(
-    ) {}
 }

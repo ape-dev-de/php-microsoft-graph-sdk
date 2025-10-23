@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TargetApplicationOwners
 {
-    public function __construct(
-    ) {}
 }

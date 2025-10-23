@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScreenSharingRole
 {
-    public function __construct(
-    ) {}
 }

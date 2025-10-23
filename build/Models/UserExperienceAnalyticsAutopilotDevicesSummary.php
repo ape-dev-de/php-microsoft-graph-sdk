@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsAutopilotDevicesSummary
 {
-    public function __construct(
-        /** The count of intune devices that are not autopilot registerd. Read-only. */
-        public ?float $devicesNotAutopilotRegistered = null,
-        /** The count of intune devices not autopilot profile assigned. Read-only. */
-        public ?float $devicesWithoutAutopilotProfileAssigned = null,
-        /** The count of windows 10 devices that are Intune and co-managed. Read-only. */
-        public ?float $totalWindows10DevicesWithoutTenantAttached = null
-    ) {}
+    /** The count of intune devices that are not autopilot registerd. Read-only. */
+    public ?float $devicesNotAutopilotRegistered = null;
+
+    /** The count of intune devices not autopilot profile assigned. Read-only. */
+    public ?float $devicesWithoutAutopilotProfileAssigned = null;
+
+    /** The count of windows 10 devices that are Intune and co-managed. Read-only. */
+    public ?float $totalWindows10DevicesWithoutTenantAttached = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['devicesNotAutopilotRegistered'])) {
+            $this->devicesNotAutopilotRegistered = $data['devicesNotAutopilotRegistered'];
+        }
+        if (isset($data['devicesWithoutAutopilotProfileAssigned'])) {
+            $this->devicesWithoutAutopilotProfileAssigned = $data['devicesWithoutAutopilotProfileAssigned'];
+        }
+        if (isset($data['totalWindows10DevicesWithoutTenantAttached'])) {
+            $this->totalWindows10DevicesWithoutTenantAttached = $data['totalWindows10DevicesWithoutTenantAttached'];
+        }
+    }
 }

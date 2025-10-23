@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AutomaticUpdateMode
 {
-    public function __construct(
-    ) {}
 }

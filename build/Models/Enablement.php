@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Enablement
 {
-    public function __construct(
-    ) {}
 }

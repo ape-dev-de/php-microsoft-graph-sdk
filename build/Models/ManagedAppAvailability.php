@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppAvailability
 {
-    public function __construct(
-    ) {}
 }

@@ -9,20 +9,66 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsSegment
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Endpoint that answered this segment. */
-        public ?CallRecordsEndpoint $callee = null,
-        /** Endpoint that initiated this segment. */
-        public ?CallRecordsEndpoint $caller = null,
-        /** UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-        public ?\DateTimeInterface $endDateTime = null,
-        /** Failure information associated with the segment if it failed. */
-        public ?CallRecordsFailureInfo $failureInfo = null,
-        /** Media associated with this segment. */
-        public array $media = [],
-        /** UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-        public ?\DateTimeInterface $startDateTime = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Endpoint that answered this segment.
+     * @var CallRecordsEndpoint|\stdClass|null
+     */
+    public mixed $callee = null;
+
+    /** 
+     * Endpoint that initiated this segment.
+     * @var CallRecordsEndpoint|\stdClass|null
+     */
+    public mixed $caller = null;
+
+    /** UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    public ?\DateTimeInterface $endDateTime = null;
+
+    /** 
+     * Failure information associated with the segment if it failed.
+     * @var CallRecordsFailureInfo|\stdClass|null
+     */
+    public mixed $failureInfo = null;
+
+    /** 
+     * Media associated with this segment.
+     * @var CallRecordsMedia[]
+     */
+    public array $media = [];
+
+    /** UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    public ?\DateTimeInterface $startDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['callee'])) {
+            $this->callee = $data['callee'];
+        }
+        if (isset($data['caller'])) {
+            $this->caller = $data['caller'];
+        }
+        if (isset($data['endDateTime'])) {
+            $this->endDateTime = $data['endDateTime'];
+        }
+        if (isset($data['failureInfo'])) {
+            $this->failureInfo = $data['failureInfo'];
+        }
+        if (isset($data['media'])) {
+            $this->media = $data['media'];
+        }
+        if (isset($data['startDateTime'])) {
+            $this->startDateTime = $data['startDateTime'];
+        }
+    }
 }

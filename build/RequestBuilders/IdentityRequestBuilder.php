@@ -6,47 +6,163 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityContainer;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\IdentityContainerQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ApiConnectorsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationEventListenersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationEventsFlowsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\B2xUserFlowsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CustomAuthenticationExtensionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProvidersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\UserFlowAttributesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ConditionalAccessRequestBuilder;
 
 /**
- * Request builder for IdentityContainer
+ * Request builder for identity
  */
 class IdentityRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get identity
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param IdentityContainerQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return IdentityContainer
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?IdentityContainerQueryOptions $options = null, ?array $queryParameters = null): IdentityContainer
+    public function get(?array $select = null, ?array $expand = null): IdentityContainer
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, IdentityContainer::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new IdentityContainer
-     *
-     * @param IdentityContainer $item The item to create
-     * @return IdentityContainer
+     * Deserialize response to IdentityContainer
      */
-    public function post(IdentityContainer $item): IdentityContainer
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, IdentityContainer::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new IdentityContainer($data);
+    }
+    /**
+     * Update identity
+     * @param IdentityContainer $body Request body
+     * @return IdentityContainer
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(IdentityContainer $body): IdentityContainer
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to IdentityContainer
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new IdentityContainer($data);
+    }
+    /**
+     * Navigate to apiConnectors
+     *
+     * @return ApiConnectorsRequestBuilder
+     */
+    public function apiConnectors(): ApiConnectorsRequestBuilder
+    {
+        return new ApiConnectorsRequestBuilder($this->client, $this->requestUrl . '/apiConnectors');
+    }
+    /**
+     * Navigate to authenticationEventListeners
+     *
+     * @return AuthenticationEventListenersRequestBuilder
+     */
+    public function authenticationEventListeners(): AuthenticationEventListenersRequestBuilder
+    {
+        return new AuthenticationEventListenersRequestBuilder($this->client, $this->requestUrl . '/authenticationEventListeners');
+    }
+    /**
+     * Navigate to authenticationEventsFlows
+     *
+     * @return AuthenticationEventsFlowsRequestBuilder
+     */
+    public function authenticationEventsFlows(): AuthenticationEventsFlowsRequestBuilder
+    {
+        return new AuthenticationEventsFlowsRequestBuilder($this->client, $this->requestUrl . '/authenticationEventsFlows');
+    }
+    /**
+     * Navigate to b2xUserFlows
+     *
+     * @return B2xUserFlowsRequestBuilder
+     */
+    public function b2xUserFlows(): B2xUserFlowsRequestBuilder
+    {
+        return new B2xUserFlowsRequestBuilder($this->client, $this->requestUrl . '/b2xUserFlows');
+    }
+    /**
+     * Navigate to customAuthenticationExtensions
+     *
+     * @return CustomAuthenticationExtensionsRequestBuilder
+     */
+    public function customAuthenticationExtensions(): CustomAuthenticationExtensionsRequestBuilder
+    {
+        return new CustomAuthenticationExtensionsRequestBuilder($this->client, $this->requestUrl . '/customAuthenticationExtensions');
+    }
+    /**
+     * Navigate to identityProviders
+     *
+     * @return IdentityProvidersRequestBuilder
+     */
+    public function identityProviders(): IdentityProvidersRequestBuilder
+    {
+        return new IdentityProvidersRequestBuilder($this->client, $this->requestUrl . '/identityProviders');
+    }
+    /**
+     * Navigate to userFlowAttributes
+     *
+     * @return UserFlowAttributesRequestBuilder
+     */
+    public function userFlowAttributes(): UserFlowAttributesRequestBuilder
+    {
+        return new UserFlowAttributesRequestBuilder($this->client, $this->requestUrl . '/userFlowAttributes');
+    }
+    /**
+     * Navigate to conditionalAccess
+     *
+     * @return ConditionalAccessRequestBuilder
+     */
+    public function conditionalAccess(): ConditionalAccessRequestBuilder
+    {
+        return new ConditionalAccessRequestBuilder($this->client, $this->requestUrl . '/conditionalAccess');
+    }
 }

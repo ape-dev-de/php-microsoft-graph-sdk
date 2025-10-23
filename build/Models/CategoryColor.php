@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CategoryColor
 {
-    public function __construct(
-    ) {}
 }

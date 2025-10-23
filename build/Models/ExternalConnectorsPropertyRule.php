@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsPropertyRule
 {
-    public function __construct(
-        /**  */
-        public ?ExternalConnectorsRuleOperation $operation = null,
-        /** The property from the externalItem schema. Required. */
-        public ?string $property = null,
-        /** @var string[] A collection with one or many strings. One or more specified strings are matched with the specified property using the specified operation. Required. */
-        public array $values = [],
-        /**  */
-        public ?BinaryOperator $valuesJoinedBy = null
-    ) {}
+    /**  */
+    public ?ExternalConnectorsRuleOperation $operation = null;
+
+    /** The property from the externalItem schema. Required. */
+    public ?string $property = null;
+
+    /** 
+     * A collection with one or many strings. One or more specified strings are matched with the specified property using the specified operation. Required.
+     * @var string[]
+     */
+    public array $values = [];
+
+    /**  */
+    public ?BinaryOperator $valuesJoinedBy = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['operation'])) {
+            $this->operation = $data['operation'];
+        }
+        if (isset($data['property'])) {
+            $this->property = $data['property'];
+        }
+        if (isset($data['values'])) {
+            $this->values = $data['values'];
+        }
+        if (isset($data['valuesJoinedBy'])) {
+            $this->valuesJoinedBy = $data['valuesJoinedBy'];
+        }
+    }
 }

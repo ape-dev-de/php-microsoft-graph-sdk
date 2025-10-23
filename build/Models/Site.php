@@ -9,72 +9,282 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Site
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Identity of the user, device, or application that created the item. Read-only. */
-        public ?IdentitySet $createdBy = null,
-        /** Date and time of item creation. Read-only. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Provides a user-visible description of the item. Optional. */
-        public ?string $description = null,
-        /** ETag for the item. Read-only. */
-        public ?string $eTag = null,
-        /** Identity of the user, device, and application that last modified the item. Read-only. */
-        public ?IdentitySet $lastModifiedBy = null,
-        /** Date and time the item was last modified. Read-only. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The name of the item. Read-write. */
-        public ?string $name = null,
-        /** Parent information, if the item has a parent. Read-write. */
-        public ?ItemReference $parentReference = null,
-        /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
-        public ?string $webUrl = null,
-        /** Identity of the user who created the item. Read-only. */
-        public ?User $createdByUser = null,
-        /** Identity of the user who last modified the item. Read-only. */
-        public ?User $lastModifiedByUser = null,
-        /** The full title for the site. Read-only. */
-        public ?string $displayName = null,
-        /**  */
-        public ?PublicError $error = null,
-        /** Identifies whether the site is personal or not. Read-only. */
-        public ?bool $isPersonalSite = null,
-        /** If present, provides the root site in the site collection. Read-only. */
-        public ?Root $root = null,
-        /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-        public ?SharepointIds $sharepointIds = null,
-        /** Provides details about the site's site collection. Available only on the root site. Read-only. */
-        public ?SiteCollection $siteCollection = null,
-        /** Analytics about the view activities that took place on this site. */
-        public ?ItemAnalytics $analytics = null,
-        /** The collection of column definitions reusable across lists under this site. */
-        public array $columns = [],
-        /** The collection of content types defined for this site. */
-        public array $contentTypes = [],
-        /** The default drive (document library) for this site. */
-        public ?Drive $drive = null,
-        /** The collection of drives (document libraries) under this site. */
-        public array $drives = [],
-        /**  */
-        public array $externalColumns = [],
-        /** Used to address any item contained in this site. This collection can't be enumerated. */
-        public array $items = [],
-        /** The collection of lists under this site. */
-        public array $lists = [],
-        /** Calls the OneNote service for notebook related operations. */
-        public ?Onenote $onenote = null,
-        /** The collection of long-running operations on the site. */
-        public array $operations = [],
-        /** The collection of pages in the baseSitePages list in this site. */
-        public array $pages = [],
-        /** The permissions associated with the site. Nullable. */
-        public array $permissions = [],
-        /** The collection of the sub-sites under this site. */
-        public array $sites = [],
-        /** The default termStore under this site. */
-        public ?TermStoreStore $termStore = null,
-        /** The collection of termStores under this site. */
-        public array $termStores = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Identity of the user, device, or application that created the item. Read-only.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** Date and time of item creation. Read-only. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** Provides a user-visible description of the item. Optional. */
+    public ?string $description = null;
+
+    /** ETag for the item. Read-only. */
+    public ?string $eTag = null;
+
+    /** 
+     * Identity of the user, device, and application that last modified the item. Read-only.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /** Date and time the item was last modified. Read-only. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** The name of the item. Read-write. */
+    public ?string $name = null;
+
+    /** 
+     * Parent information, if the item has a parent. Read-write.
+     * @var ItemReference|\stdClass|null
+     */
+    public mixed $parentReference = null;
+
+    /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
+    public ?string $webUrl = null;
+
+    /** 
+     * Identity of the user who created the item. Read-only.
+     * @var User|\stdClass|null
+     */
+    public mixed $createdByUser = null;
+
+    /** 
+     * Identity of the user who last modified the item. Read-only.
+     * @var User|\stdClass|null
+     */
+    public mixed $lastModifiedByUser = null;
+
+    /** The full title for the site. Read-only. */
+    public ?string $displayName = null;
+
+    /** 
+     * 
+     * @var PublicError|\stdClass|null
+     */
+    public mixed $error = null;
+
+    /** Identifies whether the site is personal or not. Read-only. */
+    public ?bool $isPersonalSite = null;
+
+    /** 
+     * If present, provides the root site in the site collection. Read-only.
+     * @var Root|\stdClass|null
+     */
+    public mixed $root = null;
+
+    /** 
+     * Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * @var SharepointIds|\stdClass|null
+     */
+    public mixed $sharepointIds = null;
+
+    /** 
+     * Provides details about the site's site collection. Available only on the root site. Read-only.
+     * @var SiteCollection|\stdClass|null
+     */
+    public mixed $siteCollection = null;
+
+    /** 
+     * Analytics about the view activities that took place on this site.
+     * @var ItemAnalytics|\stdClass|null
+     */
+    public mixed $analytics = null;
+
+    /** 
+     * The collection of column definitions reusable across lists under this site.
+     * @var ColumnDefinition[]
+     */
+    public array $columns = [];
+
+    /** 
+     * The collection of content types defined for this site.
+     * @var ContentType[]
+     */
+    public array $contentTypes = [];
+
+    /** 
+     * The default drive (document library) for this site.
+     * @var Drive|\stdClass|null
+     */
+    public mixed $drive = null;
+
+    /** 
+     * The collection of drives (document libraries) under this site.
+     * @var Drive[]
+     */
+    public array $drives = [];
+
+    /** 
+     * 
+     * @var ColumnDefinition[]
+     */
+    public array $externalColumns = [];
+
+    /** 
+     * Used to address any item contained in this site. This collection can't be enumerated.
+     * @var BaseItem[]
+     */
+    public array $items = [];
+
+    /** 
+     * The collection of lists under this site.
+     * @var ListModel[]
+     */
+    public array $lists = [];
+
+    /** 
+     * Calls the OneNote service for notebook related operations.
+     * @var Onenote|\stdClass|null
+     */
+    public mixed $onenote = null;
+
+    /** 
+     * The collection of long-running operations on the site.
+     * @var RichLongRunningOperation[]
+     */
+    public array $operations = [];
+
+    /** 
+     * The collection of pages in the baseSitePages list in this site.
+     * @var BaseSitePage[]
+     */
+    public array $pages = [];
+
+    /** 
+     * The permissions associated with the site. Nullable.
+     * @var Permission[]
+     */
+    public array $permissions = [];
+
+    /** 
+     * The collection of the sub-sites under this site.
+     * @var Site[]
+     */
+    public array $sites = [];
+
+    /** 
+     * The default termStore under this site.
+     * @var TermStoreStore|\stdClass|null
+     */
+    public mixed $termStore = null;
+
+    /** 
+     * The collection of termStores under this site.
+     * @var TermStoreStore[]
+     */
+    public array $termStores = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['eTag'])) {
+            $this->eTag = $data['eTag'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['parentReference'])) {
+            $this->parentReference = $data['parentReference'];
+        }
+        if (isset($data['webUrl'])) {
+            $this->webUrl = $data['webUrl'];
+        }
+        if (isset($data['createdByUser'])) {
+            $this->createdByUser = $data['createdByUser'];
+        }
+        if (isset($data['lastModifiedByUser'])) {
+            $this->lastModifiedByUser = $data['lastModifiedByUser'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+        if (isset($data['isPersonalSite'])) {
+            $this->isPersonalSite = $data['isPersonalSite'];
+        }
+        if (isset($data['root'])) {
+            $this->root = $data['root'];
+        }
+        if (isset($data['sharepointIds'])) {
+            $this->sharepointIds = $data['sharepointIds'];
+        }
+        if (isset($data['siteCollection'])) {
+            $this->siteCollection = $data['siteCollection'];
+        }
+        if (isset($data['analytics'])) {
+            $this->analytics = $data['analytics'];
+        }
+        if (isset($data['columns'])) {
+            $this->columns = $data['columns'];
+        }
+        if (isset($data['contentTypes'])) {
+            $this->contentTypes = $data['contentTypes'];
+        }
+        if (isset($data['drive'])) {
+            $this->drive = $data['drive'];
+        }
+        if (isset($data['drives'])) {
+            $this->drives = $data['drives'];
+        }
+        if (isset($data['externalColumns'])) {
+            $this->externalColumns = $data['externalColumns'];
+        }
+        if (isset($data['items'])) {
+            $this->items = $data['items'];
+        }
+        if (isset($data['lists'])) {
+            $this->lists = $data['lists'];
+        }
+        if (isset($data['onenote'])) {
+            $this->onenote = $data['onenote'];
+        }
+        if (isset($data['operations'])) {
+            $this->operations = $data['operations'];
+        }
+        if (isset($data['pages'])) {
+            $this->pages = $data['pages'];
+        }
+        if (isset($data['permissions'])) {
+            $this->permissions = $data['permissions'];
+        }
+        if (isset($data['sites'])) {
+            $this->sites = $data['sites'];
+        }
+        if (isset($data['termStore'])) {
+            $this->termStore = $data['termStore'];
+        }
+        if (isset($data['termStores'])) {
+            $this->termStores = $data['termStores'];
+        }
+    }
 }

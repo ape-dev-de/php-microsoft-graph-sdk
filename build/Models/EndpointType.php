@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EndpointType
 {
-    public function __construct(
-    ) {}
 }

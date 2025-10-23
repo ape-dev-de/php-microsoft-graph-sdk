@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppRegistryRuleOperationType
 {
-    public function __construct(
-    ) {}
 }

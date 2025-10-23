@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NativeAuthenticationApisEnabled
 {
-    public function __construct(
-    ) {}
 }

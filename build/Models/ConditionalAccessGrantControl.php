@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessGrantControl
 {
-    public function __construct(
-    ) {}
 }

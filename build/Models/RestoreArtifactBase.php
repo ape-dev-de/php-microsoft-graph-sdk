@@ -9,20 +9,66 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestoreArtifactBase
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The time when restoration of restore artifact is completed. */
-        public ?\DateTimeInterface $completionDateTime = null,
-        /** Indicates the restoration destination. The possible values are: new, inPlace, unknownFutureValue. */
-        public ?DestinationType $destinationType = null,
-        /** Contains error details if the restore session fails or completes with an error. */
-        public ?PublicError $error = null,
-        /** The time when restoration of restore artifact is started. */
-        public ?\DateTimeInterface $startDateTime = null,
-        /** The individual restoration status of the restore artifact. The possible values are: added, scheduling, scheduled, inProgress, succeeded, failed, unknownFutureValue. */
-        public ?ArtifactRestoreStatus $status = null,
-        /** Represents the date and time when an artifact is protected by a protectionPolicy and can be restored. */
-        public ?RestorePoint $restorePoint = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The time when restoration of restore artifact is completed. */
+    public ?\DateTimeInterface $completionDateTime = null;
+
+    /** 
+     * Indicates the restoration destination. The possible values are: new, inPlace, unknownFutureValue.
+     * @var DestinationType|\stdClass|null
+     */
+    public mixed $destinationType = null;
+
+    /** 
+     * Contains error details if the restore session fails or completes with an error.
+     * @var PublicError|\stdClass|null
+     */
+    public mixed $error = null;
+
+    /** The time when restoration of restore artifact is started. */
+    public ?\DateTimeInterface $startDateTime = null;
+
+    /** 
+     * The individual restoration status of the restore artifact. The possible values are: added, scheduling, scheduled, inProgress, succeeded, failed, unknownFutureValue.
+     * @var ArtifactRestoreStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+    /** 
+     * Represents the date and time when an artifact is protected by a protectionPolicy and can be restored.
+     * @var RestorePoint|\stdClass|null
+     */
+    public mixed $restorePoint = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['completionDateTime'])) {
+            $this->completionDateTime = $data['completionDateTime'];
+        }
+        if (isset($data['destinationType'])) {
+            $this->destinationType = $data['destinationType'];
+        }
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+        if (isset($data['startDateTime'])) {
+            $this->startDateTime = $data['startDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['restorePoint'])) {
+            $this->restorePoint = $data['restorePoint'];
+        }
+    }
 }

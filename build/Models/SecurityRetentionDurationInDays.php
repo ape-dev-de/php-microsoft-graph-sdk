@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityRetentionDurationInDays
 {
-    public function __construct(
-        /** Specifies the time period in days for which an item with the applied retention label will be retained for. */
-        public ?float $days = null
-    ) {}
+    /** Specifies the time period in days for which an item with the applied retention label will be retained for. */
+    public ?float $days = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['days'])) {
+            $this->days = $data['days'];
+        }
+    }
 }

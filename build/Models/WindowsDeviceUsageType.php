@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeviceUsageType
 {
-    public function __construct(
-    ) {}
 }

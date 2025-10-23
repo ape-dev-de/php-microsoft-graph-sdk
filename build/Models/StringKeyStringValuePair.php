@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class StringKeyStringValuePair
 {
-    public function __construct(
-        /** Key. */
-        public ?string $key = null,
-        /** Value. */
-        public ?string $value = null
-    ) {}
+    /** Key. */
+    public ?string $key = null;
+
+    /** Value. */
+    public ?string $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['key'])) {
+            $this->key = $data['key'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

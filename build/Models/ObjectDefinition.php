@@ -9,14 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectDefinition
 {
-    public function __construct(
-        /** Defines attributes of the object. */
-        public array $attributes = [],
-        /** Metadata for the given object. */
-        public array $metadata = [],
-        /** Name of the object. Must be unique within a directory definition. Not nullable. */
-        public ?string $name = null,
-        /** @var string[] The API that the provisioning service queries to retrieve data for synchronization. */
-        public array $supportedApis = []
-    ) {}
+    /** 
+     * Defines attributes of the object.
+     * @var AttributeDefinition[]
+     */
+    public array $attributes = [];
+
+    /** 
+     * Metadata for the given object.
+     * @var ObjectDefinitionMetadataEntry[]
+     */
+    public array $metadata = [];
+
+    /** Name of the object. Must be unique within a directory definition. Not nullable. */
+    public ?string $name = null;
+
+    /** 
+     * The API that the provisioning service queries to retrieve data for synchronization.
+     * @var string[]
+     */
+    public array $supportedApis = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['attributes'])) {
+            $this->attributes = $data['attributes'];
+        }
+        if (isset($data['metadata'])) {
+            $this->metadata = $data['metadata'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['supportedApis'])) {
+            $this->supportedApis = $data['supportedApis'];
+        }
+    }
 }

@@ -9,26 +9,75 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementPartner
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Partner display name */
-        public ?string $displayName = null,
-        /** User groups that specifies whether enrollment is through partner. */
-        public array $groupsRequiringPartnerEnrollment = [],
-        /** Whether device management partner is configured or not */
-        public ?bool $isConfigured = null,
-        /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
-        public ?\DateTimeInterface $lastHeartbeatDateTime = null,
-        /**  */
-        public ?DeviceManagementPartnerAppType $partnerAppType = null,
-        /**  */
-        public ?DeviceManagementPartnerTenantState $partnerState = null,
-        /** Partner Single tenant App id */
-        public ?string $singleTenantAppId = null,
-        /** DateTime in UTC when PartnerDevices will be marked as NonCompliant */
-        public ?\DateTimeInterface $whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = null,
-        /** DateTime in UTC when PartnerDevices will be removed */
-        public ?\DateTimeInterface $whenPartnerDevicesWillBeRemovedDateTime = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Partner display name */
+    public ?string $displayName = null;
+
+    /** 
+     * User groups that specifies whether enrollment is through partner.
+     * @var DeviceManagementPartnerAssignment[]
+     */
+    public array $groupsRequiringPartnerEnrollment = [];
+
+    /** Whether device management partner is configured or not */
+    public ?bool $isConfigured = null;
+
+    /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
+    public ?\DateTimeInterface $lastHeartbeatDateTime = null;
+
+    /**  */
+    public ?DeviceManagementPartnerAppType $partnerAppType = null;
+
+    /**  */
+    public ?DeviceManagementPartnerTenantState $partnerState = null;
+
+    /** Partner Single tenant App id */
+    public ?string $singleTenantAppId = null;
+
+    /** DateTime in UTC when PartnerDevices will be marked as NonCompliant */
+    public ?\DateTimeInterface $whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = null;
+
+    /** DateTime in UTC when PartnerDevices will be removed */
+    public ?\DateTimeInterface $whenPartnerDevicesWillBeRemovedDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['groupsRequiringPartnerEnrollment'])) {
+            $this->groupsRequiringPartnerEnrollment = $data['groupsRequiringPartnerEnrollment'];
+        }
+        if (isset($data['isConfigured'])) {
+            $this->isConfigured = $data['isConfigured'];
+        }
+        if (isset($data['lastHeartbeatDateTime'])) {
+            $this->lastHeartbeatDateTime = $data['lastHeartbeatDateTime'];
+        }
+        if (isset($data['partnerAppType'])) {
+            $this->partnerAppType = $data['partnerAppType'];
+        }
+        if (isset($data['partnerState'])) {
+            $this->partnerState = $data['partnerState'];
+        }
+        if (isset($data['singleTenantAppId'])) {
+            $this->singleTenantAppId = $data['singleTenantAppId'];
+        }
+        if (isset($data['whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime'])) {
+            $this->whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = $data['whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime'];
+        }
+        if (isset($data['whenPartnerDevicesWillBeRemovedDateTime'])) {
+            $this->whenPartnerDevicesWillBeRemovedDateTime = $data['whenPartnerDevicesWillBeRemovedDateTime'];
+        }
+    }
 }

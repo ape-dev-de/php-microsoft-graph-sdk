@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessAction
 {
-    public function __construct(
-    ) {}
 }

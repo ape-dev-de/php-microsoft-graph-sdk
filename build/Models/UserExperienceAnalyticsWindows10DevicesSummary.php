@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsWindows10DevicesSummary
 {
-    public function __construct(
-        /** The count of Windows 10 devices that have unsupported OS versions. Read-only. */
-        public ?float $unsupportedOSversionDeviceCount = null
-    ) {}
+    /** The count of Windows 10 devices that have unsupported OS versions. Read-only. */
+    public ?float $unsupportedOSversionDeviceCount = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['unsupportedOSversionDeviceCount'])) {
+            $this->unsupportedOSversionDeviceCount = $data['unsupportedOSversionDeviceCount'];
+        }
+    }
 }

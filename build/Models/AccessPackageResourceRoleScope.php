@@ -9,14 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageResourceRoleScope
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /**  */
-        public ?AccessPackageResourceRole $role = null,
-        /**  */
-        public ?AccessPackageResourceScope $scope = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** 
+     * 
+     * @var AccessPackageResourceRole|\stdClass|null
+     */
+    public mixed $role = null;
+
+    /** 
+     * 
+     * @var AccessPackageResourceScope|\stdClass|null
+     */
+    public mixed $scope = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['role'])) {
+            $this->role = $data['role'];
+        }
+        if (isset($data['scope'])) {
+            $this->scope = $data['scope'];
+        }
+    }
 }

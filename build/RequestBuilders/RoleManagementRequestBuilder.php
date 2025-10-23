@@ -6,47 +6,103 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\RoleManagement;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\RoleManagementQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EntitlementManagementRequestBuilder;
 
 /**
- * Request builder for RoleManagement
+ * Request builder for roleManagement
  */
 class RoleManagementRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get roleManagement
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param RoleManagementQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return RoleManagement
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?RoleManagementQueryOptions $options = null, ?array $queryParameters = null): RoleManagement
+    public function get(?array $select = null, ?array $expand = null): RoleManagement
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, RoleManagement::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new RoleManagement
-     *
-     * @param RoleManagement $item The item to create
-     * @return RoleManagement
+     * Deserialize response to RoleManagement
      */
-    public function post(RoleManagement $item): RoleManagement
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, RoleManagement::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new RoleManagement($data);
+    }
+    /**
+     * Update roleManagement
+     * @param RoleManagement $body Request body
+     * @return RoleManagement
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(RoleManagement $body): RoleManagement
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to RoleManagement
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new RoleManagement($data);
+    }
+    /**
+     * Navigate to directory
+     *
+     * @return DirectoryRequestBuilder
+     */
+    public function directory(): DirectoryRequestBuilder
+    {
+        return new DirectoryRequestBuilder($this->client, $this->requestUrl . '/directory');
+    }
+    /**
+     * Navigate to entitlementManagement
+     *
+     * @return EntitlementManagementRequestBuilder
+     */
+    public function entitlementManagement(): EntitlementManagementRequestBuilder
+    {
+        return new EntitlementManagementRequestBuilder($this->client, $this->requestUrl . '/entitlementManagement');
+    }
 }

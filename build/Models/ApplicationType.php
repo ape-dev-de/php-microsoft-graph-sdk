@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApplicationType
 {
-    public function __construct(
-    ) {}
 }

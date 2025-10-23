@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSignIn
 {
-    public function __construct(
-        /** TenantId of the guest user as applies to Microsoft Entra B2B scenarios. */
-        public ?string $externalTenantId = null,
-        /**  */
-        public ?ConditionalAccessGuestOrExternalUserTypes $externalUserType = null,
-        /** Object ID of the user. */
-        public ?string $userId = null
-    ) {}
+    /** TenantId of the guest user as applies to Microsoft Entra B2B scenarios. */
+    public ?string $externalTenantId = null;
+
+    /**  */
+    public ?ConditionalAccessGuestOrExternalUserTypes $externalUserType = null;
+
+    /** Object ID of the user. */
+    public ?string $userId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['externalTenantId'])) {
+            $this->externalTenantId = $data['externalTenantId'];
+        }
+        if (isset($data['externalUserType'])) {
+            $this->externalUserType = $data['externalUserType'];
+        }
+        if (isset($data['userId'])) {
+            $this->userId = $data['userId'];
+        }
+    }
 }

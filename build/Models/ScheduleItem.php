@@ -9,18 +9,57 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScheduleItem
 {
-    public function __construct(
-        /** The date, time, and time zone that the corresponding event ends. */
-        public ?DateTimeTimeZone $end = null,
-        /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
-        public ?bool $isPrivate = null,
-        /** The location where the corresponding event is held or attended from. Optional. */
-        public ?string $location = null,
-        /** The date, time, and time zone that the corresponding event starts. */
-        public ?DateTimeTimeZone $start = null,
-        /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-        public ?FreeBusyStatus $status = null,
-        /** The corresponding event's subject line. Optional. */
-        public ?string $subject = null
-    ) {}
+    /** 
+     * The date, time, and time zone that the corresponding event ends.
+     * @var DateTimeTimeZone|\stdClass|null
+     */
+    public mixed $end = null;
+
+    /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
+    public ?bool $isPrivate = null;
+
+    /** The location where the corresponding event is held or attended from. Optional. */
+    public ?string $location = null;
+
+    /** 
+     * The date, time, and time zone that the corresponding event starts.
+     * @var DateTimeTimeZone|\stdClass|null
+     */
+    public mixed $start = null;
+
+    /** 
+     * The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * @var FreeBusyStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+    /** The corresponding event's subject line. Optional. */
+    public ?string $subject = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['end'])) {
+            $this->end = $data['end'];
+        }
+        if (isset($data['isPrivate'])) {
+            $this->isPrivate = $data['isPrivate'];
+        }
+        if (isset($data['location'])) {
+            $this->location = $data['location'];
+        }
+        if (isset($data['start'])) {
+            $this->start = $data['start'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['subject'])) {
+            $this->subject = $data['subject'];
+        }
+    }
 }

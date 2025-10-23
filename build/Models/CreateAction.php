@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CreateAction
 {
-    public function __construct(
-    ) {}
 }

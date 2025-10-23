@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionType
 {
-    public function __construct(
-    ) {}
 }

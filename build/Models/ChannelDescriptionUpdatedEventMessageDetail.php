@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChannelDescriptionUpdatedEventMessageDetail
 {
-    public function __construct(
-        /** The updated description of the channel. */
-        public ?string $channelDescription = null,
-        /** Unique identifier of the channel. */
-        public ?string $channelId = null,
-        /** Initiator of the event. */
-        public ?IdentitySet $initiator = null
-    ) {}
+    /** The updated description of the channel. */
+    public ?string $channelDescription = null;
+
+    /** Unique identifier of the channel. */
+    public ?string $channelId = null;
+
+    /** 
+     * Initiator of the event.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['channelDescription'])) {
+            $this->channelDescription = $data['channelDescription'];
+        }
+        if (isset($data['channelId'])) {
+            $this->channelId = $data['channelId'];
+        }
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+    }
 }

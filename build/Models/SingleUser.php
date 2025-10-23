@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SingleUser
 {
-    public function __construct(
-        /** The name of the user in Microsoft Entra ID. Read-only. */
-        public ?string $description = null,
-        /** The ID of the user in Microsoft Entra ID. */
-        public ?string $userId = null
-    ) {}
+    /** The name of the user in Microsoft Entra ID. Read-only. */
+    public ?string $description = null;
+
+    /** The ID of the user in Microsoft Entra ID. */
+    public ?string $userId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['userId'])) {
+            $this->userId = $data['userId'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GroupType
 {
-    public function __construct(
-    ) {}
 }

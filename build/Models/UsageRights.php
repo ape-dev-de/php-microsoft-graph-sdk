@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UsageRights
 {
-    public function __construct(
-    ) {}
 }

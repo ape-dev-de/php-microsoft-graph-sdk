@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityAntispamTeamsDirection
 {
-    public function __construct(
-    ) {}
 }

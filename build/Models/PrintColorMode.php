@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintColorMode
 {
-    public function __construct(
-    ) {}
 }

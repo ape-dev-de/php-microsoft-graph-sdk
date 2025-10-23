@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MigrationStatus
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsServiceRole
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScopeOperatorType
 {
-    public function __construct(
-    ) {}
 }

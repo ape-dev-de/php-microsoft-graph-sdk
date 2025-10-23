@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppRestartSettings
 {
-    public function __construct(
-        /** The number of minutes before the restart time to display the countdown dialog for pending restarts. */
-        public ?float $countdownDisplayBeforeRestartInMinutes = null,
-        /** The number of minutes to wait before restarting the device after an app installation. */
-        public ?float $gracePeriodInMinutes = null,
-        /** The number of minutes to snooze the restart notification dialog when the snooze button is selected. */
-        public ?float $restartNotificationSnoozeDurationInMinutes = null
-    ) {}
+    /** The number of minutes before the restart time to display the countdown dialog for pending restarts. */
+    public ?float $countdownDisplayBeforeRestartInMinutes = null;
+
+    /** The number of minutes to wait before restarting the device after an app installation. */
+    public ?float $gracePeriodInMinutes = null;
+
+    /** The number of minutes to snooze the restart notification dialog when the snooze button is selected. */
+    public ?float $restartNotificationSnoozeDurationInMinutes = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['countdownDisplayBeforeRestartInMinutes'])) {
+            $this->countdownDisplayBeforeRestartInMinutes = $data['countdownDisplayBeforeRestartInMinutes'];
+        }
+        if (isset($data['gracePeriodInMinutes'])) {
+            $this->gracePeriodInMinutes = $data['gracePeriodInMinutes'];
+        }
+        if (isset($data['restartNotificationSnoozeDurationInMinutes'])) {
+            $this->restartNotificationSnoozeDurationInMinutes = $data['restartNotificationSnoozeDurationInMinutes'];
+        }
+    }
 }

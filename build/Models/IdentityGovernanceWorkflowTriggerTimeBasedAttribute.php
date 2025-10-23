@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceWorkflowTriggerTimeBasedAttribute
 {
-    public function __construct(
-    ) {}
 }

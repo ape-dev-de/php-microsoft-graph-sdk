@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Recipient
 {
-    public function __construct(
-        /** The recipient's email address. */
-        public ?EmailAddress $emailAddress = null
-    ) {}
+    /** 
+     * The recipient's email address.
+     * @var EmailAddress|\stdClass|null
+     */
+    public mixed $emailAddress = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['emailAddress'])) {
+            $this->emailAddress = $data['emailAddress'];
+        }
+    }
 }

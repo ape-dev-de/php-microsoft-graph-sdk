@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Operation
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The start time of the operation. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** The time of the last action of the operation. */
-        public ?\DateTimeInterface $lastActionDateTime = null,
-        /** The current status of the operation: notStarted, running, completed, failed */
-        public ?OperationStatus $status = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The start time of the operation. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** The time of the last action of the operation. */
+    public ?\DateTimeInterface $lastActionDateTime = null;
+
+    /** 
+     * The current status of the operation: notStarted, running, completed, failed
+     * @var OperationStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['lastActionDateTime'])) {
+            $this->lastActionDateTime = $data['lastActionDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

@@ -9,30 +9,102 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedDeviceMobileAppConfiguration
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** DateTime the object was created. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Admin provided description of the Device Configuration. */
-        public ?string $description = null,
-        /** Admin provided name of the device configuration. */
-        public ?string $displayName = null,
-        /** DateTime the object was last modified. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** @var string[] the associated app. */
-        public array $targetedMobileApps = [],
-        /** Version of the device configuration. */
-        public ?float $version = null,
-        /** The list of group assignemenets for app configration. */
-        public array $assignments = [],
-        /** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
-        public array $deviceStatuses = [],
-        /** App configuration device status summary. */
-        public ?ManagedDeviceMobileAppConfigurationDeviceSummary $deviceStatusSummary = null,
-        /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
-        public array $userStatuses = [],
-        /** App configuration user status summary. */
-        public ?ManagedDeviceMobileAppConfigurationUserSummary $userStatusSummary = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** DateTime the object was created. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** Admin provided description of the Device Configuration. */
+    public ?string $description = null;
+
+    /** Admin provided name of the device configuration. */
+    public ?string $displayName = null;
+
+    /** DateTime the object was last modified. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** 
+     * the associated app.
+     * @var string[]
+     */
+    public array $targetedMobileApps = [];
+
+    /** Version of the device configuration. */
+    public ?float $version = null;
+
+    /** 
+     * The list of group assignemenets for app configration.
+     * @var ManagedDeviceMobileAppConfigurationAssignment[]
+     */
+    public array $assignments = [];
+
+    /** 
+     * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+     * @var ManagedDeviceMobileAppConfigurationDeviceStatus[]
+     */
+    public array $deviceStatuses = [];
+
+    /** 
+     * App configuration device status summary.
+     * @var ManagedDeviceMobileAppConfigurationDeviceSummary|\stdClass|null
+     */
+    public mixed $deviceStatusSummary = null;
+
+    /** 
+     * List of ManagedDeviceMobileAppConfigurationUserStatus.
+     * @var ManagedDeviceMobileAppConfigurationUserStatus[]
+     */
+    public array $userStatuses = [];
+
+    /** 
+     * App configuration user status summary.
+     * @var ManagedDeviceMobileAppConfigurationUserSummary|\stdClass|null
+     */
+    public mixed $userStatusSummary = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['targetedMobileApps'])) {
+            $this->targetedMobileApps = $data['targetedMobileApps'];
+        }
+        if (isset($data['version'])) {
+            $this->version = $data['version'];
+        }
+        if (isset($data['assignments'])) {
+            $this->assignments = $data['assignments'];
+        }
+        if (isset($data['deviceStatuses'])) {
+            $this->deviceStatuses = $data['deviceStatuses'];
+        }
+        if (isset($data['deviceStatusSummary'])) {
+            $this->deviceStatusSummary = $data['deviceStatusSummary'];
+        }
+        if (isset($data['userStatuses'])) {
+            $this->userStatuses = $data['userStatuses'];
+        }
+        if (isset($data['userStatusSummary'])) {
+            $this->userStatusSummary = $data['userStatusSummary'];
+        }
+    }
 }

@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppConsentRequestScope
 {
-    public function __construct(
-        /** The name of the scope. */
-        public ?string $displayName = null
-    ) {}
+    /** The name of the scope. */
+    public ?string $displayName = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+    }
 }

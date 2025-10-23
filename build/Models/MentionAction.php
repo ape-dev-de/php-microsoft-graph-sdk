@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MentionAction
 {
-    public function __construct(
-        /** The identities of the users mentioned in this action. */
-        public array $mentionees = []
-    ) {}
+    /** 
+     * The identities of the users mentioned in this action.
+     * @var IdentitySet[]
+     */
+    public array $mentionees = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['mentionees'])) {
+            $this->mentionees = $data['mentionees'];
+        }
+    }
 }

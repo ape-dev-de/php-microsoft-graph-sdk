@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionCalloutInstanceStatus
 {
-    public function __construct(
-    ) {}
 }

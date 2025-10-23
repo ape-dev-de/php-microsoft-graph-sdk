@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationAttackTechnique
 {
-    public function __construct(
-    ) {}
 }

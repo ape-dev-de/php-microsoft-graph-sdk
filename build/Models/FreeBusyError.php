@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FreeBusyError
 {
-    public function __construct(
-        /** Describes the error. */
-        public ?string $message = null,
-        /** The response code from querying for the availability of the user, distribution list, or resource. */
-        public ?string $responseCode = null
-    ) {}
+    /** Describes the error. */
+    public ?string $message = null;
+
+    /** The response code from querying for the availability of the user, distribution list, or resource. */
+    public ?string $responseCode = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['message'])) {
+            $this->message = $data['message'];
+        }
+        if (isset($data['responseCode'])) {
+            $this->responseCode = $data['responseCode'];
+        }
+    }
 }

@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DevicesFilter
 {
-    public function __construct(
-        /** Determines whether devices that satisfy the rule should be allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue. */
-        public ?CrossTenantAccessPolicyTargetConfigurationAccessType $mode = null,
-        /** Defines the rule to filter the devices. For example, device.deviceAttribute2 -eq 'PrivilegedAccessWorkstation'. */
-        public ?string $rule = null
-    ) {}
+    /** 
+     * Determines whether devices that satisfy the rule should be allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.
+     * @var CrossTenantAccessPolicyTargetConfigurationAccessType|\stdClass|null
+     */
+    public mixed $mode = null;
+
+    /** Defines the rule to filter the devices. For example, device.deviceAttribute2 -eq 'PrivilegedAccessWorkstation'. */
+    public ?string $rule = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['mode'])) {
+            $this->mode = $data['mode'];
+        }
+        if (isset($data['rule'])) {
+            $this->rule = $data['rule'];
+        }
+    }
 }

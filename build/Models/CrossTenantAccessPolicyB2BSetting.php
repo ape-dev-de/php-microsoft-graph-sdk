@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyB2BSetting
 {
-    public function __construct(
-        /** The list of applications targeted with your cross-tenant access policy. */
-        public ?CrossTenantAccessPolicyTargetConfiguration $applications = null,
-        /** The list of users and groups targeted with your cross-tenant access policy. */
-        public ?CrossTenantAccessPolicyTargetConfiguration $usersAndGroups = null
-    ) {}
+    /** 
+     * The list of applications targeted with your cross-tenant access policy.
+     * @var CrossTenantAccessPolicyTargetConfiguration|\stdClass|null
+     */
+    public mixed $applications = null;
+
+    /** 
+     * The list of users and groups targeted with your cross-tenant access policy.
+     * @var CrossTenantAccessPolicyTargetConfiguration|\stdClass|null
+     */
+    public mixed $usersAndGroups = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['applications'])) {
+            $this->applications = $data['applications'];
+        }
+        if (isset($data['usersAndGroups'])) {
+            $this->usersAndGroups = $data['usersAndGroups'];
+        }
+    }
 }

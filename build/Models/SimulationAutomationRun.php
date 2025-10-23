@@ -9,16 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationAutomationRun
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Date and time when the run ends in an attack simulation automation. */
-        public ?\DateTimeInterface $endDateTime = null,
-        /** Unique identifier for the attack simulation campaign initiated in the attack simulation automation run. */
-        public ?string $simulationId = null,
-        /** Date and time when the run starts in an attack simulation automation. */
-        public ?\DateTimeInterface $startDateTime = null,
-        /** Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue. */
-        public ?SimulationAutomationRunStatus $status = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Date and time when the run ends in an attack simulation automation. */
+    public ?\DateTimeInterface $endDateTime = null;
+
+    /** Unique identifier for the attack simulation campaign initiated in the attack simulation automation run. */
+    public ?string $simulationId = null;
+
+    /** Date and time when the run starts in an attack simulation automation. */
+    public ?\DateTimeInterface $startDateTime = null;
+
+    /** 
+     * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+     * @var SimulationAutomationRunStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['endDateTime'])) {
+            $this->endDateTime = $data['endDateTime'];
+        }
+        if (isset($data['simulationId'])) {
+            $this->simulationId = $data['simulationId'];
+        }
+        if (isset($data['startDateTime'])) {
+            $this->startDateTime = $data['startDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

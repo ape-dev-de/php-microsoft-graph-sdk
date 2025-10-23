@@ -9,20 +9,75 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintModel
 {
-    public function __construct(
-        /** Tenant-wide settings for the Universal Print service. */
-        public ?PrintSettings $settings = null,
-        /** The list of available print connectors. */
-        public array $connectors = [],
-        /** The list of print long running operations. */
-        public array $operations = [],
-        /** The list of printers registered in the tenant. */
-        public array $printers = [],
-        /** The list of available Universal Print service endpoints. */
-        public array $services = [],
-        /** The list of printer shares registered in the tenant. */
-        public array $shares = [],
-        /** List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
-        public array $taskDefinitions = []
-    ) {}
+    /** 
+     * Tenant-wide settings for the Universal Print service.
+     * @var PrintSettings|\stdClass|null
+     */
+    public mixed $settings = null;
+
+    /** 
+     * The list of available print connectors.
+     * @var PrintConnector[]
+     */
+    public array $connectors = [];
+
+    /** 
+     * The list of print long running operations.
+     * @var PrintOperation[]
+     */
+    public array $operations = [];
+
+    /** 
+     * The list of printers registered in the tenant.
+     * @var Printer[]
+     */
+    public array $printers = [];
+
+    /** 
+     * The list of available Universal Print service endpoints.
+     * @var PrintService[]
+     */
+    public array $services = [];
+
+    /** 
+     * The list of printer shares registered in the tenant.
+     * @var PrinterShare[]
+     */
+    public array $shares = [];
+
+    /** 
+     * List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+     * @var PrintTaskDefinition[]
+     */
+    public array $taskDefinitions = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['settings'])) {
+            $this->settings = $data['settings'];
+        }
+        if (isset($data['connectors'])) {
+            $this->connectors = $data['connectors'];
+        }
+        if (isset($data['operations'])) {
+            $this->operations = $data['operations'];
+        }
+        if (isset($data['printers'])) {
+            $this->printers = $data['printers'];
+        }
+        if (isset($data['services'])) {
+            $this->services = $data['services'];
+        }
+        if (isset($data['shares'])) {
+            $this->shares = $data['shares'];
+        }
+        if (isset($data['taskDefinitions'])) {
+            $this->taskDefinitions = $data['taskDefinitions'];
+        }
+    }
 }

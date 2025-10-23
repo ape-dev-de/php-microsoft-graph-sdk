@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ItemPreviewInfo
 {
-    public function __construct(
-        /**  */
-        public ?string $getUrl = null,
-        /**  */
-        public ?string $postParameters = null,
-        /**  */
-        public ?string $postUrl = null
-    ) {}
+    /**  */
+    public ?string $getUrl = null;
+
+    /**  */
+    public ?string $postParameters = null;
+
+    /**  */
+    public ?string $postUrl = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['getUrl'])) {
+            $this->getUrl = $data['getUrl'];
+        }
+        if (isset($data['postParameters'])) {
+            $this->postParameters = $data['postParameters'];
+        }
+        if (isset($data['postUrl'])) {
+            $this->postUrl = $data['postUrl'];
+        }
+    }
 }

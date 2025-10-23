@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DiagnosticDataSubmissionMode
 {
-    public function __construct(
-    ) {}
 }

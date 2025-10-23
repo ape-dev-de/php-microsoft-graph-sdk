@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsServiceEndpoint
 {
-    public function __construct(
-        /** User-agent reported by this endpoint. */
-        public ?CallRecordsUserAgent $userAgent = null
-    ) {}
+    /** 
+     * User-agent reported by this endpoint.
+     * @var CallRecordsUserAgent|\stdClass|null
+     */
+    public mixed $userAgent = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['userAgent'])) {
+            $this->userAgent = $data['userAgent'];
+        }
+    }
 }

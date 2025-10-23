@@ -9,18 +9,51 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ParticipantInfo
 {
-    public function __construct(
-        /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
-        public ?string $countryCode = null,
-        /** The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only. */
-        public ?EndpointType $endpointType = null,
-        /**  */
-        public ?IdentitySet $identity = null,
-        /** The language culture string. Read-only. */
-        public ?string $languageId = null,
-        /** The participant ID of the participant. Read-only. */
-        public ?string $participantId = null,
-        /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This doesn't change based on the participant's current physical location. Read-only. */
-        public ?string $region = null
-    ) {}
+    /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
+    public ?string $countryCode = null;
+
+    /** 
+     * The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
+     * @var EndpointType|\stdClass|null
+     */
+    public mixed $endpointType = null;
+
+    /**  */
+    public ?IdentitySet $identity = null;
+
+    /** The language culture string. Read-only. */
+    public ?string $languageId = null;
+
+    /** The participant ID of the participant. Read-only. */
+    public ?string $participantId = null;
+
+    /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This doesn't change based on the participant's current physical location. Read-only. */
+    public ?string $region = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['countryCode'])) {
+            $this->countryCode = $data['countryCode'];
+        }
+        if (isset($data['endpointType'])) {
+            $this->endpointType = $data['endpointType'];
+        }
+        if (isset($data['identity'])) {
+            $this->identity = $data['identity'];
+        }
+        if (isset($data['languageId'])) {
+            $this->languageId = $data['languageId'];
+        }
+        if (isset($data['participantId'])) {
+            $this->participantId = $data['participantId'];
+        }
+        if (isset($data['region'])) {
+            $this->region = $data['region'];
+        }
+    }
 }

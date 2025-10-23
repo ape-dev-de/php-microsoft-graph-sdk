@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestStage
 {
-    public function __construct(
-    ) {}
 }

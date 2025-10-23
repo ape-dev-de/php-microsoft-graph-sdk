@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemoteAssistanceOnboardingStatus
 {
-    public function __construct(
-    ) {}
 }

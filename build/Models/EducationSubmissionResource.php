@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationSubmissionResource
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Pointer to the assignment from which the resource was copied, and if null, the student uploaded the resource. */
-        public ?string $assignmentResourceUrl = null,
-        /** Resource object. */
-        public ?EducationResource $resource = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Pointer to the assignment from which the resource was copied, and if null, the student uploaded the resource. */
+    public ?string $assignmentResourceUrl = null;
+
+    /** 
+     * Resource object.
+     * @var EducationResource|\stdClass|null
+     */
+    public mixed $resource = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['assignmentResourceUrl'])) {
+            $this->assignmentResourceUrl = $data['assignmentResourceUrl'];
+        }
+        if (isset($data['resource'])) {
+            $this->resource = $data['resource'];
+        }
+    }
 }

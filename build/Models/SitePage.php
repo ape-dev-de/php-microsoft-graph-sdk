@@ -9,52 +9,186 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SitePage
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Identity of the user, device, or application that created the item. Read-only. */
-        public ?IdentitySet $createdBy = null,
-        /** Date and time of item creation. Read-only. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Provides a user-visible description of the item. Optional. */
-        public ?string $description = null,
-        /** ETag for the item. Read-only. */
-        public ?string $eTag = null,
-        /** Identity of the user, device, and application that last modified the item. Read-only. */
-        public ?IdentitySet $lastModifiedBy = null,
-        /** Date and time the item was last modified. Read-only. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The name of the item. Read-write. */
-        public ?string $name = null,
-        /** Parent information, if the item has a parent. Read-write. */
-        public ?ItemReference $parentReference = null,
-        /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
-        public ?string $webUrl = null,
-        /** Identity of the user who created the item. Read-only. */
-        public ?User $createdByUser = null,
-        /** Identity of the user who last modified the item. Read-only. */
-        public ?User $lastModifiedByUser = null,
-        /** The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue. */
-        public ?PageLayoutType $pageLayout = null,
-        /** The publishing status and the MM.mm version of the page. */
-        public ?PublicationFacet $publishingState = null,
-        /** Title of the sitePage. */
-        public ?string $title = null,
-        /** Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue. */
-        public ?PagePromotionType $promotionKind = null,
-        /** Reactions information for the page. */
-        public ?ReactionsFacet $reactions = null,
-        /** Determines whether or not to show comments at the bottom of the page. */
-        public ?bool $showComments = null,
-        /** Determines whether or not to show recommended pages at the bottom of the page. */
-        public ?bool $showRecommendedPages = null,
-        /** Url of the sitePage's thumbnail image */
-        public ?string $thumbnailWebUrl = null,
-        /** Title area on the SharePoint page. */
-        public ?TitleArea $titleArea = null,
-        /** Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections. */
-        public ?CanvasLayout $canvasLayout = null,
-        /** Collection of webparts on the SharePoint page. */
-        public array $webParts = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Identity of the user, device, or application that created the item. Read-only.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** Date and time of item creation. Read-only. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** Provides a user-visible description of the item. Optional. */
+    public ?string $description = null;
+
+    /** ETag for the item. Read-only. */
+    public ?string $eTag = null;
+
+    /** 
+     * Identity of the user, device, and application that last modified the item. Read-only.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /** Date and time the item was last modified. Read-only. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** The name of the item. Read-write. */
+    public ?string $name = null;
+
+    /** 
+     * Parent information, if the item has a parent. Read-write.
+     * @var ItemReference|\stdClass|null
+     */
+    public mixed $parentReference = null;
+
+    /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
+    public ?string $webUrl = null;
+
+    /** 
+     * Identity of the user who created the item. Read-only.
+     * @var User|\stdClass|null
+     */
+    public mixed $createdByUser = null;
+
+    /** 
+     * Identity of the user who last modified the item. Read-only.
+     * @var User|\stdClass|null
+     */
+    public mixed $lastModifiedByUser = null;
+
+    /** 
+     * The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
+     * @var PageLayoutType|\stdClass|null
+     */
+    public mixed $pageLayout = null;
+
+    /** 
+     * The publishing status and the MM.mm version of the page.
+     * @var PublicationFacet|\stdClass|null
+     */
+    public mixed $publishingState = null;
+
+    /** Title of the sitePage. */
+    public ?string $title = null;
+
+    /** 
+     * Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue.
+     * @var PagePromotionType|\stdClass|null
+     */
+    public mixed $promotionKind = null;
+
+    /** 
+     * Reactions information for the page.
+     * @var ReactionsFacet|\stdClass|null
+     */
+    public mixed $reactions = null;
+
+    /** Determines whether or not to show comments at the bottom of the page. */
+    public ?bool $showComments = null;
+
+    /** Determines whether or not to show recommended pages at the bottom of the page. */
+    public ?bool $showRecommendedPages = null;
+
+    /** Url of the sitePage's thumbnail image */
+    public ?string $thumbnailWebUrl = null;
+
+    /** 
+     * Title area on the SharePoint page.
+     * @var TitleArea|\stdClass|null
+     */
+    public mixed $titleArea = null;
+
+    /** 
+     * Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
+     * @var CanvasLayout|\stdClass|null
+     */
+    public mixed $canvasLayout = null;
+
+    /** 
+     * Collection of webparts on the SharePoint page.
+     * @var WebPart[]
+     */
+    public array $webParts = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['eTag'])) {
+            $this->eTag = $data['eTag'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['parentReference'])) {
+            $this->parentReference = $data['parentReference'];
+        }
+        if (isset($data['webUrl'])) {
+            $this->webUrl = $data['webUrl'];
+        }
+        if (isset($data['createdByUser'])) {
+            $this->createdByUser = $data['createdByUser'];
+        }
+        if (isset($data['lastModifiedByUser'])) {
+            $this->lastModifiedByUser = $data['lastModifiedByUser'];
+        }
+        if (isset($data['pageLayout'])) {
+            $this->pageLayout = $data['pageLayout'];
+        }
+        if (isset($data['publishingState'])) {
+            $this->publishingState = $data['publishingState'];
+        }
+        if (isset($data['title'])) {
+            $this->title = $data['title'];
+        }
+        if (isset($data['promotionKind'])) {
+            $this->promotionKind = $data['promotionKind'];
+        }
+        if (isset($data['reactions'])) {
+            $this->reactions = $data['reactions'];
+        }
+        if (isset($data['showComments'])) {
+            $this->showComments = $data['showComments'];
+        }
+        if (isset($data['showRecommendedPages'])) {
+            $this->showRecommendedPages = $data['showRecommendedPages'];
+        }
+        if (isset($data['thumbnailWebUrl'])) {
+            $this->thumbnailWebUrl = $data['thumbnailWebUrl'];
+        }
+        if (isset($data['titleArea'])) {
+            $this->titleArea = $data['titleArea'];
+        }
+        if (isset($data['canvasLayout'])) {
+            $this->canvasLayout = $data['canvasLayout'];
+        }
+        if (isset($data['webParts'])) {
+            $this->webParts = $data['webParts'];
+        }
+    }
 }

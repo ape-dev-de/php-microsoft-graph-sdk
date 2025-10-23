@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentTypeOrder
 {
-    public function __construct(
-        /** Indicates whether this is the default content type */
-        public ?bool $default = null,
-        /** Specifies the position in which the content type appears in the selection UI. */
-        public ?float $position = null
-    ) {}
+    /** Indicates whether this is the default content type */
+    public ?bool $default = null;
+
+    /** Specifies the position in which the content type appears in the selection UI. */
+    public ?float $position = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['default'])) {
+            $this->default = $data['default'];
+        }
+        if (isset($data['position'])) {
+            $this->position = $data['position'];
+        }
+    }
 }

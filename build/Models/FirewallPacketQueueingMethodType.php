@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FirewallPacketQueueingMethodType
 {
-    public function __construct(
-    ) {}
 }

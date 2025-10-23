@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationSubmissionIndividualRecipient
 {
-    public function __construct(
-        /** User ID of the user to whom the submission is assigned. */
-        public ?string $userId = null
-    ) {}
+    /** User ID of the user to whom the submission is assigned. */
+    public ?string $userId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['userId'])) {
+            $this->userId = $data['userId'];
+        }
+    }
 }

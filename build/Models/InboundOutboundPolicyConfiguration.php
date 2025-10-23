@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InboundOutboundPolicyConfiguration
 {
-    public function __construct(
-        /** Defines whether external users coming inbound are allowed. */
-        public ?bool $inboundAllowed = null,
-        /** Defines whether internal users are allowed to go outbound. */
-        public ?bool $outboundAllowed = null
-    ) {}
+    /** Defines whether external users coming inbound are allowed. */
+    public ?bool $inboundAllowed = null;
+
+    /** Defines whether internal users are allowed to go outbound. */
+    public ?bool $outboundAllowed = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['inboundAllowed'])) {
+            $this->inboundAllowed = $data['inboundAllowed'];
+        }
+        if (isset($data['outboundAllowed'])) {
+            $this->outboundAllowed = $data['outboundAllowed'];
+        }
+    }
 }

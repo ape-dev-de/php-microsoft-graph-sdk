@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SiteLockState
 {
-    public function __construct(
-    ) {}
 }

@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkConversationIdentity
 {
-    public function __construct(
-        /** Unique identifier for the identity or actor. For example, in the access reviews decisions API, this property might record the id of the principal, that is, the group, user, or application that's subject to review. */
-        public ?string $id = null,
-        /** The display name of the identity.For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta. */
-        public ?string $displayName = null,
-        /** Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue. */
-        public ?TeamworkConversationIdentityType $conversationIdentityType = null
-    ) {}
+    /** Unique identifier for the identity or actor. For example, in the access reviews decisions API, this property might record the id of the principal, that is, the group, user, or application that's subject to review. */
+    public ?string $id = null;
+
+    /** The display name of the identity.For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta. */
+    public ?string $displayName = null;
+
+    /** 
+     * Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
+     * @var TeamworkConversationIdentityType|\stdClass|null
+     */
+    public mixed $conversationIdentityType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['conversationIdentityType'])) {
+            $this->conversationIdentityType = $data['conversationIdentityType'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RatingAppsType
 {
-    public function __construct(
-    ) {}
 }

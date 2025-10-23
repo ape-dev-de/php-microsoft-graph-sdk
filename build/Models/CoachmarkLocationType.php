@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CoachmarkLocationType
 {
-    public function __construct(
-    ) {}
 }

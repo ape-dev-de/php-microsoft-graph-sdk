@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AzureADRegistrationPolicy
 {
-    public function __construct(
-        /**  */
-        public ?DeviceRegistrationMembership $allowedToRegister = null,
-        /**  */
-        public ?bool $isAdminConfigurable = null
-    ) {}
+    /** 
+     * 
+     * @var DeviceRegistrationMembership|\stdClass|null
+     */
+    public mixed $allowedToRegister = null;
+
+    /**  */
+    public ?bool $isAdminConfigurable = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowedToRegister'])) {
+            $this->allowedToRegister = $data['allowedToRegister'];
+        }
+        if (isset($data['isAdminConfigurable'])) {
+            $this->isAdminConfigurable = $data['isAdminConfigurable'];
+        }
+    }
 }

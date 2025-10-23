@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyTargetConfigurationAccessType
 {
-    public function __construct(
-    ) {}
 }

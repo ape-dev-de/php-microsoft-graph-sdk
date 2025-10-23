@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttendeeBase
 {
-    public function __construct(
-        /** The recipient's email address. */
-        public ?EmailAddress $emailAddress = null,
-        /** The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type. */
-        public ?AttendeeType $type = null
-    ) {}
+    /** 
+     * The recipient's email address.
+     * @var EmailAddress|\stdClass|null
+     */
+    public mixed $emailAddress = null;
+
+    /** 
+     * The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
+     * @var AttendeeType|\stdClass|null
+     */
+    public mixed $type = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['emailAddress'])) {
+            $this->emailAddress = $data['emailAddress'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+    }
 }

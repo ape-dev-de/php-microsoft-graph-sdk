@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChannelMembersNotificationRecipient
 {
-    public function __construct(
-        /** The unique identifier for the channel whose members should receive the notification. */
-        public ?string $channelId = null,
-        /** The unique identifier for the team under which the channel resides. */
-        public ?string $teamId = null
-    ) {}
+    /** The unique identifier for the channel whose members should receive the notification. */
+    public ?string $channelId = null;
+
+    /** The unique identifier for the team under which the channel resides. */
+    public ?string $teamId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['channelId'])) {
+            $this->channelId = $data['channelId'];
+        }
+        if (isset($data['teamId'])) {
+            $this->teamId = $data['teamId'];
+        }
+    }
 }

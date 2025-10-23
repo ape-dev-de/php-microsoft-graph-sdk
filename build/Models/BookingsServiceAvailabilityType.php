@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingsServiceAvailabilityType
 {
-    public function __construct(
-    ) {}
 }

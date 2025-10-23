@@ -5,63 +5,140 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\DirectoryObject;
 use ApeDevDe\MicrosoftGraphSdk\Models\DirectoryObjectCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\DirectoryObjectQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\DirectoryObject;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjectRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GraphAdministrativeUnitRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GraphDirectoryRoleRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GraphGroupRequestBuilder;
 
 /**
- * Request builder for DirectoryObject
+ * Request builder for memberOf
  */
 class MemberOfRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Get memberOf from me
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new DirectoryObjectQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param DirectoryObjectQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param string|null $consistencyLevel Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
      * @return DirectoryObjectCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?DirectoryObjectQueryOptions $options = null, ?array $queryParameters = null): DirectoryObjectCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DirectoryObjectCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, DirectoryObjectCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($consistencyLevel !== null) {
+            $queryParams['ConsistencyLevel'] = $consistencyLevel;
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
+    /**
+     * Deserialize response to DirectoryObjectCollectionResponse
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new DirectoryObject($item);
+        }
+        $collection = new DirectoryObjectCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
     /**
      * Get request builder for specific item by ID
      *
-     * @param string $id The item ID
-     * @return DirectoryObjectItemRequestBuilder
+     * @param string $directoryObjectId The item ID
+     * @return DirectoryObjectRequestBuilder
      */
-    public function byId(string $id): DirectoryObjectItemRequestBuilder
+    public function byId(string $directoryObjectId): DirectoryObjectRequestBuilder
     {
-        return new DirectoryObjectItemRequestBuilder($this->client, $this->buildPath($id));
+        return new DirectoryObjectRequestBuilder($this->client, $this->requestUrl . '/' . $directoryObjectId);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to $count
      *
-     * @return int
+     * @return CountRequestBuilder
      */
-    public function count(): int
+    public function count(): CountRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
+    /**
+     * Navigate to graph.administrativeUnit
+     *
+     * @return GraphAdministrativeUnitRequestBuilder
+     */
+    public function graphAdministrativeUnit(): GraphAdministrativeUnitRequestBuilder
+    {
+        return new GraphAdministrativeUnitRequestBuilder($this->client, $this->requestUrl . '/graph.administrativeUnit');
+    }
+    /**
+     * Navigate to graph.directoryRole
+     *
+     * @return GraphDirectoryRoleRequestBuilder
+     */
+    public function graphDirectoryRole(): GraphDirectoryRoleRequestBuilder
+    {
+        return new GraphDirectoryRoleRequestBuilder($this->client, $this->requestUrl . '/graph.directoryRole');
+    }
+    /**
+     * Navigate to graph.group
+     *
+     * @return GraphGroupRequestBuilder
+     */
+    public function graphGroup(): GraphGroupRequestBuilder
+    {
+        return new GraphGroupRequestBuilder($this->client, $this->requestUrl . '/graph.group');
+    }
 }

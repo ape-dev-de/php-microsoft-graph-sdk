@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Json
 {
-    public function __construct(
-    ) {}
 }

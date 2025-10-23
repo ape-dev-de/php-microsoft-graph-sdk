@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TextContent
 {
-    public function __construct(
-        /** The text content data. Inherits properties from contentBase. */
-        public ?string $data = null
-    ) {}
+    /** The text content data. Inherits properties from contentBase. */
+    public ?string $data = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['data'])) {
+            $this->data = $data['data'];
+        }
+    }
 }

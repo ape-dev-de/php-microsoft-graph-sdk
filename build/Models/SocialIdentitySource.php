@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SocialIdentitySource
 {
-    public function __construct(
-        /**  */
-        public ?string $displayName = null,
-        /**  */
-        public ?SocialIdentitySourceType $socialIdentitySourceType = null
-    ) {}
+    /**  */
+    public ?string $displayName = null;
+
+    /**  */
+    public ?SocialIdentitySourceType $socialIdentitySourceType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['socialIdentitySourceType'])) {
+            $this->socialIdentitySourceType = $data['socialIdentitySourceType'];
+        }
+    }
 }

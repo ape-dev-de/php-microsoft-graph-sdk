@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IncludedUserTypes
 {
-    public function __construct(
-    ) {}
 }

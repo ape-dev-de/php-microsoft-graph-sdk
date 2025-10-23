@@ -9,40 +9,150 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAssignmentPolicy
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
-        public ?AllowedTargetScope $allowedTargetScope = null,
-        /** This property is only present for an auto assignment policy; if absent, this is a request-based policy. */
-        public ?AccessPackageAutomaticRequestSettings $automaticRequestSettings = null,
-        /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** The description of the policy. */
-        public ?string $description = null,
-        /** The display name of the policy. */
-        public ?string $displayName = null,
-        /** The expiration date for assignments created in this policy. */
-        public ?ExpirationPattern $expiration = null,
-        /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $modifiedDateTime = null,
-        /**  */
-        public ?AccessPackageNotificationSettings $notificationSettings = null,
-        /** Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests. */
-        public ?AccessPackageAssignmentApprovalSettings $requestApprovalSettings = null,
-        /** Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request. */
-        public ?AccessPackageAssignmentRequestorSettings $requestorSettings = null,
-        /** Settings for access reviews of assignments through this policy. */
-        public ?AccessPackageAssignmentReviewSettings $reviewSettings = null,
-        /** The principals that can be assigned access from an access package through this policy. */
-        public array $specificAllowedTargets = [],
-        /** Access package containing this policy. Read-only.  Supports $expand. */
-        public ?AccessPackage $accessPackage = null,
-        /** Catalog of the access package containing this policy. Read-only. */
-        public ?AccessPackageCatalog $catalog = null,
-        /** The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand. */
-        public array $customExtensionStageSettings = [],
-        /** Questions that are posed to the  requestor. */
-        public array $questions = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.
+     * @var AllowedTargetScope|\stdClass|null
+     */
+    public mixed $allowedTargetScope = null;
+
+    /** 
+     * This property is only present for an auto assignment policy; if absent, this is a request-based policy.
+     * @var AccessPackageAutomaticRequestSettings|\stdClass|null
+     */
+    public mixed $automaticRequestSettings = null;
+
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** The description of the policy. */
+    public ?string $description = null;
+
+    /** The display name of the policy. */
+    public ?string $displayName = null;
+
+    /** 
+     * The expiration date for assignments created in this policy.
+     * @var ExpirationPattern|\stdClass|null
+     */
+    public mixed $expiration = null;
+
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $modifiedDateTime = null;
+
+    /** 
+     * 
+     * @var AccessPackageNotificationSettings|\stdClass|null
+     */
+    public mixed $notificationSettings = null;
+
+    /** 
+     * Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
+     * @var AccessPackageAssignmentApprovalSettings|\stdClass|null
+     */
+    public mixed $requestApprovalSettings = null;
+
+    /** 
+     * Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.
+     * @var AccessPackageAssignmentRequestorSettings|\stdClass|null
+     */
+    public mixed $requestorSettings = null;
+
+    /** 
+     * Settings for access reviews of assignments through this policy.
+     * @var AccessPackageAssignmentReviewSettings|\stdClass|null
+     */
+    public mixed $reviewSettings = null;
+
+    /** 
+     * The principals that can be assigned access from an access package through this policy.
+     * @var SubjectSet[]
+     */
+    public array $specificAllowedTargets = [];
+
+    /** 
+     * Access package containing this policy. Read-only.  Supports $expand.
+     * @var AccessPackage|\stdClass|null
+     */
+    public mixed $accessPackage = null;
+
+    /** 
+     * Catalog of the access package containing this policy. Read-only.
+     * @var AccessPackageCatalog|\stdClass|null
+     */
+    public mixed $catalog = null;
+
+    /** 
+     * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
+     * @var CustomExtensionStageSetting[]
+     */
+    public array $customExtensionStageSettings = [];
+
+    /** 
+     * Questions that are posed to the  requestor.
+     * @var AccessPackageQuestion[]
+     */
+    public array $questions = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['allowedTargetScope'])) {
+            $this->allowedTargetScope = $data['allowedTargetScope'];
+        }
+        if (isset($data['automaticRequestSettings'])) {
+            $this->automaticRequestSettings = $data['automaticRequestSettings'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['expiration'])) {
+            $this->expiration = $data['expiration'];
+        }
+        if (isset($data['modifiedDateTime'])) {
+            $this->modifiedDateTime = $data['modifiedDateTime'];
+        }
+        if (isset($data['notificationSettings'])) {
+            $this->notificationSettings = $data['notificationSettings'];
+        }
+        if (isset($data['requestApprovalSettings'])) {
+            $this->requestApprovalSettings = $data['requestApprovalSettings'];
+        }
+        if (isset($data['requestorSettings'])) {
+            $this->requestorSettings = $data['requestorSettings'];
+        }
+        if (isset($data['reviewSettings'])) {
+            $this->reviewSettings = $data['reviewSettings'];
+        }
+        if (isset($data['specificAllowedTargets'])) {
+            $this->specificAllowedTargets = $data['specificAllowedTargets'];
+        }
+        if (isset($data['accessPackage'])) {
+            $this->accessPackage = $data['accessPackage'];
+        }
+        if (isset($data['catalog'])) {
+            $this->catalog = $data['catalog'];
+        }
+        if (isset($data['customExtensionStageSettings'])) {
+            $this->customExtensionStageSettings = $data['customExtensionStageSettings'];
+        }
+        if (isset($data['questions'])) {
+            $this->questions = $data['questions'];
+        }
+    }
 }

@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationReport
 {
-    public function __construct(
-        /** Overview of an attack simulation and training campaign. */
-        public ?SimulationReportOverview $overview = null,
-        /** The tenant users and their online actions in an attack simulation and training campaign. */
-        public array $simulationUsers = []
-    ) {}
+    /** 
+     * Overview of an attack simulation and training campaign.
+     * @var SimulationReportOverview|\stdClass|null
+     */
+    public mixed $overview = null;
+
+    /** 
+     * The tenant users and their online actions in an attack simulation and training campaign.
+     * @var UserSimulationDetails[]
+     */
+    public array $simulationUsers = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['overview'])) {
+            $this->overview = $data['overview'];
+        }
+        if (isset($data['simulationUsers'])) {
+            $this->simulationUsers = $data['simulationUsers'];
+        }
+    }
 }

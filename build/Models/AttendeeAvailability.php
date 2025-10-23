@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttendeeAvailability
 {
-    public function __construct(
-        /** The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person. */
-        public ?AttendeeBase $attendee = null,
-        /** The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-        public ?FreeBusyStatus $availability = null
-    ) {}
+    /** 
+     * The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.
+     * @var AttendeeBase|\stdClass|null
+     */
+    public mixed $attendee = null;
+
+    /** 
+     * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * @var FreeBusyStatus|\stdClass|null
+     */
+    public mixed $availability = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['attendee'])) {
+            $this->attendee = $data['attendee'];
+        }
+        if (isset($data['availability'])) {
+            $this->availability = $data['availability'];
+        }
+    }
 }

@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InformationProtection
 {
-    public function __construct(
-        /**  */
-        public ?Bitlocker $bitlocker = null,
-        /**  */
-        public array $threatAssessmentRequests = []
-    ) {}
+    /** 
+     * 
+     * @var Bitlocker|\stdClass|null
+     */
+    public mixed $bitlocker = null;
+
+    /** 
+     * 
+     * @var ThreatAssessmentRequest[]
+     */
+    public array $threatAssessmentRequests = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['bitlocker'])) {
+            $this->bitlocker = $data['bitlocker'];
+        }
+        if (isset($data['threatAssessmentRequests'])) {
+            $this->threatAssessmentRequests = $data['threatAssessmentRequests'];
+        }
+    }
 }

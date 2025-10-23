@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRoleManagementPolicyRuleTargetOperations
 {
-    public function __construct(
-    ) {}
 }

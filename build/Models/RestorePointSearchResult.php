@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestorePointSearchResult
 {
-    public function __construct(
-        /** Total number of artifacts restored. */
-        public ?float $artifactHitCount = null,
-        /**  */
-        public ?RestorePoint $restorePoint = null
-    ) {}
+    /** Total number of artifacts restored. */
+    public ?float $artifactHitCount = null;
+
+    /** 
+     * 
+     * @var RestorePoint|\stdClass|null
+     */
+    public mixed $restorePoint = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['artifactHitCount'])) {
+            $this->artifactHitCount = $data['artifactHitCount'];
+        }
+        if (isset($data['restorePoint'])) {
+            $this->restorePoint = $data['restorePoint'];
+        }
+    }
 }

@@ -6,156 +6,229 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\Authentication;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\AuthenticationQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmailMethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Fido2MethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MicrosoftAuthenticatorMethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\OperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PasswordMethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PhoneMethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PlatformCredentialMethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SoftwareOathMethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TemporaryAccessPassMethodsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WindowsHelloForBusinessMethodsRequestBuilder;
 
 /**
- * Request builder for Authentication
+ * Request builder for authentication
  */
 class AuthenticationRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get authentication from me
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param AuthenticationQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return Authentication
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?AuthenticationQueryOptions $options = null, ?array $queryParameters = null): Authentication
+    public function get(?array $select = null, ?array $expand = null): Authentication
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, Authentication::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Authentication
-     *
-     * @param Authentication $item The item to create
-     * @return Authentication
+     * Deserialize response to Authentication
      */
-    public function post(Authentication $item): Authentication
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Authentication::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Authentication($data);
     }
     /**
-     * Get emailMethods request builder
+     * Update the navigation property authentication in me
+     * @param Authentication $body Request body
+     * @return Authentication
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(Authentication $body): Authentication
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to Authentication
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Authentication($data);
+    }
+    /**
+     * Delete navigation property authentication for me
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to emailMethods
      *
      * @return EmailMethodsRequestBuilder
      */
     public function emailMethods(): EmailMethodsRequestBuilder
     {
-        return new EmailMethodsRequestBuilder($this->client, $this->buildPath('emailMethods'));
+        return new EmailMethodsRequestBuilder($this->client, $this->requestUrl . '/emailMethods');
     }
-
     /**
-     * Get fido2Methods request builder
+     * Navigate to fido2Methods
      *
      * @return Fido2MethodsRequestBuilder
      */
     public function fido2Methods(): Fido2MethodsRequestBuilder
     {
-        return new Fido2MethodsRequestBuilder($this->client, $this->buildPath('fido2Methods'));
+        return new Fido2MethodsRequestBuilder($this->client, $this->requestUrl . '/fido2Methods');
     }
-
     /**
-     * Get methods request builder
+     * Navigate to methods
      *
      * @return MethodsRequestBuilder
      */
     public function methods(): MethodsRequestBuilder
     {
-        return new MethodsRequestBuilder($this->client, $this->buildPath('methods'));
+        return new MethodsRequestBuilder($this->client, $this->requestUrl . '/methods');
     }
-
     /**
-     * Get microsoftAuthenticatorMethods request builder
+     * Navigate to microsoftAuthenticatorMethods
      *
      * @return MicrosoftAuthenticatorMethodsRequestBuilder
      */
     public function microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder
     {
-        return new MicrosoftAuthenticatorMethodsRequestBuilder($this->client, $this->buildPath('microsoftAuthenticatorMethods'));
+        return new MicrosoftAuthenticatorMethodsRequestBuilder($this->client, $this->requestUrl . '/microsoftAuthenticatorMethods');
     }
-
     /**
-     * Get operations request builder
+     * Navigate to operations
      *
      * @return OperationsRequestBuilder
      */
     public function operations(): OperationsRequestBuilder
     {
-        return new OperationsRequestBuilder($this->client, $this->buildPath('operations'));
+        return new OperationsRequestBuilder($this->client, $this->requestUrl . '/operations');
     }
-
     /**
-     * Get passwordMethods request builder
+     * Navigate to passwordMethods
      *
      * @return PasswordMethodsRequestBuilder
      */
     public function passwordMethods(): PasswordMethodsRequestBuilder
     {
-        return new PasswordMethodsRequestBuilder($this->client, $this->buildPath('passwordMethods'));
+        return new PasswordMethodsRequestBuilder($this->client, $this->requestUrl . '/passwordMethods');
     }
-
     /**
-     * Get phoneMethods request builder
+     * Navigate to phoneMethods
      *
      * @return PhoneMethodsRequestBuilder
      */
     public function phoneMethods(): PhoneMethodsRequestBuilder
     {
-        return new PhoneMethodsRequestBuilder($this->client, $this->buildPath('phoneMethods'));
+        return new PhoneMethodsRequestBuilder($this->client, $this->requestUrl . '/phoneMethods');
     }
-
     /**
-     * Get platformCredentialMethods request builder
+     * Navigate to platformCredentialMethods
      *
      * @return PlatformCredentialMethodsRequestBuilder
      */
     public function platformCredentialMethods(): PlatformCredentialMethodsRequestBuilder
     {
-        return new PlatformCredentialMethodsRequestBuilder($this->client, $this->buildPath('platformCredentialMethods'));
+        return new PlatformCredentialMethodsRequestBuilder($this->client, $this->requestUrl . '/platformCredentialMethods');
     }
-
     /**
-     * Get softwareOathMethods request builder
+     * Navigate to softwareOathMethods
      *
      * @return SoftwareOathMethodsRequestBuilder
      */
     public function softwareOathMethods(): SoftwareOathMethodsRequestBuilder
     {
-        return new SoftwareOathMethodsRequestBuilder($this->client, $this->buildPath('softwareOathMethods'));
+        return new SoftwareOathMethodsRequestBuilder($this->client, $this->requestUrl . '/softwareOathMethods');
     }
-
     /**
-     * Get temporaryAccessPassMethods request builder
+     * Navigate to temporaryAccessPassMethods
      *
      * @return TemporaryAccessPassMethodsRequestBuilder
      */
     public function temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder
     {
-        return new TemporaryAccessPassMethodsRequestBuilder($this->client, $this->buildPath('temporaryAccessPassMethods'));
+        return new TemporaryAccessPassMethodsRequestBuilder($this->client, $this->requestUrl . '/temporaryAccessPassMethods');
     }
-
     /**
-     * Get windowsHelloForBusinessMethods request builder
+     * Navigate to windowsHelloForBusinessMethods
      *
      * @return WindowsHelloForBusinessMethodsRequestBuilder
      */
     public function windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder
     {
-        return new WindowsHelloForBusinessMethodsRequestBuilder($this->client, $this->buildPath('windowsHelloForBusinessMethods'));
+        return new WindowsHelloForBusinessMethodsRequestBuilder($this->client, $this->requestUrl . '/windowsHelloForBusinessMethods');
     }
-
 }

@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallParticipantInfo
 {
-    public function __construct(
-        /** Identity of the call participant. */
-        public ?IdentitySet $participant = null
-    ) {}
+    /** 
+     * Identity of the call participant.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $participant = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['participant'])) {
+            $this->participant = $data['participant'];
+        }
+    }
 }

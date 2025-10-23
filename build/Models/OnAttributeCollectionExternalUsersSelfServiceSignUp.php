@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnAttributeCollectionExternalUsersSelfServiceSignUp
 {
-    public function __construct(
-        /** Required. The configuration for how attributes are displayed in the sign-up experience defined by a user flow, like the externalUsersSelfServiceSignupEventsFlow, specifically on the attribute collection page. */
-        public ?AuthenticationAttributeCollectionPage $attributeCollectionPage = null,
-        /**  */
-        public array $attributes = []
-    ) {}
+    /** 
+     * Required. The configuration for how attributes are displayed in the sign-up experience defined by a user flow, like the externalUsersSelfServiceSignupEventsFlow, specifically on the attribute collection page.
+     * @var AuthenticationAttributeCollectionPage|\stdClass|null
+     */
+    public mixed $attributeCollectionPage = null;
+
+    /** 
+     * 
+     * @var IdentityUserFlowAttribute[]
+     */
+    public array $attributes = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['attributeCollectionPage'])) {
+            $this->attributeCollectionPage = $data['attributeCollectionPage'];
+        }
+        if (isset($data['attributes'])) {
+            $this->attributes = $data['attributes'];
+        }
+    }
 }

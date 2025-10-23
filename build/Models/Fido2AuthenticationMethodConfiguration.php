@@ -9,20 +9,66 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Fido2AuthenticationMethodConfiguration
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Groups of users that are excluded from a policy. */
-        public array $excludeTargets = [],
-        /** The state of the policy. Possible values are: enabled, disabled. */
-        public ?AuthenticationMethodState $state = null,
-        /** Determines whether attestation must be enforced for FIDO2 security key registration. */
-        public ?bool $isAttestationEnforced = null,
-        /** Determines if users can register new FIDO2 security keys. */
-        public ?bool $isSelfServiceRegistrationAllowed = null,
-        /** Controls whether key restrictions are enforced on FIDO2 security keys, either allowing or disallowing certain key types as defined by Authenticator Attestation GUID (AAGUID), an identifier that indicates the type (for example, make and model) of the authenticator. */
-        public ?Fido2KeyRestrictions $keyRestrictions = null,
-        /** A collection of groups that are enabled to use the authentication method. */
-        public array $includeTargets = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Groups of users that are excluded from a policy.
+     * @var ExcludeTarget[]
+     */
+    public array $excludeTargets = [];
+
+    /** 
+     * The state of the policy. Possible values are: enabled, disabled.
+     * @var AuthenticationMethodState|\stdClass|null
+     */
+    public mixed $state = null;
+
+    /** Determines whether attestation must be enforced for FIDO2 security key registration. */
+    public ?bool $isAttestationEnforced = null;
+
+    /** Determines if users can register new FIDO2 security keys. */
+    public ?bool $isSelfServiceRegistrationAllowed = null;
+
+    /** 
+     * Controls whether key restrictions are enforced on FIDO2 security keys, either allowing or disallowing certain key types as defined by Authenticator Attestation GUID (AAGUID), an identifier that indicates the type (for example, make and model) of the authenticator.
+     * @var Fido2KeyRestrictions|\stdClass|null
+     */
+    public mixed $keyRestrictions = null;
+
+    /** 
+     * A collection of groups that are enabled to use the authentication method.
+     * @var AuthenticationMethodTarget[]
+     */
+    public array $includeTargets = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['excludeTargets'])) {
+            $this->excludeTargets = $data['excludeTargets'];
+        }
+        if (isset($data['state'])) {
+            $this->state = $data['state'];
+        }
+        if (isset($data['isAttestationEnforced'])) {
+            $this->isAttestationEnforced = $data['isAttestationEnforced'];
+        }
+        if (isset($data['isSelfServiceRegistrationAllowed'])) {
+            $this->isSelfServiceRegistrationAllowed = $data['isSelfServiceRegistrationAllowed'];
+        }
+        if (isset($data['keyRestrictions'])) {
+            $this->keyRestrictions = $data['keyRestrictions'];
+        }
+        if (isset($data['includeTargets'])) {
+            $this->includeTargets = $data['includeTargets'];
+        }
+    }
 }

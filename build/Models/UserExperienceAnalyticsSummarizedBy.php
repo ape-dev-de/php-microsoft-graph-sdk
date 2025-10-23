@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsSummarizedBy
 {
-    public function __construct(
-    ) {}
 }

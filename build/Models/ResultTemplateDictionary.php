@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResultTemplateDictionary
 {
-    public function __construct(
-    ) {}
 }

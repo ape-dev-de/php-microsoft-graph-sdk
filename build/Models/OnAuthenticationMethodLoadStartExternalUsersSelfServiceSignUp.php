@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp
 {
-    public function __construct(
-        /**  */
-        public array $identityProviders = []
-    ) {}
+    /** 
+     * 
+     * @var IdentityProviderBase[]
+     */
+    public array $identityProviders = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['identityProviders'])) {
+            $this->identityProviders = $data['identityProviders'];
+        }
+    }
 }

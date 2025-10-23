@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityKubernetesPlatform
 {
-    public function __construct(
-    ) {}
 }

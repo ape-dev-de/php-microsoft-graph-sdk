@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class StringKeyLongValuePair
 {
-    public function __construct(
-        /** The mapping of the user type from the source system to the target system. For example:User to User - For Microsoft Entra ID to Microsoft Entra ID synchronization worker to user - For Workday to Microsoft Entra synchronization. */
-        public ?string $key = null,
-        /** Total number of synchronized objects. */
-        public ?float $value = null
-    ) {}
+    /** The mapping of the user type from the source system to the target system. For example:User to User - For Microsoft Entra ID to Microsoft Entra ID synchronization worker to user - For Workday to Microsoft Entra synchronization. */
+    public ?string $key = null;
+
+    /** Total number of synchronized objects. */
+    public ?float $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['key'])) {
+            $this->key = $data['key'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

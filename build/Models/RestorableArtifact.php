@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestorableArtifact
 {
-    public function __construct(
-    ) {}
 }

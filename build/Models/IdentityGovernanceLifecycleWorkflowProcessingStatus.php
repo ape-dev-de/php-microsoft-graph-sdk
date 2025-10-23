@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceLifecycleWorkflowProcessingStatus
 {
-    public function __construct(
-    ) {}
 }

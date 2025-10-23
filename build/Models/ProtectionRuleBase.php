@@ -9,22 +9,72 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProtectionRuleBase
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The identity of person who created the rule. */
-        public ?IdentitySet $createdBy = null,
-        /** The time of creation of the rule. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Contains error details if an operation on a rule fails. */
-        public ?PublicError $error = null,
-        /**  */
-        public ?bool $isAutoApplyEnabled = null,
-        /** The identity of the person who last modified the rule. */
-        public ?IdentitySet $lastModifiedBy = null,
-        /** Timestamp of the last modification made to the rule. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The status of the protection rule. The possible values are: draft, active, completed, completedWithErrors, unknownFutureValue. The draft member is currently unsupported. */
-        public ?ProtectionRuleStatus $status = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * The identity of person who created the rule.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** The time of creation of the rule. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** 
+     * Contains error details if an operation on a rule fails.
+     * @var PublicError|\stdClass|null
+     */
+    public mixed $error = null;
+
+    /**  */
+    public ?bool $isAutoApplyEnabled = null;
+
+    /** 
+     * The identity of the person who last modified the rule.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /** Timestamp of the last modification made to the rule. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** 
+     * The status of the protection rule. The possible values are: draft, active, completed, completedWithErrors, unknownFutureValue. The draft member is currently unsupported.
+     * @var ProtectionRuleStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+        if (isset($data['isAutoApplyEnabled'])) {
+            $this->isAutoApplyEnabled = $data['isAutoApplyEnabled'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

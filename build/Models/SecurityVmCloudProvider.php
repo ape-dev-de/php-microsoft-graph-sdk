@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityVmCloudProvider
 {
-    public function __construct(
-    ) {}
 }

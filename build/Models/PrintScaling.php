@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintScaling
 {
-    public function __construct(
-    ) {}
 }

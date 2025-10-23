@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharedPCAccountDeletionPolicyType
 {
-    public function __construct(
-    ) {}
 }

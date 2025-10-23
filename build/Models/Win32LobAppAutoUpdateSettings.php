@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppAutoUpdateSettings
 {
-    public function __construct(
-        /**  */
-        public ?Win32LobAutoUpdateSupersededAppsState $autoUpdateSupersededAppsState = null
-    ) {}
+    /**  */
+    public ?Win32LobAutoUpdateSupersededAppsState $autoUpdateSupersededAppsState = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['autoUpdateSupersededAppsState'])) {
+            $this->autoUpdateSupersededAppsState = $data['autoUpdateSupersededAppsState'];
+        }
+    }
 }

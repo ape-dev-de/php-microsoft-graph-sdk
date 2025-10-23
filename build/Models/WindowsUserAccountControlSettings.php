@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsUserAccountControlSettings
 {
-    public function __construct(
-    ) {}
 }

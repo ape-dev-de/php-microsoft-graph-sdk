@@ -9,12 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationLinkedObjects
 {
-    public function __construct(
-        /**  */
-        public ?SynchronizationJobSubject $manager = null,
-        /** All group members that you would like to provision. */
-        public array $members = [],
-        /**  */
-        public array $owners = []
-    ) {}
+    /** 
+     * 
+     * @var SynchronizationJobSubject|\stdClass|null
+     */
+    public mixed $manager = null;
+
+    /** 
+     * All group members that you would like to provision.
+     * @var SynchronizationJobSubject[]
+     */
+    public array $members = [];
+
+    /** 
+     * 
+     * @var SynchronizationJobSubject[]
+     */
+    public array $owners = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['manager'])) {
+            $this->manager = $data['manager'];
+        }
+        if (isset($data['members'])) {
+            $this->members = $data['members'];
+        }
+        if (isset($data['owners'])) {
+            $this->owners = $data['owners'];
+        }
+    }
 }

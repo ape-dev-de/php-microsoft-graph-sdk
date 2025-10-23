@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingPolicyUpdatedEventMessageDetail
 {
-    public function __construct(
-        /** Initiator of the event. */
-        public ?IdentitySet $initiator = null,
-        /** Represents whether the meeting chat is enabled or not. */
-        public ?bool $meetingChatEnabled = null,
-        /** Unique identifier of the meeting chat. */
-        public ?string $meetingChatId = null
-    ) {}
+    /** 
+     * Initiator of the event.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+    /** Represents whether the meeting chat is enabled or not. */
+    public ?bool $meetingChatEnabled = null;
+
+    /** Unique identifier of the meeting chat. */
+    public ?string $meetingChatId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+        if (isset($data['meetingChatEnabled'])) {
+            $this->meetingChatEnabled = $data['meetingChatEnabled'];
+        }
+        if (isset($data['meetingChatId'])) {
+            $this->meetingChatId = $data['meetingChatId'];
+        }
+    }
 }

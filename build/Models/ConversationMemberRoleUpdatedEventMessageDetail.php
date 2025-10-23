@@ -9,12 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConversationMemberRoleUpdatedEventMessageDetail
 {
-    public function __construct(
-        /** @var string[] Roles for the coversation member user. */
-        public array $conversationMemberRoles = [],
-        /** Identity of the conversation member user. */
-        public ?TeamworkUserIdentity $conversationMemberUser = null,
-        /** Initiator of the event. */
-        public ?IdentitySet $initiator = null
-    ) {}
+    /** 
+     * Roles for the coversation member user.
+     * @var string[]
+     */
+    public array $conversationMemberRoles = [];
+
+    /** 
+     * Identity of the conversation member user.
+     * @var TeamworkUserIdentity|\stdClass|null
+     */
+    public mixed $conversationMemberUser = null;
+
+    /** 
+     * Initiator of the event.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $initiator = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['conversationMemberRoles'])) {
+            $this->conversationMemberRoles = $data['conversationMemberRoles'];
+        }
+        if (isset($data['conversationMemberUser'])) {
+            $this->conversationMemberUser = $data['conversationMemberUser'];
+        }
+        if (isset($data['initiator'])) {
+            $this->initiator = $data['initiator'];
+        }
+    }
 }

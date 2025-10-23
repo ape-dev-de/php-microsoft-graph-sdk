@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemoteDesktopSecurityConfiguration
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled. */
-        public ?bool $isRemoteDesktopProtocolEnabled = null,
-        /** The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol. */
-        public array $targetDeviceGroups = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled. */
+    public ?bool $isRemoteDesktopProtocolEnabled = null;
+
+    /** 
+     * The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
+     * @var TargetDeviceGroup[]
+     */
+    public array $targetDeviceGroups = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['isRemoteDesktopProtocolEnabled'])) {
+            $this->isRemoteDesktopProtocolEnabled = $data['isRemoteDesktopProtocolEnabled'];
+        }
+        if (isset($data['targetDeviceGroups'])) {
+            $this->targetDeviceGroups = $data['targetDeviceGroups'];
+        }
+    }
 }

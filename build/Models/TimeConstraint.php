@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeConstraint
 {
-    public function __construct(
-        /** The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown. */
-        public ?ActivityDomain $activityDomain = null,
-        /**  */
-        public array $timeSlots = []
-    ) {}
+    /** 
+     * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
+     * @var ActivityDomain|\stdClass|null
+     */
+    public mixed $activityDomain = null;
+
+    /** 
+     * 
+     * @var TimeSlot[]
+     */
+    public array $timeSlots = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['activityDomain'])) {
+            $this->activityDomain = $data['activityDomain'];
+        }
+        if (isset($data['timeSlots'])) {
+            $this->timeSlots = $data['timeSlots'];
+        }
+    }
 }

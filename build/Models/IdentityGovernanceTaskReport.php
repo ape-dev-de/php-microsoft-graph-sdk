@@ -9,32 +9,93 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceTaskReport
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $completedDateTime = null,
-        /** The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?float $failedUsersCount = null,
-        /** The date and time that the task report was last updated. */
-        public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /**  */
-        public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null,
-        /** The unique identifier of the associated run. */
-        public ?string $runId = null,
-        /** The date time that the associated run started. Value is null if the run has not started. */
-        public ?\DateTimeInterface $startedDateTime = null,
-        /** The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?float $successfulUsersCount = null,
-        /** The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?float $totalUsersCount = null,
-        /** The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?float $unprocessedUsersCount = null,
-        /**  */
-        public ?IdentityGovernanceTask $task = null,
-        /**  */
-        public ?IdentityGovernanceTaskDefinition $taskDefinition = null,
-        /** The related lifecycle workflow taskProcessingResults. */
-        public array $taskProcessingResults = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $completedDateTime = null;
+
+    /** The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?float $failedUsersCount = null;
+
+    /** The date and time that the task report was last updated. */
+    public ?\DateTimeInterface $lastUpdatedDateTime = null;
+
+    /**  */
+    public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null;
+
+    /** The unique identifier of the associated run. */
+    public ?string $runId = null;
+
+    /** The date time that the associated run started. Value is null if the run has not started. */
+    public ?\DateTimeInterface $startedDateTime = null;
+
+    /** The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?float $successfulUsersCount = null;
+
+    /** The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?float $totalUsersCount = null;
+
+    /** The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?float $unprocessedUsersCount = null;
+
+    /**  */
+    public ?IdentityGovernanceTask $task = null;
+
+    /**  */
+    public ?IdentityGovernanceTaskDefinition $taskDefinition = null;
+
+    /** 
+     * The related lifecycle workflow taskProcessingResults.
+     * @var IdentityGovernanceTaskProcessingResult[]
+     */
+    public array $taskProcessingResults = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['completedDateTime'])) {
+            $this->completedDateTime = $data['completedDateTime'];
+        }
+        if (isset($data['failedUsersCount'])) {
+            $this->failedUsersCount = $data['failedUsersCount'];
+        }
+        if (isset($data['lastUpdatedDateTime'])) {
+            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+        }
+        if (isset($data['processingStatus'])) {
+            $this->processingStatus = $data['processingStatus'];
+        }
+        if (isset($data['runId'])) {
+            $this->runId = $data['runId'];
+        }
+        if (isset($data['startedDateTime'])) {
+            $this->startedDateTime = $data['startedDateTime'];
+        }
+        if (isset($data['successfulUsersCount'])) {
+            $this->successfulUsersCount = $data['successfulUsersCount'];
+        }
+        if (isset($data['totalUsersCount'])) {
+            $this->totalUsersCount = $data['totalUsersCount'];
+        }
+        if (isset($data['unprocessedUsersCount'])) {
+            $this->unprocessedUsersCount = $data['unprocessedUsersCount'];
+        }
+        if (isset($data['task'])) {
+            $this->task = $data['task'];
+        }
+        if (isset($data['taskDefinition'])) {
+            $this->taskDefinition = $data['taskDefinition'];
+        }
+        if (isset($data['taskProcessingResults'])) {
+            $this->taskProcessingResults = $data['taskProcessingResults'];
+        }
+    }
 }

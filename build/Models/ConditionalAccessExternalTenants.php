@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessExternalTenants
 {
-    public function __construct(
-        /** The membership kind. Possible values are: all, enumerated, unknownFutureValue. The enumerated member references an conditionalAccessEnumeratedExternalTenants object. */
-        public ?ConditionalAccessExternalTenantsMembershipKind $membershipKind = null
-    ) {}
+    /** 
+     * The membership kind. Possible values are: all, enumerated, unknownFutureValue. The enumerated member references an conditionalAccessEnumeratedExternalTenants object.
+     * @var ConditionalAccessExternalTenantsMembershipKind|\stdClass|null
+     */
+    public mixed $membershipKind = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['membershipKind'])) {
+            $this->membershipKind = $data['membershipKind'];
+        }
+    }
 }

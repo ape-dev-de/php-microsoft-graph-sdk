@@ -9,36 +9,108 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceHealthIssue
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** More details about service event. This property doesn't support filters. */
-        public array $details = [],
-        /** The end time of the service event. */
-        public ?\DateTimeInterface $endDateTime = null,
-        /** The last modified time of the service event. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The start time of the service event. */
-        public ?\DateTimeInterface $startDateTime = null,
-        /** The title of the service event. */
-        public ?string $title = null,
-        /**  */
-        public ?ServiceHealthClassificationType $classification = null,
-        /** The feature name of the service issue. */
-        public ?string $feature = null,
-        /** The feature group name of the service issue. */
-        public ?string $featureGroup = null,
-        /** The description of the service issue impact. */
-        public ?string $impactDescription = null,
-        /** Indicates whether the issue is resolved. */
-        public ?bool $isResolved = null,
-        /**  */
-        public ?ServiceHealthOrigin $origin = null,
-        /** Collection of historical posts for the service issue. */
-        public array $posts = [],
-        /** Indicates the service affected by the issue. */
-        public ?string $service = null,
-        /**  */
-        public ?ServiceHealthStatus $status = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * More details about service event. This property doesn't support filters.
+     * @var KeyValuePair[]
+     */
+    public array $details = [];
+
+    /** The end time of the service event. */
+    public ?\DateTimeInterface $endDateTime = null;
+
+    /** The last modified time of the service event. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** The start time of the service event. */
+    public ?\DateTimeInterface $startDateTime = null;
+
+    /** The title of the service event. */
+    public ?string $title = null;
+
+    /**  */
+    public ?ServiceHealthClassificationType $classification = null;
+
+    /** The feature name of the service issue. */
+    public ?string $feature = null;
+
+    /** The feature group name of the service issue. */
+    public ?string $featureGroup = null;
+
+    /** The description of the service issue impact. */
+    public ?string $impactDescription = null;
+
+    /** Indicates whether the issue is resolved. */
+    public ?bool $isResolved = null;
+
+    /**  */
+    public ?ServiceHealthOrigin $origin = null;
+
+    /** 
+     * Collection of historical posts for the service issue.
+     * @var ServiceHealthIssuePost[]
+     */
+    public array $posts = [];
+
+    /** Indicates the service affected by the issue. */
+    public ?string $service = null;
+
+    /**  */
+    public ?ServiceHealthStatus $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['details'])) {
+            $this->details = $data['details'];
+        }
+        if (isset($data['endDateTime'])) {
+            $this->endDateTime = $data['endDateTime'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['startDateTime'])) {
+            $this->startDateTime = $data['startDateTime'];
+        }
+        if (isset($data['title'])) {
+            $this->title = $data['title'];
+        }
+        if (isset($data['classification'])) {
+            $this->classification = $data['classification'];
+        }
+        if (isset($data['feature'])) {
+            $this->feature = $data['feature'];
+        }
+        if (isset($data['featureGroup'])) {
+            $this->featureGroup = $data['featureGroup'];
+        }
+        if (isset($data['impactDescription'])) {
+            $this->impactDescription = $data['impactDescription'];
+        }
+        if (isset($data['isResolved'])) {
+            $this->isResolved = $data['isResolved'];
+        }
+        if (isset($data['origin'])) {
+            $this->origin = $data['origin'];
+        }
+        if (isset($data['posts'])) {
+            $this->posts = $data['posts'];
+        }
+        if (isset($data['service'])) {
+            $this->service = $data['service'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

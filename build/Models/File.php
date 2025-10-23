@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class File
 {
-    public function __construct(
-        /** Hashes of the file's binary content, if available. Read-only. */
-        public ?Hashes $hashes = null,
-        /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
-        public ?string $mimeType = null,
-        /**  */
-        public ?bool $processingMetadata = null
-    ) {}
+    /** 
+     * Hashes of the file's binary content, if available. Read-only.
+     * @var Hashes|\stdClass|null
+     */
+    public mixed $hashes = null;
+
+    /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
+    public ?string $mimeType = null;
+
+    /**  */
+    public ?bool $processingMetadata = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['hashes'])) {
+            $this->hashes = $data['hashes'];
+        }
+        if (isset($data['mimeType'])) {
+            $this->mimeType = $data['mimeType'];
+        }
+        if (isset($data['processingMetadata'])) {
+            $this->processingMetadata = $data['processingMetadata'];
+        }
+    }
 }

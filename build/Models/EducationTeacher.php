@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationTeacher
 {
-    public function __construct(
-        /** ID of the teacher in the source system. */
-        public ?string $externalId = null,
-        /** Teacher number. */
-        public ?string $teacherNumber = null
-    ) {}
+    /** ID of the teacher in the source system. */
+    public ?string $externalId = null;
+
+    /** Teacher number. */
+    public ?string $teacherNumber = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['externalId'])) {
+            $this->externalId = $data['externalId'];
+        }
+        if (isset($data['teacherNumber'])) {
+            $this->teacherNumber = $data['teacherNumber'];
+        }
+    }
 }

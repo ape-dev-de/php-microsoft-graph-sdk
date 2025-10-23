@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationOnPremisesInfo
 {
-    public function __construct(
-        /** Unique identifier for the user object in Active Directory. */
-        public ?string $immutableId = null
-    ) {}
+    /** Unique identifier for the user object in Active Directory. */
+    public ?string $immutableId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['immutableId'])) {
+            $this->immutableId = $data['immutableId'];
+        }
+    }
 }

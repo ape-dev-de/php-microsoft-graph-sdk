@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Level
 {
-    public function __construct(
-    ) {}
 }

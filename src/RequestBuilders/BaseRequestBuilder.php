@@ -12,38 +12,38 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 abstract class BaseRequestBuilder
 {
     protected GraphClient $client;
-    protected string $path;
+    protected string $requestUrl;
 
     /**
      * Constructor
      *
      * @param GraphClient $client The HTTP client
-     * @param string $path The resource path
+     * @param string $requestUrl The resource URL
      */
-    public function __construct(GraphClient $client, string $path)
+    public function __construct(GraphClient $client, string $requestUrl)
     {
         $this->client = $client;
-        $this->path = $path;
+        $this->requestUrl = $requestUrl;
     }
 
     /**
-     * Get the full path for this resource
+     * Get the full URL for this resource
      *
      * @return string
      */
-    protected function getFullPath(): string
+    protected function getRequestUrl(): string
     {
-        return $this->path;
+        return $this->requestUrl;
     }
 
     /**
-     * Build a path by appending a segment
+     * Build a URL by appending a segment
      *
      * @param string $segment The path segment to append
      * @return string
      */
-    protected function buildPath(string $segment): string
+    protected function buildUrl(string $segment): string
     {
-        return $this->path . '/' . $segment;
+        return $this->requestUrl . '/' . $segment;
     }
 }

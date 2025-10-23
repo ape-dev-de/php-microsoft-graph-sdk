@@ -9,14 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Planner
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Read-only. Nullable. Returns a collection of the specified buckets */
-        public array $buckets = [],
-        /** Read-only. Nullable. Returns a collection of the specified plans */
-        public array $plans = [],
-        /** Read-only. Nullable. Returns a collection of the specified tasks */
-        public array $tasks = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Read-only. Nullable. Returns a collection of the specified buckets
+     * @var PlannerBucket[]
+     */
+    public array $buckets = [];
+
+    /** 
+     * Read-only. Nullable. Returns a collection of the specified plans
+     * @var PlannerPlan[]
+     */
+    public array $plans = [];
+
+    /** 
+     * Read-only. Nullable. Returns a collection of the specified tasks
+     * @var PlannerTask[]
+     */
+    public array $tasks = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['buckets'])) {
+            $this->buckets = $data['buckets'];
+        }
+        if (isset($data['plans'])) {
+            $this->plans = $data['plans'];
+        }
+        if (isset($data['tasks'])) {
+            $this->tasks = $data['tasks'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ThreatExpectedAssessment
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestoreArtifactsBulkRequestStatus
 {
-    public function __construct(
-    ) {}
 }

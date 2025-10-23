@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerUserIds
 {
-    public function __construct(
-    ) {}
 }

@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnTokenIssuanceStartCustomExtensionHandler
 {
-    public function __construct(
-        /**  */
-        public ?CustomExtensionOverwriteConfiguration $configuration = null,
-        /**  */
-        public ?OnTokenIssuanceStartCustomExtension $customExtension = null
-    ) {}
+    /** 
+     * 
+     * @var CustomExtensionOverwriteConfiguration|\stdClass|null
+     */
+    public mixed $configuration = null;
+
+    /** 
+     * 
+     * @var OnTokenIssuanceStartCustomExtension|\stdClass|null
+     */
+    public mixed $customExtension = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['configuration'])) {
+            $this->configuration = $data['configuration'];
+        }
+        if (isset($data['customExtension'])) {
+            $this->customExtension = $data['customExtension'];
+        }
+    }
 }

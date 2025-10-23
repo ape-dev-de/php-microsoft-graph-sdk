@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ComplexExtensionValue
 {
-    public function __construct(
-    ) {}
 }

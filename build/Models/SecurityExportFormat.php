@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityExportFormat
 {
-    public function __construct(
-    ) {}
 }

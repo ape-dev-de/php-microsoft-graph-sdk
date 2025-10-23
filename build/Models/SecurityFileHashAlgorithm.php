@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFileHashAlgorithm
 {
-    public function __construct(
-    ) {}
 }

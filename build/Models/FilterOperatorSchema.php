@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FilterOperatorSchema
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?ScopeOperatorType $arity = null,
-        /**  */
-        public ?ScopeOperatorMultiValuedComparisonType $multivaluedComparisonType = null,
-        /** Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String. */
-        public array $supportedAttributeTypes = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?ScopeOperatorType $arity = null;
+
+    /**  */
+    public ?ScopeOperatorMultiValuedComparisonType $multivaluedComparisonType = null;
+
+    /** 
+     * Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
+     * @var AttributeType[]
+     */
+    public array $supportedAttributeTypes = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['arity'])) {
+            $this->arity = $data['arity'];
+        }
+        if (isset($data['multivaluedComparisonType'])) {
+            $this->multivaluedComparisonType = $data['multivaluedComparisonType'];
+        }
+        if (isset($data['supportedAttributeTypes'])) {
+            $this->supportedAttributeTypes = $data['supportedAttributeTypes'];
+        }
+    }
 }

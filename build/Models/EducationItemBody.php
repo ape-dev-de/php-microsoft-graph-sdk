@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationItemBody
 {
-    public function __construct(
-        /**  */
-        public ?string $content = null,
-        /**  */
-        public ?BodyType $contentType = null
-    ) {}
+    /**  */
+    public ?string $content = null;
+
+    /** 
+     * 
+     * @var BodyType|\stdClass|null
+     */
+    public mixed $contentType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['content'])) {
+            $this->content = $data['content'];
+        }
+        if (isset($data['contentType'])) {
+            $this->contentType = $data['contentType'];
+        }
+    }
 }

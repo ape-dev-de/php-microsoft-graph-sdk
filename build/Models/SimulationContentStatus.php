@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationContentStatus
 {
-    public function __construct(
-    ) {}
 }

@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnUserCreateStartExternalUsersSelfServiceSignUp
 {
-    public function __construct(
-        /** The type of user to create. Maps to userType property of user object. The possible values are: member, guest, unknownFutureValue. */
-        public ?UserType $userTypeToCreate = null
-    ) {}
+    /** 
+     * The type of user to create. Maps to userType property of user object. The possible values are: member, guest, unknownFutureValue.
+     * @var UserType|\stdClass|null
+     */
+    public mixed $userTypeToCreate = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['userTypeToCreate'])) {
+            $this->userTypeToCreate = $data['userTypeToCreate'];
+        }
+    }
 }

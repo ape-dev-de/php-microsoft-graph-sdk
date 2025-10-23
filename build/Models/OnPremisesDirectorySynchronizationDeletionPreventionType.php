@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesDirectorySynchronizationDeletionPreventionType
 {
-    public function __construct(
-    ) {}
 }

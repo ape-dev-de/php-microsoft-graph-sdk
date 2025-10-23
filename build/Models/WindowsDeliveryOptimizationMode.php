@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeliveryOptimizationMode
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Modality
 {
-    public function __construct(
-    ) {}
 }

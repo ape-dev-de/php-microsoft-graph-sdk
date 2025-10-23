@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LobbyBypassSettings
 {
-    public function __construct(
-        /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
-        public ?bool $isDialInBypassEnabled = null,
-        /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
-        public ?LobbyBypassScope $scope = null
-    ) {}
+    /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
+    public ?bool $isDialInBypassEnabled = null;
+
+    /** 
+     * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
+     * @var LobbyBypassScope|\stdClass|null
+     */
+    public mixed $scope = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isDialInBypassEnabled'])) {
+            $this->isDialInBypassEnabled = $data['isDialInBypassEnabled'];
+        }
+        if (isset($data['scope'])) {
+            $this->scope = $data['scope'];
+        }
+    }
 }

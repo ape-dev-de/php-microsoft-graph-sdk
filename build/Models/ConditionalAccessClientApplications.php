@@ -9,12 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessClientApplications
 {
-    public function __construct(
-        /** @var string[] Service principal IDs excluded from the policy scope. */
-        public array $excludeServicePrincipals = [],
-        /** @var string[] Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
-        public array $includeServicePrincipals = [],
-        /** Filter that defines the dynamic-servicePrincipal-syntax rule to include/exclude service principals. A filter can use custom security attributes to include/exclude service principals. */
-        public ?ConditionalAccessFilter $servicePrincipalFilter = null
-    ) {}
+    /** 
+     * Service principal IDs excluded from the policy scope.
+     * @var string[]
+     */
+    public array $excludeServicePrincipals = [];
+
+    /** 
+     * Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
+     * @var string[]
+     */
+    public array $includeServicePrincipals = [];
+
+    /** 
+     * Filter that defines the dynamic-servicePrincipal-syntax rule to include/exclude service principals. A filter can use custom security attributes to include/exclude service principals.
+     * @var ConditionalAccessFilter|\stdClass|null
+     */
+    public mixed $servicePrincipalFilter = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['excludeServicePrincipals'])) {
+            $this->excludeServicePrincipals = $data['excludeServicePrincipals'];
+        }
+        if (isset($data['includeServicePrincipals'])) {
+            $this->includeServicePrincipals = $data['includeServicePrincipals'];
+        }
+        if (isset($data['servicePrincipalFilter'])) {
+            $this->servicePrincipalFilter = $data['servicePrincipalFilter'];
+        }
+    }
 }

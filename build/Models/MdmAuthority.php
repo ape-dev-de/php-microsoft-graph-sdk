@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MdmAuthority
 {
-    public function __construct(
-    ) {}
 }

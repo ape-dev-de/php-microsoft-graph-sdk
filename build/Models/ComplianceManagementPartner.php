@@ -9,26 +9,81 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ComplianceManagementPartner
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** User groups which enroll Android devices through partner. */
-        public array $androidEnrollmentAssignments = [],
-        /** Partner onboarded for Android devices. */
-        public ?bool $androidOnboarded = null,
-        /** Partner display name */
-        public ?string $displayName = null,
-        /** User groups which enroll ios devices through partner. */
-        public array $iosEnrollmentAssignments = [],
-        /** Partner onboarded for ios devices. */
-        public ?bool $iosOnboarded = null,
-        /** Timestamp of last heartbeat after admin onboarded to the compliance management partner */
-        public ?\DateTimeInterface $lastHeartbeatDateTime = null,
-        /** User groups which enroll Mac devices through partner. */
-        public array $macOsEnrollmentAssignments = [],
-        /** Partner onboarded for Mac devices. */
-        public ?bool $macOsOnboarded = null,
-        /**  */
-        public ?DeviceManagementPartnerTenantState $partnerState = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * User groups which enroll Android devices through partner.
+     * @var ComplianceManagementPartnerAssignment[]
+     */
+    public array $androidEnrollmentAssignments = [];
+
+    /** Partner onboarded for Android devices. */
+    public ?bool $androidOnboarded = null;
+
+    /** Partner display name */
+    public ?string $displayName = null;
+
+    /** 
+     * User groups which enroll ios devices through partner.
+     * @var ComplianceManagementPartnerAssignment[]
+     */
+    public array $iosEnrollmentAssignments = [];
+
+    /** Partner onboarded for ios devices. */
+    public ?bool $iosOnboarded = null;
+
+    /** Timestamp of last heartbeat after admin onboarded to the compliance management partner */
+    public ?\DateTimeInterface $lastHeartbeatDateTime = null;
+
+    /** 
+     * User groups which enroll Mac devices through partner.
+     * @var ComplianceManagementPartnerAssignment[]
+     */
+    public array $macOsEnrollmentAssignments = [];
+
+    /** Partner onboarded for Mac devices. */
+    public ?bool $macOsOnboarded = null;
+
+    /**  */
+    public ?DeviceManagementPartnerTenantState $partnerState = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['androidEnrollmentAssignments'])) {
+            $this->androidEnrollmentAssignments = $data['androidEnrollmentAssignments'];
+        }
+        if (isset($data['androidOnboarded'])) {
+            $this->androidOnboarded = $data['androidOnboarded'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['iosEnrollmentAssignments'])) {
+            $this->iosEnrollmentAssignments = $data['iosEnrollmentAssignments'];
+        }
+        if (isset($data['iosOnboarded'])) {
+            $this->iosOnboarded = $data['iosOnboarded'];
+        }
+        if (isset($data['lastHeartbeatDateTime'])) {
+            $this->lastHeartbeatDateTime = $data['lastHeartbeatDateTime'];
+        }
+        if (isset($data['macOsEnrollmentAssignments'])) {
+            $this->macOsEnrollmentAssignments = $data['macOsEnrollmentAssignments'];
+        }
+        if (isset($data['macOsOnboarded'])) {
+            $this->macOsOnboarded = $data['macOsOnboarded'];
+        }
+        if (isset($data['partnerState'])) {
+            $this->partnerState = $data['partnerState'];
+        }
+    }
 }

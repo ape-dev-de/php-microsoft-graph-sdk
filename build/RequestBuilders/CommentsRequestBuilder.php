@@ -5,75 +5,57 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\WorkbookComment;
-use ApeDevDe\MicrosoftGraphSdk\Models\WorkbookCommentCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\WorkbookCommentQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
 
 /**
- * Request builder for WorkbookComment
+ * Request builder for comments
  */
 class CommentsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Create comment for alert
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new WorkbookCommentQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param WorkbookCommentQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return WorkbookCommentCollectionResponse
+     * @param string|null $ifMatch ETag
+     * @param array<string, mixed> $body Request body
+     * @return array<string, mixed>
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?WorkbookCommentQueryOptions $options = null, ?array $queryParameters = null): WorkbookCommentCollectionResponse
+    public function post(?string $ifMatch = null, array $body): array
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, WorkbookCommentCollectionResponse::class);
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->post($this->requestUrl, $body);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
     /**
-     * Create a new WorkbookComment
-     *
-     * @param WorkbookComment $item The item to create
-     * @return WorkbookComment
+     * Deserialize response to array
      */
-    public function post(WorkbookComment $item): WorkbookComment
+    private function deserializePost(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, WorkbookComment::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
     }
-
     /**
-     * Get request builder for specific item by ID
+     * Navigate to $count
      *
-     * @param string $id The item ID
-     * @return WorkbookCommentItemRequestBuilder
+     * @return CountRequestBuilder
      */
-    public function byId(string $id): WorkbookCommentItemRequestBuilder
+    public function count(): CountRequestBuilder
     {
-        return new WorkbookCommentItemRequestBuilder($this->client, $this->buildPath($id));
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
-    /**
-     * Get count of items in collection
-     *
-     * @return int
-     */
-    public function count(): int
-    {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
-    }
-
 }

@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserActionContext
 {
-    public function __construct(
-        /** Represents the user action that the authenticating identity is performing. The possible values are: registerSecurityInformation, registerOrJoinDevices, unknownFutureValue. */
-        public ?UserAction $userAction = null
-    ) {}
+    /** 
+     * Represents the user action that the authenticating identity is performing. The possible values are: registerSecurityInformation, registerOrJoinDevices, unknownFutureValue.
+     * @var UserAction|\stdClass|null
+     */
+    public mixed $userAction = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['userAction'])) {
+            $this->userAction = $data['userAction'];
+        }
+    }
 }

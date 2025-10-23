@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HyperlinkOrPictureColumn
 {
-    public function __construct(
-        /** Specifies whether the display format used for URL columns is an image or a hyperlink. */
-        public ?bool $isPicture = null
-    ) {}
+    /** Specifies whether the display format used for URL columns is an image or a hyperlink. */
+    public ?bool $isPicture = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isPicture'])) {
+            $this->isPicture = $data['isPicture'];
+        }
+    }
 }

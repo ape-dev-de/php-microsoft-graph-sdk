@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppsUpdateChannelType
 {
-    public function __construct(
-    ) {}
 }

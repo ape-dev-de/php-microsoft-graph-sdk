@@ -9,36 +9,108 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceRun
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $completedDateTime = null,
-        /** The number of tasks that failed in the run execution. */
-        public ?float $failedTasksCount = null,
-        /** The number of users that failed in the run execution. */
-        public ?float $failedUsersCount = null,
-        /** The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $lastUpdatedDateTime = null,
-        /**  */
-        public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null,
-        /** The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $scheduledDateTime = null,
-        /** The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $startedDateTime = null,
-        /** The number of successfully completed users in the run. */
-        public ?float $successfulUsersCount = null,
-        /**  */
-        public ?float $totalTasksCount = null,
-        /** The total number of unprocessed tasks in the run execution. */
-        public ?float $totalUnprocessedTasksCount = null,
-        /** The total number of users in the workflow execution. */
-        public ?float $totalUsersCount = null,
-        /**  */
-        public ?IdentityGovernanceWorkflowExecutionType $workflowExecutionType = null,
-        /** The related taskProcessingResults. */
-        public array $taskProcessingResults = [],
-        /** The associated individual user execution. */
-        public array $userProcessingResults = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $completedDateTime = null;
+
+    /** The number of tasks that failed in the run execution. */
+    public ?float $failedTasksCount = null;
+
+    /** The number of users that failed in the run execution. */
+    public ?float $failedUsersCount = null;
+
+    /** The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $lastUpdatedDateTime = null;
+
+    /**  */
+    public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null;
+
+    /** The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $scheduledDateTime = null;
+
+    /** The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $startedDateTime = null;
+
+    /** The number of successfully completed users in the run. */
+    public ?float $successfulUsersCount = null;
+
+    /**  */
+    public ?float $totalTasksCount = null;
+
+    /** The total number of unprocessed tasks in the run execution. */
+    public ?float $totalUnprocessedTasksCount = null;
+
+    /** The total number of users in the workflow execution. */
+    public ?float $totalUsersCount = null;
+
+    /**  */
+    public ?IdentityGovernanceWorkflowExecutionType $workflowExecutionType = null;
+
+    /** 
+     * The related taskProcessingResults.
+     * @var IdentityGovernanceTaskProcessingResult[]
+     */
+    public array $taskProcessingResults = [];
+
+    /** 
+     * The associated individual user execution.
+     * @var IdentityGovernanceUserProcessingResult[]
+     */
+    public array $userProcessingResults = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['completedDateTime'])) {
+            $this->completedDateTime = $data['completedDateTime'];
+        }
+        if (isset($data['failedTasksCount'])) {
+            $this->failedTasksCount = $data['failedTasksCount'];
+        }
+        if (isset($data['failedUsersCount'])) {
+            $this->failedUsersCount = $data['failedUsersCount'];
+        }
+        if (isset($data['lastUpdatedDateTime'])) {
+            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+        }
+        if (isset($data['processingStatus'])) {
+            $this->processingStatus = $data['processingStatus'];
+        }
+        if (isset($data['scheduledDateTime'])) {
+            $this->scheduledDateTime = $data['scheduledDateTime'];
+        }
+        if (isset($data['startedDateTime'])) {
+            $this->startedDateTime = $data['startedDateTime'];
+        }
+        if (isset($data['successfulUsersCount'])) {
+            $this->successfulUsersCount = $data['successfulUsersCount'];
+        }
+        if (isset($data['totalTasksCount'])) {
+            $this->totalTasksCount = $data['totalTasksCount'];
+        }
+        if (isset($data['totalUnprocessedTasksCount'])) {
+            $this->totalUnprocessedTasksCount = $data['totalUnprocessedTasksCount'];
+        }
+        if (isset($data['totalUsersCount'])) {
+            $this->totalUsersCount = $data['totalUsersCount'];
+        }
+        if (isset($data['workflowExecutionType'])) {
+            $this->workflowExecutionType = $data['workflowExecutionType'];
+        }
+        if (isset($data['taskProcessingResults'])) {
+            $this->taskProcessingResults = $data['taskProcessingResults'];
+        }
+        if (isset($data['userProcessingResults'])) {
+            $this->userProcessingResults = $data['userProcessingResults'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageResourceAttributeDestination
 {
-    public function __construct(
-    ) {}
 }

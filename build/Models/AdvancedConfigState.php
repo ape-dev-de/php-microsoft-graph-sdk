@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AdvancedConfigState
 {
-    public function __construct(
-    ) {}
 }

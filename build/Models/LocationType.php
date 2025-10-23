@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LocationType
 {
-    public function __construct(
-    ) {}
 }

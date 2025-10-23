@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileAppIdentifier
 {
-    public function __construct(
-    ) {}
 }

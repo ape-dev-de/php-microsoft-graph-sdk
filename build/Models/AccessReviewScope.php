@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewScope
 {
-    public function __construct(
-    ) {}
 }

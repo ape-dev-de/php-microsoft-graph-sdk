@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationMethodSignInState
 {
-    public function __construct(
-    ) {}
 }

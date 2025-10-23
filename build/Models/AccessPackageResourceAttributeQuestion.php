@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageResourceAttributeQuestion
 {
-    public function __construct(
-        /**  */
-        public ?AccessPackageQuestion $question = null
-    ) {}
+    /** 
+     * 
+     * @var AccessPackageQuestion|\stdClass|null
+     */
+    public mixed $question = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['question'])) {
+            $this->question = $data['question'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RatingUnitedStatesTelevisionType
 {
-    public function __construct(
-    ) {}
 }

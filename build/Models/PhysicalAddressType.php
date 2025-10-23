@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PhysicalAddressType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConnectionDirection
 {
-    public function __construct(
-    ) {}
 }

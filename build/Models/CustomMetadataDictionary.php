@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomMetadataDictionary
 {
-    public function __construct(
-    ) {}
 }

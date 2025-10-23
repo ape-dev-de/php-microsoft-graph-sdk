@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecurrenceRangeType
 {
-    public function __construct(
-    ) {}
 }

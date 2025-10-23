@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FallbackToMicrosoftProviderOnError
 {
-    public function __construct(
-    ) {}
 }

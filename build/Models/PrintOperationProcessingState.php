@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintOperationProcessingState
 {
-    public function __construct(
-    ) {}
 }

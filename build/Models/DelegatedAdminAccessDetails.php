@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegatedAdminAccessDetails
 {
-    public function __construct(
-        /** The directory roles that the Microsoft partner is assigned in the customer tenant. */
-        public array $unifiedRoles = []
-    ) {}
+    /** 
+     * The directory roles that the Microsoft partner is assigned in the customer tenant.
+     * @var UnifiedRole[]
+     */
+    public array $unifiedRoles = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['unifiedRoles'])) {
+            $this->unifiedRoles = $data['unifiedRoles'];
+        }
+    }
 }

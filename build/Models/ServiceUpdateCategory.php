@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceUpdateCategory
 {
-    public function __construct(
-    ) {}
 }

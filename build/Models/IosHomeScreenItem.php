@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosHomeScreenItem
 {
-    public function __construct(
-        /** Name of the app */
-        public ?string $displayName = null
-    ) {}
+    /** Name of the app */
+    public ?string $displayName = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+    }
 }

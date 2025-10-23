@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationStrengthRequirements
 {
-    public function __construct(
-    ) {}
 }

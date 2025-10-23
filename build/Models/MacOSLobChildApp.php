@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSLobChildApp
 {
-    public function __construct(
-        /** The build number of the app. */
-        public ?string $buildNumber = null,
-        /** The bundleId of the app. */
-        public ?string $bundleId = null,
-        /** The version number of the app. */
-        public ?string $versionNumber = null
-    ) {}
+    /** The build number of the app. */
+    public ?string $buildNumber = null;
+
+    /** The bundleId of the app. */
+    public ?string $bundleId = null;
+
+    /** The version number of the app. */
+    public ?string $versionNumber = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['buildNumber'])) {
+            $this->buildNumber = $data['buildNumber'];
+        }
+        if (isset($data['bundleId'])) {
+            $this->bundleId = $data['bundleId'];
+        }
+        if (isset($data['versionNumber'])) {
+            $this->versionNumber = $data['versionNumber'];
+        }
+    }
 }

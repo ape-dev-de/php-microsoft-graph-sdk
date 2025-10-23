@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionCalloutRequest
 {
-    public function __construct(
-        /** Contains the data that will be provided to the external system. */
-        public ?CustomExtensionData $data = null,
-        /** Identifies the source system or event context related to the callout request. */
-        public ?string $source = null,
-        /** Describes the type of event related to the callout request. */
-        public ?string $type = null
-    ) {}
+    /** 
+     * Contains the data that will be provided to the external system.
+     * @var CustomExtensionData|\stdClass|null
+     */
+    public mixed $data = null;
+
+    /** Identifies the source system or event context related to the callout request. */
+    public ?string $source = null;
+
+    /** Describes the type of event related to the callout request. */
+    public ?string $type = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['data'])) {
+            $this->data = $data['data'];
+        }
+        if (isset($data['source'])) {
+            $this->source = $data['source'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+    }
 }

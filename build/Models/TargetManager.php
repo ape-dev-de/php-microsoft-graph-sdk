@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TargetManager
 {
-    public function __construct(
-        /** Manager level, between 1 and 4. The direct manager is 1. */
-        public ?float $managerLevel = null
-    ) {}
+    /** Manager level, between 1 and 4. The direct manager is 1. */
+    public ?float $managerLevel = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['managerLevel'])) {
+            $this->managerLevel = $data['managerLevel'];
+        }
+    }
 }

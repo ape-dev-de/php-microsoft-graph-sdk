@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BaseDeltaFunctionResponse
 {
-    public function __construct(
-    ) {}
 }

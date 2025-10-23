@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppPublishingState
 {
-    public function __construct(
-    ) {}
 }

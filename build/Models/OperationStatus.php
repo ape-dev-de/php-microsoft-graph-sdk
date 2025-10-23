@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OperationStatus
 {
-    public function __construct(
-    ) {}
 }

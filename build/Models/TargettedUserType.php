@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TargettedUserType
 {
-    public function __construct(
-    ) {}
 }

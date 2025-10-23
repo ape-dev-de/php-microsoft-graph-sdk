@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContainerFilter
 {
-    public function __construct(
-        /** @var string[]  */
-        public array $includedContainers = []
-    ) {}
+    /** 
+     * 
+     * @var string[]
+     */
+    public array $includedContainers = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['includedContainers'])) {
+            $this->includedContainers = $data['includedContainers'];
+        }
+    }
 }

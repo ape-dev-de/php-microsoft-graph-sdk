@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CertificateBasedAuthConfiguration
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Collection of certificate authorities which creates a trusted certificate chain. */
-        public array $certificateAuthorities = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Collection of certificate authorities which creates a trusted certificate chain.
+     * @var CertificateAuthority[]
+     */
+    public array $certificateAuthorities = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['certificateAuthorities'])) {
+            $this->certificateAuthorities = $data['certificateAuthorities'];
+        }
+    }
 }

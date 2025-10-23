@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SpaApplication
 {
-    public function __construct(
-        /** @var string[] Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
-        public array $redirectUris = []
-    ) {}
+    /** 
+     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+     * @var string[]
+     */
+    public array $redirectUris = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['redirectUris'])) {
+            $this->redirectUris = $data['redirectUris'];
+        }
+    }
 }

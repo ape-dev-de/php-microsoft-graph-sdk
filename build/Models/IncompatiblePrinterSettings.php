@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IncompatiblePrinterSettings
 {
-    public function __construct(
-    ) {}
 }

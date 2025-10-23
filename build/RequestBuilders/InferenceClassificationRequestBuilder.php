@@ -6,56 +6,93 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\InferenceClassification;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\InferenceClassificationQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\OverridesRequestBuilder;
 
 /**
- * Request builder for InferenceClassification
+ * Request builder for inferenceClassification
  */
 class InferenceClassificationRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get inferenceClassification from me
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param InferenceClassificationQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return InferenceClassification
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?InferenceClassificationQueryOptions $options = null, ?array $queryParameters = null): InferenceClassification
+    public function get(?array $select = null, ?array $expand = null): InferenceClassification
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, InferenceClassification::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new InferenceClassification
-     *
-     * @param InferenceClassification $item The item to create
-     * @return InferenceClassification
+     * Deserialize response to InferenceClassification
      */
-    public function post(InferenceClassification $item): InferenceClassification
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, InferenceClassification::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new InferenceClassification($data);
     }
     /**
-     * Get overrides request builder
+     * Update the navigation property inferenceClassification in me
+     * @param InferenceClassification $body Request body
+     * @return InferenceClassification
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(InferenceClassification $body): InferenceClassification
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to InferenceClassification
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new InferenceClassification($data);
+    }
+    /**
+     * Navigate to overrides
      *
      * @return OverridesRequestBuilder
      */
     public function overrides(): OverridesRequestBuilder
     {
-        return new OverridesRequestBuilder($this->client, $this->buildPath('overrides'));
+        return new OverridesRequestBuilder($this->client, $this->requestUrl . '/overrides');
     }
-
 }

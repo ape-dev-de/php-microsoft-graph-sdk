@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceHealth
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
-        public ?string $service = null,
-        /**  */
-        public ?ServiceHealthStatus $status = null,
-        /** A collection of issues that happened on the service, with detailed information for each issue. */
-        public array $issues = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
+    public ?string $service = null;
+
+    /**  */
+    public ?ServiceHealthStatus $status = null;
+
+    /** 
+     * A collection of issues that happened on the service, with detailed information for each issue.
+     * @var ServiceHealthIssue[]
+     */
+    public array $issues = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['service'])) {
+            $this->service = $data['service'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['issues'])) {
+            $this->issues = $data['issues'];
+        }
+    }
 }

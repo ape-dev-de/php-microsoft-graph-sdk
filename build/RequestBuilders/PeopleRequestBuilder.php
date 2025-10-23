@@ -5,63 +5,81 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\Person;
-use ApeDevDe\MicrosoftGraphSdk\Models\PersonCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\PersonQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\PeopleAdminSettings;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ItemInsightsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ProfileCardPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PronounsRequestBuilder;
 
 /**
- * Request builder for Person
+ * Request builder for people
  */
 class PeopleRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Get peopleAdminSettings
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new PersonQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param PersonQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return PersonCollectionResponse
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return PeopleAdminSettings
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?PersonQueryOptions $options = null, ?array $queryParameters = null): PersonCollectionResponse
+    public function get(?array $select = null, ?array $expand = null): PeopleAdminSettings
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, PersonCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Get request builder for specific item by ID
-     *
-     * @param string $id The item ID
-     * @return PersonItemRequestBuilder
+     * Deserialize response to PeopleAdminSettings
      */
-    public function byId(string $id): PersonItemRequestBuilder
+    private function deserializeGet(string $body): mixed
     {
-        return new PersonItemRequestBuilder($this->client, $this->buildPath($id));
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new PeopleAdminSettings($data);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to itemInsights
      *
-     * @return int
+     * @return ItemInsightsRequestBuilder
      */
-    public function count(): int
+    public function itemInsights(): ItemInsightsRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new ItemInsightsRequestBuilder($this->client, $this->requestUrl . '/itemInsights');
     }
-
+    /**
+     * Navigate to profileCardProperties
+     *
+     * @return ProfileCardPropertiesRequestBuilder
+     */
+    public function profileCardProperties(): ProfileCardPropertiesRequestBuilder
+    {
+        return new ProfileCardPropertiesRequestBuilder($this->client, $this->requestUrl . '/profileCardProperties');
+    }
+    /**
+     * Navigate to pronouns
+     *
+     * @return PronounsRequestBuilder
+     */
+    public function pronouns(): PronounsRequestBuilder
+    {
+        return new PronounsRequestBuilder($this->client, $this->requestUrl . '/pronouns');
+    }
 }

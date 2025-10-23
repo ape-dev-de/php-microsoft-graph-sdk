@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityAlertSeverity
 {
-    public function __construct(
-    ) {}
 }

@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessLocations
 {
-    public function __construct(
-        /** @var string[] Location IDs excluded from scope of policy. */
-        public array $excludeLocations = [],
-        /** @var string[] Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted. */
-        public array $includeLocations = []
-    ) {}
+    /** 
+     * Location IDs excluded from scope of policy.
+     * @var string[]
+     */
+    public array $excludeLocations = [];
+
+    /** 
+     * Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
+     * @var string[]
+     */
+    public array $includeLocations = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['excludeLocations'])) {
+            $this->excludeLocations = $data['excludeLocations'];
+        }
+        if (isset($data['includeLocations'])) {
+            $this->includeLocations = $data['includeLocations'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRoleScheduleRequestActions
 {
-    public function __construct(
-    ) {}
 }

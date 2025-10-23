@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionOverwriteConfiguration
 {
-    public function __construct(
-        /**  */
-        public ?CustomExtensionBehaviorOnError $behaviorOnError = null,
-        /** Configuration regarding properties of the custom extension which can be overwritten per event listener. If no values are provided, the properties on the custom extension are used. */
-        public ?CustomExtensionClientConfiguration $clientConfiguration = null
-    ) {}
+    /** 
+     * 
+     * @var CustomExtensionBehaviorOnError|\stdClass|null
+     */
+    public mixed $behaviorOnError = null;
+
+    /** 
+     * Configuration regarding properties of the custom extension which can be overwritten per event listener. If no values are provided, the properties on the custom extension are used.
+     * @var CustomExtensionClientConfiguration|\stdClass|null
+     */
+    public mixed $clientConfiguration = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['behaviorOnError'])) {
+            $this->behaviorOnError = $data['behaviorOnError'];
+        }
+        if (isset($data['clientConfiguration'])) {
+            $this->clientConfiguration = $data['clientConfiguration'];
+        }
+    }
 }

@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GroupMembers
 {
-    public function __construct(
-        /** The name of the group in Microsoft Entra ID. Read-only. */
-        public ?string $description = null,
-        /** The ID of the group in Microsoft Entra ID. */
-        public ?string $groupId = null
-    ) {}
+    /** The name of the group in Microsoft Entra ID. Read-only. */
+    public ?string $description = null;
+
+    /** The ID of the group in Microsoft Entra ID. */
+    public ?string $groupId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['groupId'])) {
+            $this->groupId = $data['groupId'];
+        }
+    }
 }

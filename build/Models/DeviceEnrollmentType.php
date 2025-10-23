@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceEnrollmentType
 {
-    public function __construct(
-    ) {}
 }

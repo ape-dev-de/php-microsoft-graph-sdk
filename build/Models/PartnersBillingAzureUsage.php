@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnersBillingAzureUsage
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?PartnersBillingBilledUsage $billed = null,
-        /**  */
-        public ?PartnersBillingUnbilledUsage $unbilled = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?PartnersBillingBilledUsage $billed = null;
+
+    /**  */
+    public ?PartnersBillingUnbilledUsage $unbilled = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['billed'])) {
+            $this->billed = $data['billed'];
+        }
+        if (isset($data['unbilled'])) {
+            $this->unbilled = $data['unbilled'];
+        }
+    }
 }

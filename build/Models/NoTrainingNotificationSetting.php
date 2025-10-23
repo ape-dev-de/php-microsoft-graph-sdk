@@ -9,14 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NoTrainingNotificationSetting
 {
-    public function __construct(
-        /** Notification preference. Possible values are: unknown, microsoft, custom, unknownFutureValue. */
-        public ?EndUserNotificationPreference $notificationPreference = null,
-        /** Positive reinforcement detail. */
-        public ?PositiveReinforcementNotification $positiveReinforcement = null,
-        /** End user notification type. Possible values are: unknown, noTraining, trainingSelected, noNotification, unknownFutureValue. */
-        public ?EndUserNotificationSettingType $settingType = null,
-        /** The notification for the user who is part of the simulation. */
-        public ?SimulationNotification $simulationNotification = null
-    ) {}
+    /** 
+     * Notification preference. Possible values are: unknown, microsoft, custom, unknownFutureValue.
+     * @var EndUserNotificationPreference|\stdClass|null
+     */
+    public mixed $notificationPreference = null;
+
+    /** 
+     * Positive reinforcement detail.
+     * @var PositiveReinforcementNotification|\stdClass|null
+     */
+    public mixed $positiveReinforcement = null;
+
+    /** 
+     * End user notification type. Possible values are: unknown, noTraining, trainingSelected, noNotification, unknownFutureValue.
+     * @var EndUserNotificationSettingType|\stdClass|null
+     */
+    public mixed $settingType = null;
+
+    /** 
+     * The notification for the user who is part of the simulation.
+     * @var SimulationNotification|\stdClass|null
+     */
+    public mixed $simulationNotification = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['notificationPreference'])) {
+            $this->notificationPreference = $data['notificationPreference'];
+        }
+        if (isset($data['positiveReinforcement'])) {
+            $this->positiveReinforcement = $data['positiveReinforcement'];
+        }
+        if (isset($data['settingType'])) {
+            $this->settingType = $data['settingType'];
+        }
+        if (isset($data['simulationNotification'])) {
+            $this->simulationNotification = $data['simulationNotification'];
+        }
+    }
 }

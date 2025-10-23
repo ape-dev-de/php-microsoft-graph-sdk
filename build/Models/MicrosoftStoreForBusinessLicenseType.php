@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftStoreForBusinessLicenseType
 {
-    public function __construct(
-    ) {}
 }

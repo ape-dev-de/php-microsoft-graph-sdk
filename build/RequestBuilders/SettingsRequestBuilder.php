@@ -5,75 +5,160 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\GroupSetting;
-use ApeDevDe\MicrosoftGraphSdk\Models\GroupSettingCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\GroupSettingQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserSettings;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ItemInsightsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ShiftPreferencesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\StorageRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\WindowsRequestBuilder;
 
 /**
- * Request builder for GroupSetting
+ * Request builder for settings
  */
 class SettingsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Get settings
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new GroupSettingQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param GroupSettingQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return GroupSettingCollectionResponse
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return UserSettings
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?GroupSettingQueryOptions $options = null, ?array $queryParameters = null): GroupSettingCollectionResponse
+    public function get(?array $select = null, ?array $expand = null): UserSettings
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, GroupSettingCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new GroupSetting
-     *
-     * @param GroupSetting $item The item to create
-     * @return GroupSetting
+     * Deserialize response to UserSettings
      */
-    public function post(GroupSetting $item): GroupSetting
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, GroupSetting::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UserSettings($data);
+    }
+    /**
+     * Update userSettings
+     * @param UserSettings $body Request body
+     * @return UserSettings
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(UserSettings $body): UserSettings
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Get request builder for specific item by ID
-     *
-     * @param string $id The item ID
-     * @return GroupSettingItemRequestBuilder
+     * Deserialize response to UserSettings
      */
-    public function byId(string $id): GroupSettingItemRequestBuilder
+    private function deserializePatch(string $body): mixed
     {
-        return new GroupSettingItemRequestBuilder($this->client, $this->buildPath($id));
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UserSettings($data);
+    }
+    /**
+     * Delete navigation property settings for me
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
     }
 
     /**
-     * Get count of items in collection
-     *
-     * @return int
+     * Deserialize response to mixed
      */
-    public function count(): int
+    private function deserializeDelete(string $body): mixed
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
     }
-
+    /**
+     * Navigate to itemInsights
+     *
+     * @return ItemInsightsRequestBuilder
+     */
+    public function itemInsights(): ItemInsightsRequestBuilder
+    {
+        return new ItemInsightsRequestBuilder($this->client, $this->requestUrl . '/itemInsights');
+    }
+    /**
+     * Navigate to shiftPreferences
+     *
+     * @return ShiftPreferencesRequestBuilder
+     */
+    public function shiftPreferences(): ShiftPreferencesRequestBuilder
+    {
+        return new ShiftPreferencesRequestBuilder($this->client, $this->requestUrl . '/shiftPreferences');
+    }
+    /**
+     * Navigate to storage
+     *
+     * @return StorageRequestBuilder
+     */
+    public function storage(): StorageRequestBuilder
+    {
+        return new StorageRequestBuilder($this->client, $this->requestUrl . '/storage');
+    }
+    /**
+     * Navigate to windows
+     *
+     * @return WindowsRequestBuilder
+     */
+    public function windows(): WindowsRequestBuilder
+    {
+        return new WindowsRequestBuilder($this->client, $this->requestUrl . '/windows');
+    }
 }

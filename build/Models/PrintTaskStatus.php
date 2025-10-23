@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintTaskStatus
 {
-    public function __construct(
-        /** A human-readable description of the current processing state of the printTask. */
-        public ?string $description = null,
-        /**  */
-        public ?PrintTaskProcessingState $state = null
-    ) {}
+    /** A human-readable description of the current processing state of the printTask. */
+    public ?string $description = null;
+
+    /**  */
+    public ?PrintTaskProcessingState $state = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['state'])) {
+            $this->state = $data['state'];
+        }
+    }
 }

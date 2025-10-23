@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityPurgeType
 {
-    public function __construct(
-    ) {}
 }

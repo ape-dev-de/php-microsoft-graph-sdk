@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecipientScopeType
 {
-    public function __construct(
-    ) {}
 }

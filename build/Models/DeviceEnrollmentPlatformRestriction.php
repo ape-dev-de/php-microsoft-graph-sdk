@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceEnrollmentPlatformRestriction
 {
-    public function __construct(
-        /** Max OS version supported */
-        public ?string $osMaximumVersion = null,
-        /** Min OS version supported */
-        public ?string $osMinimumVersion = null,
-        /** Block personally owned devices from enrolling */
-        public ?bool $personalDeviceEnrollmentBlocked = null,
-        /** Block the platform from enrolling */
-        public ?bool $platformBlocked = null
-    ) {}
+    /** Max OS version supported */
+    public ?string $osMaximumVersion = null;
+
+    /** Min OS version supported */
+    public ?string $osMinimumVersion = null;
+
+    /** Block personally owned devices from enrolling */
+    public ?bool $personalDeviceEnrollmentBlocked = null;
+
+    /** Block the platform from enrolling */
+    public ?bool $platformBlocked = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['osMaximumVersion'])) {
+            $this->osMaximumVersion = $data['osMaximumVersion'];
+        }
+        if (isset($data['osMinimumVersion'])) {
+            $this->osMinimumVersion = $data['osMinimumVersion'];
+        }
+        if (isset($data['personalDeviceEnrollmentBlocked'])) {
+            $this->personalDeviceEnrollmentBlocked = $data['personalDeviceEnrollmentBlocked'];
+        }
+        if (isset($data['platformBlocked'])) {
+            $this->platformBlocked = $data['platformBlocked'];
+        }
+    }
 }

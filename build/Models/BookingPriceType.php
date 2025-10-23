@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingPriceType
 {
-    public function __construct(
-    ) {}
 }

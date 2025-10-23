@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LicenseProcessingState
 {
-    public function __construct(
-        /**  */
-        public ?string $state = null
-    ) {}
+    /**  */
+    public ?string $state = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['state'])) {
+            $this->state = $data['state'];
+        }
+    }
 }

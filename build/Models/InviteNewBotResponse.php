@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InviteNewBotResponse
 {
-    public function __construct(
-        /** URI to receive new incoming call notification. */
-        public ?string $inviteUri = null
-    ) {}
+    /** URI to receive new incoming call notification. */
+    public ?string $inviteUri = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['inviteUri'])) {
+            $this->inviteUri = $data['inviteUri'];
+        }
+    }
 }

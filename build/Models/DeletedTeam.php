@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeletedTeam
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The channels that are either shared with this deleted team or created in this deleted team. */
-        public array $channels = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * The channels that are either shared with this deleted team or created in this deleted team.
+     * @var Channel[]
+     */
+    public array $channels = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['channels'])) {
+            $this->channels = $data['channels'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsHealthState
 {
-    public function __construct(
-    ) {}
 }

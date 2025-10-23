@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RoutingType
 {
-    public function __construct(
-    ) {}
 }

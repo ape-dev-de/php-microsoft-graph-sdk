@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttachmentInfo
 {
-    public function __construct(
-        /** The type of the attachment. The possible values are: file, item, reference. Required. */
-        public ?AttachmentType $attachmentType = null,
-        /** The nature of the data in the attachment. Optional. */
-        public ?string $contentType = null,
-        /** The display name of the attachment. This can be a descriptive string and doesn't have to be the actual file name. Required. */
-        public ?string $name = null,
-        /** The length of the attachment in bytes. Required. */
-        public ?float $size = null
-    ) {}
+    /** 
+     * The type of the attachment. The possible values are: file, item, reference. Required.
+     * @var AttachmentType|\stdClass|null
+     */
+    public mixed $attachmentType = null;
+
+    /** The nature of the data in the attachment. Optional. */
+    public ?string $contentType = null;
+
+    /** The display name of the attachment. This can be a descriptive string and doesn't have to be the actual file name. Required. */
+    public ?string $name = null;
+
+    /** The length of the attachment in bytes. Required. */
+    public ?float $size = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['attachmentType'])) {
+            $this->attachmentType = $data['attachmentType'];
+        }
+        if (isset($data['contentType'])) {
+            $this->contentType = $data['contentType'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['size'])) {
+            $this->size = $data['size'];
+        }
+    }
 }

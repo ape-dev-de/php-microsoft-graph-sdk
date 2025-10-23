@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResourceReference
 {
-    public function __construct(
-        /** The item's unique identifier. */
-        public ?string $id = null,
-        /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
-        public ?string $type = null,
-        /** A URL leading to the referenced item. */
-        public ?string $webUrl = null
-    ) {}
+    /** The item's unique identifier. */
+    public ?string $id = null;
+
+    /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
+    public ?string $type = null;
+
+    /** A URL leading to the referenced item. */
+    public ?string $webUrl = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+        if (isset($data['webUrl'])) {
+            $this->webUrl = $data['webUrl'];
+        }
+    }
 }

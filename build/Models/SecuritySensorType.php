@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecuritySensorType
 {
-    public function __construct(
-    ) {}
 }

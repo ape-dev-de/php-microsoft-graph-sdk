@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Importance
 {
-    public function __construct(
-    ) {}
 }

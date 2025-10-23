@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerExternalReferences
 {
-    public function __construct(
-    ) {}
 }

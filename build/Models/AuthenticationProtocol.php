@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationProtocol
 {
-    public function __construct(
-    ) {}
 }

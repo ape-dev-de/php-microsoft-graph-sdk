@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceTriggerAndScopeBasedConditions
 {
-    public function __construct(
-        /** Defines who the workflow runs for. */
-        public ?SubjectSet $scope = null,
-        /** What triggers a workflow to run. */
-        public ?IdentityGovernanceWorkflowExecutionTrigger $trigger = null
-    ) {}
+    /** 
+     * Defines who the workflow runs for.
+     * @var SubjectSet|\stdClass|null
+     */
+    public mixed $scope = null;
+
+    /** 
+     * What triggers a workflow to run.
+     * @var IdentityGovernanceWorkflowExecutionTrigger|\stdClass|null
+     */
+    public mixed $trigger = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['scope'])) {
+            $this->scope = $data['scope'];
+        }
+        if (isset($data['trigger'])) {
+            $this->trigger = $data['trigger'];
+        }
+    }
 }

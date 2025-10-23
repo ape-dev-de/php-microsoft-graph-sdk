@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageNotificationSettings
 {
-    public function __construct(
-        /** Indicates if notification emails for an access package are disabled within an access package assignment policy. */
-        public ?bool $isAssignmentNotificationDisabled = null
-    ) {}
+    /** Indicates if notification emails for an access package are disabled within an access package assignment policy. */
+    public ?bool $isAssignmentNotificationDisabled = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isAssignmentNotificationDisabled'])) {
+            $this->isAssignmentNotificationDisabled = $data['isAssignmentNotificationDisabled'];
+        }
+    }
 }

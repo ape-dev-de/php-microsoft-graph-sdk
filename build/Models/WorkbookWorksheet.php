@@ -9,24 +9,81 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookWorksheet
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The display name of the worksheet. */
-        public ?string $name = null,
-        /** The zero-based position of the worksheet within the workbook. */
-        public ?float $position = null,
-        /** The visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden. */
-        public ?string $visibility = null,
-        /** The list of charts that are part of the worksheet. Read-only. */
-        public array $charts = [],
-        /** The list of names that are associated with the worksheet. Read-only. */
-        public array $names = [],
-        /** The list of piot tables that are part of the worksheet. */
-        public array $pivotTables = [],
-        /** The sheet protection object for a worksheet. Read-only. */
-        public ?WorkbookWorksheetProtection $protection = null,
-        /** The list of tables that are part of the worksheet. Read-only. */
-        public array $tables = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The display name of the worksheet. */
+    public ?string $name = null;
+
+    /** The zero-based position of the worksheet within the workbook. */
+    public ?float $position = null;
+
+    /** The visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden. */
+    public ?string $visibility = null;
+
+    /** 
+     * The list of charts that are part of the worksheet. Read-only.
+     * @var WorkbookChart[]
+     */
+    public array $charts = [];
+
+    /** 
+     * The list of names that are associated with the worksheet. Read-only.
+     * @var WorkbookNamedItem[]
+     */
+    public array $names = [];
+
+    /** 
+     * The list of piot tables that are part of the worksheet.
+     * @var WorkbookPivotTable[]
+     */
+    public array $pivotTables = [];
+
+    /** 
+     * The sheet protection object for a worksheet. Read-only.
+     * @var WorkbookWorksheetProtection|\stdClass|null
+     */
+    public mixed $protection = null;
+
+    /** 
+     * The list of tables that are part of the worksheet. Read-only.
+     * @var WorkbookTable[]
+     */
+    public array $tables = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['position'])) {
+            $this->position = $data['position'];
+        }
+        if (isset($data['visibility'])) {
+            $this->visibility = $data['visibility'];
+        }
+        if (isset($data['charts'])) {
+            $this->charts = $data['charts'];
+        }
+        if (isset($data['names'])) {
+            $this->names = $data['names'];
+        }
+        if (isset($data['pivotTables'])) {
+            $this->pivotTables = $data['pivotTables'];
+        }
+        if (isset($data['protection'])) {
+            $this->protection = $data['protection'];
+        }
+        if (isset($data['tables'])) {
+            $this->tables = $data['tables'];
+        }
+    }
 }

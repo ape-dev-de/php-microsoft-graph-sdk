@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ImportedWindowsAutopilotDeviceIdentityUploadStatus
 {
-    public function __construct(
-    ) {}
 }

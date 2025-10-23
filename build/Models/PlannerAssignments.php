@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerAssignments
 {
-    public function __construct(
-    ) {}
 }

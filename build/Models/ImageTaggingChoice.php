@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ImageTaggingChoice
 {
-    public function __construct(
-    ) {}
 }

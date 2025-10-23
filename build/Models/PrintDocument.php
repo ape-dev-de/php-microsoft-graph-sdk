@@ -9,18 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintDocument
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The document's content (MIME) type. Read-only. */
-        public ?string $contentType = null,
-        /** The document's name. Read-only. */
-        public ?string $displayName = null,
-        /** The time the document was downloaded. Read-only */
-        public ?\DateTimeInterface $downloadedDateTime = null,
-        /** The document's size in bytes. Read-only. */
-        public ?float $size = null,
-        /** The time the document was uploaded. Read-only */
-        public ?\DateTimeInterface $uploadedDateTime = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The document's content (MIME) type. Read-only. */
+    public ?string $contentType = null;
+
+    /** The document's name. Read-only. */
+    public ?string $displayName = null;
+
+    /** The time the document was downloaded. Read-only */
+    public ?\DateTimeInterface $downloadedDateTime = null;
+
+    /** The document's size in bytes. Read-only. */
+    public ?float $size = null;
+
+    /** The time the document was uploaded. Read-only */
+    public ?\DateTimeInterface $uploadedDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['contentType'])) {
+            $this->contentType = $data['contentType'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['downloadedDateTime'])) {
+            $this->downloadedDateTime = $data['downloadedDateTime'];
+        }
+        if (isset($data['size'])) {
+            $this->size = $data['size'];
+        }
+        if (isset($data['uploadedDateTime'])) {
+            $this->uploadedDateTime = $data['uploadedDateTime'];
+        }
+    }
 }

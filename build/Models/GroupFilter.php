@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GroupFilter
 {
-    public function __construct(
-        /** @var string[]  */
-        public array $includedGroups = []
-    ) {}
+    /** 
+     * 
+     * @var string[]
+     */
+    public array $includedGroups = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['includedGroups'])) {
+            $this->includedGroups = $data['includedGroups'];
+        }
+    }
 }

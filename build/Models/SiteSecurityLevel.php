@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SiteSecurityLevel
 {
-    public function __construct(
-    ) {}
 }

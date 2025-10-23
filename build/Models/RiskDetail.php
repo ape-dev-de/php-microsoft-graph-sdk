@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RiskDetail
 {
-    public function __construct(
-    ) {}
 }

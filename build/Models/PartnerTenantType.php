@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PartnerTenantType
 {
-    public function __construct(
-    ) {}
 }

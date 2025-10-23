@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateCRLValidationConfiguration
 {
-    public function __construct(
-        /** @var string[] Represents the SKIs of CAs that should be excluded from the valid CRL distribution point check. SKI is represented as a hexadecimal string. */
-        public array $exemptedCertificateAuthoritiesSubjectKeyIdentifiers = [],
-        /**  */
-        public ?X509CertificateCRLValidationConfigurationState $state = null
-    ) {}
+    /** 
+     * Represents the SKIs of CAs that should be excluded from the valid CRL distribution point check. SKI is represented as a hexadecimal string.
+     * @var string[]
+     */
+    public array $exemptedCertificateAuthoritiesSubjectKeyIdentifiers = [];
+
+    /**  */
+    public ?X509CertificateCRLValidationConfigurationState $state = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['exemptedCertificateAuthoritiesSubjectKeyIdentifiers'])) {
+            $this->exemptedCertificateAuthoritiesSubjectKeyIdentifiers = $data['exemptedCertificateAuthoritiesSubjectKeyIdentifiers'];
+        }
+        if (isset($data['state'])) {
+            $this->state = $data['state'];
+        }
+    }
 }

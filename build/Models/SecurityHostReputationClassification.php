@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostReputationClassification
 {
-    public function __construct(
-    ) {}
 }

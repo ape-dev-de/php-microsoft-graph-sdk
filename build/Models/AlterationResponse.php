@@ -9,12 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlterationResponse
 {
-    public function __construct(
-        /** Defines the original user query string. */
-        public ?string $originalQueryString = null,
-        /** Defines the details of the alteration information for the spelling correction. */
-        public ?SearchAlteration $queryAlteration = null,
-        /** Defines the type of the spelling correction. Possible values are: suggestion, modification. */
-        public ?SearchAlterationType $queryAlterationType = null
-    ) {}
+    /** Defines the original user query string. */
+    public ?string $originalQueryString = null;
+
+    /** 
+     * Defines the details of the alteration information for the spelling correction.
+     * @var SearchAlteration|\stdClass|null
+     */
+    public mixed $queryAlteration = null;
+
+    /** 
+     * Defines the type of the spelling correction. Possible values are: suggestion, modification.
+     * @var SearchAlterationType|\stdClass|null
+     */
+    public mixed $queryAlterationType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['originalQueryString'])) {
+            $this->originalQueryString = $data['originalQueryString'];
+        }
+        if (isset($data['queryAlteration'])) {
+            $this->queryAlteration = $data['queryAlteration'];
+        }
+        if (isset($data['queryAlterationType'])) {
+            $this->queryAlterationType = $data['queryAlterationType'];
+        }
+    }
 }

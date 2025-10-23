@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ParticipantJoiningResponse
 {
-    public function __construct(
-    ) {}
 }

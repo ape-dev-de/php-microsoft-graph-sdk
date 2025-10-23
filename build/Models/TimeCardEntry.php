@@ -9,12 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeCardEntry
 {
-    public function __construct(
-        /** The clock-in event of the timeCard. */
-        public array $breaks = [],
-        /** The clock-out event of the timeCard. */
-        public ?TimeCardEvent $clockInEvent = null,
-        /** The list of breaks associated with the timeCard. */
-        public ?TimeCardEvent $clockOutEvent = null
-    ) {}
+    /** 
+     * The clock-in event of the timeCard.
+     * @var TimeCardBreak[]
+     */
+    public array $breaks = [];
+
+    /** 
+     * The clock-out event of the timeCard.
+     * @var TimeCardEvent|\stdClass|null
+     */
+    public mixed $clockInEvent = null;
+
+    /** 
+     * The list of breaks associated with the timeCard.
+     * @var TimeCardEvent|\stdClass|null
+     */
+    public mixed $clockOutEvent = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['breaks'])) {
+            $this->breaks = $data['breaks'];
+        }
+        if (isset($data['clockInEvent'])) {
+            $this->clockInEvent = $data['clockInEvent'];
+        }
+        if (isset($data['clockOutEvent'])) {
+            $this->clockOutEvent = $data['clockOutEvent'];
+        }
+    }
 }

@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrinterDiscoverySettings
 {
-    public function __construct(
-        /**  */
-        public ?AirPrintSettings $airPrint = null
-    ) {}
+    /**  */
+    public ?AirPrintSettings $airPrint = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['airPrint'])) {
+            $this->airPrint = $data['airPrint'];
+        }
+    }
 }

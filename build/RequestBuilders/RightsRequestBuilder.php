@@ -6,29 +6,50 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\UsageRightsIncluded;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\UsageRightsIncludedQueryOptions;
 
 /**
- * Request builder for UsageRightsIncluded
+ * Request builder for rights
  */
 class RightsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get rights from me
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $expand: Expand related resources
-     *
-     * @param UsageRightsIncludedQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return UsageRightsIncluded
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?UsageRightsIncludedQueryOptions $options = null, ?array $queryParameters = null): UsageRightsIncluded
+    public function get(?array $select = null, ?array $expand = null): UsageRightsIncluded
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, UsageRightsIncluded::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
+    /**
+     * Deserialize response to UsageRightsIncluded
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UsageRightsIncluded($data);
+    }
 }

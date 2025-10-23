@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TrainingType
 {
-    public function __construct(
-    ) {}
 }

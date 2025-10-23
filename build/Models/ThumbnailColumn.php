@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ThumbnailColumn
 {
-    public function __construct(
-    ) {}
 }

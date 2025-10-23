@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationUserRole
 {
-    public function __construct(
-    ) {}
 }

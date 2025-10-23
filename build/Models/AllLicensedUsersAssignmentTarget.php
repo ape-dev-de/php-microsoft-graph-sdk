@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AllLicensedUsersAssignmentTarget
 {
-    public function __construct(
-    ) {}
 }

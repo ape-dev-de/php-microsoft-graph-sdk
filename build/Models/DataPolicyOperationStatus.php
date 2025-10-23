@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DataPolicyOperationStatus
 {
-    public function __construct(
-    ) {}
 }

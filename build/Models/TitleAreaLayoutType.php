@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TitleAreaLayoutType
 {
-    public function __construct(
-    ) {}
 }

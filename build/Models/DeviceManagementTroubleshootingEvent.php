@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementTroubleshootingEvent
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Id used for tracing the failure in the service. */
-        public ?string $correlationId = null,
-        /** Time when the event occurred . */
-        public ?\DateTimeInterface $eventDateTime = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Id used for tracing the failure in the service. */
+    public ?string $correlationId = null;
+
+    /** Time when the event occurred . */
+    public ?\DateTimeInterface $eventDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['correlationId'])) {
+            $this->correlationId = $data['correlationId'];
+        }
+        if (isset($data['eventDateTime'])) {
+            $this->eventDateTime = $data['eventDateTime'];
+        }
+    }
 }

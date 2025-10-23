@@ -6,47 +6,93 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\AppCatalogs;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\AppCatalogsQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TeamsAppsRequestBuilder;
 
 /**
- * Request builder for AppCatalogs
+ * Request builder for appCatalogs
  */
 class AppCatalogsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get appCatalogs
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param AppCatalogsQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return AppCatalogs
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?AppCatalogsQueryOptions $options = null, ?array $queryParameters = null): AppCatalogs
+    public function get(?array $select = null, ?array $expand = null): AppCatalogs
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, AppCatalogs::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new AppCatalogs
-     *
-     * @param AppCatalogs $item The item to create
-     * @return AppCatalogs
+     * Deserialize response to AppCatalogs
      */
-    public function post(AppCatalogs $item): AppCatalogs
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, AppCatalogs::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AppCatalogs($data);
+    }
+    /**
+     * Update appCatalogs
+     * @param AppCatalogs $body Request body
+     * @return AppCatalogs
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(AppCatalogs $body): AppCatalogs
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to AppCatalogs
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AppCatalogs($data);
+    }
+    /**
+     * Navigate to teamsApps
+     *
+     * @return TeamsAppsRequestBuilder
+     */
+    public function teamsApps(): TeamsAppsRequestBuilder
+    {
+        return new TeamsAppsRequestBuilder($this->client, $this->requestUrl . '/teamsApps');
+    }
 }

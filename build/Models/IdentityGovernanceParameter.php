@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceParameter
 {
-    public function __construct(
-        /** The name of the parameter. */
-        public ?string $name = null,
-        /** @var string[] The values of the parameter. */
-        public array $values = [],
-        /**  */
-        public ?IdentityGovernanceValueType $valueType = null
-    ) {}
+    /** The name of the parameter. */
+    public ?string $name = null;
+
+    /** 
+     * The values of the parameter.
+     * @var string[]
+     */
+    public array $values = [];
+
+    /**  */
+    public ?IdentityGovernanceValueType $valueType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['values'])) {
+            $this->values = $data['values'];
+        }
+        if (isset($data['valueType'])) {
+            $this->valueType = $data['valueType'];
+        }
+    }
 }

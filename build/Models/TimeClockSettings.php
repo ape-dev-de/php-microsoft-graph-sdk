@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeClockSettings
 {
-    public function __construct(
-        /** The approved location of the timeClock. */
-        public ?GeoCoordinates $approvedLocation = null
-    ) {}
+    /** 
+     * The approved location of the timeClock.
+     * @var GeoCoordinates|\stdClass|null
+     */
+    public mixed $approvedLocation = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['approvedLocation'])) {
+            $this->approvedLocation = $data['approvedLocation'];
+        }
+    }
 }

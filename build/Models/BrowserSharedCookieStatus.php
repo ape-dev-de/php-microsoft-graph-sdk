@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSharedCookieStatus
 {
-    public function __construct(
-    ) {}
 }

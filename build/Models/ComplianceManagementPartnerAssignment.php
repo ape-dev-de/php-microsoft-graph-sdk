@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ComplianceManagementPartnerAssignment
 {
-    public function __construct(
-        /** Group assignment target. */
-        public ?DeviceAndAppManagementAssignmentTarget $target = null
-    ) {}
+    /** 
+     * Group assignment target.
+     * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
+     */
+    public mixed $target = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['target'])) {
+            $this->target = $data['target'];
+        }
+    }
 }

@@ -6,126 +6,199 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\OrganizationalBranding;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\OrganizationalBrandingQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BackgroundImageRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BannerLogoRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CustomCSSRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\FaviconRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\HeaderLogoRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\LocalizationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SquareLogoRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SquareLogoDarkRequestBuilder;
 
 /**
- * Request builder for OrganizationalBranding
+ * Request builder for branding
  */
 class BrandingRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get organizationalBranding
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param OrganizationalBrandingQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return OrganizationalBranding
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?OrganizationalBrandingQueryOptions $options = null, ?array $queryParameters = null): OrganizationalBranding
+    public function get(?array $select = null, ?array $expand = null): OrganizationalBranding
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, OrganizationalBranding::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new OrganizationalBranding
-     *
-     * @param OrganizationalBranding $item The item to create
-     * @return OrganizationalBranding
+     * Deserialize response to OrganizationalBranding
      */
-    public function post(OrganizationalBranding $item): OrganizationalBranding
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, OrganizationalBranding::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new OrganizationalBranding($data);
     }
     /**
-     * Get backgroundImage request builder
+     * Update organizationalBranding
+     * @param OrganizationalBranding $body Request body
+     * @return OrganizationalBranding
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(OrganizationalBranding $body): OrganizationalBranding
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to OrganizationalBranding
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new OrganizationalBranding($data);
+    }
+    /**
+     * Delete organizationalBranding
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to backgroundImage
      *
      * @return BackgroundImageRequestBuilder
      */
     public function backgroundImage(): BackgroundImageRequestBuilder
     {
-        return new BackgroundImageRequestBuilder($this->client, $this->buildPath('backgroundImage'));
+        return new BackgroundImageRequestBuilder($this->client, $this->requestUrl . '/backgroundImage');
     }
-
     /**
-     * Get bannerLogo request builder
+     * Navigate to bannerLogo
      *
      * @return BannerLogoRequestBuilder
      */
     public function bannerLogo(): BannerLogoRequestBuilder
     {
-        return new BannerLogoRequestBuilder($this->client, $this->buildPath('bannerLogo'));
+        return new BannerLogoRequestBuilder($this->client, $this->requestUrl . '/bannerLogo');
     }
-
     /**
-     * Get customCSS request builder
+     * Navigate to customCSS
      *
      * @return CustomCSSRequestBuilder
      */
     public function customCSS(): CustomCSSRequestBuilder
     {
-        return new CustomCSSRequestBuilder($this->client, $this->buildPath('customCSS'));
+        return new CustomCSSRequestBuilder($this->client, $this->requestUrl . '/customCSS');
     }
-
     /**
-     * Get favicon request builder
+     * Navigate to favicon
      *
      * @return FaviconRequestBuilder
      */
     public function favicon(): FaviconRequestBuilder
     {
-        return new FaviconRequestBuilder($this->client, $this->buildPath('favicon'));
+        return new FaviconRequestBuilder($this->client, $this->requestUrl . '/favicon');
     }
-
     /**
-     * Get headerLogo request builder
+     * Navigate to headerLogo
      *
      * @return HeaderLogoRequestBuilder
      */
     public function headerLogo(): HeaderLogoRequestBuilder
     {
-        return new HeaderLogoRequestBuilder($this->client, $this->buildPath('headerLogo'));
+        return new HeaderLogoRequestBuilder($this->client, $this->requestUrl . '/headerLogo');
     }
-
     /**
-     * Get localizations request builder
+     * Navigate to localizations
      *
      * @return LocalizationsRequestBuilder
      */
     public function localizations(): LocalizationsRequestBuilder
     {
-        return new LocalizationsRequestBuilder($this->client, $this->buildPath('localizations'));
+        return new LocalizationsRequestBuilder($this->client, $this->requestUrl . '/localizations');
     }
-
     /**
-     * Get squareLogo request builder
+     * Navigate to squareLogo
      *
      * @return SquareLogoRequestBuilder
      */
     public function squareLogo(): SquareLogoRequestBuilder
     {
-        return new SquareLogoRequestBuilder($this->client, $this->buildPath('squareLogo'));
+        return new SquareLogoRequestBuilder($this->client, $this->requestUrl . '/squareLogo');
     }
-
     /**
-     * Get squareLogoDark request builder
+     * Navigate to squareLogoDark
      *
      * @return SquareLogoDarkRequestBuilder
      */
     public function squareLogoDark(): SquareLogoDarkRequestBuilder
     {
-        return new SquareLogoDarkRequestBuilder($this->client, $this->buildPath('squareLogoDark'));
+        return new SquareLogoDarkRequestBuilder($this->client, $this->requestUrl . '/squareLogoDark');
     }
-
 }

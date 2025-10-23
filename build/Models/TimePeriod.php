@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimePeriod
 {
-    public function __construct(
-        /** The date time of the end of the time period. */
-        public ?\DateTimeInterface $endDateTime = null,
-        /** The date time of the start of the time period. */
-        public ?\DateTimeInterface $startDateTime = null
-    ) {}
+    /** The date time of the end of the time period. */
+    public ?\DateTimeInterface $endDateTime = null;
+
+    /** The date time of the start of the time period. */
+    public ?\DateTimeInterface $startDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['endDateTime'])) {
+            $this->endDateTime = $data['endDateTime'];
+        }
+        if (isset($data['startDateTime'])) {
+            $this->startDateTime = $data['startDateTime'];
+        }
+    }
 }

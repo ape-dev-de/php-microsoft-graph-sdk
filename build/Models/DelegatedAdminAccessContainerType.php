@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegatedAdminAccessContainerType
 {
-    public function __construct(
-    ) {}
 }

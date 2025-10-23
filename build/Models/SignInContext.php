@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInContext
 {
-    public function __construct(
-    ) {}
 }

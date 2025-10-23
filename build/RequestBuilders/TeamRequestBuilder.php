@@ -6,226 +6,299 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\Team;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\TeamQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AllChannelsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ChannelsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IncomingChannelsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InstalledAppsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MembersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ArchiveRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CloneRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CompleteMigrationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SendActivityNotificationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\UnarchiveRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\OperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PermissionGrantsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PhotoRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PrimaryChannelRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ScheduleRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TagsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TemplateRequestBuilder;
 
 /**
- * Request builder for Team
+ * Request builder for team
  */
 class TeamRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get team from groups
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param TeamQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return Team
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?TeamQueryOptions $options = null, ?array $queryParameters = null): Team
+    public function get(?array $select = null, ?array $expand = null): Team
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, Team::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Team
-     *
-     * @param Team $item The item to create
-     * @return Team
+     * Deserialize response to Team
      */
-    public function post(Team $item): Team
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Team::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Team($data);
     }
     /**
-     * Get allChannels request builder
+     * Create team from group
+     * @param Team $body Request body
+     * @return Team
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function put(Team $body): Team
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->put($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePut($responseBody);
+    }
+
+    /**
+     * Deserialize response to Team
+     */
+    private function deserializePut(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Team($data);
+    }
+    /**
+     * Delete navigation property team for groups
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to allChannels
      *
      * @return AllChannelsRequestBuilder
      */
     public function allChannels(): AllChannelsRequestBuilder
     {
-        return new AllChannelsRequestBuilder($this->client, $this->buildPath('allChannels'));
+        return new AllChannelsRequestBuilder($this->client, $this->requestUrl . '/allChannels');
     }
-
     /**
-     * Get channels request builder
+     * Navigate to channels
      *
      * @return ChannelsRequestBuilder
      */
     public function channels(): ChannelsRequestBuilder
     {
-        return new ChannelsRequestBuilder($this->client, $this->buildPath('channels'));
+        return new ChannelsRequestBuilder($this->client, $this->requestUrl . '/channels');
     }
-
     /**
-     * Get group request builder
+     * Navigate to group
      *
      * @return GroupRequestBuilder
      */
     public function group(): GroupRequestBuilder
     {
-        return new GroupRequestBuilder($this->client, $this->buildPath('group'));
+        return new GroupRequestBuilder($this->client, $this->requestUrl . '/group');
     }
-
     /**
-     * Get incomingChannels request builder
+     * Navigate to incomingChannels
      *
      * @return IncomingChannelsRequestBuilder
      */
     public function incomingChannels(): IncomingChannelsRequestBuilder
     {
-        return new IncomingChannelsRequestBuilder($this->client, $this->buildPath('incomingChannels'));
+        return new IncomingChannelsRequestBuilder($this->client, $this->requestUrl . '/incomingChannels');
     }
-
     /**
-     * Get installedApps request builder
+     * Navigate to installedApps
      *
      * @return InstalledAppsRequestBuilder
      */
     public function installedApps(): InstalledAppsRequestBuilder
     {
-        return new InstalledAppsRequestBuilder($this->client, $this->buildPath('installedApps'));
+        return new InstalledAppsRequestBuilder($this->client, $this->requestUrl . '/installedApps');
     }
-
     /**
-     * Get members request builder
+     * Navigate to members
      *
      * @return MembersRequestBuilder
      */
     public function members(): MembersRequestBuilder
     {
-        return new MembersRequestBuilder($this->client, $this->buildPath('members'));
+        return new MembersRequestBuilder($this->client, $this->requestUrl . '/members');
     }
-
     /**
-     * Get archive request builder
+     * Navigate to archive
      *
      * @return ArchiveRequestBuilder
      */
     public function archive(): ArchiveRequestBuilder
     {
-        return new ArchiveRequestBuilder($this->client, $this->buildPath('archive'));
+        return new ArchiveRequestBuilder($this->client, $this->requestUrl . '/archive');
     }
-
     /**
-     * Get clone request builder
+     * Navigate to clone
      *
      * @return CloneRequestBuilder
      */
     public function clone(): CloneRequestBuilder
     {
-        return new CloneRequestBuilder($this->client, $this->buildPath('clone'));
+        return new CloneRequestBuilder($this->client, $this->requestUrl . '/clone');
     }
-
     /**
-     * Get completeMigration request builder
+     * Navigate to completeMigration
      *
      * @return CompleteMigrationRequestBuilder
      */
     public function completeMigration(): CompleteMigrationRequestBuilder
     {
-        return new CompleteMigrationRequestBuilder($this->client, $this->buildPath('completeMigration'));
+        return new CompleteMigrationRequestBuilder($this->client, $this->requestUrl . '/completeMigration');
     }
-
     /**
-     * Get sendActivityNotification request builder
+     * Navigate to sendActivityNotification
      *
      * @return SendActivityNotificationRequestBuilder
      */
     public function sendActivityNotification(): SendActivityNotificationRequestBuilder
     {
-        return new SendActivityNotificationRequestBuilder($this->client, $this->buildPath('sendActivityNotification'));
+        return new SendActivityNotificationRequestBuilder($this->client, $this->requestUrl . '/sendActivityNotification');
     }
-
     /**
-     * Get unarchive request builder
+     * Navigate to unarchive
      *
      * @return UnarchiveRequestBuilder
      */
     public function unarchive(): UnarchiveRequestBuilder
     {
-        return new UnarchiveRequestBuilder($this->client, $this->buildPath('unarchive'));
+        return new UnarchiveRequestBuilder($this->client, $this->requestUrl . '/unarchive');
     }
-
     /**
-     * Get operations request builder
+     * Navigate to operations
      *
      * @return OperationsRequestBuilder
      */
     public function operations(): OperationsRequestBuilder
     {
-        return new OperationsRequestBuilder($this->client, $this->buildPath('operations'));
+        return new OperationsRequestBuilder($this->client, $this->requestUrl . '/operations');
     }
-
     /**
-     * Get permissionGrants request builder
+     * Navigate to permissionGrants
      *
      * @return PermissionGrantsRequestBuilder
      */
     public function permissionGrants(): PermissionGrantsRequestBuilder
     {
-        return new PermissionGrantsRequestBuilder($this->client, $this->buildPath('permissionGrants'));
+        return new PermissionGrantsRequestBuilder($this->client, $this->requestUrl . '/permissionGrants');
     }
-
     /**
-     * Get photo request builder
+     * Navigate to photo
      *
      * @return PhotoRequestBuilder
      */
     public function photo(): PhotoRequestBuilder
     {
-        return new PhotoRequestBuilder($this->client, $this->buildPath('photo'));
+        return new PhotoRequestBuilder($this->client, $this->requestUrl . '/photo');
     }
-
     /**
-     * Get primaryChannel request builder
+     * Navigate to primaryChannel
      *
      * @return PrimaryChannelRequestBuilder
      */
     public function primaryChannel(): PrimaryChannelRequestBuilder
     {
-        return new PrimaryChannelRequestBuilder($this->client, $this->buildPath('primaryChannel'));
+        return new PrimaryChannelRequestBuilder($this->client, $this->requestUrl . '/primaryChannel');
     }
-
     /**
-     * Get schedule request builder
+     * Navigate to schedule
      *
      * @return ScheduleRequestBuilder
      */
     public function schedule(): ScheduleRequestBuilder
     {
-        return new ScheduleRequestBuilder($this->client, $this->buildPath('schedule'));
+        return new ScheduleRequestBuilder($this->client, $this->requestUrl . '/schedule');
     }
-
     /**
-     * Get tags request builder
+     * Navigate to tags
      *
      * @return TagsRequestBuilder
      */
     public function tags(): TagsRequestBuilder
     {
-        return new TagsRequestBuilder($this->client, $this->buildPath('tags'));
+        return new TagsRequestBuilder($this->client, $this->requestUrl . '/tags');
     }
-
     /**
-     * Get template request builder
+     * Navigate to template
      *
      * @return TemplateRequestBuilder
      */
     public function template(): TemplateRequestBuilder
     {
-        return new TemplateRequestBuilder($this->client, $this->buildPath('template'));
+        return new TemplateRequestBuilder($this->client, $this->requestUrl . '/template');
     }
-
 }

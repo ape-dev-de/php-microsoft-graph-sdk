@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosUpdatesInstallStatus
 {
-    public function __construct(
-    ) {}
 }

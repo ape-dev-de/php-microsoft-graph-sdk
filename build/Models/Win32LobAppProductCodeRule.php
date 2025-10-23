@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppProductCodeRule
 {
-    public function __construct(
-        /**  */
-        public ?Win32LobAppRuleType $ruleType = null,
-        /** The product code of the app. */
-        public ?string $productCode = null,
-        /** The product version comparison value. */
-        public ?string $productVersion = null,
-        /**  */
-        public ?Win32LobAppRuleOperator $productVersionOperator = null
-    ) {}
+    /**  */
+    public ?Win32LobAppRuleType $ruleType = null;
+
+    /** The product code of the app. */
+    public ?string $productCode = null;
+
+    /** The product version comparison value. */
+    public ?string $productVersion = null;
+
+    /**  */
+    public ?Win32LobAppRuleOperator $productVersionOperator = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['ruleType'])) {
+            $this->ruleType = $data['ruleType'];
+        }
+        if (isset($data['productCode'])) {
+            $this->productCode = $data['productCode'];
+        }
+        if (isset($data['productVersion'])) {
+            $this->productVersion = $data['productVersion'];
+        }
+        if (isset($data['productVersionOperator'])) {
+            $this->productVersionOperator = $data['productVersionOperator'];
+        }
+    }
 }

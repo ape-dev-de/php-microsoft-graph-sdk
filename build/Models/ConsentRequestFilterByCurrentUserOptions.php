@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConsentRequestFilterByCurrentUserOptions
 {
-    public function __construct(
-    ) {}
 }

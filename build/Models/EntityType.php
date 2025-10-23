@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EntityType
 {
-    public function __construct(
-    ) {}
 }

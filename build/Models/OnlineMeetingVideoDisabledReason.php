@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnlineMeetingVideoDisabledReason
 {
-    public function __construct(
-    ) {}
 }

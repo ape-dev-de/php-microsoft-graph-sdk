@@ -9,18 +9,57 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateRule
 {
-    public function __construct(
-        /** The identifier of the X.509 certificate. Required. */
-        public ?string $identifier = null,
-        /**  */
-        public ?string $issuerSubjectIdentifier = null,
-        /**  */
-        public ?string $policyOidIdentifier = null,
-        /** The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required. */
-        public ?X509CertificateAuthenticationMode $x509CertificateAuthenticationMode = null,
-        /**  */
-        public ?X509CertificateAffinityLevel $x509CertificateRequiredAffinityLevel = null,
-        /** The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required. */
-        public ?X509CertificateRuleType $x509CertificateRuleType = null
-    ) {}
+    /** The identifier of the X.509 certificate. Required. */
+    public ?string $identifier = null;
+
+    /**  */
+    public ?string $issuerSubjectIdentifier = null;
+
+    /**  */
+    public ?string $policyOidIdentifier = null;
+
+    /** 
+     * The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
+     * @var X509CertificateAuthenticationMode|\stdClass|null
+     */
+    public mixed $x509CertificateAuthenticationMode = null;
+
+    /** 
+     * 
+     * @var X509CertificateAffinityLevel|\stdClass|null
+     */
+    public mixed $x509CertificateRequiredAffinityLevel = null;
+
+    /** 
+     * The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
+     * @var X509CertificateRuleType|\stdClass|null
+     */
+    public mixed $x509CertificateRuleType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['identifier'])) {
+            $this->identifier = $data['identifier'];
+        }
+        if (isset($data['issuerSubjectIdentifier'])) {
+            $this->issuerSubjectIdentifier = $data['issuerSubjectIdentifier'];
+        }
+        if (isset($data['policyOidIdentifier'])) {
+            $this->policyOidIdentifier = $data['policyOidIdentifier'];
+        }
+        if (isset($data['x509CertificateAuthenticationMode'])) {
+            $this->x509CertificateAuthenticationMode = $data['x509CertificateAuthenticationMode'];
+        }
+        if (isset($data['x509CertificateRequiredAffinityLevel'])) {
+            $this->x509CertificateRequiredAffinityLevel = $data['x509CertificateRequiredAffinityLevel'];
+        }
+        if (isset($data['x509CertificateRuleType'])) {
+            $this->x509CertificateRuleType = $data['x509CertificateRuleType'];
+        }
+    }
 }

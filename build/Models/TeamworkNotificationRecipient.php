@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkNotificationRecipient
 {
-    public function __construct(
-    ) {}
 }

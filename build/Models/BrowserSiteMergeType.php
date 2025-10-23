@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSiteMergeType
 {
-    public function __construct(
-    ) {}
 }

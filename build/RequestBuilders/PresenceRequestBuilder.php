@@ -6,90 +6,169 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\Presence;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\PresenceQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ClearPresenceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ClearUserPreferredPresenceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SetPresenceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SetStatusMessageRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SetUserPreferredPresenceRequestBuilder;
 
 /**
- * Request builder for Presence
+ * Request builder for {presence-id}
  */
 class PresenceRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get presence
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $expand: Expand related resources
-     *
-     * @param PresenceQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return Presence
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?PresenceQueryOptions $options = null, ?array $queryParameters = null): Presence
+    public function get(?array $select = null, ?array $expand = null): Presence
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, Presence::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Presence
-     *
-     * @param Presence $item The item to create
-     * @return Presence
+     * Deserialize response to Presence
      */
-    public function post(Presence $item): Presence
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Presence::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Presence($data);
     }
     /**
-     * Get clearPresence request builder
+     * Update the navigation property presences in communications
+     * @param Presence $body Request body
+     * @return Presence
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(Presence $body): Presence
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to Presence
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Presence($data);
+    }
+    /**
+     * Delete navigation property presences for communications
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to clearPresence
      *
      * @return ClearPresenceRequestBuilder
      */
     public function clearPresence(): ClearPresenceRequestBuilder
     {
-        return new ClearPresenceRequestBuilder($this->client, $this->buildPath('clearPresence'));
+        return new ClearPresenceRequestBuilder($this->client, $this->requestUrl . '/clearPresence');
     }
-
     /**
-     * Get clearUserPreferredPresence request builder
+     * Navigate to clearUserPreferredPresence
      *
      * @return ClearUserPreferredPresenceRequestBuilder
      */
     public function clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder
     {
-        return new ClearUserPreferredPresenceRequestBuilder($this->client, $this->buildPath('clearUserPreferredPresence'));
+        return new ClearUserPreferredPresenceRequestBuilder($this->client, $this->requestUrl . '/clearUserPreferredPresence');
     }
-
     /**
-     * Get setPresence request builder
+     * Navigate to setPresence
      *
      * @return SetPresenceRequestBuilder
      */
     public function setPresence(): SetPresenceRequestBuilder
     {
-        return new SetPresenceRequestBuilder($this->client, $this->buildPath('setPresence'));
+        return new SetPresenceRequestBuilder($this->client, $this->requestUrl . '/setPresence');
     }
-
     /**
-     * Get setStatusMessage request builder
+     * Navigate to setStatusMessage
      *
      * @return SetStatusMessageRequestBuilder
      */
     public function setStatusMessage(): SetStatusMessageRequestBuilder
     {
-        return new SetStatusMessageRequestBuilder($this->client, $this->buildPath('setStatusMessage'));
+        return new SetStatusMessageRequestBuilder($this->client, $this->requestUrl . '/setStatusMessage');
     }
-
     /**
-     * Get setUserPreferredPresence request builder
+     * Navigate to setUserPreferredPresence
      *
      * @return SetUserPreferredPresenceRequestBuilder
      */
     public function setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder
     {
-        return new SetUserPreferredPresenceRequestBuilder($this->client, $this->buildPath('setUserPreferredPresence'));
+        return new SetUserPreferredPresenceRequestBuilder($this->client, $this->requestUrl . '/setUserPreferredPresence');
     }
-
 }

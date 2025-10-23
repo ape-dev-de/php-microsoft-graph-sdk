@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccountTargetContentType
 {
-    public function __construct(
-    ) {}
 }

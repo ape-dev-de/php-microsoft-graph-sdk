@@ -9,16 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartTitle
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Indicates whether the chart title will overlay the chart or not. */
-        public ?bool $overlay = null,
-        /** The title text of the chart. */
-        public ?string $text = null,
-        /** Indicates whether the chart title is visible. */
-        public ?bool $visible = null,
-        /** The formatting of a chart title, which includes fill and font formatting. Read-only. */
-        public ?WorkbookChartTitleFormat $format = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Indicates whether the chart title will overlay the chart or not. */
+    public ?bool $overlay = null;
+
+    /** The title text of the chart. */
+    public ?string $text = null;
+
+    /** Indicates whether the chart title is visible. */
+    public ?bool $visible = null;
+
+    /** 
+     * The formatting of a chart title, which includes fill and font formatting. Read-only.
+     * @var WorkbookChartTitleFormat|\stdClass|null
+     */
+    public mixed $format = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['overlay'])) {
+            $this->overlay = $data['overlay'];
+        }
+        if (isset($data['text'])) {
+            $this->text = $data['text'];
+        }
+        if (isset($data['visible'])) {
+            $this->visible = $data['visible'];
+        }
+        if (isset($data['format'])) {
+            $this->format = $data['format'];
+        }
+    }
 }

@@ -9,18 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PhysicalOfficeAddress
 {
-    public function __construct(
-        /** The city. */
-        public ?string $city = null,
-        /** The country or region. It's a free-format string value, for example, 'United States'. */
-        public ?string $countryOrRegion = null,
-        /** Office location such as building and office number for an organizational contact. */
-        public ?string $officeLocation = null,
-        /** The postal code. */
-        public ?string $postalCode = null,
-        /** The state. */
-        public ?string $state = null,
-        /** The street. */
-        public ?string $street = null
-    ) {}
+    /** The city. */
+    public ?string $city = null;
+
+    /** The country or region. It's a free-format string value, for example, 'United States'. */
+    public ?string $countryOrRegion = null;
+
+    /** Office location such as building and office number for an organizational contact. */
+    public ?string $officeLocation = null;
+
+    /** The postal code. */
+    public ?string $postalCode = null;
+
+    /** The state. */
+    public ?string $state = null;
+
+    /** The street. */
+    public ?string $street = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['city'])) {
+            $this->city = $data['city'];
+        }
+        if (isset($data['countryOrRegion'])) {
+            $this->countryOrRegion = $data['countryOrRegion'];
+        }
+        if (isset($data['officeLocation'])) {
+            $this->officeLocation = $data['officeLocation'];
+        }
+        if (isset($data['postalCode'])) {
+            $this->postalCode = $data['postalCode'];
+        }
+        if (isset($data['state'])) {
+            $this->state = $data['state'];
+        }
+        if (isset($data['street'])) {
+            $this->street = $data['street'];
+        }
+    }
 }

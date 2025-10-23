@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MultiFactorAuthConfiguration
 {
-    public function __construct(
-    ) {}
 }

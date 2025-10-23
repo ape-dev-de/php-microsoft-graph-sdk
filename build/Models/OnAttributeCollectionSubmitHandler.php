@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnAttributeCollectionSubmitHandler
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsWifiRadioType
 {
-    public function __construct(
-    ) {}
 }

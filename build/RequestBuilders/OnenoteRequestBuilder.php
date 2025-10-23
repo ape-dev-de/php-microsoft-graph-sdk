@@ -6,106 +6,179 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\Onenote;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\OnenoteQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\NotebooksRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\OperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PagesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ResourcesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SectionGroupsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SectionsRequestBuilder;
 
 /**
- * Request builder for Onenote
+ * Request builder for onenote
  */
 class OnenoteRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get onenote from groups
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param OnenoteQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return Onenote
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?OnenoteQueryOptions $options = null, ?array $queryParameters = null): Onenote
+    public function get(?array $select = null, ?array $expand = null): Onenote
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, Onenote::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Onenote
-     *
-     * @param Onenote $item The item to create
-     * @return Onenote
+     * Deserialize response to Onenote
      */
-    public function post(Onenote $item): Onenote
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Onenote::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Onenote($data);
     }
     /**
-     * Get notebooks request builder
+     * Update the navigation property onenote in groups
+     * @param Onenote $body Request body
+     * @return Onenote
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(Onenote $body): Onenote
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to Onenote
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Onenote($data);
+    }
+    /**
+     * Delete navigation property onenote for groups
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to notebooks
      *
      * @return NotebooksRequestBuilder
      */
     public function notebooks(): NotebooksRequestBuilder
     {
-        return new NotebooksRequestBuilder($this->client, $this->buildPath('notebooks'));
+        return new NotebooksRequestBuilder($this->client, $this->requestUrl . '/notebooks');
     }
-
     /**
-     * Get operations request builder
+     * Navigate to operations
      *
      * @return OperationsRequestBuilder
      */
     public function operations(): OperationsRequestBuilder
     {
-        return new OperationsRequestBuilder($this->client, $this->buildPath('operations'));
+        return new OperationsRequestBuilder($this->client, $this->requestUrl . '/operations');
     }
-
     /**
-     * Get pages request builder
+     * Navigate to pages
      *
      * @return PagesRequestBuilder
      */
     public function pages(): PagesRequestBuilder
     {
-        return new PagesRequestBuilder($this->client, $this->buildPath('pages'));
+        return new PagesRequestBuilder($this->client, $this->requestUrl . '/pages');
     }
-
     /**
-     * Get resources request builder
+     * Navigate to resources
      *
      * @return ResourcesRequestBuilder
      */
     public function resources(): ResourcesRequestBuilder
     {
-        return new ResourcesRequestBuilder($this->client, $this->buildPath('resources'));
+        return new ResourcesRequestBuilder($this->client, $this->requestUrl . '/resources');
     }
-
     /**
-     * Get sectionGroups request builder
+     * Navigate to sectionGroups
      *
      * @return SectionGroupsRequestBuilder
      */
     public function sectionGroups(): SectionGroupsRequestBuilder
     {
-        return new SectionGroupsRequestBuilder($this->client, $this->buildPath('sectionGroups'));
+        return new SectionGroupsRequestBuilder($this->client, $this->requestUrl . '/sectionGroups');
     }
-
     /**
-     * Get sections request builder
+     * Navigate to sections
      *
      * @return SectionsRequestBuilder
      */
     public function sections(): SectionsRequestBuilder
     {
-        return new SectionsRequestBuilder($this->client, $this->buildPath('sections'));
+        return new SectionsRequestBuilder($this->client, $this->requestUrl . '/sections');
     }
-
 }

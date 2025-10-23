@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnlineMeetingContentSharingDisabledReason
 {
-    public function __construct(
-    ) {}
 }

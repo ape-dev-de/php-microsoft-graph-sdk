@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestEnumeratedMailboxLocation
 {
-    public function __construct(
-        /** @var string[] Collection of mailboxes that should be included in the search. Includes the user principal name (UPN) of each mailbox, for example, Monica.Thompson@contoso.com. */
-        public array $userPrincipalNames = []
-    ) {}
+    /** 
+     * Collection of mailboxes that should be included in the search. Includes the user principal name (UPN) of each mailbox, for example, Monica.Thompson@contoso.com.
+     * @var string[]
+     */
+    public array $userPrincipalNames = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['userPrincipalNames'])) {
+            $this->userPrincipalNames = $data['userPrincipalNames'];
+        }
+    }
 }

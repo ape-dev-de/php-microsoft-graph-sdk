@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessGuestOrExternalUserTypes
 {
-    public function __construct(
-    ) {}
 }

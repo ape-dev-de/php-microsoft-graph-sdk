@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingChatMode
 {
-    public function __construct(
-    ) {}
 }

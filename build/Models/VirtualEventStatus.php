@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventStatus
 {
-    public function __construct(
-    ) {}
 }

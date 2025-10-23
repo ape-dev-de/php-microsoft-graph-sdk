@@ -5,129 +5,61 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\Drive;
+use ApeDevDe\MicrosoftGraphSdk\Models\DriveItem;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ContentRequestBuilder;
 
 /**
- * Request builder for individual Drive item
+ * Request builder for {driveItem-id}
  */
 class DriveItemRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get Drive item
+     * Get bundles from drives
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $expand: Expand related resources
-     *
-     * @param array|null $queryParameters Query parameters
-     * @return Drive
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return DriveItem
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $queryParameters = null): Drive
+    public function get(?array $select = null, ?array $expand = null): DriveItem
     {
-        $response = $this->client->get($this->getFullPath(), $queryParameters);
-        return $this->client->deserialize($response, Drive::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Update Drive item
-     *
-     * @param Drive $item The item with updated properties
-     * @return Drive
+     * Deserialize response to DriveItem
      */
-    public function patch(Drive $item): Drive
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->patch($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Drive::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new DriveItem($data);
     }
-
     /**
-     * Delete item
+     * Navigate to content
      *
-     * @return void
+     * @return ContentRequestBuilder
      */
-    public function delete(): void
+    public function content(): ContentRequestBuilder
     {
-        $this->client->delete($this->getFullPath());
+        return new ContentRequestBuilder($this->client, $this->requestUrl . '/content');
     }
-
-    /**
-     * Get bundles request builder
-     *
-     * @return BundlesRequestBuilder
-     */
-    public function bundles(): BundlesRequestBuilder
-    {
-        return new BundlesRequestBuilder($this->client, $this->buildPath('bundles'));
-    }
-
-    /**
-     * Get createdByUser request builder
-     *
-     * @return CreatedByUserRequestBuilder
-     */
-    public function createdByUser(): CreatedByUserRequestBuilder
-    {
-        return new CreatedByUserRequestBuilder($this->client, $this->buildPath('createdByUser'));
-    }
-
-    /**
-     * Get following request builder
-     *
-     * @return FollowingRequestBuilder
-     */
-    public function following(): FollowingRequestBuilder
-    {
-        return new FollowingRequestBuilder($this->client, $this->buildPath('following'));
-    }
-
-    /**
-     * Get items request builder
-     *
-     * @return ItemsRequestBuilder
-     */
-    public function items(): ItemsRequestBuilder
-    {
-        return new ItemsRequestBuilder($this->client, $this->buildPath('items'));
-    }
-
-    /**
-     * Get lastModifiedByUser request builder
-     *
-     * @return LastModifiedByUserRequestBuilder
-     */
-    public function lastModifiedByUser(): LastModifiedByUserRequestBuilder
-    {
-        return new LastModifiedByUserRequestBuilder($this->client, $this->buildPath('lastModifiedByUser'));
-    }
-
-    /**
-     * Get list request builder
-     *
-     * @return ListRequestBuilder
-     */
-    public function list(): ListRequestBuilder
-    {
-        return new ListRequestBuilder($this->client, $this->buildPath('list'));
-    }
-
-    /**
-     * Get root request builder
-     *
-     * @return RootRequestBuilder
-     */
-    public function root(): RootRequestBuilder
-    {
-        return new RootRequestBuilder($this->client, $this->buildPath('root'));
-    }
-
-    /**
-     * Get special request builder
-     *
-     * @return SpecialRequestBuilder
-     */
-    public function special(): SpecialRequestBuilder
-    {
-        return new SpecialRequestBuilder($this->client, $this->buildPath('special'));
-    }
-
 }

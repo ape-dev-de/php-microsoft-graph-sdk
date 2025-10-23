@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TermStoreLocalizedLabel
 {
-    public function __construct(
-        /** Indicates whether the label is the default label. */
-        public ?bool $isDefault = null,
-        /** The language tag for the label. */
-        public ?string $languageTag = null,
-        /** The name of the label. */
-        public ?string $name = null
-    ) {}
+    /** Indicates whether the label is the default label. */
+    public ?bool $isDefault = null;
+
+    /** The language tag for the label. */
+    public ?string $languageTag = null;
+
+    /** The name of the label. */
+    public ?string $name = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isDefault'])) {
+            $this->isDefault = $data['isDefault'];
+        }
+        if (isset($data['languageTag'])) {
+            $this->languageTag = $data['languageTag'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+    }
 }

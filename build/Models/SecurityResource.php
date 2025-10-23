@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityResource
 {
-    public function __construct(
-        /** Name of the resource that is related to current alert. Required. */
-        public ?string $resource = null,
-        /** Represents type of security resources related to an alert. Possible values are: attacked, related. */
-        public ?SecurityResourceType $resourceType = null
-    ) {}
+    /** Name of the resource that is related to current alert. Required. */
+    public ?string $resource = null;
+
+    /** 
+     * Represents type of security resources related to an alert. Possible values are: attacked, related.
+     * @var SecurityResourceType|\stdClass|null
+     */
+    public mixed $resourceType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['resource'])) {
+            $this->resource = $data['resource'];
+        }
+        if (isset($data['resourceType'])) {
+            $this->resourceType = $data['resourceType'];
+        }
+    }
 }

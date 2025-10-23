@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActivityMetadata
 {
-    public function __construct(
-        /**  */
-        public ?UserActivityType $activity = null
-    ) {}
+    /**  */
+    public ?UserActivityType $activity = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['activity'])) {
+            $this->activity = $data['activity'];
+        }
+    }
 }

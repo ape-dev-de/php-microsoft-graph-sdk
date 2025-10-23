@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsUserFeedbackRating
 {
-    public function __construct(
-    ) {}
 }

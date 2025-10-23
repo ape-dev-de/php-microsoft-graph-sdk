@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerChecklistItems
 {
-    public function __construct(
-    ) {}
 }

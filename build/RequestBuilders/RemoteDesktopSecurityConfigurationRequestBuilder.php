@@ -6,56 +6,129 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\RemoteDesktopSecurityConfiguration;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\RemoteDesktopSecurityConfigurationQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TargetDeviceGroupsRequestBuilder;
 
 /**
- * Request builder for RemoteDesktopSecurityConfiguration
+ * Request builder for remoteDesktopSecurityConfiguration
  */
 class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get remoteDesktopSecurityConfiguration
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param RemoteDesktopSecurityConfigurationQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return RemoteDesktopSecurityConfiguration
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?RemoteDesktopSecurityConfigurationQueryOptions $options = null, ?array $queryParameters = null): RemoteDesktopSecurityConfiguration
+    public function get(?array $select = null, ?array $expand = null): RemoteDesktopSecurityConfiguration
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, RemoteDesktopSecurityConfiguration::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new RemoteDesktopSecurityConfiguration
-     *
-     * @param RemoteDesktopSecurityConfiguration $item The item to create
-     * @return RemoteDesktopSecurityConfiguration
+     * Deserialize response to RemoteDesktopSecurityConfiguration
      */
-    public function post(RemoteDesktopSecurityConfiguration $item): RemoteDesktopSecurityConfiguration
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, RemoteDesktopSecurityConfiguration::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new RemoteDesktopSecurityConfiguration($data);
     }
     /**
-     * Get targetDeviceGroups request builder
+     * Update remoteDesktopSecurityConfiguration
+     * @param RemoteDesktopSecurityConfiguration $body Request body
+     * @return RemoteDesktopSecurityConfiguration
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(RemoteDesktopSecurityConfiguration $body): RemoteDesktopSecurityConfiguration
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to RemoteDesktopSecurityConfiguration
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new RemoteDesktopSecurityConfiguration($data);
+    }
+    /**
+     * Delete remoteDesktopSecurityConfiguration
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to targetDeviceGroups
      *
      * @return TargetDeviceGroupsRequestBuilder
      */
     public function targetDeviceGroups(): TargetDeviceGroupsRequestBuilder
     {
-        return new TargetDeviceGroupsRequestBuilder($this->client, $this->buildPath('targetDeviceGroups'));
+        return new TargetDeviceGroupsRequestBuilder($this->client, $this->requestUrl . '/targetDeviceGroups');
     }
-
 }

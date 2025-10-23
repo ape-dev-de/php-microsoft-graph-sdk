@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityIoTDeviceImportanceType
 {
-    public function __construct(
-    ) {}
 }

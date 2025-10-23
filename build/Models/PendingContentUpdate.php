@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PendingContentUpdate
 {
-    public function __construct(
-        /** Date and time the pending binary operation was queued in UTC time. Read-only. */
-        public ?\DateTimeInterface $queuedDateTime = null
-    ) {}
+    /** Date and time the pending binary operation was queued in UTC time. Read-only. */
+    public ?\DateTimeInterface $queuedDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['queuedDateTime'])) {
+            $this->queuedDateTime = $data['queuedDateTime'];
+        }
+    }
 }

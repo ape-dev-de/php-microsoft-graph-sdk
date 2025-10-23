@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IPv6Range
 {
-    public function __construct(
-        /** Lower address. */
-        public ?string $lowerAddress = null,
-        /** Upper address. */
-        public ?string $upperAddress = null
-    ) {}
+    /** Lower address. */
+    public ?string $lowerAddress = null;
+
+    /** Upper address. */
+    public ?string $upperAddress = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['lowerAddress'])) {
+            $this->lowerAddress = $data['lowerAddress'];
+        }
+        if (isset($data['upperAddress'])) {
+            $this->upperAddress = $data['upperAddress'];
+        }
+    }
 }

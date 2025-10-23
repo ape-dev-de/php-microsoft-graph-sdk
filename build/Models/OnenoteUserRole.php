@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenoteUserRole
 {
-    public function __construct(
-    ) {}
 }

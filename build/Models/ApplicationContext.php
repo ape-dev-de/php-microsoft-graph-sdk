@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApplicationContext
 {
-    public function __construct(
-        /** @var string[] Collection of appId values for the applications. */
-        public array $includeApplications = []
-    ) {}
+    /** 
+     * Collection of appId values for the applications.
+     * @var string[]
+     */
+    public array $includeApplications = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['includeApplications'])) {
+            $this->includeApplications = $data['includeApplications'];
+        }
+    }
 }

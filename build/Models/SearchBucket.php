@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchBucket
 {
-    public function __construct(
-        /** A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example. */
-        public ?string $aggregationFilterToken = null,
-        /** The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches. */
-        public ?float $count = null,
-        /** The discrete value of the field that an aggregation was computed on. */
-        public ?string $key = null
-    ) {}
+    /** A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example. */
+    public ?string $aggregationFilterToken = null;
+
+    /** The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches. */
+    public ?float $count = null;
+
+    /** The discrete value of the field that an aggregation was computed on. */
+    public ?string $key = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['aggregationFilterToken'])) {
+            $this->aggregationFilterToken = $data['aggregationFilterToken'];
+        }
+        if (isset($data['count'])) {
+            $this->count = $data['count'];
+        }
+        if (isset($data['key'])) {
+            $this->key = $data['key'];
+        }
+    }
 }

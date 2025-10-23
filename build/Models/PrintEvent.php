@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintEvent
 {
-    public function __construct(
-    ) {}
 }

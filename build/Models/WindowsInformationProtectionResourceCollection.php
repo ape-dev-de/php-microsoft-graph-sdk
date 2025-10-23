@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionResourceCollection
 {
-    public function __construct(
-        /** Display name */
-        public ?string $displayName = null,
-        /** @var string[] Collection of resources */
-        public array $resources = []
-    ) {}
+    /** Display name */
+    public ?string $displayName = null;
+
+    /** 
+     * Collection of resources
+     * @var string[]
+     */
+    public array $resources = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['resources'])) {
+            $this->resources = $data['resources'];
+        }
+    }
 }

@@ -5,75 +5,116 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\TokenIssuancePolicy;
 use ApeDevDe\MicrosoftGraphSdk\Models\TokenIssuancePolicyCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\TokenIssuancePolicyQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\TokenIssuancePolicy;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RefRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TokenIssuancePolicyRequestBuilder;
 
 /**
- * Request builder for TokenIssuancePolicy
+ * Request builder for tokenIssuancePolicies
  */
 class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * List assigned tokenIssuancePolicies
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new TokenIssuancePolicyQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param TokenIssuancePolicyQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
      * @return TokenIssuancePolicyCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?TokenIssuancePolicyQueryOptions $options = null, ?array $queryParameters = null): TokenIssuancePolicyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TokenIssuancePolicyCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, TokenIssuancePolicyCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new TokenIssuancePolicy
-     *
-     * @param TokenIssuancePolicy $item The item to create
-     * @return TokenIssuancePolicy
+     * Deserialize response to TokenIssuancePolicyCollectionResponse
      */
-    public function post(TokenIssuancePolicy $item): TokenIssuancePolicy
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, TokenIssuancePolicy::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new TokenIssuancePolicy($item);
+        }
+        $collection = new TokenIssuancePolicyCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
     }
-
+    /**
+     * Navigate to $count
+     *
+     * @return CountRequestBuilder
+     */
+    public function count(): CountRequestBuilder
+    {
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
+    }
+    /**
+     * Navigate to $ref
+     *
+     * @return RefRequestBuilder
+     */
+    public function ref(): RefRequestBuilder
+    {
+        return new RefRequestBuilder($this->client, $this->requestUrl . '/$ref');
+    }
     /**
      * Get request builder for specific item by ID
      *
-     * @param string $id The item ID
-     * @return ApplicationItemRequestBuilder
+     * @param string $tokenIssuancePolicyId The item ID
+     * @return TokenIssuancePolicyRequestBuilder
      */
-    public function byId(string $id): ApplicationItemRequestBuilder
+    public function byId(string $tokenIssuancePolicyId): TokenIssuancePolicyRequestBuilder
     {
-        return new ApplicationItemRequestBuilder($this->client, $this->buildPath($id));
+        return new TokenIssuancePolicyRequestBuilder($this->client, $this->requestUrl . '/' . $tokenIssuancePolicyId);
     }
-
-    /**
-     * Get count of items in collection
-     *
-     * @return int
-     */
-    public function count(): int
-    {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
-    }
-
 }

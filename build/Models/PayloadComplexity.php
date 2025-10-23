@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PayloadComplexity
 {
-    public function __construct(
-    ) {}
 }

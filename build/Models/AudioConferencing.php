@@ -9,18 +9,54 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AudioConferencing
 {
-    public function __construct(
-        /** The conference id of the online meeting. */
-        public ?string $conferenceId = null,
-        /** A URL to the externally-accessible web page that contains dial-in information. */
-        public ?string $dialinUrl = null,
-        /** The toll-free number that connects to the Audio Conference Provider. */
-        public ?string $tollFreeNumber = null,
-        /** @var string[] List of toll-free numbers that are displayed in the meeting invite. */
-        public array $tollFreeNumbers = [],
-        /** The toll number that connects to the Audio Conference Provider. */
-        public ?string $tollNumber = null,
-        /** @var string[] List of toll numbers that are displayed in the meeting invite. */
-        public array $tollNumbers = []
-    ) {}
+    /** The conference id of the online meeting. */
+    public ?string $conferenceId = null;
+
+    /** A URL to the externally-accessible web page that contains dial-in information. */
+    public ?string $dialinUrl = null;
+
+    /** The toll-free number that connects to the Audio Conference Provider. */
+    public ?string $tollFreeNumber = null;
+
+    /** 
+     * List of toll-free numbers that are displayed in the meeting invite.
+     * @var string[]
+     */
+    public array $tollFreeNumbers = [];
+
+    /** The toll number that connects to the Audio Conference Provider. */
+    public ?string $tollNumber = null;
+
+    /** 
+     * List of toll numbers that are displayed in the meeting invite.
+     * @var string[]
+     */
+    public array $tollNumbers = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['conferenceId'])) {
+            $this->conferenceId = $data['conferenceId'];
+        }
+        if (isset($data['dialinUrl'])) {
+            $this->dialinUrl = $data['dialinUrl'];
+        }
+        if (isset($data['tollFreeNumber'])) {
+            $this->tollFreeNumber = $data['tollFreeNumber'];
+        }
+        if (isset($data['tollFreeNumbers'])) {
+            $this->tollFreeNumbers = $data['tollFreeNumbers'];
+        }
+        if (isset($data['tollNumber'])) {
+            $this->tollNumber = $data['tollNumber'];
+        }
+        if (isset($data['tollNumbers'])) {
+            $this->tollNumbers = $data['tollNumbers'];
+        }
+    }
 }

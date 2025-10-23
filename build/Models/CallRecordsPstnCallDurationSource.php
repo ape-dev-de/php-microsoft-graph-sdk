@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsPstnCallDurationSource
 {
-    public function __construct(
-    ) {}
 }

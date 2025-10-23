@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventExternalRegistrationInformation
 {
-    public function __construct(
-        /** A URL or string that represents the location from which the registrant registered. Optional. */
-        public ?string $referrer = null,
-        /** The identifier for a virtualEventExternalRegistrationInformation object. Optional. If set, the maximum supported length is 256 characters. */
-        public ?string $registrationId = null
-    ) {}
+    /** A URL or string that represents the location from which the registrant registered. Optional. */
+    public ?string $referrer = null;
+
+    /** The identifier for a virtualEventExternalRegistrationInformation object. Optional. If set, the maximum supported length is 256 characters. */
+    public ?string $registrationId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['referrer'])) {
+            $this->referrer = $data['referrer'];
+        }
+        if (isset($data['registrationId'])) {
+            $this->registrationId = $data['registrationId'];
+        }
+    }
 }

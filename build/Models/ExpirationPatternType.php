@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExpirationPatternType
 {
-    public function __construct(
-    ) {}
 }

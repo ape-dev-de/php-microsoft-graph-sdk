@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessagePolicyViolationDlpActionTypes
 {
-    public function __construct(
-    ) {}
 }

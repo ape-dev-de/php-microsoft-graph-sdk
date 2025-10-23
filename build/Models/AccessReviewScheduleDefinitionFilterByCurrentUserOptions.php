@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewScheduleDefinitionFilterByCurrentUserOptions
 {
-    public function __construct(
-    ) {}
 }

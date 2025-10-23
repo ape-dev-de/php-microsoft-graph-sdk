@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppDataStorageLocation
 {
-    public function __construct(
-    ) {}
 }

@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostReputationRule
 {
-    public function __construct(
-        /** The description of the rule that gives more context. */
-        public ?string $description = null,
-        /** The name of the rule. */
-        public ?string $name = null,
-        /** Link to a web page with details related to this rule. */
-        public ?string $relatedDetailsUrl = null,
-        /**  */
-        public ?SecurityHostReputationRuleSeverity $severity = null
-    ) {}
+    /** The description of the rule that gives more context. */
+    public ?string $description = null;
+
+    /** The name of the rule. */
+    public ?string $name = null;
+
+    /** Link to a web page with details related to this rule. */
+    public ?string $relatedDetailsUrl = null;
+
+    /**  */
+    public ?SecurityHostReputationRuleSeverity $severity = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['relatedDetailsUrl'])) {
+            $this->relatedDetailsUrl = $data['relatedDetailsUrl'];
+        }
+        if (isset($data['severity'])) {
+            $this->severity = $data['severity'];
+        }
+    }
 }

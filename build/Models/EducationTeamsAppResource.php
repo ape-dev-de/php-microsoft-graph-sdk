@@ -9,24 +9,72 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationTeamsAppResource
 {
-    public function __construct(
-        /** The individual who created the resource. */
-        public ?IdentitySet $createdBy = null,
-        /** Moment in time when the resource was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Display name of resource. */
-        public ?string $displayName = null,
-        /** The last user to modify the resource. */
-        public ?IdentitySet $lastModifiedBy = null,
-        /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** URL that points to the icon of the app. */
-        public ?string $appIconWebUrl = null,
-        /** Teams app ID of the application. */
-        public ?string $appId = null,
-        /** URL for the app resource that will be opened by Teams. */
-        public ?string $teamsEmbeddedContentUrl = null,
-        /** URL for the app resource that can be opened in the browser. */
-        public ?string $webUrl = null
-    ) {}
+    /** 
+     * The individual who created the resource.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** Moment in time when the resource was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** Display name of resource. */
+    public ?string $displayName = null;
+
+    /** 
+     * The last user to modify the resource.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** URL that points to the icon of the app. */
+    public ?string $appIconWebUrl = null;
+
+    /** Teams app ID of the application. */
+    public ?string $appId = null;
+
+    /** URL for the app resource that will be opened by Teams. */
+    public ?string $teamsEmbeddedContentUrl = null;
+
+    /** URL for the app resource that can be opened in the browser. */
+    public ?string $webUrl = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['appIconWebUrl'])) {
+            $this->appIconWebUrl = $data['appIconWebUrl'];
+        }
+        if (isset($data['appId'])) {
+            $this->appId = $data['appId'];
+        }
+        if (isset($data['teamsEmbeddedContentUrl'])) {
+            $this->teamsEmbeddedContentUrl = $data['teamsEmbeddedContentUrl'];
+        }
+        if (isset($data['webUrl'])) {
+            $this->webUrl = $data['webUrl'];
+        }
+    }
 }

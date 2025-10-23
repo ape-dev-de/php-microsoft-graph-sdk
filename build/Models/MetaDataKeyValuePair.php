@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MetaDataKeyValuePair
 {
-    public function __construct(
-        /** Key of the metadata. */
-        public ?string $key = null,
-        /** Value of the metadata. Should be an object. */
-        public ?string $value = null
-    ) {}
+    /** Key of the metadata. */
+    public ?string $key = null;
+
+    /** Value of the metadata. Should be an object. */
+    public ?string $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['key'])) {
+            $this->key = $data['key'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

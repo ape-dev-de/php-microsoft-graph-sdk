@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HorizontalSectionColumn
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Width of the column. A horizontal section is divided into 12 grids. A column should have a value of 1-12 to represent its range spans. For example, there can be two columns both have a width of 6 in a section. */
-        public ?float $width = null,
-        /** The collection of WebParts in this column. */
-        public array $webparts = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Width of the column. A horizontal section is divided into 12 grids. A column should have a value of 1-12 to represent its range spans. For example, there can be two columns both have a width of 6 in a section. */
+    public ?float $width = null;
+
+    /** 
+     * The collection of WebParts in this column.
+     * @var WebPart[]
+     */
+    public array $webparts = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['width'])) {
+            $this->width = $data['width'];
+        }
+        if (isset($data['webparts'])) {
+            $this->webparts = $data['webparts'];
+        }
+    }
 }

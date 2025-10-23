@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceLogCollectionTemplateType
 {
-    public function __construct(
-    ) {}
 }

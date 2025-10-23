@@ -9,10 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserFlowApiConnectorConfiguration
 {
-    public function __construct(
-        /**  */
-        public ?IdentityApiConnector $postAttributeCollection = null,
-        /**  */
-        public ?IdentityApiConnector $postFederationSignup = null
-    ) {}
+    /** 
+     * 
+     * @var IdentityApiConnector|\stdClass|null
+     */
+    public mixed $postAttributeCollection = null;
+
+    /** 
+     * 
+     * @var IdentityApiConnector|\stdClass|null
+     */
+    public mixed $postFederationSignup = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['postAttributeCollection'])) {
+            $this->postAttributeCollection = $data['postAttributeCollection'];
+        }
+        if (isset($data['postFederationSignup'])) {
+            $this->postFederationSignup = $data['postFederationSignup'];
+        }
+    }
 }

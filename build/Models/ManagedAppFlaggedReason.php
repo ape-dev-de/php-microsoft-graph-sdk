@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppFlaggedReason
 {
-    public function __construct(
-    ) {}
 }

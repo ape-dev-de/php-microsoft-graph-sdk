@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityChildSelectability
 {
-    public function __construct(
-    ) {}
 }

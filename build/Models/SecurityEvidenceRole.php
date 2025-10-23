@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEvidenceRole
 {
-    public function __construct(
-    ) {}
 }

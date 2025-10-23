@@ -9,40 +9,144 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningObjectSummary
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  SUpports $filter (eq, gt, lt) and orderby. */
-        public ?\DateTimeInterface $activityDateTime = null,
-        /** Unique ID of this change in this cycle. Supports $filter (eq, contains). */
-        public ?string $changeId = null,
-        /** Unique ID per job iteration. Supports $filter (eq, contains). */
-        public ?string $cycleId = null,
-        /** Indicates how long this provisioning action took to finish. Measured in milliseconds. */
-        public ?float $durationInMilliseconds = null,
-        /** Details of who initiated this provisioning. Supports $filter (eq, contains). */
-        public ?Initiator $initiatedBy = null,
-        /** The unique ID for the whole provisioning job. Supports $filter (eq, contains). */
-        public ?string $jobId = null,
-        /** Details of each property that was modified in this provisioning action on this object. */
-        public array $modifiedProperties = [],
-        /** Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Microsoft Entra activity list. Supports $filter (eq, contains). */
-        public ?ProvisioningAction $provisioningAction = null,
-        /** Details of provisioning status. */
-        public ?ProvisioningStatusInfo $provisioningStatusInfo = null,
-        /** Details of each step in provisioning. */
-        public array $provisioningSteps = [],
-        /** Represents the service principal used for provisioning. Supports $filter (eq) for id and name. */
-        public ?ProvisioningServicePrincipal $servicePrincipal = null,
-        /** Details of source object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName. */
-        public ?ProvisionedIdentity $sourceIdentity = null,
-        /** Details of source system of the object being provisioned. Supports $filter (eq, contains) for displayName. */
-        public ?ProvisioningSystem $sourceSystem = null,
-        /** Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName. */
-        public ?ProvisionedIdentity $targetIdentity = null,
-        /** Details of target system of the object being provisioned. Supports $filter (eq, contains) for displayName. */
-        public ?ProvisioningSystem $targetSystem = null,
-        /** Unique Microsoft Entra tenant ID. Supports $filter (eq, contains). */
-        public ?string $tenantId = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  SUpports $filter (eq, gt, lt) and orderby. */
+    public ?\DateTimeInterface $activityDateTime = null;
+
+    /** Unique ID of this change in this cycle. Supports $filter (eq, contains). */
+    public ?string $changeId = null;
+
+    /** Unique ID per job iteration. Supports $filter (eq, contains). */
+    public ?string $cycleId = null;
+
+    /** Indicates how long this provisioning action took to finish. Measured in milliseconds. */
+    public ?float $durationInMilliseconds = null;
+
+    /** 
+     * Details of who initiated this provisioning. Supports $filter (eq, contains).
+     * @var Initiator|\stdClass|null
+     */
+    public mixed $initiatedBy = null;
+
+    /** The unique ID for the whole provisioning job. Supports $filter (eq, contains). */
+    public ?string $jobId = null;
+
+    /** 
+     * Details of each property that was modified in this provisioning action on this object.
+     * @var ModifiedProperty[]
+     */
+    public array $modifiedProperties = [];
+
+    /** 
+     * Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Microsoft Entra activity list. Supports $filter (eq, contains).
+     * @var ProvisioningAction|\stdClass|null
+     */
+    public mixed $provisioningAction = null;
+
+    /** 
+     * Details of provisioning status.
+     * @var ProvisioningStatusInfo|\stdClass|null
+     */
+    public mixed $provisioningStatusInfo = null;
+
+    /** 
+     * Details of each step in provisioning.
+     * @var ProvisioningStep[]
+     */
+    public array $provisioningSteps = [];
+
+    /** 
+     * Represents the service principal used for provisioning. Supports $filter (eq) for id and name.
+     * @var ProvisioningServicePrincipal|\stdClass|null
+     */
+    public mixed $servicePrincipal = null;
+
+    /** 
+     * Details of source object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
+     * @var ProvisionedIdentity|\stdClass|null
+     */
+    public mixed $sourceIdentity = null;
+
+    /** 
+     * Details of source system of the object being provisioned. Supports $filter (eq, contains) for displayName.
+     * @var ProvisioningSystem|\stdClass|null
+     */
+    public mixed $sourceSystem = null;
+
+    /** 
+     * Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
+     * @var ProvisionedIdentity|\stdClass|null
+     */
+    public mixed $targetIdentity = null;
+
+    /** 
+     * Details of target system of the object being provisioned. Supports $filter (eq, contains) for displayName.
+     * @var ProvisioningSystem|\stdClass|null
+     */
+    public mixed $targetSystem = null;
+
+    /** Unique Microsoft Entra tenant ID. Supports $filter (eq, contains). */
+    public ?string $tenantId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['activityDateTime'])) {
+            $this->activityDateTime = $data['activityDateTime'];
+        }
+        if (isset($data['changeId'])) {
+            $this->changeId = $data['changeId'];
+        }
+        if (isset($data['cycleId'])) {
+            $this->cycleId = $data['cycleId'];
+        }
+        if (isset($data['durationInMilliseconds'])) {
+            $this->durationInMilliseconds = $data['durationInMilliseconds'];
+        }
+        if (isset($data['initiatedBy'])) {
+            $this->initiatedBy = $data['initiatedBy'];
+        }
+        if (isset($data['jobId'])) {
+            $this->jobId = $data['jobId'];
+        }
+        if (isset($data['modifiedProperties'])) {
+            $this->modifiedProperties = $data['modifiedProperties'];
+        }
+        if (isset($data['provisioningAction'])) {
+            $this->provisioningAction = $data['provisioningAction'];
+        }
+        if (isset($data['provisioningStatusInfo'])) {
+            $this->provisioningStatusInfo = $data['provisioningStatusInfo'];
+        }
+        if (isset($data['provisioningSteps'])) {
+            $this->provisioningSteps = $data['provisioningSteps'];
+        }
+        if (isset($data['servicePrincipal'])) {
+            $this->servicePrincipal = $data['servicePrincipal'];
+        }
+        if (isset($data['sourceIdentity'])) {
+            $this->sourceIdentity = $data['sourceIdentity'];
+        }
+        if (isset($data['sourceSystem'])) {
+            $this->sourceSystem = $data['sourceSystem'];
+        }
+        if (isset($data['targetIdentity'])) {
+            $this->targetIdentity = $data['targetIdentity'];
+        }
+        if (isset($data['targetSystem'])) {
+            $this->targetSystem = $data['targetSystem'];
+        }
+        if (isset($data['tenantId'])) {
+            $this->tenantId = $data['tenantId'];
+        }
+    }
 }

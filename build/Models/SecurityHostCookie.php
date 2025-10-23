@@ -9,18 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostCookie
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The URI for which the cookie is valid. */
-        public ?string $domain = null,
-        /** The first date and time when this hostCookie was observed by Microsoft Defender Threat Intelligence. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $firstSeenDateTime = null,
-        /** The most recent date and time when this hostCookie was observed by Microsoft Defender Threat Intelligence. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $lastSeenDateTime = null,
-        /** The name of the cookie, for example, JSESSIONID or SEARCH_NAMESITE. */
-        public ?string $name = null,
-        /**  */
-        public ?SecurityHost $host = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The URI for which the cookie is valid. */
+    public ?string $domain = null;
+
+    /** The first date and time when this hostCookie was observed by Microsoft Defender Threat Intelligence. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $firstSeenDateTime = null;
+
+    /** The most recent date and time when this hostCookie was observed by Microsoft Defender Threat Intelligence. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $lastSeenDateTime = null;
+
+    /** The name of the cookie, for example, JSESSIONID or SEARCH_NAMESITE. */
+    public ?string $name = null;
+
+    /**  */
+    public ?SecurityHost $host = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['domain'])) {
+            $this->domain = $data['domain'];
+        }
+        if (isset($data['firstSeenDateTime'])) {
+            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+        }
+        if (isset($data['lastSeenDateTime'])) {
+            $this->lastSeenDateTime = $data['lastSeenDateTime'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['host'])) {
+            $this->host = $data['host'];
+        }
+    }
 }

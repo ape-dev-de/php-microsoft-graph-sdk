@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SensitivityLabelAssignmentMethod
 {
-    public function __construct(
-    ) {}
 }

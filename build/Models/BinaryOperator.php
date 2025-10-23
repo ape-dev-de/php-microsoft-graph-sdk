@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BinaryOperator
 {
-    public function __construct(
-    ) {}
 }

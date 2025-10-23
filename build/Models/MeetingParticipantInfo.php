@@ -9,12 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingParticipantInfo
 {
-    public function __construct(
-        /** Identity information of the participant. */
-        public ?IdentitySet $identity = null,
-        /** Specifies the participant's role in the meeting. */
-        public ?OnlineMeetingRole $role = null,
-        /** User principal name of the participant. */
-        public ?string $upn = null
-    ) {}
+    /** 
+     * Identity information of the participant.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $identity = null;
+
+    /** 
+     * Specifies the participant's role in the meeting.
+     * @var OnlineMeetingRole|\stdClass|null
+     */
+    public mixed $role = null;
+
+    /** User principal name of the participant. */
+    public ?string $upn = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['identity'])) {
+            $this->identity = $data['identity'];
+        }
+        if (isset($data['role'])) {
+            $this->role = $data['role'];
+        }
+        if (isset($data['upn'])) {
+            $this->upn = $data['upn'];
+        }
+    }
 }

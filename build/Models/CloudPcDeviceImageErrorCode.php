@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcDeviceImageErrorCode
 {
-    public function __construct(
-    ) {}
 }

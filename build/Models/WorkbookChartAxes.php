@@ -9,14 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartAxes
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Represents the category axis in a chart. Read-only. */
-        public ?WorkbookChartAxis $categoryAxis = null,
-        /** Represents the series axis of a 3-dimensional chart. Read-only. */
-        public ?WorkbookChartAxis $seriesAxis = null,
-        /** Represents the value axis in an axis. Read-only. */
-        public ?WorkbookChartAxis $valueAxis = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Represents the category axis in a chart. Read-only.
+     * @var WorkbookChartAxis|\stdClass|null
+     */
+    public mixed $categoryAxis = null;
+
+    /** 
+     * Represents the series axis of a 3-dimensional chart. Read-only.
+     * @var WorkbookChartAxis|\stdClass|null
+     */
+    public mixed $seriesAxis = null;
+
+    /** 
+     * Represents the value axis in an axis. Read-only.
+     * @var WorkbookChartAxis|\stdClass|null
+     */
+    public mixed $valueAxis = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['categoryAxis'])) {
+            $this->categoryAxis = $data['categoryAxis'];
+        }
+        if (isset($data['seriesAxis'])) {
+            $this->seriesAxis = $data['seriesAxis'];
+        }
+        if (isset($data['valueAxis'])) {
+            $this->valueAxis = $data['valueAxis'];
+        }
+    }
 }

@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsInsight
 {
-    public function __construct(
-        /** The unique identifier of the user experience analytics insight. */
-        public ?string $insightId = null,
-        /**  */
-        public ?UserExperienceAnalyticsInsightSeverity $severity = null,
-        /** The unique identifier of the user experience analytics metric. */
-        public ?string $userExperienceAnalyticsMetricId = null,
-        /** The value of the user experience analytics insight. */
-        public array $values = []
-    ) {}
+    /** The unique identifier of the user experience analytics insight. */
+    public ?string $insightId = null;
+
+    /**  */
+    public ?UserExperienceAnalyticsInsightSeverity $severity = null;
+
+    /** The unique identifier of the user experience analytics metric. */
+    public ?string $userExperienceAnalyticsMetricId = null;
+
+    /** 
+     * The value of the user experience analytics insight.
+     * @var UserExperienceAnalyticsInsightValue[]
+     */
+    public array $values = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['insightId'])) {
+            $this->insightId = $data['insightId'];
+        }
+        if (isset($data['severity'])) {
+            $this->severity = $data['severity'];
+        }
+        if (isset($data['userExperienceAnalyticsMetricId'])) {
+            $this->userExperienceAnalyticsMetricId = $data['userExperienceAnalyticsMetricId'];
+        }
+        if (isset($data['values'])) {
+            $this->values = $data['values'];
+        }
+    }
 }

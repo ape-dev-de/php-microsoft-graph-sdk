@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VppTokenAccountType
 {
-    public function __construct(
-    ) {}
 }

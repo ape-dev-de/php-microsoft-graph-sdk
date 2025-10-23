@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFormattedContent
 {
-    public function __construct(
-        /** The content of this formattedContent. */
-        public ?string $content = null,
-        /** The format of the content. The possible values are: text, html, markdown, unknownFutureValue. */
-        public ?SecurityContentFormat $format = null
-    ) {}
+    /** The content of this formattedContent. */
+    public ?string $content = null;
+
+    /** 
+     * The format of the content. The possible values are: text, html, markdown, unknownFutureValue.
+     * @var SecurityContentFormat|\stdClass|null
+     */
+    public mixed $format = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['content'])) {
+            $this->content = $data['content'];
+        }
+        if (isset($data['format'])) {
+            $this->format = $data['format'];
+        }
+    }
 }

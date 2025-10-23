@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileAppTroubleshootingEvent
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Indicates collection of App Log Upload Request. */
-        public array $appLogCollectionRequests = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Indicates collection of App Log Upload Request.
+     * @var AppLogCollectionRequest[]
+     */
+    public array $appLogCollectionRequests = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['appLogCollectionRequests'])) {
+            $this->appLogCollectionRequests = $data['appLogCollectionRequests'];
+        }
+    }
 }

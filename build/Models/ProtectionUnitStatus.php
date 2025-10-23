@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProtectionUnitStatus
 {
-    public function __construct(
-    ) {}
 }

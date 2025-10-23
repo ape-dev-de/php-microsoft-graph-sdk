@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppLockerApplicationControlType
 {
-    public function __construct(
-    ) {}
 }

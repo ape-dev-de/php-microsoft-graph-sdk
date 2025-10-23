@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AndroidWorkProfileDefaultAppPermissionPolicyType
 {
-    public function __construct(
-    ) {}
 }

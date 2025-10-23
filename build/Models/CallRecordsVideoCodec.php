@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsVideoCodec
 {
-    public function __construct(
-    ) {}
 }

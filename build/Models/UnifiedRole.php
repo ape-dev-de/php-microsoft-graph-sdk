@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRole
 {
-    public function __construct(
-        /** The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource. */
-        public ?string $roleDefinitionId = null
-    ) {}
+    /** The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource. */
+    public ?string $roleDefinitionId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['roleDefinitionId'])) {
+            $this->roleDefinitionId = $data['roleDefinitionId'];
+        }
+    }
 }

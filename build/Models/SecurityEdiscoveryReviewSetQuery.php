@@ -9,22 +9,66 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryReviewSetQuery
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?string $contentQuery = null,
-        /**  */
-        public ?IdentitySet $createdBy = null,
-        /**  */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /**  */
-        public ?string $description = null,
-        /**  */
-        public ?string $displayName = null,
-        /**  */
-        public ?IdentitySet $lastModifiedBy = null,
-        /**  */
-        public ?\DateTimeInterface $lastModifiedDateTime = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?string $contentQuery = null;
+
+    /** 
+     * 
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /**  */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /**  */
+    public ?string $description = null;
+
+    /**  */
+    public ?string $displayName = null;
+
+    /** 
+     * 
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /**  */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['contentQuery'])) {
+            $this->contentQuery = $data['contentQuery'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+    }
 }

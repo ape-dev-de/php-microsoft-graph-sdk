@@ -9,18 +9,60 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryCaseSettings
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?SecurityCaseType $caseType = null,
-        /** The OCR (Optical Character Recognition) settings for the case. */
-        public ?SecurityOcrSettings $ocr = null,
-        /** The redundancy (near duplicate and email threading) detection settings for the case. */
-        public ?SecurityRedundancyDetectionSettings $redundancyDetection = null,
-        /** The settings of the review set for the case. Possible values are: none, disableGrouping, unknownFutureValue. */
-        public ?SecurityReviewSetSettings $reviewSetSettings = null,
-        /** The Topic Modeling (Themes) settings for the case. */
-        public ?SecurityTopicModelingSettings $topicModeling = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?SecurityCaseType $caseType = null;
+
+    /** 
+     * The OCR (Optical Character Recognition) settings for the case.
+     * @var SecurityOcrSettings|\stdClass|null
+     */
+    public mixed $ocr = null;
+
+    /** 
+     * The redundancy (near duplicate and email threading) detection settings for the case.
+     * @var SecurityRedundancyDetectionSettings|\stdClass|null
+     */
+    public mixed $redundancyDetection = null;
+
+    /** 
+     * The settings of the review set for the case. Possible values are: none, disableGrouping, unknownFutureValue.
+     * @var SecurityReviewSetSettings|\stdClass|null
+     */
+    public mixed $reviewSetSettings = null;
+
+    /** 
+     * The Topic Modeling (Themes) settings for the case.
+     * @var SecurityTopicModelingSettings|\stdClass|null
+     */
+    public mixed $topicModeling = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['caseType'])) {
+            $this->caseType = $data['caseType'];
+        }
+        if (isset($data['ocr'])) {
+            $this->ocr = $data['ocr'];
+        }
+        if (isset($data['redundancyDetection'])) {
+            $this->redundancyDetection = $data['redundancyDetection'];
+        }
+        if (isset($data['reviewSetSettings'])) {
+            $this->reviewSetSettings = $data['reviewSetSettings'];
+        }
+        if (isset($data['topicModeling'])) {
+            $this->topicModeling = $data['topicModeling'];
+        }
+    }
 }

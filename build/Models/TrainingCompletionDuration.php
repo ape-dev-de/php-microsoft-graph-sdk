@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TrainingCompletionDuration
 {
-    public function __construct(
-    ) {}
 }

@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemovedState
 {
-    public function __construct(
-        /** The removal reason for the participant resource. */
-        public ?string $reason = null
-    ) {}
+    /** The removal reason for the participant resource. */
+    public ?string $reason = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['reason'])) {
+            $this->reason = $data['reason'];
+        }
+    }
 }

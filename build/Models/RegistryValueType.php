@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RegistryValueType
 {
-    public function __construct(
-    ) {}
 }

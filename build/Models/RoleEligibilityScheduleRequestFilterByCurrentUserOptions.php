@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RoleEligibilityScheduleRequestFilterByCurrentUserOptions
 {
-    public function __construct(
-    ) {}
 }

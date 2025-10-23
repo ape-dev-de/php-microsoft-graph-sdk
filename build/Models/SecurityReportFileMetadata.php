@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityReportFileMetadata
 {
-    public function __construct(
-        /** The URL to download the report. */
-        public ?string $downloadUrl = null,
-        /** The name of the file. */
-        public ?string $fileName = null,
-        /** The size of the file. */
-        public ?float $size = null
-    ) {}
+    /** The URL to download the report. */
+    public ?string $downloadUrl = null;
+
+    /** The name of the file. */
+    public ?string $fileName = null;
+
+    /** The size of the file. */
+    public ?float $size = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['downloadUrl'])) {
+            $this->downloadUrl = $data['downloadUrl'];
+        }
+        if (isset($data['fileName'])) {
+            $this->fileName = $data['fileName'];
+        }
+        if (isset($data['size'])) {
+            $this->size = $data['size'];
+        }
+    }
 }

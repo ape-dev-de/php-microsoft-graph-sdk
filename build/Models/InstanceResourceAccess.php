@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InstanceResourceAccess
 {
-    public function __construct(
-        /**  */
-        public array $permissions = [],
-        /**  */
-        public ?string $resourceAppId = null
-    ) {}
+    /** 
+     * 
+     * @var ResourcePermission[]
+     */
+    public array $permissions = [];
+
+    /**  */
+    public ?string $resourceAppId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['permissions'])) {
+            $this->permissions = $data['permissions'];
+        }
+        if (isset($data['resourceAppId'])) {
+            $this->resourceAppId = $data['resourceAppId'];
+        }
+    }
 }

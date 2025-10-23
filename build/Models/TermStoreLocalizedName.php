@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TermStoreLocalizedName
 {
-    public function __construct(
-        /** The language tag for the label. */
-        public ?string $languageTag = null,
-        /** The name in the localized language. */
-        public ?string $name = null
-    ) {}
+    /** The language tag for the label. */
+    public ?string $languageTag = null;
+
+    /** The name in the localized language. */
+    public ?string $name = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['languageTag'])) {
+            $this->languageTag = $data['languageTag'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+    }
 }

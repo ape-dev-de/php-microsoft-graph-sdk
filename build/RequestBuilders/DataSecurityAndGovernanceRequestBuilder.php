@@ -6,86 +6,159 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserDataSecurityAndGovernance;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\UserDataSecurityAndGovernanceQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ActivitiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ProcessContentRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ProtectionScopesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SensitivityLabelsRequestBuilder;
 
 /**
- * Request builder for UserDataSecurityAndGovernance
+ * Request builder for dataSecurityAndGovernance
  */
 class DataSecurityAndGovernanceRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get dataSecurityAndGovernance from me
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param UserDataSecurityAndGovernanceQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return UserDataSecurityAndGovernance
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?UserDataSecurityAndGovernanceQueryOptions $options = null, ?array $queryParameters = null): UserDataSecurityAndGovernance
+    public function get(?array $select = null, ?array $expand = null): UserDataSecurityAndGovernance
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, UserDataSecurityAndGovernance::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new UserDataSecurityAndGovernance
-     *
-     * @param UserDataSecurityAndGovernance $item The item to create
-     * @return UserDataSecurityAndGovernance
+     * Deserialize response to UserDataSecurityAndGovernance
      */
-    public function post(UserDataSecurityAndGovernance $item): UserDataSecurityAndGovernance
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, UserDataSecurityAndGovernance::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UserDataSecurityAndGovernance($data);
     }
     /**
-     * Get activities request builder
+     * Update the navigation property dataSecurityAndGovernance in me
+     * @param UserDataSecurityAndGovernance $body Request body
+     * @return UserDataSecurityAndGovernance
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(UserDataSecurityAndGovernance $body): UserDataSecurityAndGovernance
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to UserDataSecurityAndGovernance
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new UserDataSecurityAndGovernance($data);
+    }
+    /**
+     * Delete navigation property dataSecurityAndGovernance for me
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to activities
      *
      * @return ActivitiesRequestBuilder
      */
     public function activities(): ActivitiesRequestBuilder
     {
-        return new ActivitiesRequestBuilder($this->client, $this->buildPath('activities'));
+        return new ActivitiesRequestBuilder($this->client, $this->requestUrl . '/activities');
     }
-
     /**
-     * Get processContent request builder
+     * Navigate to processContent
      *
      * @return ProcessContentRequestBuilder
      */
     public function processContent(): ProcessContentRequestBuilder
     {
-        return new ProcessContentRequestBuilder($this->client, $this->buildPath('processContent'));
+        return new ProcessContentRequestBuilder($this->client, $this->requestUrl . '/processContent');
     }
-
     /**
-     * Get protectionScopes request builder
+     * Navigate to protectionScopes
      *
      * @return ProtectionScopesRequestBuilder
      */
     public function protectionScopes(): ProtectionScopesRequestBuilder
     {
-        return new ProtectionScopesRequestBuilder($this->client, $this->buildPath('protectionScopes'));
+        return new ProtectionScopesRequestBuilder($this->client, $this->requestUrl . '/protectionScopes');
     }
-
     /**
-     * Get sensitivityLabels request builder
+     * Navigate to sensitivityLabels
      *
      * @return SensitivityLabelsRequestBuilder
      */
     public function sensitivityLabels(): SensitivityLabelsRequestBuilder
     {
-        return new SensitivityLabelsRequestBuilder($this->client, $this->buildPath('sensitivityLabels'));
+        return new SensitivityLabelsRequestBuilder($this->client, $this->requestUrl . '/sensitivityLabels');
     }
-
 }

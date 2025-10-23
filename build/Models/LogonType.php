@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LogonType
 {
-    public function __construct(
-    ) {}
 }

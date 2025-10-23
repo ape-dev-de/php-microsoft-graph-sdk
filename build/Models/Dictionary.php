@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Dictionary
 {
-    public function __construct(
-    ) {}
 }

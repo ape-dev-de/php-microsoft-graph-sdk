@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEvidenceRemediationStatus
 {
-    public function __construct(
-    ) {}
 }

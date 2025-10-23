@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcOnPremisesConnectionHealthCheckErrorType
 {
-    public function __construct(
-    ) {}
 }

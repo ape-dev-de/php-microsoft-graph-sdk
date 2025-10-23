@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaContentRatingJapan
 {
-    public function __construct(
-        /**  */
-        public ?RatingJapanMoviesType $movieRating = null,
-        /**  */
-        public ?RatingJapanTelevisionType $tvRating = null
-    ) {}
+    /**  */
+    public ?RatingJapanMoviesType $movieRating = null;
+
+    /**  */
+    public ?RatingJapanTelevisionType $tvRating = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['movieRating'])) {
+            $this->movieRating = $data['movieRating'];
+        }
+        if (isset($data['tvRating'])) {
+            $this->tvRating = $data['tvRating'];
+        }
+    }
 }

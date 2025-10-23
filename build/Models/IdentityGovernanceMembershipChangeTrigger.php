@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceMembershipChangeTrigger
 {
-    public function __construct(
-        /**  */
-        public ?IdentityGovernanceMembershipChangeType $changeType = null
-    ) {}
+    /**  */
+    public ?IdentityGovernanceMembershipChangeType $changeType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['changeType'])) {
+            $this->changeType = $data['changeType'];
+        }
+    }
 }

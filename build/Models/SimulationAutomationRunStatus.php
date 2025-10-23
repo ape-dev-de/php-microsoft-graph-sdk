@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationAutomationRunStatus
 {
-    public function __construct(
-    ) {}
 }

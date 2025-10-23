@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceWorkflowExecutionConditions
 {
-    public function __construct(
-    ) {}
 }

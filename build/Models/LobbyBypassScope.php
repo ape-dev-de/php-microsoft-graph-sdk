@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LobbyBypassScope
 {
-    public function __construct(
-    ) {}
 }

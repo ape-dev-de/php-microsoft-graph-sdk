@@ -5,64 +5,183 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternalGroup;
-use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternalGroupCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\ExternalConnectorsExternalGroupQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\GroupCollectionResponse;
+use ApeDevDe\MicrosoftGraphSdk\Models\Group;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ValidatePropertiesRequestBuilder;
 
 /**
- * Request builder for ExternalConnectorsExternalGroup
+ * Request builder for groups
  */
 class GroupsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * List groups
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new ExternalConnectorsExternalGroupQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param ExternalConnectorsExternalGroupQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
-     * @return ExternalConnectorsExternalGroupCollectionResponse
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param string|null $consistencyLevel Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
+     * @return GroupCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?ExternalConnectorsExternalGroupQueryOptions $options = null, ?array $queryParameters = null): ExternalConnectorsExternalGroupCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): GroupCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, ExternalConnectorsExternalGroupCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($consistencyLevel !== null) {
+            $queryParams['ConsistencyLevel'] = $consistencyLevel;
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new ExternalConnectorsExternalGroup
-     *
-     * @param ExternalConnectorsExternalGroup $item The item to create
-     * @return ExternalConnectorsExternalGroup
+     * Deserialize response to GroupCollectionResponse
      */
-    public function post(ExternalConnectorsExternalGroup $item): ExternalConnectorsExternalGroup
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, ExternalConnectorsExternalGroup::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new Group($item);
+        }
+        $collection = new GroupCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Upsert group
+     * @param Group $body Request body
+     * @return Group
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(Group $body): Group
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
     /**
-     * Get count of items in collection
-     *
-     * @return int
+     * Deserialize response to Group
      */
-    public function count(): int
+    private function deserializePost(string $body): mixed
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Group($data);
     }
-
+    /**
+     * Get request builder for specific item by ID
+     *
+     * @param string $groupId The item ID
+     * @return GroupRequestBuilder
+     */
+    public function byId(string $groupId): GroupRequestBuilder
+    {
+        return new GroupRequestBuilder($this->client, $this->requestUrl . '/' . $groupId);
+    }
+    /**
+     * Navigate to $count
+     *
+     * @return CountRequestBuilder
+     */
+    public function count(): CountRequestBuilder
+    {
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
+    }
+    /**
+     * Navigate to delta()
+     *
+     * @return DeltaRequestBuilder
+     */
+    public function delta(): DeltaRequestBuilder
+    {
+        return new DeltaRequestBuilder($this->client, $this->requestUrl . '/delta()');
+    }
+    /**
+     * Navigate to getAvailableExtensionProperties
+     *
+     * @return GetAvailableExtensionPropertiesRequestBuilder
+     */
+    public function getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder
+    {
+        return new GetAvailableExtensionPropertiesRequestBuilder($this->client, $this->requestUrl . '/getAvailableExtensionProperties');
+    }
+    /**
+     * Navigate to getByIds
+     *
+     * @return GetByIdsRequestBuilder
+     */
+    public function getByIds(): GetByIdsRequestBuilder
+    {
+        return new GetByIdsRequestBuilder($this->client, $this->requestUrl . '/getByIds');
+    }
+    /**
+     * Navigate to validateProperties
+     *
+     * @return ValidatePropertiesRequestBuilder
+     */
+    public function validateProperties(): ValidatePropertiesRequestBuilder
+    {
+        return new ValidatePropertiesRequestBuilder($this->client, $this->requestUrl . '/validateProperties');
+    }
 }

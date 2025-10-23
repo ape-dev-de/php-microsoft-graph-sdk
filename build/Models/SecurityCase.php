@@ -9,20 +9,60 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCase
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /**  */
-        public ?string $description = null,
-        /**  */
-        public ?string $displayName = null,
-        /**  */
-        public ?IdentitySet $lastModifiedBy = null,
-        /**  */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /**  */
-        public ?SecurityCaseStatus $status = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /**  */
+    public ?string $description = null;
+
+    /**  */
+    public ?string $displayName = null;
+
+    /** 
+     * 
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /**  */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** 
+     * 
+     * @var SecurityCaseStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

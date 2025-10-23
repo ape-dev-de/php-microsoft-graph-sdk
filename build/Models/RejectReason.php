@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RejectReason
 {
-    public function __construct(
-    ) {}
 }

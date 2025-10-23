@@ -6,47 +6,93 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\Privacy;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\PrivacyQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SubjectRightsRequestsRequestBuilder;
 
 /**
- * Request builder for Privacy
+ * Request builder for privacy
  */
 class PrivacyRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get privacy
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param PrivacyQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return Privacy
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?PrivacyQueryOptions $options = null, ?array $queryParameters = null): Privacy
+    public function get(?array $select = null, ?array $expand = null): Privacy
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, Privacy::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Privacy
-     *
-     * @param Privacy $item The item to create
-     * @return Privacy
+     * Deserialize response to Privacy
      */
-    public function post(Privacy $item): Privacy
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Privacy::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Privacy($data);
+    }
+    /**
+     * Update privacy
+     * @param Privacy $body Request body
+     * @return Privacy
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(Privacy $body): Privacy
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to Privacy
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Privacy($data);
+    }
+    /**
+     * Navigate to subjectRightsRequests
+     *
+     * @return SubjectRightsRequestsRequestBuilder
+     */
+    public function subjectRightsRequests(): SubjectRightsRequestsRequestBuilder
+    {
+        return new SubjectRightsRequestsRequestBuilder($this->client, $this->requestUrl . '/subjectRightsRequests');
+    }
 }

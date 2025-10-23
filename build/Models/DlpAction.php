@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DlpAction
 {
-    public function __construct(
-    ) {}
 }

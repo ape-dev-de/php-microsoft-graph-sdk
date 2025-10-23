@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsFailureStage
 {
-    public function __construct(
-    ) {}
 }

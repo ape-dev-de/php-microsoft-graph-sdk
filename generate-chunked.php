@@ -59,9 +59,6 @@ generateIndividualModels($schemas, $output);
 $output->writeln('<info>Generating collection response models...</info>');
 generateAllCollectionModels($schemas, $output);
 
-// Step 5.5: Generate QueryOptions classes (base class is in src/)
-$output->writeln('<info>Generating QueryOptions classes...</info>');
-generateAllQueryOptions($schemas, $output);
 
 // Step 6: Chunk paths by namespace
 $output->writeln('<info>Analyzing and chunking API paths...</info>');
@@ -82,6 +79,7 @@ $output->writeln('<info>✓ Root request builder generated</info>');
 $output->writeln('');
 $output->writeln('<info>✅ SDK generation completed successfully!</info>');
 $output->writeln('<comment>Generated files are in: ' . BUILD_DIR . '</comment>');
+
 /**
  * Setup required directories
  */
@@ -379,7 +377,8 @@ function generateModelCode(string $modelName, array $properties): string
         $mappedProperties[$propName] = [
             'type' => mapPropertyType($propDef),
             'description' => $propDef['description'] ?? '',
-            'items' => $propDef['items'] ?? null
+            'items' => $propDef['items'] ?? null,
+            'itemType' => resolveArrayItemType($propDef) // Resolve the item type for arrays
         ];
     }
     
@@ -390,26 +389,105 @@ function generateModelCode(string $modelName, array $properties): string
 }
 
 /**
+ * Resolve array item type from property definition
+ * Handles $ref, allOf, anyOf in items
+ * Returns null if not an array or no specific type found
+ */
+function resolveArrayItemType(array $propDef): ?string
+{
+    $type = $propDef['type'] ?? null;
+    
+    if ($type !== 'array') {
+        return null;
+    }
+    
+    $items = $propDef['items'] ?? null;
+    if (!$items) {
+        return null;
+    }
+    
+    // Handle direct $ref in items
+    if (isset($items['$ref'])) {
+        return resolveSchemaReference($items['$ref']);
+    }
+    
+    // Handle allOf in items (merge all types, prefer first $ref)
+    if (isset($items['allOf']) && is_array($items['allOf'])) {
+        foreach ($items['allOf'] as $subSchema) {
+            if (isset($subSchema['$ref'])) {
+                return resolveSchemaReference($subSchema['$ref']);
+            }
+        }
+    }
+    
+    // Handle anyOf in items (prefer $ref over primitive types)
+    if (isset($items['anyOf']) && is_array($items['anyOf'])) {
+        foreach ($items['anyOf'] as $option) {
+            if (isset($option['$ref'])) {
+                return resolveSchemaReference($option['$ref']);
+            }
+        }
+    }
+    
+    // Handle primitive types
+    if (isset($items['type'])) {
+        return match($items['type']) {
+            'string' => 'string',
+            'integer' => 'int',
+            'number' => 'float',
+            'boolean' => 'bool',
+            default => 'mixed'
+        };
+    }
+    
+    return 'mixed';
+}
+
+/**
+ * Resolve a schema reference to a PHP class name
+ * Handles microsoft.graph.* references and escapes reserved keywords
+ */
+function resolveSchemaReference(string $ref): ?string
+{
+    if (preg_match('#/schemas/(.+)$#', $ref, $matches)) {
+        $schemaName = $matches[1];
+        // Remove microsoft.graph. prefix
+        $schemaName = preg_replace('/^microsoft\.graph\./', '', $schemaName);
+        // Convert to PascalCase
+        $className = normalizeModelName($schemaName);
+        // Escape reserved keywords
+        return escapeReservedKeyword($className);
+    }
+    
+    return null;
+}
+
+/**
  * Map property type to PHP type
  * Handles anyOf, $ref, and standard types
  * Escapes reserved keywords (e.g., 'list' becomes 'ListModel')
  */
 function mapPropertyType(array $propDef): string
 {
+    // Handle allOf - merge all types, prefer first $ref
+    if (isset($propDef['allOf']) && is_array($propDef['allOf'])) {
+        foreach ($propDef['allOf'] as $subSchema) {
+            if (isset($subSchema['$ref'])) {
+                $className = resolveSchemaReference($subSchema['$ref']);
+                if ($className) {
+                    return '?' . $className;
+                }
+            }
+        }
+    }
+    
     // Handle anyOf - prefer the $ref type if present, otherwise use object
     if (isset($propDef['anyOf']) && is_array($propDef['anyOf'])) {
         foreach ($propDef['anyOf'] as $option) {
             // Look for a $ref in anyOf options
             if (isset($option['$ref'])) {
-                $ref = $option['$ref'];
-                if (preg_match('#/schemas/(.+)$#', $ref, $matches)) {
-                    $schemaName = $matches[1];
-                    // Remove microsoft.graph. prefix if present
-                    $schemaName = preg_replace('/^microsoft\.graph\./', '', $schemaName);
-                    // Convert to PascalCase class name
-                    $className = normalizeModelName($schemaName);
-                    // Escape reserved keywords
-                    $className = escapeReservedKeyword($className);
+                $className = resolveSchemaReference($option['$ref']);
+                if ($className) {
                     return '?' . $className;
                 }
             }
@@ -424,13 +502,8 @@ function mapPropertyType(array $propDef): string
     
     // Handle direct $ref
     if (isset($propDef['$ref'])) {
-        $ref = $propDef['$ref'];
-        if (preg_match('#/schemas/(.+)$#', $ref, $matches)) {
-            $schemaName = $matches[1];
-            $schemaName = preg_replace('/^microsoft\.graph\./', '', $schemaName);
-            $className = normalizeModelName($schemaName);
-            // Escape reserved keywords
-            $className = escapeReservedKeyword($className);
+        $className = resolveSchemaReference($propDef['$ref']);
+        if ($className) {
             return '?' . $className;
         }
     }
@@ -1721,19 +1794,40 @@ function generateItemRequestBuilder(string $namespace, array $operations, array 
         return;
     }
     
-    // Find subpaths (e.g., /users/{user-id}/activities)
+    // Find subpaths (e.g., /users/{user-id}/activities, /sites/{site-id}/drives)
     $subpaths = [];
-    $itemPathPattern = "/{$namespace}/{"; // e.g., /users/{
+    $itemPathPattern = "/{$namespace}/{"; // e.g., /users/{, /sites/{
+    
+    // Debug: show what we're looking for
+    if ($namespace === 'sites') {
+        $output->writeln("<comment>      Looking for pattern: {$itemPathPattern}...</comment>");
+        $matchCount = 0;
+        foreach ($paths as $path => $methods) {
+            if (strpos($path, '/sites/') === 0) {
+                $matchCount++;
+                if ($matchCount <= 10) {
+                    $output->writeln("<comment>        Path #{$matchCount}: {$path}</comment>");
+                }
+            }
+        }
+        $output->writeln("<comment>      Total /sites/ paths found: {$matchCount}</comment>");
+    }
     
     foreach ($paths as $path => $methods) {
         // Check if this is a subpath of the item (e.g., /users/{user-id}/activities)
-        if (preg_match("#^{$itemPathPattern}[^/]+}/([^/\{]+)#", $path, $matches)) {
+        // Pattern: /namespace/{param-id}/subresource
+        if (preg_match("#^{$itemPathPattern}[^/]+}/([^/\{]+)(?:/|$)#", $path, $matches)) {
             $subresource = $matches[1];
             if (!isset($subpaths[$subresource])) {
                 $subpaths[$subresource] = [];
             }
             $subpaths[$subresource][$path] = $methods;
         }
+    }
+    
+    // Debug output for sites to verify subpaths are found
+    if ($namespace === 'sites') {
+        $output->writeln("<info>      Found subpaths for {$className}: " . (empty($subpaths) ? 'NONE' : implode(', ', array_keys($subpaths))) . "</info>");
     }
     
     $code = <<<PHP

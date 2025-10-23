@@ -9,22 +9,60 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceTaskProcessingResult
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $completedDateTime = null,
-        /** The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Describes why the taskProcessingResult has failed. */
-        public ?string $failureReason = null,
-        /**  */
-        public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null,
-        /** The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
-        public ?\DateTimeInterface $startedDateTime = null,
-        /**  */
-        public ?User $subject = null,
-        /**  */
-        public ?IdentityGovernanceTask $task = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $completedDateTime = null;
+
+    /** The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** Describes why the taskProcessingResult has failed. */
+    public ?string $failureReason = null;
+
+    /**  */
+    public ?IdentityGovernanceLifecycleWorkflowProcessingStatus $processingStatus = null;
+
+    /** The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby. */
+    public ?\DateTimeInterface $startedDateTime = null;
+
+    /**  */
+    public ?User $subject = null;
+
+    /**  */
+    public ?IdentityGovernanceTask $task = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['completedDateTime'])) {
+            $this->completedDateTime = $data['completedDateTime'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['failureReason'])) {
+            $this->failureReason = $data['failureReason'];
+        }
+        if (isset($data['processingStatus'])) {
+            $this->processingStatus = $data['processingStatus'];
+        }
+        if (isset($data['startedDateTime'])) {
+            $this->startedDateTime = $data['startedDateTime'];
+        }
+        if (isset($data['subject'])) {
+            $this->subject = $data['subject'];
+        }
+        if (isset($data['task'])) {
+            $this->task = $data['task'];
+        }
+    }
 }

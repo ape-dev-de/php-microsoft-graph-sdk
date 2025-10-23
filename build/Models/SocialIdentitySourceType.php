@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SocialIdentitySourceType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OrganizerMeetingInfo
 {
-    public function __construct(
-        /**  */
-        public ?IdentitySet $organizer = null
-    ) {}
+    /**  */
+    public ?IdentitySet $organizer = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['organizer'])) {
+            $this->organizer = $data['organizer'];
+        }
+    }
 }

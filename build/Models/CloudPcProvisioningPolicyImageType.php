@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcProvisioningPolicyImageType
 {
-    public function __construct(
-    ) {}
 }

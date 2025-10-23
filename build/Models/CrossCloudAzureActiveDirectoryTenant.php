@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossCloudAzureActiveDirectoryTenant
 {
-    public function __construct(
-        /** The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read only. */
-        public ?string $cloudInstance = null,
-        /** The name of the Microsoft Entra tenant. Read only. */
-        public ?string $displayName = null,
-        /** The ID of the Microsoft Entra tenant. Read only. */
-        public ?string $tenantId = null
-    ) {}
+    /** The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read only. */
+    public ?string $cloudInstance = null;
+
+    /** The name of the Microsoft Entra tenant. Read only. */
+    public ?string $displayName = null;
+
+    /** The ID of the Microsoft Entra tenant. Read only. */
+    public ?string $tenantId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['cloudInstance'])) {
+            $this->cloudInstance = $data['cloudInstance'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['tenantId'])) {
+            $this->tenantId = $data['tenantId'];
+        }
+    }
 }

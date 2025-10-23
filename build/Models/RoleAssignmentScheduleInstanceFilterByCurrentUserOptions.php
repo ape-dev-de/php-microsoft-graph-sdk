@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RoleAssignmentScheduleInstanceFilterByCurrentUserOptions
 {
-    public function __construct(
-    ) {}
 }

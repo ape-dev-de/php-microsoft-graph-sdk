@@ -6,56 +6,129 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\CloudClipboardRoot;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\CloudClipboardRootQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ItemsRequestBuilder;
 
 /**
- * Request builder for CloudClipboardRoot
+ * Request builder for cloudClipboard
  */
 class CloudClipboardRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get cloudClipboard from me
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param CloudClipboardRootQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return CloudClipboardRoot
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?CloudClipboardRootQueryOptions $options = null, ?array $queryParameters = null): CloudClipboardRoot
+    public function get(?array $select = null, ?array $expand = null): CloudClipboardRoot
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, CloudClipboardRoot::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new CloudClipboardRoot
-     *
-     * @param CloudClipboardRoot $item The item to create
-     * @return CloudClipboardRoot
+     * Deserialize response to CloudClipboardRoot
      */
-    public function post(CloudClipboardRoot $item): CloudClipboardRoot
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, CloudClipboardRoot::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new CloudClipboardRoot($data);
     }
     /**
-     * Get items request builder
+     * Update the navigation property cloudClipboard in me
+     * @param CloudClipboardRoot $body Request body
+     * @return CloudClipboardRoot
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(CloudClipboardRoot $body): CloudClipboardRoot
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to CloudClipboardRoot
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new CloudClipboardRoot($data);
+    }
+    /**
+     * Delete navigation property cloudClipboard for me
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to items
      *
      * @return ItemsRequestBuilder
      */
     public function items(): ItemsRequestBuilder
     {
-        return new ItemsRequestBuilder($this->client, $this->buildPath('items'));
+        return new ItemsRequestBuilder($this->client, $this->requestUrl . '/items');
     }
-
 }

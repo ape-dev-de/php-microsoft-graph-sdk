@@ -79,16 +79,16 @@ try {
         $httpFactory,
         $httpFactory,
         $authProvider
-    );
+    )->getRequestBuilder();
     
     // Test connection
     $me = $client->me()->get();
     
     echo "✅ Connected to Microsoft Graph API\n";
     if ($authMethod === 'bearer') {
-        echo "👤 User: " . ($me->getDisplayName() ?? 'Unknown') . "\n";
+        echo "👤 User: " . ($me->displayName ?? 'Unknown') . "\n";
         if (method_exists($me, 'getUserPrincipalName')) {
-            echo "📧 UPN: " . ($me->getUserPrincipalName() ?? 'N/A') . "\n";
+            echo "📧 UPN: " . ($me->userPrincipalName ?? 'N/A') . "\n";
         }
     } else {
         $tenantId = $_ENV['GRAPH_TENANT_ID'] ?? '';
@@ -264,23 +264,18 @@ while (true) {
                         if (is_object($values[0]) && method_exists($values[0], 'getId')) {
                             echo "id=" . $values[0]->getId();
                             if (method_exists($values[0], 'getDisplayName')) {
-                                echo ", displayName=" . $values[0]->getDisplayName();
+                                echo ", displayName=" . $values[0]->displayName . "\n";
                             }
                         } else {
                             echo get_class($values[0]);
                         }
                         echo "\n";
                     }
-                } elseif (method_exists($result, 'getId')) {
-                    echo "   id: " . $result->getId() . "\n";
-                    if (method_exists($result, 'getDisplayName')) {
-                        echo "   displayName: " . $result->getDisplayName() . "\n";
-                    }
-                    if (method_exists($result, 'getUserPrincipalName')) {
-                        echo "   userPrincipalName: " . $result->getUserPrincipalName() . "\n";
-                    }
+                } else {
+                    var_dump($result);
                 }
-                
+
+
                 echo "}\n";
                 echo "\n";
                 echo "\033[90m"; // Gray color

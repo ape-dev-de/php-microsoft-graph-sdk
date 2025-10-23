@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MailTipsType
 {
-    public function __construct(
-    ) {}
 }

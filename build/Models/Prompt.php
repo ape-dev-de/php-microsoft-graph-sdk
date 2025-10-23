@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Prompt
 {
-    public function __construct(
-    ) {}
 }

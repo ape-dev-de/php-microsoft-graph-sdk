@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TargetedManagedAppGroupType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class StateManagementSetting
 {
-    public function __construct(
-    ) {}
 }

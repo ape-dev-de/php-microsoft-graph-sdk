@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecurrencePatternType
 {
-    public function __construct(
-    ) {}
 }

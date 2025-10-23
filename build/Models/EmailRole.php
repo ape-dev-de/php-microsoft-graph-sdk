@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmailRole
 {
-    public function __construct(
-    ) {}
 }

@@ -9,14 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceAnnouncement
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
-        public array $healthOverviews = [],
-        /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */
-        public array $issues = [],
-        /** A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly. */
-        public array $messages = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * @var ServiceHealth[]
+     */
+    public array $healthOverviews = [];
+
+    /** 
+     * A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * @var ServiceHealthIssue[]
+     */
+    public array $issues = [];
+
+    /** 
+     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * @var ServiceUpdateMessage[]
+     */
+    public array $messages = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['healthOverviews'])) {
+            $this->healthOverviews = $data['healthOverviews'];
+        }
+        if (isset($data['issues'])) {
+            $this->issues = $data['issues'];
+        }
+        if (isset($data['messages'])) {
+            $this->messages = $data['messages'];
+        }
+    }
 }

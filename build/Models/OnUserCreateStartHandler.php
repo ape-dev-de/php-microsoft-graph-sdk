@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnUserCreateStartHandler
 {
-    public function __construct(
-    ) {}
 }

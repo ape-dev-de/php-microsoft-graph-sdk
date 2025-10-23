@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOsLobAppAssignmentSettings
 {
-    public function __construct(
-        /** When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune. */
-        public ?bool $uninstallOnDeviceRemoval = null
-    ) {}
+    /** When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune. */
+    public ?bool $uninstallOnDeviceRemoval = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['uninstallOnDeviceRemoval'])) {
+            $this->uninstallOnDeviceRemoval = $data['uninstallOnDeviceRemoval'];
+        }
+    }
 }

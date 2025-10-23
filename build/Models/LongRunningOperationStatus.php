@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LongRunningOperationStatus
 {
-    public function __construct(
-    ) {}
 }

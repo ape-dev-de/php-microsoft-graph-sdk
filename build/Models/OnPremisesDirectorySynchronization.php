@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesDirectorySynchronization
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant. Nullable. */
-        public ?OnPremisesDirectorySynchronizationConfiguration $configuration = null,
-        /**  */
-        public ?OnPremisesDirectorySynchronizationFeature $features = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant. Nullable.
+     * @var OnPremisesDirectorySynchronizationConfiguration|\stdClass|null
+     */
+    public mixed $configuration = null;
+
+    /**  */
+    public ?OnPremisesDirectorySynchronizationFeature $features = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['configuration'])) {
+            $this->configuration = $data['configuration'];
+        }
+        if (isset($data['features'])) {
+            $this->features = $data['features'];
+        }
+    }
 }

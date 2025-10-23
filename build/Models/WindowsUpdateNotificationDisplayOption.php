@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsUpdateNotificationDisplayOption
 {
-    public function __construct(
-    ) {}
 }

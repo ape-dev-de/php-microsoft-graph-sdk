@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrereleaseFeatures
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintFinishing
 {
-    public function __construct(
-    ) {}
 }

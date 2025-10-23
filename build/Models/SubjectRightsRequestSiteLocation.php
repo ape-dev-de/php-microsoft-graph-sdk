@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestSiteLocation
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyPlatformType
 {
-    public function __construct(
-    ) {}
 }

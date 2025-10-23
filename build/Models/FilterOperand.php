@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FilterOperand
 {
-    public function __construct(
-        /** @var string[] Collection of values. */
-        public array $values = []
-    ) {}
+    /** 
+     * Collection of values.
+     * @var string[]
+     */
+    public array $values = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['values'])) {
+            $this->values = $data['values'];
+        }
+    }
 }

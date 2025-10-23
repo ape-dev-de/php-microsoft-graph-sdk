@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ToneInfo
 {
-    public function __construct(
-        /** An incremental identifier used for ordering DTMF events. */
-        public ?float $sequenceId = null,
-        /**  */
-        public ?Tone $tone = null
-    ) {}
+    /** An incremental identifier used for ordering DTMF events. */
+    public ?float $sequenceId = null;
+
+    /**  */
+    public ?Tone $tone = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['sequenceId'])) {
+            $this->sequenceId = $data['sequenceId'];
+        }
+        if (isset($data['tone'])) {
+            $this->tone = $data['tone'];
+        }
+    }
 }

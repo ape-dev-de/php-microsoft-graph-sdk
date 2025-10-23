@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AgreementAcceptanceState
 {
-    public function __construct(
-    ) {}
 }

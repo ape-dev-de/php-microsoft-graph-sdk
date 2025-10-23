@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDetectionSource
 {
-    public function __construct(
-    ) {}
 }

@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AssignedTrainingInfo
 {
-    public function __construct(
-        /** Number of users who were assigned the training in an attack simulation and training campaign. */
-        public ?float $assignedUserCount = null,
-        /** Number of users who completed the training in an attack simulation and training campaign. */
-        public ?float $completedUserCount = null,
-        /** Display name of the training in an attack simulation and training campaign. */
-        public ?string $displayName = null
-    ) {}
+    /** Number of users who were assigned the training in an attack simulation and training campaign. */
+    public ?float $assignedUserCount = null;
+
+    /** Number of users who completed the training in an attack simulation and training campaign. */
+    public ?float $completedUserCount = null;
+
+    /** Display name of the training in an attack simulation and training campaign. */
+    public ?string $displayName = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['assignedUserCount'])) {
+            $this->assignedUserCount = $data['assignedUserCount'];
+        }
+        if (isset($data['completedUserCount'])) {
+            $this->completedUserCount = $data['completedUserCount'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+    }
 }

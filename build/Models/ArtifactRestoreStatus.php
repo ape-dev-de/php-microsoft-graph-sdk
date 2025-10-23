@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ArtifactRestoreStatus
 {
-    public function __construct(
-    ) {}
 }

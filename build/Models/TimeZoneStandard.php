@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeZoneStandard
 {
-    public function __construct(
-    ) {}
 }

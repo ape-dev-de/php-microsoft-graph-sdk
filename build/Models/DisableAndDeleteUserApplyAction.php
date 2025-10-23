@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DisableAndDeleteUserApplyAction
 {
-    public function __construct(
-    ) {}
 }

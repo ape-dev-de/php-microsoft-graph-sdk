@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessStatus
 {
-    public function __construct(
-    ) {}
 }

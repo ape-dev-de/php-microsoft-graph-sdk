@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityGoogleCloudLocationType
 {
-    public function __construct(
-    ) {}
 }

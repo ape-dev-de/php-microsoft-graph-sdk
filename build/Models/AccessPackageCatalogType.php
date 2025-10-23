@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageCatalogType
 {
-    public function __construct(
-    ) {}
 }

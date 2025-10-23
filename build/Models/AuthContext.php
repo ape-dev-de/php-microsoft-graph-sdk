@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthContext
 {
-    public function __construct(
-        /** Supported values are c1 through c99. */
-        public ?string $authenticationContextValue = null
-    ) {}
+    /** Supported values are c1 through c99. */
+    public ?string $authenticationContextValue = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['authenticationContextValue'])) {
+            $this->authenticationContextValue = $data['authenticationContextValue'];
+        }
+    }
 }

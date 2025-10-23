@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RiskDetectionTimingType
 {
-    public function __construct(
-    ) {}
 }

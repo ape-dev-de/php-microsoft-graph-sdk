@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PublicErrorResponse
 {
-    public function __construct(
-        /**  */
-        public ?PublicError $error = null
-    ) {}
+    /** 
+     * 
+     * @var PublicError|\stdClass|null
+     */
+    public mixed $error = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+    }
 }

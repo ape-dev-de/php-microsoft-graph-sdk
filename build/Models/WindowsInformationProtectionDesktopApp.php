@@ -9,22 +9,60 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionDesktopApp
 {
-    public function __construct(
-        /** If true, app is denied protection or exemption. */
-        public ?bool $denied = null,
-        /** The app's description. */
-        public ?string $description = null,
-        /** App display name. */
-        public ?string $displayName = null,
-        /** The product name. */
-        public ?string $productName = null,
-        /** The publisher name */
-        public ?string $publisherName = null,
-        /** The binary name. */
-        public ?string $binaryName = null,
-        /** The high binary version. */
-        public ?string $binaryVersionHigh = null,
-        /** The lower binary version. */
-        public ?string $binaryVersionLow = null
-    ) {}
+    /** If true, app is denied protection or exemption. */
+    public ?bool $denied = null;
+
+    /** The app's description. */
+    public ?string $description = null;
+
+    /** App display name. */
+    public ?string $displayName = null;
+
+    /** The product name. */
+    public ?string $productName = null;
+
+    /** The publisher name */
+    public ?string $publisherName = null;
+
+    /** The binary name. */
+    public ?string $binaryName = null;
+
+    /** The high binary version. */
+    public ?string $binaryVersionHigh = null;
+
+    /** The lower binary version. */
+    public ?string $binaryVersionLow = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['denied'])) {
+            $this->denied = $data['denied'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['productName'])) {
+            $this->productName = $data['productName'];
+        }
+        if (isset($data['publisherName'])) {
+            $this->publisherName = $data['publisherName'];
+        }
+        if (isset($data['binaryName'])) {
+            $this->binaryName = $data['binaryName'];
+        }
+        if (isset($data['binaryVersionHigh'])) {
+            $this->binaryVersionHigh = $data['binaryVersionHigh'];
+        }
+        if (isset($data['binaryVersionLow'])) {
+            $this->binaryVersionLow = $data['binaryVersionLow'];
+        }
+    }
 }

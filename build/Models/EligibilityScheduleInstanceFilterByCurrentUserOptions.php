@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EligibilityScheduleInstanceFilterByCurrentUserOptions
 {
-    public function __construct(
-    ) {}
 }

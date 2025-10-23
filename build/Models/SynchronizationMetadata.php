@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationMetadata
 {
-    public function __construct(
-    ) {}
 }

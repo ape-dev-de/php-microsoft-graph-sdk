@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TermsAndConditionsAssignment
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Assignment target that the T&C policy is assigned to. */
-        public ?DeviceAndAppManagementAssignmentTarget $target = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Assignment target that the T&C policy is assigned to.
+     * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
+     */
+    public mixed $target = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['target'])) {
+            $this->target = $data['target'];
+        }
+    }
 }

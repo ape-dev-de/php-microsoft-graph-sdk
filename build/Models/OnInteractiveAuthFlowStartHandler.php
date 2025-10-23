@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnInteractiveAuthFlowStartHandler
 {
-    public function __construct(
-    ) {}
 }

@@ -6,66 +6,139 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\TermStoreStore;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\TermStoreStoreQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SetsRequestBuilder;
 
 /**
- * Request builder for TermStoreStore
+ * Request builder for termStore
  */
 class TermStoreRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get termStore from groups
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param TermStoreStoreQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return TermStoreStore
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?TermStoreStoreQueryOptions $options = null, ?array $queryParameters = null): TermStoreStore
+    public function get(?array $select = null, ?array $expand = null): TermStoreStore
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, TermStoreStore::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new TermStoreStore
-     *
-     * @param TermStoreStore $item The item to create
-     * @return TermStoreStore
+     * Deserialize response to TermStoreStore
      */
-    public function post(TermStoreStore $item): TermStoreStore
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, TermStoreStore::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new TermStoreStore($data);
     }
     /**
-     * Get groups request builder
+     * Update the navigation property termStore in groups
+     * @param TermStoreStore $body Request body
+     * @return TermStoreStore
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(TermStoreStore $body): TermStoreStore
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to TermStoreStore
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new TermStoreStore($data);
+    }
+    /**
+     * Delete navigation property termStore for groups
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to groups
      *
      * @return GroupsRequestBuilder
      */
     public function groups(): GroupsRequestBuilder
     {
-        return new GroupsRequestBuilder($this->client, $this->buildPath('groups'));
+        return new GroupsRequestBuilder($this->client, $this->requestUrl . '/groups');
     }
-
     /**
-     * Get sets request builder
+     * Navigate to sets
      *
      * @return SetsRequestBuilder
      */
     public function sets(): SetsRequestBuilder
     {
-        return new SetsRequestBuilder($this->client, $this->buildPath('sets'));
+        return new SetsRequestBuilder($this->client, $this->requestUrl . '/sets');
     }
-
 }

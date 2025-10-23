@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppliedConditionalAccessPolicyResult
 {
-    public function __construct(
-    ) {}
 }

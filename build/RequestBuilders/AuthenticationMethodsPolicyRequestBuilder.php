@@ -6,47 +6,93 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\AuthenticationMethodsPolicy;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\AuthenticationMethodsPolicyQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationMethodConfigurationsRequestBuilder;
 
 /**
- * Request builder for AuthenticationMethodsPolicy
+ * Request builder for authenticationMethodsPolicy
  */
 class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get authenticationMethodsPolicy
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param AuthenticationMethodsPolicyQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return AuthenticationMethodsPolicy
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?AuthenticationMethodsPolicyQueryOptions $options = null, ?array $queryParameters = null): AuthenticationMethodsPolicy
+    public function get(?array $select = null, ?array $expand = null): AuthenticationMethodsPolicy
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, AuthenticationMethodsPolicy::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new AuthenticationMethodsPolicy
-     *
-     * @param AuthenticationMethodsPolicy $item The item to create
-     * @return AuthenticationMethodsPolicy
+     * Deserialize response to AuthenticationMethodsPolicy
      */
-    public function post(AuthenticationMethodsPolicy $item): AuthenticationMethodsPolicy
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, AuthenticationMethodsPolicy::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AuthenticationMethodsPolicy($data);
+    }
+    /**
+     * Update authenticationMethodsPolicy
+     * @param AuthenticationMethodsPolicy $body Request body
+     * @return AuthenticationMethodsPolicy
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(AuthenticationMethodsPolicy $body): AuthenticationMethodsPolicy
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to AuthenticationMethodsPolicy
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AuthenticationMethodsPolicy($data);
+    }
+    /**
+     * Navigate to authenticationMethodConfigurations
+     *
+     * @return AuthenticationMethodConfigurationsRequestBuilder
+     */
+    public function authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder
+    {
+        return new AuthenticationMethodConfigurationsRequestBuilder($this->client, $this->requestUrl . '/authenticationMethodConfigurations');
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallDirection
 {
-    public function __construct(
-    ) {}
 }

@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Website
 {
-    public function __construct(
-        /** The URL of the website. */
-        public ?string $address = null,
-        /** The display name of the web site. */
-        public ?string $displayName = null,
-        /** The possible values are: other, home, work, blog, profile. */
-        public ?WebsiteType $type = null
-    ) {}
+    /** The URL of the website. */
+    public ?string $address = null;
+
+    /** The display name of the web site. */
+    public ?string $displayName = null;
+
+    /** 
+     * The possible values are: other, home, work, blog, profile.
+     * @var WebsiteType|\stdClass|null
+     */
+    public mixed $type = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['address'])) {
+            $this->address = $data['address'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+    }
 }

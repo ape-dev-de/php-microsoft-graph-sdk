@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppRule
 {
-    public function __construct(
-        /**  */
-        public ?Win32LobAppRuleType $ruleType = null
-    ) {}
+    /**  */
+    public ?Win32LobAppRuleType $ruleType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['ruleType'])) {
+            $this->ruleType = $data['ruleType'];
+        }
+    }
 }

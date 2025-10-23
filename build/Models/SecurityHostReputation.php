@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostReputation
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?SecurityHostReputationClassification $classification = null,
-        /** A collection of rules that have been used to calculate the classification and score. */
-        public array $rules = [],
-        /** The calculated score (0-100) of the requested host. A higher value indicates that this host is more likely to be suspicious or malicious. */
-        public ?float $score = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?SecurityHostReputationClassification $classification = null;
+
+    /** 
+     * A collection of rules that have been used to calculate the classification and score.
+     * @var SecurityHostReputationRule[]
+     */
+    public array $rules = [];
+
+    /** The calculated score (0-100) of the requested host. A higher value indicates that this host is more likely to be suspicious or malicious. */
+    public ?float $score = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['classification'])) {
+            $this->classification = $data['classification'];
+        }
+        if (isset($data['rules'])) {
+            $this->rules = $data['rules'];
+        }
+        if (isset($data['score'])) {
+            $this->score = $data['score'];
+        }
+    }
 }

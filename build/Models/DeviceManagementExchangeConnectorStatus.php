@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementExchangeConnectorStatus
 {
-    public function __construct(
-    ) {}
 }

@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessAuthenticationFlows
 {
-    public function __construct(
-        /**  */
-        public ?ConditionalAccessTransferMethods $transferMethods = null
-    ) {}
+    /**  */
+    public ?ConditionalAccessTransferMethods $transferMethods = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['transferMethods'])) {
+            $this->transferMethods = $data['transferMethods'];
+        }
+    }
 }

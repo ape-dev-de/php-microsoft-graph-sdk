@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEventPropagationStatus
 {
-    public function __construct(
-    ) {}
 }

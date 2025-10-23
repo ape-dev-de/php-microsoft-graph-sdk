@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrivilegedAccessGroupRelationships
 {
-    public function __construct(
-    ) {}
 }

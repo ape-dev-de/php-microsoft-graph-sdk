@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingRequestType
 {
-    public function __construct(
-    ) {}
 }

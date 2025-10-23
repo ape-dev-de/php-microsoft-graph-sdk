@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDeviceHealthStatus
 {
-    public function __construct(
-    ) {}
 }

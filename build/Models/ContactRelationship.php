@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContactRelationship
 {
-    public function __construct(
-    ) {}
 }

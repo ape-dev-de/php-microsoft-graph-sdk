@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaSource
 {
-    public function __construct(
-        /** Enumeration value that indicates the media content category. */
-        public ?MediaSourceContentCategory $contentCategory = null
-    ) {}
+    /** 
+     * Enumeration value that indicates the media content category.
+     * @var MediaSourceContentCategory|\stdClass|null
+     */
+    public mixed $contentCategory = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['contentCategory'])) {
+            $this->contentCategory = $data['contentCategory'];
+        }
+    }
 }

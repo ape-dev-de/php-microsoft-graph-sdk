@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectFlowTypes
 {
-    public function __construct(
-    ) {}
 }

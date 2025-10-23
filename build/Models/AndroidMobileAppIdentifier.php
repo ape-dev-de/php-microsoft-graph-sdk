@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AndroidMobileAppIdentifier
 {
-    public function __construct(
-        /** The identifier for an app, as specified in the play store. */
-        public ?string $packageId = null
-    ) {}
+    /** The identifier for an app, as specified in the play store. */
+    public ?string $packageId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['packageId'])) {
+            $this->packageId = $data['packageId'];
+        }
+    }
 }

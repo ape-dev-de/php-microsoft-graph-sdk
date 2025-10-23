@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookChartGridlines
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Indicates whether the axis gridlines are visible. */
-        public ?bool $visible = null,
-        /** Represents the formatting of chart gridlines. Read-only. */
-        public ?WorkbookChartGridlinesFormat $format = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Indicates whether the axis gridlines are visible. */
+    public ?bool $visible = null;
+
+    /** 
+     * Represents the formatting of chart gridlines. Read-only.
+     * @var WorkbookChartGridlinesFormat|\stdClass|null
+     */
+    public mixed $format = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['visible'])) {
+            $this->visible = $data['visible'];
+        }
+        if (isset($data['format'])) {
+            $this->format = $data['format'];
+        }
+    }
 }

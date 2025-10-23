@@ -9,16 +9,51 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ParseExpressionResponse
 {
-    public function __construct(
-        /** Error details, if expression evaluation resulted in an error. */
-        public ?PublicError $error = null,
-        /** @var string[] A collection of values produced by the evaluation of the expression. */
-        public array $evaluationResult = [],
-        /** true if the evaluation was successful. */
-        public ?bool $evaluationSucceeded = null,
-        /** An attributeMappingSource object representing the parsed expression. */
-        public ?AttributeMappingSource $parsedExpression = null,
-        /** true if the expression was parsed successfully. */
-        public ?bool $parsingSucceeded = null
-    ) {}
+    /** 
+     * Error details, if expression evaluation resulted in an error.
+     * @var PublicError|\stdClass|null
+     */
+    public mixed $error = null;
+
+    /** 
+     * A collection of values produced by the evaluation of the expression.
+     * @var string[]
+     */
+    public array $evaluationResult = [];
+
+    /** true if the evaluation was successful. */
+    public ?bool $evaluationSucceeded = null;
+
+    /** 
+     * An attributeMappingSource object representing the parsed expression.
+     * @var AttributeMappingSource|\stdClass|null
+     */
+    public mixed $parsedExpression = null;
+
+    /** true if the expression was parsed successfully. */
+    public ?bool $parsingSucceeded = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+        if (isset($data['evaluationResult'])) {
+            $this->evaluationResult = $data['evaluationResult'];
+        }
+        if (isset($data['evaluationSucceeded'])) {
+            $this->evaluationSucceeded = $data['evaluationSucceeded'];
+        }
+        if (isset($data['parsedExpression'])) {
+            $this->parsedExpression = $data['parsedExpression'];
+        }
+        if (isset($data['parsingSucceeded'])) {
+            $this->parsingSucceeded = $data['parsingSucceeded'];
+        }
+    }
 }

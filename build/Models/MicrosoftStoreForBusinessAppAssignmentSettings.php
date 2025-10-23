@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftStoreForBusinessAppAssignmentSettings
 {
-    public function __construct(
-        /** Whether or not to use device execution context for Microsoft Store for Business mobile app. */
-        public ?bool $useDeviceContext = null
-    ) {}
+    /** Whether or not to use device execution context for Microsoft Store for Business mobile app. */
+    public ?bool $useDeviceContext = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['useDeviceContext'])) {
+            $this->useDeviceContext = $data['useDeviceContext'];
+        }
+    }
 }

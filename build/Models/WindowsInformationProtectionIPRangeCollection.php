@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionIPRangeCollection
 {
-    public function __construct(
-        /** Display name */
-        public ?string $displayName = null,
-        /** Collection of ip ranges */
-        public array $ranges = []
-    ) {}
+    /** Display name */
+    public ?string $displayName = null;
+
+    /** 
+     * Collection of ip ranges
+     * @var IpRange[]
+     */
+    public array $ranges = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['ranges'])) {
+            $this->ranges = $data['ranges'];
+        }
+    }
 }

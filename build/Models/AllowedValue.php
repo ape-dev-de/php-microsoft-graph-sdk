@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AllowedValue
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Indicates whether the predefined value is active or deactivated. If set to false, this predefined value can't be assigned to any other supported directory objects. */
-        public ?bool $isActive = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Indicates whether the predefined value is active or deactivated. If set to false, this predefined value can't be assigned to any other supported directory objects. */
+    public ?bool $isActive = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['isActive'])) {
+            $this->isActive = $data['isActive'];
+        }
+    }
 }

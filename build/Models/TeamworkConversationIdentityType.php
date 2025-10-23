@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkConversationIdentityType
 {
-    public function __construct(
-    ) {}
 }

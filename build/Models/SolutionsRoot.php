@@ -9,14 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SolutionsRoot
 {
-    public function __construct(
-        /**  */
-        public ?BackupRestoreRoot $backupRestore = null,
-        /**  */
-        public array $bookingBusinesses = [],
-        /**  */
-        public array $bookingCurrencies = [],
-        /**  */
-        public ?VirtualEventsRoot $virtualEvents = null
-    ) {}
+    /** 
+     * 
+     * @var BackupRestoreRoot|\stdClass|null
+     */
+    public mixed $backupRestore = null;
+
+    /** 
+     * 
+     * @var BookingBusiness[]
+     */
+    public array $bookingBusinesses = [];
+
+    /** 
+     * 
+     * @var BookingCurrency[]
+     */
+    public array $bookingCurrencies = [];
+
+    /** 
+     * 
+     * @var VirtualEventsRoot|\stdClass|null
+     */
+    public mixed $virtualEvents = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['backupRestore'])) {
+            $this->backupRestore = $data['backupRestore'];
+        }
+        if (isset($data['bookingBusinesses'])) {
+            $this->bookingBusinesses = $data['bookingBusinesses'];
+        }
+        if (isset($data['bookingCurrencies'])) {
+            $this->bookingCurrencies = $data['bookingCurrencies'];
+        }
+        if (isset($data['virtualEvents'])) {
+            $this->virtualEvents = $data['virtualEvents'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PayloadTheme
 {
-    public function __construct(
-    ) {}
 }

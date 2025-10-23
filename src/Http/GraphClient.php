@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Http;
 
 use ApeDevDe\MicrosoftGraphSdk\Authentication\AuthenticationProvider;
+use ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException;
+use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
-use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * HTTP client for Microsoft Graph API
@@ -19,7 +20,6 @@ class GraphClient
     private ClientInterface $httpClient;
     private RequestFactoryInterface $requestFactory;
     private StreamFactoryInterface $streamFactory;
-    private SerializerInterface $serializer;
     private AuthenticationProvider $authProvider;
     private string $baseUrl;
 
@@ -27,21 +27,26 @@ class GraphClient
         ClientInterface $httpClient,
         RequestFactoryInterface $requestFactory,
         StreamFactoryInterface $streamFactory,
-        SerializerInterface $serializer,
         AuthenticationProvider $authProvider,
         string $baseUrl = 'https://graph.microsoft.com/v1.0'
     ) {
         $this->httpClient = $httpClient;
         $this->requestFactory = $requestFactory;
         $this->streamFactory = $streamFactory;
-        $this->serializer = $serializer;
         $this->authProvider = $authProvider;
         $this->baseUrl = rtrim($baseUrl, '/');
     }
 
+    /**
+     * @param string $path
+     * @param array<string, mixed> $queryParams
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
     public function get(string $path, array $queryParams = []): ResponseInterface
     {
         $url = $this->buildUrl($path, $queryParams);
+        var_dump($url);
         $request = $this->requestFactory->createRequest('GET', $url);
         
         $token = $this->authProvider->getAccessToken();
@@ -50,7 +55,13 @@ class GraphClient
         return $this->httpClient->sendRequest($request);
     }
 
-    public function post(string $path, $body): ResponseInterface
+    /**
+     * @param string $path
+     * @param mixed $body
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
+    public function post(string $path, mixed $body): ResponseInterface
     {
         $url = $this->buildUrl($path);
         $request = $this->requestFactory->createRequest('POST', $url);
@@ -59,13 +70,23 @@ class GraphClient
         $request = $request->withHeader('Authorization', 'Bearer ' . $token);
         $request = $request->withHeader('Content-Type', 'application/json');
         
-        $stream = $this->streamFactory->createStream(json_encode($body));
+        $json = json_encode($body);
+        if ($json === false) {
+            throw new \RuntimeException('Failed to encode body as JSON');
+        }
+        $stream = $this->streamFactory->createStream($json);
         $request = $request->withBody($stream);
         
         return $this->httpClient->sendRequest($request);
     }
 
-    public function patch(string $path, $body): ResponseInterface
+    /**
+     * @param string $path
+     * @param mixed $body
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
+    public function patch(string $path, mixed $body): ResponseInterface
     {
         $url = $this->buildUrl($path);
         $request = $this->requestFactory->createRequest('PATCH', $url);
@@ -74,15 +95,50 @@ class GraphClient
         $request = $request->withHeader('Authorization', 'Bearer ' . $token);
         $request = $request->withHeader('Content-Type', 'application/json');
         
-        $stream = $this->streamFactory->createStream(json_encode($body));
+        $json = json_encode($body);
+        if ($json === false) {
+            throw new \RuntimeException('Failed to encode body as JSON');
+        }
+        $stream = $this->streamFactory->createStream($json);
         $request = $request->withBody($stream);
         
         return $this->httpClient->sendRequest($request);
     }
 
-    public function delete(string $path): ResponseInterface
+    /**
+     * @param string $path
+     * @param mixed $body
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
+    public function put(string $path, mixed $body): ResponseInterface
     {
         $url = $this->buildUrl($path);
+        $request = $this->requestFactory->createRequest('PUT', $url);
+        
+        $token = $this->authProvider->getAccessToken();
+        $request = $request->withHeader('Authorization', 'Bearer ' . $token);
+        $request = $request->withHeader('Content-Type', 'application/json');
+        
+        $json = json_encode($body);
+        if ($json === false) {
+            throw new \RuntimeException('Failed to encode body as JSON');
+        }
+        $stream = $this->streamFactory->createStream($json);
+        $request = $request->withBody($stream);
+        
+        return $this->httpClient->sendRequest($request);
+    }
+
+    /**
+     * @param string $path
+     * @param array<string, mixed> $queryParams
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
+    public function delete(string $path, array $queryParams = []): ResponseInterface
+    {
+        $url = $this->buildUrl($path, $queryParams);
         $request = $this->requestFactory->createRequest('DELETE', $url);
         
         $token = $this->authProvider->getAccessToken();
@@ -91,22 +147,39 @@ class GraphClient
         return $this->httpClient->sendRequest($request);
     }
 
-    public function deserialize(ResponseInterface $response, string $class)
+    /**
+     * Check response and throw exception on error
+     */
+    public function checkResponse(ResponseInterface $response): void
     {
-        $body = (string) $response->getBody();
+        $statusCode = $response->getStatusCode();
         
-        // Use the serializer to deserialize
-        return $this->serializer->deserialize($body, $class, 'json');
+        if ($statusCode < 200 || $statusCode >= 300) {
+            $body = (string) $response->getBody();
+            $data = json_decode($body, true);
+            $error = (object)($data['error'] ?? ['message' => 'Unknown error', 'code' => 'UnknownError']);
+            throw new GraphException($error->message ?? 'API Error', $statusCode, $error);
+        }
     }
 
+
+    /**
+     * @param string $path
+     * @param array<string,string> $queryParams
+     * @return string
+     */
     private function buildUrl(string $path, array $queryParams = []): string
     {
         $url = $this->baseUrl . $path;
         
         if (!empty($queryParams)) {
-            $url .= '?' . http_build_query($queryParams);
+            $queryParts = [];
+            foreach ($queryParams as $key => $value) {
+                $queryParts[] = $key . '=' . $value;
+            }
+            $url .= '?' . implode('&', $queryParts);
         }
-        
+
         return $url;
     }
 }

@@ -9,20 +9,54 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EBookInstallSummary
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Number of Devices that have failed to install this book. */
-        public ?float $failedDeviceCount = null,
-        /** Number of Users that have 1 or more device that failed to install this book. */
-        public ?float $failedUserCount = null,
-        /** Number of Devices that have successfully installed this book. */
-        public ?float $installedDeviceCount = null,
-        /** Number of Users whose devices have all succeeded to install this book. */
-        public ?float $installedUserCount = null,
-        /** Number of Devices that does not have this book installed. */
-        public ?float $notInstalledDeviceCount = null,
-        /** Number of Users that did not install this book. */
-        public ?float $notInstalledUserCount = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** Number of Devices that have failed to install this book. */
+    public ?float $failedDeviceCount = null;
+
+    /** Number of Users that have 1 or more device that failed to install this book. */
+    public ?float $failedUserCount = null;
+
+    /** Number of Devices that have successfully installed this book. */
+    public ?float $installedDeviceCount = null;
+
+    /** Number of Users whose devices have all succeeded to install this book. */
+    public ?float $installedUserCount = null;
+
+    /** Number of Devices that does not have this book installed. */
+    public ?float $notInstalledDeviceCount = null;
+
+    /** Number of Users that did not install this book. */
+    public ?float $notInstalledUserCount = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['failedDeviceCount'])) {
+            $this->failedDeviceCount = $data['failedDeviceCount'];
+        }
+        if (isset($data['failedUserCount'])) {
+            $this->failedUserCount = $data['failedUserCount'];
+        }
+        if (isset($data['installedDeviceCount'])) {
+            $this->installedDeviceCount = $data['installedDeviceCount'];
+        }
+        if (isset($data['installedUserCount'])) {
+            $this->installedUserCount = $data['installedUserCount'];
+        }
+        if (isset($data['notInstalledDeviceCount'])) {
+            $this->notInstalledDeviceCount = $data['notInstalledDeviceCount'];
+        }
+        if (isset($data['notInstalledUserCount'])) {
+            $this->notInstalledUserCount = $data['notInstalledUserCount'];
+        }
+    }
 }

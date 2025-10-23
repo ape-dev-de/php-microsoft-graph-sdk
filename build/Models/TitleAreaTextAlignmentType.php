@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TitleAreaTextAlignmentType
 {
-    public function __construct(
-    ) {}
 }

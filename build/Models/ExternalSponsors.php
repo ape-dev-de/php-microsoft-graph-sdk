@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalSponsors
 {
-    public function __construct(
-    ) {}
 }

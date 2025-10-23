@@ -9,16 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintTask
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only. */
-        public ?string $parentUrl = null,
-        /**  */
-        public ?PrintTaskStatus $status = null,
-        /**  */
-        public ?PrintTaskDefinition $definition = null,
-        /**  */
-        public ?PrintTaskTrigger $trigger = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only. */
+    public ?string $parentUrl = null;
+
+    /**  */
+    public ?PrintTaskStatus $status = null;
+
+    /**  */
+    public ?PrintTaskDefinition $definition = null;
+
+    /**  */
+    public ?PrintTaskTrigger $trigger = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['parentUrl'])) {
+            $this->parentUrl = $data['parentUrl'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['definition'])) {
+            $this->definition = $data['definition'];
+        }
+        if (isset($data['trigger'])) {
+            $this->trigger = $data['trigger'];
+        }
+    }
 }

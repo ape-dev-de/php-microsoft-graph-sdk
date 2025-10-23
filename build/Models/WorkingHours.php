@@ -9,14 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkingHours
 {
-    public function __construct(
-        /** The days of the week on which the user works. */
-        public array $daysOfWeek = [],
-        /** The time of the day that the user stops working. */
-        public ?string $endTime = null,
-        /** The time of the day that the user starts working. */
-        public ?string $startTime = null,
-        /** The time zone to which the working hours apply. */
-        public ?TimeZoneBase $timeZone = null
-    ) {}
+    /** 
+     * The days of the week on which the user works.
+     * @var DayOfWeek[]
+     */
+    public array $daysOfWeek = [];
+
+    /** The time of the day that the user stops working. */
+    public ?string $endTime = null;
+
+    /** The time of the day that the user starts working. */
+    public ?string $startTime = null;
+
+    /** 
+     * The time zone to which the working hours apply.
+     * @var TimeZoneBase|\stdClass|null
+     */
+    public mixed $timeZone = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['daysOfWeek'])) {
+            $this->daysOfWeek = $data['daysOfWeek'];
+        }
+        if (isset($data['endTime'])) {
+            $this->endTime = $data['endTime'];
+        }
+        if (isset($data['startTime'])) {
+            $this->startTime = $data['startTime'];
+        }
+        if (isset($data['timeZone'])) {
+            $this->timeZone = $data['timeZone'];
+        }
+    }
 }

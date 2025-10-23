@@ -6,47 +6,119 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\EmployeeExperience;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\EmployeeExperienceQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CommunitiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EngagementAsyncOperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\LearningCourseActivitiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\LearningProvidersRequestBuilder;
 
 /**
- * Request builder for EmployeeExperience
+ * Request builder for employeeExperience
  */
 class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get employeeExperience
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param EmployeeExperienceQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
      * @return EmployeeExperience
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?EmployeeExperienceQueryOptions $options = null, ?array $queryParameters = null): EmployeeExperience
+    public function get(?array $select = null): EmployeeExperience
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, EmployeeExperience::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new EmployeeExperience
-     *
-     * @param EmployeeExperience $item The item to create
-     * @return EmployeeExperience
+     * Deserialize response to EmployeeExperience
      */
-    public function post(EmployeeExperience $item): EmployeeExperience
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, EmployeeExperience::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new EmployeeExperience($data);
+    }
+    /**
+     * Update employeeExperience
+     * @param EmployeeExperience $body Request body
+     * @return EmployeeExperience
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(EmployeeExperience $body): EmployeeExperience
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to EmployeeExperience
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new EmployeeExperience($data);
+    }
+    /**
+     * Navigate to communities
+     *
+     * @return CommunitiesRequestBuilder
+     */
+    public function communities(): CommunitiesRequestBuilder
+    {
+        return new CommunitiesRequestBuilder($this->client, $this->requestUrl . '/communities');
+    }
+    /**
+     * Navigate to engagementAsyncOperations
+     *
+     * @return EngagementAsyncOperationsRequestBuilder
+     */
+    public function engagementAsyncOperations(): EngagementAsyncOperationsRequestBuilder
+    {
+        return new EngagementAsyncOperationsRequestBuilder($this->client, $this->requestUrl . '/engagementAsyncOperations');
+    }
+    /**
+     * Navigate to learningCourseActivities
+     *
+     * @return LearningCourseActivitiesRequestBuilder
+     */
+    public function learningCourseActivities(): LearningCourseActivitiesRequestBuilder
+    {
+        return new LearningCourseActivitiesRequestBuilder($this->client, $this->requestUrl . '/learningCourseActivities');
+    }
+    /**
+     * Navigate to learningProviders
+     *
+     * @return LearningProvidersRequestBuilder
+     */
+    public function learningProviders(): LearningProvidersRequestBuilder
+    {
+        return new LearningProvidersRequestBuilder($this->client, $this->requestUrl . '/learningProviders');
+    }
 }

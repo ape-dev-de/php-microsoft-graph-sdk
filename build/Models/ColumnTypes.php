@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ColumnTypes
 {
-    public function __construct(
-    ) {}
 }

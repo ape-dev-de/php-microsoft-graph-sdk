@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExecutionMode
 {
-    public function __construct(
-    ) {}
 }

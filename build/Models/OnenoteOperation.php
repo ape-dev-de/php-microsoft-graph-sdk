@@ -9,22 +9,66 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenoteOperation
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The start time of the operation. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** The time of the last action of the operation. */
-        public ?\DateTimeInterface $lastActionDateTime = null,
-        /** The current status of the operation: notStarted, running, completed, failed */
-        public ?OperationStatus $status = null,
-        /** The error returned by the operation. */
-        public ?OnenoteOperationError $error = null,
-        /** The operation percent complete if the operation is still in running status. */
-        public ?string $percentComplete = null,
-        /** The resource id. */
-        public ?string $resourceId = null,
-        /** The resource URI for the object. For example, the resource URI for a copied page or section. */
-        public ?string $resourceLocation = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The start time of the operation. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** The time of the last action of the operation. */
+    public ?\DateTimeInterface $lastActionDateTime = null;
+
+    /** 
+     * The current status of the operation: notStarted, running, completed, failed
+     * @var OperationStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+    /** 
+     * The error returned by the operation.
+     * @var OnenoteOperationError|\stdClass|null
+     */
+    public mixed $error = null;
+
+    /** The operation percent complete if the operation is still in running status. */
+    public ?string $percentComplete = null;
+
+    /** The resource id. */
+    public ?string $resourceId = null;
+
+    /** The resource URI for the object. For example, the resource URI for a copied page or section. */
+    public ?string $resourceLocation = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['lastActionDateTime'])) {
+            $this->lastActionDateTime = $data['lastActionDateTime'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+        if (isset($data['percentComplete'])) {
+            $this->percentComplete = $data['percentComplete'];
+        }
+        if (isset($data['resourceId'])) {
+            $this->resourceId = $data['resourceId'];
+        }
+        if (isset($data['resourceLocation'])) {
+            $this->resourceLocation = $data['resourceLocation'];
+        }
+    }
 }

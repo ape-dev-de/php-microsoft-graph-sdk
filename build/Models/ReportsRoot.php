@@ -9,12 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReportsRoot
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Details of submitted reading assignments. */
-        public array $readingAssignmentSubmissions = [],
-        /** Details of check-in responses. */
-        public array $reflectCheckInResponses = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Details of submitted reading assignments.
+     * @var ReadingAssignmentSubmission[]
+     */
+    public array $readingAssignmentSubmissions = [];
+
+    /** 
+     * Details of check-in responses.
+     * @var ReflectCheckInResponse[]
+     */
+    public array $reflectCheckInResponses = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['readingAssignmentSubmissions'])) {
+            $this->readingAssignmentSubmissions = $data['readingAssignmentSubmissions'];
+        }
+        if (isset($data['reflectCheckInResponses'])) {
+            $this->reflectCheckInResponses = $data['reflectCheckInResponses'];
+        }
+    }
 }

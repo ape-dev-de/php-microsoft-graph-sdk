@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DirectoryDefinitionDiscoverabilities
 {
-    public function __construct(
-    ) {}
 }

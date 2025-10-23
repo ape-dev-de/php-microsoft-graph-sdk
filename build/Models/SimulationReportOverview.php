@@ -9,14 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationReportOverview
 {
-    public function __construct(
-        /** List of recommended actions for a tenant to improve its security posture based on the attack simulation and training campaign attack type. */
-        public array $recommendedActions = [],
-        /** Number of valid users in the attack simulation and training campaign. */
-        public ?float $resolvedTargetsCount = null,
-        /** Summary of simulation events in the attack simulation and training campaign. */
-        public ?SimulationEventsContent $simulationEventsContent = null,
-        /** Summary of assigned trainings in the attack simulation and training campaign. */
-        public ?TrainingEventsContent $trainingEventsContent = null
-    ) {}
+    /** 
+     * List of recommended actions for a tenant to improve its security posture based on the attack simulation and training campaign attack type.
+     * @var RecommendedAction[]
+     */
+    public array $recommendedActions = [];
+
+    /** Number of valid users in the attack simulation and training campaign. */
+    public ?float $resolvedTargetsCount = null;
+
+    /** 
+     * Summary of simulation events in the attack simulation and training campaign.
+     * @var SimulationEventsContent|\stdClass|null
+     */
+    public mixed $simulationEventsContent = null;
+
+    /** 
+     * Summary of assigned trainings in the attack simulation and training campaign.
+     * @var TrainingEventsContent|\stdClass|null
+     */
+    public mixed $trainingEventsContent = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['recommendedActions'])) {
+            $this->recommendedActions = $data['recommendedActions'];
+        }
+        if (isset($data['resolvedTargetsCount'])) {
+            $this->resolvedTargetsCount = $data['resolvedTargetsCount'];
+        }
+        if (isset($data['simulationEventsContent'])) {
+            $this->simulationEventsContent = $data['simulationEventsContent'];
+        }
+        if (isset($data['trainingEventsContent'])) {
+            $this->trainingEventsContent = $data['trainingEventsContent'];
+        }
+    }
 }

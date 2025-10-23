@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WelcomeScreenMeetingInformation
 {
-    public function __construct(
-    ) {}
 }

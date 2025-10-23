@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MessageActionFlag
 {
-    public function __construct(
-    ) {}
 }

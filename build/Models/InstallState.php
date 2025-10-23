@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InstallState
 {
-    public function __construct(
-    ) {}
 }

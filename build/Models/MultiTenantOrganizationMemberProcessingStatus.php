@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MultiTenantOrganizationMemberProcessingStatus
 {
-    public function __construct(
-    ) {}
 }

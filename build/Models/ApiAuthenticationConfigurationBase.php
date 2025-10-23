@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApiAuthenticationConfigurationBase
 {
-    public function __construct(
-    ) {}
 }

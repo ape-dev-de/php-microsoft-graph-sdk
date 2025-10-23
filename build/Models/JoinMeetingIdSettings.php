@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class JoinMeetingIdSettings
 {
-    public function __construct(
-        /** Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional. */
-        public ?bool $isPasscodeRequired = null,
-        /** The meeting ID to be used to join a meeting. Optional. Read-only. */
-        public ?string $joinMeetingId = null,
-        /** The passcode to join a meeting.  Optional. Read-only. */
-        public ?string $passcode = null
-    ) {}
+    /** Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional. */
+    public ?bool $isPasscodeRequired = null;
+
+    /** The meeting ID to be used to join a meeting. Optional. Read-only. */
+    public ?string $joinMeetingId = null;
+
+    /** The passcode to join a meeting.  Optional. Read-only. */
+    public ?string $passcode = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isPasscodeRequired'])) {
+            $this->isPasscodeRequired = $data['isPasscodeRequired'];
+        }
+        if (isset($data['joinMeetingId'])) {
+            $this->joinMeetingId = $data['joinMeetingId'];
+        }
+        if (isset($data['passcode'])) {
+            $this->passcode = $data['passcode'];
+        }
+    }
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingChatHistoryDefaultMode
 {
-    public function __construct(
-    ) {}
 }

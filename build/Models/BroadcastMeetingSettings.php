@@ -9,18 +9,54 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BroadcastMeetingSettings
 {
-    public function __construct(
-        /** Defines who can join the Teams live event. Possible values are listed in the following table. */
-        public ?BroadcastMeetingAudience $allowedAudience = null,
-        /** Caption settings of a Teams live event. */
-        public ?BroadcastMeetingCaptionSettings $captions = null,
-        /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
-        public ?bool $isAttendeeReportEnabled = null,
-        /** Indicates whether Q&A is enabled for this Teams live event. Default value is false. */
-        public ?bool $isQuestionAndAnswerEnabled = null,
-        /** Indicates whether recording is enabled for this Teams live event. Default value is false. */
-        public ?bool $isRecordingEnabled = null,
-        /** Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
-        public ?bool $isVideoOnDemandEnabled = null
-    ) {}
+    /** 
+     * Defines who can join the Teams live event. Possible values are listed in the following table.
+     * @var BroadcastMeetingAudience|\stdClass|null
+     */
+    public mixed $allowedAudience = null;
+
+    /** 
+     * Caption settings of a Teams live event.
+     * @var BroadcastMeetingCaptionSettings|\stdClass|null
+     */
+    public mixed $captions = null;
+
+    /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
+    public ?bool $isAttendeeReportEnabled = null;
+
+    /** Indicates whether Q&A is enabled for this Teams live event. Default value is false. */
+    public ?bool $isQuestionAndAnswerEnabled = null;
+
+    /** Indicates whether recording is enabled for this Teams live event. Default value is false. */
+    public ?bool $isRecordingEnabled = null;
+
+    /** Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
+    public ?bool $isVideoOnDemandEnabled = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowedAudience'])) {
+            $this->allowedAudience = $data['allowedAudience'];
+        }
+        if (isset($data['captions'])) {
+            $this->captions = $data['captions'];
+        }
+        if (isset($data['isAttendeeReportEnabled'])) {
+            $this->isAttendeeReportEnabled = $data['isAttendeeReportEnabled'];
+        }
+        if (isset($data['isQuestionAndAnswerEnabled'])) {
+            $this->isQuestionAndAnswerEnabled = $data['isQuestionAndAnswerEnabled'];
+        }
+        if (isset($data['isRecordingEnabled'])) {
+            $this->isRecordingEnabled = $data['isRecordingEnabled'];
+        }
+        if (isset($data['isVideoOnDemandEnabled'])) {
+            $this->isVideoOnDemandEnabled = $data['isVideoOnDemandEnabled'];
+        }
+    }
 }

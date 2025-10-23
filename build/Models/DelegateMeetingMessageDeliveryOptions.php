@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegateMeetingMessageDeliveryOptions
 {
-    public function __construct(
-    ) {}
 }

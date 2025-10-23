@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileHashType
 {
-    public function __construct(
-    ) {}
 }

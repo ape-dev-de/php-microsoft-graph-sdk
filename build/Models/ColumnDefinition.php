@@ -9,72 +9,267 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ColumnDefinition
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** This column stores Boolean values. */
-        public ?BooleanColumn $boolean = null,
-        /** This column's data is calculated based on other columns. */
-        public ?CalculatedColumn $calculated = null,
-        /** This column stores data from a list of choices. */
-        public ?ChoiceColumn $choice = null,
-        /** For site columns, the name of the group this column belongs to. Helps organize related columns. */
-        public ?string $columnGroup = null,
-        /** This column stores content approval status. */
-        public ?ContentApprovalStatusColumn $contentApprovalStatus = null,
-        /** This column stores currency values. */
-        public ?CurrencyColumn $currency = null,
-        /** This column stores DateTime values. */
-        public ?DateTimeColumn $dateTime = null,
-        /** The default value for this column. */
-        public ?DefaultColumnValue $defaultValue = null,
-        /** The user-facing description of the column. */
-        public ?string $description = null,
-        /** The user-facing name of the column. */
-        public ?string $displayName = null,
-        /** If true, no two list items may have the same value for this column. */
-        public ?bool $enforceUniqueValues = null,
-        /** This column stores a geolocation. */
-        public ?GeolocationColumn $geolocation = null,
-        /** Specifies whether the column is displayed in the user interface. */
-        public ?bool $hidden = null,
-        /** This column stores hyperlink or picture values. */
-        public ?HyperlinkOrPictureColumn $hyperlinkOrPicture = null,
-        /** Specifies whether the column values can be used for sorting and searching. */
-        public ?bool $indexed = null,
-        /** Indicates whether this column can be deleted. */
-        public ?bool $isDeletable = null,
-        /** Indicates whether values in the column can be reordered. Read-only. */
-        public ?bool $isReorderable = null,
-        /** Specifies whether the column can be changed. */
-        public ?bool $isSealed = null,
-        /** This column's data is looked up from another source in the site. */
-        public ?LookupColumn $lookup = null,
-        /** The API-facing name of the column as it appears in the fields on a listItem. For the user-facing name, see displayName. */
-        public ?string $name = null,
-        /** This column stores number values. */
-        public ?NumberColumn $number = null,
-        /** This column stores Person or Group values. */
-        public ?PersonOrGroupColumn $personOrGroup = null,
-        /** If 'true', changes to this column will be propagated to lists that implement the column. */
-        public ?bool $propagateChanges = null,
-        /** Specifies whether the column values can be modified. */
-        public ?bool $readOnly = null,
-        /** Specifies whether the column value isn't optional. */
-        public ?bool $required = null,
-        /** ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only. */
-        public ?ContentTypeInfo $sourceContentType = null,
-        /** This column stores taxonomy terms. */
-        public ?TermColumn $term = null,
-        /** This column stores text values. */
-        public ?TextColumn $text = null,
-        /** This column stores thumbnail values. */
-        public ?ThumbnailColumn $thumbnail = null,
-        /** For site columns, the type of column. Read-only. */
-        public ?ColumnTypes $type = null,
-        /** This column stores validation formula and message for the column. */
-        public ?ColumnValidation $validation = null,
-        /** The source column for the content type column. */
-        public ?ColumnDefinition $sourceColumn = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * This column stores Boolean values.
+     * @var BooleanColumn|\stdClass|null
+     */
+    public mixed $boolean = null;
+
+    /** 
+     * This column's data is calculated based on other columns.
+     * @var CalculatedColumn|\stdClass|null
+     */
+    public mixed $calculated = null;
+
+    /** 
+     * This column stores data from a list of choices.
+     * @var ChoiceColumn|\stdClass|null
+     */
+    public mixed $choice = null;
+
+    /** For site columns, the name of the group this column belongs to. Helps organize related columns. */
+    public ?string $columnGroup = null;
+
+    /** 
+     * This column stores content approval status.
+     * @var ContentApprovalStatusColumn|\stdClass|null
+     */
+    public mixed $contentApprovalStatus = null;
+
+    /** 
+     * This column stores currency values.
+     * @var CurrencyColumn|\stdClass|null
+     */
+    public mixed $currency = null;
+
+    /** 
+     * This column stores DateTime values.
+     * @var DateTimeColumn|\stdClass|null
+     */
+    public mixed $dateTime = null;
+
+    /** 
+     * The default value for this column.
+     * @var DefaultColumnValue|\stdClass|null
+     */
+    public mixed $defaultValue = null;
+
+    /** The user-facing description of the column. */
+    public ?string $description = null;
+
+    /** The user-facing name of the column. */
+    public ?string $displayName = null;
+
+    /** If true, no two list items may have the same value for this column. */
+    public ?bool $enforceUniqueValues = null;
+
+    /** 
+     * This column stores a geolocation.
+     * @var GeolocationColumn|\stdClass|null
+     */
+    public mixed $geolocation = null;
+
+    /** Specifies whether the column is displayed in the user interface. */
+    public ?bool $hidden = null;
+
+    /** 
+     * This column stores hyperlink or picture values.
+     * @var HyperlinkOrPictureColumn|\stdClass|null
+     */
+    public mixed $hyperlinkOrPicture = null;
+
+    /** Specifies whether the column values can be used for sorting and searching. */
+    public ?bool $indexed = null;
+
+    /** Indicates whether this column can be deleted. */
+    public ?bool $isDeletable = null;
+
+    /** Indicates whether values in the column can be reordered. Read-only. */
+    public ?bool $isReorderable = null;
+
+    /** Specifies whether the column can be changed. */
+    public ?bool $isSealed = null;
+
+    /** 
+     * This column's data is looked up from another source in the site.
+     * @var LookupColumn|\stdClass|null
+     */
+    public mixed $lookup = null;
+
+    /** The API-facing name of the column as it appears in the fields on a listItem. For the user-facing name, see displayName. */
+    public ?string $name = null;
+
+    /** 
+     * This column stores number values.
+     * @var NumberColumn|\stdClass|null
+     */
+    public mixed $number = null;
+
+    /** 
+     * This column stores Person or Group values.
+     * @var PersonOrGroupColumn|\stdClass|null
+     */
+    public mixed $personOrGroup = null;
+
+    /** If 'true', changes to this column will be propagated to lists that implement the column. */
+    public ?bool $propagateChanges = null;
+
+    /** Specifies whether the column values can be modified. */
+    public ?bool $readOnly = null;
+
+    /** Specifies whether the column value isn't optional. */
+    public ?bool $required = null;
+
+    /** 
+     * ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
+     * @var ContentTypeInfo|\stdClass|null
+     */
+    public mixed $sourceContentType = null;
+
+    /** 
+     * This column stores taxonomy terms.
+     * @var TermColumn|\stdClass|null
+     */
+    public mixed $term = null;
+
+    /** 
+     * This column stores text values.
+     * @var TextColumn|\stdClass|null
+     */
+    public mixed $text = null;
+
+    /** 
+     * This column stores thumbnail values.
+     * @var ThumbnailColumn|\stdClass|null
+     */
+    public mixed $thumbnail = null;
+
+    /** 
+     * For site columns, the type of column. Read-only.
+     * @var ColumnTypes|\stdClass|null
+     */
+    public mixed $type = null;
+
+    /** 
+     * This column stores validation formula and message for the column.
+     * @var ColumnValidation|\stdClass|null
+     */
+    public mixed $validation = null;
+
+    /** 
+     * The source column for the content type column.
+     * @var ColumnDefinition|\stdClass|null
+     */
+    public mixed $sourceColumn = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['boolean'])) {
+            $this->boolean = $data['boolean'];
+        }
+        if (isset($data['calculated'])) {
+            $this->calculated = $data['calculated'];
+        }
+        if (isset($data['choice'])) {
+            $this->choice = $data['choice'];
+        }
+        if (isset($data['columnGroup'])) {
+            $this->columnGroup = $data['columnGroup'];
+        }
+        if (isset($data['contentApprovalStatus'])) {
+            $this->contentApprovalStatus = $data['contentApprovalStatus'];
+        }
+        if (isset($data['currency'])) {
+            $this->currency = $data['currency'];
+        }
+        if (isset($data['dateTime'])) {
+            $this->dateTime = $data['dateTime'];
+        }
+        if (isset($data['defaultValue'])) {
+            $this->defaultValue = $data['defaultValue'];
+        }
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['enforceUniqueValues'])) {
+            $this->enforceUniqueValues = $data['enforceUniqueValues'];
+        }
+        if (isset($data['geolocation'])) {
+            $this->geolocation = $data['geolocation'];
+        }
+        if (isset($data['hidden'])) {
+            $this->hidden = $data['hidden'];
+        }
+        if (isset($data['hyperlinkOrPicture'])) {
+            $this->hyperlinkOrPicture = $data['hyperlinkOrPicture'];
+        }
+        if (isset($data['indexed'])) {
+            $this->indexed = $data['indexed'];
+        }
+        if (isset($data['isDeletable'])) {
+            $this->isDeletable = $data['isDeletable'];
+        }
+        if (isset($data['isReorderable'])) {
+            $this->isReorderable = $data['isReorderable'];
+        }
+        if (isset($data['isSealed'])) {
+            $this->isSealed = $data['isSealed'];
+        }
+        if (isset($data['lookup'])) {
+            $this->lookup = $data['lookup'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['number'])) {
+            $this->number = $data['number'];
+        }
+        if (isset($data['personOrGroup'])) {
+            $this->personOrGroup = $data['personOrGroup'];
+        }
+        if (isset($data['propagateChanges'])) {
+            $this->propagateChanges = $data['propagateChanges'];
+        }
+        if (isset($data['readOnly'])) {
+            $this->readOnly = $data['readOnly'];
+        }
+        if (isset($data['required'])) {
+            $this->required = $data['required'];
+        }
+        if (isset($data['sourceContentType'])) {
+            $this->sourceContentType = $data['sourceContentType'];
+        }
+        if (isset($data['term'])) {
+            $this->term = $data['term'];
+        }
+        if (isset($data['text'])) {
+            $this->text = $data['text'];
+        }
+        if (isset($data['thumbnail'])) {
+            $this->thumbnail = $data['thumbnail'];
+        }
+        if (isset($data['type'])) {
+            $this->type = $data['type'];
+        }
+        if (isset($data['validation'])) {
+            $this->validation = $data['validation'];
+        }
+        if (isset($data['sourceColumn'])) {
+            $this->sourceColumn = $data['sourceColumn'];
+        }
+    }
 }

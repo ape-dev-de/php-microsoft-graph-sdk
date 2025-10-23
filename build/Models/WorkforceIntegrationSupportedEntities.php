@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkforceIntegrationSupportedEntities
 {
-    public function __construct(
-    ) {}
 }

@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SettingSource
 {
-    public function __construct(
-        /** Not yet documented */
-        public ?string $id = null,
-        /** Not yet documented */
-        public ?string $displayName = null,
-        /**  */
-        public ?SettingSourceType $sourceType = null
-    ) {}
+    /** Not yet documented */
+    public ?string $id = null;
+
+    /** Not yet documented */
+    public ?string $displayName = null;
+
+    /**  */
+    public ?SettingSourceType $sourceType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['sourceType'])) {
+            $this->sourceType = $data['sourceType'];
+        }
+    }
 }

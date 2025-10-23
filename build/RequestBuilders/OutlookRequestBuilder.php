@@ -6,56 +6,80 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\OutlookUser;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\OutlookUserQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\MasterCategoriesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SupportedLanguagesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SupportedTimeZonesRequestBuilder;
 
 /**
- * Request builder for OutlookUser
+ * Request builder for outlook
  */
 class OutlookRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get outlook from me
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param OutlookUserQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return OutlookUser
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?OutlookUserQueryOptions $options = null, ?array $queryParameters = null): OutlookUser
+    public function get(?array $select = null, ?array $expand = null): OutlookUser
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, OutlookUser::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new OutlookUser
-     *
-     * @param OutlookUser $item The item to create
-     * @return OutlookUser
+     * Deserialize response to OutlookUser
      */
-    public function post(OutlookUser $item): OutlookUser
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, OutlookUser::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new OutlookUser($data);
     }
     /**
-     * Get masterCategories request builder
+     * Navigate to masterCategories
      *
      * @return MasterCategoriesRequestBuilder
      */
     public function masterCategories(): MasterCategoriesRequestBuilder
     {
-        return new MasterCategoriesRequestBuilder($this->client, $this->buildPath('masterCategories'));
+        return new MasterCategoriesRequestBuilder($this->client, $this->requestUrl . '/masterCategories');
     }
-
+    /**
+     * Navigate to supportedLanguages()
+     *
+     * @return SupportedLanguagesRequestBuilder
+     */
+    public function supportedLanguages(): SupportedLanguagesRequestBuilder
+    {
+        return new SupportedLanguagesRequestBuilder($this->client, $this->requestUrl . '/supportedLanguages()');
+    }
+    /**
+     * Navigate to supportedTimeZones()
+     *
+     * @return SupportedTimeZonesRequestBuilder
+     */
+    public function supportedTimeZones(): SupportedTimeZonesRequestBuilder
+    {
+        return new SupportedTimeZonesRequestBuilder($this->client, $this->requestUrl . '/supportedTimeZones()');
+    }
 }

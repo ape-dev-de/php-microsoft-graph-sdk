@@ -9,14 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnEmailOtpSendListener
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The identifier of the authenticationEventsFlow object. */
-        public ?string $authenticationEventsFlowId = null,
-        /** The conditions on which this authenticationEventListener should trigger. */
-        public ?AuthenticationConditions $conditions = null,
-        /** Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages. */
-        public ?OnOtpSendHandler $handler = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The identifier of the authenticationEventsFlow object. */
+    public ?string $authenticationEventsFlowId = null;
+
+    /** 
+     * The conditions on which this authenticationEventListener should trigger.
+     * @var AuthenticationConditions|\stdClass|null
+     */
+    public mixed $conditions = null;
+
+    /** 
+     * Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages.
+     * @var OnOtpSendHandler|\stdClass|null
+     */
+    public mixed $handler = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['authenticationEventsFlowId'])) {
+            $this->authenticationEventsFlowId = $data['authenticationEventsFlowId'];
+        }
+        if (isset($data['conditions'])) {
+            $this->conditions = $data['conditions'];
+        }
+        if (isset($data['handler'])) {
+            $this->handler = $data['handler'];
+        }
+    }
 }

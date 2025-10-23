@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessInsiderRiskLevels
 {
-    public function __construct(
-    ) {}
 }

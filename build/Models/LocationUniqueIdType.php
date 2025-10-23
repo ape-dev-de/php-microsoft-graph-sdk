@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LocationUniqueIdType
 {
-    public function __construct(
-    ) {}
 }

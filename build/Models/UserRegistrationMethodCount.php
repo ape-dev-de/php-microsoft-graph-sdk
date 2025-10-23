@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserRegistrationMethodCount
 {
-    public function __construct(
-        /** Name of the authentication method. */
-        public ?string $authenticationMethod = null,
-        /** Number of users registered. */
-        public ?float $userCount = null
-    ) {}
+    /** Name of the authentication method. */
+    public ?string $authenticationMethod = null;
+
+    /** Number of users registered. */
+    public ?float $userCount = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['authenticationMethod'])) {
+            $this->authenticationMethod = $data['authenticationMethod'];
+        }
+        if (isset($data['userCount'])) {
+            $this->userCount = $data['userCount'];
+        }
+    }
 }

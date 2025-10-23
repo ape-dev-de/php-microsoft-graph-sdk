@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityMailboxConfigurationType
 {
-    public function __construct(
-    ) {}
 }

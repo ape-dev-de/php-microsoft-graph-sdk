@@ -9,14 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ItemAnalytics
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?ItemActivityStat $allTime = null,
-        /**  */
-        public array $itemActivityStats = [],
-        /**  */
-        public ?ItemActivityStat $lastSevenDays = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * 
+     * @var ItemActivityStat|\stdClass|null
+     */
+    public mixed $allTime = null;
+
+    /** 
+     * 
+     * @var ItemActivityStat[]
+     */
+    public array $itemActivityStats = [];
+
+    /** 
+     * 
+     * @var ItemActivityStat|\stdClass|null
+     */
+    public mixed $lastSevenDays = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['allTime'])) {
+            $this->allTime = $data['allTime'];
+        }
+        if (isset($data['itemActivityStats'])) {
+            $this->itemActivityStats = $data['itemActivityStats'];
+        }
+        if (isset($data['lastSevenDays'])) {
+            $this->lastSevenDays = $data['lastSevenDays'];
+        }
+    }
 }

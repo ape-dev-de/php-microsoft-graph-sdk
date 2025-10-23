@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationStatusCode
 {
-    public function __construct(
-    ) {}
 }

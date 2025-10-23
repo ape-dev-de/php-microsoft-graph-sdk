@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessPolicyState
 {
-    public function __construct(
-    ) {}
 }

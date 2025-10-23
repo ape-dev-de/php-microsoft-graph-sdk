@@ -9,24 +9,75 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeOffReason
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** Identity of the creator of the entity. */
-        public ?IdentitySet $createdBy = null,
-        /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** Identity of the person who last modified the entity. */
-        public ?IdentitySet $lastModifiedBy = null,
-        /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-        public ?\DateTimeInterface $lastModifiedDateTime = null,
-        /** The code of the timeOffReason to represent an external identifier. This field must be unique within the team in Microsoft Teams and uses an alphanumeric format, with a maximum of 100 characters. */
-        public ?string $code = null,
-        /** The name of the timeOffReason. Required. */
-        public ?string $displayName = null,
-        /** Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required. */
-        public ?TimeOffReasonIconType $iconType = null,
-        /** Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
-        public ?bool $isActive = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * Identity of the creator of the entity.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $createdBy = null;
+
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** 
+     * Identity of the person who last modified the entity.
+     * @var IdentitySet|\stdClass|null
+     */
+    public mixed $lastModifiedBy = null;
+
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    public ?\DateTimeInterface $lastModifiedDateTime = null;
+
+    /** The code of the timeOffReason to represent an external identifier. This field must be unique within the team in Microsoft Teams and uses an alphanumeric format, with a maximum of 100 characters. */
+    public ?string $code = null;
+
+    /** The name of the timeOffReason. Required. */
+    public ?string $displayName = null;
+
+    /** 
+     * Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
+     * @var TimeOffReasonIconType|\stdClass|null
+     */
+    public mixed $iconType = null;
+
+    /** Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
+    public ?bool $isActive = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['createdBy'])) {
+            $this->createdBy = $data['createdBy'];
+        }
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['lastModifiedBy'])) {
+            $this->lastModifiedBy = $data['lastModifiedBy'];
+        }
+        if (isset($data['lastModifiedDateTime'])) {
+            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+        }
+        if (isset($data['code'])) {
+            $this->code = $data['code'];
+        }
+        if (isset($data['displayName'])) {
+            $this->displayName = $data['displayName'];
+        }
+        if (isset($data['iconType'])) {
+            $this->iconType = $data['iconType'];
+        }
+        if (isset($data['isActive'])) {
+            $this->isActive = $data['isActive'];
+        }
+    }
 }

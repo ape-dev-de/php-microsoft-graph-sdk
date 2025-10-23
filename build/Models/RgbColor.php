@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RgbColor
 {
-    public function __construct(
-        /** Blue value */
-        public ?float $b = null,
-        /** Green value */
-        public ?float $g = null,
-        /** Red value */
-        public ?float $r = null
-    ) {}
+    /** Blue value */
+    public ?float $b = null;
+
+    /** Green value */
+    public ?float $g = null;
+
+    /** Red value */
+    public ?float $r = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['b'])) {
+            $this->b = $data['b'];
+        }
+        if (isset($data['g'])) {
+            $this->g = $data['g'];
+        }
+        if (isset($data['r'])) {
+            $this->r = $data['r'];
+        }
+    }
 }

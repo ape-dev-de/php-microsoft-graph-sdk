@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttachmentType
 {
-    public function __construct(
-    ) {}
 }

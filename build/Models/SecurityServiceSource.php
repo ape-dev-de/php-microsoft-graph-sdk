@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityServiceSource
 {
-    public function __construct(
-    ) {}
 }

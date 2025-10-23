@@ -9,40 +9,135 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecuritySasTokenEvidence
 {
-    public function __construct(
-        /** The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
-        public array $detailedRoles = [],
-        /**  */
-        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
-        /** Details about the remediation status. */
-        public ?string $remediationStatusDetails = null,
-        /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
-        public array $roles = [],
-        /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
-        public array $tags = [],
-        /**  */
-        public ?SecurityEvidenceVerdict $verdict = null,
-        /**  */
-        public ?string $allowedIpAddresses = null,
-        /** @var string[]  */
-        public array $allowedResourceTypes = [],
-        /** @var string[]  */
-        public array $allowedServices = [],
-        /**  */
-        public ?\DateTimeInterface $expiryDateTime = null,
-        /** @var string[]  */
-        public array $permissions = [],
-        /**  */
-        public ?string $protocol = null,
-        /**  */
-        public ?string $signatureHash = null,
-        /**  */
-        public ?string $signedWith = null,
-        /**  */
-        public ?\DateTimeInterface $startDateTime = null,
-        /**  */
-        public ?SecurityAzureResourceEvidence $storageResource = null
-    ) {}
+    /** The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** 
+     * Detailed description of the entity role/s in an alert. Values are free-form.
+     * @var string[]
+     */
+    public array $detailedRoles = [];
+
+    /**  */
+    public ?SecurityEvidenceRemediationStatus $remediationStatus = null;
+
+    /** Details about the remediation status. */
+    public ?string $remediationStatusDetails = null;
+
+    /** 
+     * The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker.
+     * @var SecurityEvidenceRole[]
+     */
+    public array $roles = [];
+
+    /** 
+     * Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc.
+     * @var string[]
+     */
+    public array $tags = [];
+
+    /**  */
+    public ?SecurityEvidenceVerdict $verdict = null;
+
+    /**  */
+    public ?string $allowedIpAddresses = null;
+
+    /** 
+     * 
+     * @var string[]
+     */
+    public array $allowedResourceTypes = [];
+
+    /** 
+     * 
+     * @var string[]
+     */
+    public array $allowedServices = [];
+
+    /**  */
+    public ?\DateTimeInterface $expiryDateTime = null;
+
+    /** 
+     * 
+     * @var string[]
+     */
+    public array $permissions = [];
+
+    /**  */
+    public ?string $protocol = null;
+
+    /**  */
+    public ?string $signatureHash = null;
+
+    /**  */
+    public ?string $signedWith = null;
+
+    /**  */
+    public ?\DateTimeInterface $startDateTime = null;
+
+    /** 
+     * 
+     * @var SecurityAzureResourceEvidence|\stdClass|null
+     */
+    public mixed $storageResource = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['detailedRoles'])) {
+            $this->detailedRoles = $data['detailedRoles'];
+        }
+        if (isset($data['remediationStatus'])) {
+            $this->remediationStatus = $data['remediationStatus'];
+        }
+        if (isset($data['remediationStatusDetails'])) {
+            $this->remediationStatusDetails = $data['remediationStatusDetails'];
+        }
+        if (isset($data['roles'])) {
+            $this->roles = $data['roles'];
+        }
+        if (isset($data['tags'])) {
+            $this->tags = $data['tags'];
+        }
+        if (isset($data['verdict'])) {
+            $this->verdict = $data['verdict'];
+        }
+        if (isset($data['allowedIpAddresses'])) {
+            $this->allowedIpAddresses = $data['allowedIpAddresses'];
+        }
+        if (isset($data['allowedResourceTypes'])) {
+            $this->allowedResourceTypes = $data['allowedResourceTypes'];
+        }
+        if (isset($data['allowedServices'])) {
+            $this->allowedServices = $data['allowedServices'];
+        }
+        if (isset($data['expiryDateTime'])) {
+            $this->expiryDateTime = $data['expiryDateTime'];
+        }
+        if (isset($data['permissions'])) {
+            $this->permissions = $data['permissions'];
+        }
+        if (isset($data['protocol'])) {
+            $this->protocol = $data['protocol'];
+        }
+        if (isset($data['signatureHash'])) {
+            $this->signatureHash = $data['signatureHash'];
+        }
+        if (isset($data['signedWith'])) {
+            $this->signedWith = $data['signedWith'];
+        }
+        if (isset($data['startDateTime'])) {
+            $this->startDateTime = $data['startDateTime'];
+        }
+        if (isset($data['storageResource'])) {
+            $this->storageResource = $data['storageResource'];
+        }
+    }
 }

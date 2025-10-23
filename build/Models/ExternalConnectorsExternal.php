@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsExternal
 {
-    public function __construct(
-        /**  */
-        public array $connections = []
-    ) {}
+    /** 
+     * 
+     * @var ExternalConnectorsExternalConnection[]
+     */
+    public array $connections = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['connections'])) {
+            $this->connections = $data['connections'];
+        }
+    }
 }

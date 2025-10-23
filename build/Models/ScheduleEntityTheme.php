@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScheduleEntityTheme
 {
-    public function __construct(
-    ) {}
 }

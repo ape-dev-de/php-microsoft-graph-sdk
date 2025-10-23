@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeRange
 {
-    public function __construct(
-        /** End time for the time range. */
-        public ?string $endTime = null,
-        /** Start time for the time range. */
-        public ?string $startTime = null
-    ) {}
+    /** End time for the time range. */
+    public ?string $endTime = null;
+
+    /** Start time for the time range. */
+    public ?string $startTime = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['endTime'])) {
+            $this->endTime = $data['endTime'];
+        }
+        if (isset($data['startTime'])) {
+            $this->startTime = $data['startTime'];
+        }
+    }
 }

@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ODataErrorsODataError
 {
-    public function __construct(
-        /**  */
-        public ?ODataErrorsMainError $error = null
-    ) {}
+    /**  */
+    public ?ODataErrorsMainError $error = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['error'])) {
+            $this->error = $data['error'];
+        }
+    }
 }

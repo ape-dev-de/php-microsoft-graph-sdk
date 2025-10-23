@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class B2bIdentityProvidersType
 {
-    public function __construct(
-    ) {}
 }

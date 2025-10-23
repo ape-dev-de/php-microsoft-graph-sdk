@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementSubscriptionState
 {
-    public function __construct(
-    ) {}
 }

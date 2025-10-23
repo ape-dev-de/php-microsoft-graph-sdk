@@ -9,26 +9,84 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Participant
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?ParticipantInfo $info = null,
-        /** true if the participant is in lobby. */
-        public ?bool $isInLobby = null,
-        /** true if the participant is muted (client or server muted). */
-        public ?bool $isMuted = null,
-        /** The list of media streams. */
-        public array $mediaStreams = [],
-        /** A blob of data provided by the participant in the roster. */
-        public ?string $metadata = null,
-        /** Information about whether the participant has recording capability. */
-        public ?RecordingInfo $recordingInfo = null,
-        /** Indicates the reason why the participant was removed from the roster. */
-        public ?RemovedState $removedState = null,
-        /** Indicates the reason or reasons media content from this participant is restricted. */
-        public ?OnlineMeetingRestricted $restrictedExperience = null,
-        /** Indicates the roster sequence number in which the participant was last updated. */
-        public ?float $rosterSequenceNumber = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?ParticipantInfo $info = null;
+
+    /** true if the participant is in lobby. */
+    public ?bool $isInLobby = null;
+
+    /** true if the participant is muted (client or server muted). */
+    public ?bool $isMuted = null;
+
+    /** 
+     * The list of media streams.
+     * @var MediaStream[]
+     */
+    public array $mediaStreams = [];
+
+    /** A blob of data provided by the participant in the roster. */
+    public ?string $metadata = null;
+
+    /** 
+     * Information about whether the participant has recording capability.
+     * @var RecordingInfo|\stdClass|null
+     */
+    public mixed $recordingInfo = null;
+
+    /** 
+     * Indicates the reason why the participant was removed from the roster.
+     * @var RemovedState|\stdClass|null
+     */
+    public mixed $removedState = null;
+
+    /** 
+     * Indicates the reason or reasons media content from this participant is restricted.
+     * @var OnlineMeetingRestricted|\stdClass|null
+     */
+    public mixed $restrictedExperience = null;
+
+    /** Indicates the roster sequence number in which the participant was last updated. */
+    public ?float $rosterSequenceNumber = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['info'])) {
+            $this->info = $data['info'];
+        }
+        if (isset($data['isInLobby'])) {
+            $this->isInLobby = $data['isInLobby'];
+        }
+        if (isset($data['isMuted'])) {
+            $this->isMuted = $data['isMuted'];
+        }
+        if (isset($data['mediaStreams'])) {
+            $this->mediaStreams = $data['mediaStreams'];
+        }
+        if (isset($data['metadata'])) {
+            $this->metadata = $data['metadata'];
+        }
+        if (isset($data['recordingInfo'])) {
+            $this->recordingInfo = $data['recordingInfo'];
+        }
+        if (isset($data['removedState'])) {
+            $this->removedState = $data['removedState'];
+        }
+        if (isset($data['restrictedExperience'])) {
+            $this->restrictedExperience = $data['restrictedExperience'];
+        }
+        if (isset($data['rosterSequenceNumber'])) {
+            $this->rosterSequenceNumber = $data['rosterSequenceNumber'];
+        }
+    }
 }

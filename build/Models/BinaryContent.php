@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BinaryContent
 {
-    public function __construct(
-        /** The binary content, encoded as a Base64 string. Inherited from contentBase. */
-        public ?string $data = null
-    ) {}
+    /** The binary content, encoded as a Base64 string. Inherited from contentBase. */
+    public ?string $data = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['data'])) {
+            $this->data = $data['data'];
+        }
+    }
 }

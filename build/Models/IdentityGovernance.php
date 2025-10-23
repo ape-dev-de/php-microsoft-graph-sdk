@@ -9,18 +9,66 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernance
 {
-    public function __construct(
-        /**  */
-        public ?AccessReviewSet $accessReviews = null,
-        /**  */
-        public ?AppConsentApprovalRoute $appConsent = null,
-        /**  */
-        public ?EntitlementManagement $entitlementManagement = null,
-        /**  */
-        public ?IdentityGovernanceLifecycleWorkflowsContainer $lifecycleWorkflows = null,
-        /**  */
-        public ?PrivilegedAccessRoot $privilegedAccess = null,
-        /**  */
-        public ?TermsOfUseContainer $termsOfUse = null
-    ) {}
+    /** 
+     * 
+     * @var AccessReviewSet|\stdClass|null
+     */
+    public mixed $accessReviews = null;
+
+    /** 
+     * 
+     * @var AppConsentApprovalRoute|\stdClass|null
+     */
+    public mixed $appConsent = null;
+
+    /** 
+     * 
+     * @var EntitlementManagement|\stdClass|null
+     */
+    public mixed $entitlementManagement = null;
+
+    /** 
+     * 
+     * @var IdentityGovernanceLifecycleWorkflowsContainer|\stdClass|null
+     */
+    public mixed $lifecycleWorkflows = null;
+
+    /** 
+     * 
+     * @var PrivilegedAccessRoot|\stdClass|null
+     */
+    public mixed $privilegedAccess = null;
+
+    /** 
+     * 
+     * @var TermsOfUseContainer|\stdClass|null
+     */
+    public mixed $termsOfUse = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['accessReviews'])) {
+            $this->accessReviews = $data['accessReviews'];
+        }
+        if (isset($data['appConsent'])) {
+            $this->appConsent = $data['appConsent'];
+        }
+        if (isset($data['entitlementManagement'])) {
+            $this->entitlementManagement = $data['entitlementManagement'];
+        }
+        if (isset($data['lifecycleWorkflows'])) {
+            $this->lifecycleWorkflows = $data['lifecycleWorkflows'];
+        }
+        if (isset($data['privilegedAccess'])) {
+            $this->privilegedAccess = $data['privilegedAccess'];
+        }
+        if (isset($data['termsOfUse'])) {
+            $this->termsOfUse = $data['termsOfUse'];
+        }
+    }
 }

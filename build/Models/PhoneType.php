@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PhoneType
 {
-    public function __construct(
-    ) {}
 }

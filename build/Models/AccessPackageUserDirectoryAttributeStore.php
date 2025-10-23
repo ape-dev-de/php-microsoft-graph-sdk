@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageUserDirectoryAttributeStore
 {
-    public function __construct(
-    ) {}
 }

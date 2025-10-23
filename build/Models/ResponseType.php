@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResponseType
 {
-    public function __construct(
-    ) {}
 }

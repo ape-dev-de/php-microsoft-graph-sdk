@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ActivityDomain
 {
-    public function __construct(
-    ) {}
 }

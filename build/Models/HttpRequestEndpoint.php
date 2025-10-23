@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HttpRequestEndpoint
 {
-    public function __construct(
-        /** The HTTP endpoint that a custom extension calls. */
-        public ?string $targetUrl = null
-    ) {}
+    /** The HTTP endpoint that a custom extension calls. */
+    public ?string $targetUrl = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['targetUrl'])) {
+            $this->targetUrl = $data['targetUrl'];
+        }
+    }
 }

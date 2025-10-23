@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftAuthenticatorAuthenticationMode
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementPartnerAppType
 {
-    public function __construct(
-    ) {}
 }

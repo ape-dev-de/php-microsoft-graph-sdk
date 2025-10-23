@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeFlowBehavior
 {
-    public function __construct(
-    ) {}
 }

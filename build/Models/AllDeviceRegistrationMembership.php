@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AllDeviceRegistrationMembership
 {
-    public function __construct(
-    ) {}
 }

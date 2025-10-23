@@ -6,47 +6,93 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternal;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\ExternalConnectorsExternalQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ConnectionsRequestBuilder;
 
 /**
- * Request builder for ExternalConnectorsExternal
+ * Request builder for external
  */
 class ExternalRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get external
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param ExternalConnectorsExternalQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return ExternalConnectorsExternal
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?ExternalConnectorsExternalQueryOptions $options = null, ?array $queryParameters = null): ExternalConnectorsExternal
+    public function get(?array $select = null, ?array $expand = null): ExternalConnectorsExternal
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, ExternalConnectorsExternal::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new ExternalConnectorsExternal
-     *
-     * @param ExternalConnectorsExternal $item The item to create
-     * @return ExternalConnectorsExternal
+     * Deserialize response to ExternalConnectorsExternal
      */
-    public function post(ExternalConnectorsExternal $item): ExternalConnectorsExternal
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, ExternalConnectorsExternal::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new ExternalConnectorsExternal($data);
+    }
+    /**
+     * Update external
+     * @param ExternalConnectorsExternal $body Request body
+     * @return ExternalConnectorsExternal
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(ExternalConnectorsExternal $body): ExternalConnectorsExternal
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to ExternalConnectorsExternal
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new ExternalConnectorsExternal($data);
+    }
+    /**
+     * Navigate to connections
+     *
+     * @return ConnectionsRequestBuilder
+     */
+    public function connections(): ConnectionsRequestBuilder
+    {
+        return new ConnectionsRequestBuilder($this->client, $this->requestUrl . '/connections');
+    }
 }

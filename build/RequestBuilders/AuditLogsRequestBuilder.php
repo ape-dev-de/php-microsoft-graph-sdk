@@ -6,47 +6,113 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\AuditLogRoot;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\AuditLogRootQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryAuditsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ProvisioningRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SignInsRequestBuilder;
 
 /**
- * Request builder for AuditLogRoot
+ * Request builder for auditLogs
  */
 class AuditLogsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get auditLogs
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param AuditLogRootQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return AuditLogRoot
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?AuditLogRootQueryOptions $options = null, ?array $queryParameters = null): AuditLogRoot
+    public function get(?array $select = null, ?array $expand = null): AuditLogRoot
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, AuditLogRoot::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new AuditLogRoot
-     *
-     * @param AuditLogRoot $item The item to create
-     * @return AuditLogRoot
+     * Deserialize response to AuditLogRoot
      */
-    public function post(AuditLogRoot $item): AuditLogRoot
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, AuditLogRoot::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AuditLogRoot($data);
+    }
+    /**
+     * Update auditLogs
+     * @param AuditLogRoot $body Request body
+     * @return AuditLogRoot
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(AuditLogRoot $body): AuditLogRoot
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
     }
 
+    /**
+     * Deserialize response to AuditLogRoot
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AuditLogRoot($data);
+    }
+    /**
+     * Navigate to directoryAudits
+     *
+     * @return DirectoryAuditsRequestBuilder
+     */
+    public function directoryAudits(): DirectoryAuditsRequestBuilder
+    {
+        return new DirectoryAuditsRequestBuilder($this->client, $this->requestUrl . '/directoryAudits');
+    }
+    /**
+     * Navigate to provisioning
+     *
+     * @return ProvisioningRequestBuilder
+     */
+    public function provisioning(): ProvisioningRequestBuilder
+    {
+        return new ProvisioningRequestBuilder($this->client, $this->requestUrl . '/provisioning');
+    }
+    /**
+     * Navigate to signIns
+     *
+     * @return SignInsRequestBuilder
+     */
+    public function signIns(): SignInsRequestBuilder
+    {
+        return new SignInsRequestBuilder($this->client, $this->requestUrl . '/signIns');
+    }
 }

@@ -9,16 +9,45 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionCalloutInstance
 {
-    public function __construct(
-        /** Unique identifier for the callout instance. Read-only. */
-        public ?string $id = null,
-        /** Identification of the custom extension that was triggered at this instance. */
-        public ?string $customExtensionId = null,
-        /** Details provided by the logic app during the callback of the request instance. */
-        public ?string $detail = null,
-        /** The unique run identifier for the logic app. */
-        public ?string $externalCorrelationId = null,
-        /** The status of the request to the custom extension. The possible values are: calloutSent, callbackReceived, calloutFailed, callbackTimedOut, waitingForCallback, unknownFutureValue. */
-        public ?CustomExtensionCalloutInstanceStatus $status = null
-    ) {}
+    /** Unique identifier for the callout instance. Read-only. */
+    public ?string $id = null;
+
+    /** Identification of the custom extension that was triggered at this instance. */
+    public ?string $customExtensionId = null;
+
+    /** Details provided by the logic app during the callback of the request instance. */
+    public ?string $detail = null;
+
+    /** The unique run identifier for the logic app. */
+    public ?string $externalCorrelationId = null;
+
+    /** 
+     * The status of the request to the custom extension. The possible values are: calloutSent, callbackReceived, calloutFailed, callbackTimedOut, waitingForCallback, unknownFutureValue.
+     * @var CustomExtensionCalloutInstanceStatus|\stdClass|null
+     */
+    public mixed $status = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['customExtensionId'])) {
+            $this->customExtensionId = $data['customExtensionId'];
+        }
+        if (isset($data['detail'])) {
+            $this->detail = $data['detail'];
+        }
+        if (isset($data['externalCorrelationId'])) {
+            $this->externalCorrelationId = $data['externalCorrelationId'];
+        }
+        if (isset($data['status'])) {
+            $this->status = $data['status'];
+        }
+    }
 }

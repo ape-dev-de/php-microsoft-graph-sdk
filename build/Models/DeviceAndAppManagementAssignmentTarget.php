@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceAndAppManagementAssignmentTarget
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FreeBusyStatus
 {
-    public function __construct(
-    ) {}
 }

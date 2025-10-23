@@ -9,14 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchResponse
 {
-    public function __construct(
-        /** A collection of search results. */
-        public array $hitsContainers = [],
-        /** Provides information related to spelling corrections in the alteration response. */
-        public ?AlterationResponse $queryAlterationResponse = null,
-        /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates. */
-        public ?ResultTemplateDictionary $resultTemplates = null,
-        /** @var string[] Contains the search terms sent in the initial search query. */
-        public array $searchTerms = []
-    ) {}
+    /** 
+     * A collection of search results.
+     * @var SearchHitsContainer[]
+     */
+    public array $hitsContainers = [];
+
+    /** 
+     * Provides information related to spelling corrections in the alteration response.
+     * @var AlterationResponse|\stdClass|null
+     */
+    public mixed $queryAlterationResponse = null;
+
+    /** 
+     * A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
+     * @var ResultTemplateDictionary|\stdClass|null
+     */
+    public mixed $resultTemplates = null;
+
+    /** 
+     * Contains the search terms sent in the initial search query.
+     * @var string[]
+     */
+    public array $searchTerms = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['hitsContainers'])) {
+            $this->hitsContainers = $data['hitsContainers'];
+        }
+        if (isset($data['queryAlterationResponse'])) {
+            $this->queryAlterationResponse = $data['queryAlterationResponse'];
+        }
+        if (isset($data['resultTemplates'])) {
+            $this->resultTemplates = $data['resultTemplates'];
+        }
+        if (isset($data['searchTerms'])) {
+            $this->searchTerms = $data['searchTerms'];
+        }
+    }
 }

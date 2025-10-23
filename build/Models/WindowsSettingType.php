@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsSettingType
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewNotificationRecipientScope
 {
-    public function __construct(
-    ) {}
 }

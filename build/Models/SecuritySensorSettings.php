@@ -9,14 +9,42 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecuritySensorSettings
 {
-    public function __construct(
-        /** Description of the sensor. */
-        public ?string $description = null,
-        /** @var string[] DNS names for the domain controller */
-        public array $domainControllerDnsNames = [],
-        /** Indicates whether to delay updates for the sensor. */
-        public ?bool $isDelayedDeploymentEnabled = null,
-        /**  */
-        public array $networkAdapters = []
-    ) {}
+    /** Description of the sensor. */
+    public ?string $description = null;
+
+    /** 
+     * DNS names for the domain controller
+     * @var string[]
+     */
+    public array $domainControllerDnsNames = [];
+
+    /** Indicates whether to delay updates for the sensor. */
+    public ?bool $isDelayedDeploymentEnabled = null;
+
+    /** 
+     * 
+     * @var SecurityNetworkAdapter[]
+     */
+    public array $networkAdapters = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['domainControllerDnsNames'])) {
+            $this->domainControllerDnsNames = $data['domainControllerDnsNames'];
+        }
+        if (isset($data['isDelayedDeploymentEnabled'])) {
+            $this->isDelayedDeploymentEnabled = $data['isDelayedDeploymentEnabled'];
+        }
+        if (isset($data['networkAdapters'])) {
+            $this->networkAdapters = $data['networkAdapters'];
+        }
+    }
 }

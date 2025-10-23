@@ -173,6 +173,11 @@ class GraphRequestBuilder extends BaseRequestBuilder
         return new FilterOperatorsRequestBuilder($this->client, '/filterOperators');
     }
 
+    public function functions(): FunctionsRequestBuilder
+    {
+        return new FunctionsRequestBuilder($this->client, '/functions');
+    }
+
     public function groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder
     {
         return new GroupLifecyclePoliciesRequestBuilder($this->client, '/groupLifecyclePolicies');

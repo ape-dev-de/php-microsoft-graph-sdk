@@ -6,29 +6,50 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsIdentity;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\ExternalConnectorsIdentityQueryOptions;
 
 /**
- * Request builder for ExternalConnectorsIdentity
+ * Request builder for performedBy
  */
 class PerformedByRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get performedBy from connections
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $expand: Expand related resources
-     *
-     * @param ExternalConnectorsIdentityQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return ExternalConnectorsIdentity
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?ExternalConnectorsIdentityQueryOptions $options = null, ?array $queryParameters = null): ExternalConnectorsIdentity
+    public function get(?array $select = null, ?array $expand = null): ExternalConnectorsIdentity
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, ExternalConnectorsIdentity::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
+    /**
+     * Deserialize response to ExternalConnectorsIdentity
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new ExternalConnectorsIdentity($data);
+    }
 }

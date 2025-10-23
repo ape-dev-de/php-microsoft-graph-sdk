@@ -6,126 +6,199 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\Models\ListModel;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\ListModelQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ColumnsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ContentTypesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CreatedByUserRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DriveRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ItemsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\LastModifiedByUserRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\OperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SubscriptionsRequestBuilder;
 
 /**
- * Request builder for ListModel
+ * Request builder for list
  */
 class ListRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get the resource
+     * Get list from drives
      *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param ListModelQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
      * @return ListModel
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?ListModelQueryOptions $options = null, ?array $queryParameters = null): ListModel
+    public function get(?array $select = null, ?array $expand = null): ListModel
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, ListModel::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new ListModel
-     *
-     * @param ListModel $item The item to create
-     * @return ListModel
+     * Deserialize response to ListModel
      */
-    public function post(ListModel $item): ListModel
+    private function deserializeGet(string $body): mixed
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, ListModel::class);
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new ListModel($data);
     }
     /**
-     * Get columns request builder
+     * Update the navigation property list in drives
+     * @param ListModel $body Request body
+     * @return ListModel
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(ListModel $body): ListModel
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to ListModel
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new ListModel($data);
+    }
+    /**
+     * Delete navigation property list for drives
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null) {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to columns
      *
      * @return ColumnsRequestBuilder
      */
     public function columns(): ColumnsRequestBuilder
     {
-        return new ColumnsRequestBuilder($this->client, $this->buildPath('columns'));
+        return new ColumnsRequestBuilder($this->client, $this->requestUrl . '/columns');
     }
-
     /**
-     * Get contentTypes request builder
+     * Navigate to contentTypes
      *
      * @return ContentTypesRequestBuilder
      */
     public function contentTypes(): ContentTypesRequestBuilder
     {
-        return new ContentTypesRequestBuilder($this->client, $this->buildPath('contentTypes'));
+        return new ContentTypesRequestBuilder($this->client, $this->requestUrl . '/contentTypes');
     }
-
     /**
-     * Get createdByUser request builder
+     * Navigate to createdByUser
      *
      * @return CreatedByUserRequestBuilder
      */
     public function createdByUser(): CreatedByUserRequestBuilder
     {
-        return new CreatedByUserRequestBuilder($this->client, $this->buildPath('createdByUser'));
+        return new CreatedByUserRequestBuilder($this->client, $this->requestUrl . '/createdByUser');
     }
-
     /**
-     * Get drive request builder
+     * Navigate to drive
      *
      * @return DriveRequestBuilder
      */
     public function drive(): DriveRequestBuilder
     {
-        return new DriveRequestBuilder($this->client, $this->buildPath('drive'));
+        return new DriveRequestBuilder($this->client, $this->requestUrl . '/drive');
     }
-
     /**
-     * Get items request builder
+     * Navigate to items
      *
      * @return ItemsRequestBuilder
      */
     public function items(): ItemsRequestBuilder
     {
-        return new ItemsRequestBuilder($this->client, $this->buildPath('items'));
+        return new ItemsRequestBuilder($this->client, $this->requestUrl . '/items');
     }
-
     /**
-     * Get lastModifiedByUser request builder
+     * Navigate to lastModifiedByUser
      *
      * @return LastModifiedByUserRequestBuilder
      */
     public function lastModifiedByUser(): LastModifiedByUserRequestBuilder
     {
-        return new LastModifiedByUserRequestBuilder($this->client, $this->buildPath('lastModifiedByUser'));
+        return new LastModifiedByUserRequestBuilder($this->client, $this->requestUrl . '/lastModifiedByUser');
     }
-
     /**
-     * Get operations request builder
+     * Navigate to operations
      *
      * @return OperationsRequestBuilder
      */
     public function operations(): OperationsRequestBuilder
     {
-        return new OperationsRequestBuilder($this->client, $this->buildPath('operations'));
+        return new OperationsRequestBuilder($this->client, $this->requestUrl . '/operations');
     }
-
     /**
-     * Get subscriptions request builder
+     * Navigate to subscriptions
      *
      * @return SubscriptionsRequestBuilder
      */
     public function subscriptions(): SubscriptionsRequestBuilder
     {
-        return new SubscriptionsRequestBuilder($this->client, $this->buildPath('subscriptions'));
+        return new SubscriptionsRequestBuilder($this->client, $this->requestUrl . '/subscriptions');
     }
-
 }

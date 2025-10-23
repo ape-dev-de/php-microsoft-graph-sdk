@@ -9,12 +9,33 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookOperationError
 {
-    public function __construct(
-        /** The error code. */
-        public ?string $code = null,
-        /**  */
-        public ?WorkbookOperationError $innerError = null,
-        /** The error message. */
-        public ?string $message = null
-    ) {}
+    /** The error code. */
+    public ?string $code = null;
+
+    /** 
+     * 
+     * @var WorkbookOperationError|\stdClass|null
+     */
+    public mixed $innerError = null;
+
+    /** The error message. */
+    public ?string $message = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['code'])) {
+            $this->code = $data['code'];
+        }
+        if (isset($data['innerError'])) {
+            $this->innerError = $data['innerError'];
+        }
+        if (isset($data['message'])) {
+            $this->message = $data['message'];
+        }
+    }
 }

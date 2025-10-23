@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ArtifactQuery
 {
-    public function __construct(
-        /** The type of artifact to search. The possible values are: message, unknownFutureValue. */
-        public ?RestorableArtifact $artifactType = null,
-        /** Specifies criteria to retrieve artifacts. */
-        public ?string $queryExpression = null
-    ) {}
+    /** 
+     * The type of artifact to search. The possible values are: message, unknownFutureValue.
+     * @var RestorableArtifact|\stdClass|null
+     */
+    public mixed $artifactType = null;
+
+    /** Specifies criteria to retrieve artifacts. */
+    public ?string $queryExpression = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['artifactType'])) {
+            $this->artifactType = $data['artifactType'];
+        }
+        if (isset($data['queryExpression'])) {
+            $this->queryExpression = $data['queryExpression'];
+        }
+    }
 }

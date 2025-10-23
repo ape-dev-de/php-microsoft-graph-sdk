@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationConditionApplication
 {
-    public function __construct(
-        /** The identifier for an application corresponding to a condition which will trigger an authenticationEventListener. */
-        public ?string $appId = null
-    ) {}
+    /** The identifier for an application corresponding to a condition which will trigger an authenticationEventListener. */
+    public ?string $appId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['appId'])) {
+            $this->appId = $data['appId'];
+        }
+    }
 }

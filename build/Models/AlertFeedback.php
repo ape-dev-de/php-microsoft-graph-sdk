@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlertFeedback
 {
-    public function __construct(
-    ) {}
 }

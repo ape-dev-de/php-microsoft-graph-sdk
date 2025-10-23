@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppCredentialRestrictionType
 {
-    public function __construct(
-    ) {}
 }

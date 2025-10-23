@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScheduleRequestActions
 {
-    public function __construct(
-    ) {}
 }

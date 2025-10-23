@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallEvent
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /**  */
-        public ?CallEventType $callEventType = null,
-        /**  */
-        public ?\DateTimeInterface $eventDateTime = null,
-        /**  */
-        public array $participants = []
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /**  */
+    public ?CallEventType $callEventType = null;
+
+    /**  */
+    public ?\DateTimeInterface $eventDateTime = null;
+
+    /** 
+     * 
+     * @var Participant[]
+     */
+    public array $participants = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['callEventType'])) {
+            $this->callEventType = $data['callEventType'];
+        }
+        if (isset($data['eventDateTime'])) {
+            $this->eventDateTime = $data['eventDateTime'];
+        }
+        if (isset($data['participants'])) {
+            $this->participants = $data['participants'];
+        }
+    }
 }

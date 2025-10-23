@@ -9,12 +9,30 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsMetric
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score. */
-        public ?string $unit = null,
-        /** The value of the user experience analytics metric. */
-        public ?string $value = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score. */
+    public ?string $unit = null;
+
+    /** The value of the user experience analytics metric. */
+    public ?string $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['unit'])) {
+            $this->unit = $data['unit'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

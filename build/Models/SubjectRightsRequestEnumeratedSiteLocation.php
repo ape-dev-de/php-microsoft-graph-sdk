@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestEnumeratedSiteLocation
 {
-    public function __construct(
-        /** @var string[] Collection of site URLs that should be included. Includes the URL of each site, for example, https://www.contoso.com/site1. */
-        public array $urls = []
-    ) {}
+    /** 
+     * Collection of site URLs that should be included. Includes the URL of each site, for example, https://www.contoso.com/site1.
+     * @var string[]
+     */
+    public array $urls = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['urls'])) {
+            $this->urls = $data['urls'];
+        }
+    }
 }

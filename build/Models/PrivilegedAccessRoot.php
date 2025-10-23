@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrivilegedAccessRoot
 {
-    public function __construct(
-        /** The unique identifier for an entity. Read-only. */
-        public ?string $id = null,
-        /** A group that's governed through Privileged Identity Management (PIM). */
-        public ?PrivilegedAccessGroup $group = null
-    ) {}
+    /** The unique identifier for an entity. Read-only. */
+    public ?string $id = null;
+
+    /** 
+     * A group that's governed through Privileged Identity Management (PIM).
+     * @var PrivilegedAccessGroup|\stdClass|null
+     */
+    public mixed $group = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['group'])) {
+            $this->group = $data['group'];
+        }
+    }
 }

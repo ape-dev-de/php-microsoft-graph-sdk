@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttackSimulationRepeatOffender
 {
-    public function __construct(
-        /** The user in an attack simulation and training campaign. */
-        public ?AttackSimulationUser $attackSimulationUser = null,
-        /** Number of repeat offences of the user in attack simulation and training campaigns. */
-        public ?float $repeatOffenceCount = null
-    ) {}
+    /** 
+     * The user in an attack simulation and training campaign.
+     * @var AttackSimulationUser|\stdClass|null
+     */
+    public mixed $attackSimulationUser = null;
+
+    /** Number of repeat offences of the user in attack simulation and training campaigns. */
+    public ?float $repeatOffenceCount = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['attackSimulationUser'])) {
+            $this->attackSimulationUser = $data['attackSimulationUser'];
+        }
+        if (isset($data['repeatOffenceCount'])) {
+            $this->repeatOffenceCount = $data['repeatOffenceCount'];
+        }
+    }
 }

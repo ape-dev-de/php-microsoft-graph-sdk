@@ -9,18 +9,48 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OutOfBoxExperienceSetting
 {
-    public function __construct(
-        /**  */
-        public ?WindowsDeviceUsageType $deviceUsageType = null,
-        /** When TRUE, the link that allows user to start over with a different account on company sign-in is hidden. When false, the link that allows user to start over with a different account on company sign-in is available. Default value is FALSE. */
-        public ?bool $escapeLinkHidden = null,
-        /** When TRUE, EULA is hidden to the end user during OOBE. When FALSE, EULA is shown to the end user during OOBE. Default value is FALSE. */
-        public ?bool $eulaHidden = null,
-        /** When TRUE, the keyboard selection page is hidden to the end user during OOBE if Language and Region are set. When FALSE, the keyboard selection page is skipped during OOBE. */
-        public ?bool $keyboardSelectionPageSkipped = null,
-        /** When TRUE, privacy settings is hidden to the end user during OOBE. When FALSE, privacy settings is shown to the end user during OOBE. Default value is FALSE. */
-        public ?bool $privacySettingsHidden = null,
-        /**  */
-        public ?WindowsUserType $userType = null
-    ) {}
+    /**  */
+    public ?WindowsDeviceUsageType $deviceUsageType = null;
+
+    /** When TRUE, the link that allows user to start over with a different account on company sign-in is hidden. When false, the link that allows user to start over with a different account on company sign-in is available. Default value is FALSE. */
+    public ?bool $escapeLinkHidden = null;
+
+    /** When TRUE, EULA is hidden to the end user during OOBE. When FALSE, EULA is shown to the end user during OOBE. Default value is FALSE. */
+    public ?bool $eulaHidden = null;
+
+    /** When TRUE, the keyboard selection page is hidden to the end user during OOBE if Language and Region are set. When FALSE, the keyboard selection page is skipped during OOBE. */
+    public ?bool $keyboardSelectionPageSkipped = null;
+
+    /** When TRUE, privacy settings is hidden to the end user during OOBE. When FALSE, privacy settings is shown to the end user during OOBE. Default value is FALSE. */
+    public ?bool $privacySettingsHidden = null;
+
+    /**  */
+    public ?WindowsUserType $userType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['deviceUsageType'])) {
+            $this->deviceUsageType = $data['deviceUsageType'];
+        }
+        if (isset($data['escapeLinkHidden'])) {
+            $this->escapeLinkHidden = $data['escapeLinkHidden'];
+        }
+        if (isset($data['eulaHidden'])) {
+            $this->eulaHidden = $data['eulaHidden'];
+        }
+        if (isset($data['keyboardSelectionPageSkipped'])) {
+            $this->keyboardSelectionPageSkipped = $data['keyboardSelectionPageSkipped'];
+        }
+        if (isset($data['privacySettingsHidden'])) {
+            $this->privacySettingsHidden = $data['privacySettingsHidden'];
+        }
+        if (isset($data['userType'])) {
+            $this->userType = $data['userType'];
+        }
+    }
 }

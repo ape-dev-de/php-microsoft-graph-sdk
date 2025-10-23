@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceUpdateSeverity
 {
-    public function __construct(
-    ) {}
 }

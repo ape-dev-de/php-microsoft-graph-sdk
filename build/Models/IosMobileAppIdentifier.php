@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosMobileAppIdentifier
 {
-    public function __construct(
-        /** The identifier for an app, as specified in the app store. */
-        public ?string $bundleId = null
-    ) {}
+    /** The identifier for an app, as specified in the app store. */
+    public ?string $bundleId = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['bundleId'])) {
+            $this->bundleId = $data['bundleId'];
+        }
+    }
 }

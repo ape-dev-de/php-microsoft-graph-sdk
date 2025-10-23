@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDataSourceContainerStatus
 {
-    public function __construct(
-    ) {}
 }

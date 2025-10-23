@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersonType
 {
-    public function __construct(
-        /** The type of data source, such as Person. */
-        public ?string $class = null,
-        /** The secondary type of data source, such as OrganizationUser. */
-        public ?string $subclass = null
-    ) {}
+    /** The type of data source, such as Person. */
+    public ?string $class = null;
+
+    /** The secondary type of data source, such as OrganizationUser. */
+    public ?string $subclass = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['class'])) {
+            $this->class = $data['class'];
+        }
+        if (isset($data['subclass'])) {
+            $this->subclass = $data['subclass'];
+        }
+    }
 }

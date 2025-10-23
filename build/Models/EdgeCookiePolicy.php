@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EdgeCookiePolicy
 {
-    public function __construct(
-    ) {}
 }

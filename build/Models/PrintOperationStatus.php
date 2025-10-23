@@ -9,10 +9,24 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintOperationStatus
 {
-    public function __construct(
-        /** A human-readable description of the printOperation's current processing state. Read-only. */
-        public ?string $description = null,
-        /**  */
-        public ?PrintOperationProcessingState $state = null
-    ) {}
+    /** A human-readable description of the printOperation's current processing state. Read-only. */
+    public ?string $description = null;
+
+    /**  */
+    public ?PrintOperationProcessingState $state = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['description'])) {
+            $this->description = $data['description'];
+        }
+        if (isset($data['state'])) {
+            $this->state = $data['state'];
+        }
+    }
 }

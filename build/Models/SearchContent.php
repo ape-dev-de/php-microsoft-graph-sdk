@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchContent
 {
-    public function __construct(
-    ) {}
 }

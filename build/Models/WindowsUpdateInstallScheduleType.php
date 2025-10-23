@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsUpdateInstallScheduleType
 {
-    public function __construct(
-    ) {}
 }

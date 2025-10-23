@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationMethodsPolicyMigrationState
 {
-    public function __construct(
-    ) {}
 }

@@ -9,36 +9,129 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityKubernetesServiceEvidence
 {
-    public function __construct(
-        /** The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-        public ?\DateTimeInterface $createdDateTime = null,
-        /** @var string[] Detailed description of the entity role/s in an alert. Values are free-form. */
-        public array $detailedRoles = [],
-        /**  */
-        public ?SecurityEvidenceRemediationStatus $remediationStatus = null,
-        /** Details about the remediation status. */
-        public ?string $remediationStatusDetails = null,
-        /** The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker. */
-        public array $roles = [],
-        /** @var string[] Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc. */
-        public array $tags = [],
-        /**  */
-        public ?SecurityEvidenceVerdict $verdict = null,
-        /** The service cluster IP. */
-        public ?SecurityIpEvidence $clusterIP = null,
-        /** The service external IPs. */
-        public array $externalIPs = [],
-        /** The service labels. */
-        public ?SecurityDictionary $labels = null,
-        /** The service name. */
-        public ?string $name = null,
-        /** The service namespace. */
-        public ?SecurityKubernetesNamespaceEvidence $namespace = null,
-        /** The service selector. */
-        public ?SecurityDictionary $selector = null,
-        /** The list of service ports. */
-        public array $servicePorts = [],
-        /**  */
-        public ?SecurityKubernetesServiceType $serviceType = null
-    ) {}
+    /** The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    public ?\DateTimeInterface $createdDateTime = null;
+
+    /** 
+     * Detailed description of the entity role/s in an alert. Values are free-form.
+     * @var string[]
+     */
+    public array $detailedRoles = [];
+
+    /**  */
+    public ?SecurityEvidenceRemediationStatus $remediationStatus = null;
+
+    /** Details about the remediation status. */
+    public ?string $remediationStatusDetails = null;
+
+    /** 
+     * The role/s that an evidence entity represents in an alert, for example, an IP address that is associated with an attacker has the evidence role Attacker.
+     * @var SecurityEvidenceRole[]
+     */
+    public array $roles = [];
+
+    /** 
+     * Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc.
+     * @var string[]
+     */
+    public array $tags = [];
+
+    /**  */
+    public ?SecurityEvidenceVerdict $verdict = null;
+
+    /** 
+     * The service cluster IP.
+     * @var SecurityIpEvidence|\stdClass|null
+     */
+    public mixed $clusterIP = null;
+
+    /** 
+     * The service external IPs.
+     * @var SecurityIpEvidence[]
+     */
+    public array $externalIPs = [];
+
+    /** 
+     * The service labels.
+     * @var SecurityDictionary|\stdClass|null
+     */
+    public mixed $labels = null;
+
+    /** The service name. */
+    public ?string $name = null;
+
+    /** 
+     * The service namespace.
+     * @var SecurityKubernetesNamespaceEvidence|\stdClass|null
+     */
+    public mixed $namespace = null;
+
+    /** 
+     * The service selector.
+     * @var SecurityDictionary|\stdClass|null
+     */
+    public mixed $selector = null;
+
+    /** 
+     * The list of service ports.
+     * @var SecurityKubernetesServicePort[]
+     */
+    public array $servicePorts = [];
+
+    /**  */
+    public ?SecurityKubernetesServiceType $serviceType = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['createdDateTime'])) {
+            $this->createdDateTime = $data['createdDateTime'];
+        }
+        if (isset($data['detailedRoles'])) {
+            $this->detailedRoles = $data['detailedRoles'];
+        }
+        if (isset($data['remediationStatus'])) {
+            $this->remediationStatus = $data['remediationStatus'];
+        }
+        if (isset($data['remediationStatusDetails'])) {
+            $this->remediationStatusDetails = $data['remediationStatusDetails'];
+        }
+        if (isset($data['roles'])) {
+            $this->roles = $data['roles'];
+        }
+        if (isset($data['tags'])) {
+            $this->tags = $data['tags'];
+        }
+        if (isset($data['verdict'])) {
+            $this->verdict = $data['verdict'];
+        }
+        if (isset($data['clusterIP'])) {
+            $this->clusterIP = $data['clusterIP'];
+        }
+        if (isset($data['externalIPs'])) {
+            $this->externalIPs = $data['externalIPs'];
+        }
+        if (isset($data['labels'])) {
+            $this->labels = $data['labels'];
+        }
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['namespace'])) {
+            $this->namespace = $data['namespace'];
+        }
+        if (isset($data['selector'])) {
+            $this->selector = $data['selector'];
+        }
+        if (isset($data['servicePorts'])) {
+            $this->servicePorts = $data['servicePorts'];
+        }
+        if (isset($data['serviceType'])) {
+            $this->serviceType = $data['serviceType'];
+        }
+    }
 }

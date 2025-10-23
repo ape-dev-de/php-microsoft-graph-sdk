@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EngagementAsyncOperationType
 {
-    public function __construct(
-    ) {}
 }

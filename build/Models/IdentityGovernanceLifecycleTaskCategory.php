@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceLifecycleTaskCategory
 {
-    public function __construct(
-    ) {}
 }

@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsMediaStreamDirection
 {
-    public function __construct(
-    ) {}
 }

@@ -9,14 +9,39 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAssignmentApprovalSettings
 {
-    public function __construct(
-        /** If false, then approval isn't required for new requests in this policy. */
-        public ?bool $isApprovalRequiredForAdd = null,
-        /** If false, then approval isn't required for updates to requests in this policy. */
-        public ?bool $isApprovalRequiredForUpdate = null,
-        /** If false, then requestor justification isn't required for updates to requests in this policy. */
-        public ?bool $isRequestorJustificationRequired = null,
-        /** If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required. */
-        public array $stages = []
-    ) {}
+    /** If false, then approval isn't required for new requests in this policy. */
+    public ?bool $isApprovalRequiredForAdd = null;
+
+    /** If false, then approval isn't required for updates to requests in this policy. */
+    public ?bool $isApprovalRequiredForUpdate = null;
+
+    /** If false, then requestor justification isn't required for updates to requests in this policy. */
+    public ?bool $isRequestorJustificationRequired = null;
+
+    /** 
+     * If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
+     * @var AccessPackageApprovalStage[]
+     */
+    public array $stages = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isApprovalRequiredForAdd'])) {
+            $this->isApprovalRequiredForAdd = $data['isApprovalRequiredForAdd'];
+        }
+        if (isset($data['isApprovalRequiredForUpdate'])) {
+            $this->isApprovalRequiredForUpdate = $data['isApprovalRequiredForUpdate'];
+        }
+        if (isset($data['isRequestorJustificationRequired'])) {
+            $this->isRequestorJustificationRequired = $data['isRequestorJustificationRequired'];
+        }
+        if (isset($data['stages'])) {
+            $this->stages = $data['stages'];
+        }
+    }
 }

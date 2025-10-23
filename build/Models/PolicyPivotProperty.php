@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyPivotProperty
 {
-    public function __construct(
-    ) {}
 }

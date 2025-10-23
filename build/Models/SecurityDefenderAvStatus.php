@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDefenderAvStatus
 {
-    public function __construct(
-    ) {}
 }

@@ -9,8 +9,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommsNotifications
 {
-    public function __construct(
-        /** The notification of a change in the resource. */
-        public array $value = []
-    ) {}
+    /** 
+     * The notification of a change in the resource.
+     * @var CommsNotification[]
+     */
+    public array $value = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

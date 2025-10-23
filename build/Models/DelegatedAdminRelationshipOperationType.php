@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegatedAdminRelationshipOperationType
 {
-    public function __construct(
-    ) {}
 }

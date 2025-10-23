@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintQuality
 {
-    public function __construct(
-    ) {}
 }

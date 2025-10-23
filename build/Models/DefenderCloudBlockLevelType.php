@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DefenderCloudBlockLevelType
 {
-    public function __construct(
-    ) {}
 }

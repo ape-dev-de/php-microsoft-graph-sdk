@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationScheduleState
 {
-    public function __construct(
-    ) {}
 }

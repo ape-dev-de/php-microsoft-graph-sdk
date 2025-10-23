@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LocalAdminPasswordSettings
 {
-    public function __construct(
-        /**  */
-        public ?bool $isEnabled = null
-    ) {}
+    /**  */
+    public ?bool $isEnabled = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isEnabled'])) {
+            $this->isEnabled = $data['isEnabled'];
+        }
+    }
 }

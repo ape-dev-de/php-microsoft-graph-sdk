@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DefenderScanType
 {
-    public function __construct(
-    ) {}
 }

@@ -5,219 +5,35 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Collection response for MultiTenantOrganizationJoinRequestTransitionDetails
- * 
- * Implements ArrayAccess, Countable, and IteratorAggregate for array-like behavior
+ * MultiTenantOrganizationJoinRequestTransitionDetailsCollectionResponse - Collection response
  */
-class MultiTenantOrganizationJoinRequestTransitionDetailsCollectionResponse implements \ArrayAccess, \Countable, \IteratorAggregate
+class MultiTenantOrganizationJoinRequestTransitionDetailsCollectionResponse
 {
     /**
-     * @var MultiTenantOrganizationJoinRequestTransitionDetails[]
+     * @var array<int, MultiTenantOrganizationJoinRequestTransitionDetails>
      */
-    private array $value = [];
-
-    private ?string $odataNextLink = null;
-    private ?int $odataCount = null;
-
+    public array $value = [];
+    
+    public ?string $odataContext = null;
+    public ?string $odataNextLink = null;
+    public ?int $odataCount = null;
+    
     /**
-     * Get the collection items
-     * 
-     * @return MultiTenantOrganizationJoinRequestTransitionDetails[]
+     * @param array<string, mixed> $data
      */
-    public function getValue(): array
+    public function __construct(array $data = [])
     {
-        return $this->value;
-    }
-
-    /**
-     * Set the collection items
-     * 
-     * @param MultiTenantOrganizationJoinRequestTransitionDetails[] $items
-     * @return self
-     */
-    public function setValue(array|MultiTenantOrganizationJoinRequestTransitionDetails $items, MultiTenantOrganizationJoinRequestTransitionDetails ...$moreItems): self
-    {
-        if (is_array($items)) {
-            // Called with array (e.g., from deserializer)
-            $this->value = $items;
-        } else {
-           // Called with variadic parameters
-            $this->value = array_merge([$items], $moreItems);
+        if (isset($data['value']) && is_array($data['value'])) {
+            $this->value = $data['value'];
         }
-        return $this;
-    }
-
-    /**
-     * Set the collection items from array (for deserialization)
-     * 
-     * @param array<MultiTenantOrganizationJoinRequestTransitionDetails> $value
-     * @return self
-     * @internal Used by deserializer
-     */
-    public function setValueFromArray(array $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
-
-    /**
-     * Add a single item to the collection
-     * 
-     * @param MultiTenantOrganizationJoinRequestTransitionDetails $item
-     * @return self
-     */
-    public function addValue(MultiTenantOrganizationJoinRequestTransitionDetails $item): self
-    {
-        $this->value[] = $item;
-        return $this;
-    }
-
-    /**
-     * Get the next link for pagination
-     * 
-     * @return string|null
-     */
-    public function getOdataNextLink(): ?string
-    {
-        return $this->odataNextLink;
-    }
-
-    /**
-     * Set the next link for pagination
-     * 
-     * @param string|null $odataNextLink
-     * @return self
-     */
-    public function setOdataNextLink(?string $odataNextLink): self
-    {
-        $this->odataNextLink = $odataNextLink;
-        return $this;
-    }
-
-    /**
-     * Get the total count of items
-     * 
-     * @return int|null
-     */
-    public function getOdataCount(): ?int
-    {
-        return $this->odataCount;
-    }
-
-    /**
-     * Set the total count of items
-     * 
-     * @param int|null $odataCount
-     * @return self
-     */
-    public function setOdataCount(?int $odataCount): self
-    {
-        $this->odataCount = $odataCount;
-        return $this;
-    }
-
-    /**
-     * Check if there are more results available
-     * 
-     * @return bool
-     */
-    public function hasMore(): bool
-    {
-        return $this->odataNextLink !== null;
-    }
-
-    /**
-     * Check if the collection is empty
-     * 
-     * @return bool
-     */
-    public function isEmpty(): bool
-    {
-        return empty($this->value);
-    }
-
-    // ========================================================================
-    // ArrayAccess Implementation
-    // ========================================================================
-
-    /**
-     * Check if offset exists
-     * 
-     * @param mixed $offset
-     * @return bool
-     */
-    public function offsetExists(mixed $offset): bool
-    {
-        return isset($this->value[$offset]);
-    }
-
-    /**
-     * Get value at offset
-     * 
-     * @param mixed $offset
-     * @return MultiTenantOrganizationJoinRequestTransitionDetails|null
-     */
-    public function offsetGet(mixed $offset): mixed
-    {
-        return $this->value[$offset] ?? null;
-    }
-
-    /**
-     * Set value at offset
-     * 
-     * @param mixed $offset
-     * @param mixed $value
-     * @return void
-     */
-    public function offsetSet(mixed $offset, mixed $value): void
-    {
-        if ($offset === null) {
-            $this->value[] = $value;
-        } else {
-            $this->value[$offset] = $value;
+        if (isset($data['@odata.context'])) {
+            $this->odataContext = $data['@odata.context'];
         }
-    }
-
-    /**
-     * Unset value at offset
-     * 
-     * @param mixed $offset
-     * @return void
-     */
-    public function offsetUnset(mixed $offset): void
-    {
-        unset($this->value[$offset]);
-    }
-
-    // ========================================================================
-    // Countable Implementation
-    // ========================================================================
-
-    /**
-     * Count elements (Countable interface)
-     * 
-     * Note: This returns the count of items in the current page,
-     * use getOdataCount() for the total count across all pages
-     * 
-     * @return int
-     */
-    #[\ReturnTypeWillChange]
-    public function count(): int
-    {
-        return count($this->value);
-    }
-
-    // ========================================================================
-    // IteratorAggregate Implementation
-    // ========================================================================
-
-    /**
-     * Get iterator for foreach loops
-     * 
-     * @return \ArrayIterator<int, MultiTenantOrganizationJoinRequestTransitionDetails>
-     */
-    public function getIterator(): \ArrayIterator
-    {
-        return new \ArrayIterator($this->value);
+        if (isset($data['@odata.nextLink'])) {
+            $this->odataNextLink = $data['@odata.nextLink'];
+        }
+        if (isset($data['@odata.count'])) {
+            $this->odataCount = $data['@odata.count'];
+        }
     }
 }

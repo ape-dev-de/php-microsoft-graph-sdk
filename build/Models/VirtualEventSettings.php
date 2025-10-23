@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventSettings
 {
-    public function __construct(
-        /** Indicates whether virtual event attendees receive email notifications. */
-        public ?bool $isAttendeeEmailNotificationEnabled = null
-    ) {}
+    /** Indicates whether virtual event attendees receive email notifications. */
+    public ?bool $isAttendeeEmailNotificationEnabled = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['isAttendeeEmailNotificationEnabled'])) {
+            $this->isAttendeeEmailNotificationEnabled = $data['isAttendeeEmailNotificationEnabled'];
+        }
+    }
 }

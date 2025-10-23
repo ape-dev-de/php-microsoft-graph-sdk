@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAggregation
 {
-    public function __construct(
-        /**  */
-        public array $buckets = [],
-        /**  */
-        public ?string $field = null
-    ) {}
+    /** 
+     * 
+     * @var SearchBucket[]
+     */
+    public array $buckets = [];
+
+    /**  */
+    public ?string $field = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['buckets'])) {
+            $this->buckets = $data['buckets'];
+        }
+        if (isset($data['field'])) {
+            $this->field = $data['field'];
+        }
+    }
 }

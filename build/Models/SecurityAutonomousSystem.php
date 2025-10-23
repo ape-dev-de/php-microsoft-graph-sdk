@@ -9,14 +9,36 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityAutonomousSystem
 {
-    public function __construct(
-        /** The name of the autonomous system. */
-        public ?string $name = null,
-        /** The autonomous system number, assigned by IANA. */
-        public ?float $number = null,
-        /** The name of the autonomous system organization. */
-        public ?string $organization = null,
-        /** A displayable value for these autonomous system details. */
-        public ?string $value = null
-    ) {}
+    /** The name of the autonomous system. */
+    public ?string $name = null;
+
+    /** The autonomous system number, assigned by IANA. */
+    public ?float $number = null;
+
+    /** The name of the autonomous system organization. */
+    public ?string $organization = null;
+
+    /** A displayable value for these autonomous system details. */
+    public ?string $value = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+        if (isset($data['number'])) {
+            $this->number = $data['number'];
+        }
+        if (isset($data['organization'])) {
+            $this->organization = $data['organization'];
+        }
+        if (isset($data['value'])) {
+            $this->value = $data['value'];
+        }
+    }
 }

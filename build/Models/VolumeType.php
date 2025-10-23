@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VolumeType
 {
-    public function __construct(
-    ) {}
 }

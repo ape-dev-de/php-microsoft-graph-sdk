@@ -9,8 +9,18 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SpecialFolder
 {
-    public function __construct(
-        /** The unique identifier for this item in the /drive/special collection */
-        public ?string $name = null
-    ) {}
+    /** The unique identifier for this item in the /drive/special collection */
+    public ?string $name = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['name'])) {
+            $this->name = $data['name'];
+        }
+    }
 }

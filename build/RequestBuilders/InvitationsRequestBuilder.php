@@ -5,75 +5,148 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
-use ApeDevDe\MicrosoftGraphSdk\Models\Invitation;
 use ApeDevDe\MicrosoftGraphSdk\Models\InvitationCollectionResponse;
-use ApeDevDe\MicrosoftGraphSdk\QueryOptions\InvitationQueryOptions;
+use ApeDevDe\MicrosoftGraphSdk\Models\Invitation;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InvitedUserRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InvitedUserSponsorsRequestBuilder;
 
 /**
- * Request builder for Invitation
+ * Request builder for invitations
  */
 class InvitationsRequestBuilder extends BaseRequestBuilder
 {
     /**
-     * Get collection with optional query parameters
+     * Get entities from invitations
      *
-     * You can use either:
-     * 1. Type-safe QueryOptions: get(options: (new InvitationQueryOptions())->top(10)->select(['displayName', 'mail']))
-     * 2. Array parameters: get(queryParameters: ['$top' => 10, '$select' => 'displayName,mail'])
-     *
-     * Supported query parameters:
-     * - $select: Select specific properties
-     * - $filter: Filter results
-     * - $orderby: Order results
-     * - $top: Limit number of results
-     * - $skip: Skip number of results
-     * - $expand: Expand related resources
-     * - $search: Search query
-     * - $count: Include count of items
-     *
-     * @param InvitationQueryOptions|null $options Type-safe query options
-     * @param array|null $queryParameters Raw query parameters (alternative to $options)
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
      * @return InvitationCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?InvitationQueryOptions $options = null, ?array $queryParameters = null): InvitationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): InvitationCollectionResponse
     {
-        $params = $options ? $options->toArray() : ($queryParameters ?? []);
-        $response = $this->client->get($this->getFullPath(), $params);
-        return $this->client->deserialize($response, InvitationCollectionResponse::class);
+        $queryParams = [];
+        if ($select !== null) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null) {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null) {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count;
+        }
+        if ($orderby !== null) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
     }
 
     /**
-     * Create a new Invitation
-     *
-     * @param Invitation $item The item to create
+     * Deserialize response to InvitationCollectionResponse
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new Invitation($item);
+        }
+        $collection = new InvitationCollectionResponse([]);
+        $collection->value = $items;
+        $collection->odataContext = $data['@odata.context'] ?? null;
+        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
+        $collection->odataCount = $data['@odata.count'] ?? null;
+        return $collection;
+    }
+    /**
+     * Create invitation
+     * @param Invitation $body Request body
      * @return Invitation
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(Invitation $item): Invitation
+    public function post(Invitation $body): Invitation
     {
-        $response = $this->client->post($this->getFullPath(), $item);
-        return $this->client->deserialize($response, Invitation::class);
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
     }
 
     /**
-     * Get request builder for specific item by ID
-     *
-     * @param string $id The item ID
-     * @return DirectoryObjectItemRequestBuilder
+     * Deserialize response to Invitation
      */
-    public function byId(string $id): DirectoryObjectItemRequestBuilder
+    private function deserializePost(string $body): mixed
     {
-        return new DirectoryObjectItemRequestBuilder($this->client, $this->buildPath($id));
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Invitation($data);
     }
-
     /**
-     * Get count of items in collection
+     * Navigate to $count
      *
-     * @return int
+     * @return CountRequestBuilder
      */
-    public function count(): int
+    public function count(): CountRequestBuilder
     {
-        $response = $this->client->get($this->getFullPath() . '/$count');
-        return (int) $response->getBody()->getContents();
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
     }
-
+    /**
+     * Navigate to invitedUser
+     *
+     * @return InvitedUserRequestBuilder
+     */
+    public function invitedUser(): InvitedUserRequestBuilder
+    {
+        return new InvitedUserRequestBuilder($this->client, $this->requestUrl . '/invitedUser');
+    }
+    /**
+     * Navigate to invitedUserSponsors
+     *
+     * @return InvitedUserSponsorsRequestBuilder
+     */
+    public function invitedUserSponsors(): InvitedUserSponsorsRequestBuilder
+    {
+        return new InvitedUserSponsorsRequestBuilder($this->client, $this->requestUrl . '/invitedUserSponsors');
+    }
 }

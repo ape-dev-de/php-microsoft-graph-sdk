@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalAudienceScope
 {
-    public function __construct(
-    ) {}
 }

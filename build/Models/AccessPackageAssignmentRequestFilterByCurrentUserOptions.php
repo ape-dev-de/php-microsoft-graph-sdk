@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAssignmentRequestFilterByCurrentUserOptions
 {
-    public function __construct(
-    ) {}
 }

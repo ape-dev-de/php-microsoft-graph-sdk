@@ -9,24 +9,81 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MailboxSettings
 {
-    public function __construct(
-        /** Folder ID of an archive folder for the user. */
-        public ?string $archiveFolder = null,
-        /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user. */
-        public ?AutomaticRepliesSetting $automaticRepliesSetting = null,
-        /** The date format for the user's mailbox. */
-        public ?string $dateFormat = null,
-        /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. */
-        public ?DelegateMeetingMessageDeliveryOptions $delegateMeetingMessageDeliveryOptions = null,
-        /** The locale information for the user, including the preferred language and country/region. */
-        public ?LocaleInfo $language = null,
-        /** The time format for the user's mailbox. */
-        public ?string $timeFormat = null,
-        /** The default time zone for the user's mailbox. */
-        public ?string $timeZone = null,
-        /** The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only. */
-        public ?UserPurpose $userPurpose = null,
-        /** The days of the week and hours in a specific time zone that the user works. */
-        public ?WorkingHours $workingHours = null
-    ) {}
+    /** Folder ID of an archive folder for the user. */
+    public ?string $archiveFolder = null;
+
+    /** 
+     * Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.
+     * @var AutomaticRepliesSetting|\stdClass|null
+     */
+    public mixed $automaticRepliesSetting = null;
+
+    /** The date format for the user's mailbox. */
+    public ?string $dateFormat = null;
+
+    /** 
+     * If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
+     * @var DelegateMeetingMessageDeliveryOptions|\stdClass|null
+     */
+    public mixed $delegateMeetingMessageDeliveryOptions = null;
+
+    /** 
+     * The locale information for the user, including the preferred language and country/region.
+     * @var LocaleInfo|\stdClass|null
+     */
+    public mixed $language = null;
+
+    /** The time format for the user's mailbox. */
+    public ?string $timeFormat = null;
+
+    /** The default time zone for the user's mailbox. */
+    public ?string $timeZone = null;
+
+    /** 
+     * The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
+     * @var UserPurpose|\stdClass|null
+     */
+    public mixed $userPurpose = null;
+
+    /** 
+     * The days of the week and hours in a specific time zone that the user works.
+     * @var WorkingHours|\stdClass|null
+     */
+    public mixed $workingHours = null;
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['archiveFolder'])) {
+            $this->archiveFolder = $data['archiveFolder'];
+        }
+        if (isset($data['automaticRepliesSetting'])) {
+            $this->automaticRepliesSetting = $data['automaticRepliesSetting'];
+        }
+        if (isset($data['dateFormat'])) {
+            $this->dateFormat = $data['dateFormat'];
+        }
+        if (isset($data['delegateMeetingMessageDeliveryOptions'])) {
+            $this->delegateMeetingMessageDeliveryOptions = $data['delegateMeetingMessageDeliveryOptions'];
+        }
+        if (isset($data['language'])) {
+            $this->language = $data['language'];
+        }
+        if (isset($data['timeFormat'])) {
+            $this->timeFormat = $data['timeFormat'];
+        }
+        if (isset($data['timeZone'])) {
+            $this->timeZone = $data['timeZone'];
+        }
+        if (isset($data['userPurpose'])) {
+            $this->userPurpose = $data['userPurpose'];
+        }
+        if (isset($data['workingHours'])) {
+            $this->workingHours = $data['workingHours'];
+        }
+    }
 }

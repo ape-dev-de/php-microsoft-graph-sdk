@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScopeOperatorMultiValuedComparisonType
 {
-    public function __construct(
-    ) {}
 }

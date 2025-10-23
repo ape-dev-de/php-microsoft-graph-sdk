@@ -9,10 +9,27 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationEventsContent
 {
-    public function __construct(
-        /** Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign. */
-        public ?string $compromisedRate = null,
-        /** List of simulation events in an attack simulation and training campaign. */
-        public array $events = []
-    ) {}
+    /** Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign. */
+    public ?string $compromisedRate = null;
+
+    /** 
+     * List of simulation events in an attack simulation and training campaign.
+     * @var SimulationEvent[]
+     */
+    public array $events = [];
+
+
+    /**
+     * Constructor - fast deserialization
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['compromisedRate'])) {
+            $this->compromisedRate = $data['compromisedRate'];
+        }
+        if (isset($data['events'])) {
+            $this->events = $data['events'];
+        }
+    }
 }

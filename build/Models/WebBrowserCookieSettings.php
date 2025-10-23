@@ -9,6 +9,4 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WebBrowserCookieSettings
 {
-    public function __construct(
-    ) {}
 }
