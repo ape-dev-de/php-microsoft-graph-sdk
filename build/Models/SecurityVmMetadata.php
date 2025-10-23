@@ -29,7 +29,7 @@ class SecurityVmMetadata
     public function __construct(array $data = [])
     {
         if (isset($data['cloudProvider'])) {
-            $this->cloudProvider = $data['cloudProvider'];
+            $this->cloudProvider = is_array($data['cloudProvider']) ? new SecurityVmCloudProvider($data['cloudProvider']) : $data['cloudProvider'];
         }
         if (isset($data['resourceId'])) {
             $this->resourceId = $data['resourceId'];

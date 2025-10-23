@@ -56,16 +56,16 @@ class TeamsAsyncOperation
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new OperationError($data['error']) : $data['error'];
         }
         if (isset($data['lastActionDateTime'])) {
             $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = $data['operationType'];
+            $this->operationType = is_array($data['operationType']) ? new TeamsAsyncOperationType($data['operationType']) : $data['operationType'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new TeamsAsyncOperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['targetResourceId'])) {
             $this->targetResourceId = $data['targetResourceId'];

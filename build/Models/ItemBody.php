@@ -29,7 +29,7 @@ class ItemBody
             $this->content = $data['content'];
         }
         if (isset($data['contentType'])) {
-            $this->contentType = $data['contentType'];
+            $this->contentType = is_array($data['contentType']) ? new BodyType($data['contentType']) : $data['contentType'];
         }
     }
 }

@@ -74,28 +74,28 @@ class ItemActivityStat
             $this->id = $data['id'];
         }
         if (isset($data['access'])) {
-            $this->access = $data['access'];
+            $this->access = is_array($data['access']) ? new ItemActionStat($data['access']) : $data['access'];
         }
         if (isset($data['create'])) {
-            $this->create = $data['create'];
+            $this->create = is_array($data['create']) ? new ItemActionStat($data['create']) : $data['create'];
         }
         if (isset($data['delete'])) {
-            $this->delete = $data['delete'];
+            $this->delete = is_array($data['delete']) ? new ItemActionStat($data['delete']) : $data['delete'];
         }
         if (isset($data['edit'])) {
-            $this->edit = $data['edit'];
+            $this->edit = is_array($data['edit']) ? new ItemActionStat($data['edit']) : $data['edit'];
         }
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['incompleteData'])) {
-            $this->incompleteData = $data['incompleteData'];
+            $this->incompleteData = is_array($data['incompleteData']) ? new IncompleteData($data['incompleteData']) : $data['incompleteData'];
         }
         if (isset($data['isTrending'])) {
             $this->isTrending = $data['isTrending'];
         }
         if (isset($data['move'])) {
-            $this->move = $data['move'];
+            $this->move = is_array($data['move']) ? new ItemActionStat($data['move']) : $data['move'];
         }
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];

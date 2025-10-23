@@ -38,7 +38,7 @@ class UsageRightsIncluded
             $this->userEmail = $data['userEmail'];
         }
         if (isset($data['value'])) {
-            $this->value = $data['value'];
+            $this->value = is_array($data['value']) ? new UsageRights($data['value']) : $data['value'];
         }
     }
 }

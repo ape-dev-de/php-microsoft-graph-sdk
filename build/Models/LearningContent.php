@@ -131,7 +131,7 @@ class LearningContent
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['level'])) {
-            $this->level = $data['level'];
+            $this->level = is_array($data['level']) ? new Level($data['level']) : $data['level'];
         }
         if (isset($data['numberOfPages'])) {
             $this->numberOfPages = $data['numberOfPages'];

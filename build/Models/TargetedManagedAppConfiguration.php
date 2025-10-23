@@ -98,7 +98,7 @@ class TargetedManagedAppConfiguration
             $this->assignments = $data['assignments'];
         }
         if (isset($data['deploymentSummary'])) {
-            $this->deploymentSummary = $data['deploymentSummary'];
+            $this->deploymentSummary = is_array($data['deploymentSummary']) ? new ManagedAppPolicyDeploymentSummary($data['deploymentSummary']) : $data['deploymentSummary'];
         }
     }
 }

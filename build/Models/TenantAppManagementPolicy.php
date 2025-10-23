@@ -56,13 +56,13 @@ class TenantAppManagementPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['applicationRestrictions'])) {
-            $this->applicationRestrictions = $data['applicationRestrictions'];
+            $this->applicationRestrictions = is_array($data['applicationRestrictions']) ? new AppManagementApplicationConfiguration($data['applicationRestrictions']) : $data['applicationRestrictions'];
         }
         if (isset($data['isEnabled'])) {
             $this->isEnabled = $data['isEnabled'];
         }
         if (isset($data['servicePrincipalRestrictions'])) {
-            $this->servicePrincipalRestrictions = $data['servicePrincipalRestrictions'];
+            $this->servicePrincipalRestrictions = is_array($data['servicePrincipalRestrictions']) ? new AppManagementServicePrincipalConfiguration($data['servicePrincipalRestrictions']) : $data['servicePrincipalRestrictions'];
         }
     }
 }

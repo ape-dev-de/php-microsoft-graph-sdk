@@ -98,13 +98,13 @@ class SecurityEdiscoveryAddToReviewSetOperation
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new SecurityCaseAction($data['action']) : $data['action'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -113,31 +113,31 @@ class SecurityEdiscoveryAddToReviewSetOperation
             $this->percentProgress = $data['percentProgress'];
         }
         if (isset($data['resultInfo'])) {
-            $this->resultInfo = $data['resultInfo'];
+            $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['additionalDataOptions'])) {
-            $this->additionalDataOptions = $data['additionalDataOptions'];
+            $this->additionalDataOptions = is_array($data['additionalDataOptions']) ? new SecurityAdditionalDataOptions($data['additionalDataOptions']) : $data['additionalDataOptions'];
         }
         if (isset($data['cloudAttachmentVersion'])) {
-            $this->cloudAttachmentVersion = $data['cloudAttachmentVersion'];
+            $this->cloudAttachmentVersion = is_array($data['cloudAttachmentVersion']) ? new SecurityCloudAttachmentVersion($data['cloudAttachmentVersion']) : $data['cloudAttachmentVersion'];
         }
         if (isset($data['documentVersion'])) {
-            $this->documentVersion = $data['documentVersion'];
+            $this->documentVersion = is_array($data['documentVersion']) ? new SecurityDocumentVersion($data['documentVersion']) : $data['documentVersion'];
         }
         if (isset($data['itemsToInclude'])) {
-            $this->itemsToInclude = $data['itemsToInclude'];
+            $this->itemsToInclude = is_array($data['itemsToInclude']) ? new SecurityItemsToInclude($data['itemsToInclude']) : $data['itemsToInclude'];
         }
         if (isset($data['reportFileMetadata'])) {
             $this->reportFileMetadata = $data['reportFileMetadata'];
         }
         if (isset($data['reviewSet'])) {
-            $this->reviewSet = $data['reviewSet'];
+            $this->reviewSet = is_array($data['reviewSet']) ? new SecurityEdiscoveryReviewSet($data['reviewSet']) : $data['reviewSet'];
         }
         if (isset($data['search'])) {
-            $this->search = $data['search'];
+            $this->search = is_array($data['search']) ? new SecurityEdiscoverySearch($data['search']) : $data['search'];
         }
     }
 }

@@ -80,7 +80,7 @@ class WindowsAutopilotDeploymentProfile
             $this->deviceNameTemplate = $data['deviceNameTemplate'];
         }
         if (isset($data['deviceType'])) {
-            $this->deviceType = $data['deviceType'];
+            $this->deviceType = is_array($data['deviceType']) ? new WindowsAutopilotDeviceType($data['deviceType']) : $data['deviceType'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -98,7 +98,7 @@ class WindowsAutopilotDeploymentProfile
             $this->managementServiceAppId = $data['managementServiceAppId'];
         }
         if (isset($data['outOfBoxExperienceSetting'])) {
-            $this->outOfBoxExperienceSetting = $data['outOfBoxExperienceSetting'];
+            $this->outOfBoxExperienceSetting = is_array($data['outOfBoxExperienceSetting']) ? new OutOfBoxExperienceSetting($data['outOfBoxExperienceSetting']) : $data['outOfBoxExperienceSetting'];
         }
         if (isset($data['preprovisioningAllowed'])) {
             $this->preprovisioningAllowed = $data['preprovisioningAllowed'];

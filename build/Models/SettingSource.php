@@ -32,7 +32,7 @@ class SettingSource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['sourceType'])) {
-            $this->sourceType = $data['sourceType'];
+            $this->sourceType = is_array($data['sourceType']) ? new SettingSourceType($data['sourceType']) : $data['sourceType'];
         }
     }
 }

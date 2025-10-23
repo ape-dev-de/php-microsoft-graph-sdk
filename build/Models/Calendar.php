@@ -119,10 +119,10 @@ class Calendar
             $this->changeKey = $data['changeKey'];
         }
         if (isset($data['color'])) {
-            $this->color = $data['color'];
+            $this->color = is_array($data['color']) ? new CalendarColor($data['color']) : $data['color'];
         }
         if (isset($data['defaultOnlineMeetingProvider'])) {
-            $this->defaultOnlineMeetingProvider = $data['defaultOnlineMeetingProvider'];
+            $this->defaultOnlineMeetingProvider = is_array($data['defaultOnlineMeetingProvider']) ? new OnlineMeetingProviderType($data['defaultOnlineMeetingProvider']) : $data['defaultOnlineMeetingProvider'];
         }
         if (isset($data['hexColor'])) {
             $this->hexColor = $data['hexColor'];
@@ -140,7 +140,7 @@ class Calendar
             $this->name = $data['name'];
         }
         if (isset($data['owner'])) {
-            $this->owner = $data['owner'];
+            $this->owner = is_array($data['owner']) ? new EmailAddress($data['owner']) : $data['owner'];
         }
         if (isset($data['calendarPermissions'])) {
             $this->calendarPermissions = $data['calendarPermissions'];

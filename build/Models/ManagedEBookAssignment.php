@@ -32,10 +32,10 @@ class ManagedEBookAssignment
             $this->id = $data['id'];
         }
         if (isset($data['installIntent'])) {
-            $this->installIntent = $data['installIntent'];
+            $this->installIntent = is_array($data['installIntent']) ? new InstallIntent($data['installIntent']) : $data['installIntent'];
         }
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new DeviceAndAppManagementAssignmentTarget($data['target']) : $data['target'];
         }
     }
 }

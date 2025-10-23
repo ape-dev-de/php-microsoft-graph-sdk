@@ -53,10 +53,10 @@ class DeviceRegistrationPolicy
             $this->id = $data['id'];
         }
         if (isset($data['azureADJoin'])) {
-            $this->azureADJoin = $data['azureADJoin'];
+            $this->azureADJoin = is_array($data['azureADJoin']) ? new AzureADJoinPolicy($data['azureADJoin']) : $data['azureADJoin'];
         }
         if (isset($data['azureADRegistration'])) {
-            $this->azureADRegistration = $data['azureADRegistration'];
+            $this->azureADRegistration = is_array($data['azureADRegistration']) ? new AzureADRegistrationPolicy($data['azureADRegistration']) : $data['azureADRegistration'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -65,10 +65,10 @@ class DeviceRegistrationPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['localAdminPassword'])) {
-            $this->localAdminPassword = $data['localAdminPassword'];
+            $this->localAdminPassword = is_array($data['localAdminPassword']) ? new LocalAdminPasswordSettings($data['localAdminPassword']) : $data['localAdminPassword'];
         }
         if (isset($data['multiFactorAuthConfiguration'])) {
-            $this->multiFactorAuthConfiguration = $data['multiFactorAuthConfiguration'];
+            $this->multiFactorAuthConfiguration = is_array($data['multiFactorAuthConfiguration']) ? new MultiFactorAuthConfiguration($data['multiFactorAuthConfiguration']) : $data['multiFactorAuthConfiguration'];
         }
         if (isset($data['userDeviceQuota'])) {
             $this->userDeviceQuota = $data['userDeviceQuota'];

@@ -47,16 +47,16 @@ class AttributeMapping
             $this->exportMissingReferences = $data['exportMissingReferences'];
         }
         if (isset($data['flowBehavior'])) {
-            $this->flowBehavior = $data['flowBehavior'];
+            $this->flowBehavior = is_array($data['flowBehavior']) ? new AttributeFlowBehavior($data['flowBehavior']) : $data['flowBehavior'];
         }
         if (isset($data['flowType'])) {
-            $this->flowType = $data['flowType'];
+            $this->flowType = is_array($data['flowType']) ? new AttributeFlowType($data['flowType']) : $data['flowType'];
         }
         if (isset($data['matchingPriority'])) {
             $this->matchingPriority = $data['matchingPriority'];
         }
         if (isset($data['source'])) {
-            $this->source = $data['source'];
+            $this->source = is_array($data['source']) ? new AttributeMappingSource($data['source']) : $data['source'];
         }
         if (isset($data['targetAttributeName'])) {
             $this->targetAttributeName = $data['targetAttributeName'];

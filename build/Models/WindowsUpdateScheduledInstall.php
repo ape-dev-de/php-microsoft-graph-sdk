@@ -23,7 +23,7 @@ class WindowsUpdateScheduledInstall
     public function __construct(array $data = [])
     {
         if (isset($data['scheduledInstallDay'])) {
-            $this->scheduledInstallDay = $data['scheduledInstallDay'];
+            $this->scheduledInstallDay = is_array($data['scheduledInstallDay']) ? new WeeklySchedule($data['scheduledInstallDay']) : $data['scheduledInstallDay'];
         }
         if (isset($data['scheduledInstallTime'])) {
             $this->scheduledInstallTime = $data['scheduledInstallTime'];

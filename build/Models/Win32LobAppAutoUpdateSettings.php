@@ -20,7 +20,7 @@ class Win32LobAppAutoUpdateSettings
     public function __construct(array $data = [])
     {
         if (isset($data['autoUpdateSupersededAppsState'])) {
-            $this->autoUpdateSupersededAppsState = $data['autoUpdateSupersededAppsState'];
+            $this->autoUpdateSupersededAppsState = is_array($data['autoUpdateSupersededAppsState']) ? new Win32LobAutoUpdateSupersededAppsState($data['autoUpdateSupersededAppsState']) : $data['autoUpdateSupersededAppsState'];
         }
     }
 }

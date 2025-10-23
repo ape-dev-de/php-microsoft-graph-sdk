@@ -44,10 +44,10 @@ class ManagedDeviceOverview
             $this->id = $data['id'];
         }
         if (isset($data['deviceExchangeAccessStateSummary'])) {
-            $this->deviceExchangeAccessStateSummary = $data['deviceExchangeAccessStateSummary'];
+            $this->deviceExchangeAccessStateSummary = is_array($data['deviceExchangeAccessStateSummary']) ? new DeviceExchangeAccessStateSummary($data['deviceExchangeAccessStateSummary']) : $data['deviceExchangeAccessStateSummary'];
         }
         if (isset($data['deviceOperatingSystemSummary'])) {
-            $this->deviceOperatingSystemSummary = $data['deviceOperatingSystemSummary'];
+            $this->deviceOperatingSystemSummary = is_array($data['deviceOperatingSystemSummary']) ? new DeviceOperatingSystemSummary($data['deviceOperatingSystemSummary']) : $data['deviceOperatingSystemSummary'];
         }
         if (isset($data['dualEnrolledDeviceCount'])) {
             $this->dualEnrolledDeviceCount = $data['dualEnrolledDeviceCount'];

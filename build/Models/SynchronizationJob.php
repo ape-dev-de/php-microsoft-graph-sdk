@@ -56,10 +56,10 @@ class SynchronizationJob
             $this->id = $data['id'];
         }
         if (isset($data['schedule'])) {
-            $this->schedule = $data['schedule'];
+            $this->schedule = is_array($data['schedule']) ? new SynchronizationSchedule($data['schedule']) : $data['schedule'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SynchronizationStatus($data['status']) : $data['status'];
         }
         if (isset($data['synchronizationJobSettings'])) {
             $this->synchronizationJobSettings = $data['synchronizationJobSettings'];
@@ -68,10 +68,10 @@ class SynchronizationJob
             $this->templateId = $data['templateId'];
         }
         if (isset($data['bulkUpload'])) {
-            $this->bulkUpload = $data['bulkUpload'];
+            $this->bulkUpload = is_array($data['bulkUpload']) ? new BulkUpload($data['bulkUpload']) : $data['bulkUpload'];
         }
         if (isset($data['schema'])) {
-            $this->schema = $data['schema'];
+            $this->schema = is_array($data['schema']) ? new SynchronizationSchema($data['schema']) : $data['schema'];
         }
     }
 }

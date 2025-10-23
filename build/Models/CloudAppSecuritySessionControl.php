@@ -29,7 +29,7 @@ class CloudAppSecuritySessionControl
             $this->isEnabled = $data['isEnabled'];
         }
         if (isset($data['cloudAppSecurityType'])) {
-            $this->cloudAppSecurityType = $data['cloudAppSecurityType'];
+            $this->cloudAppSecurityType = is_array($data['cloudAppSecurityType']) ? new CloudAppSecuritySessionControlType($data['cloudAppSecurityType']) : $data['cloudAppSecurityType'];
         }
     }
 }

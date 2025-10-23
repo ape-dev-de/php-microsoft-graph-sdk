@@ -35,7 +35,7 @@ class ExternalConnectorsItemIdResolver
             $this->itemId = $data['itemId'];
         }
         if (isset($data['urlMatchInfo'])) {
-            $this->urlMatchInfo = $data['urlMatchInfo'];
+            $this->urlMatchInfo = is_array($data['urlMatchInfo']) ? new ExternalConnectorsUrlMatchInfo($data['urlMatchInfo']) : $data['urlMatchInfo'];
         }
     }
 }

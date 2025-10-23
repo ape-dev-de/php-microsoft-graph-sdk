@@ -32,10 +32,10 @@ class CustomExtensionStageSetting
             $this->id = $data['id'];
         }
         if (isset($data['stage'])) {
-            $this->stage = $data['stage'];
+            $this->stage = is_array($data['stage']) ? new AccessPackageCustomExtensionStage($data['stage']) : $data['stage'];
         }
         if (isset($data['customExtension'])) {
-            $this->customExtension = $data['customExtension'];
+            $this->customExtension = is_array($data['customExtension']) ? new CustomCalloutExtension($data['customExtension']) : $data['customExtension'];
         }
     }
 }

@@ -29,7 +29,7 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp
     public function __construct(array $data = [])
     {
         if (isset($data['attributeCollectionPage'])) {
-            $this->attributeCollectionPage = $data['attributeCollectionPage'];
+            $this->attributeCollectionPage = is_array($data['attributeCollectionPage']) ? new AuthenticationAttributeCollectionPage($data['attributeCollectionPage']) : $data['attributeCollectionPage'];
         }
         if (isset($data['attributes'])) {
             $this->attributes = $data['attributes'];

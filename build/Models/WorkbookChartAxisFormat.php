@@ -35,10 +35,10 @@ class WorkbookChartAxisFormat
             $this->id = $data['id'];
         }
         if (isset($data['font'])) {
-            $this->font = $data['font'];
+            $this->font = is_array($data['font']) ? new WorkbookChartFont($data['font']) : $data['font'];
         }
         if (isset($data['line'])) {
-            $this->line = $data['line'];
+            $this->line = is_array($data['line']) ? new WorkbookChartLineFormat($data['line']) : $data['line'];
         }
     }
 }

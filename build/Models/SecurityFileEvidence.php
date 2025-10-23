@@ -68,7 +68,7 @@ class SecurityFileEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -80,13 +80,13 @@ class SecurityFileEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['detectionStatus'])) {
-            $this->detectionStatus = $data['detectionStatus'];
+            $this->detectionStatus = is_array($data['detectionStatus']) ? new SecurityDetectionStatus($data['detectionStatus']) : $data['detectionStatus'];
         }
         if (isset($data['fileDetails'])) {
-            $this->fileDetails = $data['fileDetails'];
+            $this->fileDetails = is_array($data['fileDetails']) ? new SecurityFileDetails($data['fileDetails']) : $data['fileDetails'];
         }
         if (isset($data['mdeDeviceId'])) {
             $this->mdeDeviceId = $data['mdeDeviceId'];

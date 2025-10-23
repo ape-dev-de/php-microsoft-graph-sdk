@@ -47,7 +47,7 @@ class ItemRetentionLabel
             $this->isLabelAppliedExplicitly = $data['isLabelAppliedExplicitly'];
         }
         if (isset($data['labelAppliedBy'])) {
-            $this->labelAppliedBy = $data['labelAppliedBy'];
+            $this->labelAppliedBy = is_array($data['labelAppliedBy']) ? new IdentitySet($data['labelAppliedBy']) : $data['labelAppliedBy'];
         }
         if (isset($data['labelAppliedDateTime'])) {
             $this->labelAppliedDateTime = is_string($data['labelAppliedDateTime']) ? new \DateTimeImmutable($data['labelAppliedDateTime']) : $data['labelAppliedDateTime'];
@@ -56,7 +56,7 @@ class ItemRetentionLabel
             $this->name = $data['name'];
         }
         if (isset($data['retentionSettings'])) {
-            $this->retentionSettings = $data['retentionSettings'];
+            $this->retentionSettings = is_array($data['retentionSettings']) ? new RetentionLabelSettings($data['retentionSettings']) : $data['retentionSettings'];
         }
     }
 }

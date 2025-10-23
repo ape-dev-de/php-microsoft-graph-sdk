@@ -29,7 +29,7 @@ class SecurityEventQuery
             $this->query = $data['query'];
         }
         if (isset($data['queryType'])) {
-            $this->queryType = $data['queryType'];
+            $this->queryType = is_array($data['queryType']) ? new SecurityQueryType($data['queryType']) : $data['queryType'];
         }
     }
 }

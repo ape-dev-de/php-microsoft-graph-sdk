@@ -89,7 +89,7 @@ class PrinterDefaults
     public function __construct(array $data = [])
     {
         if (isset($data['colorMode'])) {
-            $this->colorMode = $data['colorMode'];
+            $this->colorMode = is_array($data['colorMode']) ? new PrintColorMode($data['colorMode']) : $data['colorMode'];
         }
         if (isset($data['contentType'])) {
             $this->contentType = $data['contentType'];
@@ -101,7 +101,7 @@ class PrinterDefaults
             $this->dpi = $data['dpi'];
         }
         if (isset($data['duplexMode'])) {
-            $this->duplexMode = $data['duplexMode'];
+            $this->duplexMode = is_array($data['duplexMode']) ? new PrintDuplexMode($data['duplexMode']) : $data['duplexMode'];
         }
         if (isset($data['finishings'])) {
             $this->finishings = $data['finishings'];
@@ -122,10 +122,10 @@ class PrinterDefaults
             $this->mediaType = $data['mediaType'];
         }
         if (isset($data['multipageLayout'])) {
-            $this->multipageLayout = $data['multipageLayout'];
+            $this->multipageLayout = is_array($data['multipageLayout']) ? new PrintMultipageLayout($data['multipageLayout']) : $data['multipageLayout'];
         }
         if (isset($data['orientation'])) {
-            $this->orientation = $data['orientation'];
+            $this->orientation = is_array($data['orientation']) ? new PrintOrientation($data['orientation']) : $data['orientation'];
         }
         if (isset($data['outputBin'])) {
             $this->outputBin = $data['outputBin'];
@@ -134,10 +134,10 @@ class PrinterDefaults
             $this->pagesPerSheet = $data['pagesPerSheet'];
         }
         if (isset($data['quality'])) {
-            $this->quality = $data['quality'];
+            $this->quality = is_array($data['quality']) ? new PrintQuality($data['quality']) : $data['quality'];
         }
         if (isset($data['scaling'])) {
-            $this->scaling = $data['scaling'];
+            $this->scaling = is_array($data['scaling']) ? new PrintScaling($data['scaling']) : $data['scaling'];
         }
     }
 }

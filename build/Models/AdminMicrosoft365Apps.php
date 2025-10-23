@@ -29,7 +29,7 @@ class AdminMicrosoft365Apps
             $this->id = $data['id'];
         }
         if (isset($data['installationOptions'])) {
-            $this->installationOptions = $data['installationOptions'];
+            $this->installationOptions = is_array($data['installationOptions']) ? new M365AppsInstallationOptions($data['installationOptions']) : $data['installationOptions'];
         }
     }
 }

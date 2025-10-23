@@ -32,7 +32,7 @@ class AccessPackageAnswerString
             $this->displayValue = $data['displayValue'];
         }
         if (isset($data['answeredQuestion'])) {
-            $this->answeredQuestion = $data['answeredQuestion'];
+            $this->answeredQuestion = is_array($data['answeredQuestion']) ? new AccessPackageQuestion($data['answeredQuestion']) : $data['answeredQuestion'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

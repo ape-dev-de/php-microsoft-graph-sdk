@@ -92,7 +92,7 @@ class SecureScore
             $this->maxScore = $data['maxScore'];
         }
         if (isset($data['vendorInformation'])) {
-            $this->vendorInformation = $data['vendorInformation'];
+            $this->vendorInformation = is_array($data['vendorInformation']) ? new SecurityVendorInformation($data['vendorInformation']) : $data['vendorInformation'];
         }
     }
 }

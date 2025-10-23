@@ -26,7 +26,7 @@ class AzureADRegistrationPolicy
     public function __construct(array $data = [])
     {
         if (isset($data['allowedToRegister'])) {
-            $this->allowedToRegister = $data['allowedToRegister'];
+            $this->allowedToRegister = is_array($data['allowedToRegister']) ? new DeviceRegistrationMembership($data['allowedToRegister']) : $data['allowedToRegister'];
         }
         if (isset($data['isAdminConfigurable'])) {
             $this->isAdminConfigurable = $data['isAdminConfigurable'];

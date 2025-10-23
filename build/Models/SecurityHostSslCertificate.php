@@ -56,10 +56,10 @@ class SecurityHostSslCertificate
             $this->ports = $data['ports'];
         }
         if (isset($data['host'])) {
-            $this->host = $data['host'];
+            $this->host = is_array($data['host']) ? new SecurityHost($data['host']) : $data['host'];
         }
         if (isset($data['sslCertificate'])) {
-            $this->sslCertificate = $data['sslCertificate'];
+            $this->sslCertificate = is_array($data['sslCertificate']) ? new SecuritySslCertificate($data['sslCertificate']) : $data['sslCertificate'];
         }
     }
 }

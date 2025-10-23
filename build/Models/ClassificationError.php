@@ -41,7 +41,7 @@ class ClassificationError
             $this->code = $data['code'];
         }
         if (isset($data['innerError'])) {
-            $this->innerError = $data['innerError'];
+            $this->innerError = is_array($data['innerError']) ? new ClassificationInnerError($data['innerError']) : $data['innerError'];
         }
         if (isset($data['message'])) {
             $this->message = $data['message'];

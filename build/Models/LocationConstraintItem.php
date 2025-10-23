@@ -56,10 +56,10 @@ class LocationConstraintItem
     public function __construct(array $data = [])
     {
         if (isset($data['address'])) {
-            $this->address = $data['address'];
+            $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
         if (isset($data['coordinates'])) {
-            $this->coordinates = $data['coordinates'];
+            $this->coordinates = is_array($data['coordinates']) ? new OutlookGeoCoordinates($data['coordinates']) : $data['coordinates'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -68,7 +68,7 @@ class LocationConstraintItem
             $this->locationEmailAddress = $data['locationEmailAddress'];
         }
         if (isset($data['locationType'])) {
-            $this->locationType = $data['locationType'];
+            $this->locationType = is_array($data['locationType']) ? new LocationType($data['locationType']) : $data['locationType'];
         }
         if (isset($data['locationUri'])) {
             $this->locationUri = $data['locationUri'];
@@ -77,7 +77,7 @@ class LocationConstraintItem
             $this->uniqueId = $data['uniqueId'];
         }
         if (isset($data['uniqueIdType'])) {
-            $this->uniqueIdType = $data['uniqueIdType'];
+            $this->uniqueIdType = is_array($data['uniqueIdType']) ? new LocationUniqueIdType($data['uniqueIdType']) : $data['uniqueIdType'];
         }
         if (isset($data['resolveAvailability'])) {
             $this->resolveAvailability = $data['resolveAvailability'];

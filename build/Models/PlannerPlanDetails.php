@@ -35,10 +35,10 @@ class PlannerPlanDetails
             $this->id = $data['id'];
         }
         if (isset($data['categoryDescriptions'])) {
-            $this->categoryDescriptions = $data['categoryDescriptions'];
+            $this->categoryDescriptions = is_array($data['categoryDescriptions']) ? new PlannerCategoryDescriptions($data['categoryDescriptions']) : $data['categoryDescriptions'];
         }
         if (isset($data['sharedWith'])) {
-            $this->sharedWith = $data['sharedWith'];
+            $this->sharedWith = is_array($data['sharedWith']) ? new PlannerUserIds($data['sharedWith']) : $data['sharedWith'];
         }
     }
 }

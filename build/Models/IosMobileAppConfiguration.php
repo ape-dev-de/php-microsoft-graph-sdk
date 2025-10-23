@@ -107,13 +107,13 @@ class IosMobileAppConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusSummary'])) {
-            $this->deviceStatusSummary = $data['deviceStatusSummary'];
+            $this->deviceStatusSummary = is_array($data['deviceStatusSummary']) ? new ManagedDeviceMobileAppConfigurationDeviceSummary($data['deviceStatusSummary']) : $data['deviceStatusSummary'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusSummary'])) {
-            $this->userStatusSummary = $data['userStatusSummary'];
+            $this->userStatusSummary = is_array($data['userStatusSummary']) ? new ManagedDeviceMobileAppConfigurationUserSummary($data['userStatusSummary']) : $data['userStatusSummary'];
         }
         if (isset($data['encodedSettingXml'])) {
             $this->encodedSettingXml = $data['encodedSettingXml'];

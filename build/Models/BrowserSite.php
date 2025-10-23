@@ -71,7 +71,7 @@ class BrowserSite
             $this->comment = $data['comment'];
         }
         if (isset($data['compatibilityMode'])) {
-            $this->compatibilityMode = $data['compatibilityMode'];
+            $this->compatibilityMode = is_array($data['compatibilityMode']) ? new BrowserSiteCompatibilityMode($data['compatibilityMode']) : $data['compatibilityMode'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -83,19 +83,19 @@ class BrowserSite
             $this->history = $data['history'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['mergeType'])) {
-            $this->mergeType = $data['mergeType'];
+            $this->mergeType = is_array($data['mergeType']) ? new BrowserSiteMergeType($data['mergeType']) : $data['mergeType'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new BrowserSiteStatus($data['status']) : $data['status'];
         }
         if (isset($data['targetEnvironment'])) {
-            $this->targetEnvironment = $data['targetEnvironment'];
+            $this->targetEnvironment = is_array($data['targetEnvironment']) ? new BrowserSiteTargetEnvironment($data['targetEnvironment']) : $data['targetEnvironment'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];

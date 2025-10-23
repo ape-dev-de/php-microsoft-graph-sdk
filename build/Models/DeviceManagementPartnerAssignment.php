@@ -23,7 +23,7 @@ class DeviceManagementPartnerAssignment
     public function __construct(array $data = [])
     {
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new DeviceAndAppManagementAssignmentTarget($data['target']) : $data['target'];
         }
     }
 }

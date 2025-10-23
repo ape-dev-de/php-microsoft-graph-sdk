@@ -125,13 +125,13 @@ class Payload
             $this->id = $data['id'];
         }
         if (isset($data['brand'])) {
-            $this->brand = $data['brand'];
+            $this->brand = is_array($data['brand']) ? new PayloadBrand($data['brand']) : $data['brand'];
         }
         if (isset($data['complexity'])) {
-            $this->complexity = $data['complexity'];
+            $this->complexity = is_array($data['complexity']) ? new PayloadComplexity($data['complexity']) : $data['complexity'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new EmailIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -140,13 +140,13 @@ class Payload
             $this->description = $data['description'];
         }
         if (isset($data['detail'])) {
-            $this->detail = $data['detail'];
+            $this->detail = is_array($data['detail']) ? new PayloadDetail($data['detail']) : $data['detail'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['industry'])) {
-            $this->industry = $data['industry'];
+            $this->industry = is_array($data['industry']) ? new PayloadIndustry($data['industry']) : $data['industry'];
         }
         if (isset($data['isAutomated'])) {
             $this->isAutomated = $data['isAutomated'];
@@ -161,7 +161,7 @@ class Payload
             $this->language = $data['language'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new EmailIdentity($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -170,25 +170,25 @@ class Payload
             $this->payloadTags = $data['payloadTags'];
         }
         if (isset($data['platform'])) {
-            $this->platform = $data['platform'];
+            $this->platform = is_array($data['platform']) ? new PayloadDeliveryPlatform($data['platform']) : $data['platform'];
         }
         if (isset($data['predictedCompromiseRate'])) {
             $this->predictedCompromiseRate = $data['predictedCompromiseRate'];
         }
         if (isset($data['simulationAttackType'])) {
-            $this->simulationAttackType = $data['simulationAttackType'];
+            $this->simulationAttackType = is_array($data['simulationAttackType']) ? new SimulationAttackType($data['simulationAttackType']) : $data['simulationAttackType'];
         }
         if (isset($data['source'])) {
-            $this->source = $data['source'];
+            $this->source = is_array($data['source']) ? new SimulationContentSource($data['source']) : $data['source'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SimulationContentStatus($data['status']) : $data['status'];
         }
         if (isset($data['technique'])) {
-            $this->technique = $data['technique'];
+            $this->technique = is_array($data['technique']) ? new SimulationAttackTechnique($data['technique']) : $data['technique'];
         }
         if (isset($data['theme'])) {
-            $this->theme = $data['theme'];
+            $this->theme = is_array($data['theme']) ? new PayloadTheme($data['theme']) : $data['theme'];
         }
     }
 }

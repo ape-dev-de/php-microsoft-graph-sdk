@@ -35,7 +35,7 @@ class SynchronizationLinkedObjects
     public function __construct(array $data = [])
     {
         if (isset($data['manager'])) {
-            $this->manager = $data['manager'];
+            $this->manager = is_array($data['manager']) ? new SynchronizationJobSubject($data['manager']) : $data['manager'];
         }
         if (isset($data['members'])) {
             $this->members = $data['members'];

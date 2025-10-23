@@ -86,22 +86,22 @@ class SecurityHostPort
             $this->port = $data['port'];
         }
         if (isset($data['protocol'])) {
-            $this->protocol = $data['protocol'];
+            $this->protocol = is_array($data['protocol']) ? new SecurityHostPortProtocol($data['protocol']) : $data['protocol'];
         }
         if (isset($data['services'])) {
             $this->services = $data['services'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityHostPortStatus($data['status']) : $data['status'];
         }
         if (isset($data['timesObserved'])) {
             $this->timesObserved = $data['timesObserved'];
         }
         if (isset($data['host'])) {
-            $this->host = $data['host'];
+            $this->host = is_array($data['host']) ? new SecurityHost($data['host']) : $data['host'];
         }
         if (isset($data['mostRecentSslCertificate'])) {
-            $this->mostRecentSslCertificate = $data['mostRecentSslCertificate'];
+            $this->mostRecentSslCertificate = is_array($data['mostRecentSslCertificate']) ? new SecuritySslCertificate($data['mostRecentSslCertificate']) : $data['mostRecentSslCertificate'];
         }
     }
 }

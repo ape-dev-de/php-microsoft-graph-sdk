@@ -35,7 +35,7 @@ class ParticipantLeftNotification
             $this->participantId = $data['participantId'];
         }
         if (isset($data['call'])) {
-            $this->call = $data['call'];
+            $this->call = is_array($data['call']) ? new Call($data['call']) : $data['call'];
         }
     }
 }

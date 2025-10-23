@@ -65,13 +65,13 @@ class Workbook
             $this->id = $data['id'];
         }
         if (isset($data['application'])) {
-            $this->application = $data['application'];
+            $this->application = is_array($data['application']) ? new WorkbookApplication($data['application']) : $data['application'];
         }
         if (isset($data['comments'])) {
             $this->comments = $data['comments'];
         }
         if (isset($data['functions'])) {
-            $this->functions = $data['functions'];
+            $this->functions = is_array($data['functions']) ? new WorkbookFunctions($data['functions']) : $data['functions'];
         }
         if (isset($data['names'])) {
             $this->names = $data['names'];

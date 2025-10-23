@@ -29,7 +29,7 @@ class RiskServicePrincipalActivity
     public function __construct(array $data = [])
     {
         if (isset($data['detail'])) {
-            $this->detail = $data['detail'];
+            $this->detail = is_array($data['detail']) ? new RiskDetail($data['detail']) : $data['detail'];
         }
         if (isset($data['riskEventTypes'])) {
             $this->riskEventTypes = $data['riskEventTypes'];

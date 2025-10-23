@@ -83,7 +83,7 @@ class AttributeDefinition
             $this->multivalued = $data['multivalued'];
         }
         if (isset($data['mutability'])) {
-            $this->mutability = $data['mutability'];
+            $this->mutability = is_array($data['mutability']) ? new Mutability($data['mutability']) : $data['mutability'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
@@ -95,7 +95,7 @@ class AttributeDefinition
             $this->required = $data['required'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new AttributeType($data['type']) : $data['type'];
         }
     }
 }

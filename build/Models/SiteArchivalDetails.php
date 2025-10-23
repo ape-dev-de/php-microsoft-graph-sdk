@@ -23,7 +23,7 @@ class SiteArchivalDetails
     public function __construct(array $data = [])
     {
         if (isset($data['archiveStatus'])) {
-            $this->archiveStatus = $data['archiveStatus'];
+            $this->archiveStatus = is_array($data['archiveStatus']) ? new SiteArchiveStatus($data['archiveStatus']) : $data['archiveStatus'];
         }
     }
 }

@@ -23,7 +23,7 @@ class SharePointOneDriveOptions
     public function __construct(array $data = [])
     {
         if (isset($data['includeContent'])) {
-            $this->includeContent = $data['includeContent'];
+            $this->includeContent = is_array($data['includeContent']) ? new SearchContent($data['includeContent']) : $data['includeContent'];
         }
     }
 }

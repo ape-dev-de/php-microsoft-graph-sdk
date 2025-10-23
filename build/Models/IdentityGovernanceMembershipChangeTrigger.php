@@ -20,7 +20,7 @@ class IdentityGovernanceMembershipChangeTrigger
     public function __construct(array $data = [])
     {
         if (isset($data['changeType'])) {
-            $this->changeType = $data['changeType'];
+            $this->changeType = is_array($data['changeType']) ? new IdentityGovernanceMembershipChangeType($data['changeType']) : $data['changeType'];
         }
     }
 }

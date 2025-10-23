@@ -131,7 +131,7 @@ class WindowsAppX
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
-            $this->largeIcon = $data['largeIcon'];
+            $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -149,7 +149,7 @@ class WindowsAppX
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -170,7 +170,7 @@ class WindowsAppX
             $this->contentVersions = $data['contentVersions'];
         }
         if (isset($data['applicableArchitectures'])) {
-            $this->applicableArchitectures = $data['applicableArchitectures'];
+            $this->applicableArchitectures = is_array($data['applicableArchitectures']) ? new WindowsArchitecture($data['applicableArchitectures']) : $data['applicableArchitectures'];
         }
         if (isset($data['identityName'])) {
             $this->identityName = $data['identityName'];
@@ -188,7 +188,7 @@ class WindowsAppX
             $this->isBundle = $data['isBundle'];
         }
         if (isset($data['minimumSupportedOperatingSystem'])) {
-            $this->minimumSupportedOperatingSystem = $data['minimumSupportedOperatingSystem'];
+            $this->minimumSupportedOperatingSystem = is_array($data['minimumSupportedOperatingSystem']) ? new WindowsMinimumOperatingSystem($data['minimumSupportedOperatingSystem']) : $data['minimumSupportedOperatingSystem'];
         }
     }
 }

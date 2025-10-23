@@ -23,10 +23,10 @@ class MediaContentRatingNewZealand
     public function __construct(array $data = [])
     {
         if (isset($data['movieRating'])) {
-            $this->movieRating = $data['movieRating'];
+            $this->movieRating = is_array($data['movieRating']) ? new RatingNewZealandMoviesType($data['movieRating']) : $data['movieRating'];
         }
         if (isset($data['tvRating'])) {
-            $this->tvRating = $data['tvRating'];
+            $this->tvRating = is_array($data['tvRating']) ? new RatingNewZealandTelevisionType($data['tvRating']) : $data['tvRating'];
         }
     }
 }

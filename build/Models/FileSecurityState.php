@@ -32,7 +32,7 @@ class FileSecurityState
     public function __construct(array $data = [])
     {
         if (isset($data['fileHash'])) {
-            $this->fileHash = $data['fileHash'];
+            $this->fileHash = is_array($data['fileHash']) ? new FileHash($data['fileHash']) : $data['fileHash'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

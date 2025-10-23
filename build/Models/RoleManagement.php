@@ -29,10 +29,10 @@ class RoleManagement
     public function __construct(array $data = [])
     {
         if (isset($data['directory'])) {
-            $this->directory = $data['directory'];
+            $this->directory = is_array($data['directory']) ? new RbacApplication($data['directory']) : $data['directory'];
         }
         if (isset($data['entitlementManagement'])) {
-            $this->entitlementManagement = $data['entitlementManagement'];
+            $this->entitlementManagement = is_array($data['entitlementManagement']) ? new RbacApplication($data['entitlementManagement']) : $data['entitlementManagement'];
         }
     }
 }

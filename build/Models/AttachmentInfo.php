@@ -32,7 +32,7 @@ class AttachmentInfo
     public function __construct(array $data = [])
     {
         if (isset($data['attachmentType'])) {
-            $this->attachmentType = $data['attachmentType'];
+            $this->attachmentType = is_array($data['attachmentType']) ? new AttachmentType($data['attachmentType']) : $data['attachmentType'];
         }
         if (isset($data['contentType'])) {
             $this->contentType = $data['contentType'];

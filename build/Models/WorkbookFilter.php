@@ -29,7 +29,7 @@ class WorkbookFilter
             $this->id = $data['id'];
         }
         if (isset($data['criteria'])) {
-            $this->criteria = $data['criteria'];
+            $this->criteria = is_array($data['criteria']) ? new WorkbookFilterCriteria($data['criteria']) : $data['criteria'];
         }
     }
 }

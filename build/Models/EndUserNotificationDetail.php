@@ -53,7 +53,7 @@ class EndUserNotificationDetail
             $this->locale = $data['locale'];
         }
         if (isset($data['sentFrom'])) {
-            $this->sentFrom = $data['sentFrom'];
+            $this->sentFrom = is_array($data['sentFrom']) ? new EmailIdentity($data['sentFrom']) : $data['sentFrom'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

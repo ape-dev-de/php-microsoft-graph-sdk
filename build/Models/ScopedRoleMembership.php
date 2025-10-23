@@ -38,7 +38,7 @@ class ScopedRoleMembership
             $this->roleId = $data['roleId'];
         }
         if (isset($data['roleMemberInfo'])) {
-            $this->roleMemberInfo = $data['roleMemberInfo'];
+            $this->roleMemberInfo = is_array($data['roleMemberInfo']) ? new Identity($data['roleMemberInfo']) : $data['roleMemberInfo'];
         }
     }
 }

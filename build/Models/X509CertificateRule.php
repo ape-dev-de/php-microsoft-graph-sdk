@@ -53,13 +53,13 @@ class X509CertificateRule
             $this->policyOidIdentifier = $data['policyOidIdentifier'];
         }
         if (isset($data['x509CertificateAuthenticationMode'])) {
-            $this->x509CertificateAuthenticationMode = $data['x509CertificateAuthenticationMode'];
+            $this->x509CertificateAuthenticationMode = is_array($data['x509CertificateAuthenticationMode']) ? new X509CertificateAuthenticationMode($data['x509CertificateAuthenticationMode']) : $data['x509CertificateAuthenticationMode'];
         }
         if (isset($data['x509CertificateRequiredAffinityLevel'])) {
-            $this->x509CertificateRequiredAffinityLevel = $data['x509CertificateRequiredAffinityLevel'];
+            $this->x509CertificateRequiredAffinityLevel = is_array($data['x509CertificateRequiredAffinityLevel']) ? new X509CertificateAffinityLevel($data['x509CertificateRequiredAffinityLevel']) : $data['x509CertificateRequiredAffinityLevel'];
         }
         if (isset($data['x509CertificateRuleType'])) {
-            $this->x509CertificateRuleType = $data['x509CertificateRuleType'];
+            $this->x509CertificateRuleType = is_array($data['x509CertificateRuleType']) ? new X509CertificateRuleType($data['x509CertificateRuleType']) : $data['x509CertificateRuleType'];
         }
     }
 }

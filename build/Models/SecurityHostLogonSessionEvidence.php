@@ -74,7 +74,7 @@ class SecurityHostLogonSessionEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -86,16 +86,16 @@ class SecurityHostLogonSessionEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['account'])) {
-            $this->account = $data['account'];
+            $this->account = is_array($data['account']) ? new SecurityUserEvidence($data['account']) : $data['account'];
         }
         if (isset($data['endUtcDateTime'])) {
             $this->endUtcDateTime = is_string($data['endUtcDateTime']) ? new \DateTimeImmutable($data['endUtcDateTime']) : $data['endUtcDateTime'];
         }
         if (isset($data['host'])) {
-            $this->host = $data['host'];
+            $this->host = is_array($data['host']) ? new SecurityDeviceEvidence($data['host']) : $data['host'];
         }
         if (isset($data['sessionId'])) {
             $this->sessionId = $data['sessionId'];

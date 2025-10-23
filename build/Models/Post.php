@@ -113,7 +113,7 @@ class Post
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['conversationId'])) {
             $this->conversationId = $data['conversationId'];
@@ -122,7 +122,7 @@ class Post
             $this->conversationThreadId = $data['conversationThreadId'];
         }
         if (isset($data['from'])) {
-            $this->from = $data['from'];
+            $this->from = is_array($data['from']) ? new Recipient($data['from']) : $data['from'];
         }
         if (isset($data['hasAttachments'])) {
             $this->hasAttachments = $data['hasAttachments'];
@@ -134,7 +134,7 @@ class Post
             $this->receivedDateTime = is_string($data['receivedDateTime']) ? new \DateTimeImmutable($data['receivedDateTime']) : $data['receivedDateTime'];
         }
         if (isset($data['sender'])) {
-            $this->sender = $data['sender'];
+            $this->sender = is_array($data['sender']) ? new Recipient($data['sender']) : $data['sender'];
         }
         if (isset($data['attachments'])) {
             $this->attachments = $data['attachments'];
@@ -143,7 +143,7 @@ class Post
             $this->extensions = $data['extensions'];
         }
         if (isset($data['inReplyTo'])) {
-            $this->inReplyTo = $data['inReplyTo'];
+            $this->inReplyTo = is_array($data['inReplyTo']) ? new Post($data['inReplyTo']) : $data['inReplyTo'];
         }
         if (isset($data['multiValueExtendedProperties'])) {
             $this->multiValueExtendedProperties = $data['multiValueExtendedProperties'];

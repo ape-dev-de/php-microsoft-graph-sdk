@@ -86,13 +86,13 @@ class TimeCard
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -101,22 +101,22 @@ class TimeCard
             $this->breaks = $data['breaks'];
         }
         if (isset($data['clockInEvent'])) {
-            $this->clockInEvent = $data['clockInEvent'];
+            $this->clockInEvent = is_array($data['clockInEvent']) ? new TimeCardEvent($data['clockInEvent']) : $data['clockInEvent'];
         }
         if (isset($data['clockOutEvent'])) {
-            $this->clockOutEvent = $data['clockOutEvent'];
+            $this->clockOutEvent = is_array($data['clockOutEvent']) ? new TimeCardEvent($data['clockOutEvent']) : $data['clockOutEvent'];
         }
         if (isset($data['confirmedBy'])) {
-            $this->confirmedBy = $data['confirmedBy'];
+            $this->confirmedBy = is_array($data['confirmedBy']) ? new ConfirmedBy($data['confirmedBy']) : $data['confirmedBy'];
         }
         if (isset($data['notes'])) {
-            $this->notes = $data['notes'];
+            $this->notes = is_array($data['notes']) ? new ItemBody($data['notes']) : $data['notes'];
         }
         if (isset($data['originalEntry'])) {
-            $this->originalEntry = $data['originalEntry'];
+            $this->originalEntry = is_array($data['originalEntry']) ? new TimeCardEntry($data['originalEntry']) : $data['originalEntry'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new TimeCardState($data['state']) : $data['state'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

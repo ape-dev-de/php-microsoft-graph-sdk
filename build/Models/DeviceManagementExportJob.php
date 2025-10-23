@@ -62,10 +62,10 @@ class DeviceManagementExportJob
             $this->filter = $data['filter'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new DeviceManagementReportFileFormat($data['format']) : $data['format'];
         }
         if (isset($data['localizationType'])) {
-            $this->localizationType = $data['localizationType'];
+            $this->localizationType = is_array($data['localizationType']) ? new DeviceManagementExportJobLocalizationType($data['localizationType']) : $data['localizationType'];
         }
         if (isset($data['reportName'])) {
             $this->reportName = $data['reportName'];
@@ -80,7 +80,7 @@ class DeviceManagementExportJob
             $this->snapshotId = $data['snapshotId'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new DeviceManagementReportStatus($data['status']) : $data['status'];
         }
         if (isset($data['url'])) {
             $this->url = $data['url'];

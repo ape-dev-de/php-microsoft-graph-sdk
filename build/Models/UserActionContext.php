@@ -23,7 +23,7 @@ class UserActionContext
     public function __construct(array $data = [])
     {
         if (isset($data['userAction'])) {
-            $this->userAction = $data['userAction'];
+            $this->userAction = is_array($data['userAction']) ? new UserAction($data['userAction']) : $data['userAction'];
         }
     }
 }

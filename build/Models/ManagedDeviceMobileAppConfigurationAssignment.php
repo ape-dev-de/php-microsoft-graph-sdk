@@ -29,7 +29,7 @@ class ManagedDeviceMobileAppConfigurationAssignment
             $this->id = $data['id'];
         }
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new DeviceAndAppManagementAssignmentTarget($data['target']) : $data['target'];
         }
     }
 }

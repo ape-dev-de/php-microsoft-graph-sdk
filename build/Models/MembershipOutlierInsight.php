@@ -65,19 +65,19 @@ class MembershipOutlierInsight
             $this->memberId = $data['memberId'];
         }
         if (isset($data['outlierContainerType'])) {
-            $this->outlierContainerType = $data['outlierContainerType'];
+            $this->outlierContainerType = is_array($data['outlierContainerType']) ? new OutlierContainerType($data['outlierContainerType']) : $data['outlierContainerType'];
         }
         if (isset($data['outlierMemberType'])) {
-            $this->outlierMemberType = $data['outlierMemberType'];
+            $this->outlierMemberType = is_array($data['outlierMemberType']) ? new OutlierMemberType($data['outlierMemberType']) : $data['outlierMemberType'];
         }
         if (isset($data['container'])) {
-            $this->container = $data['container'];
+            $this->container = is_array($data['container']) ? new DirectoryObject($data['container']) : $data['container'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new User($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['member'])) {
-            $this->member = $data['member'];
+            $this->member = is_array($data['member']) ? new DirectoryObject($data['member']) : $data['member'];
         }
     }
 }

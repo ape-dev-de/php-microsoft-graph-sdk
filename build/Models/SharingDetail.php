@@ -38,13 +38,13 @@ class SharingDetail
     public function __construct(array $data = [])
     {
         if (isset($data['sharedBy'])) {
-            $this->sharedBy = $data['sharedBy'];
+            $this->sharedBy = is_array($data['sharedBy']) ? new InsightIdentity($data['sharedBy']) : $data['sharedBy'];
         }
         if (isset($data['sharedDateTime'])) {
             $this->sharedDateTime = is_string($data['sharedDateTime']) ? new \DateTimeImmutable($data['sharedDateTime']) : $data['sharedDateTime'];
         }
         if (isset($data['sharingReference'])) {
-            $this->sharingReference = $data['sharingReference'];
+            $this->sharingReference = is_array($data['sharingReference']) ? new ResourceReference($data['sharingReference']) : $data['sharingReference'];
         }
         if (isset($data['sharingSubject'])) {
             $this->sharingSubject = $data['sharingSubject'];

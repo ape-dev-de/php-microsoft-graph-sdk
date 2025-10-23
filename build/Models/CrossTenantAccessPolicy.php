@@ -68,13 +68,13 @@ class CrossTenantAccessPolicy
             $this->allowedCloudEndpoints = $data['allowedCloudEndpoints'];
         }
         if (isset($data['default'])) {
-            $this->default = $data['default'];
+            $this->default = is_array($data['default']) ? new CrossTenantAccessPolicyConfigurationDefault($data['default']) : $data['default'];
         }
         if (isset($data['partners'])) {
             $this->partners = $data['partners'];
         }
         if (isset($data['templates'])) {
-            $this->templates = $data['templates'];
+            $this->templates = is_array($data['templates']) ? new PolicyTemplate($data['templates']) : $data['templates'];
         }
     }
 }

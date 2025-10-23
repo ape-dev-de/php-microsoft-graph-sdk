@@ -25,19 +25,19 @@ class GetGroupArchivedPrintJobsRequestBuilder extends BaseRequestBuilder
     public function get(?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null): mixed
     {
         $queryParams = [];
-        if ($top !== null) {
+        if ($top !== null && $top !== '') {
             $queryParams['$top'] = $top;
         }
-        if ($skip !== null) {
+        if ($skip !== null && $skip !== '') {
             $queryParams['$skip'] = $skip;
         }
-        if ($search !== null) {
+        if ($search !== null && $search !== '') {
             $queryParams['$search'] = $search;
         }
-        if ($filter !== null) {
+        if ($filter !== null && $filter !== '') {
             $queryParams['$filter'] = $filter;
         }
-        if ($count !== null) {
+        if ($count !== null && $count !== '') {
             $queryParams['$count'] = $count;
         }
         $response = $this->client->get($this->requestUrl, $queryParams);

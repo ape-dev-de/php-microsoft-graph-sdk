@@ -44,7 +44,7 @@ class IosNotificationSettings
     public function __construct(array $data = [])
     {
         if (isset($data['alertType'])) {
-            $this->alertType = $data['alertType'];
+            $this->alertType = is_array($data['alertType']) ? new IosNotificationAlertType($data['alertType']) : $data['alertType'];
         }
         if (isset($data['appName'])) {
             $this->appName = $data['appName'];

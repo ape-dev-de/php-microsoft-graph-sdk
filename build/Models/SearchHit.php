@@ -59,7 +59,7 @@ class SearchHit
             $this->summary = $data['summary'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new Entity($data['resource']) : $data['resource'];
         }
     }
 }

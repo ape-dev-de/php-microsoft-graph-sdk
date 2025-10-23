@@ -44,7 +44,7 @@ class PublicError
             $this->details = $data['details'];
         }
         if (isset($data['innerError'])) {
-            $this->innerError = $data['innerError'];
+            $this->innerError = is_array($data['innerError']) ? new PublicInnerError($data['innerError']) : $data['innerError'];
         }
         if (isset($data['message'])) {
             $this->message = $data['message'];

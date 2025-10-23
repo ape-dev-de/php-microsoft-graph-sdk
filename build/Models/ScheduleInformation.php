@@ -44,7 +44,7 @@ class ScheduleInformation
             $this->availabilityView = $data['availabilityView'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new FreeBusyError($data['error']) : $data['error'];
         }
         if (isset($data['scheduleId'])) {
             $this->scheduleId = $data['scheduleId'];
@@ -53,7 +53,7 @@ class ScheduleInformation
             $this->scheduleItems = $data['scheduleItems'];
         }
         if (isset($data['workingHours'])) {
-            $this->workingHours = $data['workingHours'];
+            $this->workingHours = is_array($data['workingHours']) ? new WorkingHours($data['workingHours']) : $data['workingHours'];
         }
     }
 }

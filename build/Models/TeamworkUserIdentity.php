@@ -35,7 +35,7 @@ class TeamworkUserIdentity
             $this->displayName = $data['displayName'];
         }
         if (isset($data['userIdentityType'])) {
-            $this->userIdentityType = $data['userIdentityType'];
+            $this->userIdentityType = is_array($data['userIdentityType']) ? new TeamworkUserIdentityType($data['userIdentityType']) : $data['userIdentityType'];
         }
     }
 }

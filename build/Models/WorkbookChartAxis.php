@@ -71,16 +71,16 @@ class WorkbookChartAxis
             $this->minorUnit = $data['minorUnit'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookChartAxisFormat($data['format']) : $data['format'];
         }
         if (isset($data['majorGridlines'])) {
-            $this->majorGridlines = $data['majorGridlines'];
+            $this->majorGridlines = is_array($data['majorGridlines']) ? new WorkbookChartGridlines($data['majorGridlines']) : $data['majorGridlines'];
         }
         if (isset($data['minorGridlines'])) {
-            $this->minorGridlines = $data['minorGridlines'];
+            $this->minorGridlines = is_array($data['minorGridlines']) ? new WorkbookChartGridlines($data['minorGridlines']) : $data['minorGridlines'];
         }
         if (isset($data['title'])) {
-            $this->title = $data['title'];
+            $this->title = is_array($data['title']) ? new WorkbookChartAxisTitle($data['title']) : $data['title'];
         }
     }
 }

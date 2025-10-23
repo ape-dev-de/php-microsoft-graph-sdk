@@ -161,7 +161,7 @@ class OrgContact
             $this->directReports = $data['directReports'];
         }
         if (isset($data['manager'])) {
-            $this->manager = $data['manager'];
+            $this->manager = is_array($data['manager']) ? new DirectoryObject($data['manager']) : $data['manager'];
         }
         if (isset($data['memberOf'])) {
             $this->memberOf = $data['memberOf'];

@@ -26,7 +26,7 @@ class AadUserConversationMemberResult
     public function __construct(array $data = [])
     {
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

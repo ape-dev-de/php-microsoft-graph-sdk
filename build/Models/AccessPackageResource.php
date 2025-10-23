@@ -86,7 +86,7 @@ class AccessPackageResource
             $this->originSystem = $data['originSystem'];
         }
         if (isset($data['environment'])) {
-            $this->environment = $data['environment'];
+            $this->environment = is_array($data['environment']) ? new AccessPackageResourceEnvironment($data['environment']) : $data['environment'];
         }
         if (isset($data['roles'])) {
             $this->roles = $data['roles'];

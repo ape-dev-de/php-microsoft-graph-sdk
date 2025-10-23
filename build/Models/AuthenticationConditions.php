@@ -23,7 +23,7 @@ class AuthenticationConditions
     public function __construct(array $data = [])
     {
         if (isset($data['applications'])) {
-            $this->applications = $data['applications'];
+            $this->applications = is_array($data['applications']) ? new AuthenticationConditionsApplications($data['applications']) : $data['applications'];
         }
     }
 }

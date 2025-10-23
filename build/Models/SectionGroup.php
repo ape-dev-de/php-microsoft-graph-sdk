@@ -83,13 +83,13 @@ class SectionGroup
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -101,10 +101,10 @@ class SectionGroup
             $this->sectionsUrl = $data['sectionsUrl'];
         }
         if (isset($data['parentNotebook'])) {
-            $this->parentNotebook = $data['parentNotebook'];
+            $this->parentNotebook = is_array($data['parentNotebook']) ? new Notebook($data['parentNotebook']) : $data['parentNotebook'];
         }
         if (isset($data['parentSectionGroup'])) {
-            $this->parentSectionGroup = $data['parentSectionGroup'];
+            $this->parentSectionGroup = is_array($data['parentSectionGroup']) ? new SectionGroup($data['parentSectionGroup']) : $data['parentSectionGroup'];
         }
         if (isset($data['sectionGroups'])) {
             $this->sectionGroups = $data['sectionGroups'];

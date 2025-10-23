@@ -56,7 +56,7 @@ class SecurityEdiscoveryReviewTag
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -68,13 +68,13 @@ class SecurityEdiscoveryReviewTag
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['childSelectability'])) {
-            $this->childSelectability = $data['childSelectability'];
+            $this->childSelectability = is_array($data['childSelectability']) ? new SecurityChildSelectability($data['childSelectability']) : $data['childSelectability'];
         }
         if (isset($data['childTags'])) {
             $this->childTags = $data['childTags'];
         }
         if (isset($data['parent'])) {
-            $this->parent = $data['parent'];
+            $this->parent = is_array($data['parent']) ? new SecurityEdiscoveryReviewTag($data['parent']) : $data['parent'];
         }
     }
 }

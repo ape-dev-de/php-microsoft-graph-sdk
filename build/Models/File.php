@@ -29,7 +29,7 @@ class File
     public function __construct(array $data = [])
     {
         if (isset($data['hashes'])) {
-            $this->hashes = $data['hashes'];
+            $this->hashes = is_array($data['hashes']) ? new Hashes($data['hashes']) : $data['hashes'];
         }
         if (isset($data['mimeType'])) {
             $this->mimeType = $data['mimeType'];

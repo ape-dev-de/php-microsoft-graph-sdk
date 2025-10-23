@@ -47,7 +47,7 @@ class Quota
             $this->state = $data['state'];
         }
         if (isset($data['storagePlanInformation'])) {
-            $this->storagePlanInformation = $data['storagePlanInformation'];
+            $this->storagePlanInformation = is_array($data['storagePlanInformation']) ? new StoragePlanInformation($data['storagePlanInformation']) : $data['storagePlanInformation'];
         }
         if (isset($data['total'])) {
             $this->total = $data['total'];

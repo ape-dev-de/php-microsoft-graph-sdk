@@ -29,7 +29,7 @@ class PersistentBrowserSessionControl
             $this->isEnabled = $data['isEnabled'];
         }
         if (isset($data['mode'])) {
-            $this->mode = $data['mode'];
+            $this->mode = is_array($data['mode']) ? new PersistentBrowserSessionMode($data['mode']) : $data['mode'];
         }
     }
 }

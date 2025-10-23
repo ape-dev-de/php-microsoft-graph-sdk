@@ -56,16 +56,16 @@ class MessageRule
             $this->id = $data['id'];
         }
         if (isset($data['actions'])) {
-            $this->actions = $data['actions'];
+            $this->actions = is_array($data['actions']) ? new MessageRuleActions($data['actions']) : $data['actions'];
         }
         if (isset($data['conditions'])) {
-            $this->conditions = $data['conditions'];
+            $this->conditions = is_array($data['conditions']) ? new MessageRulePredicates($data['conditions']) : $data['conditions'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['exceptions'])) {
-            $this->exceptions = $data['exceptions'];
+            $this->exceptions = is_array($data['exceptions']) ? new MessageRulePredicates($data['exceptions']) : $data['exceptions'];
         }
         if (isset($data['hasError'])) {
             $this->hasError = $data['hasError'];

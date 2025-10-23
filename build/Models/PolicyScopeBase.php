@@ -35,10 +35,10 @@ class PolicyScopeBase
     public function __construct(array $data = [])
     {
         if (isset($data['activities'])) {
-            $this->activities = $data['activities'];
+            $this->activities = is_array($data['activities']) ? new UserActivityTypes($data['activities']) : $data['activities'];
         }
         if (isset($data['executionMode'])) {
-            $this->executionMode = $data['executionMode'];
+            $this->executionMode = is_array($data['executionMode']) ? new ExecutionMode($data['executionMode']) : $data['executionMode'];
         }
         if (isset($data['locations'])) {
             $this->locations = $data['locations'];

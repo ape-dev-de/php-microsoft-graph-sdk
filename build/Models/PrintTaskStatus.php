@@ -26,7 +26,7 @@ class PrintTaskStatus
             $this->description = $data['description'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new PrintTaskProcessingState($data['state']) : $data['state'];
         }
     }
 }

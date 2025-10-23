@@ -29,7 +29,7 @@ class PlannerAssignment
     public function __construct(array $data = [])
     {
         if (isset($data['assignedBy'])) {
-            $this->assignedBy = $data['assignedBy'];
+            $this->assignedBy = is_array($data['assignedBy']) ? new IdentitySet($data['assignedBy']) : $data['assignedBy'];
         }
         if (isset($data['assignedDateTime'])) {
             $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];

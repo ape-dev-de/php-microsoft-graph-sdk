@@ -29,7 +29,7 @@ class TimeConstraint
     public function __construct(array $data = [])
     {
         if (isset($data['activityDomain'])) {
-            $this->activityDomain = $data['activityDomain'];
+            $this->activityDomain = is_array($data['activityDomain']) ? new ActivityDomain($data['activityDomain']) : $data['activityDomain'];
         }
         if (isset($data['timeSlots'])) {
             $this->timeSlots = $data['timeSlots'];

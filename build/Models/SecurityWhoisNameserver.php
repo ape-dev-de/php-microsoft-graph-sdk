@@ -32,7 +32,7 @@ class SecurityWhoisNameserver
             $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['host'])) {
-            $this->host = $data['host'];
+            $this->host = is_array($data['host']) ? new SecurityHost($data['host']) : $data['host'];
         }
     }
 }

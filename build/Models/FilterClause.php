@@ -35,7 +35,7 @@ class FilterClause
             $this->sourceOperandName = $data['sourceOperandName'];
         }
         if (isset($data['targetOperand'])) {
-            $this->targetOperand = $data['targetOperand'];
+            $this->targetOperand = is_array($data['targetOperand']) ? new FilterOperand($data['targetOperand']) : $data['targetOperand'];
         }
     }
 }

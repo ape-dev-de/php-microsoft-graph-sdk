@@ -50,13 +50,13 @@ class Presence
             $this->availability = $data['availability'];
         }
         if (isset($data['outOfOfficeSettings'])) {
-            $this->outOfOfficeSettings = $data['outOfOfficeSettings'];
+            $this->outOfOfficeSettings = is_array($data['outOfOfficeSettings']) ? new OutOfOfficeSettings($data['outOfOfficeSettings']) : $data['outOfOfficeSettings'];
         }
         if (isset($data['sequenceNumber'])) {
             $this->sequenceNumber = $data['sequenceNumber'];
         }
         if (isset($data['statusMessage'])) {
-            $this->statusMessage = $data['statusMessage'];
+            $this->statusMessage = is_array($data['statusMessage']) ? new PresenceStatusMessage($data['statusMessage']) : $data['statusMessage'];
         }
     }
 }

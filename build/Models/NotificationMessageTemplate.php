@@ -47,7 +47,7 @@ class NotificationMessageTemplate
             $this->id = $data['id'];
         }
         if (isset($data['brandingOptions'])) {
-            $this->brandingOptions = $data['brandingOptions'];
+            $this->brandingOptions = is_array($data['brandingOptions']) ? new NotificationTemplateBrandingOptions($data['brandingOptions']) : $data['brandingOptions'];
         }
         if (isset($data['defaultLocale'])) {
             $this->defaultLocale = $data['defaultLocale'];

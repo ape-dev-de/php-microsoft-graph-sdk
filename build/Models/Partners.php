@@ -29,7 +29,7 @@ class Partners
             $this->id = $data['id'];
         }
         if (isset($data['billing'])) {
-            $this->billing = $data['billing'];
+            $this->billing = is_array($data['billing']) ? new PartnersBillingBilling($data['billing']) : $data['billing'];
         }
     }
 }

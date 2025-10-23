@@ -539,13 +539,13 @@ class IosGeneralDeviceConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['accountBlockModification'])) {
             $this->accountBlockModification = $data['accountBlockModification'];
@@ -593,7 +593,7 @@ class IosGeneralDeviceConfiguration
             $this->appsVisibilityList = $data['appsVisibilityList'];
         }
         if (isset($data['appsVisibilityListType'])) {
-            $this->appsVisibilityListType = $data['appsVisibilityListType'];
+            $this->appsVisibilityListType = is_array($data['appsVisibilityListType']) ? new AppListType($data['appsVisibilityListType']) : $data['appsVisibilityListType'];
         }
         if (isset($data['bluetoothBlockModification'])) {
             $this->bluetoothBlockModification = $data['bluetoothBlockModification'];
@@ -626,7 +626,7 @@ class IosGeneralDeviceConfiguration
             $this->classroomAppForceUnpromptedScreenObservation = $data['classroomAppForceUnpromptedScreenObservation'];
         }
         if (isset($data['compliantAppListType'])) {
-            $this->compliantAppListType = $data['compliantAppListType'];
+            $this->compliantAppListType = is_array($data['compliantAppListType']) ? new AppListType($data['compliantAppListType']) : $data['compliantAppListType'];
         }
         if (isset($data['compliantAppsList'])) {
             $this->compliantAppsList = $data['compliantAppsList'];
@@ -809,34 +809,34 @@ class IosGeneralDeviceConfiguration
             $this->lockScreenBlockTodayView = $data['lockScreenBlockTodayView'];
         }
         if (isset($data['mediaContentRatingApps'])) {
-            $this->mediaContentRatingApps = $data['mediaContentRatingApps'];
+            $this->mediaContentRatingApps = is_array($data['mediaContentRatingApps']) ? new RatingAppsType($data['mediaContentRatingApps']) : $data['mediaContentRatingApps'];
         }
         if (isset($data['mediaContentRatingAustralia'])) {
-            $this->mediaContentRatingAustralia = $data['mediaContentRatingAustralia'];
+            $this->mediaContentRatingAustralia = is_array($data['mediaContentRatingAustralia']) ? new MediaContentRatingAustralia($data['mediaContentRatingAustralia']) : $data['mediaContentRatingAustralia'];
         }
         if (isset($data['mediaContentRatingCanada'])) {
-            $this->mediaContentRatingCanada = $data['mediaContentRatingCanada'];
+            $this->mediaContentRatingCanada = is_array($data['mediaContentRatingCanada']) ? new MediaContentRatingCanada($data['mediaContentRatingCanada']) : $data['mediaContentRatingCanada'];
         }
         if (isset($data['mediaContentRatingFrance'])) {
-            $this->mediaContentRatingFrance = $data['mediaContentRatingFrance'];
+            $this->mediaContentRatingFrance = is_array($data['mediaContentRatingFrance']) ? new MediaContentRatingFrance($data['mediaContentRatingFrance']) : $data['mediaContentRatingFrance'];
         }
         if (isset($data['mediaContentRatingGermany'])) {
-            $this->mediaContentRatingGermany = $data['mediaContentRatingGermany'];
+            $this->mediaContentRatingGermany = is_array($data['mediaContentRatingGermany']) ? new MediaContentRatingGermany($data['mediaContentRatingGermany']) : $data['mediaContentRatingGermany'];
         }
         if (isset($data['mediaContentRatingIreland'])) {
-            $this->mediaContentRatingIreland = $data['mediaContentRatingIreland'];
+            $this->mediaContentRatingIreland = is_array($data['mediaContentRatingIreland']) ? new MediaContentRatingIreland($data['mediaContentRatingIreland']) : $data['mediaContentRatingIreland'];
         }
         if (isset($data['mediaContentRatingJapan'])) {
-            $this->mediaContentRatingJapan = $data['mediaContentRatingJapan'];
+            $this->mediaContentRatingJapan = is_array($data['mediaContentRatingJapan']) ? new MediaContentRatingJapan($data['mediaContentRatingJapan']) : $data['mediaContentRatingJapan'];
         }
         if (isset($data['mediaContentRatingNewZealand'])) {
-            $this->mediaContentRatingNewZealand = $data['mediaContentRatingNewZealand'];
+            $this->mediaContentRatingNewZealand = is_array($data['mediaContentRatingNewZealand']) ? new MediaContentRatingNewZealand($data['mediaContentRatingNewZealand']) : $data['mediaContentRatingNewZealand'];
         }
         if (isset($data['mediaContentRatingUnitedKingdom'])) {
-            $this->mediaContentRatingUnitedKingdom = $data['mediaContentRatingUnitedKingdom'];
+            $this->mediaContentRatingUnitedKingdom = is_array($data['mediaContentRatingUnitedKingdom']) ? new MediaContentRatingUnitedKingdom($data['mediaContentRatingUnitedKingdom']) : $data['mediaContentRatingUnitedKingdom'];
         }
         if (isset($data['mediaContentRatingUnitedStates'])) {
-            $this->mediaContentRatingUnitedStates = $data['mediaContentRatingUnitedStates'];
+            $this->mediaContentRatingUnitedStates = is_array($data['mediaContentRatingUnitedStates']) ? new MediaContentRatingUnitedStates($data['mediaContentRatingUnitedStates']) : $data['mediaContentRatingUnitedStates'];
         }
         if (isset($data['messagesBlocked'])) {
             $this->messagesBlocked = $data['messagesBlocked'];
@@ -881,7 +881,7 @@ class IosGeneralDeviceConfiguration
             $this->passcodeRequired = $data['passcodeRequired'];
         }
         if (isset($data['passcodeRequiredType'])) {
-            $this->passcodeRequiredType = $data['passcodeRequiredType'];
+            $this->passcodeRequiredType = is_array($data['passcodeRequiredType']) ? new RequiredPasswordType($data['passcodeRequiredType']) : $data['passcodeRequiredType'];
         }
         if (isset($data['passcodeSignInFailureCountBeforeWipe'])) {
             $this->passcodeSignInFailureCountBeforeWipe = $data['passcodeSignInFailureCountBeforeWipe'];
@@ -902,7 +902,7 @@ class IosGeneralDeviceConfiguration
             $this->safariBlockPopups = $data['safariBlockPopups'];
         }
         if (isset($data['safariCookieSettings'])) {
-            $this->safariCookieSettings = $data['safariCookieSettings'];
+            $this->safariCookieSettings = is_array($data['safariCookieSettings']) ? new WebBrowserCookieSettings($data['safariCookieSettings']) : $data['safariCookieSettings'];
         }
         if (isset($data['safariManagedDomains'])) {
             $this->safariManagedDomains = $data['safariManagedDomains'];

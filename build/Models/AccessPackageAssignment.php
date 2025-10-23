@@ -71,22 +71,22 @@ class AccessPackageAssignment
             $this->expiredDateTime = is_string($data['expiredDateTime']) ? new \DateTimeImmutable($data['expiredDateTime']) : $data['expiredDateTime'];
         }
         if (isset($data['schedule'])) {
-            $this->schedule = $data['schedule'];
+            $this->schedule = is_array($data['schedule']) ? new EntitlementManagementSchedule($data['schedule']) : $data['schedule'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new AccessPackageAssignmentState($data['state']) : $data['state'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];
         }
         if (isset($data['accessPackage'])) {
-            $this->accessPackage = $data['accessPackage'];
+            $this->accessPackage = is_array($data['accessPackage']) ? new AccessPackage($data['accessPackage']) : $data['accessPackage'];
         }
         if (isset($data['assignmentPolicy'])) {
-            $this->assignmentPolicy = $data['assignmentPolicy'];
+            $this->assignmentPolicy = is_array($data['assignmentPolicy']) ? new AccessPackageAssignmentPolicy($data['assignmentPolicy']) : $data['assignmentPolicy'];
         }
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new AccessPackageSubject($data['target']) : $data['target'];
         }
     }
 }

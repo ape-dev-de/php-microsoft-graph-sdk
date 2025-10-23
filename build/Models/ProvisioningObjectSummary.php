@@ -113,7 +113,7 @@ class ProvisioningObjectSummary
             $this->durationInMilliseconds = $data['durationInMilliseconds'];
         }
         if (isset($data['initiatedBy'])) {
-            $this->initiatedBy = $data['initiatedBy'];
+            $this->initiatedBy = is_array($data['initiatedBy']) ? new Initiator($data['initiatedBy']) : $data['initiatedBy'];
         }
         if (isset($data['jobId'])) {
             $this->jobId = $data['jobId'];
@@ -122,28 +122,28 @@ class ProvisioningObjectSummary
             $this->modifiedProperties = $data['modifiedProperties'];
         }
         if (isset($data['provisioningAction'])) {
-            $this->provisioningAction = $data['provisioningAction'];
+            $this->provisioningAction = is_array($data['provisioningAction']) ? new ProvisioningAction($data['provisioningAction']) : $data['provisioningAction'];
         }
         if (isset($data['provisioningStatusInfo'])) {
-            $this->provisioningStatusInfo = $data['provisioningStatusInfo'];
+            $this->provisioningStatusInfo = is_array($data['provisioningStatusInfo']) ? new ProvisioningStatusInfo($data['provisioningStatusInfo']) : $data['provisioningStatusInfo'];
         }
         if (isset($data['provisioningSteps'])) {
             $this->provisioningSteps = $data['provisioningSteps'];
         }
         if (isset($data['servicePrincipal'])) {
-            $this->servicePrincipal = $data['servicePrincipal'];
+            $this->servicePrincipal = is_array($data['servicePrincipal']) ? new ProvisioningServicePrincipal($data['servicePrincipal']) : $data['servicePrincipal'];
         }
         if (isset($data['sourceIdentity'])) {
-            $this->sourceIdentity = $data['sourceIdentity'];
+            $this->sourceIdentity = is_array($data['sourceIdentity']) ? new ProvisionedIdentity($data['sourceIdentity']) : $data['sourceIdentity'];
         }
         if (isset($data['sourceSystem'])) {
-            $this->sourceSystem = $data['sourceSystem'];
+            $this->sourceSystem = is_array($data['sourceSystem']) ? new ProvisioningSystem($data['sourceSystem']) : $data['sourceSystem'];
         }
         if (isset($data['targetIdentity'])) {
-            $this->targetIdentity = $data['targetIdentity'];
+            $this->targetIdentity = is_array($data['targetIdentity']) ? new ProvisionedIdentity($data['targetIdentity']) : $data['targetIdentity'];
         }
         if (isset($data['targetSystem'])) {
-            $this->targetSystem = $data['targetSystem'];
+            $this->targetSystem = is_array($data['targetSystem']) ? new ProvisioningSystem($data['targetSystem']) : $data['targetSystem'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];

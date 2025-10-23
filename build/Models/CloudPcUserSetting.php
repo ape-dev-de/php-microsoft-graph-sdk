@@ -65,7 +65,7 @@ class CloudPcUserSetting
             $this->resetEnabled = $data['resetEnabled'];
         }
         if (isset($data['restorePointSetting'])) {
-            $this->restorePointSetting = $data['restorePointSetting'];
+            $this->restorePointSetting = is_array($data['restorePointSetting']) ? new CloudPcRestorePointSetting($data['restorePointSetting']) : $data['restorePointSetting'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];

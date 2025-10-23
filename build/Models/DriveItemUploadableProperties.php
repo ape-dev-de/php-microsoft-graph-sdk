@@ -47,16 +47,16 @@ class DriveItemUploadableProperties
             $this->description = $data['description'];
         }
         if (isset($data['driveItemSource'])) {
-            $this->driveItemSource = $data['driveItemSource'];
+            $this->driveItemSource = is_array($data['driveItemSource']) ? new DriveItemSource($data['driveItemSource']) : $data['driveItemSource'];
         }
         if (isset($data['fileSize'])) {
             $this->fileSize = $data['fileSize'];
         }
         if (isset($data['fileSystemInfo'])) {
-            $this->fileSystemInfo = $data['fileSystemInfo'];
+            $this->fileSystemInfo = is_array($data['fileSystemInfo']) ? new FileSystemInfo($data['fileSystemInfo']) : $data['fileSystemInfo'];
         }
         if (isset($data['mediaSource'])) {
-            $this->mediaSource = $data['mediaSource'];
+            $this->mediaSource = is_array($data['mediaSource']) ? new MediaSource($data['mediaSource']) : $data['mediaSource'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

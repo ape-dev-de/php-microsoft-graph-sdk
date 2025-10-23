@@ -47,7 +47,7 @@ class AutomaticRepliesSetting
     public function __construct(array $data = [])
     {
         if (isset($data['externalAudience'])) {
-            $this->externalAudience = $data['externalAudience'];
+            $this->externalAudience = is_array($data['externalAudience']) ? new ExternalAudienceScope($data['externalAudience']) : $data['externalAudience'];
         }
         if (isset($data['externalReplyMessage'])) {
             $this->externalReplyMessage = $data['externalReplyMessage'];
@@ -56,13 +56,13 @@ class AutomaticRepliesSetting
             $this->internalReplyMessage = $data['internalReplyMessage'];
         }
         if (isset($data['scheduledEndDateTime'])) {
-            $this->scheduledEndDateTime = $data['scheduledEndDateTime'];
+            $this->scheduledEndDateTime = is_array($data['scheduledEndDateTime']) ? new DateTimeTimeZone($data['scheduledEndDateTime']) : $data['scheduledEndDateTime'];
         }
         if (isset($data['scheduledStartDateTime'])) {
-            $this->scheduledStartDateTime = $data['scheduledStartDateTime'];
+            $this->scheduledStartDateTime = is_array($data['scheduledStartDateTime']) ? new DateTimeTimeZone($data['scheduledStartDateTime']) : $data['scheduledStartDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new AutomaticRepliesStatus($data['status']) : $data['status'];
         }
     }
 }

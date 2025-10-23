@@ -29,7 +29,7 @@ class PrivilegedAccessRoot
             $this->id = $data['id'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new PrivilegedAccessGroup($data['group']) : $data['group'];
         }
     }
 }

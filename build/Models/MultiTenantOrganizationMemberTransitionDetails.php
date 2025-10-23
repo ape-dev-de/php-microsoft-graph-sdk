@@ -38,16 +38,16 @@ class MultiTenantOrganizationMemberTransitionDetails
     public function __construct(array $data = [])
     {
         if (isset($data['desiredRole'])) {
-            $this->desiredRole = $data['desiredRole'];
+            $this->desiredRole = is_array($data['desiredRole']) ? new MultiTenantOrganizationMemberRole($data['desiredRole']) : $data['desiredRole'];
         }
         if (isset($data['desiredState'])) {
-            $this->desiredState = $data['desiredState'];
+            $this->desiredState = is_array($data['desiredState']) ? new MultiTenantOrganizationMemberState($data['desiredState']) : $data['desiredState'];
         }
         if (isset($data['details'])) {
             $this->details = $data['details'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new MultiTenantOrganizationMemberProcessingStatus($data['status']) : $data['status'];
         }
     }
 }

@@ -50,7 +50,7 @@ class CalendarPermission
             $this->allowedRoles = $data['allowedRoles'];
         }
         if (isset($data['emailAddress'])) {
-            $this->emailAddress = $data['emailAddress'];
+            $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
         }
         if (isset($data['isInsideOrganization'])) {
             $this->isInsideOrganization = $data['isInsideOrganization'];
@@ -59,7 +59,7 @@ class CalendarPermission
             $this->isRemovable = $data['isRemovable'];
         }
         if (isset($data['role'])) {
-            $this->role = $data['role'];
+            $this->role = is_array($data['role']) ? new CalendarRoleType($data['role']) : $data['role'];
         }
     }
 }

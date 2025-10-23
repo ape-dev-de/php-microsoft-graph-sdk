@@ -158,13 +158,13 @@ class Windows10TeamGeneralConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['azureOperationalInsightsBlockTelemetry'])) {
             $this->azureOperationalInsightsBlockTelemetry = $data['azureOperationalInsightsBlockTelemetry'];
@@ -191,7 +191,7 @@ class Windows10TeamGeneralConfiguration
             $this->miracastBlocked = $data['miracastBlocked'];
         }
         if (isset($data['miracastChannel'])) {
-            $this->miracastChannel = $data['miracastChannel'];
+            $this->miracastChannel = is_array($data['miracastChannel']) ? new MiracastChannel($data['miracastChannel']) : $data['miracastChannel'];
         }
         if (isset($data['miracastRequirePin'])) {
             $this->miracastRequirePin = $data['miracastRequirePin'];
@@ -224,7 +224,7 @@ class Windows10TeamGeneralConfiguration
             $this->welcomeScreenBlockAutomaticWakeUp = $data['welcomeScreenBlockAutomaticWakeUp'];
         }
         if (isset($data['welcomeScreenMeetingInformation'])) {
-            $this->welcomeScreenMeetingInformation = $data['welcomeScreenMeetingInformation'];
+            $this->welcomeScreenMeetingInformation = is_array($data['welcomeScreenMeetingInformation']) ? new WelcomeScreenMeetingInformation($data['welcomeScreenMeetingInformation']) : $data['welcomeScreenMeetingInformation'];
         }
     }
 }

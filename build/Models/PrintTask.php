@@ -38,13 +38,13 @@ class PrintTask
             $this->parentUrl = $data['parentUrl'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new PrintTaskStatus($data['status']) : $data['status'];
         }
         if (isset($data['definition'])) {
-            $this->definition = $data['definition'];
+            $this->definition = is_array($data['definition']) ? new PrintTaskDefinition($data['definition']) : $data['definition'];
         }
         if (isset($data['trigger'])) {
-            $this->trigger = $data['trigger'];
+            $this->trigger = is_array($data['trigger']) ? new PrintTaskTrigger($data['trigger']) : $data['trigger'];
         }
     }
 }

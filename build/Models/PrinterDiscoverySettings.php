@@ -20,7 +20,7 @@ class PrinterDiscoverySettings
     public function __construct(array $data = [])
     {
         if (isset($data['airPrint'])) {
-            $this->airPrint = $data['airPrint'];
+            $this->airPrint = is_array($data['airPrint']) ? new AirPrintSettings($data['airPrint']) : $data['airPrint'];
         }
     }
 }

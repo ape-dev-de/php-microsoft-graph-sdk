@@ -83,37 +83,37 @@ class CommunicationsIdentitySet
     public function __construct(array $data = [])
     {
         if (isset($data['application'])) {
-            $this->application = $data['application'];
+            $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
         if (isset($data['device'])) {
-            $this->device = $data['device'];
+            $this->device = is_array($data['device']) ? new Identity($data['device']) : $data['device'];
         }
         if (isset($data['user'])) {
-            $this->user = $data['user'];
+            $this->user = is_array($data['user']) ? new Identity($data['user']) : $data['user'];
         }
         if (isset($data['applicationInstance'])) {
-            $this->applicationInstance = $data['applicationInstance'];
+            $this->applicationInstance = is_array($data['applicationInstance']) ? new Identity($data['applicationInstance']) : $data['applicationInstance'];
         }
         if (isset($data['assertedIdentity'])) {
-            $this->assertedIdentity = $data['assertedIdentity'];
+            $this->assertedIdentity = is_array($data['assertedIdentity']) ? new Identity($data['assertedIdentity']) : $data['assertedIdentity'];
         }
         if (isset($data['azureCommunicationServicesUser'])) {
-            $this->azureCommunicationServicesUser = $data['azureCommunicationServicesUser'];
+            $this->azureCommunicationServicesUser = is_array($data['azureCommunicationServicesUser']) ? new Identity($data['azureCommunicationServicesUser']) : $data['azureCommunicationServicesUser'];
         }
         if (isset($data['encrypted'])) {
-            $this->encrypted = $data['encrypted'];
+            $this->encrypted = is_array($data['encrypted']) ? new Identity($data['encrypted']) : $data['encrypted'];
         }
         if (isset($data['endpointType'])) {
-            $this->endpointType = $data['endpointType'];
+            $this->endpointType = is_array($data['endpointType']) ? new EndpointType($data['endpointType']) : $data['endpointType'];
         }
         if (isset($data['guest'])) {
-            $this->guest = $data['guest'];
+            $this->guest = is_array($data['guest']) ? new Identity($data['guest']) : $data['guest'];
         }
         if (isset($data['onPremises'])) {
-            $this->onPremises = $data['onPremises'];
+            $this->onPremises = is_array($data['onPremises']) ? new Identity($data['onPremises']) : $data['onPremises'];
         }
         if (isset($data['phone'])) {
-            $this->phone = $data['phone'];
+            $this->phone = is_array($data['phone']) ? new Identity($data['phone']) : $data['phone'];
         }
     }
 }

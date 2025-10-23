@@ -56,7 +56,7 @@ class SecurityHostComponent
             $this->version = $data['version'];
         }
         if (isset($data['host'])) {
-            $this->host = $data['host'];
+            $this->host = is_array($data['host']) ? new SecurityHost($data['host']) : $data['host'];
         }
     }
 }

@@ -47,7 +47,7 @@ class WorkbookSortField
             $this->dataOption = $data['dataOption'];
         }
         if (isset($data['icon'])) {
-            $this->icon = $data['icon'];
+            $this->icon = is_array($data['icon']) ? new WorkbookIcon($data['icon']) : $data['icon'];
         }
         if (isset($data['key'])) {
             $this->key = $data['key'];

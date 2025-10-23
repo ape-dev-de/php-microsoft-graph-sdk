@@ -82,7 +82,7 @@ class AttendeeReportRequestBuilder extends BaseRequestBuilder
     public function delete(?string $ifMatch = null): mixed
     {
         $queryParams = [];
-        if ($ifMatch !== null) {
+        if ($ifMatch !== null && $ifMatch !== '') {
             $queryParams['If-Match'] = $ifMatch;
         }
         $response = $this->client->delete($this->requestUrl, $queryParams);

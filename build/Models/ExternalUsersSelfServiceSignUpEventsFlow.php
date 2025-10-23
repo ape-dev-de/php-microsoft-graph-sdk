@@ -71,7 +71,7 @@ class ExternalUsersSelfServiceSignUpEventsFlow
             $this->id = $data['id'];
         }
         if (isset($data['conditions'])) {
-            $this->conditions = $data['conditions'];
+            $this->conditions = is_array($data['conditions']) ? new AuthenticationConditions($data['conditions']) : $data['conditions'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -80,22 +80,22 @@ class ExternalUsersSelfServiceSignUpEventsFlow
             $this->displayName = $data['displayName'];
         }
         if (isset($data['onAttributeCollection'])) {
-            $this->onAttributeCollection = $data['onAttributeCollection'];
+            $this->onAttributeCollection = is_array($data['onAttributeCollection']) ? new OnAttributeCollectionHandler($data['onAttributeCollection']) : $data['onAttributeCollection'];
         }
         if (isset($data['onAttributeCollectionStart'])) {
-            $this->onAttributeCollectionStart = $data['onAttributeCollectionStart'];
+            $this->onAttributeCollectionStart = is_array($data['onAttributeCollectionStart']) ? new OnAttributeCollectionStartHandler($data['onAttributeCollectionStart']) : $data['onAttributeCollectionStart'];
         }
         if (isset($data['onAttributeCollectionSubmit'])) {
-            $this->onAttributeCollectionSubmit = $data['onAttributeCollectionSubmit'];
+            $this->onAttributeCollectionSubmit = is_array($data['onAttributeCollectionSubmit']) ? new OnAttributeCollectionSubmitHandler($data['onAttributeCollectionSubmit']) : $data['onAttributeCollectionSubmit'];
         }
         if (isset($data['onAuthenticationMethodLoadStart'])) {
-            $this->onAuthenticationMethodLoadStart = $data['onAuthenticationMethodLoadStart'];
+            $this->onAuthenticationMethodLoadStart = is_array($data['onAuthenticationMethodLoadStart']) ? new OnAuthenticationMethodLoadStartHandler($data['onAuthenticationMethodLoadStart']) : $data['onAuthenticationMethodLoadStart'];
         }
         if (isset($data['onInteractiveAuthFlowStart'])) {
-            $this->onInteractiveAuthFlowStart = $data['onInteractiveAuthFlowStart'];
+            $this->onInteractiveAuthFlowStart = is_array($data['onInteractiveAuthFlowStart']) ? new OnInteractiveAuthFlowStartHandler($data['onInteractiveAuthFlowStart']) : $data['onInteractiveAuthFlowStart'];
         }
         if (isset($data['onUserCreateStart'])) {
-            $this->onUserCreateStart = $data['onUserCreateStart'];
+            $this->onUserCreateStart = is_array($data['onUserCreateStart']) ? new OnUserCreateStartHandler($data['onUserCreateStart']) : $data['onUserCreateStart'];
         }
     }
 }

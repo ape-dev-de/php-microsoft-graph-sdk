@@ -29,13 +29,13 @@ class ChatMessageHistoryItem
     public function __construct(array $data = [])
     {
         if (isset($data['actions'])) {
-            $this->actions = $data['actions'];
+            $this->actions = is_array($data['actions']) ? new ChatMessageActions($data['actions']) : $data['actions'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['reaction'])) {
-            $this->reaction = $data['reaction'];
+            $this->reaction = is_array($data['reaction']) ? new ChatMessageReaction($data['reaction']) : $data['reaction'];
         }
     }
 }

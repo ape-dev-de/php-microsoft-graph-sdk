@@ -38,7 +38,7 @@ class AccessPackageAssignmentRequestCallbackData
             $this->customExtensionStageInstanceId = $data['customExtensionStageInstanceId'];
         }
         if (isset($data['stage'])) {
-            $this->stage = $data['stage'];
+            $this->stage = is_array($data['stage']) ? new AccessPackageCustomExtensionStage($data['stage']) : $data['stage'];
         }
         if (isset($data['state'])) {
             $this->state = $data['state'];

@@ -38,7 +38,7 @@ class CanvasLayout
             $this->horizontalSections = $data['horizontalSections'];
         }
         if (isset($data['verticalSection'])) {
-            $this->verticalSection = $data['verticalSection'];
+            $this->verticalSection = is_array($data['verticalSection']) ? new VerticalSection($data['verticalSection']) : $data['verticalSection'];
         }
     }
 }

@@ -29,10 +29,10 @@ class PartnersBillingAzureUsage
             $this->id = $data['id'];
         }
         if (isset($data['billed'])) {
-            $this->billed = $data['billed'];
+            $this->billed = is_array($data['billed']) ? new PartnersBillingBilledUsage($data['billed']) : $data['billed'];
         }
         if (isset($data['unbilled'])) {
-            $this->unbilled = $data['unbilled'];
+            $this->unbilled = is_array($data['unbilled']) ? new PartnersBillingUnbilledUsage($data['unbilled']) : $data['unbilled'];
         }
     }
 }

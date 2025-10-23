@@ -200,13 +200,13 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['passwordBlockFingerprintUnlock'])) {
             $this->passwordBlockFingerprintUnlock = $data['passwordBlockFingerprintUnlock'];
@@ -227,7 +227,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new AndroidWorkProfileRequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
             $this->passwordSignInFailureCountBeforeFactoryReset = $data['passwordSignInFailureCountBeforeFactoryReset'];
@@ -260,10 +260,10 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->workProfileBluetoothEnableContactSharing = $data['workProfileBluetoothEnableContactSharing'];
         }
         if (isset($data['workProfileDataSharingType'])) {
-            $this->workProfileDataSharingType = $data['workProfileDataSharingType'];
+            $this->workProfileDataSharingType = is_array($data['workProfileDataSharingType']) ? new AndroidWorkProfileCrossProfileDataSharingType($data['workProfileDataSharingType']) : $data['workProfileDataSharingType'];
         }
         if (isset($data['workProfileDefaultAppPermissionPolicy'])) {
-            $this->workProfileDefaultAppPermissionPolicy = $data['workProfileDefaultAppPermissionPolicy'];
+            $this->workProfileDefaultAppPermissionPolicy = is_array($data['workProfileDefaultAppPermissionPolicy']) ? new AndroidWorkProfileDefaultAppPermissionPolicyType($data['workProfileDefaultAppPermissionPolicy']) : $data['workProfileDefaultAppPermissionPolicy'];
         }
         if (isset($data['workProfilePasswordBlockFingerprintUnlock'])) {
             $this->workProfilePasswordBlockFingerprintUnlock = $data['workProfilePasswordBlockFingerprintUnlock'];
@@ -302,7 +302,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->workProfilePasswordPreviousPasswordBlockCount = $data['workProfilePasswordPreviousPasswordBlockCount'];
         }
         if (isset($data['workProfilePasswordRequiredType'])) {
-            $this->workProfilePasswordRequiredType = $data['workProfilePasswordRequiredType'];
+            $this->workProfilePasswordRequiredType = is_array($data['workProfilePasswordRequiredType']) ? new AndroidWorkProfileRequiredPasswordType($data['workProfilePasswordRequiredType']) : $data['workProfilePasswordRequiredType'];
         }
         if (isset($data['workProfilePasswordSignInFailureCountBeforeFactoryReset'])) {
             $this->workProfilePasswordSignInFailureCountBeforeFactoryReset = $data['workProfilePasswordSignInFailureCountBeforeFactoryReset'];

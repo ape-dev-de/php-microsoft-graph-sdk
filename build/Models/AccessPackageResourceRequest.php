@@ -53,16 +53,16 @@ class AccessPackageResourceRequest
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['requestType'])) {
-            $this->requestType = $data['requestType'];
+            $this->requestType = is_array($data['requestType']) ? new AccessPackageRequestType($data['requestType']) : $data['requestType'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new AccessPackageRequestState($data['state']) : $data['state'];
         }
         if (isset($data['catalog'])) {
-            $this->catalog = $data['catalog'];
+            $this->catalog = is_array($data['catalog']) ? new AccessPackageCatalog($data['catalog']) : $data['catalog'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new AccessPackageResource($data['resource']) : $data['resource'];
         }
     }
 }

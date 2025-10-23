@@ -71,7 +71,7 @@ class SynchronizationStatus
     public function __construct(array $data = [])
     {
         if (isset($data['code'])) {
-            $this->code = $data['code'];
+            $this->code = is_array($data['code']) ? new SynchronizationStatusCode($data['code']) : $data['code'];
         }
         if (isset($data['countSuccessiveCompleteFailures'])) {
             $this->countSuccessiveCompleteFailures = $data['countSuccessiveCompleteFailures'];
@@ -80,19 +80,19 @@ class SynchronizationStatus
             $this->escrowsPruned = $data['escrowsPruned'];
         }
         if (isset($data['lastExecution'])) {
-            $this->lastExecution = $data['lastExecution'];
+            $this->lastExecution = is_array($data['lastExecution']) ? new SynchronizationTaskExecution($data['lastExecution']) : $data['lastExecution'];
         }
         if (isset($data['lastSuccessfulExecution'])) {
-            $this->lastSuccessfulExecution = $data['lastSuccessfulExecution'];
+            $this->lastSuccessfulExecution = is_array($data['lastSuccessfulExecution']) ? new SynchronizationTaskExecution($data['lastSuccessfulExecution']) : $data['lastSuccessfulExecution'];
         }
         if (isset($data['lastSuccessfulExecutionWithExports'])) {
-            $this->lastSuccessfulExecutionWithExports = $data['lastSuccessfulExecutionWithExports'];
+            $this->lastSuccessfulExecutionWithExports = is_array($data['lastSuccessfulExecutionWithExports']) ? new SynchronizationTaskExecution($data['lastSuccessfulExecutionWithExports']) : $data['lastSuccessfulExecutionWithExports'];
         }
         if (isset($data['progress'])) {
             $this->progress = $data['progress'];
         }
         if (isset($data['quarantine'])) {
-            $this->quarantine = $data['quarantine'];
+            $this->quarantine = is_array($data['quarantine']) ? new SynchronizationQuarantine($data['quarantine']) : $data['quarantine'];
         }
         if (isset($data['steadyStateFirstAchievedTime'])) {
             $this->steadyStateFirstAchievedTime = is_string($data['steadyStateFirstAchievedTime']) ? new \DateTimeImmutable($data['steadyStateFirstAchievedTime']) : $data['steadyStateFirstAchievedTime'];

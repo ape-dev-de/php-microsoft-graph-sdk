@@ -74,16 +74,16 @@ class SecurityIntelligenceProfile
             $this->countriesOrRegionsOfOrigin = $data['countriesOrRegionsOfOrigin'];
         }
         if (isset($data['description'])) {
-            $this->description = $data['description'];
+            $this->description = is_array($data['description']) ? new SecurityFormattedContent($data['description']) : $data['description'];
         }
         if (isset($data['firstActiveDateTime'])) {
             $this->firstActiveDateTime = is_string($data['firstActiveDateTime']) ? new \DateTimeImmutable($data['firstActiveDateTime']) : $data['firstActiveDateTime'];
         }
         if (isset($data['kind'])) {
-            $this->kind = $data['kind'];
+            $this->kind = is_array($data['kind']) ? new SecurityIntelligenceProfileKind($data['kind']) : $data['kind'];
         }
         if (isset($data['summary'])) {
-            $this->summary = $data['summary'];
+            $this->summary = is_array($data['summary']) ? new SecurityFormattedContent($data['summary']) : $data['summary'];
         }
         if (isset($data['targets'])) {
             $this->targets = $data['targets'];
@@ -92,7 +92,7 @@ class SecurityIntelligenceProfile
             $this->title = $data['title'];
         }
         if (isset($data['tradecraft'])) {
-            $this->tradecraft = $data['tradecraft'];
+            $this->tradecraft = is_array($data['tradecraft']) ? new SecurityFormattedContent($data['tradecraft']) : $data['tradecraft'];
         }
         if (isset($data['indicators'])) {
             $this->indicators = $data['indicators'];

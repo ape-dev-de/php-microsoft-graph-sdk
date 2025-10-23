@@ -50,22 +50,22 @@ class ConditionalAccessSessionControls
     public function __construct(array $data = [])
     {
         if (isset($data['applicationEnforcedRestrictions'])) {
-            $this->applicationEnforcedRestrictions = $data['applicationEnforcedRestrictions'];
+            $this->applicationEnforcedRestrictions = is_array($data['applicationEnforcedRestrictions']) ? new ApplicationEnforcedRestrictionsSessionControl($data['applicationEnforcedRestrictions']) : $data['applicationEnforcedRestrictions'];
         }
         if (isset($data['cloudAppSecurity'])) {
-            $this->cloudAppSecurity = $data['cloudAppSecurity'];
+            $this->cloudAppSecurity = is_array($data['cloudAppSecurity']) ? new CloudAppSecuritySessionControl($data['cloudAppSecurity']) : $data['cloudAppSecurity'];
         }
         if (isset($data['disableResilienceDefaults'])) {
             $this->disableResilienceDefaults = $data['disableResilienceDefaults'];
         }
         if (isset($data['persistentBrowser'])) {
-            $this->persistentBrowser = $data['persistentBrowser'];
+            $this->persistentBrowser = is_array($data['persistentBrowser']) ? new PersistentBrowserSessionControl($data['persistentBrowser']) : $data['persistentBrowser'];
         }
         if (isset($data['secureSignInSession'])) {
-            $this->secureSignInSession = $data['secureSignInSession'];
+            $this->secureSignInSession = is_array($data['secureSignInSession']) ? new SecureSignInSessionControl($data['secureSignInSession']) : $data['secureSignInSession'];
         }
         if (isset($data['signInFrequency'])) {
-            $this->signInFrequency = $data['signInFrequency'];
+            $this->signInFrequency = is_array($data['signInFrequency']) ? new SignInFrequencySessionControl($data['signInFrequency']) : $data['signInFrequency'];
         }
     }
 }

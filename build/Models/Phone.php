@@ -41,7 +41,7 @@ class Phone
             $this->region = $data['region'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new PhoneType($data['type']) : $data['type'];
         }
     }
 }

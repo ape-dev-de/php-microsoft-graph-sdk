@@ -77,7 +77,7 @@ class SecurityNetworkConnectionEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -89,19 +89,19 @@ class SecurityNetworkConnectionEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['destinationAddress'])) {
-            $this->destinationAddress = $data['destinationAddress'];
+            $this->destinationAddress = is_array($data['destinationAddress']) ? new SecurityIpEvidence($data['destinationAddress']) : $data['destinationAddress'];
         }
         if (isset($data['destinationPort'])) {
             $this->destinationPort = $data['destinationPort'];
         }
         if (isset($data['protocol'])) {
-            $this->protocol = $data['protocol'];
+            $this->protocol = is_array($data['protocol']) ? new SecurityProtocolType($data['protocol']) : $data['protocol'];
         }
         if (isset($data['sourceAddress'])) {
-            $this->sourceAddress = $data['sourceAddress'];
+            $this->sourceAddress = is_array($data['sourceAddress']) ? new SecurityIpEvidence($data['sourceAddress']) : $data['sourceAddress'];
         }
         if (isset($data['sourcePort'])) {
             $this->sourcePort = $data['sourcePort'];

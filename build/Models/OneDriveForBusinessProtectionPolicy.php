@@ -74,7 +74,7 @@ class OneDriveForBusinessProtectionPolicy
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -83,7 +83,7 @@ class OneDriveForBusinessProtectionPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -92,7 +92,7 @@ class OneDriveForBusinessProtectionPolicy
             $this->retentionSettings = $data['retentionSettings'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ProtectionPolicyStatus($data['status']) : $data['status'];
         }
         if (isset($data['driveInclusionRules'])) {
             $this->driveInclusionRules = $data['driveInclusionRules'];

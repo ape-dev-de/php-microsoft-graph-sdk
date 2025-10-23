@@ -53,7 +53,7 @@ class PrintConnector
             $this->fullyQualifiedDomainName = $data['fullyQualifiedDomainName'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new PrinterLocation($data['location']) : $data['location'];
         }
         if (isset($data['operatingSystem'])) {
             $this->operatingSystem = $data['operatingSystem'];

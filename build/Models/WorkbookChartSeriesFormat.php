@@ -35,10 +35,10 @@ class WorkbookChartSeriesFormat
             $this->id = $data['id'];
         }
         if (isset($data['fill'])) {
-            $this->fill = $data['fill'];
+            $this->fill = is_array($data['fill']) ? new WorkbookChartFill($data['fill']) : $data['fill'];
         }
         if (isset($data['line'])) {
-            $this->line = $data['line'];
+            $this->line = is_array($data['line']) ? new WorkbookChartLineFormat($data['line']) : $data['line'];
         }
     }
 }

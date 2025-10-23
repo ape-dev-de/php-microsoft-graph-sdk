@@ -80,7 +80,7 @@ class DirectoryAudit
             $this->correlationId = $data['correlationId'];
         }
         if (isset($data['initiatedBy'])) {
-            $this->initiatedBy = $data['initiatedBy'];
+            $this->initiatedBy = is_array($data['initiatedBy']) ? new AuditActivityInitiator($data['initiatedBy']) : $data['initiatedBy'];
         }
         if (isset($data['loggedByService'])) {
             $this->loggedByService = $data['loggedByService'];
@@ -89,7 +89,7 @@ class DirectoryAudit
             $this->operationType = $data['operationType'];
         }
         if (isset($data['result'])) {
-            $this->result = $data['result'];
+            $this->result = is_array($data['result']) ? new OperationResult($data['result']) : $data['result'];
         }
         if (isset($data['resultReason'])) {
             $this->resultReason = $data['resultReason'];

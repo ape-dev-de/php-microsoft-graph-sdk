@@ -41,13 +41,13 @@ class AutomaticRepliesMailTips
             $this->message = $data['message'];
         }
         if (isset($data['messageLanguage'])) {
-            $this->messageLanguage = $data['messageLanguage'];
+            $this->messageLanguage = is_array($data['messageLanguage']) ? new LocaleInfo($data['messageLanguage']) : $data['messageLanguage'];
         }
         if (isset($data['scheduledEndTime'])) {
-            $this->scheduledEndTime = $data['scheduledEndTime'];
+            $this->scheduledEndTime = is_array($data['scheduledEndTime']) ? new DateTimeTimeZone($data['scheduledEndTime']) : $data['scheduledEndTime'];
         }
         if (isset($data['scheduledStartTime'])) {
-            $this->scheduledStartTime = $data['scheduledStartTime'];
+            $this->scheduledStartTime = is_array($data['scheduledStartTime']) ? new DateTimeTimeZone($data['scheduledStartTime']) : $data['scheduledStartTime'];
         }
     }
 }

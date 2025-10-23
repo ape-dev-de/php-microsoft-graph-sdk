@@ -50,7 +50,7 @@ class SecurityKubernetesServicePort
             $this->port = $data['port'];
         }
         if (isset($data['protocol'])) {
-            $this->protocol = $data['protocol'];
+            $this->protocol = is_array($data['protocol']) ? new SecurityContainerPortProtocol($data['protocol']) : $data['protocol'];
         }
         if (isset($data['targetPort'])) {
             $this->targetPort = $data['targetPort'];

@@ -56,7 +56,7 @@ class DeviceAndAppManagementRoleAssignment
             $this->resourceScopes = $data['resourceScopes'];
         }
         if (isset($data['roleDefinition'])) {
-            $this->roleDefinition = $data['roleDefinition'];
+            $this->roleDefinition = is_array($data['roleDefinition']) ? new RoleDefinition($data['roleDefinition']) : $data['roleDefinition'];
         }
         if (isset($data['members'])) {
             $this->members = $data['members'];

@@ -53,16 +53,16 @@ class CallRecordsSegment
             $this->id = $data['id'];
         }
         if (isset($data['callee'])) {
-            $this->callee = $data['callee'];
+            $this->callee = is_array($data['callee']) ? new CallRecordsEndpoint($data['callee']) : $data['callee'];
         }
         if (isset($data['caller'])) {
-            $this->caller = $data['caller'];
+            $this->caller = is_array($data['caller']) ? new CallRecordsEndpoint($data['caller']) : $data['caller'];
         }
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['failureInfo'])) {
-            $this->failureInfo = $data['failureInfo'];
+            $this->failureInfo = is_array($data['failureInfo']) ? new CallRecordsFailureInfo($data['failureInfo']) : $data['failureInfo'];
         }
         if (isset($data['media'])) {
             $this->media = $data['media'];

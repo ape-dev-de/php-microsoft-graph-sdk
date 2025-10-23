@@ -29,7 +29,7 @@ class UserLastSignInRecommendationInsightSetting
             $this->recommendationLookBackDuration = $data['recommendationLookBackDuration'];
         }
         if (isset($data['signInScope'])) {
-            $this->signInScope = $data['signInScope'];
+            $this->signInScope = is_array($data['signInScope']) ? new UserSignInRecommendationScope($data['signInScope']) : $data['signInScope'];
         }
     }
 }

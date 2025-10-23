@@ -41,16 +41,16 @@ class SubjectRightsRequestHistory
     public function __construct(array $data = [])
     {
         if (isset($data['changedBy'])) {
-            $this->changedBy = $data['changedBy'];
+            $this->changedBy = is_array($data['changedBy']) ? new IdentitySet($data['changedBy']) : $data['changedBy'];
         }
         if (isset($data['eventDateTime'])) {
             $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['stage'])) {
-            $this->stage = $data['stage'];
+            $this->stage = is_array($data['stage']) ? new SubjectRightsRequestStage($data['stage']) : $data['stage'];
         }
         if (isset($data['stageStatus'])) {
-            $this->stageStatus = $data['stageStatus'];
+            $this->stageStatus = is_array($data['stageStatus']) ? new SubjectRightsRequestStageStatus($data['stageStatus']) : $data['stageStatus'];
         }
         if (isset($data['type'])) {
             $this->type = $data['type'];

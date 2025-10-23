@@ -56,7 +56,7 @@ class Fido2AuthenticationMethodConfiguration
             $this->excludeTargets = $data['excludeTargets'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
         }
         if (isset($data['isAttestationEnforced'])) {
             $this->isAttestationEnforced = $data['isAttestationEnforced'];
@@ -65,7 +65,7 @@ class Fido2AuthenticationMethodConfiguration
             $this->isSelfServiceRegistrationAllowed = $data['isSelfServiceRegistrationAllowed'];
         }
         if (isset($data['keyRestrictions'])) {
-            $this->keyRestrictions = $data['keyRestrictions'];
+            $this->keyRestrictions = is_array($data['keyRestrictions']) ? new Fido2KeyRestrictions($data['keyRestrictions']) : $data['keyRestrictions'];
         }
         if (isset($data['includeTargets'])) {
             $this->includeTargets = $data['includeTargets'];

@@ -80,16 +80,16 @@ class RiskyUserHistoryItem
             $this->isProcessing = $data['isProcessing'];
         }
         if (isset($data['riskDetail'])) {
-            $this->riskDetail = $data['riskDetail'];
+            $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];
         }
         if (isset($data['riskLastUpdatedDateTime'])) {
             $this->riskLastUpdatedDateTime = is_string($data['riskLastUpdatedDateTime']) ? new \DateTimeImmutable($data['riskLastUpdatedDateTime']) : $data['riskLastUpdatedDateTime'];
         }
         if (isset($data['riskLevel'])) {
-            $this->riskLevel = $data['riskLevel'];
+            $this->riskLevel = is_array($data['riskLevel']) ? new RiskLevel($data['riskLevel']) : $data['riskLevel'];
         }
         if (isset($data['riskState'])) {
-            $this->riskState = $data['riskState'];
+            $this->riskState = is_array($data['riskState']) ? new RiskState($data['riskState']) : $data['riskState'];
         }
         if (isset($data['userDisplayName'])) {
             $this->userDisplayName = $data['userDisplayName'];
@@ -101,7 +101,7 @@ class RiskyUserHistoryItem
             $this->history = $data['history'];
         }
         if (isset($data['activity'])) {
-            $this->activity = $data['activity'];
+            $this->activity = is_array($data['activity']) ? new RiskUserActivity($data['activity']) : $data['activity'];
         }
         if (isset($data['initiatedBy'])) {
             $this->initiatedBy = $data['initiatedBy'];

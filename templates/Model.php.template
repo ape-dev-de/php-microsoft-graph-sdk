@@ -70,11 +70,20 @@ foreach ($sortedProperties as $propName => $propDef):
 <?php foreach ($sortedProperties as $propName => $propDef): 
     $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $propName))));
     $type = $propDef['type'];
+    $isArray = $propDef['type'] === 'array';
     $isDateTime = str_contains($type, 'DateTimeInterface');
+    
+    // Check if it's a complex type (model class) that needs instantiation
+    $cleanType = str_replace(['?', '|null', '\\stdClass', '|\\stdClass'], '', $type);
+    $cleanType = trim($cleanType, '|'); // Remove trailing/leading pipes
+    $isPrimitive = in_array($cleanType, ['string', 'int', 'bool', 'float', 'mixed', 'array']);
+    $isComplexType = !$isPrimitive && !$isDateTime && !$isArray && !empty($cleanType) && ctype_upper($cleanType[0]);
 ?>
         if (isset($data['<?= $propName ?>'])) {
 <?php if ($isDateTime): ?>
             $this-><?= $phpPropName ?> = is_string($data['<?= $propName ?>']) ? new \DateTimeImmutable($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
+<?php elseif ($isComplexType): ?>
+            $this-><?= $phpPropName ?> = is_array($data['<?= $propName ?>']) ? new <?= $cleanType ?>($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
 <?php else: ?>
             $this-><?= $phpPropName ?> = $data['<?= $propName ?>'];
 <?php endif; ?>

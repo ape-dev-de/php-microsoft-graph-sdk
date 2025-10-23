@@ -29,7 +29,7 @@ class MessageUnpinnedEventMessageDetail
             $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['initiator'])) {
-            $this->initiator = $data['initiator'];
+            $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
     }
 }

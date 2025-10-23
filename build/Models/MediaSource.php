@@ -23,7 +23,7 @@ class MediaSource
     public function __construct(array $data = [])
     {
         if (isset($data['contentCategory'])) {
-            $this->contentCategory = $data['contentCategory'];
+            $this->contentCategory = is_array($data['contentCategory']) ? new MediaSourceContentCategory($data['contentCategory']) : $data['contentCategory'];
         }
     }
 }

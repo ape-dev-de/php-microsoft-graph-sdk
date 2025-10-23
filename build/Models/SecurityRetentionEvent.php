@@ -77,7 +77,7 @@ class SecurityRetentionEvent
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -95,13 +95,13 @@ class SecurityRetentionEvent
             $this->eventQueries = $data['eventQueries'];
         }
         if (isset($data['eventStatus'])) {
-            $this->eventStatus = $data['eventStatus'];
+            $this->eventStatus = is_array($data['eventStatus']) ? new SecurityRetentionEventStatus($data['eventStatus']) : $data['eventStatus'];
         }
         if (isset($data['eventTriggerDateTime'])) {
             $this->eventTriggerDateTime = is_string($data['eventTriggerDateTime']) ? new \DateTimeImmutable($data['eventTriggerDateTime']) : $data['eventTriggerDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -110,7 +110,7 @@ class SecurityRetentionEvent
             $this->lastStatusUpdateDateTime = is_string($data['lastStatusUpdateDateTime']) ? new \DateTimeImmutable($data['lastStatusUpdateDateTime']) : $data['lastStatusUpdateDateTime'];
         }
         if (isset($data['retentionEventType'])) {
-            $this->retentionEventType = $data['retentionEventType'];
+            $this->retentionEventType = is_array($data['retentionEventType']) ? new SecurityRetentionEventType($data['retentionEventType']) : $data['retentionEventType'];
         }
     }
 }

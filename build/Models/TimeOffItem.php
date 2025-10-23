@@ -35,7 +35,7 @@ class TimeOffItem
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['theme'])) {
-            $this->theme = $data['theme'];
+            $this->theme = is_array($data['theme']) ? new ScheduleEntityTheme($data['theme']) : $data['theme'];
         }
         if (isset($data['timeOffReasonId'])) {
             $this->timeOffReasonId = $data['timeOffReasonId'];

@@ -44,7 +44,7 @@ class ProcessingError
             $this->code = $data['code'];
         }
         if (isset($data['innerError'])) {
-            $this->innerError = $data['innerError'];
+            $this->innerError = is_array($data['innerError']) ? new ClassificationInnerError($data['innerError']) : $data['innerError'];
         }
         if (isset($data['message'])) {
             $this->message = $data['message'];
@@ -56,7 +56,7 @@ class ProcessingError
             $this->details = $data['details'];
         }
         if (isset($data['errorType'])) {
-            $this->errorType = $data['errorType'];
+            $this->errorType = is_array($data['errorType']) ? new ContentProcessingErrorType($data['errorType']) : $data['errorType'];
         }
     }
 }

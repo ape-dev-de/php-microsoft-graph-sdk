@@ -25,7 +25,7 @@ class AgreementRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null): Agreement
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
         $response = $this->client->get($this->requestUrl, $queryParams);
@@ -94,7 +94,7 @@ class AgreementRequestBuilder extends BaseRequestBuilder
     public function delete(?string $ifMatch = null): mixed
     {
         $queryParams = [];
-        if ($ifMatch !== null) {
+        if ($ifMatch !== null && $ifMatch !== '') {
             $queryParams['If-Match'] = $ifMatch;
         }
         $response = $this->client->delete($this->requestUrl, $queryParams);

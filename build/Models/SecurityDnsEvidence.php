@@ -74,7 +74,7 @@ class SecurityDnsEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -86,16 +86,16 @@ class SecurityDnsEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['dnsServerIp'])) {
-            $this->dnsServerIp = $data['dnsServerIp'];
+            $this->dnsServerIp = is_array($data['dnsServerIp']) ? new SecurityIpEvidence($data['dnsServerIp']) : $data['dnsServerIp'];
         }
         if (isset($data['domainName'])) {
             $this->domainName = $data['domainName'];
         }
         if (isset($data['hostIpAddress'])) {
-            $this->hostIpAddress = $data['hostIpAddress'];
+            $this->hostIpAddress = is_array($data['hostIpAddress']) ? new SecurityIpEvidence($data['hostIpAddress']) : $data['hostIpAddress'];
         }
         if (isset($data['ipAddresses'])) {
             $this->ipAddresses = $data['ipAddresses'];

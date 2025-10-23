@@ -140,10 +140,10 @@ class Simulation
             $this->id = $data['id'];
         }
         if (isset($data['attackTechnique'])) {
-            $this->attackTechnique = $data['attackTechnique'];
+            $this->attackTechnique = is_array($data['attackTechnique']) ? new SimulationAttackTechnique($data['attackTechnique']) : $data['attackTechnique'];
         }
         if (isset($data['attackType'])) {
-            $this->attackType = $data['attackType'];
+            $this->attackType = is_array($data['attackType']) ? new SimulationAttackType($data['attackType']) : $data['attackType'];
         }
         if (isset($data['automationId'])) {
             $this->automationId = $data['automationId'];
@@ -152,7 +152,7 @@ class Simulation
             $this->completionDateTime = is_string($data['completionDateTime']) ? new \DateTimeImmutable($data['completionDateTime']) : $data['completionDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new EmailIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -167,19 +167,19 @@ class Simulation
             $this->durationInDays = $data['durationInDays'];
         }
         if (isset($data['endUserNotificationSetting'])) {
-            $this->endUserNotificationSetting = $data['endUserNotificationSetting'];
+            $this->endUserNotificationSetting = is_array($data['endUserNotificationSetting']) ? new EndUserNotificationSetting($data['endUserNotificationSetting']) : $data['endUserNotificationSetting'];
         }
         if (isset($data['excludedAccountTarget'])) {
-            $this->excludedAccountTarget = $data['excludedAccountTarget'];
+            $this->excludedAccountTarget = is_array($data['excludedAccountTarget']) ? new AccountTargetContent($data['excludedAccountTarget']) : $data['excludedAccountTarget'];
         }
         if (isset($data['includedAccountTarget'])) {
-            $this->includedAccountTarget = $data['includedAccountTarget'];
+            $this->includedAccountTarget = is_array($data['includedAccountTarget']) ? new AccountTargetContent($data['includedAccountTarget']) : $data['includedAccountTarget'];
         }
         if (isset($data['isAutomated'])) {
             $this->isAutomated = $data['isAutomated'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new EmailIdentity($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -188,28 +188,28 @@ class Simulation
             $this->launchDateTime = is_string($data['launchDateTime']) ? new \DateTimeImmutable($data['launchDateTime']) : $data['launchDateTime'];
         }
         if (isset($data['oAuthConsentAppDetail'])) {
-            $this->oAuthConsentAppDetail = $data['oAuthConsentAppDetail'];
+            $this->oAuthConsentAppDetail = is_array($data['oAuthConsentAppDetail']) ? new OAuthConsentAppDetail($data['oAuthConsentAppDetail']) : $data['oAuthConsentAppDetail'];
         }
         if (isset($data['payloadDeliveryPlatform'])) {
-            $this->payloadDeliveryPlatform = $data['payloadDeliveryPlatform'];
+            $this->payloadDeliveryPlatform = is_array($data['payloadDeliveryPlatform']) ? new PayloadDeliveryPlatform($data['payloadDeliveryPlatform']) : $data['payloadDeliveryPlatform'];
         }
         if (isset($data['report'])) {
-            $this->report = $data['report'];
+            $this->report = is_array($data['report']) ? new SimulationReport($data['report']) : $data['report'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SimulationStatus($data['status']) : $data['status'];
         }
         if (isset($data['trainingSetting'])) {
-            $this->trainingSetting = $data['trainingSetting'];
+            $this->trainingSetting = is_array($data['trainingSetting']) ? new TrainingSetting($data['trainingSetting']) : $data['trainingSetting'];
         }
         if (isset($data['landingPage'])) {
-            $this->landingPage = $data['landingPage'];
+            $this->landingPage = is_array($data['landingPage']) ? new LandingPage($data['landingPage']) : $data['landingPage'];
         }
         if (isset($data['loginPage'])) {
-            $this->loginPage = $data['loginPage'];
+            $this->loginPage = is_array($data['loginPage']) ? new LoginPage($data['loginPage']) : $data['loginPage'];
         }
         if (isset($data['payload'])) {
-            $this->payload = $data['payload'];
+            $this->payload = is_array($data['payload']) ? new Payload($data['payload']) : $data['payload'];
         }
     }
 }

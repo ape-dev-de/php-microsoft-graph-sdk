@@ -35,7 +35,7 @@ class CrossTenantIdentitySyncPolicyPartner
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['userSyncInbound'])) {
-            $this->userSyncInbound = $data['userSyncInbound'];
+            $this->userSyncInbound = is_array($data['userSyncInbound']) ? new CrossTenantUserSyncInbound($data['userSyncInbound']) : $data['userSyncInbound'];
         }
     }
 }

@@ -50,7 +50,7 @@ class SharedWithChannelTeamInfo
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['team'])) {
-            $this->team = $data['team'];
+            $this->team = is_array($data['team']) ? new Team($data['team']) : $data['team'];
         }
         if (isset($data['isHostTeam'])) {
             $this->isHostTeam = $data['isHostTeam'];

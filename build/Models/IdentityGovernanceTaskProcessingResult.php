@@ -53,16 +53,16 @@ class IdentityGovernanceTaskProcessingResult
             $this->failureReason = $data['failureReason'];
         }
         if (isset($data['processingStatus'])) {
-            $this->processingStatus = $data['processingStatus'];
+            $this->processingStatus = is_array($data['processingStatus']) ? new IdentityGovernanceLifecycleWorkflowProcessingStatus($data['processingStatus']) : $data['processingStatus'];
         }
         if (isset($data['startedDateTime'])) {
             $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['subject'])) {
-            $this->subject = $data['subject'];
+            $this->subject = is_array($data['subject']) ? new User($data['subject']) : $data['subject'];
         }
         if (isset($data['task'])) {
-            $this->task = $data['task'];
+            $this->task = is_array($data['task']) ? new IdentityGovernanceTask($data['task']) : $data['task'];
         }
     }
 }

@@ -26,7 +26,7 @@ class MicrosoftManagedDesktop
     public function __construct(array $data = [])
     {
         if (isset($data['managedType'])) {
-            $this->managedType = $data['managedType'];
+            $this->managedType = is_array($data['managedType']) ? new MicrosoftManagedDesktopType($data['managedType']) : $data['managedType'];
         }
         if (isset($data['profile'])) {
             $this->profile = $data['profile'];

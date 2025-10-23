@@ -68,7 +68,7 @@ class PrivilegedAccessGroupEligibilityScheduleInstance
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['accessId'])) {
-            $this->accessId = $data['accessId'];
+            $this->accessId = is_array($data['accessId']) ? new PrivilegedAccessGroupRelationships($data['accessId']) : $data['accessId'];
         }
         if (isset($data['eligibilityScheduleId'])) {
             $this->eligibilityScheduleId = $data['eligibilityScheduleId'];
@@ -77,16 +77,16 @@ class PrivilegedAccessGroupEligibilityScheduleInstance
             $this->groupId = $data['groupId'];
         }
         if (isset($data['memberType'])) {
-            $this->memberType = $data['memberType'];
+            $this->memberType = is_array($data['memberType']) ? new PrivilegedAccessGroupMemberType($data['memberType']) : $data['memberType'];
         }
         if (isset($data['principalId'])) {
             $this->principalId = $data['principalId'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];
         }
         if (isset($data['principal'])) {
-            $this->principal = $data['principal'];
+            $this->principal = is_array($data['principal']) ? new DirectoryObject($data['principal']) : $data['principal'];
         }
     }
 }

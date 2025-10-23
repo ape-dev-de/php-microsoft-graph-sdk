@@ -41,13 +41,13 @@ class WorkbookChartAxes
             $this->id = $data['id'];
         }
         if (isset($data['categoryAxis'])) {
-            $this->categoryAxis = $data['categoryAxis'];
+            $this->categoryAxis = is_array($data['categoryAxis']) ? new WorkbookChartAxis($data['categoryAxis']) : $data['categoryAxis'];
         }
         if (isset($data['seriesAxis'])) {
-            $this->seriesAxis = $data['seriesAxis'];
+            $this->seriesAxis = is_array($data['seriesAxis']) ? new WorkbookChartAxis($data['seriesAxis']) : $data['seriesAxis'];
         }
         if (isset($data['valueAxis'])) {
-            $this->valueAxis = $data['valueAxis'];
+            $this->valueAxis = is_array($data['valueAxis']) ? new WorkbookChartAxis($data['valueAxis']) : $data['valueAxis'];
         }
     }
 }

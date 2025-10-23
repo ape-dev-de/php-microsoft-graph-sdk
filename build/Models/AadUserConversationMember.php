@@ -68,7 +68,7 @@ class AadUserConversationMember
             $this->userId = $data['userId'];
         }
         if (isset($data['user'])) {
-            $this->user = $data['user'];
+            $this->user = is_array($data['user']) ? new User($data['user']) : $data['user'];
         }
     }
 }

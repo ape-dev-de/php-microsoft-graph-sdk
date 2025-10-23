@@ -32,13 +32,13 @@ class CallStartedEventMessageDetail
     public function __construct(array $data = [])
     {
         if (isset($data['callEventType'])) {
-            $this->callEventType = $data['callEventType'];
+            $this->callEventType = is_array($data['callEventType']) ? new TeamworkCallEventType($data['callEventType']) : $data['callEventType'];
         }
         if (isset($data['callId'])) {
             $this->callId = $data['callId'];
         }
         if (isset($data['initiator'])) {
-            $this->initiator = $data['initiator'];
+            $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
     }
 }

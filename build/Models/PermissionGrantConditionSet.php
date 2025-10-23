@@ -80,7 +80,7 @@ class PermissionGrantConditionSet
             $this->permissions = $data['permissions'];
         }
         if (isset($data['permissionType'])) {
-            $this->permissionType = $data['permissionType'];
+            $this->permissionType = is_array($data['permissionType']) ? new PermissionType($data['permissionType']) : $data['permissionType'];
         }
         if (isset($data['resourceApplication'])) {
             $this->resourceApplication = $data['resourceApplication'];

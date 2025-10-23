@@ -101,7 +101,7 @@ class SearchBookmark
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new SearchIdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -125,7 +125,7 @@ class SearchBookmark
             $this->isSuggested = $data['isSuggested'];
         }
         if (isset($data['keywords'])) {
-            $this->keywords = $data['keywords'];
+            $this->keywords = is_array($data['keywords']) ? new SearchAnswerKeyword($data['keywords']) : $data['keywords'];
         }
         if (isset($data['languageTags'])) {
             $this->languageTags = $data['languageTags'];
@@ -137,7 +137,7 @@ class SearchBookmark
             $this->powerAppIds = $data['powerAppIds'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new SearchAnswerState($data['state']) : $data['state'];
         }
         if (isset($data['targetedVariations'])) {
             $this->targetedVariations = $data['targetedVariations'];

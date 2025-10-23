@@ -20,7 +20,7 @@ class AirPrintSettings
     public function __construct(array $data = [])
     {
         if (isset($data['incompatiblePrinters'])) {
-            $this->incompatiblePrinters = $data['incompatiblePrinters'];
+            $this->incompatiblePrinters = is_array($data['incompatiblePrinters']) ? new IncompatiblePrinterSettings($data['incompatiblePrinters']) : $data['incompatiblePrinters'];
         }
     }
 }

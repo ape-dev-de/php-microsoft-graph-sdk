@@ -56,7 +56,7 @@ class DeviceManagementExchangeConnector
             $this->exchangeAlias = $data['exchangeAlias'];
         }
         if (isset($data['exchangeConnectorType'])) {
-            $this->exchangeConnectorType = $data['exchangeConnectorType'];
+            $this->exchangeConnectorType = is_array($data['exchangeConnectorType']) ? new DeviceManagementExchangeConnectorType($data['exchangeConnectorType']) : $data['exchangeConnectorType'];
         }
         if (isset($data['exchangeOrganization'])) {
             $this->exchangeOrganization = $data['exchangeOrganization'];
@@ -71,7 +71,7 @@ class DeviceManagementExchangeConnector
             $this->serverName = $data['serverName'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new DeviceManagementExchangeConnectorStatus($data['status']) : $data['status'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

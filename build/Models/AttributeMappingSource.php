@@ -41,7 +41,7 @@ class AttributeMappingSource
             $this->parameters = $data['parameters'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new AttributeMappingSourceType($data['type']) : $data['type'];
         }
     }
 }

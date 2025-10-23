@@ -80,7 +80,7 @@ class CopyNotebookModel
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdByIdentity'])) {
-            $this->createdByIdentity = $data['createdByIdentity'];
+            $this->createdByIdentity = is_array($data['createdByIdentity']) ? new IdentitySet($data['createdByIdentity']) : $data['createdByIdentity'];
         }
         if (isset($data['createdTime'])) {
             $this->createdTime = is_string($data['createdTime']) ? new \DateTimeImmutable($data['createdTime']) : $data['createdTime'];
@@ -95,13 +95,13 @@ class CopyNotebookModel
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedByIdentity'])) {
-            $this->lastModifiedByIdentity = $data['lastModifiedByIdentity'];
+            $this->lastModifiedByIdentity = is_array($data['lastModifiedByIdentity']) ? new IdentitySet($data['lastModifiedByIdentity']) : $data['lastModifiedByIdentity'];
         }
         if (isset($data['lastModifiedTime'])) {
             $this->lastModifiedTime = is_string($data['lastModifiedTime']) ? new \DateTimeImmutable($data['lastModifiedTime']) : $data['lastModifiedTime'];
         }
         if (isset($data['links'])) {
-            $this->links = $data['links'];
+            $this->links = is_array($data['links']) ? new NotebookLinks($data['links']) : $data['links'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
@@ -116,7 +116,7 @@ class CopyNotebookModel
             $this->self = $data['self'];
         }
         if (isset($data['userRole'])) {
-            $this->userRole = $data['userRole'];
+            $this->userRole = is_array($data['userRole']) ? new OnenoteUserRole($data['userRole']) : $data['userRole'];
         }
     }
 }

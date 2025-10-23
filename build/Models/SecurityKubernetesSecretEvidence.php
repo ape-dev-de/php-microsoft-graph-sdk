@@ -65,7 +65,7 @@ class SecurityKubernetesSecretEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -77,13 +77,13 @@ class SecurityKubernetesSecretEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['namespace'])) {
-            $this->namespace = $data['namespace'];
+            $this->namespace = is_array($data['namespace']) ? new SecurityKubernetesNamespaceEvidence($data['namespace']) : $data['namespace'];
         }
         if (isset($data['secretType'])) {
             $this->secretType = $data['secretType'];

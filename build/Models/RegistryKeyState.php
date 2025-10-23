@@ -56,7 +56,7 @@ class RegistryKeyState
     public function __construct(array $data = [])
     {
         if (isset($data['hive'])) {
-            $this->hive = $data['hive'];
+            $this->hive = is_array($data['hive']) ? new RegistryHive($data['hive']) : $data['hive'];
         }
         if (isset($data['key'])) {
             $this->key = $data['key'];
@@ -71,7 +71,7 @@ class RegistryKeyState
             $this->oldValueName = $data['oldValueName'];
         }
         if (isset($data['operation'])) {
-            $this->operation = $data['operation'];
+            $this->operation = is_array($data['operation']) ? new RegistryOperation($data['operation']) : $data['operation'];
         }
         if (isset($data['processId'])) {
             $this->processId = $data['processId'];
@@ -83,7 +83,7 @@ class RegistryKeyState
             $this->valueName = $data['valueName'];
         }
         if (isset($data['valueType'])) {
-            $this->valueType = $data['valueType'];
+            $this->valueType = is_array($data['valueType']) ? new RegistryValueType($data['valueType']) : $data['valueType'];
         }
     }
 }

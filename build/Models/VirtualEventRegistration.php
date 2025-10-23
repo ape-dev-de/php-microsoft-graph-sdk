@@ -77,7 +77,7 @@ class VirtualEventRegistration
             $this->email = $data['email'];
         }
         if (isset($data['externalRegistrationInformation'])) {
-            $this->externalRegistrationInformation = $data['externalRegistrationInformation'];
+            $this->externalRegistrationInformation = is_array($data['externalRegistrationInformation']) ? new VirtualEventExternalRegistrationInformation($data['externalRegistrationInformation']) : $data['externalRegistrationInformation'];
         }
         if (isset($data['firstName'])) {
             $this->firstName = $data['firstName'];
@@ -98,7 +98,7 @@ class VirtualEventRegistration
             $this->registrationQuestionAnswers = $data['registrationQuestionAnswers'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new VirtualEventAttendeeRegistrationStatus($data['status']) : $data['status'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

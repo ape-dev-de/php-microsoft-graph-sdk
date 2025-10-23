@@ -41,16 +41,16 @@ class Attendee
     public function __construct(array $data = [])
     {
         if (isset($data['emailAddress'])) {
-            $this->emailAddress = $data['emailAddress'];
+            $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new AttendeeType($data['type']) : $data['type'];
         }
         if (isset($data['proposedNewTime'])) {
-            $this->proposedNewTime = $data['proposedNewTime'];
+            $this->proposedNewTime = is_array($data['proposedNewTime']) ? new TimeSlot($data['proposedNewTime']) : $data['proposedNewTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ResponseStatus($data['status']) : $data['status'];
         }
     }
 }

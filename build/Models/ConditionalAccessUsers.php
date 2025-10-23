@@ -68,7 +68,7 @@ class ConditionalAccessUsers
             $this->excludeGroups = $data['excludeGroups'];
         }
         if (isset($data['excludeGuestsOrExternalUsers'])) {
-            $this->excludeGuestsOrExternalUsers = $data['excludeGuestsOrExternalUsers'];
+            $this->excludeGuestsOrExternalUsers = is_array($data['excludeGuestsOrExternalUsers']) ? new ConditionalAccessGuestsOrExternalUsers($data['excludeGuestsOrExternalUsers']) : $data['excludeGuestsOrExternalUsers'];
         }
         if (isset($data['excludeRoles'])) {
             $this->excludeRoles = $data['excludeRoles'];
@@ -80,7 +80,7 @@ class ConditionalAccessUsers
             $this->includeGroups = $data['includeGroups'];
         }
         if (isset($data['includeGuestsOrExternalUsers'])) {
-            $this->includeGuestsOrExternalUsers = $data['includeGuestsOrExternalUsers'];
+            $this->includeGuestsOrExternalUsers = is_array($data['includeGuestsOrExternalUsers']) ? new ConditionalAccessGuestsOrExternalUsers($data['includeGuestsOrExternalUsers']) : $data['includeGuestsOrExternalUsers'];
         }
         if (isset($data['includeRoles'])) {
             $this->includeRoles = $data['includeRoles'];

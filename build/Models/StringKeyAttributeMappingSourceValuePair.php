@@ -29,7 +29,7 @@ class StringKeyAttributeMappingSourceValuePair
             $this->key = $data['key'];
         }
         if (isset($data['value'])) {
-            $this->value = $data['value'];
+            $this->value = is_array($data['value']) ? new AttributeMappingSource($data['value']) : $data['value'];
         }
     }
 }

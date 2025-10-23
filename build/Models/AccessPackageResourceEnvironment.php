@@ -56,7 +56,7 @@ class AccessPackageResourceEnvironment
             $this->id = $data['id'];
         }
         if (isset($data['connectionInfo'])) {
-            $this->connectionInfo = $data['connectionInfo'];
+            $this->connectionInfo = is_array($data['connectionInfo']) ? new ConnectionInfo($data['connectionInfo']) : $data['connectionInfo'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

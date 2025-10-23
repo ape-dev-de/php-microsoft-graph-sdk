@@ -53,7 +53,7 @@ class BookingSchedulingPolicy
             $this->customAvailabilities = $data['customAvailabilities'];
         }
         if (isset($data['generalAvailability'])) {
-            $this->generalAvailability = $data['generalAvailability'];
+            $this->generalAvailability = is_array($data['generalAvailability']) ? new BookingsAvailability($data['generalAvailability']) : $data['generalAvailability'];
         }
         if (isset($data['isMeetingInviteToCustomersEnabled'])) {
             $this->isMeetingInviteToCustomersEnabled = $data['isMeetingInviteToCustomersEnabled'];

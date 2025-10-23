@@ -167,7 +167,7 @@ class Win32LobApp
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
-            $this->largeIcon = $data['largeIcon'];
+            $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -185,7 +185,7 @@ class Win32LobApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -206,16 +206,16 @@ class Win32LobApp
             $this->contentVersions = $data['contentVersions'];
         }
         if (isset($data['allowedArchitectures'])) {
-            $this->allowedArchitectures = $data['allowedArchitectures'];
+            $this->allowedArchitectures = is_array($data['allowedArchitectures']) ? new WindowsArchitecture($data['allowedArchitectures']) : $data['allowedArchitectures'];
         }
         if (isset($data['applicableArchitectures'])) {
-            $this->applicableArchitectures = $data['applicableArchitectures'];
+            $this->applicableArchitectures = is_array($data['applicableArchitectures']) ? new WindowsArchitecture($data['applicableArchitectures']) : $data['applicableArchitectures'];
         }
         if (isset($data['installCommandLine'])) {
             $this->installCommandLine = $data['installCommandLine'];
         }
         if (isset($data['installExperience'])) {
-            $this->installExperience = $data['installExperience'];
+            $this->installExperience = is_array($data['installExperience']) ? new Win32LobAppInstallExperience($data['installExperience']) : $data['installExperience'];
         }
         if (isset($data['minimumCpuSpeedInMHz'])) {
             $this->minimumCpuSpeedInMHz = $data['minimumCpuSpeedInMHz'];
@@ -233,7 +233,7 @@ class Win32LobApp
             $this->minimumSupportedWindowsRelease = $data['minimumSupportedWindowsRelease'];
         }
         if (isset($data['msiInformation'])) {
-            $this->msiInformation = $data['msiInformation'];
+            $this->msiInformation = is_array($data['msiInformation']) ? new Win32LobAppMsiInformation($data['msiInformation']) : $data['msiInformation'];
         }
         if (isset($data['returnCodes'])) {
             $this->returnCodes = $data['returnCodes'];

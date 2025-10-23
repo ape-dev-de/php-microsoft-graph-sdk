@@ -80,10 +80,10 @@ class ExternalConnectorsExternalConnection
             $this->id = $data['id'];
         }
         if (isset($data['activitySettings'])) {
-            $this->activitySettings = $data['activitySettings'];
+            $this->activitySettings = is_array($data['activitySettings']) ? new ExternalConnectorsActivitySettings($data['activitySettings']) : $data['activitySettings'];
         }
         if (isset($data['configuration'])) {
-            $this->configuration = $data['configuration'];
+            $this->configuration = is_array($data['configuration']) ? new ExternalConnectorsConfiguration($data['configuration']) : $data['configuration'];
         }
         if (isset($data['connectorId'])) {
             $this->connectorId = $data['connectorId'];
@@ -95,10 +95,10 @@ class ExternalConnectorsExternalConnection
             $this->name = $data['name'];
         }
         if (isset($data['searchSettings'])) {
-            $this->searchSettings = $data['searchSettings'];
+            $this->searchSettings = is_array($data['searchSettings']) ? new ExternalConnectorsSearchSettings($data['searchSettings']) : $data['searchSettings'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new ExternalConnectorsConnectionState($data['state']) : $data['state'];
         }
         if (isset($data['groups'])) {
             $this->groups = $data['groups'];
@@ -110,7 +110,7 @@ class ExternalConnectorsExternalConnection
             $this->operations = $data['operations'];
         }
         if (isset($data['schema'])) {
-            $this->schema = $data['schema'];
+            $this->schema = is_array($data['schema']) ? new ExternalConnectorsSchema($data['schema']) : $data['schema'];
         }
     }
 }

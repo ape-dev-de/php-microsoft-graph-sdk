@@ -29,10 +29,10 @@ class PatternedRecurrence
     public function __construct(array $data = [])
     {
         if (isset($data['pattern'])) {
-            $this->pattern = $data['pattern'];
+            $this->pattern = is_array($data['pattern']) ? new RecurrencePattern($data['pattern']) : $data['pattern'];
         }
         if (isset($data['range'])) {
-            $this->range = $data['range'];
+            $this->range = is_array($data['range']) ? new RecurrenceRange($data['range']) : $data['range'];
         }
     }
 }

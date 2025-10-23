@@ -29,7 +29,7 @@ class IdentityGovernanceLifecycleManagementSettings
             $this->id = $data['id'];
         }
         if (isset($data['emailSettings'])) {
-            $this->emailSettings = $data['emailSettings'];
+            $this->emailSettings = is_array($data['emailSettings']) ? new EmailSettings($data['emailSettings']) : $data['emailSettings'];
         }
         if (isset($data['workflowScheduleIntervalInHours'])) {
             $this->workflowScheduleIntervalInHours = $data['workflowScheduleIntervalInHours'];

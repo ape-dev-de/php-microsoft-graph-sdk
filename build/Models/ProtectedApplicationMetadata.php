@@ -35,7 +35,7 @@ class ProtectedApplicationMetadata
             $this->version = $data['version'];
         }
         if (isset($data['applicationLocation'])) {
-            $this->applicationLocation = $data['applicationLocation'];
+            $this->applicationLocation = is_array($data['applicationLocation']) ? new PolicyLocation($data['applicationLocation']) : $data['applicationLocation'];
         }
     }
 }

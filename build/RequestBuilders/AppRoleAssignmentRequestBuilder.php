@@ -24,13 +24,13 @@ class AppRoleAssignmentRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): AppRoleAssignment
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
-        if ($expand !== null) {
+        if ($expand !== null && $expand !== '') {
             $queryParams['$expand'] = implode(',', $expand);
         }
-        if ($consistencyLevel !== null) {
+        if ($consistencyLevel !== null && $consistencyLevel !== '') {
             $queryParams['ConsistencyLevel'] = $consistencyLevel;
         }
         $response = $this->client->get($this->requestUrl, $queryParams);
@@ -99,7 +99,7 @@ class AppRoleAssignmentRequestBuilder extends BaseRequestBuilder
     public function delete(?string $ifMatch = null): mixed
     {
         $queryParams = [];
-        if ($ifMatch !== null) {
+        if ($ifMatch !== null && $ifMatch !== '') {
             $queryParams['If-Match'] = $ifMatch;
         }
         $response = $this->client->delete($this->requestUrl, $queryParams);

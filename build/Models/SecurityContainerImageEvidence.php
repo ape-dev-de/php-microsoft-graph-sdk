@@ -68,7 +68,7 @@ class SecurityContainerImageEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -80,16 +80,16 @@ class SecurityContainerImageEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['digestImage'])) {
-            $this->digestImage = $data['digestImage'];
+            $this->digestImage = is_array($data['digestImage']) ? new SecurityContainerImageEvidence($data['digestImage']) : $data['digestImage'];
         }
         if (isset($data['imageId'])) {
             $this->imageId = $data['imageId'];
         }
         if (isset($data['registry'])) {
-            $this->registry = $data['registry'];
+            $this->registry = is_array($data['registry']) ? new SecurityContainerRegistryEvidence($data['registry']) : $data['registry'];
         }
     }
 }

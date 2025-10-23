@@ -29,7 +29,7 @@ class TeamworkActivityTopic
     public function __construct(array $data = [])
     {
         if (isset($data['source'])) {
-            $this->source = $data['source'];
+            $this->source = is_array($data['source']) ? new TeamworkActivityTopicSource($data['source']) : $data['source'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

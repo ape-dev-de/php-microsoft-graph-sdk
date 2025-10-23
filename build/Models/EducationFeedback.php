@@ -32,13 +32,13 @@ class EducationFeedback
     public function __construct(array $data = [])
     {
         if (isset($data['feedbackBy'])) {
-            $this->feedbackBy = $data['feedbackBy'];
+            $this->feedbackBy = is_array($data['feedbackBy']) ? new IdentitySet($data['feedbackBy']) : $data['feedbackBy'];
         }
         if (isset($data['feedbackDateTime'])) {
             $this->feedbackDateTime = is_string($data['feedbackDateTime']) ? new \DateTimeImmutable($data['feedbackDateTime']) : $data['feedbackDateTime'];
         }
         if (isset($data['text'])) {
-            $this->text = $data['text'];
+            $this->text = is_array($data['text']) ? new EducationItemBody($data['text']) : $data['text'];
         }
     }
 }

@@ -32,7 +32,7 @@ class PlannerPlanContainer
             $this->containerId = $data['containerId'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new PlannerContainerType($data['type']) : $data['type'];
         }
         if (isset($data['url'])) {
             $this->url = $data['url'];

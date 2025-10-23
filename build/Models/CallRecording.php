@@ -68,7 +68,7 @@ class CallRecording
             $this->meetingId = $data['meetingId'];
         }
         if (isset($data['meetingOrganizer'])) {
-            $this->meetingOrganizer = $data['meetingOrganizer'];
+            $this->meetingOrganizer = is_array($data['meetingOrganizer']) ? new IdentitySet($data['meetingOrganizer']) : $data['meetingOrganizer'];
         }
         if (isset($data['recordingContentUrl'])) {
             $this->recordingContentUrl = $data['recordingContentUrl'];

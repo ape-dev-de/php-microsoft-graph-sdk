@@ -47,16 +47,16 @@ class UserTrainingEventInfo
             $this->displayName = $data['displayName'];
         }
         if (isset($data['latestTrainingStatus'])) {
-            $this->latestTrainingStatus = $data['latestTrainingStatus'];
+            $this->latestTrainingStatus = is_array($data['latestTrainingStatus']) ? new TrainingStatus($data['latestTrainingStatus']) : $data['latestTrainingStatus'];
         }
         if (isset($data['trainingAssignedProperties'])) {
-            $this->trainingAssignedProperties = $data['trainingAssignedProperties'];
+            $this->trainingAssignedProperties = is_array($data['trainingAssignedProperties']) ? new UserTrainingContentEventInfo($data['trainingAssignedProperties']) : $data['trainingAssignedProperties'];
         }
         if (isset($data['trainingCompletedProperties'])) {
-            $this->trainingCompletedProperties = $data['trainingCompletedProperties'];
+            $this->trainingCompletedProperties = is_array($data['trainingCompletedProperties']) ? new UserTrainingContentEventInfo($data['trainingCompletedProperties']) : $data['trainingCompletedProperties'];
         }
         if (isset($data['trainingUpdatedProperties'])) {
-            $this->trainingUpdatedProperties = $data['trainingUpdatedProperties'];
+            $this->trainingUpdatedProperties = is_array($data['trainingUpdatedProperties']) ? new UserTrainingContentEventInfo($data['trainingUpdatedProperties']) : $data['trainingUpdatedProperties'];
         }
     }
 }

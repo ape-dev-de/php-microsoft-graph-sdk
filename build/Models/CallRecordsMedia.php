@@ -50,16 +50,16 @@ class CallRecordsMedia
     public function __construct(array $data = [])
     {
         if (isset($data['calleeDevice'])) {
-            $this->calleeDevice = $data['calleeDevice'];
+            $this->calleeDevice = is_array($data['calleeDevice']) ? new CallRecordsDeviceInfo($data['calleeDevice']) : $data['calleeDevice'];
         }
         if (isset($data['calleeNetwork'])) {
-            $this->calleeNetwork = $data['calleeNetwork'];
+            $this->calleeNetwork = is_array($data['calleeNetwork']) ? new CallRecordsNetworkInfo($data['calleeNetwork']) : $data['calleeNetwork'];
         }
         if (isset($data['callerDevice'])) {
-            $this->callerDevice = $data['callerDevice'];
+            $this->callerDevice = is_array($data['callerDevice']) ? new CallRecordsDeviceInfo($data['callerDevice']) : $data['callerDevice'];
         }
         if (isset($data['callerNetwork'])) {
-            $this->callerNetwork = $data['callerNetwork'];
+            $this->callerNetwork = is_array($data['callerNetwork']) ? new CallRecordsNetworkInfo($data['callerNetwork']) : $data['callerNetwork'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];

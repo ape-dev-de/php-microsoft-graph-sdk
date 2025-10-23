@@ -47,10 +47,10 @@ class CallRecordsClientUserAgent
             $this->communicationServiceId = $data['communicationServiceId'];
         }
         if (isset($data['platform'])) {
-            $this->platform = $data['platform'];
+            $this->platform = is_array($data['platform']) ? new CallRecordsClientPlatform($data['platform']) : $data['platform'];
         }
         if (isset($data['productFamily'])) {
-            $this->productFamily = $data['productFamily'];
+            $this->productFamily = is_array($data['productFamily']) ? new CallRecordsProductFamily($data['productFamily']) : $data['productFamily'];
         }
     }
 }

@@ -41,10 +41,10 @@ class ParticipantInfo
             $this->countryCode = $data['countryCode'];
         }
         if (isset($data['endpointType'])) {
-            $this->endpointType = $data['endpointType'];
+            $this->endpointType = is_array($data['endpointType']) ? new EndpointType($data['endpointType']) : $data['endpointType'];
         }
         if (isset($data['identity'])) {
-            $this->identity = $data['identity'];
+            $this->identity = is_array($data['identity']) ? new IdentitySet($data['identity']) : $data['identity'];
         }
         if (isset($data['languageId'])) {
             $this->languageId = $data['languageId'];

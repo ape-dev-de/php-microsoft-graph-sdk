@@ -34,31 +34,31 @@ class MailFoldersRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null, ?array $expand = null, ?string $includeHiddenFolders = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MailFolderCollectionResponse
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
-        if ($expand !== null) {
+        if ($expand !== null && $expand !== '') {
             $queryParams['$expand'] = implode(',', $expand);
         }
-        if ($includeHiddenFolders !== null) {
+        if ($includeHiddenFolders !== null && $includeHiddenFolders !== '') {
             $queryParams['includeHiddenFolders'] = $includeHiddenFolders;
         }
-        if ($top !== null) {
+        if ($top !== null && $top !== '') {
             $queryParams['$top'] = $top;
         }
-        if ($skip !== null) {
+        if ($skip !== null && $skip !== '') {
             $queryParams['$skip'] = $skip;
         }
-        if ($search !== null) {
+        if ($search !== null && $search !== '') {
             $queryParams['$search'] = $search;
         }
-        if ($filter !== null) {
+        if ($filter !== null && $filter !== '') {
             $queryParams['$filter'] = $filter;
         }
-        if ($count !== null) {
+        if ($count !== null && $count !== '') {
             $queryParams['$count'] = $count;
         }
-        if ($orderby !== null) {
+        if ($orderby !== null && $orderby !== '') {
             $queryParams['$orderby'] = implode(',', $orderby);
         }
         $response = $this->client->get($this->requestUrl, $queryParams);

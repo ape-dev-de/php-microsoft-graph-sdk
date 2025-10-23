@@ -56,7 +56,7 @@ class DeviceInstallState
             $this->errorCode = $data['errorCode'];
         }
         if (isset($data['installState'])) {
-            $this->installState = $data['installState'];
+            $this->installState = is_array($data['installState']) ? new InstallState($data['installState']) : $data['installState'];
         }
         if (isset($data['lastSyncDateTime'])) {
             $this->lastSyncDateTime = is_string($data['lastSyncDateTime']) ? new \DateTimeImmutable($data['lastSyncDateTime']) : $data['lastSyncDateTime'];

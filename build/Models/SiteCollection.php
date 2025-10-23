@@ -35,7 +35,7 @@ class SiteCollection
     public function __construct(array $data = [])
     {
         if (isset($data['archivalDetails'])) {
-            $this->archivalDetails = $data['archivalDetails'];
+            $this->archivalDetails = is_array($data['archivalDetails']) ? new SiteArchivalDetails($data['archivalDetails']) : $data['archivalDetails'];
         }
         if (isset($data['dataLocationCode'])) {
             $this->dataLocationCode = $data['dataLocationCode'];
@@ -44,7 +44,7 @@ class SiteCollection
             $this->hostname = $data['hostname'];
         }
         if (isset($data['root'])) {
-            $this->root = $data['root'];
+            $this->root = is_array($data['root']) ? new Root($data['root']) : $data['root'];
         }
     }
 }

@@ -68,7 +68,7 @@ class Agreement
             $this->isViewingBeforeAcceptanceRequired = $data['isViewingBeforeAcceptanceRequired'];
         }
         if (isset($data['termsExpiration'])) {
-            $this->termsExpiration = $data['termsExpiration'];
+            $this->termsExpiration = is_array($data['termsExpiration']) ? new TermsExpiration($data['termsExpiration']) : $data['termsExpiration'];
         }
         if (isset($data['userReacceptRequiredFrequency'])) {
             $this->userReacceptRequiredFrequency = $data['userReacceptRequiredFrequency'];
@@ -77,7 +77,7 @@ class Agreement
             $this->acceptances = $data['acceptances'];
         }
         if (isset($data['file'])) {
-            $this->file = $data['file'];
+            $this->file = is_array($data['file']) ? new AgreementFile($data['file']) : $data['file'];
         }
         if (isset($data['files'])) {
             $this->files = $data['files'];

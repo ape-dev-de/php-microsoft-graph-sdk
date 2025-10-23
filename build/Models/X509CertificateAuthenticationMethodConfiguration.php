@@ -59,16 +59,16 @@ class X509CertificateAuthenticationMethodConfiguration
             $this->excludeTargets = $data['excludeTargets'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
         }
         if (isset($data['authenticationModeConfiguration'])) {
-            $this->authenticationModeConfiguration = $data['authenticationModeConfiguration'];
+            $this->authenticationModeConfiguration = is_array($data['authenticationModeConfiguration']) ? new X509CertificateAuthenticationModeConfiguration($data['authenticationModeConfiguration']) : $data['authenticationModeConfiguration'];
         }
         if (isset($data['certificateUserBindings'])) {
             $this->certificateUserBindings = $data['certificateUserBindings'];
         }
         if (isset($data['crlValidationConfiguration'])) {
-            $this->crlValidationConfiguration = $data['crlValidationConfiguration'];
+            $this->crlValidationConfiguration = is_array($data['crlValidationConfiguration']) ? new X509CertificateCRLValidationConfiguration($data['crlValidationConfiguration']) : $data['crlValidationConfiguration'];
         }
         if (isset($data['includeTargets'])) {
             $this->includeTargets = $data['includeTargets'];

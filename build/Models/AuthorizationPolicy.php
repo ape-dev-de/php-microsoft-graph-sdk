@@ -77,7 +77,7 @@ class AuthorizationPolicy
             $this->allowEmailVerifiedUsersToJoinOrganization = $data['allowEmailVerifiedUsersToJoinOrganization'];
         }
         if (isset($data['allowInvitesFrom'])) {
-            $this->allowInvitesFrom = $data['allowInvitesFrom'];
+            $this->allowInvitesFrom = is_array($data['allowInvitesFrom']) ? new AllowInvitesFrom($data['allowInvitesFrom']) : $data['allowInvitesFrom'];
         }
         if (isset($data['allowUserConsentForRiskyApps'])) {
             $this->allowUserConsentForRiskyApps = $data['allowUserConsentForRiskyApps'];
@@ -86,7 +86,7 @@ class AuthorizationPolicy
             $this->blockMsolPowerShell = $data['blockMsolPowerShell'];
         }
         if (isset($data['defaultUserRolePermissions'])) {
-            $this->defaultUserRolePermissions = $data['defaultUserRolePermissions'];
+            $this->defaultUserRolePermissions = is_array($data['defaultUserRolePermissions']) ? new DefaultUserRolePermissions($data['defaultUserRolePermissions']) : $data['defaultUserRolePermissions'];
         }
         if (isset($data['guestUserRoleId'])) {
             $this->guestUserRoleId = $data['guestUserRoleId'];

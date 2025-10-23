@@ -38,7 +38,7 @@ class DeviceComplianceActionItem
             $this->id = $data['id'];
         }
         if (isset($data['actionType'])) {
-            $this->actionType = $data['actionType'];
+            $this->actionType = is_array($data['actionType']) ? new DeviceComplianceActionType($data['actionType']) : $data['actionType'];
         }
         if (isset($data['gracePeriodHours'])) {
             $this->gracePeriodHours = $data['gracePeriodHours'];

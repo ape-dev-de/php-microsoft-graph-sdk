@@ -44,16 +44,16 @@ class EducationFeedbackOutcome
             $this->id = $data['id'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['feedback'])) {
-            $this->feedback = $data['feedback'];
+            $this->feedback = is_array($data['feedback']) ? new EducationFeedback($data['feedback']) : $data['feedback'];
         }
         if (isset($data['publishedFeedback'])) {
-            $this->publishedFeedback = $data['publishedFeedback'];
+            $this->publishedFeedback = is_array($data['publishedFeedback']) ? new EducationFeedback($data['publishedFeedback']) : $data['publishedFeedback'];
         }
     }
 }

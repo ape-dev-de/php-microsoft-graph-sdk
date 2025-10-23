@@ -35,7 +35,7 @@ class TeamworkApplicationIdentity
             $this->displayName = $data['displayName'];
         }
         if (isset($data['applicationIdentityType'])) {
-            $this->applicationIdentityType = $data['applicationIdentityType'];
+            $this->applicationIdentityType = is_array($data['applicationIdentityType']) ? new TeamworkApplicationIdentityType($data['applicationIdentityType']) : $data['applicationIdentityType'];
         }
     }
 }

@@ -26,7 +26,7 @@ class ProcessContentBatchRequest
     public function __construct(array $data = [])
     {
         if (isset($data['contentToProcess'])) {
-            $this->contentToProcess = $data['contentToProcess'];
+            $this->contentToProcess = is_array($data['contentToProcess']) ? new ProcessContentRequest($data['contentToProcess']) : $data['contentToProcess'];
         }
         if (isset($data['requestId'])) {
             $this->requestId = $data['requestId'];

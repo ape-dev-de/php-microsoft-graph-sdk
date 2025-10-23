@@ -38,7 +38,7 @@ class AccessPackageResourceAttribute
     public function __construct(array $data = [])
     {
         if (isset($data['destination'])) {
-            $this->destination = $data['destination'];
+            $this->destination = is_array($data['destination']) ? new AccessPackageResourceAttributeDestination($data['destination']) : $data['destination'];
         }
         if (isset($data['isEditable'])) {
             $this->isEditable = $data['isEditable'];
@@ -50,7 +50,7 @@ class AccessPackageResourceAttribute
             $this->name = $data['name'];
         }
         if (isset($data['source'])) {
-            $this->source = $data['source'];
+            $this->source = is_array($data['source']) ? new AccessPackageResourceAttributeSource($data['source']) : $data['source'];
         }
     }
 }

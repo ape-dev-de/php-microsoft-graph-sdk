@@ -38,10 +38,10 @@ class TimeCardEntry
             $this->breaks = $data['breaks'];
         }
         if (isset($data['clockInEvent'])) {
-            $this->clockInEvent = $data['clockInEvent'];
+            $this->clockInEvent = is_array($data['clockInEvent']) ? new TimeCardEvent($data['clockInEvent']) : $data['clockInEvent'];
         }
         if (isset($data['clockOutEvent'])) {
-            $this->clockOutEvent = $data['clockOutEvent'];
+            $this->clockOutEvent = is_array($data['clockOutEvent']) ? new TimeCardEvent($data['clockOutEvent']) : $data['clockOutEvent'];
         }
     }
 }

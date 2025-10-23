@@ -62,10 +62,10 @@ class EnrollmentTroubleshootingEvent
             $this->deviceId = $data['deviceId'];
         }
         if (isset($data['enrollmentType'])) {
-            $this->enrollmentType = $data['enrollmentType'];
+            $this->enrollmentType = is_array($data['enrollmentType']) ? new DeviceEnrollmentType($data['enrollmentType']) : $data['enrollmentType'];
         }
         if (isset($data['failureCategory'])) {
-            $this->failureCategory = $data['failureCategory'];
+            $this->failureCategory = is_array($data['failureCategory']) ? new DeviceEnrollmentFailureReason($data['failureCategory']) : $data['failureCategory'];
         }
         if (isset($data['failureReason'])) {
             $this->failureReason = $data['failureReason'];

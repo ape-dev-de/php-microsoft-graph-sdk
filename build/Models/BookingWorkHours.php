@@ -26,7 +26,7 @@ class BookingWorkHours
     public function __construct(array $data = [])
     {
         if (isset($data['day'])) {
-            $this->day = $data['day'];
+            $this->day = is_array($data['day']) ? new DayOfWeek($data['day']) : $data['day'];
         }
         if (isset($data['timeSlots'])) {
             $this->timeSlots = $data['timeSlots'];

@@ -23,7 +23,7 @@ class IdentityGovernanceCustomTaskExtensionCallbackData
     public function __construct(array $data = [])
     {
         if (isset($data['operationStatus'])) {
-            $this->operationStatus = $data['operationStatus'];
+            $this->operationStatus = is_array($data['operationStatus']) ? new IdentityGovernanceCustomTaskExtensionOperationStatus($data['operationStatus']) : $data['operationStatus'];
         }
     }
 }

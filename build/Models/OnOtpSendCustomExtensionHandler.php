@@ -29,10 +29,10 @@ class OnOtpSendCustomExtensionHandler
     public function __construct(array $data = [])
     {
         if (isset($data['configuration'])) {
-            $this->configuration = $data['configuration'];
+            $this->configuration = is_array($data['configuration']) ? new CustomExtensionOverwriteConfiguration($data['configuration']) : $data['configuration'];
         }
         if (isset($data['customExtension'])) {
-            $this->customExtension = $data['customExtension'];
+            $this->customExtension = is_array($data['customExtension']) ? new OnOtpSendCustomExtension($data['customExtension']) : $data['customExtension'];
         }
     }
 }

@@ -29,10 +29,10 @@ class CloudPCRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null, ?array $expand = null): CloudPC
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
-        if ($expand !== null) {
+        if ($expand !== null && $expand !== '') {
             $queryParams['$expand'] = implode(',', $expand);
         }
         $response = $this->client->get($this->requestUrl, $queryParams);
@@ -101,7 +101,7 @@ class CloudPCRequestBuilder extends BaseRequestBuilder
     public function delete(?string $ifMatch = null): mixed
     {
         $queryParams = [];
-        if ($ifMatch !== null) {
+        if ($ifMatch !== null && $ifMatch !== '') {
             $queryParams['If-Match'] = $ifMatch;
         }
         $response = $this->client->delete($this->requestUrl, $queryParams);

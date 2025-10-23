@@ -23,7 +23,7 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp
     public function __construct(array $data = [])
     {
         if (isset($data['userTypeToCreate'])) {
-            $this->userTypeToCreate = $data['userTypeToCreate'];
+            $this->userTypeToCreate = is_array($data['userTypeToCreate']) ? new UserType($data['userTypeToCreate']) : $data['userTypeToCreate'];
         }
     }
 }

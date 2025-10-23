@@ -53,22 +53,22 @@ class Admin
     public function __construct(array $data = [])
     {
         if (isset($data['edge'])) {
-            $this->edge = $data['edge'];
+            $this->edge = is_array($data['edge']) ? new Edge($data['edge']) : $data['edge'];
         }
         if (isset($data['microsoft365Apps'])) {
-            $this->microsoft365Apps = $data['microsoft365Apps'];
+            $this->microsoft365Apps = is_array($data['microsoft365Apps']) ? new AdminMicrosoft365Apps($data['microsoft365Apps']) : $data['microsoft365Apps'];
         }
         if (isset($data['people'])) {
-            $this->people = $data['people'];
+            $this->people = is_array($data['people']) ? new PeopleAdminSettings($data['people']) : $data['people'];
         }
         if (isset($data['reportSettings'])) {
-            $this->reportSettings = $data['reportSettings'];
+            $this->reportSettings = is_array($data['reportSettings']) ? new AdminReportSettings($data['reportSettings']) : $data['reportSettings'];
         }
         if (isset($data['serviceAnnouncement'])) {
-            $this->serviceAnnouncement = $data['serviceAnnouncement'];
+            $this->serviceAnnouncement = is_array($data['serviceAnnouncement']) ? new ServiceAnnouncement($data['serviceAnnouncement']) : $data['serviceAnnouncement'];
         }
         if (isset($data['sharepoint'])) {
-            $this->sharepoint = $data['sharepoint'];
+            $this->sharepoint = is_array($data['sharepoint']) ? new Sharepoint($data['sharepoint']) : $data['sharepoint'];
         }
     }
 }

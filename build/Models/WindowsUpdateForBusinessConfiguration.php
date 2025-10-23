@@ -212,25 +212,25 @@ class WindowsUpdateForBusinessConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['allowWindows11Upgrade'])) {
             $this->allowWindows11Upgrade = $data['allowWindows11Upgrade'];
         }
         if (isset($data['automaticUpdateMode'])) {
-            $this->automaticUpdateMode = $data['automaticUpdateMode'];
+            $this->automaticUpdateMode = is_array($data['automaticUpdateMode']) ? new AutomaticUpdateMode($data['automaticUpdateMode']) : $data['automaticUpdateMode'];
         }
         if (isset($data['autoRestartNotificationDismissal'])) {
-            $this->autoRestartNotificationDismissal = $data['autoRestartNotificationDismissal'];
+            $this->autoRestartNotificationDismissal = is_array($data['autoRestartNotificationDismissal']) ? new AutoRestartNotificationDismissalMethod($data['autoRestartNotificationDismissal']) : $data['autoRestartNotificationDismissal'];
         }
         if (isset($data['businessReadyUpdatesOnly'])) {
-            $this->businessReadyUpdatesOnly = $data['businessReadyUpdatesOnly'];
+            $this->businessReadyUpdatesOnly = is_array($data['businessReadyUpdatesOnly']) ? new WindowsUpdateType($data['businessReadyUpdatesOnly']) : $data['businessReadyUpdatesOnly'];
         }
         if (isset($data['deadlineForFeatureUpdatesInDays'])) {
             $this->deadlineForFeatureUpdatesInDays = $data['deadlineForFeatureUpdatesInDays'];
@@ -242,7 +242,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->deadlineGracePeriodInDays = $data['deadlineGracePeriodInDays'];
         }
         if (isset($data['deliveryOptimizationMode'])) {
-            $this->deliveryOptimizationMode = $data['deliveryOptimizationMode'];
+            $this->deliveryOptimizationMode = is_array($data['deliveryOptimizationMode']) ? new WindowsDeliveryOptimizationMode($data['deliveryOptimizationMode']) : $data['deliveryOptimizationMode'];
         }
         if (isset($data['driversExcluded'])) {
             $this->driversExcluded = $data['driversExcluded'];
@@ -278,7 +278,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->featureUpdatesWillBeRolledBack = $data['featureUpdatesWillBeRolledBack'];
         }
         if (isset($data['installationSchedule'])) {
-            $this->installationSchedule = $data['installationSchedule'];
+            $this->installationSchedule = is_array($data['installationSchedule']) ? new WindowsUpdateInstallScheduleType($data['installationSchedule']) : $data['installationSchedule'];
         }
         if (isset($data['microsoftUpdateServiceAllowed'])) {
             $this->microsoftUpdateServiceAllowed = $data['microsoftUpdateServiceAllowed'];
@@ -287,7 +287,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->postponeRebootUntilAfterDeadline = $data['postponeRebootUntilAfterDeadline'];
         }
         if (isset($data['prereleaseFeatures'])) {
-            $this->prereleaseFeatures = $data['prereleaseFeatures'];
+            $this->prereleaseFeatures = is_array($data['prereleaseFeatures']) ? new PrereleaseFeatures($data['prereleaseFeatures']) : $data['prereleaseFeatures'];
         }
         if (isset($data['qualityUpdatesDeferralPeriodInDays'])) {
             $this->qualityUpdatesDeferralPeriodInDays = $data['qualityUpdatesDeferralPeriodInDays'];
@@ -317,16 +317,16 @@ class WindowsUpdateForBusinessConfiguration
             $this->skipChecksBeforeRestart = $data['skipChecksBeforeRestart'];
         }
         if (isset($data['updateNotificationLevel'])) {
-            $this->updateNotificationLevel = $data['updateNotificationLevel'];
+            $this->updateNotificationLevel = is_array($data['updateNotificationLevel']) ? new WindowsUpdateNotificationDisplayOption($data['updateNotificationLevel']) : $data['updateNotificationLevel'];
         }
         if (isset($data['updateWeeks'])) {
-            $this->updateWeeks = $data['updateWeeks'];
+            $this->updateWeeks = is_array($data['updateWeeks']) ? new WindowsUpdateForBusinessUpdateWeeks($data['updateWeeks']) : $data['updateWeeks'];
         }
         if (isset($data['userPauseAccess'])) {
-            $this->userPauseAccess = $data['userPauseAccess'];
+            $this->userPauseAccess = is_array($data['userPauseAccess']) ? new Enablement($data['userPauseAccess']) : $data['userPauseAccess'];
         }
         if (isset($data['userWindowsUpdateScanAccess'])) {
-            $this->userWindowsUpdateScanAccess = $data['userWindowsUpdateScanAccess'];
+            $this->userWindowsUpdateScanAccess = is_array($data['userWindowsUpdateScanAccess']) ? new Enablement($data['userWindowsUpdateScanAccess']) : $data['userWindowsUpdateScanAccess'];
         }
     }
 }

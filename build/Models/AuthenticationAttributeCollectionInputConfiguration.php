@@ -62,7 +62,7 @@ class AuthenticationAttributeCollectionInputConfiguration
             $this->hidden = $data['hidden'];
         }
         if (isset($data['inputType'])) {
-            $this->inputType = $data['inputType'];
+            $this->inputType = is_array($data['inputType']) ? new AuthenticationAttributeCollectionInputType($data['inputType']) : $data['inputType'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];

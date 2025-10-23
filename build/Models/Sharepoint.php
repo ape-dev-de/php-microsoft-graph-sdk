@@ -29,7 +29,7 @@ class Sharepoint
             $this->id = $data['id'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new SharepointSettings($data['settings']) : $data['settings'];
         }
     }
 }

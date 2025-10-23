@@ -74,7 +74,7 @@ class SecurityKubernetesClusterEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -86,10 +86,10 @@ class SecurityKubernetesClusterEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['cloudResource'])) {
-            $this->cloudResource = $data['cloudResource'];
+            $this->cloudResource = is_array($data['cloudResource']) ? new SecurityAlertEvidence($data['cloudResource']) : $data['cloudResource'];
         }
         if (isset($data['distribution'])) {
             $this->distribution = $data['distribution'];
@@ -98,7 +98,7 @@ class SecurityKubernetesClusterEvidence
             $this->name = $data['name'];
         }
         if (isset($data['platform'])) {
-            $this->platform = $data['platform'];
+            $this->platform = is_array($data['platform']) ? new SecurityKubernetesPlatform($data['platform']) : $data['platform'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

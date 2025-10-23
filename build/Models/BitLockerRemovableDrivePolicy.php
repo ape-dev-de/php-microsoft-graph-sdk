@@ -32,7 +32,7 @@ class BitLockerRemovableDrivePolicy
             $this->blockCrossOrganizationWriteAccess = $data['blockCrossOrganizationWriteAccess'];
         }
         if (isset($data['encryptionMethod'])) {
-            $this->encryptionMethod = $data['encryptionMethod'];
+            $this->encryptionMethod = is_array($data['encryptionMethod']) ? new BitLockerEncryptionMethod($data['encryptionMethod']) : $data['encryptionMethod'];
         }
         if (isset($data['requireEncryptionForWriteAccess'])) {
             $this->requireEncryptionForWriteAccess = $data['requireEncryptionForWriteAccess'];

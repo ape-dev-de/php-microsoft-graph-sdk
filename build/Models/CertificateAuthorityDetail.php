@@ -68,7 +68,7 @@ class CertificateAuthorityDetail
             $this->certificate = $data['certificate'];
         }
         if (isset($data['certificateAuthorityType'])) {
-            $this->certificateAuthorityType = $data['certificateAuthorityType'];
+            $this->certificateAuthorityType = is_array($data['certificateAuthorityType']) ? new CertificateAuthorityType($data['certificateAuthorityType']) : $data['certificateAuthorityType'];
         }
         if (isset($data['certificateRevocationListUrl'])) {
             $this->certificateRevocationListUrl = $data['certificateRevocationListUrl'];

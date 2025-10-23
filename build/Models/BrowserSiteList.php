@@ -71,13 +71,13 @@ class BrowserSiteList
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['publishedBy'])) {
-            $this->publishedBy = $data['publishedBy'];
+            $this->publishedBy = is_array($data['publishedBy']) ? new IdentitySet($data['publishedBy']) : $data['publishedBy'];
         }
         if (isset($data['publishedDateTime'])) {
             $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
@@ -86,7 +86,7 @@ class BrowserSiteList
             $this->revision = $data['revision'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new BrowserSiteListStatus($data['status']) : $data['status'];
         }
         if (isset($data['sharedCookies'])) {
             $this->sharedCookies = $data['sharedCookies'];

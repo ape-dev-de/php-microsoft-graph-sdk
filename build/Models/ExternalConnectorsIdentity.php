@@ -29,7 +29,7 @@ class ExternalConnectorsIdentity
             $this->id = $data['id'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new ExternalConnectorsIdentityType($data['type']) : $data['type'];
         }
     }
 }

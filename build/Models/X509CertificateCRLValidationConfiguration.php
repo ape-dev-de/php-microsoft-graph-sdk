@@ -29,7 +29,7 @@ class X509CertificateCRLValidationConfiguration
             $this->exemptedCertificateAuthoritiesSubjectKeyIdentifiers = $data['exemptedCertificateAuthoritiesSubjectKeyIdentifiers'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new X509CertificateCRLValidationConfigurationState($data['state']) : $data['state'];
         }
     }
 }

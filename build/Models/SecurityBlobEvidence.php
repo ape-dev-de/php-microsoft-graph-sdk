@@ -74,7 +74,7 @@ class SecurityBlobEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -86,10 +86,10 @@ class SecurityBlobEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['blobContainer'])) {
-            $this->blobContainer = $data['blobContainer'];
+            $this->blobContainer = is_array($data['blobContainer']) ? new SecurityBlobContainerEvidence($data['blobContainer']) : $data['blobContainer'];
         }
         if (isset($data['etag'])) {
             $this->etag = $data['etag'];

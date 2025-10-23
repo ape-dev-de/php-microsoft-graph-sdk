@@ -29,7 +29,7 @@ class AiInteractionMention
     public function __construct(array $data = [])
     {
         if (isset($data['mentioned'])) {
-            $this->mentioned = $data['mentioned'];
+            $this->mentioned = is_array($data['mentioned']) ? new AiInteractionMentionedIdentitySet($data['mentioned']) : $data['mentioned'];
         }
         if (isset($data['mentionId'])) {
             $this->mentionId = $data['mentionId'];

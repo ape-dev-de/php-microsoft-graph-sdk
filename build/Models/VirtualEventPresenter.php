@@ -41,10 +41,10 @@ class VirtualEventPresenter
             $this->email = $data['email'];
         }
         if (isset($data['identity'])) {
-            $this->identity = $data['identity'];
+            $this->identity = is_array($data['identity']) ? new Identity($data['identity']) : $data['identity'];
         }
         if (isset($data['presenterDetails'])) {
-            $this->presenterDetails = $data['presenterDetails'];
+            $this->presenterDetails = is_array($data['presenterDetails']) ? new VirtualEventPresenterDetails($data['presenterDetails']) : $data['presenterDetails'];
         }
     }
 }

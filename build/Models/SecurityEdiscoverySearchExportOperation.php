@@ -113,13 +113,13 @@ class SecurityEdiscoverySearchExportOperation
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new SecurityCaseAction($data['action']) : $data['action'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -128,16 +128,16 @@ class SecurityEdiscoverySearchExportOperation
             $this->percentProgress = $data['percentProgress'];
         }
         if (isset($data['resultInfo'])) {
-            $this->resultInfo = $data['resultInfo'];
+            $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['additionalOptions'])) {
-            $this->additionalOptions = $data['additionalOptions'];
+            $this->additionalOptions = is_array($data['additionalOptions']) ? new SecurityAdditionalOptions($data['additionalOptions']) : $data['additionalOptions'];
         }
         if (isset($data['cloudAttachmentVersion'])) {
-            $this->cloudAttachmentVersion = $data['cloudAttachmentVersion'];
+            $this->cloudAttachmentVersion = is_array($data['cloudAttachmentVersion']) ? new SecurityCloudAttachmentVersion($data['cloudAttachmentVersion']) : $data['cloudAttachmentVersion'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -146,25 +146,25 @@ class SecurityEdiscoverySearchExportOperation
             $this->displayName = $data['displayName'];
         }
         if (isset($data['documentVersion'])) {
-            $this->documentVersion = $data['documentVersion'];
+            $this->documentVersion = is_array($data['documentVersion']) ? new SecurityDocumentVersion($data['documentVersion']) : $data['documentVersion'];
         }
         if (isset($data['exportCriteria'])) {
-            $this->exportCriteria = $data['exportCriteria'];
+            $this->exportCriteria = is_array($data['exportCriteria']) ? new SecurityExportCriteria($data['exportCriteria']) : $data['exportCriteria'];
         }
         if (isset($data['exportFileMetadata'])) {
             $this->exportFileMetadata = $data['exportFileMetadata'];
         }
         if (isset($data['exportFormat'])) {
-            $this->exportFormat = $data['exportFormat'];
+            $this->exportFormat = is_array($data['exportFormat']) ? new SecurityExportFormat($data['exportFormat']) : $data['exportFormat'];
         }
         if (isset($data['exportLocation'])) {
-            $this->exportLocation = $data['exportLocation'];
+            $this->exportLocation = is_array($data['exportLocation']) ? new SecurityExportLocation($data['exportLocation']) : $data['exportLocation'];
         }
         if (isset($data['exportSingleItems'])) {
             $this->exportSingleItems = $data['exportSingleItems'];
         }
         if (isset($data['search'])) {
-            $this->search = $data['search'];
+            $this->search = is_array($data['search']) ? new SecurityEdiscoverySearch($data['search']) : $data['search'];
         }
     }
 }

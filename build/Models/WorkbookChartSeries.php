@@ -41,7 +41,7 @@ class WorkbookChartSeries
             $this->name = $data['name'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookChartSeriesFormat($data['format']) : $data['format'];
         }
         if (isset($data['points'])) {
             $this->points = $data['points'];

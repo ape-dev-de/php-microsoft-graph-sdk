@@ -95,7 +95,7 @@ class CloudPcProvisioningPolicy
             $this->alternateResourceUrl = $data['alternateResourceUrl'];
         }
         if (isset($data['autopatch'])) {
-            $this->autopatch = $data['autopatch'];
+            $this->autopatch = is_array($data['autopatch']) ? new CloudPcProvisioningPolicyAutopatch($data['autopatch']) : $data['autopatch'];
         }
         if (isset($data['cloudPcGroupDisplayName'])) {
             $this->cloudPcGroupDisplayName = $data['cloudPcGroupDisplayName'];
@@ -125,19 +125,19 @@ class CloudPcProvisioningPolicy
             $this->imageId = $data['imageId'];
         }
         if (isset($data['imageType'])) {
-            $this->imageType = $data['imageType'];
+            $this->imageType = is_array($data['imageType']) ? new CloudPcProvisioningPolicyImageType($data['imageType']) : $data['imageType'];
         }
         if (isset($data['localAdminEnabled'])) {
             $this->localAdminEnabled = $data['localAdminEnabled'];
         }
         if (isset($data['microsoftManagedDesktop'])) {
-            $this->microsoftManagedDesktop = $data['microsoftManagedDesktop'];
+            $this->microsoftManagedDesktop = is_array($data['microsoftManagedDesktop']) ? new MicrosoftManagedDesktop($data['microsoftManagedDesktop']) : $data['microsoftManagedDesktop'];
         }
         if (isset($data['provisioningType'])) {
-            $this->provisioningType = $data['provisioningType'];
+            $this->provisioningType = is_array($data['provisioningType']) ? new CloudPcProvisioningType($data['provisioningType']) : $data['provisioningType'];
         }
         if (isset($data['windowsSetting'])) {
-            $this->windowsSetting = $data['windowsSetting'];
+            $this->windowsSetting = is_array($data['windowsSetting']) ? new CloudPcWindowsSetting($data['windowsSetting']) : $data['windowsSetting'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];

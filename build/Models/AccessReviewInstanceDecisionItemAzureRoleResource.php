@@ -41,7 +41,7 @@ class AccessReviewInstanceDecisionItemAzureRoleResource
             $this->type = $data['type'];
         }
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new AccessReviewInstanceDecisionItemResource($data['scope']) : $data['scope'];
         }
     }
 }

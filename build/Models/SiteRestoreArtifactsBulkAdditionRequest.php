@@ -95,40 +95,40 @@ class SiteRestoreArtifactsBulkAdditionRequest
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['destinationType'])) {
-            $this->destinationType = $data['destinationType'];
+            $this->destinationType = is_array($data['destinationType']) ? new DestinationType($data['destinationType']) : $data['destinationType'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['protectionTimePeriod'])) {
-            $this->protectionTimePeriod = $data['protectionTimePeriod'];
+            $this->protectionTimePeriod = is_array($data['protectionTimePeriod']) ? new TimePeriod($data['protectionTimePeriod']) : $data['protectionTimePeriod'];
         }
         if (isset($data['protectionUnitIds'])) {
             $this->protectionUnitIds = $data['protectionUnitIds'];
         }
         if (isset($data['restorePointPreference'])) {
-            $this->restorePointPreference = $data['restorePointPreference'];
+            $this->restorePointPreference = is_array($data['restorePointPreference']) ? new RestorePointPreference($data['restorePointPreference']) : $data['restorePointPreference'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new RestoreArtifactsBulkRequestStatus($data['status']) : $data['status'];
         }
         if (isset($data['tags'])) {
-            $this->tags = $data['tags'];
+            $this->tags = is_array($data['tags']) ? new RestorePointTags($data['tags']) : $data['tags'];
         }
         if (isset($data['siteIds'])) {
             $this->siteIds = $data['siteIds'];

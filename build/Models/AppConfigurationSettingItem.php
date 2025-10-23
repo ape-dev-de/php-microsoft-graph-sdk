@@ -29,7 +29,7 @@ class AppConfigurationSettingItem
             $this->appConfigKey = $data['appConfigKey'];
         }
         if (isset($data['appConfigKeyType'])) {
-            $this->appConfigKeyType = $data['appConfigKeyType'];
+            $this->appConfigKeyType = is_array($data['appConfigKeyType']) ? new MdmAppConfigKeyType($data['appConfigKeyType']) : $data['appConfigKeyType'];
         }
         if (isset($data['appConfigKeyValue'])) {
             $this->appConfigKeyValue = $data['appConfigKeyValue'];

@@ -65,25 +65,25 @@ class UrlAssessmentRequest
             $this->id = $data['id'];
         }
         if (isset($data['category'])) {
-            $this->category = $data['category'];
+            $this->category = is_array($data['category']) ? new ThreatCategory($data['category']) : $data['category'];
         }
         if (isset($data['contentType'])) {
-            $this->contentType = $data['contentType'];
+            $this->contentType = is_array($data['contentType']) ? new ThreatAssessmentContentType($data['contentType']) : $data['contentType'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['expectedAssessment'])) {
-            $this->expectedAssessment = $data['expectedAssessment'];
+            $this->expectedAssessment = is_array($data['expectedAssessment']) ? new ThreatExpectedAssessment($data['expectedAssessment']) : $data['expectedAssessment'];
         }
         if (isset($data['requestSource'])) {
-            $this->requestSource = $data['requestSource'];
+            $this->requestSource = is_array($data['requestSource']) ? new ThreatAssessmentRequestSource($data['requestSource']) : $data['requestSource'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ThreatAssessmentStatus($data['status']) : $data['status'];
         }
         if (isset($data['results'])) {
             $this->results = $data['results'];

@@ -35,7 +35,7 @@ class CloudPcProvisioningPolicyAssignment
             $this->id = $data['id'];
         }
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new CloudPcManagementAssignmentTarget($data['target']) : $data['target'];
         }
         if (isset($data['assignedUsers'])) {
             $this->assignedUsers = $data['assignedUsers'];

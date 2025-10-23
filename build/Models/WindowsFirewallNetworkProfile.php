@@ -59,7 +59,7 @@ class WindowsFirewallNetworkProfile
             $this->connectionSecurityRulesFromGroupPolicyMerged = $data['connectionSecurityRulesFromGroupPolicyMerged'];
         }
         if (isset($data['firewallEnabled'])) {
-            $this->firewallEnabled = $data['firewallEnabled'];
+            $this->firewallEnabled = is_array($data['firewallEnabled']) ? new StateManagementSetting($data['firewallEnabled']) : $data['firewallEnabled'];
         }
         if (isset($data['globalPortRulesFromGroupPolicyMerged'])) {
             $this->globalPortRulesFromGroupPolicyMerged = $data['globalPortRulesFromGroupPolicyMerged'];

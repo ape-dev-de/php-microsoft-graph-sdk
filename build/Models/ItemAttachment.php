@@ -59,7 +59,7 @@ class ItemAttachment
             $this->size = $data['size'];
         }
         if (isset($data['item'])) {
-            $this->item = $data['item'];
+            $this->item = is_array($data['item']) ? new OutlookItem($data['item']) : $data['item'];
         }
     }
 }

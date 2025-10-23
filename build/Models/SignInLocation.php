@@ -38,7 +38,7 @@ class SignInLocation
             $this->countryOrRegion = $data['countryOrRegion'];
         }
         if (isset($data['geoCoordinates'])) {
-            $this->geoCoordinates = $data['geoCoordinates'];
+            $this->geoCoordinates = is_array($data['geoCoordinates']) ? new GeoCoordinates($data['geoCoordinates']) : $data['geoCoordinates'];
         }
         if (isset($data['state'])) {
             $this->state = $data['state'];

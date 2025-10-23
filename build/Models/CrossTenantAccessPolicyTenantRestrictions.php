@@ -35,13 +35,13 @@ class CrossTenantAccessPolicyTenantRestrictions
     public function __construct(array $data = [])
     {
         if (isset($data['applications'])) {
-            $this->applications = $data['applications'];
+            $this->applications = is_array($data['applications']) ? new CrossTenantAccessPolicyTargetConfiguration($data['applications']) : $data['applications'];
         }
         if (isset($data['usersAndGroups'])) {
-            $this->usersAndGroups = $data['usersAndGroups'];
+            $this->usersAndGroups = is_array($data['usersAndGroups']) ? new CrossTenantAccessPolicyTargetConfiguration($data['usersAndGroups']) : $data['usersAndGroups'];
         }
         if (isset($data['devices'])) {
-            $this->devices = $data['devices'];
+            $this->devices = is_array($data['devices']) ? new DevicesFilter($data['devices']) : $data['devices'];
         }
     }
 }

@@ -164,7 +164,7 @@ class BookingAppointment
             $this->duration = $data['duration'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_array($data['endDateTime']) ? new DateTimeTimeZone($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['filledAttendeesCount'])) {
             $this->filledAttendeesCount = $data['filledAttendeesCount'];
@@ -197,7 +197,7 @@ class BookingAppointment
             $this->price = $data['price'];
         }
         if (isset($data['priceType'])) {
-            $this->priceType = $data['priceType'];
+            $this->priceType = is_array($data['priceType']) ? new BookingPriceType($data['priceType']) : $data['priceType'];
         }
         if (isset($data['reminders'])) {
             $this->reminders = $data['reminders'];
@@ -209,7 +209,7 @@ class BookingAppointment
             $this->serviceId = $data['serviceId'];
         }
         if (isset($data['serviceLocation'])) {
-            $this->serviceLocation = $data['serviceLocation'];
+            $this->serviceLocation = is_array($data['serviceLocation']) ? new Location($data['serviceLocation']) : $data['serviceLocation'];
         }
         if (isset($data['serviceName'])) {
             $this->serviceName = $data['serviceName'];
@@ -224,7 +224,7 @@ class BookingAppointment
             $this->staffMemberIds = $data['staffMemberIds'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

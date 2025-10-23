@@ -38,7 +38,7 @@ class Win32LobAppMsiInformation
     public function __construct(array $data = [])
     {
         if (isset($data['packageType'])) {
-            $this->packageType = $data['packageType'];
+            $this->packageType = is_array($data['packageType']) ? new Win32LobAppMsiPackageType($data['packageType']) : $data['packageType'];
         }
         if (isset($data['productCode'])) {
             $this->productCode = $data['productCode'];

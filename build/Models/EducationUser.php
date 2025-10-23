@@ -206,7 +206,7 @@ class EducationUser
             $this->businessPhones = $data['businessPhones'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['department'])) {
             $this->department = $data['department'];
@@ -215,7 +215,7 @@ class EducationUser
             $this->displayName = $data['displayName'];
         }
         if (isset($data['externalSource'])) {
-            $this->externalSource = $data['externalSource'];
+            $this->externalSource = is_array($data['externalSource']) ? new EducationExternalSource($data['externalSource']) : $data['externalSource'];
         }
         if (isset($data['externalSourceDetail'])) {
             $this->externalSourceDetail = $data['externalSourceDetail'];
@@ -227,7 +227,7 @@ class EducationUser
             $this->mail = $data['mail'];
         }
         if (isset($data['mailingAddress'])) {
-            $this->mailingAddress = $data['mailingAddress'];
+            $this->mailingAddress = is_array($data['mailingAddress']) ? new PhysicalAddress($data['mailingAddress']) : $data['mailingAddress'];
         }
         if (isset($data['mailNickname'])) {
             $this->mailNickname = $data['mailNickname'];
@@ -242,19 +242,19 @@ class EducationUser
             $this->officeLocation = $data['officeLocation'];
         }
         if (isset($data['onPremisesInfo'])) {
-            $this->onPremisesInfo = $data['onPremisesInfo'];
+            $this->onPremisesInfo = is_array($data['onPremisesInfo']) ? new EducationOnPremisesInfo($data['onPremisesInfo']) : $data['onPremisesInfo'];
         }
         if (isset($data['passwordPolicies'])) {
             $this->passwordPolicies = $data['passwordPolicies'];
         }
         if (isset($data['passwordProfile'])) {
-            $this->passwordProfile = $data['passwordProfile'];
+            $this->passwordProfile = is_array($data['passwordProfile']) ? new PasswordProfile($data['passwordProfile']) : $data['passwordProfile'];
         }
         if (isset($data['preferredLanguage'])) {
             $this->preferredLanguage = $data['preferredLanguage'];
         }
         if (isset($data['primaryRole'])) {
-            $this->primaryRole = $data['primaryRole'];
+            $this->primaryRole = is_array($data['primaryRole']) ? new EducationUserRole($data['primaryRole']) : $data['primaryRole'];
         }
         if (isset($data['provisionedPlans'])) {
             $this->provisionedPlans = $data['provisionedPlans'];
@@ -266,19 +266,19 @@ class EducationUser
             $this->relatedContacts = $data['relatedContacts'];
         }
         if (isset($data['residenceAddress'])) {
-            $this->residenceAddress = $data['residenceAddress'];
+            $this->residenceAddress = is_array($data['residenceAddress']) ? new PhysicalAddress($data['residenceAddress']) : $data['residenceAddress'];
         }
         if (isset($data['showInAddressList'])) {
             $this->showInAddressList = $data['showInAddressList'];
         }
         if (isset($data['student'])) {
-            $this->student = $data['student'];
+            $this->student = is_array($data['student']) ? new EducationStudent($data['student']) : $data['student'];
         }
         if (isset($data['surname'])) {
             $this->surname = $data['surname'];
         }
         if (isset($data['teacher'])) {
-            $this->teacher = $data['teacher'];
+            $this->teacher = is_array($data['teacher']) ? new EducationTeacher($data['teacher']) : $data['teacher'];
         }
         if (isset($data['usageLocation'])) {
             $this->usageLocation = $data['usageLocation'];
@@ -305,7 +305,7 @@ class EducationUser
             $this->taughtClasses = $data['taughtClasses'];
         }
         if (isset($data['user'])) {
-            $this->user = $data['user'];
+            $this->user = is_array($data['user']) ? new User($data['user']) : $data['user'];
         }
     }
 }

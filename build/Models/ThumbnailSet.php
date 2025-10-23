@@ -47,16 +47,16 @@ class ThumbnailSet
             $this->id = $data['id'];
         }
         if (isset($data['large'])) {
-            $this->large = $data['large'];
+            $this->large = is_array($data['large']) ? new Thumbnail($data['large']) : $data['large'];
         }
         if (isset($data['medium'])) {
-            $this->medium = $data['medium'];
+            $this->medium = is_array($data['medium']) ? new Thumbnail($data['medium']) : $data['medium'];
         }
         if (isset($data['small'])) {
-            $this->small = $data['small'];
+            $this->small = is_array($data['small']) ? new Thumbnail($data['small']) : $data['small'];
         }
         if (isset($data['source'])) {
-            $this->source = $data['source'];
+            $this->source = is_array($data['source']) ? new Thumbnail($data['source']) : $data['source'];
         }
     }
 }

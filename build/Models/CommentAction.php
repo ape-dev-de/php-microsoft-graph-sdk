@@ -35,7 +35,7 @@ class CommentAction
             $this->isReply = $data['isReply'];
         }
         if (isset($data['parentAuthor'])) {
-            $this->parentAuthor = $data['parentAuthor'];
+            $this->parentAuthor = is_array($data['parentAuthor']) ? new IdentitySet($data['parentAuthor']) : $data['parentAuthor'];
         }
         if (isset($data['participants'])) {
             $this->participants = $data['participants'];

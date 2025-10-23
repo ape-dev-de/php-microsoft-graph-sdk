@@ -59,7 +59,7 @@ class EnterpriseCodeSigningCertificate
             $this->issuerName = $data['issuerName'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new CertificateStatus($data['status']) : $data['status'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

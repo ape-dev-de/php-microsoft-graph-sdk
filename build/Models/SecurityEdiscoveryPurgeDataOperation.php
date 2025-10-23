@@ -56,13 +56,13 @@ class SecurityEdiscoveryPurgeDataOperation
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new SecurityCaseAction($data['action']) : $data['action'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -71,10 +71,10 @@ class SecurityEdiscoveryPurgeDataOperation
             $this->percentProgress = $data['percentProgress'];
         }
         if (isset($data['resultInfo'])) {
-            $this->resultInfo = $data['resultInfo'];
+            $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
         }
     }
 }

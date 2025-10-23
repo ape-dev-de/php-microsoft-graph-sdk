@@ -26,7 +26,7 @@ class SocialIdentitySource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['socialIdentitySourceType'])) {
-            $this->socialIdentitySourceType = $data['socialIdentitySourceType'];
+            $this->socialIdentitySourceType = is_array($data['socialIdentitySourceType']) ? new SocialIdentitySourceType($data['socialIdentitySourceType']) : $data['socialIdentitySourceType'];
         }
     }
 }

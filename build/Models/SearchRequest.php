@@ -116,19 +116,19 @@ class SearchRequest
             $this->from = $data['from'];
         }
         if (isset($data['query'])) {
-            $this->query = $data['query'];
+            $this->query = is_array($data['query']) ? new SearchQuery($data['query']) : $data['query'];
         }
         if (isset($data['queryAlterationOptions'])) {
-            $this->queryAlterationOptions = $data['queryAlterationOptions'];
+            $this->queryAlterationOptions = is_array($data['queryAlterationOptions']) ? new SearchAlterationOptions($data['queryAlterationOptions']) : $data['queryAlterationOptions'];
         }
         if (isset($data['region'])) {
             $this->region = $data['region'];
         }
         if (isset($data['resultTemplateOptions'])) {
-            $this->resultTemplateOptions = $data['resultTemplateOptions'];
+            $this->resultTemplateOptions = is_array($data['resultTemplateOptions']) ? new ResultTemplateOption($data['resultTemplateOptions']) : $data['resultTemplateOptions'];
         }
         if (isset($data['sharePointOneDriveOptions'])) {
-            $this->sharePointOneDriveOptions = $data['sharePointOneDriveOptions'];
+            $this->sharePointOneDriveOptions = is_array($data['sharePointOneDriveOptions']) ? new SharePointOneDriveOptions($data['sharePointOneDriveOptions']) : $data['sharePointOneDriveOptions'];
         }
         if (isset($data['size'])) {
             $this->size = $data['size'];

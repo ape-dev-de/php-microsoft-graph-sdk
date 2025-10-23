@@ -41,10 +41,10 @@ class DelegatedAdminAccessAssignment
             $this->id = $data['id'];
         }
         if (isset($data['accessContainer'])) {
-            $this->accessContainer = $data['accessContainer'];
+            $this->accessContainer = is_array($data['accessContainer']) ? new DelegatedAdminAccessContainer($data['accessContainer']) : $data['accessContainer'];
         }
         if (isset($data['accessDetails'])) {
-            $this->accessDetails = $data['accessDetails'];
+            $this->accessDetails = is_array($data['accessDetails']) ? new DelegatedAdminAccessDetails($data['accessDetails']) : $data['accessDetails'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -53,7 +53,7 @@ class DelegatedAdminAccessAssignment
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new DelegatedAdminAccessAssignmentStatus($data['status']) : $data['status'];
         }
     }
 }

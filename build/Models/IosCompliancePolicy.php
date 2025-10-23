@@ -146,7 +146,7 @@ class IosCompliancePolicy
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceComplianceDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['scheduledActionsForRule'])) {
             $this->scheduledActionsForRule = $data['scheduledActionsForRule'];
@@ -155,13 +155,13 @@ class IosCompliancePolicy
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceComplianceUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['deviceThreatProtectionEnabled'])) {
             $this->deviceThreatProtectionEnabled = $data['deviceThreatProtectionEnabled'];
         }
         if (isset($data['deviceThreatProtectionRequiredSecurityLevel'])) {
-            $this->deviceThreatProtectionRequiredSecurityLevel = $data['deviceThreatProtectionRequiredSecurityLevel'];
+            $this->deviceThreatProtectionRequiredSecurityLevel = is_array($data['deviceThreatProtectionRequiredSecurityLevel']) ? new DeviceThreatProtectionLevel($data['deviceThreatProtectionRequiredSecurityLevel']) : $data['deviceThreatProtectionRequiredSecurityLevel'];
         }
         if (isset($data['managedEmailProfileRequired'])) {
             $this->managedEmailProfileRequired = $data['managedEmailProfileRequired'];
@@ -194,7 +194,7 @@ class IosCompliancePolicy
             $this->passcodeRequired = $data['passcodeRequired'];
         }
         if (isset($data['passcodeRequiredType'])) {
-            $this->passcodeRequiredType = $data['passcodeRequiredType'];
+            $this->passcodeRequiredType = is_array($data['passcodeRequiredType']) ? new RequiredPasswordType($data['passcodeRequiredType']) : $data['passcodeRequiredType'];
         }
         if (isset($data['securityBlockJailbrokenDevices'])) {
             $this->securityBlockJailbrokenDevices = $data['securityBlockJailbrokenDevices'];

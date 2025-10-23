@@ -59,10 +59,10 @@ class OnTokenIssuanceStartCustomExtension
             $this->id = $data['id'];
         }
         if (isset($data['authenticationConfiguration'])) {
-            $this->authenticationConfiguration = $data['authenticationConfiguration'];
+            $this->authenticationConfiguration = is_array($data['authenticationConfiguration']) ? new CustomExtensionAuthenticationConfiguration($data['authenticationConfiguration']) : $data['authenticationConfiguration'];
         }
         if (isset($data['clientConfiguration'])) {
-            $this->clientConfiguration = $data['clientConfiguration'];
+            $this->clientConfiguration = is_array($data['clientConfiguration']) ? new CustomExtensionClientConfiguration($data['clientConfiguration']) : $data['clientConfiguration'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -71,10 +71,10 @@ class OnTokenIssuanceStartCustomExtension
             $this->displayName = $data['displayName'];
         }
         if (isset($data['endpointConfiguration'])) {
-            $this->endpointConfiguration = $data['endpointConfiguration'];
+            $this->endpointConfiguration = is_array($data['endpointConfiguration']) ? new CustomExtensionEndpointConfiguration($data['endpointConfiguration']) : $data['endpointConfiguration'];
         }
         if (isset($data['behaviorOnError'])) {
-            $this->behaviorOnError = $data['behaviorOnError'];
+            $this->behaviorOnError = is_array($data['behaviorOnError']) ? new CustomExtensionBehaviorOnError($data['behaviorOnError']) : $data['behaviorOnError'];
         }
         if (isset($data['claimsForTokenConfiguration'])) {
             $this->claimsForTokenConfiguration = $data['claimsForTokenConfiguration'];

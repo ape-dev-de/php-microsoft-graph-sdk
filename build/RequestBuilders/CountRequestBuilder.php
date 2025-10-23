@@ -23,10 +23,10 @@ class CountRequestBuilder extends BaseRequestBuilder
     public function get(?string $search = null, ?string $filter = null): ODataCountResponse
     {
         $queryParams = [];
-        if ($search !== null) {
+        if ($search !== null && $search !== '') {
             $queryParams['$search'] = $search;
         }
-        if ($filter !== null) {
+        if ($filter !== null && $filter !== '') {
             $queryParams['$filter'] = $filter;
         }
         $response = $this->client->get($this->requestUrl, $queryParams);

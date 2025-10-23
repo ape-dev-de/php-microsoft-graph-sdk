@@ -41,7 +41,7 @@ class TenantRelationship
             $this->delegatedAdminRelationships = $data['delegatedAdminRelationships'];
         }
         if (isset($data['multiTenantOrganization'])) {
-            $this->multiTenantOrganization = $data['multiTenantOrganization'];
+            $this->multiTenantOrganization = is_array($data['multiTenantOrganization']) ? new MultiTenantOrganization($data['multiTenantOrganization']) : $data['multiTenantOrganization'];
         }
     }
 }

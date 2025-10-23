@@ -128,10 +128,10 @@ class EducationClass
             $this->classCode = $data['classCode'];
         }
         if (isset($data['course'])) {
-            $this->course = $data['course'];
+            $this->course = is_array($data['course']) ? new EducationCourse($data['course']) : $data['course'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -146,7 +146,7 @@ class EducationClass
             $this->externalName = $data['externalName'];
         }
         if (isset($data['externalSource'])) {
-            $this->externalSource = $data['externalSource'];
+            $this->externalSource = is_array($data['externalSource']) ? new EducationExternalSource($data['externalSource']) : $data['externalSource'];
         }
         if (isset($data['externalSourceDetail'])) {
             $this->externalSourceDetail = $data['externalSourceDetail'];
@@ -158,22 +158,22 @@ class EducationClass
             $this->mailNickname = $data['mailNickname'];
         }
         if (isset($data['term'])) {
-            $this->term = $data['term'];
+            $this->term = is_array($data['term']) ? new EducationTerm($data['term']) : $data['term'];
         }
         if (isset($data['assignmentCategories'])) {
             $this->assignmentCategories = $data['assignmentCategories'];
         }
         if (isset($data['assignmentDefaults'])) {
-            $this->assignmentDefaults = $data['assignmentDefaults'];
+            $this->assignmentDefaults = is_array($data['assignmentDefaults']) ? new EducationAssignmentDefaults($data['assignmentDefaults']) : $data['assignmentDefaults'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
         }
         if (isset($data['assignmentSettings'])) {
-            $this->assignmentSettings = $data['assignmentSettings'];
+            $this->assignmentSettings = is_array($data['assignmentSettings']) ? new EducationAssignmentSettings($data['assignmentSettings']) : $data['assignmentSettings'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];
         }
         if (isset($data['members'])) {
             $this->members = $data['members'];

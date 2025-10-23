@@ -29,7 +29,7 @@ class TeamsAppAuthorization
             $this->clientAppId = $data['clientAppId'];
         }
         if (isset($data['requiredPermissionSet'])) {
-            $this->requiredPermissionSet = $data['requiredPermissionSet'];
+            $this->requiredPermissionSet = is_array($data['requiredPermissionSet']) ? new TeamsAppPermissionSet($data['requiredPermissionSet']) : $data['requiredPermissionSet'];
         }
     }
 }

@@ -50,13 +50,13 @@ class ServiceApp
             $this->id = $data['id'];
         }
         if (isset($data['application'])) {
-            $this->application = $data['application'];
+            $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
         if (isset($data['effectiveDateTime'])) {
             $this->effectiveDateTime = is_string($data['effectiveDateTime']) ? new \DateTimeImmutable($data['effectiveDateTime']) : $data['effectiveDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -65,7 +65,7 @@ class ServiceApp
             $this->registrationDateTime = is_string($data['registrationDateTime']) ? new \DateTimeImmutable($data['registrationDateTime']) : $data['registrationDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ServiceAppStatus($data['status']) : $data['status'];
         }
     }
 }

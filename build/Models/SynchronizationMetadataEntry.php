@@ -26,7 +26,7 @@ class SynchronizationMetadataEntry
     public function __construct(array $data = [])
     {
         if (isset($data['key'])) {
-            $this->key = $data['key'];
+            $this->key = is_array($data['key']) ? new SynchronizationMetadata($data['key']) : $data['key'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

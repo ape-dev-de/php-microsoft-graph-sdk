@@ -35,7 +35,7 @@ class Website
             $this->displayName = $data['displayName'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new WebsiteType($data['type']) : $data['type'];
         }
     }
 }

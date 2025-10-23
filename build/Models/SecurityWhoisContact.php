@@ -38,7 +38,7 @@ class SecurityWhoisContact
     public function __construct(array $data = [])
     {
         if (isset($data['address'])) {
-            $this->address = $data['address'];
+            $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
         if (isset($data['email'])) {
             $this->email = $data['email'];

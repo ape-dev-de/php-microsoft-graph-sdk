@@ -26,7 +26,7 @@ class Bundle
     public function __construct(array $data = [])
     {
         if (isset($data['album'])) {
-            $this->album = $data['album'];
+            $this->album = is_array($data['album']) ? new Album($data['album']) : $data['album'];
         }
         if (isset($data['childCount'])) {
             $this->childCount = $data['childCount'];

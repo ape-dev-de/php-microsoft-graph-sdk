@@ -41,13 +41,13 @@ class ItemAnalytics
             $this->id = $data['id'];
         }
         if (isset($data['allTime'])) {
-            $this->allTime = $data['allTime'];
+            $this->allTime = is_array($data['allTime']) ? new ItemActivityStat($data['allTime']) : $data['allTime'];
         }
         if (isset($data['itemActivityStats'])) {
             $this->itemActivityStats = $data['itemActivityStats'];
         }
         if (isset($data['lastSevenDays'])) {
-            $this->lastSevenDays = $data['lastSevenDays'];
+            $this->lastSevenDays = is_array($data['lastSevenDays']) ? new ItemActivityStat($data['lastSevenDays']) : $data['lastSevenDays'];
         }
     }
 }

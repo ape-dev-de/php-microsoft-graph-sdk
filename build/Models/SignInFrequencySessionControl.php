@@ -44,13 +44,13 @@ class SignInFrequencySessionControl
             $this->isEnabled = $data['isEnabled'];
         }
         if (isset($data['authenticationType'])) {
-            $this->authenticationType = $data['authenticationType'];
+            $this->authenticationType = is_array($data['authenticationType']) ? new SignInFrequencyAuthenticationType($data['authenticationType']) : $data['authenticationType'];
         }
         if (isset($data['frequencyInterval'])) {
-            $this->frequencyInterval = $data['frequencyInterval'];
+            $this->frequencyInterval = is_array($data['frequencyInterval']) ? new SignInFrequencyInterval($data['frequencyInterval']) : $data['frequencyInterval'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new SigninFrequencyType($data['type']) : $data['type'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

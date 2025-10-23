@@ -110,25 +110,25 @@ class EditionUpgradeConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['license'])) {
             $this->license = $data['license'];
         }
         if (isset($data['licenseType'])) {
-            $this->licenseType = $data['licenseType'];
+            $this->licenseType = is_array($data['licenseType']) ? new EditionUpgradeLicenseType($data['licenseType']) : $data['licenseType'];
         }
         if (isset($data['productKey'])) {
             $this->productKey = $data['productKey'];
         }
         if (isset($data['targetEdition'])) {
-            $this->targetEdition = $data['targetEdition'];
+            $this->targetEdition = is_array($data['targetEdition']) ? new Windows10EditionType($data['targetEdition']) : $data['targetEdition'];
         }
     }
 }

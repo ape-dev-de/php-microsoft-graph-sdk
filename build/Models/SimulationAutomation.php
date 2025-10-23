@@ -65,7 +65,7 @@ class SimulationAutomation
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new EmailIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -77,7 +77,7 @@ class SimulationAutomation
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new EmailIdentity($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -89,7 +89,7 @@ class SimulationAutomation
             $this->nextRunDateTime = is_string($data['nextRunDateTime']) ? new \DateTimeImmutable($data['nextRunDateTime']) : $data['nextRunDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SimulationAutomationStatus($data['status']) : $data['status'];
         }
         if (isset($data['runs'])) {
             $this->runs = $data['runs'];

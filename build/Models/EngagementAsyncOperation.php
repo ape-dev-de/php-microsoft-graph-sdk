@@ -59,13 +59,13 @@ class EngagementAsyncOperation
             $this->resourceLocation = $data['resourceLocation'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['statusDetail'])) {
             $this->statusDetail = $data['statusDetail'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = $data['operationType'];
+            $this->operationType = is_array($data['operationType']) ? new EngagementAsyncOperationType($data['operationType']) : $data['operationType'];
         }
         if (isset($data['resourceId'])) {
             $this->resourceId = $data['resourceId'];

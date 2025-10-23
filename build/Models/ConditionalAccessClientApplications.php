@@ -41,7 +41,7 @@ class ConditionalAccessClientApplications
             $this->includeServicePrincipals = $data['includeServicePrincipals'];
         }
         if (isset($data['servicePrincipalFilter'])) {
-            $this->servicePrincipalFilter = $data['servicePrincipalFilter'];
+            $this->servicePrincipalFilter = is_array($data['servicePrincipalFilter']) ? new ConditionalAccessFilter($data['servicePrincipalFilter']) : $data['servicePrincipalFilter'];
         }
     }
 }

@@ -176,28 +176,28 @@ class ColumnDefinition
             $this->id = $data['id'];
         }
         if (isset($data['boolean'])) {
-            $this->boolean = $data['boolean'];
+            $this->boolean = is_array($data['boolean']) ? new BooleanColumn($data['boolean']) : $data['boolean'];
         }
         if (isset($data['calculated'])) {
-            $this->calculated = $data['calculated'];
+            $this->calculated = is_array($data['calculated']) ? new CalculatedColumn($data['calculated']) : $data['calculated'];
         }
         if (isset($data['choice'])) {
-            $this->choice = $data['choice'];
+            $this->choice = is_array($data['choice']) ? new ChoiceColumn($data['choice']) : $data['choice'];
         }
         if (isset($data['columnGroup'])) {
             $this->columnGroup = $data['columnGroup'];
         }
         if (isset($data['contentApprovalStatus'])) {
-            $this->contentApprovalStatus = $data['contentApprovalStatus'];
+            $this->contentApprovalStatus = is_array($data['contentApprovalStatus']) ? new ContentApprovalStatusColumn($data['contentApprovalStatus']) : $data['contentApprovalStatus'];
         }
         if (isset($data['currency'])) {
-            $this->currency = $data['currency'];
+            $this->currency = is_array($data['currency']) ? new CurrencyColumn($data['currency']) : $data['currency'];
         }
         if (isset($data['dateTime'])) {
-            $this->dateTime = $data['dateTime'];
+            $this->dateTime = is_array($data['dateTime']) ? new DateTimeColumn($data['dateTime']) : $data['dateTime'];
         }
         if (isset($data['defaultValue'])) {
-            $this->defaultValue = $data['defaultValue'];
+            $this->defaultValue = is_array($data['defaultValue']) ? new DefaultColumnValue($data['defaultValue']) : $data['defaultValue'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -209,13 +209,13 @@ class ColumnDefinition
             $this->enforceUniqueValues = $data['enforceUniqueValues'];
         }
         if (isset($data['geolocation'])) {
-            $this->geolocation = $data['geolocation'];
+            $this->geolocation = is_array($data['geolocation']) ? new GeolocationColumn($data['geolocation']) : $data['geolocation'];
         }
         if (isset($data['hidden'])) {
             $this->hidden = $data['hidden'];
         }
         if (isset($data['hyperlinkOrPicture'])) {
-            $this->hyperlinkOrPicture = $data['hyperlinkOrPicture'];
+            $this->hyperlinkOrPicture = is_array($data['hyperlinkOrPicture']) ? new HyperlinkOrPictureColumn($data['hyperlinkOrPicture']) : $data['hyperlinkOrPicture'];
         }
         if (isset($data['indexed'])) {
             $this->indexed = $data['indexed'];
@@ -230,16 +230,16 @@ class ColumnDefinition
             $this->isSealed = $data['isSealed'];
         }
         if (isset($data['lookup'])) {
-            $this->lookup = $data['lookup'];
+            $this->lookup = is_array($data['lookup']) ? new LookupColumn($data['lookup']) : $data['lookup'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['number'])) {
-            $this->number = $data['number'];
+            $this->number = is_array($data['number']) ? new NumberColumn($data['number']) : $data['number'];
         }
         if (isset($data['personOrGroup'])) {
-            $this->personOrGroup = $data['personOrGroup'];
+            $this->personOrGroup = is_array($data['personOrGroup']) ? new PersonOrGroupColumn($data['personOrGroup']) : $data['personOrGroup'];
         }
         if (isset($data['propagateChanges'])) {
             $this->propagateChanges = $data['propagateChanges'];
@@ -251,25 +251,25 @@ class ColumnDefinition
             $this->required = $data['required'];
         }
         if (isset($data['sourceContentType'])) {
-            $this->sourceContentType = $data['sourceContentType'];
+            $this->sourceContentType = is_array($data['sourceContentType']) ? new ContentTypeInfo($data['sourceContentType']) : $data['sourceContentType'];
         }
         if (isset($data['term'])) {
-            $this->term = $data['term'];
+            $this->term = is_array($data['term']) ? new TermColumn($data['term']) : $data['term'];
         }
         if (isset($data['text'])) {
-            $this->text = $data['text'];
+            $this->text = is_array($data['text']) ? new TextColumn($data['text']) : $data['text'];
         }
         if (isset($data['thumbnail'])) {
-            $this->thumbnail = $data['thumbnail'];
+            $this->thumbnail = is_array($data['thumbnail']) ? new ThumbnailColumn($data['thumbnail']) : $data['thumbnail'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new ColumnTypes($data['type']) : $data['type'];
         }
         if (isset($data['validation'])) {
-            $this->validation = $data['validation'];
+            $this->validation = is_array($data['validation']) ? new ColumnValidation($data['validation']) : $data['validation'];
         }
         if (isset($data['sourceColumn'])) {
-            $this->sourceColumn = $data['sourceColumn'];
+            $this->sourceColumn = is_array($data['sourceColumn']) ? new ColumnDefinition($data['sourceColumn']) : $data['sourceColumn'];
         }
     }
 }

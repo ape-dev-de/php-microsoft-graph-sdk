@@ -29,7 +29,7 @@ class PublicationFacet
     public function __construct(array $data = [])
     {
         if (isset($data['checkedOutBy'])) {
-            $this->checkedOutBy = $data['checkedOutBy'];
+            $this->checkedOutBy = is_array($data['checkedOutBy']) ? new IdentitySet($data['checkedOutBy']) : $data['checkedOutBy'];
         }
         if (isset($data['level'])) {
             $this->level = $data['level'];

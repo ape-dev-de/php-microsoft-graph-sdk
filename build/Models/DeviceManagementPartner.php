@@ -65,10 +65,10 @@ class DeviceManagementPartner
             $this->lastHeartbeatDateTime = is_string($data['lastHeartbeatDateTime']) ? new \DateTimeImmutable($data['lastHeartbeatDateTime']) : $data['lastHeartbeatDateTime'];
         }
         if (isset($data['partnerAppType'])) {
-            $this->partnerAppType = $data['partnerAppType'];
+            $this->partnerAppType = is_array($data['partnerAppType']) ? new DeviceManagementPartnerAppType($data['partnerAppType']) : $data['partnerAppType'];
         }
         if (isset($data['partnerState'])) {
-            $this->partnerState = $data['partnerState'];
+            $this->partnerState = is_array($data['partnerState']) ? new DeviceManagementPartnerTenantState($data['partnerState']) : $data['partnerState'];
         }
         if (isset($data['singleTenantAppId'])) {
             $this->singleTenantAppId = $data['singleTenantAppId'];

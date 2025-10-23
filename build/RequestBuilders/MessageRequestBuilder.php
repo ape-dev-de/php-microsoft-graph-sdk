@@ -23,10 +23,10 @@ class MessageRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null, ?array $expand = null): ChatMessage
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
-        if ($expand !== null) {
+        if ($expand !== null && $expand !== '') {
             $queryParams['$expand'] = implode(',', $expand);
         }
         $response = $this->client->get($this->requestUrl, $queryParams);

@@ -128,13 +128,13 @@ class PlannerTask
             $this->activeChecklistItemCount = $data['activeChecklistItemCount'];
         }
         if (isset($data['appliedCategories'])) {
-            $this->appliedCategories = $data['appliedCategories'];
+            $this->appliedCategories = is_array($data['appliedCategories']) ? new PlannerAppliedCategories($data['appliedCategories']) : $data['appliedCategories'];
         }
         if (isset($data['assigneePriority'])) {
             $this->assigneePriority = $data['assigneePriority'];
         }
         if (isset($data['assignments'])) {
-            $this->assignments = $data['assignments'];
+            $this->assignments = is_array($data['assignments']) ? new PlannerAssignments($data['assignments']) : $data['assignments'];
         }
         if (isset($data['bucketId'])) {
             $this->bucketId = $data['bucketId'];
@@ -143,7 +143,7 @@ class PlannerTask
             $this->checklistItemCount = $data['checklistItemCount'];
         }
         if (isset($data['completedBy'])) {
-            $this->completedBy = $data['completedBy'];
+            $this->completedBy = is_array($data['completedBy']) ? new IdentitySet($data['completedBy']) : $data['completedBy'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
@@ -152,7 +152,7 @@ class PlannerTask
             $this->conversationThreadId = $data['conversationThreadId'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -173,7 +173,7 @@ class PlannerTask
             $this->planId = $data['planId'];
         }
         if (isset($data['previewType'])) {
-            $this->previewType = $data['previewType'];
+            $this->previewType = is_array($data['previewType']) ? new PlannerPreviewType($data['previewType']) : $data['previewType'];
         }
         if (isset($data['priority'])) {
             $this->priority = $data['priority'];
@@ -188,16 +188,16 @@ class PlannerTask
             $this->title = $data['title'];
         }
         if (isset($data['assignedToTaskBoardFormat'])) {
-            $this->assignedToTaskBoardFormat = $data['assignedToTaskBoardFormat'];
+            $this->assignedToTaskBoardFormat = is_array($data['assignedToTaskBoardFormat']) ? new PlannerAssignedToTaskBoardTaskFormat($data['assignedToTaskBoardFormat']) : $data['assignedToTaskBoardFormat'];
         }
         if (isset($data['bucketTaskBoardFormat'])) {
-            $this->bucketTaskBoardFormat = $data['bucketTaskBoardFormat'];
+            $this->bucketTaskBoardFormat = is_array($data['bucketTaskBoardFormat']) ? new PlannerBucketTaskBoardTaskFormat($data['bucketTaskBoardFormat']) : $data['bucketTaskBoardFormat'];
         }
         if (isset($data['details'])) {
-            $this->details = $data['details'];
+            $this->details = is_array($data['details']) ? new PlannerTaskDetails($data['details']) : $data['details'];
         }
         if (isset($data['progressTaskBoardFormat'])) {
-            $this->progressTaskBoardFormat = $data['progressTaskBoardFormat'];
+            $this->progressTaskBoardFormat = is_array($data['progressTaskBoardFormat']) ? new PlannerProgressTaskBoardTaskFormat($data['progressTaskBoardFormat']) : $data['progressTaskBoardFormat'];
         }
     }
 }

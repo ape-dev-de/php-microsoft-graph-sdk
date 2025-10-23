@@ -32,7 +32,7 @@ class BookingsAvailabilityWindow
     public function __construct(array $data = [])
     {
         if (isset($data['availabilityType'])) {
-            $this->availabilityType = $data['availabilityType'];
+            $this->availabilityType = is_array($data['availabilityType']) ? new BookingsServiceAvailabilityType($data['availabilityType']) : $data['availabilityType'];
         }
         if (isset($data['businessHours'])) {
             $this->businessHours = $data['businessHours'];

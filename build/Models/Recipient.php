@@ -23,7 +23,7 @@ class Recipient
     public function __construct(array $data = [])
     {
         if (isset($data['emailAddress'])) {
-            $this->emailAddress = $data['emailAddress'];
+            $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
         }
     }
 }

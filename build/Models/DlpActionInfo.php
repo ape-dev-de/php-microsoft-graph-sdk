@@ -23,7 +23,7 @@ class DlpActionInfo
     public function __construct(array $data = [])
     {
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new DlpAction($data['action']) : $data['action'];
         }
     }
 }

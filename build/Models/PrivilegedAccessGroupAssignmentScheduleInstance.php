@@ -80,31 +80,31 @@ class PrivilegedAccessGroupAssignmentScheduleInstance
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['accessId'])) {
-            $this->accessId = $data['accessId'];
+            $this->accessId = is_array($data['accessId']) ? new PrivilegedAccessGroupRelationships($data['accessId']) : $data['accessId'];
         }
         if (isset($data['assignmentScheduleId'])) {
             $this->assignmentScheduleId = $data['assignmentScheduleId'];
         }
         if (isset($data['assignmentType'])) {
-            $this->assignmentType = $data['assignmentType'];
+            $this->assignmentType = is_array($data['assignmentType']) ? new PrivilegedAccessGroupAssignmentType($data['assignmentType']) : $data['assignmentType'];
         }
         if (isset($data['groupId'])) {
             $this->groupId = $data['groupId'];
         }
         if (isset($data['memberType'])) {
-            $this->memberType = $data['memberType'];
+            $this->memberType = is_array($data['memberType']) ? new PrivilegedAccessGroupMemberType($data['memberType']) : $data['memberType'];
         }
         if (isset($data['principalId'])) {
             $this->principalId = $data['principalId'];
         }
         if (isset($data['activatedUsing'])) {
-            $this->activatedUsing = $data['activatedUsing'];
+            $this->activatedUsing = is_array($data['activatedUsing']) ? new PrivilegedAccessGroupEligibilityScheduleInstance($data['activatedUsing']) : $data['activatedUsing'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];
         }
         if (isset($data['principal'])) {
-            $this->principal = $data['principal'];
+            $this->principal = is_array($data['principal']) ? new DirectoryObject($data['principal']) : $data['principal'];
         }
     }
 }

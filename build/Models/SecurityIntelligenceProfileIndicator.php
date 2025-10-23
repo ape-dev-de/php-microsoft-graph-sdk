@@ -35,10 +35,10 @@ class SecurityIntelligenceProfileIndicator
             $this->id = $data['id'];
         }
         if (isset($data['source'])) {
-            $this->source = $data['source'];
+            $this->source = is_array($data['source']) ? new SecurityIndicatorSource($data['source']) : $data['source'];
         }
         if (isset($data['artifact'])) {
-            $this->artifact = $data['artifact'];
+            $this->artifact = is_array($data['artifact']) ? new SecurityArtifact($data['artifact']) : $data['artifact'];
         }
         if (isset($data['firstSeenDateTime'])) {
             $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];

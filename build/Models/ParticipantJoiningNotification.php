@@ -29,7 +29,7 @@ class ParticipantJoiningNotification
             $this->id = $data['id'];
         }
         if (isset($data['call'])) {
-            $this->call = $data['call'];
+            $this->call = is_array($data['call']) ? new Call($data['call']) : $data['call'];
         }
     }
 }

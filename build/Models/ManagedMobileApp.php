@@ -32,7 +32,7 @@ class ManagedMobileApp
             $this->id = $data['id'];
         }
         if (isset($data['mobileAppIdentifier'])) {
-            $this->mobileAppIdentifier = $data['mobileAppIdentifier'];
+            $this->mobileAppIdentifier = is_array($data['mobileAppIdentifier']) ? new MobileAppIdentifier($data['mobileAppIdentifier']) : $data['mobileAppIdentifier'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

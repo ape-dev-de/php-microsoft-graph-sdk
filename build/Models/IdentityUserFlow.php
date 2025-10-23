@@ -29,7 +29,7 @@ class IdentityUserFlow
             $this->id = $data['id'];
         }
         if (isset($data['userFlowType'])) {
-            $this->userFlowType = $data['userFlowType'];
+            $this->userFlowType = is_array($data['userFlowType']) ? new UserFlowType($data['userFlowType']) : $data['userFlowType'];
         }
         if (isset($data['userFlowTypeVersion'])) {
             $this->userFlowTypeVersion = $data['userFlowTypeVersion'];

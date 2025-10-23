@@ -23,7 +23,7 @@ class OnenotePagePreviewLinks
     public function __construct(array $data = [])
     {
         if (isset($data['previewImageUrl'])) {
-            $this->previewImageUrl = $data['previewImageUrl'];
+            $this->previewImageUrl = is_array($data['previewImageUrl']) ? new ExternalLink($data['previewImageUrl']) : $data['previewImageUrl'];
         }
     }
 }

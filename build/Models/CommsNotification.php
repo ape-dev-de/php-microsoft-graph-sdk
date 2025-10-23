@@ -23,7 +23,7 @@ class CommsNotification
     public function __construct(array $data = [])
     {
         if (isset($data['changeType'])) {
-            $this->changeType = $data['changeType'];
+            $this->changeType = is_array($data['changeType']) ? new ChangeType($data['changeType']) : $data['changeType'];
         }
         if (isset($data['resourceUrl'])) {
             $this->resourceUrl = $data['resourceUrl'];

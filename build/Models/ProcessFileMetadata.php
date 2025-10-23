@@ -56,7 +56,7 @@ class ProcessFileMetadata
     public function __construct(array $data = [])
     {
         if (isset($data['content'])) {
-            $this->content = $data['content'];
+            $this->content = is_array($data['content']) ? new ContentBase($data['content']) : $data['content'];
         }
         if (isset($data['correlationId'])) {
             $this->correlationId = $data['correlationId'];
@@ -83,7 +83,7 @@ class ProcessFileMetadata
             $this->sequenceNumber = $data['sequenceNumber'];
         }
         if (isset($data['customProperties'])) {
-            $this->customProperties = $data['customProperties'];
+            $this->customProperties = is_array($data['customProperties']) ? new CustomMetadataDictionary($data['customProperties']) : $data['customProperties'];
         }
         if (isset($data['ownerId'])) {
             $this->ownerId = $data['ownerId'];

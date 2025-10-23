@@ -86,7 +86,7 @@ class TermStoreTerm
             $this->relations = $data['relations'];
         }
         if (isset($data['set'])) {
-            $this->set = $data['set'];
+            $this->set = is_array($data['set']) ? new TermStoreSet($data['set']) : $data['set'];
         }
     }
 }

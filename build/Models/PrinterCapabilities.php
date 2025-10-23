@@ -167,7 +167,7 @@ class PrinterCapabilities
             $this->contentTypes = $data['contentTypes'];
         }
         if (isset($data['copiesPerJob'])) {
-            $this->copiesPerJob = $data['copiesPerJob'];
+            $this->copiesPerJob = is_array($data['copiesPerJob']) ? new IntegerRange($data['copiesPerJob']) : $data['copiesPerJob'];
         }
         if (isset($data['dpis'])) {
             $this->dpis = $data['dpis'];

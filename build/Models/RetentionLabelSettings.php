@@ -38,7 +38,7 @@ class RetentionLabelSettings
     public function __construct(array $data = [])
     {
         if (isset($data['behaviorDuringRetentionPeriod'])) {
-            $this->behaviorDuringRetentionPeriod = $data['behaviorDuringRetentionPeriod'];
+            $this->behaviorDuringRetentionPeriod = is_array($data['behaviorDuringRetentionPeriod']) ? new SecurityBehaviorDuringRetentionPeriod($data['behaviorDuringRetentionPeriod']) : $data['behaviorDuringRetentionPeriod'];
         }
         if (isset($data['isContentUpdateAllowed'])) {
             $this->isContentUpdateAllowed = $data['isContentUpdateAllowed'];

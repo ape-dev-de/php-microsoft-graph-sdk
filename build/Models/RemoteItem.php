@@ -113,25 +113,25 @@ class RemoteItem
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['file'])) {
-            $this->file = $data['file'];
+            $this->file = is_array($data['file']) ? new File($data['file']) : $data['file'];
         }
         if (isset($data['fileSystemInfo'])) {
-            $this->fileSystemInfo = $data['fileSystemInfo'];
+            $this->fileSystemInfo = is_array($data['fileSystemInfo']) ? new FileSystemInfo($data['fileSystemInfo']) : $data['fileSystemInfo'];
         }
         if (isset($data['folder'])) {
-            $this->folder = $data['folder'];
+            $this->folder = is_array($data['folder']) ? new Folder($data['folder']) : $data['folder'];
         }
         if (isset($data['image'])) {
-            $this->image = $data['image'];
+            $this->image = is_array($data['image']) ? new Image($data['image']) : $data['image'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -140,25 +140,25 @@ class RemoteItem
             $this->name = $data['name'];
         }
         if (isset($data['package'])) {
-            $this->package = $data['package'];
+            $this->package = is_array($data['package']) ? new Package($data['package']) : $data['package'];
         }
         if (isset($data['parentReference'])) {
-            $this->parentReference = $data['parentReference'];
+            $this->parentReference = is_array($data['parentReference']) ? new ItemReference($data['parentReference']) : $data['parentReference'];
         }
         if (isset($data['shared'])) {
-            $this->shared = $data['shared'];
+            $this->shared = is_array($data['shared']) ? new Shared($data['shared']) : $data['shared'];
         }
         if (isset($data['sharepointIds'])) {
-            $this->sharepointIds = $data['sharepointIds'];
+            $this->sharepointIds = is_array($data['sharepointIds']) ? new SharepointIds($data['sharepointIds']) : $data['sharepointIds'];
         }
         if (isset($data['size'])) {
             $this->size = $data['size'];
         }
         if (isset($data['specialFolder'])) {
-            $this->specialFolder = $data['specialFolder'];
+            $this->specialFolder = is_array($data['specialFolder']) ? new SpecialFolder($data['specialFolder']) : $data['specialFolder'];
         }
         if (isset($data['video'])) {
-            $this->video = $data['video'];
+            $this->video = is_array($data['video']) ? new Video($data['video']) : $data['video'];
         }
         if (isset($data['webDavUrl'])) {
             $this->webDavUrl = $data['webDavUrl'];

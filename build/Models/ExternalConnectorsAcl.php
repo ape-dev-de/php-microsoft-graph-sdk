@@ -26,10 +26,10 @@ class ExternalConnectorsAcl
     public function __construct(array $data = [])
     {
         if (isset($data['accessType'])) {
-            $this->accessType = $data['accessType'];
+            $this->accessType = is_array($data['accessType']) ? new ExternalConnectorsAccessType($data['accessType']) : $data['accessType'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new ExternalConnectorsAclType($data['type']) : $data['type'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

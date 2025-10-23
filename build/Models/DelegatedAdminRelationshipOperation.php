@@ -47,10 +47,10 @@ class DelegatedAdminRelationshipOperation
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = $data['operationType'];
+            $this->operationType = is_array($data['operationType']) ? new DelegatedAdminRelationshipOperationType($data['operationType']) : $data['operationType'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
         }
     }
 }

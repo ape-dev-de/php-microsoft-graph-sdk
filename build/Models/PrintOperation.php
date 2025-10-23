@@ -32,7 +32,7 @@ class PrintOperation
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new PrintOperationStatus($data['status']) : $data['status'];
         }
     }
 }

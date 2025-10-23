@@ -59,13 +59,13 @@ class MeetingTimeSuggestion
             $this->locations = $data['locations'];
         }
         if (isset($data['meetingTimeSlot'])) {
-            $this->meetingTimeSlot = $data['meetingTimeSlot'];
+            $this->meetingTimeSlot = is_array($data['meetingTimeSlot']) ? new TimeSlot($data['meetingTimeSlot']) : $data['meetingTimeSlot'];
         }
         if (isset($data['order'])) {
             $this->order = $data['order'];
         }
         if (isset($data['organizerAvailability'])) {
-            $this->organizerAvailability = $data['organizerAvailability'];
+            $this->organizerAvailability = is_array($data['organizerAvailability']) ? new FreeBusyStatus($data['organizerAvailability']) : $data['organizerAvailability'];
         }
         if (isset($data['suggestionReason'])) {
             $this->suggestionReason = $data['suggestionReason'];

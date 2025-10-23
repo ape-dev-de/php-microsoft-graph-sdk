@@ -35,7 +35,7 @@ class TeamworkOnlineMeetingInfo
             $this->joinWebUrl = $data['joinWebUrl'];
         }
         if (isset($data['organizer'])) {
-            $this->organizer = $data['organizer'];
+            $this->organizer = is_array($data['organizer']) ? new TeamworkUserIdentity($data['organizer']) : $data['organizer'];
         }
     }
 }

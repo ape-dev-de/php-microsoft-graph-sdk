@@ -116,10 +116,10 @@ class BookingBusiness
             $this->id = $data['id'];
         }
         if (isset($data['address'])) {
-            $this->address = $data['address'];
+            $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
         if (isset($data['bookingPageSettings'])) {
-            $this->bookingPageSettings = $data['bookingPageSettings'];
+            $this->bookingPageSettings = is_array($data['bookingPageSettings']) ? new BookingPageSettings($data['bookingPageSettings']) : $data['bookingPageSettings'];
         }
         if (isset($data['businessHours'])) {
             $this->businessHours = $data['businessHours'];
@@ -155,7 +155,7 @@ class BookingBusiness
             $this->publicUrl = $data['publicUrl'];
         }
         if (isset($data['schedulingPolicy'])) {
-            $this->schedulingPolicy = $data['schedulingPolicy'];
+            $this->schedulingPolicy = is_array($data['schedulingPolicy']) ? new BookingSchedulingPolicy($data['schedulingPolicy']) : $data['schedulingPolicy'];
         }
         if (isset($data['webSiteUrl'])) {
             $this->webSiteUrl = $data['webSiteUrl'];

@@ -35,7 +35,7 @@ class IdentityApiConnector
             $this->id = $data['id'];
         }
         if (isset($data['authenticationConfiguration'])) {
-            $this->authenticationConfiguration = $data['authenticationConfiguration'];
+            $this->authenticationConfiguration = is_array($data['authenticationConfiguration']) ? new ApiAuthenticationConfigurationBase($data['authenticationConfiguration']) : $data['authenticationConfiguration'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

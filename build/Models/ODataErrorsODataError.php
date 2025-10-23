@@ -20,7 +20,7 @@ class ODataErrorsODataError
     public function __construct(array $data = [])
     {
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new ODataErrorsMainError($data['error']) : $data['error'];
         }
     }
 }

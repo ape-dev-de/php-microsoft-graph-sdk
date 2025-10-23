@@ -38,13 +38,13 @@ class ConditionalAccessTemplate
             $this->description = $data['description'];
         }
         if (isset($data['details'])) {
-            $this->details = $data['details'];
+            $this->details = is_array($data['details']) ? new ConditionalAccessPolicyDetail($data['details']) : $data['details'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['scenarios'])) {
-            $this->scenarios = $data['scenarios'];
+            $this->scenarios = is_array($data['scenarios']) ? new TemplateScenarios($data['scenarios']) : $data['scenarios'];
         }
     }
 }

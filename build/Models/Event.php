@@ -257,7 +257,7 @@ class Event
             $this->attendees = $data['attendees'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['bodyPreview'])) {
             $this->bodyPreview = $data['bodyPreview'];
@@ -266,7 +266,7 @@ class Event
             $this->cancelledOccurrences = $data['cancelledOccurrences'];
         }
         if (isset($data['end'])) {
-            $this->end = $data['end'];
+            $this->end = is_array($data['end']) ? new DateTimeTimeZone($data['end']) : $data['end'];
         }
         if (isset($data['hasAttachments'])) {
             $this->hasAttachments = $data['hasAttachments'];
@@ -278,7 +278,7 @@ class Event
             $this->iCalUId = $data['iCalUId'];
         }
         if (isset($data['importance'])) {
-            $this->importance = $data['importance'];
+            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
         }
         if (isset($data['isAllDay'])) {
             $this->isAllDay = $data['isAllDay'];
@@ -299,22 +299,22 @@ class Event
             $this->isReminderOn = $data['isReminderOn'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new Location($data['location']) : $data['location'];
         }
         if (isset($data['locations'])) {
             $this->locations = $data['locations'];
         }
         if (isset($data['onlineMeeting'])) {
-            $this->onlineMeeting = $data['onlineMeeting'];
+            $this->onlineMeeting = is_array($data['onlineMeeting']) ? new OnlineMeetingInfo($data['onlineMeeting']) : $data['onlineMeeting'];
         }
         if (isset($data['onlineMeetingProvider'])) {
-            $this->onlineMeetingProvider = $data['onlineMeetingProvider'];
+            $this->onlineMeetingProvider = is_array($data['onlineMeetingProvider']) ? new OnlineMeetingProviderType($data['onlineMeetingProvider']) : $data['onlineMeetingProvider'];
         }
         if (isset($data['onlineMeetingUrl'])) {
             $this->onlineMeetingUrl = $data['onlineMeetingUrl'];
         }
         if (isset($data['organizer'])) {
-            $this->organizer = $data['organizer'];
+            $this->organizer = is_array($data['organizer']) ? new Recipient($data['organizer']) : $data['organizer'];
         }
         if (isset($data['originalEndTimeZone'])) {
             $this->originalEndTimeZone = $data['originalEndTimeZone'];
@@ -326,7 +326,7 @@ class Event
             $this->originalStartTimeZone = $data['originalStartTimeZone'];
         }
         if (isset($data['recurrence'])) {
-            $this->recurrence = $data['recurrence'];
+            $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
         if (isset($data['reminderMinutesBeforeStart'])) {
             $this->reminderMinutesBeforeStart = $data['reminderMinutesBeforeStart'];
@@ -335,19 +335,19 @@ class Event
             $this->responseRequested = $data['responseRequested'];
         }
         if (isset($data['responseStatus'])) {
-            $this->responseStatus = $data['responseStatus'];
+            $this->responseStatus = is_array($data['responseStatus']) ? new ResponseStatus($data['responseStatus']) : $data['responseStatus'];
         }
         if (isset($data['sensitivity'])) {
-            $this->sensitivity = $data['sensitivity'];
+            $this->sensitivity = is_array($data['sensitivity']) ? new Sensitivity($data['sensitivity']) : $data['sensitivity'];
         }
         if (isset($data['seriesMasterId'])) {
             $this->seriesMasterId = $data['seriesMasterId'];
         }
         if (isset($data['showAs'])) {
-            $this->showAs = $data['showAs'];
+            $this->showAs = is_array($data['showAs']) ? new FreeBusyStatus($data['showAs']) : $data['showAs'];
         }
         if (isset($data['start'])) {
-            $this->start = $data['start'];
+            $this->start = is_array($data['start']) ? new DateTimeTimeZone($data['start']) : $data['start'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];
@@ -356,7 +356,7 @@ class Event
             $this->transactionId = $data['transactionId'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new EventType($data['type']) : $data['type'];
         }
         if (isset($data['webLink'])) {
             $this->webLink = $data['webLink'];
@@ -365,7 +365,7 @@ class Event
             $this->attachments = $data['attachments'];
         }
         if (isset($data['calendar'])) {
-            $this->calendar = $data['calendar'];
+            $this->calendar = is_array($data['calendar']) ? new Calendar($data['calendar']) : $data['calendar'];
         }
         if (isset($data['exceptionOccurrences'])) {
             $this->exceptionOccurrences = $data['exceptionOccurrences'];

@@ -32,13 +32,13 @@ class ConditionalAccessPolicyDetail
     public function __construct(array $data = [])
     {
         if (isset($data['conditions'])) {
-            $this->conditions = $data['conditions'];
+            $this->conditions = is_array($data['conditions']) ? new ConditionalAccessConditionSet($data['conditions']) : $data['conditions'];
         }
         if (isset($data['grantControls'])) {
-            $this->grantControls = $data['grantControls'];
+            $this->grantControls = is_array($data['grantControls']) ? new ConditionalAccessGrantControls($data['grantControls']) : $data['grantControls'];
         }
         if (isset($data['sessionControls'])) {
-            $this->sessionControls = $data['sessionControls'];
+            $this->sessionControls = is_array($data['sessionControls']) ? new ConditionalAccessSessionControls($data['sessionControls']) : $data['sessionControls'];
         }
     }
 }

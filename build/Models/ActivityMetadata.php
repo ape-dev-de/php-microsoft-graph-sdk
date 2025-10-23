@@ -20,7 +20,7 @@ class ActivityMetadata
     public function __construct(array $data = [])
     {
         if (isset($data['activity'])) {
-            $this->activity = $data['activity'];
+            $this->activity = is_array($data['activity']) ? new UserActivityType($data['activity']) : $data['activity'];
         }
     }
 }

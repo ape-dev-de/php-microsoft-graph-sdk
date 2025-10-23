@@ -26,7 +26,7 @@ class EducationAssignmentGrade
     public function __construct(array $data = [])
     {
         if (isset($data['gradedBy'])) {
-            $this->gradedBy = $data['gradedBy'];
+            $this->gradedBy = is_array($data['gradedBy']) ? new IdentitySet($data['gradedBy']) : $data['gradedBy'];
         }
         if (isset($data['gradedDateTime'])) {
             $this->gradedDateTime = is_string($data['gradedDateTime']) ? new \DateTimeImmutable($data['gradedDateTime']) : $data['gradedDateTime'];

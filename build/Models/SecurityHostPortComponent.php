@@ -41,7 +41,7 @@ class SecurityHostPortComponent
             $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['component'])) {
-            $this->component = $data['component'];
+            $this->component = is_array($data['component']) ? new SecurityHostComponent($data['component']) : $data['component'];
         }
     }
 }

@@ -29,7 +29,7 @@ class DocumentSetContent
     public function __construct(array $data = [])
     {
         if (isset($data['contentType'])) {
-            $this->contentType = $data['contentType'];
+            $this->contentType = is_array($data['contentType']) ? new ContentTypeInfo($data['contentType']) : $data['contentType'];
         }
         if (isset($data['fileName'])) {
             $this->fileName = $data['fileName'];

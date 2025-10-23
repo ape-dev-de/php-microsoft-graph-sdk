@@ -29,10 +29,10 @@ class SecurityRetentionEventStatus
     public function __construct(array $data = [])
     {
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityEventStatusType($data['status']) : $data['status'];
         }
     }
 }

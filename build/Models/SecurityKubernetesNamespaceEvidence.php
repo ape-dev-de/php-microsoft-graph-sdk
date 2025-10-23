@@ -68,7 +68,7 @@ class SecurityKubernetesNamespaceEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -80,13 +80,13 @@ class SecurityKubernetesNamespaceEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['cluster'])) {
-            $this->cluster = $data['cluster'];
+            $this->cluster = is_array($data['cluster']) ? new SecurityKubernetesClusterEvidence($data['cluster']) : $data['cluster'];
         }
         if (isset($data['labels'])) {
-            $this->labels = $data['labels'];
+            $this->labels = is_array($data['labels']) ? new SecurityDictionary($data['labels']) : $data['labels'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

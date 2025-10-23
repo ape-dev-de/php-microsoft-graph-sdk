@@ -122,7 +122,7 @@ class SecurityAnalyzedMessageEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -134,7 +134,7 @@ class SecurityAnalyzedMessageEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['antiSpamDirection'])) {
             $this->antiSpamDirection = $data['antiSpamDirection'];
@@ -158,10 +158,10 @@ class SecurityAnalyzedMessageEvidence
             $this->networkMessageId = $data['networkMessageId'];
         }
         if (isset($data['p1Sender'])) {
-            $this->p1Sender = $data['p1Sender'];
+            $this->p1Sender = is_array($data['p1Sender']) ? new SecurityEmailSender($data['p1Sender']) : $data['p1Sender'];
         }
         if (isset($data['p2Sender'])) {
-            $this->p2Sender = $data['p2Sender'];
+            $this->p2Sender = is_array($data['p2Sender']) ? new SecurityEmailSender($data['p2Sender']) : $data['p2Sender'];
         }
         if (isset($data['receivedDateTime'])) {
             $this->receivedDateTime = is_string($data['receivedDateTime']) ? new \DateTimeImmutable($data['receivedDateTime']) : $data['receivedDateTime'];

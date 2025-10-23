@@ -35,7 +35,7 @@ class IdentityGovernanceParameter
             $this->values = $data['values'];
         }
         if (isset($data['valueType'])) {
-            $this->valueType = $data['valueType'];
+            $this->valueType = is_array($data['valueType']) ? new IdentityGovernanceValueType($data['valueType']) : $data['valueType'];
         }
     }
 }

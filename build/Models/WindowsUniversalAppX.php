@@ -140,7 +140,7 @@ class WindowsUniversalAppX
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
-            $this->largeIcon = $data['largeIcon'];
+            $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -158,7 +158,7 @@ class WindowsUniversalAppX
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -179,10 +179,10 @@ class WindowsUniversalAppX
             $this->contentVersions = $data['contentVersions'];
         }
         if (isset($data['applicableArchitectures'])) {
-            $this->applicableArchitectures = $data['applicableArchitectures'];
+            $this->applicableArchitectures = is_array($data['applicableArchitectures']) ? new WindowsArchitecture($data['applicableArchitectures']) : $data['applicableArchitectures'];
         }
         if (isset($data['applicableDeviceTypes'])) {
-            $this->applicableDeviceTypes = $data['applicableDeviceTypes'];
+            $this->applicableDeviceTypes = is_array($data['applicableDeviceTypes']) ? new WindowsDeviceType($data['applicableDeviceTypes']) : $data['applicableDeviceTypes'];
         }
         if (isset($data['identityName'])) {
             $this->identityName = $data['identityName'];
@@ -200,7 +200,7 @@ class WindowsUniversalAppX
             $this->isBundle = $data['isBundle'];
         }
         if (isset($data['minimumSupportedOperatingSystem'])) {
-            $this->minimumSupportedOperatingSystem = $data['minimumSupportedOperatingSystem'];
+            $this->minimumSupportedOperatingSystem = is_array($data['minimumSupportedOperatingSystem']) ? new WindowsMinimumOperatingSystem($data['minimumSupportedOperatingSystem']) : $data['minimumSupportedOperatingSystem'];
         }
         if (isset($data['committedContainedApps'])) {
             $this->committedContainedApps = $data['committedContainedApps'];

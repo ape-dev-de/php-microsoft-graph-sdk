@@ -23,7 +23,7 @@ class ConditionalAccessDevices
     public function __construct(array $data = [])
     {
         if (isset($data['deviceFilter'])) {
-            $this->deviceFilter = $data['deviceFilter'];
+            $this->deviceFilter = is_array($data['deviceFilter']) ? new ConditionalAccessFilter($data['deviceFilter']) : $data['deviceFilter'];
         }
     }
 }

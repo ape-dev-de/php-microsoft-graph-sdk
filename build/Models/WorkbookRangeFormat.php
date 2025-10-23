@@ -80,13 +80,13 @@ class WorkbookRangeFormat
             $this->borders = $data['borders'];
         }
         if (isset($data['fill'])) {
-            $this->fill = $data['fill'];
+            $this->fill = is_array($data['fill']) ? new WorkbookRangeFill($data['fill']) : $data['fill'];
         }
         if (isset($data['font'])) {
-            $this->font = $data['font'];
+            $this->font = is_array($data['font']) ? new WorkbookRangeFont($data['font']) : $data['font'];
         }
         if (isset($data['protection'])) {
-            $this->protection = $data['protection'];
+            $this->protection = is_array($data['protection']) ? new WorkbookFormatProtection($data['protection']) : $data['protection'];
         }
     }
 }

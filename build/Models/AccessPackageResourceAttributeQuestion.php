@@ -23,7 +23,7 @@ class AccessPackageResourceAttributeQuestion
     public function __construct(array $data = [])
     {
         if (isset($data['question'])) {
-            $this->question = $data['question'];
+            $this->question = is_array($data['question']) ? new AccessPackageQuestion($data['question']) : $data['question'];
         }
     }
 }

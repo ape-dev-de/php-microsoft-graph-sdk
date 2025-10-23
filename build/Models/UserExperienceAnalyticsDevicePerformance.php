@@ -107,7 +107,7 @@ class UserExperienceAnalyticsDevicePerformance
             $this->deviceName = $data['deviceName'];
         }
         if (isset($data['diskType'])) {
-            $this->diskType = $data['diskType'];
+            $this->diskType = is_array($data['diskType']) ? new DiskType($data['diskType']) : $data['diskType'];
         }
         if (isset($data['groupPolicyBootTimeInMs'])) {
             $this->groupPolicyBootTimeInMs = $data['groupPolicyBootTimeInMs'];
@@ -116,7 +116,7 @@ class UserExperienceAnalyticsDevicePerformance
             $this->groupPolicyLoginTimeInMs = $data['groupPolicyLoginTimeInMs'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = $data['healthStatus'];
+            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['loginScore'])) {
             $this->loginScore = $data['loginScore'];

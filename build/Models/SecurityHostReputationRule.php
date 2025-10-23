@@ -38,7 +38,7 @@ class SecurityHostReputationRule
             $this->relatedDetailsUrl = $data['relatedDetailsUrl'];
         }
         if (isset($data['severity'])) {
-            $this->severity = $data['severity'];
+            $this->severity = is_array($data['severity']) ? new SecurityHostReputationRuleSeverity($data['severity']) : $data['severity'];
         }
     }
 }

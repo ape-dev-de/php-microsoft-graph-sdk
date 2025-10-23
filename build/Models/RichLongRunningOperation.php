@@ -65,13 +65,13 @@ class RichLongRunningOperation
             $this->resourceLocation = $data['resourceLocation'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['statusDetail'])) {
             $this->statusDetail = $data['statusDetail'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['percentageComplete'])) {
             $this->percentageComplete = $data['percentageComplete'];

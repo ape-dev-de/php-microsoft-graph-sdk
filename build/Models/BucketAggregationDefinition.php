@@ -47,7 +47,7 @@ class BucketAggregationDefinition
             $this->ranges = $data['ranges'];
         }
         if (isset($data['sortBy'])) {
-            $this->sortBy = $data['sortBy'];
+            $this->sortBy = is_array($data['sortBy']) ? new BucketAggregationSortProperty($data['sortBy']) : $data['sortBy'];
         }
     }
 }

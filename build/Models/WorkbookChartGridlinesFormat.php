@@ -29,7 +29,7 @@ class WorkbookChartGridlinesFormat
             $this->id = $data['id'];
         }
         if (isset($data['line'])) {
-            $this->line = $data['line'];
+            $this->line = is_array($data['line']) ? new WorkbookChartLineFormat($data['line']) : $data['line'];
         }
     }
 }

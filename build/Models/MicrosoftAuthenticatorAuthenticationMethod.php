@@ -53,7 +53,7 @@ class MicrosoftAuthenticatorAuthenticationMethod
             $this->phoneAppVersion = $data['phoneAppVersion'];
         }
         if (isset($data['device'])) {
-            $this->device = $data['device'];
+            $this->device = is_array($data['device']) ? new Device($data['device']) : $data['device'];
         }
     }
 }

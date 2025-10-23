@@ -68,7 +68,7 @@ class MailTips
     public function __construct(array $data = [])
     {
         if (isset($data['automaticReplies'])) {
-            $this->automaticReplies = $data['automaticReplies'];
+            $this->automaticReplies = is_array($data['automaticReplies']) ? new AutomaticRepliesMailTips($data['automaticReplies']) : $data['automaticReplies'];
         }
         if (isset($data['customMailTip'])) {
             $this->customMailTip = $data['customMailTip'];
@@ -77,10 +77,10 @@ class MailTips
             $this->deliveryRestricted = $data['deliveryRestricted'];
         }
         if (isset($data['emailAddress'])) {
-            $this->emailAddress = $data['emailAddress'];
+            $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new MailTipsError($data['error']) : $data['error'];
         }
         if (isset($data['externalMemberCount'])) {
             $this->externalMemberCount = $data['externalMemberCount'];
@@ -95,7 +95,7 @@ class MailTips
             $this->maxMessageSize = $data['maxMessageSize'];
         }
         if (isset($data['recipientScope'])) {
-            $this->recipientScope = $data['recipientScope'];
+            $this->recipientScope = is_array($data['recipientScope']) ? new RecipientScopeType($data['recipientScope']) : $data['recipientScope'];
         }
         if (isset($data['recipientSuggestions'])) {
             $this->recipientSuggestions = $data['recipientSuggestions'];

@@ -29,7 +29,7 @@ class InvitationRedemptionIdentityProviderConfiguration
     public function __construct(array $data = [])
     {
         if (isset($data['fallbackIdentityProvider'])) {
-            $this->fallbackIdentityProvider = $data['fallbackIdentityProvider'];
+            $this->fallbackIdentityProvider = is_array($data['fallbackIdentityProvider']) ? new B2bIdentityProvidersType($data['fallbackIdentityProvider']) : $data['fallbackIdentityProvider'];
         }
         if (isset($data['primaryIdentityProviderPrecedenceOrder'])) {
             $this->primaryIdentityProviderPrecedenceOrder = $data['primaryIdentityProviderPrecedenceOrder'];

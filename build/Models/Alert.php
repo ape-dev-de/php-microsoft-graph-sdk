@@ -254,7 +254,7 @@ class Alert
             $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['feedback'])) {
-            $this->feedback = $data['feedback'];
+            $this->feedback = is_array($data['feedback']) ? new AlertFeedback($data['feedback']) : $data['feedback'];
         }
         if (isset($data['fileStates'])) {
             $this->fileStates = $data['fileStates'];
@@ -299,13 +299,13 @@ class Alert
             $this->securityResources = $data['securityResources'];
         }
         if (isset($data['severity'])) {
-            $this->severity = $data['severity'];
+            $this->severity = is_array($data['severity']) ? new AlertSeverity($data['severity']) : $data['severity'];
         }
         if (isset($data['sourceMaterials'])) {
             $this->sourceMaterials = $data['sourceMaterials'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new AlertStatus($data['status']) : $data['status'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];
@@ -323,7 +323,7 @@ class Alert
             $this->userStates = $data['userStates'];
         }
         if (isset($data['vendorInformation'])) {
-            $this->vendorInformation = $data['vendorInformation'];
+            $this->vendorInformation = is_array($data['vendorInformation']) ? new SecurityVendorInformation($data['vendorInformation']) : $data['vendorInformation'];
         }
         if (isset($data['vulnerabilityStates'])) {
             $this->vulnerabilityStates = $data['vulnerabilityStates'];

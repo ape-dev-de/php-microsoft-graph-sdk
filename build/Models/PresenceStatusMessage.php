@@ -32,10 +32,10 @@ class PresenceStatusMessage
     public function __construct(array $data = [])
     {
         if (isset($data['expiryDateTime'])) {
-            $this->expiryDateTime = $data['expiryDateTime'];
+            $this->expiryDateTime = is_array($data['expiryDateTime']) ? new DateTimeTimeZone($data['expiryDateTime']) : $data['expiryDateTime'];
         }
         if (isset($data['message'])) {
-            $this->message = $data['message'];
+            $this->message = is_array($data['message']) ? new ItemBody($data['message']) : $data['message'];
         }
         if (isset($data['publishedDateTime'])) {
             $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];

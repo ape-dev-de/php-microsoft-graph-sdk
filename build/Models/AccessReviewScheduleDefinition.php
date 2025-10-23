@@ -98,7 +98,7 @@ class AccessReviewScheduleDefinition
             $this->additionalNotificationRecipients = $data['additionalNotificationRecipients'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new UserIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -116,7 +116,7 @@ class AccessReviewScheduleDefinition
             $this->fallbackReviewers = $data['fallbackReviewers'];
         }
         if (isset($data['instanceEnumerationScope'])) {
-            $this->instanceEnumerationScope = $data['instanceEnumerationScope'];
+            $this->instanceEnumerationScope = is_array($data['instanceEnumerationScope']) ? new AccessReviewScope($data['instanceEnumerationScope']) : $data['instanceEnumerationScope'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -125,10 +125,10 @@ class AccessReviewScheduleDefinition
             $this->reviewers = $data['reviewers'];
         }
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new AccessReviewScope($data['scope']) : $data['scope'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new AccessReviewScheduleSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['stageSettings'])) {
             $this->stageSettings = $data['stageSettings'];

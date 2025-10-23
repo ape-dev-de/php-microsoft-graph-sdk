@@ -44,19 +44,19 @@ class ChatMessagePolicyViolation
     public function __construct(array $data = [])
     {
         if (isset($data['dlpAction'])) {
-            $this->dlpAction = $data['dlpAction'];
+            $this->dlpAction = is_array($data['dlpAction']) ? new ChatMessagePolicyViolationDlpActionTypes($data['dlpAction']) : $data['dlpAction'];
         }
         if (isset($data['justificationText'])) {
             $this->justificationText = $data['justificationText'];
         }
         if (isset($data['policyTip'])) {
-            $this->policyTip = $data['policyTip'];
+            $this->policyTip = is_array($data['policyTip']) ? new ChatMessagePolicyViolationPolicyTip($data['policyTip']) : $data['policyTip'];
         }
         if (isset($data['userAction'])) {
-            $this->userAction = $data['userAction'];
+            $this->userAction = is_array($data['userAction']) ? new ChatMessagePolicyViolationUserActionTypes($data['userAction']) : $data['userAction'];
         }
         if (isset($data['verdictDetails'])) {
-            $this->verdictDetails = $data['verdictDetails'];
+            $this->verdictDetails = is_array($data['verdictDetails']) ? new ChatMessagePolicyViolationVerdictDetailsTypes($data['verdictDetails']) : $data['verdictDetails'];
         }
     }
 }

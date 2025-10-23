@@ -149,7 +149,7 @@ class BackupRestoreRoot
             $this->id = $data['id'];
         }
         if (isset($data['serviceStatus'])) {
-            $this->serviceStatus = $data['serviceStatus'];
+            $this->serviceStatus = is_array($data['serviceStatus']) ? new ServiceStatus($data['serviceStatus']) : $data['serviceStatus'];
         }
         if (isset($data['driveInclusionRules'])) {
             $this->driveInclusionRules = $data['driveInclusionRules'];

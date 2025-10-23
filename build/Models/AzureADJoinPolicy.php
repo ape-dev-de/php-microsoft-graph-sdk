@@ -26,7 +26,7 @@ class AzureADJoinPolicy
     public function __construct(array $data = [])
     {
         if (isset($data['allowedToJoin'])) {
-            $this->allowedToJoin = $data['allowedToJoin'];
+            $this->allowedToJoin = is_array($data['allowedToJoin']) ? new DeviceRegistrationMembership($data['allowedToJoin']) : $data['allowedToJoin'];
         }
         if (isset($data['isAdminConfigurable'])) {
             $this->isAdminConfigurable = $data['isAdminConfigurable'];

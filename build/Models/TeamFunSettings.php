@@ -41,7 +41,7 @@ class TeamFunSettings
             $this->allowStickersAndMemes = $data['allowStickersAndMemes'];
         }
         if (isset($data['giphyContentRating'])) {
-            $this->giphyContentRating = $data['giphyContentRating'];
+            $this->giphyContentRating = is_array($data['giphyContentRating']) ? new GiphyRatingType($data['giphyContentRating']) : $data['giphyContentRating'];
         }
     }
 }

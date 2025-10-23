@@ -104,28 +104,28 @@ class VirtualEventWebinar
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new CommunicationsIdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['description'])) {
-            $this->description = $data['description'];
+            $this->description = is_array($data['description']) ? new ItemBody($data['description']) : $data['description'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_array($data['endDateTime']) ? new DateTimeTimeZone($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['externalEventInformation'])) {
             $this->externalEventInformation = $data['externalEventInformation'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new VirtualEventSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new VirtualEventStatus($data['status']) : $data['status'];
         }
         if (isset($data['presenters'])) {
             $this->presenters = $data['presenters'];
@@ -134,13 +134,13 @@ class VirtualEventWebinar
             $this->sessions = $data['sessions'];
         }
         if (isset($data['audience'])) {
-            $this->audience = $data['audience'];
+            $this->audience = is_array($data['audience']) ? new MeetingAudience($data['audience']) : $data['audience'];
         }
         if (isset($data['coOrganizers'])) {
             $this->coOrganizers = $data['coOrganizers'];
         }
         if (isset($data['registrationConfiguration'])) {
-            $this->registrationConfiguration = $data['registrationConfiguration'];
+            $this->registrationConfiguration = is_array($data['registrationConfiguration']) ? new VirtualEventWebinarRegistrationConfiguration($data['registrationConfiguration']) : $data['registrationConfiguration'];
         }
         if (isset($data['registrations'])) {
             $this->registrations = $data['registrations'];

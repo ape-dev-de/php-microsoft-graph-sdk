@@ -50,7 +50,7 @@ class PrivilegedAccessSchedule
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['scheduleInfo'])) {
-            $this->scheduleInfo = $data['scheduleInfo'];
+            $this->scheduleInfo = is_array($data['scheduleInfo']) ? new RequestSchedule($data['scheduleInfo']) : $data['scheduleInfo'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

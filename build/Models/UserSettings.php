@@ -59,13 +59,13 @@ class UserSettings
             $this->contributionToContentDiscoveryDisabled = $data['contributionToContentDiscoveryDisabled'];
         }
         if (isset($data['itemInsights'])) {
-            $this->itemInsights = $data['itemInsights'];
+            $this->itemInsights = is_array($data['itemInsights']) ? new UserInsightsSettings($data['itemInsights']) : $data['itemInsights'];
         }
         if (isset($data['shiftPreferences'])) {
-            $this->shiftPreferences = $data['shiftPreferences'];
+            $this->shiftPreferences = is_array($data['shiftPreferences']) ? new ShiftPreferences($data['shiftPreferences']) : $data['shiftPreferences'];
         }
         if (isset($data['storage'])) {
-            $this->storage = $data['storage'];
+            $this->storage = is_array($data['storage']) ? new UserStorage($data['storage']) : $data['storage'];
         }
         if (isset($data['windows'])) {
             $this->windows = $data['windows'];

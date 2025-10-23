@@ -56,16 +56,16 @@ class Reminder
             $this->changeKey = $data['changeKey'];
         }
         if (isset($data['eventEndTime'])) {
-            $this->eventEndTime = $data['eventEndTime'];
+            $this->eventEndTime = is_array($data['eventEndTime']) ? new DateTimeTimeZone($data['eventEndTime']) : $data['eventEndTime'];
         }
         if (isset($data['eventId'])) {
             $this->eventId = $data['eventId'];
         }
         if (isset($data['eventLocation'])) {
-            $this->eventLocation = $data['eventLocation'];
+            $this->eventLocation = is_array($data['eventLocation']) ? new Location($data['eventLocation']) : $data['eventLocation'];
         }
         if (isset($data['eventStartTime'])) {
-            $this->eventStartTime = $data['eventStartTime'];
+            $this->eventStartTime = is_array($data['eventStartTime']) ? new DateTimeTimeZone($data['eventStartTime']) : $data['eventStartTime'];
         }
         if (isset($data['eventSubject'])) {
             $this->eventSubject = $data['eventSubject'];
@@ -74,7 +74,7 @@ class Reminder
             $this->eventWebLink = $data['eventWebLink'];
         }
         if (isset($data['reminderFireTime'])) {
-            $this->reminderFireTime = $data['reminderFireTime'];
+            $this->reminderFireTime = is_array($data['reminderFireTime']) ? new DateTimeTimeZone($data['reminderFireTime']) : $data['reminderFireTime'];
         }
     }
 }

@@ -98,7 +98,7 @@ class WindowsProtectionState
             $this->antiMalwareVersion = $data['antiMalwareVersion'];
         }
         if (isset($data['deviceState'])) {
-            $this->deviceState = $data['deviceState'];
+            $this->deviceState = is_array($data['deviceState']) ? new WindowsDeviceHealthState($data['deviceState']) : $data['deviceState'];
         }
         if (isset($data['engineVersion'])) {
             $this->engineVersion = $data['engineVersion'];
@@ -134,7 +134,7 @@ class WindowsProtectionState
             $this->networkInspectionSystemEnabled = $data['networkInspectionSystemEnabled'];
         }
         if (isset($data['productStatus'])) {
-            $this->productStatus = $data['productStatus'];
+            $this->productStatus = is_array($data['productStatus']) ? new WindowsDefenderProductStatus($data['productStatus']) : $data['productStatus'];
         }
         if (isset($data['quickScanOverdue'])) {
             $this->quickScanOverdue = $data['quickScanOverdue'];

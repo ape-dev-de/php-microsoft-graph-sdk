@@ -38,7 +38,7 @@ class CallRecordsOrganizer
             $this->administrativeUnitInfos = $data['administrativeUnitInfos'];
         }
         if (isset($data['identity'])) {
-            $this->identity = $data['identity'];
+            $this->identity = is_array($data['identity']) ? new CommunicationsIdentitySet($data['identity']) : $data['identity'];
         }
     }
 }

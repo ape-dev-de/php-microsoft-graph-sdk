@@ -59,10 +59,10 @@ class AttendanceRecord
             $this->emailAddress = $data['emailAddress'];
         }
         if (isset($data['externalRegistrationInformation'])) {
-            $this->externalRegistrationInformation = $data['externalRegistrationInformation'];
+            $this->externalRegistrationInformation = is_array($data['externalRegistrationInformation']) ? new VirtualEventExternalRegistrationInformation($data['externalRegistrationInformation']) : $data['externalRegistrationInformation'];
         }
         if (isset($data['identity'])) {
-            $this->identity = $data['identity'];
+            $this->identity = is_array($data['identity']) ? new Identity($data['identity']) : $data['identity'];
         }
         if (isset($data['registrationId'])) {
             $this->registrationId = $data['registrationId'];

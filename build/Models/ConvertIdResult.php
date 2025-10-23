@@ -29,7 +29,7 @@ class ConvertIdResult
     public function __construct(array $data = [])
     {
         if (isset($data['errorDetails'])) {
-            $this->errorDetails = $data['errorDetails'];
+            $this->errorDetails = is_array($data['errorDetails']) ? new GenericError($data['errorDetails']) : $data['errorDetails'];
         }
         if (isset($data['sourceId'])) {
             $this->sourceId = $data['sourceId'];

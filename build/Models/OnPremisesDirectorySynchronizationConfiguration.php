@@ -23,7 +23,7 @@ class OnPremisesDirectorySynchronizationConfiguration
     public function __construct(array $data = [])
     {
         if (isset($data['accidentalDeletionPrevention'])) {
-            $this->accidentalDeletionPrevention = $data['accidentalDeletionPrevention'];
+            $this->accidentalDeletionPrevention = is_array($data['accidentalDeletionPrevention']) ? new OnPremisesAccidentalDeletionPrevention($data['accidentalDeletionPrevention']) : $data['accidentalDeletionPrevention'];
         }
     }
 }

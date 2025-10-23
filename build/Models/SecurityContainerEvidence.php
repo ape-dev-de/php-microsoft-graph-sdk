@@ -86,7 +86,7 @@ class SecurityContainerEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -98,7 +98,7 @@ class SecurityContainerEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['args'])) {
             $this->args = $data['args'];
@@ -110,7 +110,7 @@ class SecurityContainerEvidence
             $this->containerId = $data['containerId'];
         }
         if (isset($data['image'])) {
-            $this->image = $data['image'];
+            $this->image = is_array($data['image']) ? new SecurityContainerImageEvidence($data['image']) : $data['image'];
         }
         if (isset($data['isPrivileged'])) {
             $this->isPrivileged = $data['isPrivileged'];
@@ -119,7 +119,7 @@ class SecurityContainerEvidence
             $this->name = $data['name'];
         }
         if (isset($data['pod'])) {
-            $this->pod = $data['pod'];
+            $this->pod = is_array($data['pod']) ? new SecurityKubernetesPodEvidence($data['pod']) : $data['pod'];
         }
     }
 }

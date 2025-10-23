@@ -20,7 +20,7 @@ class ConditionalAccessAuthenticationFlows
     public function __construct(array $data = [])
     {
         if (isset($data['transferMethods'])) {
-            $this->transferMethods = $data['transferMethods'];
+            $this->transferMethods = is_array($data['transferMethods']) ? new ConditionalAccessTransferMethods($data['transferMethods']) : $data['transferMethods'];
         }
     }
 }

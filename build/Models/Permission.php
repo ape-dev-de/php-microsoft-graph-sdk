@@ -83,7 +83,7 @@ class Permission
             $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['grantedTo'])) {
-            $this->grantedTo = $data['grantedTo'];
+            $this->grantedTo = is_array($data['grantedTo']) ? new IdentitySet($data['grantedTo']) : $data['grantedTo'];
         }
         if (isset($data['grantedToIdentities'])) {
             $this->grantedToIdentities = $data['grantedToIdentities'];
@@ -92,19 +92,19 @@ class Permission
             $this->grantedToIdentitiesV2 = $data['grantedToIdentitiesV2'];
         }
         if (isset($data['grantedToV2'])) {
-            $this->grantedToV2 = $data['grantedToV2'];
+            $this->grantedToV2 = is_array($data['grantedToV2']) ? new SharePointIdentitySet($data['grantedToV2']) : $data['grantedToV2'];
         }
         if (isset($data['hasPassword'])) {
             $this->hasPassword = $data['hasPassword'];
         }
         if (isset($data['inheritedFrom'])) {
-            $this->inheritedFrom = $data['inheritedFrom'];
+            $this->inheritedFrom = is_array($data['inheritedFrom']) ? new ItemReference($data['inheritedFrom']) : $data['inheritedFrom'];
         }
         if (isset($data['invitation'])) {
-            $this->invitation = $data['invitation'];
+            $this->invitation = is_array($data['invitation']) ? new SharingInvitation($data['invitation']) : $data['invitation'];
         }
         if (isset($data['link'])) {
-            $this->link = $data['link'];
+            $this->link = is_array($data['link']) ? new SharingLink($data['link']) : $data['link'];
         }
         if (isset($data['roles'])) {
             $this->roles = $data['roles'];

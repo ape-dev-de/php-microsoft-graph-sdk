@@ -47,7 +47,7 @@ class ProcessContentMetadataBase
     public function __construct(array $data = [])
     {
         if (isset($data['content'])) {
-            $this->content = $data['content'];
+            $this->content = is_array($data['content']) ? new ContentBase($data['content']) : $data['content'];
         }
         if (isset($data['correlationId'])) {
             $this->correlationId = $data['correlationId'];

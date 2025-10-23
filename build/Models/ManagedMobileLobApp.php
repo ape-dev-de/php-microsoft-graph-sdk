@@ -116,7 +116,7 @@ class ManagedMobileLobApp
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
-            $this->largeIcon = $data['largeIcon'];
+            $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -134,7 +134,7 @@ class ManagedMobileLobApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -143,7 +143,7 @@ class ManagedMobileLobApp
             $this->categories = $data['categories'];
         }
         if (isset($data['appAvailability'])) {
-            $this->appAvailability = $data['appAvailability'];
+            $this->appAvailability = is_array($data['appAvailability']) ? new ManagedAppAvailability($data['appAvailability']) : $data['appAvailability'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

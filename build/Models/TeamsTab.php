@@ -41,7 +41,7 @@ class TeamsTab
             $this->id = $data['id'];
         }
         if (isset($data['configuration'])) {
-            $this->configuration = $data['configuration'];
+            $this->configuration = is_array($data['configuration']) ? new TeamsTabConfiguration($data['configuration']) : $data['configuration'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -50,7 +50,7 @@ class TeamsTab
             $this->webUrl = $data['webUrl'];
         }
         if (isset($data['teamsApp'])) {
-            $this->teamsApp = $data['teamsApp'];
+            $this->teamsApp = is_array($data['teamsApp']) ? new TeamsApp($data['teamsApp']) : $data['teamsApp'];
         }
     }
 }

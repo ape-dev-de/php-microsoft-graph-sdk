@@ -29,7 +29,7 @@ class UserSignIn
             $this->externalTenantId = $data['externalTenantId'];
         }
         if (isset($data['externalUserType'])) {
-            $this->externalUserType = $data['externalUserType'];
+            $this->externalUserType = is_array($data['externalUserType']) ? new ConditionalAccessGuestOrExternalUserTypes($data['externalUserType']) : $data['externalUserType'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

@@ -113,7 +113,7 @@ class ListItem
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -125,7 +125,7 @@ class ListItem
             $this->eTag = $data['eTag'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -134,34 +134,34 @@ class ListItem
             $this->name = $data['name'];
         }
         if (isset($data['parentReference'])) {
-            $this->parentReference = $data['parentReference'];
+            $this->parentReference = is_array($data['parentReference']) ? new ItemReference($data['parentReference']) : $data['parentReference'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
         if (isset($data['createdByUser'])) {
-            $this->createdByUser = $data['createdByUser'];
+            $this->createdByUser = is_array($data['createdByUser']) ? new User($data['createdByUser']) : $data['createdByUser'];
         }
         if (isset($data['lastModifiedByUser'])) {
-            $this->lastModifiedByUser = $data['lastModifiedByUser'];
+            $this->lastModifiedByUser = is_array($data['lastModifiedByUser']) ? new User($data['lastModifiedByUser']) : $data['lastModifiedByUser'];
         }
         if (isset($data['contentType'])) {
-            $this->contentType = $data['contentType'];
+            $this->contentType = is_array($data['contentType']) ? new ContentTypeInfo($data['contentType']) : $data['contentType'];
         }
         if (isset($data['sharepointIds'])) {
-            $this->sharepointIds = $data['sharepointIds'];
+            $this->sharepointIds = is_array($data['sharepointIds']) ? new SharepointIds($data['sharepointIds']) : $data['sharepointIds'];
         }
         if (isset($data['analytics'])) {
-            $this->analytics = $data['analytics'];
+            $this->analytics = is_array($data['analytics']) ? new ItemAnalytics($data['analytics']) : $data['analytics'];
         }
         if (isset($data['documentSetVersions'])) {
             $this->documentSetVersions = $data['documentSetVersions'];
         }
         if (isset($data['driveItem'])) {
-            $this->driveItem = $data['driveItem'];
+            $this->driveItem = is_array($data['driveItem']) ? new DriveItem($data['driveItem']) : $data['driveItem'];
         }
         if (isset($data['fields'])) {
-            $this->fields = $data['fields'];
+            $this->fields = is_array($data['fields']) ? new FieldValueSet($data['fields']) : $data['fields'];
         }
         if (isset($data['versions'])) {
             $this->versions = $data['versions'];

@@ -116,10 +116,10 @@ class ContentType
             $this->description = $data['description'];
         }
         if (isset($data['documentSet'])) {
-            $this->documentSet = $data['documentSet'];
+            $this->documentSet = is_array($data['documentSet']) ? new DocumentSet($data['documentSet']) : $data['documentSet'];
         }
         if (isset($data['documentTemplate'])) {
-            $this->documentTemplate = $data['documentTemplate'];
+            $this->documentTemplate = is_array($data['documentTemplate']) ? new DocumentSetContent($data['documentTemplate']) : $data['documentTemplate'];
         }
         if (isset($data['group'])) {
             $this->group = $data['group'];
@@ -128,7 +128,7 @@ class ContentType
             $this->hidden = $data['hidden'];
         }
         if (isset($data['inheritedFrom'])) {
-            $this->inheritedFrom = $data['inheritedFrom'];
+            $this->inheritedFrom = is_array($data['inheritedFrom']) ? new ItemReference($data['inheritedFrom']) : $data['inheritedFrom'];
         }
         if (isset($data['isBuiltIn'])) {
             $this->isBuiltIn = $data['isBuiltIn'];
@@ -137,7 +137,7 @@ class ContentType
             $this->name = $data['name'];
         }
         if (isset($data['order'])) {
-            $this->order = $data['order'];
+            $this->order = is_array($data['order']) ? new ContentTypeOrder($data['order']) : $data['order'];
         }
         if (isset($data['parentId'])) {
             $this->parentId = $data['parentId'];
@@ -152,7 +152,7 @@ class ContentType
             $this->sealed = $data['sealed'];
         }
         if (isset($data['base'])) {
-            $this->base = $data['base'];
+            $this->base = is_array($data['base']) ? new ContentType($data['base']) : $data['base'];
         }
         if (isset($data['baseTypes'])) {
             $this->baseTypes = $data['baseTypes'];

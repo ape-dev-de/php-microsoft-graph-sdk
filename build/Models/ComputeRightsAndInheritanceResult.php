@@ -38,7 +38,7 @@ class ComputeRightsAndInheritanceResult
             $this->contentRights = $data['contentRights'];
         }
         if (isset($data['inheritedLabel'])) {
-            $this->inheritedLabel = $data['inheritedLabel'];
+            $this->inheritedLabel = is_array($data['inheritedLabel']) ? new SensitivityLabel($data['inheritedLabel']) : $data['inheritedLabel'];
         }
         if (isset($data['sensitivityLabels'])) {
             $this->sensitivityLabels = $data['sensitivityLabels'];

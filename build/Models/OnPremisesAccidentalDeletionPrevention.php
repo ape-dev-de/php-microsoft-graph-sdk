@@ -29,7 +29,7 @@ class OnPremisesAccidentalDeletionPrevention
             $this->alertThreshold = $data['alertThreshold'];
         }
         if (isset($data['synchronizationPreventionType'])) {
-            $this->synchronizationPreventionType = $data['synchronizationPreventionType'];
+            $this->synchronizationPreventionType = is_array($data['synchronizationPreventionType']) ? new OnPremisesDirectorySynchronizationDeletionPreventionType($data['synchronizationPreventionType']) : $data['synchronizationPreventionType'];
         }
     }
 }

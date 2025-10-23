@@ -26,7 +26,7 @@ class ExcludeTarget
             $this->id = $data['id'];
         }
         if (isset($data['targetType'])) {
-            $this->targetType = $data['targetType'];
+            $this->targetType = is_array($data['targetType']) ? new AuthenticationMethodTargetType($data['targetType']) : $data['targetType'];
         }
     }
 }

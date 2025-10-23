@@ -62,25 +62,25 @@ class MultiTenantOrganizationPartnerConfigurationTemplate
             $this->id = $data['id'];
         }
         if (isset($data['automaticUserConsentSettings'])) {
-            $this->automaticUserConsentSettings = $data['automaticUserConsentSettings'];
+            $this->automaticUserConsentSettings = is_array($data['automaticUserConsentSettings']) ? new InboundOutboundPolicyConfiguration($data['automaticUserConsentSettings']) : $data['automaticUserConsentSettings'];
         }
         if (isset($data['b2bCollaborationInbound'])) {
-            $this->b2bCollaborationInbound = $data['b2bCollaborationInbound'];
+            $this->b2bCollaborationInbound = is_array($data['b2bCollaborationInbound']) ? new CrossTenantAccessPolicyB2BSetting($data['b2bCollaborationInbound']) : $data['b2bCollaborationInbound'];
         }
         if (isset($data['b2bCollaborationOutbound'])) {
-            $this->b2bCollaborationOutbound = $data['b2bCollaborationOutbound'];
+            $this->b2bCollaborationOutbound = is_array($data['b2bCollaborationOutbound']) ? new CrossTenantAccessPolicyB2BSetting($data['b2bCollaborationOutbound']) : $data['b2bCollaborationOutbound'];
         }
         if (isset($data['b2bDirectConnectInbound'])) {
-            $this->b2bDirectConnectInbound = $data['b2bDirectConnectInbound'];
+            $this->b2bDirectConnectInbound = is_array($data['b2bDirectConnectInbound']) ? new CrossTenantAccessPolicyB2BSetting($data['b2bDirectConnectInbound']) : $data['b2bDirectConnectInbound'];
         }
         if (isset($data['b2bDirectConnectOutbound'])) {
-            $this->b2bDirectConnectOutbound = $data['b2bDirectConnectOutbound'];
+            $this->b2bDirectConnectOutbound = is_array($data['b2bDirectConnectOutbound']) ? new CrossTenantAccessPolicyB2BSetting($data['b2bDirectConnectOutbound']) : $data['b2bDirectConnectOutbound'];
         }
         if (isset($data['inboundTrust'])) {
-            $this->inboundTrust = $data['inboundTrust'];
+            $this->inboundTrust = is_array($data['inboundTrust']) ? new CrossTenantAccessPolicyInboundTrust($data['inboundTrust']) : $data['inboundTrust'];
         }
         if (isset($data['templateApplicationLevel'])) {
-            $this->templateApplicationLevel = $data['templateApplicationLevel'];
+            $this->templateApplicationLevel = is_array($data['templateApplicationLevel']) ? new TemplateApplicationLevel($data['templateApplicationLevel']) : $data['templateApplicationLevel'];
         }
     }
 }

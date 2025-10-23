@@ -38,13 +38,13 @@ class IncomingContext
             $this->observedParticipantId = $data['observedParticipantId'];
         }
         if (isset($data['onBehalfOf'])) {
-            $this->onBehalfOf = $data['onBehalfOf'];
+            $this->onBehalfOf = is_array($data['onBehalfOf']) ? new IdentitySet($data['onBehalfOf']) : $data['onBehalfOf'];
         }
         if (isset($data['sourceParticipantId'])) {
             $this->sourceParticipantId = $data['sourceParticipantId'];
         }
         if (isset($data['transferor'])) {
-            $this->transferor = $data['transferor'];
+            $this->transferor = is_array($data['transferor']) ? new IdentitySet($data['transferor']) : $data['transferor'];
         }
     }
 }

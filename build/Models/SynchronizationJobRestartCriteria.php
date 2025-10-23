@@ -23,7 +23,7 @@ class SynchronizationJobRestartCriteria
     public function __construct(array $data = [])
     {
         if (isset($data['resetScope'])) {
-            $this->resetScope = $data['resetScope'];
+            $this->resetScope = is_array($data['resetScope']) ? new SynchronizationJobRestartScope($data['resetScope']) : $data['resetScope'];
         }
     }
 }

@@ -56,7 +56,7 @@ class SecurityArticle
             $this->id = $data['id'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new SecurityFormattedContent($data['body']) : $data['body'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -71,7 +71,7 @@ class SecurityArticle
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['summary'])) {
-            $this->summary = $data['summary'];
+            $this->summary = is_array($data['summary']) ? new SecurityFormattedContent($data['summary']) : $data['summary'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];

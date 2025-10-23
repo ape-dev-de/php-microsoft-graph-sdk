@@ -98,7 +98,7 @@ class Directory
             $this->onPremisesSynchronization = $data['onPremisesSynchronization'];
         }
         if (isset($data['publicKeyInfrastructure'])) {
-            $this->publicKeyInfrastructure = $data['publicKeyInfrastructure'];
+            $this->publicKeyInfrastructure = is_array($data['publicKeyInfrastructure']) ? new PublicKeyInfrastructureRoot($data['publicKeyInfrastructure']) : $data['publicKeyInfrastructure'];
         }
         if (isset($data['subscriptions'])) {
             $this->subscriptions = $data['subscriptions'];

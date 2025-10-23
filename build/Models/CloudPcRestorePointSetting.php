@@ -26,7 +26,7 @@ class CloudPcRestorePointSetting
     public function __construct(array $data = [])
     {
         if (isset($data['frequencyType'])) {
-            $this->frequencyType = $data['frequencyType'];
+            $this->frequencyType = is_array($data['frequencyType']) ? new CloudPcRestorePointFrequencyType($data['frequencyType']) : $data['frequencyType'];
         }
         if (isset($data['userRestoreEnabled'])) {
             $this->userRestoreEnabled = $data['userRestoreEnabled'];

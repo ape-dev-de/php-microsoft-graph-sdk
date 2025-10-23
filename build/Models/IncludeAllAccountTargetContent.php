@@ -23,7 +23,7 @@ class IncludeAllAccountTargetContent
     public function __construct(array $data = [])
     {
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new AccountTargetContentType($data['type']) : $data['type'];
         }
     }
 }

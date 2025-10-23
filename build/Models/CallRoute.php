@@ -26,13 +26,13 @@ class CallRoute
     public function __construct(array $data = [])
     {
         if (isset($data['final'])) {
-            $this->final = $data['final'];
+            $this->final = is_array($data['final']) ? new IdentitySet($data['final']) : $data['final'];
         }
         if (isset($data['original'])) {
-            $this->original = $data['original'];
+            $this->original = is_array($data['original']) ? new IdentitySet($data['original']) : $data['original'];
         }
         if (isset($data['routingType'])) {
-            $this->routingType = $data['routingType'];
+            $this->routingType = is_array($data['routingType']) ? new RoutingType($data['routingType']) : $data['routingType'];
         }
     }
 }

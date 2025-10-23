@@ -35,10 +35,10 @@ class ServiceHealthIssuePost
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
-            $this->description = $data['description'];
+            $this->description = is_array($data['description']) ? new ItemBody($data['description']) : $data['description'];
         }
         if (isset($data['postType'])) {
-            $this->postType = $data['postType'];
+            $this->postType = is_array($data['postType']) ? new PostType($data['postType']) : $data['postType'];
         }
     }
 }

@@ -74,7 +74,7 @@ class DeviceCompliancePolicySettingStateSummary
             $this->notApplicableDeviceCount = $data['notApplicableDeviceCount'];
         }
         if (isset($data['platformType'])) {
-            $this->platformType = $data['platformType'];
+            $this->platformType = is_array($data['platformType']) ? new PolicyPlatformType($data['platformType']) : $data['platformType'];
         }
         if (isset($data['remediatedDeviceCount'])) {
             $this->remediatedDeviceCount = $data['remediatedDeviceCount'];

@@ -29,7 +29,7 @@ class LobbyBypassSettings
             $this->isDialInBypassEnabled = $data['isDialInBypassEnabled'];
         }
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new LobbyBypassScope($data['scope']) : $data['scope'];
         }
     }
 }

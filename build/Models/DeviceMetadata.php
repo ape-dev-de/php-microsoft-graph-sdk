@@ -35,7 +35,7 @@ class DeviceMetadata
             $this->ipAddress = $data['ipAddress'];
         }
         if (isset($data['operatingSystemSpecifications'])) {
-            $this->operatingSystemSpecifications = $data['operatingSystemSpecifications'];
+            $this->operatingSystemSpecifications = is_array($data['operatingSystemSpecifications']) ? new OperatingSystemSpecifications($data['operatingSystemSpecifications']) : $data['operatingSystemSpecifications'];
         }
     }
 }

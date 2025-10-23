@@ -23,7 +23,7 @@ class CallParticipantInfo
     public function __construct(array $data = [])
     {
         if (isset($data['participant'])) {
-            $this->participant = $data['participant'];
+            $this->participant = is_array($data['participant']) ? new IdentitySet($data['participant']) : $data['participant'];
         }
     }
 }

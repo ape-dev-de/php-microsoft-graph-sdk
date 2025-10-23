@@ -23,7 +23,7 @@ class UserRegistrationFeatureCount
     public function __construct(array $data = [])
     {
         if (isset($data['feature'])) {
-            $this->feature = $data['feature'];
+            $this->feature = is_array($data['feature']) ? new AuthenticationMethodFeature($data['feature']) : $data['feature'];
         }
         if (isset($data['userCount'])) {
             $this->userCount = $data['userCount'];

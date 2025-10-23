@@ -89,16 +89,16 @@ class CloudPcOnPremisesConnection
             $this->alternateResourceUrl = $data['alternateResourceUrl'];
         }
         if (isset($data['connectionType'])) {
-            $this->connectionType = $data['connectionType'];
+            $this->connectionType = is_array($data['connectionType']) ? new CloudPcOnPremisesConnectionType($data['connectionType']) : $data['connectionType'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['healthCheckStatus'])) {
-            $this->healthCheckStatus = $data['healthCheckStatus'];
+            $this->healthCheckStatus = is_array($data['healthCheckStatus']) ? new CloudPcOnPremisesConnectionStatus($data['healthCheckStatus']) : $data['healthCheckStatus'];
         }
         if (isset($data['healthCheckStatusDetail'])) {
-            $this->healthCheckStatusDetail = $data['healthCheckStatusDetail'];
+            $this->healthCheckStatusDetail = is_array($data['healthCheckStatusDetail']) ? new CloudPcOnPremisesConnectionStatusDetail($data['healthCheckStatusDetail']) : $data['healthCheckStatusDetail'];
         }
         if (isset($data['inUse'])) {
             $this->inUse = $data['inUse'];

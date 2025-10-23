@@ -71,10 +71,10 @@ class IdentityGovernanceCustomTaskExtension
             $this->id = $data['id'];
         }
         if (isset($data['authenticationConfiguration'])) {
-            $this->authenticationConfiguration = $data['authenticationConfiguration'];
+            $this->authenticationConfiguration = is_array($data['authenticationConfiguration']) ? new CustomExtensionAuthenticationConfiguration($data['authenticationConfiguration']) : $data['authenticationConfiguration'];
         }
         if (isset($data['clientConfiguration'])) {
-            $this->clientConfiguration = $data['clientConfiguration'];
+            $this->clientConfiguration = is_array($data['clientConfiguration']) ? new CustomExtensionClientConfiguration($data['clientConfiguration']) : $data['clientConfiguration'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -83,10 +83,10 @@ class IdentityGovernanceCustomTaskExtension
             $this->displayName = $data['displayName'];
         }
         if (isset($data['endpointConfiguration'])) {
-            $this->endpointConfiguration = $data['endpointConfiguration'];
+            $this->endpointConfiguration = is_array($data['endpointConfiguration']) ? new CustomExtensionEndpointConfiguration($data['endpointConfiguration']) : $data['endpointConfiguration'];
         }
         if (isset($data['callbackConfiguration'])) {
-            $this->callbackConfiguration = $data['callbackConfiguration'];
+            $this->callbackConfiguration = is_array($data['callbackConfiguration']) ? new CustomExtensionCallbackConfiguration($data['callbackConfiguration']) : $data['callbackConfiguration'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -95,10 +95,10 @@ class IdentityGovernanceCustomTaskExtension
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new User($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new User($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
     }
 }

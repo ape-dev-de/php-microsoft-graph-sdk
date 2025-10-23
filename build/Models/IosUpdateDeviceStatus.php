@@ -68,7 +68,7 @@ class IosUpdateDeviceStatus
             $this->deviceModel = $data['deviceModel'];
         }
         if (isset($data['installStatus'])) {
-            $this->installStatus = $data['installStatus'];
+            $this->installStatus = is_array($data['installStatus']) ? new IosUpdatesInstallStatus($data['installStatus']) : $data['installStatus'];
         }
         if (isset($data['lastReportedDateTime'])) {
             $this->lastReportedDateTime = is_string($data['lastReportedDateTime']) ? new \DateTimeImmutable($data['lastReportedDateTime']) : $data['lastReportedDateTime'];
@@ -77,7 +77,7 @@ class IosUpdateDeviceStatus
             $this->osVersion = $data['osVersion'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ComplianceStatus($data['status']) : $data['status'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

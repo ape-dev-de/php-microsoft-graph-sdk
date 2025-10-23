@@ -41,10 +41,10 @@ class PolicyTenantScope
     public function __construct(array $data = [])
     {
         if (isset($data['activities'])) {
-            $this->activities = $data['activities'];
+            $this->activities = is_array($data['activities']) ? new UserActivityTypes($data['activities']) : $data['activities'];
         }
         if (isset($data['executionMode'])) {
-            $this->executionMode = $data['executionMode'];
+            $this->executionMode = is_array($data['executionMode']) ? new ExecutionMode($data['executionMode']) : $data['executionMode'];
         }
         if (isset($data['locations'])) {
             $this->locations = $data['locations'];
@@ -53,7 +53,7 @@ class PolicyTenantScope
             $this->policyActions = $data['policyActions'];
         }
         if (isset($data['policyScope'])) {
-            $this->policyScope = $data['policyScope'];
+            $this->policyScope = is_array($data['policyScope']) ? new PolicyBinding($data['policyScope']) : $data['policyScope'];
         }
     }
 }

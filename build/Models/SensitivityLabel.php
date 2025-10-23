@@ -71,7 +71,7 @@ class SensitivityLabel
             $this->id = $data['id'];
         }
         if (isset($data['actionSource'])) {
-            $this->actionSource = $data['actionSource'];
+            $this->actionSource = is_array($data['actionSource']) ? new LabelActionSource($data['actionSource']) : $data['actionSource'];
         }
         if (isset($data['autoTooltip'])) {
             $this->autoTooltip = $data['autoTooltip'];
@@ -104,7 +104,7 @@ class SensitivityLabel
             $this->toolTip = $data['toolTip'];
         }
         if (isset($data['rights'])) {
-            $this->rights = $data['rights'];
+            $this->rights = is_array($data['rights']) ? new UsageRightsIncluded($data['rights']) : $data['rights'];
         }
         if (isset($data['sublabels'])) {
             $this->sublabels = $data['sublabels'];

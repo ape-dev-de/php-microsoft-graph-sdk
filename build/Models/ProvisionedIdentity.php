@@ -38,7 +38,7 @@ class ProvisionedIdentity
             $this->displayName = $data['displayName'];
         }
         if (isset($data['details'])) {
-            $this->details = $data['details'];
+            $this->details = is_array($data['details']) ? new DetailsInfo($data['details']) : $data['details'];
         }
         if (isset($data['identityType'])) {
             $this->identityType = $data['identityType'];

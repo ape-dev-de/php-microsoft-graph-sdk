@@ -104,7 +104,7 @@ class NetworkConnection
             $this->destinationUrl = $data['destinationUrl'];
         }
         if (isset($data['direction'])) {
-            $this->direction = $data['direction'];
+            $this->direction = is_array($data['direction']) ? new ConnectionDirection($data['direction']) : $data['direction'];
         }
         if (isset($data['domainRegisteredDateTime'])) {
             $this->domainRegisteredDateTime = is_string($data['domainRegisteredDateTime']) ? new \DateTimeImmutable($data['domainRegisteredDateTime']) : $data['domainRegisteredDateTime'];
@@ -125,7 +125,7 @@ class NetworkConnection
             $this->natSourcePort = $data['natSourcePort'];
         }
         if (isset($data['protocol'])) {
-            $this->protocol = $data['protocol'];
+            $this->protocol = is_array($data['protocol']) ? new SecurityNetworkProtocol($data['protocol']) : $data['protocol'];
         }
         if (isset($data['riskScore'])) {
             $this->riskScore = $data['riskScore'];
@@ -140,7 +140,7 @@ class NetworkConnection
             $this->sourcePort = $data['sourcePort'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ConnectionStatus($data['status']) : $data['status'];
         }
         if (isset($data['urlParameters'])) {
             $this->urlParameters = $data['urlParameters'];

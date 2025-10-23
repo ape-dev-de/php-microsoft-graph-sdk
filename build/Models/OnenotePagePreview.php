@@ -26,7 +26,7 @@ class OnenotePagePreview
     public function __construct(array $data = [])
     {
         if (isset($data['links'])) {
-            $this->links = $data['links'];
+            $this->links = is_array($data['links']) ? new OnenotePagePreviewLinks($data['links']) : $data['links'];
         }
         if (isset($data['previewText'])) {
             $this->previewText = $data['previewText'];

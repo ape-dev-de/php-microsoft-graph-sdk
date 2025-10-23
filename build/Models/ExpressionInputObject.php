@@ -29,7 +29,7 @@ class ExpressionInputObject
     public function __construct(array $data = [])
     {
         if (isset($data['definition'])) {
-            $this->definition = $data['definition'];
+            $this->definition = is_array($data['definition']) ? new ObjectDefinition($data['definition']) : $data['definition'];
         }
         if (isset($data['properties'])) {
             $this->properties = $data['properties'];

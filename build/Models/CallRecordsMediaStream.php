@@ -113,7 +113,7 @@ class CallRecordsMediaStream
     public function __construct(array $data = [])
     {
         if (isset($data['audioCodec'])) {
-            $this->audioCodec = $data['audioCodec'];
+            $this->audioCodec = is_array($data['audioCodec']) ? new CallRecordsAudioCodec($data['audioCodec']) : $data['audioCodec'];
         }
         if (isset($data['averageAudioDegradation'])) {
             $this->averageAudioDegradation = $data['averageAudioDegradation'];
@@ -191,13 +191,13 @@ class CallRecordsMediaStream
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['streamDirection'])) {
-            $this->streamDirection = $data['streamDirection'];
+            $this->streamDirection = is_array($data['streamDirection']) ? new CallRecordsMediaStreamDirection($data['streamDirection']) : $data['streamDirection'];
         }
         if (isset($data['streamId'])) {
             $this->streamId = $data['streamId'];
         }
         if (isset($data['videoCodec'])) {
-            $this->videoCodec = $data['videoCodec'];
+            $this->videoCodec = is_array($data['videoCodec']) ? new CallRecordsVideoCodec($data['videoCodec']) : $data['videoCodec'];
         }
         if (isset($data['wasMediaBypassed'])) {
             $this->wasMediaBypassed = $data['wasMediaBypassed'];

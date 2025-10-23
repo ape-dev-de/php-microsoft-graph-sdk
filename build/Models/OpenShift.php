@@ -59,19 +59,19 @@ class OpenShift
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['draftOpenShift'])) {
-            $this->draftOpenShift = $data['draftOpenShift'];
+            $this->draftOpenShift = is_array($data['draftOpenShift']) ? new OpenShiftItem($data['draftOpenShift']) : $data['draftOpenShift'];
         }
         if (isset($data['isStagedForDeletion'])) {
             $this->isStagedForDeletion = $data['isStagedForDeletion'];
@@ -80,7 +80,7 @@ class OpenShift
             $this->schedulingGroupId = $data['schedulingGroupId'];
         }
         if (isset($data['sharedOpenShift'])) {
-            $this->sharedOpenShift = $data['sharedOpenShift'];
+            $this->sharedOpenShift = is_array($data['sharedOpenShift']) ? new OpenShiftItem($data['sharedOpenShift']) : $data['sharedOpenShift'];
         }
     }
 }

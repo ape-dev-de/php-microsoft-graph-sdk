@@ -20,7 +20,7 @@ class OrganizerMeetingInfo
     public function __construct(array $data = [])
     {
         if (isset($data['organizer'])) {
-            $this->organizer = $data['organizer'];
+            $this->organizer = is_array($data['organizer']) ? new IdentitySet($data['organizer']) : $data['organizer'];
         }
     }
 }

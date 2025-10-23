@@ -128,10 +128,10 @@ class ChatMessage
             $this->attachments = $data['attachments'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['channelIdentity'])) {
-            $this->channelIdentity = $data['channelIdentity'];
+            $this->channelIdentity = is_array($data['channelIdentity']) ? new ChannelIdentity($data['channelIdentity']) : $data['channelIdentity'];
         }
         if (isset($data['chatId'])) {
             $this->chatId = $data['chatId'];
@@ -146,13 +146,13 @@ class ChatMessage
             $this->etag = $data['etag'];
         }
         if (isset($data['eventDetail'])) {
-            $this->eventDetail = $data['eventDetail'];
+            $this->eventDetail = is_array($data['eventDetail']) ? new EventMessageDetail($data['eventDetail']) : $data['eventDetail'];
         }
         if (isset($data['from'])) {
-            $this->from = $data['from'];
+            $this->from = is_array($data['from']) ? new ChatMessageFromIdentitySet($data['from']) : $data['from'];
         }
         if (isset($data['importance'])) {
-            $this->importance = $data['importance'];
+            $this->importance = is_array($data['importance']) ? new ChatMessageImportance($data['importance']) : $data['importance'];
         }
         if (isset($data['lastEditedDateTime'])) {
             $this->lastEditedDateTime = is_string($data['lastEditedDateTime']) ? new \DateTimeImmutable($data['lastEditedDateTime']) : $data['lastEditedDateTime'];
@@ -170,10 +170,10 @@ class ChatMessage
             $this->messageHistory = $data['messageHistory'];
         }
         if (isset($data['messageType'])) {
-            $this->messageType = $data['messageType'];
+            $this->messageType = is_array($data['messageType']) ? new ChatMessageType($data['messageType']) : $data['messageType'];
         }
         if (isset($data['policyViolation'])) {
-            $this->policyViolation = $data['policyViolation'];
+            $this->policyViolation = is_array($data['policyViolation']) ? new ChatMessagePolicyViolation($data['policyViolation']) : $data['policyViolation'];
         }
         if (isset($data['reactions'])) {
             $this->reactions = $data['reactions'];

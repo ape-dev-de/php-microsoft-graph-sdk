@@ -56,7 +56,7 @@ class ConditionalAccessGrantControls
             $this->termsOfUse = $data['termsOfUse'];
         }
         if (isset($data['authenticationStrength'])) {
-            $this->authenticationStrength = $data['authenticationStrength'];
+            $this->authenticationStrength = is_array($data['authenticationStrength']) ? new AuthenticationStrengthPolicy($data['authenticationStrength']) : $data['authenticationStrength'];
         }
     }
 }

@@ -95,25 +95,25 @@ class WorkbookChart
             $this->width = $data['width'];
         }
         if (isset($data['axes'])) {
-            $this->axes = $data['axes'];
+            $this->axes = is_array($data['axes']) ? new WorkbookChartAxes($data['axes']) : $data['axes'];
         }
         if (isset($data['dataLabels'])) {
-            $this->dataLabels = $data['dataLabels'];
+            $this->dataLabels = is_array($data['dataLabels']) ? new WorkbookChartDataLabels($data['dataLabels']) : $data['dataLabels'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookChartAreaFormat($data['format']) : $data['format'];
         }
         if (isset($data['legend'])) {
-            $this->legend = $data['legend'];
+            $this->legend = is_array($data['legend']) ? new WorkbookChartLegend($data['legend']) : $data['legend'];
         }
         if (isset($data['series'])) {
             $this->series = $data['series'];
         }
         if (isset($data['title'])) {
-            $this->title = $data['title'];
+            $this->title = is_array($data['title']) ? new WorkbookChartTitle($data['title']) : $data['title'];
         }
         if (isset($data['worksheet'])) {
-            $this->worksheet = $data['worksheet'];
+            $this->worksheet = is_array($data['worksheet']) ? new WorkbookWorksheet($data['worksheet']) : $data['worksheet'];
         }
     }
 }

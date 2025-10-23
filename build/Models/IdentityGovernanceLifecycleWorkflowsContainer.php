@@ -65,13 +65,13 @@ class IdentityGovernanceLifecycleWorkflowsContainer
             $this->customTaskExtensions = $data['customTaskExtensions'];
         }
         if (isset($data['deletedItems'])) {
-            $this->deletedItems = $data['deletedItems'];
+            $this->deletedItems = is_array($data['deletedItems']) ? new DeletedItemContainer($data['deletedItems']) : $data['deletedItems'];
         }
         if (isset($data['insights'])) {
-            $this->insights = $data['insights'];
+            $this->insights = is_array($data['insights']) ? new IdentityGovernanceInsights($data['insights']) : $data['insights'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new IdentityGovernanceLifecycleManagementSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['taskDefinitions'])) {
             $this->taskDefinitions = $data['taskDefinitions'];

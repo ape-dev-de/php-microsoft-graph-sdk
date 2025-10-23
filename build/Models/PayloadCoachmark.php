@@ -38,7 +38,7 @@ class PayloadCoachmark
     public function __construct(array $data = [])
     {
         if (isset($data['coachmarkLocation'])) {
-            $this->coachmarkLocation = $data['coachmarkLocation'];
+            $this->coachmarkLocation = is_array($data['coachmarkLocation']) ? new CoachmarkLocation($data['coachmarkLocation']) : $data['coachmarkLocation'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];

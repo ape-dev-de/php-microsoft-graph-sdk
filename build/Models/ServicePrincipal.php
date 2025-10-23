@@ -314,7 +314,7 @@ class ServicePrincipal
             $this->appRoles = $data['appRoles'];
         }
         if (isset($data['customSecurityAttributes'])) {
-            $this->customSecurityAttributes = $data['customSecurityAttributes'];
+            $this->customSecurityAttributes = is_array($data['customSecurityAttributes']) ? new CustomSecurityAttributeValue($data['customSecurityAttributes']) : $data['customSecurityAttributes'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -329,7 +329,7 @@ class ServicePrincipal
             $this->homepage = $data['homepage'];
         }
         if (isset($data['info'])) {
-            $this->info = $data['info'];
+            $this->info = is_array($data['info']) ? new InformationalUrl($data['info']) : $data['info'];
         }
         if (isset($data['keyCredentials'])) {
             $this->keyCredentials = $data['keyCredentials'];
@@ -365,7 +365,7 @@ class ServicePrincipal
             $this->resourceSpecificApplicationPermissions = $data['resourceSpecificApplicationPermissions'];
         }
         if (isset($data['samlSingleSignOnSettings'])) {
-            $this->samlSingleSignOnSettings = $data['samlSingleSignOnSettings'];
+            $this->samlSingleSignOnSettings = is_array($data['samlSingleSignOnSettings']) ? new SamlSingleSignOnSettings($data['samlSingleSignOnSettings']) : $data['samlSingleSignOnSettings'];
         }
         if (isset($data['servicePrincipalNames'])) {
             $this->servicePrincipalNames = $data['servicePrincipalNames'];
@@ -383,7 +383,7 @@ class ServicePrincipal
             $this->tokenEncryptionKeyId = $data['tokenEncryptionKeyId'];
         }
         if (isset($data['verifiedPublisher'])) {
-            $this->verifiedPublisher = $data['verifiedPublisher'];
+            $this->verifiedPublisher = is_array($data['verifiedPublisher']) ? new VerifiedPublisher($data['verifiedPublisher']) : $data['verifiedPublisher'];
         }
         if (isset($data['appManagementPolicies'])) {
             $this->appManagementPolicies = $data['appManagementPolicies'];
@@ -425,10 +425,10 @@ class ServicePrincipal
             $this->owners = $data['owners'];
         }
         if (isset($data['remoteDesktopSecurityConfiguration'])) {
-            $this->remoteDesktopSecurityConfiguration = $data['remoteDesktopSecurityConfiguration'];
+            $this->remoteDesktopSecurityConfiguration = is_array($data['remoteDesktopSecurityConfiguration']) ? new RemoteDesktopSecurityConfiguration($data['remoteDesktopSecurityConfiguration']) : $data['remoteDesktopSecurityConfiguration'];
         }
         if (isset($data['synchronization'])) {
-            $this->synchronization = $data['synchronization'];
+            $this->synchronization = is_array($data['synchronization']) ? new Synchronization($data['synchronization']) : $data['synchronization'];
         }
         if (isset($data['tokenIssuancePolicies'])) {
             $this->tokenIssuancePolicies = $data['tokenIssuancePolicies'];

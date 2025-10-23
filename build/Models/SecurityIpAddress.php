@@ -152,7 +152,7 @@ class SecurityIpAddress
             $this->ports = $data['ports'];
         }
         if (isset($data['reputation'])) {
-            $this->reputation = $data['reputation'];
+            $this->reputation = is_array($data['reputation']) ? new SecurityHostReputation($data['reputation']) : $data['reputation'];
         }
         if (isset($data['sslCertificates'])) {
             $this->sslCertificates = $data['sslCertificates'];
@@ -164,10 +164,10 @@ class SecurityIpAddress
             $this->trackers = $data['trackers'];
         }
         if (isset($data['whois'])) {
-            $this->whois = $data['whois'];
+            $this->whois = is_array($data['whois']) ? new SecurityWhoisRecord($data['whois']) : $data['whois'];
         }
         if (isset($data['autonomousSystem'])) {
-            $this->autonomousSystem = $data['autonomousSystem'];
+            $this->autonomousSystem = is_array($data['autonomousSystem']) ? new SecurityAutonomousSystem($data['autonomousSystem']) : $data['autonomousSystem'];
         }
         if (isset($data['countryOrRegion'])) {
             $this->countryOrRegion = $data['countryOrRegion'];

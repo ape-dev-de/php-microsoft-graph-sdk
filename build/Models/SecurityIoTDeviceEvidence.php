@@ -152,7 +152,7 @@ class SecurityIoTDeviceEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -164,7 +164,7 @@ class SecurityIoTDeviceEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['deviceId'])) {
             $this->deviceId = $data['deviceId'];
@@ -182,16 +182,16 @@ class SecurityIoTDeviceEvidence
             $this->deviceType = $data['deviceType'];
         }
         if (isset($data['importance'])) {
-            $this->importance = $data['importance'];
+            $this->importance = is_array($data['importance']) ? new SecurityIoTDeviceImportanceType($data['importance']) : $data['importance'];
         }
         if (isset($data['ioTHub'])) {
-            $this->ioTHub = $data['ioTHub'];
+            $this->ioTHub = is_array($data['ioTHub']) ? new SecurityAzureResourceEvidence($data['ioTHub']) : $data['ioTHub'];
         }
         if (isset($data['ioTSecurityAgentId'])) {
             $this->ioTSecurityAgentId = $data['ioTSecurityAgentId'];
         }
         if (isset($data['ipAddress'])) {
-            $this->ipAddress = $data['ipAddress'];
+            $this->ipAddress = is_array($data['ipAddress']) ? new SecurityIpEvidence($data['ipAddress']) : $data['ipAddress'];
         }
         if (isset($data['isAuthorized'])) {
             $this->isAuthorized = $data['isAuthorized'];
@@ -239,7 +239,7 @@ class SecurityIoTDeviceEvidence
             $this->source = $data['source'];
         }
         if (isset($data['sourceRef'])) {
-            $this->sourceRef = $data['sourceRef'];
+            $this->sourceRef = is_array($data['sourceRef']) ? new SecurityUrlEvidence($data['sourceRef']) : $data['sourceRef'];
         }
         if (isset($data['zone'])) {
             $this->zone = $data['zone'];

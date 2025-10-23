@@ -137,7 +137,7 @@ class SignIn
             $this->clientAppUsed = $data['clientAppUsed'];
         }
         if (isset($data['conditionalAccessStatus'])) {
-            $this->conditionalAccessStatus = $data['conditionalAccessStatus'];
+            $this->conditionalAccessStatus = is_array($data['conditionalAccessStatus']) ? new ConditionalAccessStatus($data['conditionalAccessStatus']) : $data['conditionalAccessStatus'];
         }
         if (isset($data['correlationId'])) {
             $this->correlationId = $data['correlationId'];
@@ -146,7 +146,7 @@ class SignIn
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['deviceDetail'])) {
-            $this->deviceDetail = $data['deviceDetail'];
+            $this->deviceDetail = is_array($data['deviceDetail']) ? new DeviceDetail($data['deviceDetail']) : $data['deviceDetail'];
         }
         if (isset($data['ipAddress'])) {
             $this->ipAddress = $data['ipAddress'];
@@ -155,7 +155,7 @@ class SignIn
             $this->isInteractive = $data['isInteractive'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new SignInLocation($data['location']) : $data['location'];
         }
         if (isset($data['resourceDisplayName'])) {
             $this->resourceDisplayName = $data['resourceDisplayName'];
@@ -164,7 +164,7 @@ class SignIn
             $this->resourceId = $data['resourceId'];
         }
         if (isset($data['riskDetail'])) {
-            $this->riskDetail = $data['riskDetail'];
+            $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];
         }
         if (isset($data['riskEventTypes'])) {
             $this->riskEventTypes = $data['riskEventTypes'];
@@ -173,16 +173,16 @@ class SignIn
             $this->riskEventTypes_v2 = $data['riskEventTypes_v2'];
         }
         if (isset($data['riskLevelAggregated'])) {
-            $this->riskLevelAggregated = $data['riskLevelAggregated'];
+            $this->riskLevelAggregated = is_array($data['riskLevelAggregated']) ? new RiskLevel($data['riskLevelAggregated']) : $data['riskLevelAggregated'];
         }
         if (isset($data['riskLevelDuringSignIn'])) {
-            $this->riskLevelDuringSignIn = $data['riskLevelDuringSignIn'];
+            $this->riskLevelDuringSignIn = is_array($data['riskLevelDuringSignIn']) ? new RiskLevel($data['riskLevelDuringSignIn']) : $data['riskLevelDuringSignIn'];
         }
         if (isset($data['riskState'])) {
-            $this->riskState = $data['riskState'];
+            $this->riskState = is_array($data['riskState']) ? new RiskState($data['riskState']) : $data['riskState'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SignInStatus($data['status']) : $data['status'];
         }
         if (isset($data['userDisplayName'])) {
             $this->userDisplayName = $data['userDisplayName'];

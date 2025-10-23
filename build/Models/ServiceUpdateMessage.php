@@ -107,10 +107,10 @@ class ServiceUpdateMessage
             $this->attachmentsArchive = $data['attachmentsArchive'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['category'])) {
-            $this->category = $data['category'];
+            $this->category = is_array($data['category']) ? new ServiceUpdateCategory($data['category']) : $data['category'];
         }
         if (isset($data['hasAttachments'])) {
             $this->hasAttachments = $data['hasAttachments'];
@@ -122,13 +122,13 @@ class ServiceUpdateMessage
             $this->services = $data['services'];
         }
         if (isset($data['severity'])) {
-            $this->severity = $data['severity'];
+            $this->severity = is_array($data['severity']) ? new ServiceUpdateSeverity($data['severity']) : $data['severity'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];
         }
         if (isset($data['viewPoint'])) {
-            $this->viewPoint = $data['viewPoint'];
+            $this->viewPoint = is_array($data['viewPoint']) ? new ServiceUpdateMessageViewpoint($data['viewPoint']) : $data['viewPoint'];
         }
         if (isset($data['attachments'])) {
             $this->attachments = $data['attachments'];

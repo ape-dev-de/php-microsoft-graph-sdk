@@ -38,7 +38,7 @@ class StandardWebPart
             $this->containerTextWebPartId = $data['containerTextWebPartId'];
         }
         if (isset($data['data'])) {
-            $this->data = $data['data'];
+            $this->data = is_array($data['data']) ? new WebPartData($data['data']) : $data['data'];
         }
         if (isset($data['webPartType'])) {
             $this->webPartType = $data['webPartType'];

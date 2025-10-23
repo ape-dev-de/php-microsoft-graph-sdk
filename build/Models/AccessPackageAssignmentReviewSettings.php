@@ -53,7 +53,7 @@ class AccessPackageAssignmentReviewSettings
     public function __construct(array $data = [])
     {
         if (isset($data['expirationBehavior'])) {
-            $this->expirationBehavior = $data['expirationBehavior'];
+            $this->expirationBehavior = is_array($data['expirationBehavior']) ? new AccessReviewExpirationBehavior($data['expirationBehavior']) : $data['expirationBehavior'];
         }
         if (isset($data['fallbackReviewers'])) {
             $this->fallbackReviewers = $data['fallbackReviewers'];
@@ -74,7 +74,7 @@ class AccessPackageAssignmentReviewSettings
             $this->primaryReviewers = $data['primaryReviewers'];
         }
         if (isset($data['schedule'])) {
-            $this->schedule = $data['schedule'];
+            $this->schedule = is_array($data['schedule']) ? new EntitlementManagementSchedule($data['schedule']) : $data['schedule'];
         }
     }
 }

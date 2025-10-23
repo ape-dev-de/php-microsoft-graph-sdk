@@ -263,7 +263,7 @@ class Application
             $this->addIns = $data['addIns'];
         }
         if (isset($data['api'])) {
-            $this->api = $data['api'];
+            $this->api = is_array($data['api']) ? new ApiApplication($data['api']) : $data['api'];
         }
         if (isset($data['appId'])) {
             $this->appId = $data['appId'];
@@ -275,10 +275,10 @@ class Application
             $this->appRoles = $data['appRoles'];
         }
         if (isset($data['authenticationBehaviors'])) {
-            $this->authenticationBehaviors = $data['authenticationBehaviors'];
+            $this->authenticationBehaviors = is_array($data['authenticationBehaviors']) ? new AuthenticationBehaviors($data['authenticationBehaviors']) : $data['authenticationBehaviors'];
         }
         if (isset($data['certification'])) {
-            $this->certification = $data['certification'];
+            $this->certification = is_array($data['certification']) ? new Certification($data['certification']) : $data['certification'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -302,7 +302,7 @@ class Application
             $this->identifierUris = $data['identifierUris'];
         }
         if (isset($data['info'])) {
-            $this->info = $data['info'];
+            $this->info = is_array($data['info']) ? new InformationalUrl($data['info']) : $data['info'];
         }
         if (isset($data['isDeviceOnlyAuthSupported'])) {
             $this->isDeviceOnlyAuthSupported = $data['isDeviceOnlyAuthSupported'];
@@ -317,7 +317,7 @@ class Application
             $this->logo = $data['logo'];
         }
         if (isset($data['nativeAuthenticationApisEnabled'])) {
-            $this->nativeAuthenticationApisEnabled = $data['nativeAuthenticationApisEnabled'];
+            $this->nativeAuthenticationApisEnabled = is_array($data['nativeAuthenticationApisEnabled']) ? new NativeAuthenticationApisEnabled($data['nativeAuthenticationApisEnabled']) : $data['nativeAuthenticationApisEnabled'];
         }
         if (isset($data['notes'])) {
             $this->notes = $data['notes'];
@@ -326,22 +326,22 @@ class Application
             $this->oauth2RequirePostResponse = $data['oauth2RequirePostResponse'];
         }
         if (isset($data['optionalClaims'])) {
-            $this->optionalClaims = $data['optionalClaims'];
+            $this->optionalClaims = is_array($data['optionalClaims']) ? new OptionalClaims($data['optionalClaims']) : $data['optionalClaims'];
         }
         if (isset($data['parentalControlSettings'])) {
-            $this->parentalControlSettings = $data['parentalControlSettings'];
+            $this->parentalControlSettings = is_array($data['parentalControlSettings']) ? new ParentalControlSettings($data['parentalControlSettings']) : $data['parentalControlSettings'];
         }
         if (isset($data['passwordCredentials'])) {
             $this->passwordCredentials = $data['passwordCredentials'];
         }
         if (isset($data['publicClient'])) {
-            $this->publicClient = $data['publicClient'];
+            $this->publicClient = is_array($data['publicClient']) ? new PublicClientApplication($data['publicClient']) : $data['publicClient'];
         }
         if (isset($data['publisherDomain'])) {
             $this->publisherDomain = $data['publisherDomain'];
         }
         if (isset($data['requestSignatureVerification'])) {
-            $this->requestSignatureVerification = $data['requestSignatureVerification'];
+            $this->requestSignatureVerification = is_array($data['requestSignatureVerification']) ? new RequestSignatureVerification($data['requestSignatureVerification']) : $data['requestSignatureVerification'];
         }
         if (isset($data['requiredResourceAccess'])) {
             $this->requiredResourceAccess = $data['requiredResourceAccess'];
@@ -353,13 +353,13 @@ class Application
             $this->serviceManagementReference = $data['serviceManagementReference'];
         }
         if (isset($data['servicePrincipalLockConfiguration'])) {
-            $this->servicePrincipalLockConfiguration = $data['servicePrincipalLockConfiguration'];
+            $this->servicePrincipalLockConfiguration = is_array($data['servicePrincipalLockConfiguration']) ? new ServicePrincipalLockConfiguration($data['servicePrincipalLockConfiguration']) : $data['servicePrincipalLockConfiguration'];
         }
         if (isset($data['signInAudience'])) {
             $this->signInAudience = $data['signInAudience'];
         }
         if (isset($data['spa'])) {
-            $this->spa = $data['spa'];
+            $this->spa = is_array($data['spa']) ? new SpaApplication($data['spa']) : $data['spa'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];
@@ -371,16 +371,16 @@ class Application
             $this->uniqueName = $data['uniqueName'];
         }
         if (isset($data['verifiedPublisher'])) {
-            $this->verifiedPublisher = $data['verifiedPublisher'];
+            $this->verifiedPublisher = is_array($data['verifiedPublisher']) ? new VerifiedPublisher($data['verifiedPublisher']) : $data['verifiedPublisher'];
         }
         if (isset($data['web'])) {
-            $this->web = $data['web'];
+            $this->web = is_array($data['web']) ? new WebApplication($data['web']) : $data['web'];
         }
         if (isset($data['appManagementPolicies'])) {
             $this->appManagementPolicies = $data['appManagementPolicies'];
         }
         if (isset($data['createdOnBehalfOf'])) {
-            $this->createdOnBehalfOf = $data['createdOnBehalfOf'];
+            $this->createdOnBehalfOf = is_array($data['createdOnBehalfOf']) ? new DirectoryObject($data['createdOnBehalfOf']) : $data['createdOnBehalfOf'];
         }
         if (isset($data['extensionProperties'])) {
             $this->extensionProperties = $data['extensionProperties'];
@@ -395,7 +395,7 @@ class Application
             $this->owners = $data['owners'];
         }
         if (isset($data['synchronization'])) {
-            $this->synchronization = $data['synchronization'];
+            $this->synchronization = is_array($data['synchronization']) ? new Synchronization($data['synchronization']) : $data['synchronization'];
         }
         if (isset($data['tokenIssuancePolicies'])) {
             $this->tokenIssuancePolicies = $data['tokenIssuancePolicies'];

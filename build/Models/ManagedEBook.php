@@ -89,7 +89,7 @@ class ManagedEBook
             $this->informationUrl = $data['informationUrl'];
         }
         if (isset($data['largeCover'])) {
-            $this->largeCover = $data['largeCover'];
+            $this->largeCover = is_array($data['largeCover']) ? new MimeContent($data['largeCover']) : $data['largeCover'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -110,7 +110,7 @@ class ManagedEBook
             $this->deviceStates = $data['deviceStates'];
         }
         if (isset($data['installSummary'])) {
-            $this->installSummary = $data['installSummary'];
+            $this->installSummary = is_array($data['installSummary']) ? new EBookInstallSummary($data['installSummary']) : $data['installSummary'];
         }
         if (isset($data['userStateSummary'])) {
             $this->userStateSummary = $data['userStateSummary'];

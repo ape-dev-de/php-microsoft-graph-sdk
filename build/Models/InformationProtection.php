@@ -29,7 +29,7 @@ class InformationProtection
     public function __construct(array $data = [])
     {
         if (isset($data['bitlocker'])) {
-            $this->bitlocker = $data['bitlocker'];
+            $this->bitlocker = is_array($data['bitlocker']) ? new Bitlocker($data['bitlocker']) : $data['bitlocker'];
         }
         if (isset($data['threatAssessmentRequests'])) {
             $this->threatAssessmentRequests = $data['threatAssessmentRequests'];

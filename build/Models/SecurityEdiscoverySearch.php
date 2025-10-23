@@ -89,7 +89,7 @@ class SecurityEdiscoverySearch
             $this->contentQuery = $data['contentQuery'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -101,25 +101,25 @@ class SecurityEdiscoverySearch
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['dataSourceScopes'])) {
-            $this->dataSourceScopes = $data['dataSourceScopes'];
+            $this->dataSourceScopes = is_array($data['dataSourceScopes']) ? new SecurityDataSourceScopes($data['dataSourceScopes']) : $data['dataSourceScopes'];
         }
         if (isset($data['additionalSources'])) {
             $this->additionalSources = $data['additionalSources'];
         }
         if (isset($data['addToReviewSetOperation'])) {
-            $this->addToReviewSetOperation = $data['addToReviewSetOperation'];
+            $this->addToReviewSetOperation = is_array($data['addToReviewSetOperation']) ? new SecurityEdiscoveryAddToReviewSetOperation($data['addToReviewSetOperation']) : $data['addToReviewSetOperation'];
         }
         if (isset($data['custodianSources'])) {
             $this->custodianSources = $data['custodianSources'];
         }
         if (isset($data['lastEstimateStatisticsOperation'])) {
-            $this->lastEstimateStatisticsOperation = $data['lastEstimateStatisticsOperation'];
+            $this->lastEstimateStatisticsOperation = is_array($data['lastEstimateStatisticsOperation']) ? new SecurityEdiscoveryEstimateOperation($data['lastEstimateStatisticsOperation']) : $data['lastEstimateStatisticsOperation'];
         }
         if (isset($data['noncustodialSources'])) {
             $this->noncustodialSources = $data['noncustodialSources'];

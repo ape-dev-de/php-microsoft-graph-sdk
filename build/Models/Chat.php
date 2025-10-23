@@ -98,7 +98,7 @@ class Chat
             $this->id = $data['id'];
         }
         if (isset($data['chatType'])) {
-            $this->chatType = $data['chatType'];
+            $this->chatType = is_array($data['chatType']) ? new ChatType($data['chatType']) : $data['chatType'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -110,7 +110,7 @@ class Chat
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['onlineMeetingInfo'])) {
-            $this->onlineMeetingInfo = $data['onlineMeetingInfo'];
+            $this->onlineMeetingInfo = is_array($data['onlineMeetingInfo']) ? new TeamworkOnlineMeetingInfo($data['onlineMeetingInfo']) : $data['onlineMeetingInfo'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
@@ -119,7 +119,7 @@ class Chat
             $this->topic = $data['topic'];
         }
         if (isset($data['viewpoint'])) {
-            $this->viewpoint = $data['viewpoint'];
+            $this->viewpoint = is_array($data['viewpoint']) ? new ChatViewpoint($data['viewpoint']) : $data['viewpoint'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
@@ -128,7 +128,7 @@ class Chat
             $this->installedApps = $data['installedApps'];
         }
         if (isset($data['lastMessagePreview'])) {
-            $this->lastMessagePreview = $data['lastMessagePreview'];
+            $this->lastMessagePreview = is_array($data['lastMessagePreview']) ? new ChatMessageInfo($data['lastMessagePreview']) : $data['lastMessagePreview'];
         }
         if (isset($data['members'])) {
             $this->members = $data['members'];

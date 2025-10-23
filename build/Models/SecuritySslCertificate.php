@@ -74,7 +74,7 @@ class SecuritySslCertificate
             $this->issueDateTime = is_string($data['issueDateTime']) ? new \DateTimeImmutable($data['issueDateTime']) : $data['issueDateTime'];
         }
         if (isset($data['issuer'])) {
-            $this->issuer = $data['issuer'];
+            $this->issuer = is_array($data['issuer']) ? new SecuritySslCertificateEntity($data['issuer']) : $data['issuer'];
         }
         if (isset($data['lastSeenDateTime'])) {
             $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
@@ -86,7 +86,7 @@ class SecuritySslCertificate
             $this->sha1 = $data['sha1'];
         }
         if (isset($data['subject'])) {
-            $this->subject = $data['subject'];
+            $this->subject = is_array($data['subject']) ? new SecuritySslCertificateEntity($data['subject']) : $data['subject'];
         }
         if (isset($data['relatedHosts'])) {
             $this->relatedHosts = $data['relatedHosts'];

@@ -41,10 +41,10 @@ class PhoneAuthenticationMethod
             $this->phoneNumber = $data['phoneNumber'];
         }
         if (isset($data['phoneType'])) {
-            $this->phoneType = $data['phoneType'];
+            $this->phoneType = is_array($data['phoneType']) ? new AuthenticationPhoneType($data['phoneType']) : $data['phoneType'];
         }
         if (isset($data['smsSignInState'])) {
-            $this->smsSignInState = $data['smsSignInState'];
+            $this->smsSignInState = is_array($data['smsSignInState']) ? new AuthenticationMethodSignInState($data['smsSignInState']) : $data['smsSignInState'];
         }
     }
 }

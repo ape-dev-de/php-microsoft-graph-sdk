@@ -50,10 +50,10 @@ class ExternalConnectorsExternalItem
             $this->acl = $data['acl'];
         }
         if (isset($data['content'])) {
-            $this->content = $data['content'];
+            $this->content = is_array($data['content']) ? new ExternalConnectorsExternalItemContent($data['content']) : $data['content'];
         }
         if (isset($data['properties'])) {
-            $this->properties = $data['properties'];
+            $this->properties = is_array($data['properties']) ? new ExternalConnectorsProperties($data['properties']) : $data['properties'];
         }
         if (isset($data['activities'])) {
             $this->activities = $data['activities'];

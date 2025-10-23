@@ -41,7 +41,7 @@ class VirtualEventPresenterDetails
     public function __construct(array $data = [])
     {
         if (isset($data['bio'])) {
-            $this->bio = $data['bio'];
+            $this->bio = is_array($data['bio']) ? new ItemBody($data['bio']) : $data['bio'];
         }
         if (isset($data['company'])) {
             $this->company = $data['company'];

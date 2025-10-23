@@ -56,7 +56,7 @@ class BrowserSharedCookieHistory
             $this->hostOrDomain = $data['hostOrDomain'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['path'])) {
             $this->path = $data['path'];
@@ -65,7 +65,7 @@ class BrowserSharedCookieHistory
             $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
         }
         if (isset($data['sourceEnvironment'])) {
-            $this->sourceEnvironment = $data['sourceEnvironment'];
+            $this->sourceEnvironment = is_array($data['sourceEnvironment']) ? new BrowserSharedCookieSourceEnvironment($data['sourceEnvironment']) : $data['sourceEnvironment'];
         }
     }
 }

@@ -92,10 +92,10 @@ class PrinterShare
             $this->id = $data['id'];
         }
         if (isset($data['capabilities'])) {
-            $this->capabilities = $data['capabilities'];
+            $this->capabilities = is_array($data['capabilities']) ? new PrinterCapabilities($data['capabilities']) : $data['capabilities'];
         }
         if (isset($data['defaults'])) {
-            $this->defaults = $data['defaults'];
+            $this->defaults = is_array($data['defaults']) ? new PrinterDefaults($data['defaults']) : $data['defaults'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -104,7 +104,7 @@ class PrinterShare
             $this->isAcceptingJobs = $data['isAcceptingJobs'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new PrinterLocation($data['location']) : $data['location'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];
@@ -113,7 +113,7 @@ class PrinterShare
             $this->model = $data['model'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new PrinterStatus($data['status']) : $data['status'];
         }
         if (isset($data['jobs'])) {
             $this->jobs = $data['jobs'];
@@ -125,7 +125,7 @@ class PrinterShare
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['viewPoint'])) {
-            $this->viewPoint = $data['viewPoint'];
+            $this->viewPoint = is_array($data['viewPoint']) ? new PrinterShareViewpoint($data['viewPoint']) : $data['viewPoint'];
         }
         if (isset($data['allowedGroups'])) {
             $this->allowedGroups = $data['allowedGroups'];
@@ -134,7 +134,7 @@ class PrinterShare
             $this->allowedUsers = $data['allowedUsers'];
         }
         if (isset($data['printer'])) {
-            $this->printer = $data['printer'];
+            $this->printer = is_array($data['printer']) ? new Printer($data['printer']) : $data['printer'];
         }
     }
 }

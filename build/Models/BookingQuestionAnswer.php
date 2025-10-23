@@ -50,7 +50,7 @@ class BookingQuestionAnswer
             $this->answer = $data['answer'];
         }
         if (isset($data['answerInputType'])) {
-            $this->answerInputType = $data['answerInputType'];
+            $this->answerInputType = is_array($data['answerInputType']) ? new AnswerInputType($data['answerInputType']) : $data['answerInputType'];
         }
         if (isset($data['answerOptions'])) {
             $this->answerOptions = $data['answerOptions'];

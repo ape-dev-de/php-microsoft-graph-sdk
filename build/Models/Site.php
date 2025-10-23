@@ -191,7 +191,7 @@ class Site
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -203,7 +203,7 @@ class Site
             $this->eTag = $data['eTag'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -212,37 +212,37 @@ class Site
             $this->name = $data['name'];
         }
         if (isset($data['parentReference'])) {
-            $this->parentReference = $data['parentReference'];
+            $this->parentReference = is_array($data['parentReference']) ? new ItemReference($data['parentReference']) : $data['parentReference'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
         if (isset($data['createdByUser'])) {
-            $this->createdByUser = $data['createdByUser'];
+            $this->createdByUser = is_array($data['createdByUser']) ? new User($data['createdByUser']) : $data['createdByUser'];
         }
         if (isset($data['lastModifiedByUser'])) {
-            $this->lastModifiedByUser = $data['lastModifiedByUser'];
+            $this->lastModifiedByUser = is_array($data['lastModifiedByUser']) ? new User($data['lastModifiedByUser']) : $data['lastModifiedByUser'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['isPersonalSite'])) {
             $this->isPersonalSite = $data['isPersonalSite'];
         }
         if (isset($data['root'])) {
-            $this->root = $data['root'];
+            $this->root = is_array($data['root']) ? new Root($data['root']) : $data['root'];
         }
         if (isset($data['sharepointIds'])) {
-            $this->sharepointIds = $data['sharepointIds'];
+            $this->sharepointIds = is_array($data['sharepointIds']) ? new SharepointIds($data['sharepointIds']) : $data['sharepointIds'];
         }
         if (isset($data['siteCollection'])) {
-            $this->siteCollection = $data['siteCollection'];
+            $this->siteCollection = is_array($data['siteCollection']) ? new SiteCollection($data['siteCollection']) : $data['siteCollection'];
         }
         if (isset($data['analytics'])) {
-            $this->analytics = $data['analytics'];
+            $this->analytics = is_array($data['analytics']) ? new ItemAnalytics($data['analytics']) : $data['analytics'];
         }
         if (isset($data['columns'])) {
             $this->columns = $data['columns'];
@@ -251,7 +251,7 @@ class Site
             $this->contentTypes = $data['contentTypes'];
         }
         if (isset($data['drive'])) {
-            $this->drive = $data['drive'];
+            $this->drive = is_array($data['drive']) ? new Drive($data['drive']) : $data['drive'];
         }
         if (isset($data['drives'])) {
             $this->drives = $data['drives'];
@@ -266,7 +266,7 @@ class Site
             $this->lists = $data['lists'];
         }
         if (isset($data['onenote'])) {
-            $this->onenote = $data['onenote'];
+            $this->onenote = is_array($data['onenote']) ? new Onenote($data['onenote']) : $data['onenote'];
         }
         if (isset($data['operations'])) {
             $this->operations = $data['operations'];
@@ -281,7 +281,7 @@ class Site
             $this->sites = $data['sites'];
         }
         if (isset($data['termStore'])) {
-            $this->termStore = $data['termStore'];
+            $this->termStore = is_array($data['termStore']) ? new TermStoreStore($data['termStore']) : $data['termStore'];
         }
         if (isset($data['termStores'])) {
             $this->termStores = $data['termStores'];

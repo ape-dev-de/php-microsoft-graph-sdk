@@ -74,16 +74,16 @@ class MultiTenantOrganizationMember
             $this->joinedDateTime = is_string($data['joinedDateTime']) ? new \DateTimeImmutable($data['joinedDateTime']) : $data['joinedDateTime'];
         }
         if (isset($data['role'])) {
-            $this->role = $data['role'];
+            $this->role = is_array($data['role']) ? new MultiTenantOrganizationMemberRole($data['role']) : $data['role'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new MultiTenantOrganizationMemberState($data['state']) : $data['state'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['transitionDetails'])) {
-            $this->transitionDetails = $data['transitionDetails'];
+            $this->transitionDetails = is_array($data['transitionDetails']) ? new MultiTenantOrganizationMemberTransitionDetails($data['transitionDetails']) : $data['transitionDetails'];
         }
     }
 }

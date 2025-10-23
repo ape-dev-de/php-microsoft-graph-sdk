@@ -47,10 +47,10 @@ class WindowsHelloForBusinessAuthenticationMethod
             $this->displayName = $data['displayName'];
         }
         if (isset($data['keyStrength'])) {
-            $this->keyStrength = $data['keyStrength'];
+            $this->keyStrength = is_array($data['keyStrength']) ? new AuthenticationMethodKeyStrength($data['keyStrength']) : $data['keyStrength'];
         }
         if (isset($data['device'])) {
-            $this->device = $data['device'];
+            $this->device = is_array($data['device']) ? new Device($data['device']) : $data['device'];
         }
     }
 }

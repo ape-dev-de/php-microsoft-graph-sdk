@@ -74,7 +74,7 @@ class UserSimulationDetails
             $this->simulationEvents = $data['simulationEvents'];
         }
         if (isset($data['simulationUser'])) {
-            $this->simulationUser = $data['simulationUser'];
+            $this->simulationUser = is_array($data['simulationUser']) ? new AttackSimulationUser($data['simulationUser']) : $data['simulationUser'];
         }
         if (isset($data['trainingEvents'])) {
             $this->trainingEvents = $data['trainingEvents'];

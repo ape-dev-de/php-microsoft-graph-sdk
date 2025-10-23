@@ -47,7 +47,7 @@ class EmergencyCallEvent
             $this->id = $data['id'];
         }
         if (isset($data['callEventType'])) {
-            $this->callEventType = $data['callEventType'];
+            $this->callEventType = is_array($data['callEventType']) ? new CallEventType($data['callEventType']) : $data['callEventType'];
         }
         if (isset($data['eventDateTime'])) {
             $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
@@ -56,7 +56,7 @@ class EmergencyCallEvent
             $this->participants = $data['participants'];
         }
         if (isset($data['callerInfo'])) {
-            $this->callerInfo = $data['callerInfo'];
+            $this->callerInfo = is_array($data['callerInfo']) ? new EmergencyCallerInfo($data['callerInfo']) : $data['callerInfo'];
         }
         if (isset($data['emergencyNumberDialed'])) {
             $this->emergencyNumberDialed = $data['emergencyNumberDialed'];

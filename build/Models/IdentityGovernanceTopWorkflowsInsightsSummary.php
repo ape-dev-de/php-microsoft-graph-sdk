@@ -65,7 +65,7 @@ class IdentityGovernanceTopWorkflowsInsightsSummary
             $this->totalUsers = $data['totalUsers'];
         }
         if (isset($data['workflowCategory'])) {
-            $this->workflowCategory = $data['workflowCategory'];
+            $this->workflowCategory = is_array($data['workflowCategory']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['workflowCategory']) : $data['workflowCategory'];
         }
         if (isset($data['workflowDisplayName'])) {
             $this->workflowDisplayName = $data['workflowDisplayName'];

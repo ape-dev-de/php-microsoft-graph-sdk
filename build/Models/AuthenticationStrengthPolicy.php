@@ -68,10 +68,10 @@ class AuthenticationStrengthPolicy
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['policyType'])) {
-            $this->policyType = $data['policyType'];
+            $this->policyType = is_array($data['policyType']) ? new AuthenticationStrengthPolicyType($data['policyType']) : $data['policyType'];
         }
         if (isset($data['requirementsSatisfied'])) {
-            $this->requirementsSatisfied = $data['requirementsSatisfied'];
+            $this->requirementsSatisfied = is_array($data['requirementsSatisfied']) ? new AuthenticationStrengthRequirements($data['requirementsSatisfied']) : $data['requirementsSatisfied'];
         }
         if (isset($data['combinationConfigurations'])) {
             $this->combinationConfigurations = $data['combinationConfigurations'];

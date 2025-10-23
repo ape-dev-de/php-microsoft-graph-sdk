@@ -68,10 +68,10 @@ class Process
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['fileHash'])) {
-            $this->fileHash = $data['fileHash'];
+            $this->fileHash = is_array($data['fileHash']) ? new FileHash($data['fileHash']) : $data['fileHash'];
         }
         if (isset($data['integrityLevel'])) {
-            $this->integrityLevel = $data['integrityLevel'];
+            $this->integrityLevel = is_array($data['integrityLevel']) ? new ProcessIntegrityLevel($data['integrityLevel']) : $data['integrityLevel'];
         }
         if (isset($data['isElevated'])) {
             $this->isElevated = $data['isElevated'];

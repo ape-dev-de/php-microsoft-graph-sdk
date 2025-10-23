@@ -26,7 +26,7 @@ class AttackSimulationRepeatOffender
     public function __construct(array $data = [])
     {
         if (isset($data['attackSimulationUser'])) {
-            $this->attackSimulationUser = $data['attackSimulationUser'];
+            $this->attackSimulationUser = is_array($data['attackSimulationUser']) ? new AttackSimulationUser($data['attackSimulationUser']) : $data['attackSimulationUser'];
         }
         if (isset($data['repeatOffenceCount'])) {
             $this->repeatOffenceCount = $data['repeatOffenceCount'];

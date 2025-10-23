@@ -41,10 +41,10 @@ class RecentNotebook
             $this->lastAccessedTime = is_string($data['lastAccessedTime']) ? new \DateTimeImmutable($data['lastAccessedTime']) : $data['lastAccessedTime'];
         }
         if (isset($data['links'])) {
-            $this->links = $data['links'];
+            $this->links = is_array($data['links']) ? new RecentNotebookLinks($data['links']) : $data['links'];
         }
         if (isset($data['sourceService'])) {
-            $this->sourceService = $data['sourceService'];
+            $this->sourceService = is_array($data['sourceService']) ? new OnenoteSourceService($data['sourceService']) : $data['sourceService'];
         }
     }
 }

@@ -23,10 +23,10 @@ class TimeSlot
     public function __construct(array $data = [])
     {
         if (isset($data['end'])) {
-            $this->end = $data['end'];
+            $this->end = is_array($data['end']) ? new DateTimeTimeZone($data['end']) : $data['end'];
         }
         if (isset($data['start'])) {
-            $this->start = $data['start'];
+            $this->start = is_array($data['start']) ? new DateTimeTimeZone($data['start']) : $data['start'];
         }
     }
 }

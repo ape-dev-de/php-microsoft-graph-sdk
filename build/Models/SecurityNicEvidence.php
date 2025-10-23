@@ -68,7 +68,7 @@ class SecurityNicEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -80,10 +80,10 @@ class SecurityNicEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['ipAddress'])) {
-            $this->ipAddress = $data['ipAddress'];
+            $this->ipAddress = is_array($data['ipAddress']) ? new SecurityIpEvidence($data['ipAddress']) : $data['ipAddress'];
         }
         if (isset($data['macAddress'])) {
             $this->macAddress = $data['macAddress'];

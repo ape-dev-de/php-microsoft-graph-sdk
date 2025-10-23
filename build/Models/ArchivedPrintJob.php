@@ -65,7 +65,7 @@ class ArchivedPrintJob
             $this->copiesPrinted = $data['copiesPrinted'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new UserIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -77,7 +77,7 @@ class ArchivedPrintJob
             $this->printerName = $data['printerName'];
         }
         if (isset($data['processingState'])) {
-            $this->processingState = $data['processingState'];
+            $this->processingState = is_array($data['processingState']) ? new PrintJobProcessingState($data['processingState']) : $data['processingState'];
         }
     }
 }

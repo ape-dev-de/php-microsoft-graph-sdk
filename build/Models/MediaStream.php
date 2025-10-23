@@ -32,13 +32,13 @@ class MediaStream
     public function __construct(array $data = [])
     {
         if (isset($data['direction'])) {
-            $this->direction = $data['direction'];
+            $this->direction = is_array($data['direction']) ? new MediaDirection($data['direction']) : $data['direction'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];
         }
         if (isset($data['mediaType'])) {
-            $this->mediaType = $data['mediaType'];
+            $this->mediaType = is_array($data['mediaType']) ? new Modality($data['mediaType']) : $data['mediaType'];
         }
         if (isset($data['serverMuted'])) {
             $this->serverMuted = $data['serverMuted'];

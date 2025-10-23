@@ -20,7 +20,7 @@ class EdgeSearchEngine
     public function __construct(array $data = [])
     {
         if (isset($data['edgeSearchEngineType'])) {
-            $this->edgeSearchEngineType = $data['edgeSearchEngineType'];
+            $this->edgeSearchEngineType = is_array($data['edgeSearchEngineType']) ? new EdgeSearchEngineType($data['edgeSearchEngineType']) : $data['edgeSearchEngineType'];
         }
     }
 }

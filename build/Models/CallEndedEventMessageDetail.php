@@ -44,7 +44,7 @@ class CallEndedEventMessageDetail
             $this->callDuration = $data['callDuration'];
         }
         if (isset($data['callEventType'])) {
-            $this->callEventType = $data['callEventType'];
+            $this->callEventType = is_array($data['callEventType']) ? new TeamworkCallEventType($data['callEventType']) : $data['callEventType'];
         }
         if (isset($data['callId'])) {
             $this->callId = $data['callId'];
@@ -53,7 +53,7 @@ class CallEndedEventMessageDetail
             $this->callParticipants = $data['callParticipants'];
         }
         if (isset($data['initiator'])) {
-            $this->initiator = $data['initiator'];
+            $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
     }
 }

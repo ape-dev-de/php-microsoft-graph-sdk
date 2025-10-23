@@ -29,7 +29,7 @@ class SharedPCAccountManagerPolicy
     public function __construct(array $data = [])
     {
         if (isset($data['accountDeletionPolicy'])) {
-            $this->accountDeletionPolicy = $data['accountDeletionPolicy'];
+            $this->accountDeletionPolicy = is_array($data['accountDeletionPolicy']) ? new SharedPCAccountDeletionPolicyType($data['accountDeletionPolicy']) : $data['accountDeletionPolicy'];
         }
         if (isset($data['cacheAccountsAboveDiskFreePercentage'])) {
             $this->cacheAccountsAboveDiskFreePercentage = $data['cacheAccountsAboveDiskFreePercentage'];

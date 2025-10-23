@@ -29,7 +29,7 @@ class Edge
             $this->id = $data['id'];
         }
         if (isset($data['internetExplorerMode'])) {
-            $this->internetExplorerMode = $data['internetExplorerMode'];
+            $this->internetExplorerMode = is_array($data['internetExplorerMode']) ? new InternetExplorerMode($data['internetExplorerMode']) : $data['internetExplorerMode'];
         }
     }
 }

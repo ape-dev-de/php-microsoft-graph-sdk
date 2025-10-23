@@ -26,7 +26,7 @@ class ProcessContentResponses
             $this->requestId = $data['requestId'];
         }
         if (isset($data['results'])) {
-            $this->results = $data['results'];
+            $this->results = is_array($data['results']) ? new ProcessContentResponse($data['results']) : $data['results'];
         }
     }
 }

@@ -101,7 +101,7 @@ class SecurityHealthIssue
             $this->domainNames = $data['domainNames'];
         }
         if (isset($data['healthIssueType'])) {
-            $this->healthIssueType = $data['healthIssueType'];
+            $this->healthIssueType = is_array($data['healthIssueType']) ? new SecurityHealthIssueType($data['healthIssueType']) : $data['healthIssueType'];
         }
         if (isset($data['issueTypeId'])) {
             $this->issueTypeId = $data['issueTypeId'];
@@ -119,10 +119,10 @@ class SecurityHealthIssue
             $this->sensorDNSNames = $data['sensorDNSNames'];
         }
         if (isset($data['severity'])) {
-            $this->severity = $data['severity'];
+            $this->severity = is_array($data['severity']) ? new SecurityHealthIssueSeverity($data['severity']) : $data['severity'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityHealthIssueStatus($data['status']) : $data['status'];
         }
     }
 }

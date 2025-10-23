@@ -65,7 +65,7 @@ class AuthenticationMethodsPolicy
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['policyMigrationState'])) {
-            $this->policyMigrationState = $data['policyMigrationState'];
+            $this->policyMigrationState = is_array($data['policyMigrationState']) ? new AuthenticationMethodsPolicyMigrationState($data['policyMigrationState']) : $data['policyMigrationState'];
         }
         if (isset($data['policyVersion'])) {
             $this->policyVersion = $data['policyVersion'];
@@ -74,7 +74,7 @@ class AuthenticationMethodsPolicy
             $this->reconfirmationInDays = $data['reconfirmationInDays'];
         }
         if (isset($data['registrationEnforcement'])) {
-            $this->registrationEnforcement = $data['registrationEnforcement'];
+            $this->registrationEnforcement = is_array($data['registrationEnforcement']) ? new RegistrationEnforcement($data['registrationEnforcement']) : $data['registrationEnforcement'];
         }
         if (isset($data['authenticationMethodConfigurations'])) {
             $this->authenticationMethodConfigurations = $data['authenticationMethodConfigurations'];

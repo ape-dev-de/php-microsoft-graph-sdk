@@ -386,7 +386,7 @@ class Group
             $this->isSubscribedByMail = $data['isSubscribedByMail'];
         }
         if (isset($data['licenseProcessingState'])) {
-            $this->licenseProcessingState = $data['licenseProcessingState'];
+            $this->licenseProcessingState = is_array($data['licenseProcessingState']) ? new LicenseProcessingState($data['licenseProcessingState']) : $data['licenseProcessingState'];
         }
         if (isset($data['mail'])) {
             $this->mail = $data['mail'];
@@ -464,7 +464,7 @@ class Group
             $this->appRoleAssignments = $data['appRoleAssignments'];
         }
         if (isset($data['calendar'])) {
-            $this->calendar = $data['calendar'];
+            $this->calendar = is_array($data['calendar']) ? new Calendar($data['calendar']) : $data['calendar'];
         }
         if (isset($data['calendarView'])) {
             $this->calendarView = $data['calendarView'];
@@ -473,10 +473,10 @@ class Group
             $this->conversations = $data['conversations'];
         }
         if (isset($data['createdOnBehalfOf'])) {
-            $this->createdOnBehalfOf = $data['createdOnBehalfOf'];
+            $this->createdOnBehalfOf = is_array($data['createdOnBehalfOf']) ? new DirectoryObject($data['createdOnBehalfOf']) : $data['createdOnBehalfOf'];
         }
         if (isset($data['drive'])) {
-            $this->drive = $data['drive'];
+            $this->drive = is_array($data['drive']) ? new Drive($data['drive']) : $data['drive'];
         }
         if (isset($data['drives'])) {
             $this->drives = $data['drives'];
@@ -500,7 +500,7 @@ class Group
             $this->membersWithLicenseErrors = $data['membersWithLicenseErrors'];
         }
         if (isset($data['onenote'])) {
-            $this->onenote = $data['onenote'];
+            $this->onenote = is_array($data['onenote']) ? new Onenote($data['onenote']) : $data['onenote'];
         }
         if (isset($data['owners'])) {
             $this->owners = $data['owners'];
@@ -509,13 +509,13 @@ class Group
             $this->permissionGrants = $data['permissionGrants'];
         }
         if (isset($data['photo'])) {
-            $this->photo = $data['photo'];
+            $this->photo = is_array($data['photo']) ? new ProfilePhoto($data['photo']) : $data['photo'];
         }
         if (isset($data['photos'])) {
             $this->photos = $data['photos'];
         }
         if (isset($data['planner'])) {
-            $this->planner = $data['planner'];
+            $this->planner = is_array($data['planner']) ? new PlannerGroup($data['planner']) : $data['planner'];
         }
         if (isset($data['rejectedSenders'])) {
             $this->rejectedSenders = $data['rejectedSenders'];
@@ -527,7 +527,7 @@ class Group
             $this->sites = $data['sites'];
         }
         if (isset($data['team'])) {
-            $this->team = $data['team'];
+            $this->team = is_array($data['team']) ? new Team($data['team']) : $data['team'];
         }
         if (isset($data['threads'])) {
             $this->threads = $data['threads'];

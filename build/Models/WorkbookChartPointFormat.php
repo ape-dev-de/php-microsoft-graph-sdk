@@ -29,7 +29,7 @@ class WorkbookChartPointFormat
             $this->id = $data['id'];
         }
         if (isset($data['fill'])) {
-            $this->fill = $data['fill'];
+            $this->fill = is_array($data['fill']) ? new WorkbookChartFill($data['fill']) : $data['fill'];
         }
     }
 }

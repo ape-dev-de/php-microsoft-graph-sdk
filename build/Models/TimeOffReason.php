@@ -56,13 +56,13 @@ class TimeOffReason
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -74,7 +74,7 @@ class TimeOffReason
             $this->displayName = $data['displayName'];
         }
         if (isset($data['iconType'])) {
-            $this->iconType = $data['iconType'];
+            $this->iconType = is_array($data['iconType']) ? new TimeOffReasonIconType($data['iconType']) : $data['iconType'];
         }
         if (isset($data['isActive'])) {
             $this->isActive = $data['isActive'];

@@ -35,13 +35,13 @@ class Shared
     public function __construct(array $data = [])
     {
         if (isset($data['owner'])) {
-            $this->owner = $data['owner'];
+            $this->owner = is_array($data['owner']) ? new IdentitySet($data['owner']) : $data['owner'];
         }
         if (isset($data['scope'])) {
             $this->scope = $data['scope'];
         }
         if (isset($data['sharedBy'])) {
-            $this->sharedBy = $data['sharedBy'];
+            $this->sharedBy = is_array($data['sharedBy']) ? new IdentitySet($data['sharedBy']) : $data['sharedBy'];
         }
         if (isset($data['sharedDateTime'])) {
             $this->sharedDateTime = is_string($data['sharedDateTime']) ? new \DateTimeImmutable($data['sharedDateTime']) : $data['sharedDateTime'];

@@ -41,7 +41,7 @@ class AuthenticationFlowsPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['selfServiceSignUp'])) {
-            $this->selfServiceSignUp = $data['selfServiceSignUp'];
+            $this->selfServiceSignUp = is_array($data['selfServiceSignUp']) ? new SelfServiceSignUpAuthenticationFlowConfiguration($data['selfServiceSignUp']) : $data['selfServiceSignUp'];
         }
     }
 }

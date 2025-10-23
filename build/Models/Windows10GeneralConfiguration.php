@@ -725,13 +725,13 @@ class Windows10GeneralConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['accountsBlockAddingNonMicrosoftAccountEmail'])) {
             $this->accountsBlockAddingNonMicrosoftAccountEmail = $data['accountsBlockAddingNonMicrosoftAccountEmail'];
@@ -740,7 +740,7 @@ class Windows10GeneralConfiguration
             $this->antiTheftModeBlocked = $data['antiTheftModeBlocked'];
         }
         if (isset($data['appsAllowTrustedAppsSideloading'])) {
-            $this->appsAllowTrustedAppsSideloading = $data['appsAllowTrustedAppsSideloading'];
+            $this->appsAllowTrustedAppsSideloading = is_array($data['appsAllowTrustedAppsSideloading']) ? new StateManagementSetting($data['appsAllowTrustedAppsSideloading']) : $data['appsAllowTrustedAppsSideloading'];
         }
         if (isset($data['appsBlockWindowsStoreOriginatedApps'])) {
             $this->appsBlockWindowsStoreOriginatedApps = $data['appsBlockWindowsStoreOriginatedApps'];
@@ -788,13 +788,13 @@ class Windows10GeneralConfiguration
             $this->defenderBlockEndUserAccess = $data['defenderBlockEndUserAccess'];
         }
         if (isset($data['defenderCloudBlockLevel'])) {
-            $this->defenderCloudBlockLevel = $data['defenderCloudBlockLevel'];
+            $this->defenderCloudBlockLevel = is_array($data['defenderCloudBlockLevel']) ? new DefenderCloudBlockLevelType($data['defenderCloudBlockLevel']) : $data['defenderCloudBlockLevel'];
         }
         if (isset($data['defenderDaysBeforeDeletingQuarantinedMalware'])) {
             $this->defenderDaysBeforeDeletingQuarantinedMalware = $data['defenderDaysBeforeDeletingQuarantinedMalware'];
         }
         if (isset($data['defenderDetectedMalwareActions'])) {
-            $this->defenderDetectedMalwareActions = $data['defenderDetectedMalwareActions'];
+            $this->defenderDetectedMalwareActions = is_array($data['defenderDetectedMalwareActions']) ? new DefenderDetectedMalwareActions($data['defenderDetectedMalwareActions']) : $data['defenderDetectedMalwareActions'];
         }
         if (isset($data['defenderFileExtensionsToExclude'])) {
             $this->defenderFileExtensionsToExclude = $data['defenderFileExtensionsToExclude'];
@@ -803,13 +803,13 @@ class Windows10GeneralConfiguration
             $this->defenderFilesAndFoldersToExclude = $data['defenderFilesAndFoldersToExclude'];
         }
         if (isset($data['defenderMonitorFileActivity'])) {
-            $this->defenderMonitorFileActivity = $data['defenderMonitorFileActivity'];
+            $this->defenderMonitorFileActivity = is_array($data['defenderMonitorFileActivity']) ? new DefenderMonitorFileActivity($data['defenderMonitorFileActivity']) : $data['defenderMonitorFileActivity'];
         }
         if (isset($data['defenderProcessesToExclude'])) {
             $this->defenderProcessesToExclude = $data['defenderProcessesToExclude'];
         }
         if (isset($data['defenderPromptForSampleSubmission'])) {
-            $this->defenderPromptForSampleSubmission = $data['defenderPromptForSampleSubmission'];
+            $this->defenderPromptForSampleSubmission = is_array($data['defenderPromptForSampleSubmission']) ? new DefenderPromptForSampleSubmission($data['defenderPromptForSampleSubmission']) : $data['defenderPromptForSampleSubmission'];
         }
         if (isset($data['defenderRequireBehaviorMonitoring'])) {
             $this->defenderRequireBehaviorMonitoring = $data['defenderRequireBehaviorMonitoring'];
@@ -848,7 +848,7 @@ class Windows10GeneralConfiguration
             $this->defenderScanScriptsLoadedInInternetExplorer = $data['defenderScanScriptsLoadedInInternetExplorer'];
         }
         if (isset($data['defenderScanType'])) {
-            $this->defenderScanType = $data['defenderScanType'];
+            $this->defenderScanType = is_array($data['defenderScanType']) ? new DefenderScanType($data['defenderScanType']) : $data['defenderScanType'];
         }
         if (isset($data['defenderScheduledQuickScanTime'])) {
             $this->defenderScheduledQuickScanTime = $data['defenderScheduledQuickScanTime'];
@@ -860,10 +860,10 @@ class Windows10GeneralConfiguration
             $this->defenderSignatureUpdateIntervalInHours = $data['defenderSignatureUpdateIntervalInHours'];
         }
         if (isset($data['defenderSystemScanSchedule'])) {
-            $this->defenderSystemScanSchedule = $data['defenderSystemScanSchedule'];
+            $this->defenderSystemScanSchedule = is_array($data['defenderSystemScanSchedule']) ? new WeeklySchedule($data['defenderSystemScanSchedule']) : $data['defenderSystemScanSchedule'];
         }
         if (isset($data['developerUnlockSetting'])) {
-            $this->developerUnlockSetting = $data['developerUnlockSetting'];
+            $this->developerUnlockSetting = is_array($data['developerUnlockSetting']) ? new StateManagementSetting($data['developerUnlockSetting']) : $data['developerUnlockSetting'];
         }
         if (isset($data['deviceManagementBlockFactoryResetOnMobile'])) {
             $this->deviceManagementBlockFactoryResetOnMobile = $data['deviceManagementBlockFactoryResetOnMobile'];
@@ -872,7 +872,7 @@ class Windows10GeneralConfiguration
             $this->deviceManagementBlockManualUnenroll = $data['deviceManagementBlockManualUnenroll'];
         }
         if (isset($data['diagnosticsDataSubmissionMode'])) {
-            $this->diagnosticsDataSubmissionMode = $data['diagnosticsDataSubmissionMode'];
+            $this->diagnosticsDataSubmissionMode = is_array($data['diagnosticsDataSubmissionMode']) ? new DiagnosticDataSubmissionMode($data['diagnosticsDataSubmissionMode']) : $data['diagnosticsDataSubmissionMode'];
         }
         if (isset($data['edgeAllowStartPagesModification'])) {
             $this->edgeAllowStartPagesModification = $data['edgeAllowStartPagesModification'];
@@ -926,7 +926,7 @@ class Windows10GeneralConfiguration
             $this->edgeClearBrowsingDataOnExit = $data['edgeClearBrowsingDataOnExit'];
         }
         if (isset($data['edgeCookiePolicy'])) {
-            $this->edgeCookiePolicy = $data['edgeCookiePolicy'];
+            $this->edgeCookiePolicy = is_array($data['edgeCookiePolicy']) ? new EdgeCookiePolicy($data['edgeCookiePolicy']) : $data['edgeCookiePolicy'];
         }
         if (isset($data['edgeDisableFirstRunPage'])) {
             $this->edgeDisableFirstRunPage = $data['edgeDisableFirstRunPage'];
@@ -944,7 +944,7 @@ class Windows10GeneralConfiguration
             $this->edgeRequireSmartScreen = $data['edgeRequireSmartScreen'];
         }
         if (isset($data['edgeSearchEngine'])) {
-            $this->edgeSearchEngine = $data['edgeSearchEngine'];
+            $this->edgeSearchEngine = is_array($data['edgeSearchEngine']) ? new EdgeSearchEngineBase($data['edgeSearchEngine']) : $data['edgeSearchEngine'];
         }
         if (isset($data['edgeSendIntranetTrafficToInternetExplorer'])) {
             $this->edgeSendIntranetTrafficToInternetExplorer = $data['edgeSendIntranetTrafficToInternetExplorer'];
@@ -1022,7 +1022,7 @@ class Windows10GeneralConfiguration
             $this->networkProxyDisableAutoDetect = $data['networkProxyDisableAutoDetect'];
         }
         if (isset($data['networkProxyServer'])) {
-            $this->networkProxyServer = $data['networkProxyServer'];
+            $this->networkProxyServer = is_array($data['networkProxyServer']) ? new Windows10NetworkProxyServer($data['networkProxyServer']) : $data['networkProxyServer'];
         }
         if (isset($data['nfcBlocked'])) {
             $this->nfcBlocked = $data['nfcBlocked'];
@@ -1052,7 +1052,7 @@ class Windows10GeneralConfiguration
             $this->passwordRequired = $data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordRequireWhenResumeFromIdleState'])) {
             $this->passwordRequireWhenResumeFromIdleState = $data['passwordRequireWhenResumeFromIdleState'];
@@ -1067,7 +1067,7 @@ class Windows10GeneralConfiguration
             $this->personalizationLockScreenImageUrl = $data['personalizationLockScreenImageUrl'];
         }
         if (isset($data['privacyAdvertisingId'])) {
-            $this->privacyAdvertisingId = $data['privacyAdvertisingId'];
+            $this->privacyAdvertisingId = is_array($data['privacyAdvertisingId']) ? new StateManagementSetting($data['privacyAdvertisingId']) : $data['privacyAdvertisingId'];
         }
         if (isset($data['privacyAutoAcceptPairingAndConsentPrompts'])) {
             $this->privacyAutoAcceptPairingAndConsentPrompts = $data['privacyAutoAcceptPairingAndConsentPrompts'];
@@ -1079,7 +1079,7 @@ class Windows10GeneralConfiguration
             $this->resetProtectionModeBlocked = $data['resetProtectionModeBlocked'];
         }
         if (isset($data['safeSearchFilter'])) {
-            $this->safeSearchFilter = $data['safeSearchFilter'];
+            $this->safeSearchFilter = is_array($data['safeSearchFilter']) ? new SafeSearchFilterType($data['safeSearchFilter']) : $data['safeSearchFilter'];
         }
         if (isset($data['screenCaptureBlocked'])) {
             $this->screenCaptureBlocked = $data['screenCaptureBlocked'];
@@ -1178,7 +1178,7 @@ class Windows10GeneralConfiguration
             $this->startBlockUnpinningAppsFromTaskbar = $data['startBlockUnpinningAppsFromTaskbar'];
         }
         if (isset($data['startMenuAppListVisibility'])) {
-            $this->startMenuAppListVisibility = $data['startMenuAppListVisibility'];
+            $this->startMenuAppListVisibility = is_array($data['startMenuAppListVisibility']) ? new WindowsStartMenuAppListVisibilityType($data['startMenuAppListVisibility']) : $data['startMenuAppListVisibility'];
         }
         if (isset($data['startMenuHideChangeAccountSettings'])) {
             $this->startMenuHideChangeAccountSettings = $data['startMenuHideChangeAccountSettings'];
@@ -1226,37 +1226,37 @@ class Windows10GeneralConfiguration
             $this->startMenuLayoutXml = $data['startMenuLayoutXml'];
         }
         if (isset($data['startMenuMode'])) {
-            $this->startMenuMode = $data['startMenuMode'];
+            $this->startMenuMode = is_array($data['startMenuMode']) ? new WindowsStartMenuModeType($data['startMenuMode']) : $data['startMenuMode'];
         }
         if (isset($data['startMenuPinnedFolderDocuments'])) {
-            $this->startMenuPinnedFolderDocuments = $data['startMenuPinnedFolderDocuments'];
+            $this->startMenuPinnedFolderDocuments = is_array($data['startMenuPinnedFolderDocuments']) ? new VisibilitySetting($data['startMenuPinnedFolderDocuments']) : $data['startMenuPinnedFolderDocuments'];
         }
         if (isset($data['startMenuPinnedFolderDownloads'])) {
-            $this->startMenuPinnedFolderDownloads = $data['startMenuPinnedFolderDownloads'];
+            $this->startMenuPinnedFolderDownloads = is_array($data['startMenuPinnedFolderDownloads']) ? new VisibilitySetting($data['startMenuPinnedFolderDownloads']) : $data['startMenuPinnedFolderDownloads'];
         }
         if (isset($data['startMenuPinnedFolderFileExplorer'])) {
-            $this->startMenuPinnedFolderFileExplorer = $data['startMenuPinnedFolderFileExplorer'];
+            $this->startMenuPinnedFolderFileExplorer = is_array($data['startMenuPinnedFolderFileExplorer']) ? new VisibilitySetting($data['startMenuPinnedFolderFileExplorer']) : $data['startMenuPinnedFolderFileExplorer'];
         }
         if (isset($data['startMenuPinnedFolderHomeGroup'])) {
-            $this->startMenuPinnedFolderHomeGroup = $data['startMenuPinnedFolderHomeGroup'];
+            $this->startMenuPinnedFolderHomeGroup = is_array($data['startMenuPinnedFolderHomeGroup']) ? new VisibilitySetting($data['startMenuPinnedFolderHomeGroup']) : $data['startMenuPinnedFolderHomeGroup'];
         }
         if (isset($data['startMenuPinnedFolderMusic'])) {
-            $this->startMenuPinnedFolderMusic = $data['startMenuPinnedFolderMusic'];
+            $this->startMenuPinnedFolderMusic = is_array($data['startMenuPinnedFolderMusic']) ? new VisibilitySetting($data['startMenuPinnedFolderMusic']) : $data['startMenuPinnedFolderMusic'];
         }
         if (isset($data['startMenuPinnedFolderNetwork'])) {
-            $this->startMenuPinnedFolderNetwork = $data['startMenuPinnedFolderNetwork'];
+            $this->startMenuPinnedFolderNetwork = is_array($data['startMenuPinnedFolderNetwork']) ? new VisibilitySetting($data['startMenuPinnedFolderNetwork']) : $data['startMenuPinnedFolderNetwork'];
         }
         if (isset($data['startMenuPinnedFolderPersonalFolder'])) {
-            $this->startMenuPinnedFolderPersonalFolder = $data['startMenuPinnedFolderPersonalFolder'];
+            $this->startMenuPinnedFolderPersonalFolder = is_array($data['startMenuPinnedFolderPersonalFolder']) ? new VisibilitySetting($data['startMenuPinnedFolderPersonalFolder']) : $data['startMenuPinnedFolderPersonalFolder'];
         }
         if (isset($data['startMenuPinnedFolderPictures'])) {
-            $this->startMenuPinnedFolderPictures = $data['startMenuPinnedFolderPictures'];
+            $this->startMenuPinnedFolderPictures = is_array($data['startMenuPinnedFolderPictures']) ? new VisibilitySetting($data['startMenuPinnedFolderPictures']) : $data['startMenuPinnedFolderPictures'];
         }
         if (isset($data['startMenuPinnedFolderSettings'])) {
-            $this->startMenuPinnedFolderSettings = $data['startMenuPinnedFolderSettings'];
+            $this->startMenuPinnedFolderSettings = is_array($data['startMenuPinnedFolderSettings']) ? new VisibilitySetting($data['startMenuPinnedFolderSettings']) : $data['startMenuPinnedFolderSettings'];
         }
         if (isset($data['startMenuPinnedFolderVideos'])) {
-            $this->startMenuPinnedFolderVideos = $data['startMenuPinnedFolderVideos'];
+            $this->startMenuPinnedFolderVideos = is_array($data['startMenuPinnedFolderVideos']) ? new VisibilitySetting($data['startMenuPinnedFolderVideos']) : $data['startMenuPinnedFolderVideos'];
         }
         if (isset($data['storageBlockRemovableStorage'])) {
             $this->storageBlockRemovableStorage = $data['storageBlockRemovableStorage'];
@@ -1316,7 +1316,7 @@ class Windows10GeneralConfiguration
             $this->windowsSpotlightBlockWindowsTips = $data['windowsSpotlightBlockWindowsTips'];
         }
         if (isset($data['windowsSpotlightConfigureOnLockScreen'])) {
-            $this->windowsSpotlightConfigureOnLockScreen = $data['windowsSpotlightConfigureOnLockScreen'];
+            $this->windowsSpotlightConfigureOnLockScreen = is_array($data['windowsSpotlightConfigureOnLockScreen']) ? new WindowsSpotlightEnablementSettings($data['windowsSpotlightConfigureOnLockScreen']) : $data['windowsSpotlightConfigureOnLockScreen'];
         }
         if (isset($data['windowsStoreBlockAutoUpdate'])) {
             $this->windowsStoreBlockAutoUpdate = $data['windowsStoreBlockAutoUpdate'];

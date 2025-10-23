@@ -110,16 +110,16 @@ class SecurityEdiscoveryCase
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityCaseStatus($data['status']) : $data['status'];
         }
         if (isset($data['closedBy'])) {
-            $this->closedBy = $data['closedBy'];
+            $this->closedBy = is_array($data['closedBy']) ? new IdentitySet($data['closedBy']) : $data['closedBy'];
         }
         if (isset($data['closedDateTime'])) {
             $this->closedDateTime = is_string($data['closedDateTime']) ? new \DateTimeImmutable($data['closedDateTime']) : $data['closedDateTime'];
@@ -143,7 +143,7 @@ class SecurityEdiscoveryCase
             $this->searches = $data['searches'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new SecurityEdiscoveryCaseSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];

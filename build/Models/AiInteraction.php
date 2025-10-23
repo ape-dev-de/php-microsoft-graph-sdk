@@ -86,7 +86,7 @@ class AiInteraction
             $this->attachments = $data['attachments'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['contexts'])) {
             $this->contexts = $data['contexts'];
@@ -101,10 +101,10 @@ class AiInteraction
             $this->etag = $data['etag'];
         }
         if (isset($data['from'])) {
-            $this->from = $data['from'];
+            $this->from = is_array($data['from']) ? new IdentitySet($data['from']) : $data['from'];
         }
         if (isset($data['interactionType'])) {
-            $this->interactionType = $data['interactionType'];
+            $this->interactionType = is_array($data['interactionType']) ? new AiInteractionType($data['interactionType']) : $data['interactionType'];
         }
         if (isset($data['links'])) {
             $this->links = $data['links'];

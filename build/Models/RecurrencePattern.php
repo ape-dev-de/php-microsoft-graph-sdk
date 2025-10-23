@@ -56,10 +56,10 @@ class RecurrencePattern
             $this->daysOfWeek = $data['daysOfWeek'];
         }
         if (isset($data['firstDayOfWeek'])) {
-            $this->firstDayOfWeek = $data['firstDayOfWeek'];
+            $this->firstDayOfWeek = is_array($data['firstDayOfWeek']) ? new DayOfWeek($data['firstDayOfWeek']) : $data['firstDayOfWeek'];
         }
         if (isset($data['index'])) {
-            $this->index = $data['index'];
+            $this->index = is_array($data['index']) ? new WeekIndex($data['index']) : $data['index'];
         }
         if (isset($data['interval'])) {
             $this->interval = $data['interval'];
@@ -68,7 +68,7 @@ class RecurrencePattern
             $this->month = $data['month'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new RecurrencePatternType($data['type']) : $data['type'];
         }
     }
 }

@@ -83,7 +83,7 @@ class ComplianceManagementPartner
             $this->macOsOnboarded = $data['macOsOnboarded'];
         }
         if (isset($data['partnerState'])) {
-            $this->partnerState = $data['partnerState'];
+            $this->partnerState = is_array($data['partnerState']) ? new DeviceManagementPartnerTenantState($data['partnerState']) : $data['partnerState'];
         }
     }
 }

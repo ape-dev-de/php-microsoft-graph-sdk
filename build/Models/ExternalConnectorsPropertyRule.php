@@ -32,7 +32,7 @@ class ExternalConnectorsPropertyRule
     public function __construct(array $data = [])
     {
         if (isset($data['operation'])) {
-            $this->operation = $data['operation'];
+            $this->operation = is_array($data['operation']) ? new ExternalConnectorsRuleOperation($data['operation']) : $data['operation'];
         }
         if (isset($data['property'])) {
             $this->property = $data['property'];
@@ -41,7 +41,7 @@ class ExternalConnectorsPropertyRule
             $this->values = $data['values'];
         }
         if (isset($data['valuesJoinedBy'])) {
-            $this->valuesJoinedBy = $data['valuesJoinedBy'];
+            $this->valuesJoinedBy = is_array($data['valuesJoinedBy']) ? new BinaryOperator($data['valuesJoinedBy']) : $data['valuesJoinedBy'];
         }
     }
 }

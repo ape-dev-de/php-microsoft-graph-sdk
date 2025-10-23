@@ -146,10 +146,10 @@ class EducationAssignment
             $this->id = $data['id'];
         }
         if (isset($data['addedStudentAction'])) {
-            $this->addedStudentAction = $data['addedStudentAction'];
+            $this->addedStudentAction = is_array($data['addedStudentAction']) ? new EducationAddedStudentAction($data['addedStudentAction']) : $data['addedStudentAction'];
         }
         if (isset($data['addToCalendarAction'])) {
-            $this->addToCalendarAction = $data['addToCalendarAction'];
+            $this->addToCalendarAction = is_array($data['addToCalendarAction']) ? new EducationAddToCalendarOptions($data['addToCalendarAction']) : $data['addToCalendarAction'];
         }
         if (isset($data['allowLateSubmissions'])) {
             $this->allowLateSubmissions = $data['allowLateSubmissions'];
@@ -164,7 +164,7 @@ class EducationAssignment
             $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
         if (isset($data['assignTo'])) {
-            $this->assignTo = $data['assignTo'];
+            $this->assignTo = is_array($data['assignTo']) ? new EducationAssignmentRecipient($data['assignTo']) : $data['assignTo'];
         }
         if (isset($data['classId'])) {
             $this->classId = $data['classId'];
@@ -173,7 +173,7 @@ class EducationAssignment
             $this->closeDateTime = is_string($data['closeDateTime']) ? new \DateTimeImmutable($data['closeDateTime']) : $data['closeDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -188,13 +188,13 @@ class EducationAssignment
             $this->feedbackResourcesFolderUrl = $data['feedbackResourcesFolderUrl'];
         }
         if (isset($data['grading'])) {
-            $this->grading = $data['grading'];
+            $this->grading = is_array($data['grading']) ? new EducationAssignmentGradeType($data['grading']) : $data['grading'];
         }
         if (isset($data['instructions'])) {
-            $this->instructions = $data['instructions'];
+            $this->instructions = is_array($data['instructions']) ? new EducationItemBody($data['instructions']) : $data['instructions'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -209,7 +209,7 @@ class EducationAssignment
             $this->resourcesFolderUrl = $data['resourcesFolderUrl'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new EducationAssignmentStatus($data['status']) : $data['status'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
@@ -218,13 +218,13 @@ class EducationAssignment
             $this->categories = $data['categories'];
         }
         if (isset($data['gradingCategory'])) {
-            $this->gradingCategory = $data['gradingCategory'];
+            $this->gradingCategory = is_array($data['gradingCategory']) ? new EducationGradingCategory($data['gradingCategory']) : $data['gradingCategory'];
         }
         if (isset($data['resources'])) {
             $this->resources = $data['resources'];
         }
         if (isset($data['rubric'])) {
-            $this->rubric = $data['rubric'];
+            $this->rubric = is_array($data['rubric']) ? new EducationRubric($data['rubric']) : $data['rubric'];
         }
         if (isset($data['submissions'])) {
             $this->submissions = $data['submissions'];

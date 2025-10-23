@@ -104,19 +104,19 @@ class SecurityRetentionLabel
             $this->id = $data['id'];
         }
         if (isset($data['actionAfterRetentionPeriod'])) {
-            $this->actionAfterRetentionPeriod = $data['actionAfterRetentionPeriod'];
+            $this->actionAfterRetentionPeriod = is_array($data['actionAfterRetentionPeriod']) ? new SecurityActionAfterRetentionPeriod($data['actionAfterRetentionPeriod']) : $data['actionAfterRetentionPeriod'];
         }
         if (isset($data['behaviorDuringRetentionPeriod'])) {
-            $this->behaviorDuringRetentionPeriod = $data['behaviorDuringRetentionPeriod'];
+            $this->behaviorDuringRetentionPeriod = is_array($data['behaviorDuringRetentionPeriod']) ? new SecurityBehaviorDuringRetentionPeriod($data['behaviorDuringRetentionPeriod']) : $data['behaviorDuringRetentionPeriod'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['defaultRecordBehavior'])) {
-            $this->defaultRecordBehavior = $data['defaultRecordBehavior'];
+            $this->defaultRecordBehavior = is_array($data['defaultRecordBehavior']) ? new SecurityDefaultRecordBehavior($data['defaultRecordBehavior']) : $data['defaultRecordBehavior'];
         }
         if (isset($data['descriptionForAdmins'])) {
             $this->descriptionForAdmins = $data['descriptionForAdmins'];
@@ -134,25 +134,25 @@ class SecurityRetentionLabel
             $this->labelToBeApplied = $data['labelToBeApplied'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['retentionDuration'])) {
-            $this->retentionDuration = $data['retentionDuration'];
+            $this->retentionDuration = is_array($data['retentionDuration']) ? new SecurityRetentionDuration($data['retentionDuration']) : $data['retentionDuration'];
         }
         if (isset($data['retentionTrigger'])) {
-            $this->retentionTrigger = $data['retentionTrigger'];
+            $this->retentionTrigger = is_array($data['retentionTrigger']) ? new SecurityRetentionTrigger($data['retentionTrigger']) : $data['retentionTrigger'];
         }
         if (isset($data['descriptors'])) {
-            $this->descriptors = $data['descriptors'];
+            $this->descriptors = is_array($data['descriptors']) ? new SecurityFilePlanDescriptor($data['descriptors']) : $data['descriptors'];
         }
         if (isset($data['dispositionReviewStages'])) {
             $this->dispositionReviewStages = $data['dispositionReviewStages'];
         }
         if (isset($data['retentionEventType'])) {
-            $this->retentionEventType = $data['retentionEventType'];
+            $this->retentionEventType = is_array($data['retentionEventType']) ? new SecurityRetentionEventType($data['retentionEventType']) : $data['retentionEventType'];
         }
     }
 }

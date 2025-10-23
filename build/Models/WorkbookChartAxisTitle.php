@@ -41,7 +41,7 @@ class WorkbookChartAxisTitle
             $this->visible = $data['visible'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookChartAxisTitleFormat($data['format']) : $data['format'];
         }
     }
 }

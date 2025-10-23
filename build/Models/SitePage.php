@@ -125,7 +125,7 @@ class SitePage
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -137,7 +137,7 @@ class SitePage
             $this->eTag = $data['eTag'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -146,31 +146,31 @@ class SitePage
             $this->name = $data['name'];
         }
         if (isset($data['parentReference'])) {
-            $this->parentReference = $data['parentReference'];
+            $this->parentReference = is_array($data['parentReference']) ? new ItemReference($data['parentReference']) : $data['parentReference'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
         if (isset($data['createdByUser'])) {
-            $this->createdByUser = $data['createdByUser'];
+            $this->createdByUser = is_array($data['createdByUser']) ? new User($data['createdByUser']) : $data['createdByUser'];
         }
         if (isset($data['lastModifiedByUser'])) {
-            $this->lastModifiedByUser = $data['lastModifiedByUser'];
+            $this->lastModifiedByUser = is_array($data['lastModifiedByUser']) ? new User($data['lastModifiedByUser']) : $data['lastModifiedByUser'];
         }
         if (isset($data['pageLayout'])) {
-            $this->pageLayout = $data['pageLayout'];
+            $this->pageLayout = is_array($data['pageLayout']) ? new PageLayoutType($data['pageLayout']) : $data['pageLayout'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new PublicationFacet($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];
         }
         if (isset($data['promotionKind'])) {
-            $this->promotionKind = $data['promotionKind'];
+            $this->promotionKind = is_array($data['promotionKind']) ? new PagePromotionType($data['promotionKind']) : $data['promotionKind'];
         }
         if (isset($data['reactions'])) {
-            $this->reactions = $data['reactions'];
+            $this->reactions = is_array($data['reactions']) ? new ReactionsFacet($data['reactions']) : $data['reactions'];
         }
         if (isset($data['showComments'])) {
             $this->showComments = $data['showComments'];
@@ -182,10 +182,10 @@ class SitePage
             $this->thumbnailWebUrl = $data['thumbnailWebUrl'];
         }
         if (isset($data['titleArea'])) {
-            $this->titleArea = $data['titleArea'];
+            $this->titleArea = is_array($data['titleArea']) ? new TitleArea($data['titleArea']) : $data['titleArea'];
         }
         if (isset($data['canvasLayout'])) {
-            $this->canvasLayout = $data['canvasLayout'];
+            $this->canvasLayout = is_array($data['canvasLayout']) ? new CanvasLayout($data['canvasLayout']) : $data['canvasLayout'];
         }
         if (isset($data['webParts'])) {
             $this->webParts = $data['webParts'];

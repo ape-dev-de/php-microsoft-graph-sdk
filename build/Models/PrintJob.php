@@ -68,10 +68,10 @@ class PrintJob
             $this->acknowledgedDateTime = is_string($data['acknowledgedDateTime']) ? new \DateTimeImmutable($data['acknowledgedDateTime']) : $data['acknowledgedDateTime'];
         }
         if (isset($data['configuration'])) {
-            $this->configuration = $data['configuration'];
+            $this->configuration = is_array($data['configuration']) ? new PrintJobConfiguration($data['configuration']) : $data['configuration'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new UserIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -89,7 +89,7 @@ class PrintJob
             $this->redirectedTo = $data['redirectedTo'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new PrintJobStatus($data['status']) : $data['status'];
         }
         if (isset($data['documents'])) {
             $this->documents = $data['documents'];

@@ -35,10 +35,10 @@ class CopilotRoot
     public function __construct(array $data = [])
     {
         if (isset($data['admin'])) {
-            $this->admin = $data['admin'];
+            $this->admin = is_array($data['admin']) ? new CopilotAdmin($data['admin']) : $data['admin'];
         }
         if (isset($data['interactionHistory'])) {
-            $this->interactionHistory = $data['interactionHistory'];
+            $this->interactionHistory = is_array($data['interactionHistory']) ? new AiInteractionHistory($data['interactionHistory']) : $data['interactionHistory'];
         }
         if (isset($data['users'])) {
             $this->users = $data['users'];

@@ -32,7 +32,7 @@ class WorkbookWorksheetProtection
             $this->id = $data['id'];
         }
         if (isset($data['options'])) {
-            $this->options = $data['options'];
+            $this->options = is_array($data['options']) ? new WorkbookWorksheetProtectionOptions($data['options']) : $data['options'];
         }
         if (isset($data['protected'])) {
             $this->protected = $data['protected'];

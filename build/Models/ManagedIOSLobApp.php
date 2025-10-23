@@ -137,7 +137,7 @@ class ManagedIOSLobApp
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
-            $this->largeIcon = $data['largeIcon'];
+            $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -155,7 +155,7 @@ class ManagedIOSLobApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -164,7 +164,7 @@ class ManagedIOSLobApp
             $this->categories = $data['categories'];
         }
         if (isset($data['appAvailability'])) {
-            $this->appAvailability = $data['appAvailability'];
+            $this->appAvailability = is_array($data['appAvailability']) ? new ManagedAppAvailability($data['appAvailability']) : $data['appAvailability'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];
@@ -182,7 +182,7 @@ class ManagedIOSLobApp
             $this->contentVersions = $data['contentVersions'];
         }
         if (isset($data['applicableDeviceType'])) {
-            $this->applicableDeviceType = $data['applicableDeviceType'];
+            $this->applicableDeviceType = is_array($data['applicableDeviceType']) ? new IosDeviceType($data['applicableDeviceType']) : $data['applicableDeviceType'];
         }
         if (isset($data['buildNumber'])) {
             $this->buildNumber = $data['buildNumber'];
@@ -194,7 +194,7 @@ class ManagedIOSLobApp
             $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['minimumSupportedOperatingSystem'])) {
-            $this->minimumSupportedOperatingSystem = $data['minimumSupportedOperatingSystem'];
+            $this->minimumSupportedOperatingSystem = is_array($data['minimumSupportedOperatingSystem']) ? new IosMinimumOperatingSystem($data['minimumSupportedOperatingSystem']) : $data['minimumSupportedOperatingSystem'];
         }
         if (isset($data['versionNumber'])) {
             $this->versionNumber = $data['versionNumber'];

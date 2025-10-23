@@ -20,7 +20,7 @@ class MediaPrompt
     public function __construct(array $data = [])
     {
         if (isset($data['mediaInfo'])) {
-            $this->mediaInfo = $data['mediaInfo'];
+            $this->mediaInfo = is_array($data['mediaInfo']) ? new MediaInfo($data['mediaInfo']) : $data['mediaInfo'];
         }
     }
 }

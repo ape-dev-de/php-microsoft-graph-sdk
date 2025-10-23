@@ -41,7 +41,7 @@ class PartnersBillingRunningOperation
             $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
         }
     }
 }

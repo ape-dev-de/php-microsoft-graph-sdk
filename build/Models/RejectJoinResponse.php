@@ -20,7 +20,7 @@ class RejectJoinResponse
     public function __construct(array $data = [])
     {
         if (isset($data['reason'])) {
-            $this->reason = $data['reason'];
+            $this->reason = is_array($data['reason']) ? new RejectReason($data['reason']) : $data['reason'];
         }
     }
 }

@@ -35,7 +35,7 @@ class AuthenticationEventsFlow
             $this->id = $data['id'];
         }
         if (isset($data['conditions'])) {
-            $this->conditions = $data['conditions'];
+            $this->conditions = is_array($data['conditions']) ? new AuthenticationConditions($data['conditions']) : $data['conditions'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];

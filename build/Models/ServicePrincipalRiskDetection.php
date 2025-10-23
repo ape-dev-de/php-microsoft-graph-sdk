@@ -107,7 +107,7 @@ class ServicePrincipalRiskDetection
             $this->id = $data['id'];
         }
         if (isset($data['activity'])) {
-            $this->activity = $data['activity'];
+            $this->activity = is_array($data['activity']) ? new ActivityType($data['activity']) : $data['activity'];
         }
         if (isset($data['activityDateTime'])) {
             $this->activityDateTime = is_string($data['activityDateTime']) ? new \DateTimeImmutable($data['activityDateTime']) : $data['activityDateTime'];
@@ -125,7 +125,7 @@ class ServicePrincipalRiskDetection
             $this->detectedDateTime = is_string($data['detectedDateTime']) ? new \DateTimeImmutable($data['detectedDateTime']) : $data['detectedDateTime'];
         }
         if (isset($data['detectionTimingType'])) {
-            $this->detectionTimingType = $data['detectionTimingType'];
+            $this->detectionTimingType = is_array($data['detectionTimingType']) ? new RiskDetectionTimingType($data['detectionTimingType']) : $data['detectionTimingType'];
         }
         if (isset($data['ipAddress'])) {
             $this->ipAddress = $data['ipAddress'];
@@ -137,22 +137,22 @@ class ServicePrincipalRiskDetection
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new SignInLocation($data['location']) : $data['location'];
         }
         if (isset($data['requestId'])) {
             $this->requestId = $data['requestId'];
         }
         if (isset($data['riskDetail'])) {
-            $this->riskDetail = $data['riskDetail'];
+            $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];
         }
         if (isset($data['riskEventType'])) {
             $this->riskEventType = $data['riskEventType'];
         }
         if (isset($data['riskLevel'])) {
-            $this->riskLevel = $data['riskLevel'];
+            $this->riskLevel = is_array($data['riskLevel']) ? new RiskLevel($data['riskLevel']) : $data['riskLevel'];
         }
         if (isset($data['riskState'])) {
-            $this->riskState = $data['riskState'];
+            $this->riskState = is_array($data['riskState']) ? new RiskState($data['riskState']) : $data['riskState'];
         }
         if (isset($data['servicePrincipalDisplayName'])) {
             $this->servicePrincipalDisplayName = $data['servicePrincipalDisplayName'];
@@ -164,7 +164,7 @@ class ServicePrincipalRiskDetection
             $this->source = $data['source'];
         }
         if (isset($data['tokenIssuerType'])) {
-            $this->tokenIssuerType = $data['tokenIssuerType'];
+            $this->tokenIssuerType = is_array($data['tokenIssuerType']) ? new TokenIssuerType($data['tokenIssuerType']) : $data['tokenIssuerType'];
         }
     }
 }

@@ -41,10 +41,10 @@ class CustomTimeZone
             $this->bias = $data['bias'];
         }
         if (isset($data['daylightOffset'])) {
-            $this->daylightOffset = $data['daylightOffset'];
+            $this->daylightOffset = is_array($data['daylightOffset']) ? new DaylightTimeZoneOffset($data['daylightOffset']) : $data['daylightOffset'];
         }
         if (isset($data['standardOffset'])) {
-            $this->standardOffset = $data['standardOffset'];
+            $this->standardOffset = is_array($data['standardOffset']) ? new StandardTimeZoneOffset($data['standardOffset']) : $data['standardOffset'];
         }
     }
 }

@@ -35,13 +35,13 @@ class CalendarSharingMessageAction
     public function __construct(array $data = [])
     {
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new CalendarSharingAction($data['action']) : $data['action'];
         }
         if (isset($data['actionType'])) {
-            $this->actionType = $data['actionType'];
+            $this->actionType = is_array($data['actionType']) ? new CalendarSharingActionType($data['actionType']) : $data['actionType'];
         }
         if (isset($data['importance'])) {
-            $this->importance = $data['importance'];
+            $this->importance = is_array($data['importance']) ? new CalendarSharingActionImportance($data['importance']) : $data['importance'];
         }
     }
 }

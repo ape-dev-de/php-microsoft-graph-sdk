@@ -56,10 +56,10 @@ class Community
             $this->groupId = $data['groupId'];
         }
         if (isset($data['privacy'])) {
-            $this->privacy = $data['privacy'];
+            $this->privacy = is_array($data['privacy']) ? new CommunityPrivacy($data['privacy']) : $data['privacy'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];
         }
         if (isset($data['owners'])) {
             $this->owners = $data['owners'];

@@ -50,16 +50,16 @@ class Trending
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['resourceReference'])) {
-            $this->resourceReference = $data['resourceReference'];
+            $this->resourceReference = is_array($data['resourceReference']) ? new ResourceReference($data['resourceReference']) : $data['resourceReference'];
         }
         if (isset($data['resourceVisualization'])) {
-            $this->resourceVisualization = $data['resourceVisualization'];
+            $this->resourceVisualization = is_array($data['resourceVisualization']) ? new ResourceVisualization($data['resourceVisualization']) : $data['resourceVisualization'];
         }
         if (isset($data['weight'])) {
             $this->weight = $data['weight'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new Entity($data['resource']) : $data['resource'];
         }
     }
 }

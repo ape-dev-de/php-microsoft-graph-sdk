@@ -95,16 +95,16 @@ class UnifiedRoleScheduleBase
             $this->status = $data['status'];
         }
         if (isset($data['appScope'])) {
-            $this->appScope = $data['appScope'];
+            $this->appScope = is_array($data['appScope']) ? new AppScope($data['appScope']) : $data['appScope'];
         }
         if (isset($data['directoryScope'])) {
-            $this->directoryScope = $data['directoryScope'];
+            $this->directoryScope = is_array($data['directoryScope']) ? new DirectoryObject($data['directoryScope']) : $data['directoryScope'];
         }
         if (isset($data['principal'])) {
-            $this->principal = $data['principal'];
+            $this->principal = is_array($data['principal']) ? new DirectoryObject($data['principal']) : $data['principal'];
         }
         if (isset($data['roleDefinition'])) {
-            $this->roleDefinition = $data['roleDefinition'];
+            $this->roleDefinition = is_array($data['roleDefinition']) ? new UnifiedRoleDefinition($data['roleDefinition']) : $data['roleDefinition'];
         }
     }
 }

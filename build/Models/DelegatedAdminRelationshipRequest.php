@@ -38,7 +38,7 @@ class DelegatedAdminRelationshipRequest
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new DelegatedAdminRelationshipRequestAction($data['action']) : $data['action'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -47,7 +47,7 @@ class DelegatedAdminRelationshipRequest
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new DelegatedAdminRelationshipRequestStatus($data['status']) : $data['status'];
         }
     }
 }

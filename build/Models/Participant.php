@@ -62,7 +62,7 @@ class Participant
             $this->id = $data['id'];
         }
         if (isset($data['info'])) {
-            $this->info = $data['info'];
+            $this->info = is_array($data['info']) ? new ParticipantInfo($data['info']) : $data['info'];
         }
         if (isset($data['isInLobby'])) {
             $this->isInLobby = $data['isInLobby'];
@@ -77,13 +77,13 @@ class Participant
             $this->metadata = $data['metadata'];
         }
         if (isset($data['recordingInfo'])) {
-            $this->recordingInfo = $data['recordingInfo'];
+            $this->recordingInfo = is_array($data['recordingInfo']) ? new RecordingInfo($data['recordingInfo']) : $data['recordingInfo'];
         }
         if (isset($data['removedState'])) {
-            $this->removedState = $data['removedState'];
+            $this->removedState = is_array($data['removedState']) ? new RemovedState($data['removedState']) : $data['removedState'];
         }
         if (isset($data['restrictedExperience'])) {
-            $this->restrictedExperience = $data['restrictedExperience'];
+            $this->restrictedExperience = is_array($data['restrictedExperience']) ? new OnlineMeetingRestricted($data['restrictedExperience']) : $data['restrictedExperience'];
         }
         if (isset($data['rosterSequenceNumber'])) {
             $this->rosterSequenceNumber = $data['rosterSequenceNumber'];

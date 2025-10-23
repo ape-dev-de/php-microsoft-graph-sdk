@@ -35,13 +35,13 @@ class WorkbookOperation
             $this->id = $data['id'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new WorkbookOperationError($data['error']) : $data['error'];
         }
         if (isset($data['resourceLocation'])) {
             $this->resourceLocation = $data['resourceLocation'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new WorkbookOperationStatus($data['status']) : $data['status'];
         }
     }
 }

@@ -47,7 +47,7 @@ class WorkbookTableColumn
             $this->values = $data['values'];
         }
         if (isset($data['filter'])) {
-            $this->filter = $data['filter'];
+            $this->filter = is_array($data['filter']) ? new WorkbookFilter($data['filter']) : $data['filter'];
         }
     }
 }

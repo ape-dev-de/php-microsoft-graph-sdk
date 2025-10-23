@@ -56,16 +56,16 @@ class CallRecordingEventMessageDetail
             $this->callRecordingDuration = $data['callRecordingDuration'];
         }
         if (isset($data['callRecordingStatus'])) {
-            $this->callRecordingStatus = $data['callRecordingStatus'];
+            $this->callRecordingStatus = is_array($data['callRecordingStatus']) ? new CallRecordingStatus($data['callRecordingStatus']) : $data['callRecordingStatus'];
         }
         if (isset($data['callRecordingUrl'])) {
             $this->callRecordingUrl = $data['callRecordingUrl'];
         }
         if (isset($data['initiator'])) {
-            $this->initiator = $data['initiator'];
+            $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
         if (isset($data['meetingOrganizer'])) {
-            $this->meetingOrganizer = $data['meetingOrganizer'];
+            $this->meetingOrganizer = is_array($data['meetingOrganizer']) ? new IdentitySet($data['meetingOrganizer']) : $data['meetingOrganizer'];
         }
     }
 }

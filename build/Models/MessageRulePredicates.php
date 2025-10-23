@@ -164,7 +164,7 @@ class MessageRulePredicates
             $this->headerContains = $data['headerContains'];
         }
         if (isset($data['importance'])) {
-            $this->importance = $data['importance'];
+            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
         }
         if (isset($data['isApprovalRequest'])) {
             $this->isApprovalRequest = $data['isApprovalRequest'];
@@ -200,7 +200,7 @@ class MessageRulePredicates
             $this->isVoicemail = $data['isVoicemail'];
         }
         if (isset($data['messageActionFlag'])) {
-            $this->messageActionFlag = $data['messageActionFlag'];
+            $this->messageActionFlag = is_array($data['messageActionFlag']) ? new MessageActionFlag($data['messageActionFlag']) : $data['messageActionFlag'];
         }
         if (isset($data['notSentToMe'])) {
             $this->notSentToMe = $data['notSentToMe'];
@@ -212,7 +212,7 @@ class MessageRulePredicates
             $this->senderContains = $data['senderContains'];
         }
         if (isset($data['sensitivity'])) {
-            $this->sensitivity = $data['sensitivity'];
+            $this->sensitivity = is_array($data['sensitivity']) ? new Sensitivity($data['sensitivity']) : $data['sensitivity'];
         }
         if (isset($data['sentCcMe'])) {
             $this->sentCcMe = $data['sentCcMe'];
@@ -233,7 +233,7 @@ class MessageRulePredicates
             $this->subjectContains = $data['subjectContains'];
         }
         if (isset($data['withinSizeRange'])) {
-            $this->withinSizeRange = $data['withinSizeRange'];
+            $this->withinSizeRange = is_array($data['withinSizeRange']) ? new SizeRange($data['withinSizeRange']) : $data['withinSizeRange'];
         }
     }
 }

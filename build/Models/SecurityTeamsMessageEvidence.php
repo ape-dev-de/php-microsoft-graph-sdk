@@ -146,7 +146,7 @@ class SecurityTeamsMessageEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -158,7 +158,7 @@ class SecurityTeamsMessageEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['campaignId'])) {
             $this->campaignId = $data['campaignId'];
@@ -167,10 +167,10 @@ class SecurityTeamsMessageEvidence
             $this->channelId = $data['channelId'];
         }
         if (isset($data['deliveryAction'])) {
-            $this->deliveryAction = $data['deliveryAction'];
+            $this->deliveryAction = is_array($data['deliveryAction']) ? new SecurityTeamsMessageDeliveryAction($data['deliveryAction']) : $data['deliveryAction'];
         }
         if (isset($data['deliveryLocation'])) {
-            $this->deliveryLocation = $data['deliveryLocation'];
+            $this->deliveryLocation = is_array($data['deliveryLocation']) ? new SecurityTeamsDeliveryLocation($data['deliveryLocation']) : $data['deliveryLocation'];
         }
         if (isset($data['files'])) {
             $this->files = $data['files'];
@@ -188,7 +188,7 @@ class SecurityTeamsMessageEvidence
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['messageDirection'])) {
-            $this->messageDirection = $data['messageDirection'];
+            $this->messageDirection = is_array($data['messageDirection']) ? new SecurityAntispamTeamsDirection($data['messageDirection']) : $data['messageDirection'];
         }
         if (isset($data['messageId'])) {
             $this->messageId = $data['messageId'];

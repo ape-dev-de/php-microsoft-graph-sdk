@@ -44,13 +44,13 @@ class SendDtmfTonesOperation
             $this->clientContext = $data['clientContext'];
         }
         if (isset($data['resultInfo'])) {
-            $this->resultInfo = $data['resultInfo'];
+            $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new OperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['completionReason'])) {
-            $this->completionReason = $data['completionReason'];
+            $this->completionReason = is_array($data['completionReason']) ? new SendDtmfCompletionReason($data['completionReason']) : $data['completionReason'];
         }
     }
 }

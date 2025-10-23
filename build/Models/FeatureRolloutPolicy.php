@@ -50,7 +50,7 @@ class FeatureRolloutPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['feature'])) {
-            $this->feature = $data['feature'];
+            $this->feature = is_array($data['feature']) ? new StagedFeatureName($data['feature']) : $data['feature'];
         }
         if (isset($data['isAppliedToOrganization'])) {
             $this->isAppliedToOrganization = $data['isAppliedToOrganization'];

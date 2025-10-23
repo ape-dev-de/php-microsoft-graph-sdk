@@ -56,7 +56,7 @@ class TeamworkTag
             $this->memberCount = $data['memberCount'];
         }
         if (isset($data['tagType'])) {
-            $this->tagType = $data['tagType'];
+            $this->tagType = is_array($data['tagType']) ? new TeamworkTagType($data['tagType']) : $data['tagType'];
         }
         if (isset($data['teamId'])) {
             $this->teamId = $data['teamId'];

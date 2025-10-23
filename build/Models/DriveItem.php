@@ -257,7 +257,7 @@ class DriveItem
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -269,7 +269,7 @@ class DriveItem
             $this->eTag = $data['eTag'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -278,22 +278,22 @@ class DriveItem
             $this->name = $data['name'];
         }
         if (isset($data['parentReference'])) {
-            $this->parentReference = $data['parentReference'];
+            $this->parentReference = is_array($data['parentReference']) ? new ItemReference($data['parentReference']) : $data['parentReference'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
         if (isset($data['createdByUser'])) {
-            $this->createdByUser = $data['createdByUser'];
+            $this->createdByUser = is_array($data['createdByUser']) ? new User($data['createdByUser']) : $data['createdByUser'];
         }
         if (isset($data['lastModifiedByUser'])) {
-            $this->lastModifiedByUser = $data['lastModifiedByUser'];
+            $this->lastModifiedByUser = is_array($data['lastModifiedByUser']) ? new User($data['lastModifiedByUser']) : $data['lastModifiedByUser'];
         }
         if (isset($data['audio'])) {
-            $this->audio = $data['audio'];
+            $this->audio = is_array($data['audio']) ? new Audio($data['audio']) : $data['audio'];
         }
         if (isset($data['bundle'])) {
-            $this->bundle = $data['bundle'];
+            $this->bundle = is_array($data['bundle']) ? new Bundle($data['bundle']) : $data['bundle'];
         }
         if (isset($data['content'])) {
             $this->content = $data['content'];
@@ -302,79 +302,79 @@ class DriveItem
             $this->cTag = $data['cTag'];
         }
         if (isset($data['deleted'])) {
-            $this->deleted = $data['deleted'];
+            $this->deleted = is_array($data['deleted']) ? new Deleted($data['deleted']) : $data['deleted'];
         }
         if (isset($data['file'])) {
-            $this->file = $data['file'];
+            $this->file = is_array($data['file']) ? new File($data['file']) : $data['file'];
         }
         if (isset($data['fileSystemInfo'])) {
-            $this->fileSystemInfo = $data['fileSystemInfo'];
+            $this->fileSystemInfo = is_array($data['fileSystemInfo']) ? new FileSystemInfo($data['fileSystemInfo']) : $data['fileSystemInfo'];
         }
         if (isset($data['folder'])) {
-            $this->folder = $data['folder'];
+            $this->folder = is_array($data['folder']) ? new Folder($data['folder']) : $data['folder'];
         }
         if (isset($data['image'])) {
-            $this->image = $data['image'];
+            $this->image = is_array($data['image']) ? new Image($data['image']) : $data['image'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new GeoCoordinates($data['location']) : $data['location'];
         }
         if (isset($data['malware'])) {
-            $this->malware = $data['malware'];
+            $this->malware = is_array($data['malware']) ? new Malware($data['malware']) : $data['malware'];
         }
         if (isset($data['package'])) {
-            $this->package = $data['package'];
+            $this->package = is_array($data['package']) ? new Package($data['package']) : $data['package'];
         }
         if (isset($data['pendingOperations'])) {
-            $this->pendingOperations = $data['pendingOperations'];
+            $this->pendingOperations = is_array($data['pendingOperations']) ? new PendingOperations($data['pendingOperations']) : $data['pendingOperations'];
         }
         if (isset($data['photo'])) {
-            $this->photo = $data['photo'];
+            $this->photo = is_array($data['photo']) ? new Photo($data['photo']) : $data['photo'];
         }
         if (isset($data['publication'])) {
-            $this->publication = $data['publication'];
+            $this->publication = is_array($data['publication']) ? new PublicationFacet($data['publication']) : $data['publication'];
         }
         if (isset($data['remoteItem'])) {
-            $this->remoteItem = $data['remoteItem'];
+            $this->remoteItem = is_array($data['remoteItem']) ? new RemoteItem($data['remoteItem']) : $data['remoteItem'];
         }
         if (isset($data['root'])) {
-            $this->root = $data['root'];
+            $this->root = is_array($data['root']) ? new Root($data['root']) : $data['root'];
         }
         if (isset($data['searchResult'])) {
-            $this->searchResult = $data['searchResult'];
+            $this->searchResult = is_array($data['searchResult']) ? new SearchResult($data['searchResult']) : $data['searchResult'];
         }
         if (isset($data['shared'])) {
-            $this->shared = $data['shared'];
+            $this->shared = is_array($data['shared']) ? new Shared($data['shared']) : $data['shared'];
         }
         if (isset($data['sharepointIds'])) {
-            $this->sharepointIds = $data['sharepointIds'];
+            $this->sharepointIds = is_array($data['sharepointIds']) ? new SharepointIds($data['sharepointIds']) : $data['sharepointIds'];
         }
         if (isset($data['size'])) {
             $this->size = $data['size'];
         }
         if (isset($data['specialFolder'])) {
-            $this->specialFolder = $data['specialFolder'];
+            $this->specialFolder = is_array($data['specialFolder']) ? new SpecialFolder($data['specialFolder']) : $data['specialFolder'];
         }
         if (isset($data['video'])) {
-            $this->video = $data['video'];
+            $this->video = is_array($data['video']) ? new Video($data['video']) : $data['video'];
         }
         if (isset($data['webDavUrl'])) {
             $this->webDavUrl = $data['webDavUrl'];
         }
         if (isset($data['analytics'])) {
-            $this->analytics = $data['analytics'];
+            $this->analytics = is_array($data['analytics']) ? new ItemAnalytics($data['analytics']) : $data['analytics'];
         }
         if (isset($data['children'])) {
             $this->children = $data['children'];
         }
         if (isset($data['listItem'])) {
-            $this->listItem = $data['listItem'];
+            $this->listItem = is_array($data['listItem']) ? new ListItem($data['listItem']) : $data['listItem'];
         }
         if (isset($data['permissions'])) {
             $this->permissions = $data['permissions'];
         }
         if (isset($data['retentionLabel'])) {
-            $this->retentionLabel = $data['retentionLabel'];
+            $this->retentionLabel = is_array($data['retentionLabel']) ? new ItemRetentionLabel($data['retentionLabel']) : $data['retentionLabel'];
         }
         if (isset($data['subscriptions'])) {
             $this->subscriptions = $data['subscriptions'];
@@ -386,7 +386,7 @@ class DriveItem
             $this->versions = $data['versions'];
         }
         if (isset($data['workbook'])) {
-            $this->workbook = $data['workbook'];
+            $this->workbook = is_array($data['workbook']) ? new Workbook($data['workbook']) : $data['workbook'];
         }
     }
 }

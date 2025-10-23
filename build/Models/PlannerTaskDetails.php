@@ -44,16 +44,16 @@ class PlannerTaskDetails
             $this->id = $data['id'];
         }
         if (isset($data['checklist'])) {
-            $this->checklist = $data['checklist'];
+            $this->checklist = is_array($data['checklist']) ? new PlannerChecklistItems($data['checklist']) : $data['checklist'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
         if (isset($data['previewType'])) {
-            $this->previewType = $data['previewType'];
+            $this->previewType = is_array($data['previewType']) ? new PlannerPreviewType($data['previewType']) : $data['previewType'];
         }
         if (isset($data['references'])) {
-            $this->references = $data['references'];
+            $this->references = is_array($data['references']) ? new PlannerExternalReferences($data['references']) : $data['references'];
         }
     }
 }

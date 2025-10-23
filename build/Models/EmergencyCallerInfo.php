@@ -38,7 +38,7 @@ class EmergencyCallerInfo
             $this->displayName = $data['displayName'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new Location($data['location']) : $data['location'];
         }
         if (isset($data['phoneNumber'])) {
             $this->phoneNumber = $data['phoneNumber'];

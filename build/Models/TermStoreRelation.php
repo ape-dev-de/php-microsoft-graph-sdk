@@ -47,16 +47,16 @@ class TermStoreRelation
             $this->id = $data['id'];
         }
         if (isset($data['relationship'])) {
-            $this->relationship = $data['relationship'];
+            $this->relationship = is_array($data['relationship']) ? new TermStoreRelationType($data['relationship']) : $data['relationship'];
         }
         if (isset($data['fromTerm'])) {
-            $this->fromTerm = $data['fromTerm'];
+            $this->fromTerm = is_array($data['fromTerm']) ? new TermStoreTerm($data['fromTerm']) : $data['fromTerm'];
         }
         if (isset($data['set'])) {
-            $this->set = $data['set'];
+            $this->set = is_array($data['set']) ? new TermStoreSet($data['set']) : $data['set'];
         }
         if (isset($data['toTerm'])) {
-            $this->toTerm = $data['toTerm'];
+            $this->toTerm = is_array($data['toTerm']) ? new TermStoreTerm($data['toTerm']) : $data['toTerm'];
         }
     }
 }

@@ -125,7 +125,7 @@ class Person
             $this->personNotes = $data['personNotes'];
         }
         if (isset($data['personType'])) {
-            $this->personType = $data['personType'];
+            $this->personType = is_array($data['personType']) ? new PersonType($data['personType']) : $data['personType'];
         }
         if (isset($data['phones'])) {
             $this->phones = $data['phones'];

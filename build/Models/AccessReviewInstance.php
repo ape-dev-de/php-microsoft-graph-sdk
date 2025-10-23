@@ -77,7 +77,7 @@ class AccessReviewInstance
             $this->reviewers = $data['reviewers'];
         }
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new AccessReviewScope($data['scope']) : $data['scope'];
         }
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];

@@ -29,7 +29,7 @@ class OAuthConsentAppDetail
     public function __construct(array $data = [])
     {
         if (isset($data['appScope'])) {
-            $this->appScope = $data['appScope'];
+            $this->appScope = is_array($data['appScope']) ? new OAuthAppScope($data['appScope']) : $data['appScope'];
         }
         if (isset($data['displayLogo'])) {
             $this->displayLogo = $data['displayLogo'];

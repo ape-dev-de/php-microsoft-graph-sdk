@@ -56,10 +56,10 @@ class OnenoteOperation
             $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new OperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new OnenoteOperationError($data['error']) : $data['error'];
         }
         if (isset($data['percentComplete'])) {
             $this->percentComplete = $data['percentComplete'];

@@ -152,13 +152,13 @@ class Schedule
             $this->openShiftsEnabled = $data['openShiftsEnabled'];
         }
         if (isset($data['provisionStatus'])) {
-            $this->provisionStatus = $data['provisionStatus'];
+            $this->provisionStatus = is_array($data['provisionStatus']) ? new OperationStatus($data['provisionStatus']) : $data['provisionStatus'];
         }
         if (isset($data['provisionStatusCode'])) {
             $this->provisionStatusCode = $data['provisionStatusCode'];
         }
         if (isset($data['startDayOfWeek'])) {
-            $this->startDayOfWeek = $data['startDayOfWeek'];
+            $this->startDayOfWeek = is_array($data['startDayOfWeek']) ? new DayOfWeek($data['startDayOfWeek']) : $data['startDayOfWeek'];
         }
         if (isset($data['swapShiftsRequestsEnabled'])) {
             $this->swapShiftsRequestsEnabled = $data['swapShiftsRequestsEnabled'];
@@ -167,7 +167,7 @@ class Schedule
             $this->timeClockEnabled = $data['timeClockEnabled'];
         }
         if (isset($data['timeClockSettings'])) {
-            $this->timeClockSettings = $data['timeClockSettings'];
+            $this->timeClockSettings = is_array($data['timeClockSettings']) ? new TimeClockSettings($data['timeClockSettings']) : $data['timeClockSettings'];
         }
         if (isset($data['timeOffRequestsEnabled'])) {
             $this->timeOffRequestsEnabled = $data['timeOffRequestsEnabled'];

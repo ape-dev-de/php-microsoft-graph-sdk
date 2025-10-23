@@ -104,13 +104,13 @@ class SecurityWhoisBaseRecord
             $this->id = $data['id'];
         }
         if (isset($data['abuse'])) {
-            $this->abuse = $data['abuse'];
+            $this->abuse = is_array($data['abuse']) ? new SecurityWhoisContact($data['abuse']) : $data['abuse'];
         }
         if (isset($data['admin'])) {
-            $this->admin = $data['admin'];
+            $this->admin = is_array($data['admin']) ? new SecurityWhoisContact($data['admin']) : $data['admin'];
         }
         if (isset($data['billing'])) {
-            $this->billing = $data['billing'];
+            $this->billing = is_array($data['billing']) ? new SecurityWhoisContact($data['billing']) : $data['billing'];
         }
         if (isset($data['domainStatus'])) {
             $this->domainStatus = $data['domainStatus'];
@@ -131,31 +131,31 @@ class SecurityWhoisBaseRecord
             $this->nameservers = $data['nameservers'];
         }
         if (isset($data['noc'])) {
-            $this->noc = $data['noc'];
+            $this->noc = is_array($data['noc']) ? new SecurityWhoisContact($data['noc']) : $data['noc'];
         }
         if (isset($data['rawWhoisText'])) {
             $this->rawWhoisText = $data['rawWhoisText'];
         }
         if (isset($data['registrant'])) {
-            $this->registrant = $data['registrant'];
+            $this->registrant = is_array($data['registrant']) ? new SecurityWhoisContact($data['registrant']) : $data['registrant'];
         }
         if (isset($data['registrar'])) {
-            $this->registrar = $data['registrar'];
+            $this->registrar = is_array($data['registrar']) ? new SecurityWhoisContact($data['registrar']) : $data['registrar'];
         }
         if (isset($data['registrationDateTime'])) {
             $this->registrationDateTime = is_string($data['registrationDateTime']) ? new \DateTimeImmutable($data['registrationDateTime']) : $data['registrationDateTime'];
         }
         if (isset($data['technical'])) {
-            $this->technical = $data['technical'];
+            $this->technical = is_array($data['technical']) ? new SecurityWhoisContact($data['technical']) : $data['technical'];
         }
         if (isset($data['whoisServer'])) {
             $this->whoisServer = $data['whoisServer'];
         }
         if (isset($data['zone'])) {
-            $this->zone = $data['zone'];
+            $this->zone = is_array($data['zone']) ? new SecurityWhoisContact($data['zone']) : $data['zone'];
         }
         if (isset($data['host'])) {
-            $this->host = $data['host'];
+            $this->host = is_array($data['host']) ? new SecurityHost($data['host']) : $data['host'];
         }
     }
 }

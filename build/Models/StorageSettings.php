@@ -29,7 +29,7 @@ class StorageSettings
             $this->id = $data['id'];
         }
         if (isset($data['quota'])) {
-            $this->quota = $data['quota'];
+            $this->quota = is_array($data['quota']) ? new UnifiedStorageQuota($data['quota']) : $data['quota'];
         }
     }
 }

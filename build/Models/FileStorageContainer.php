@@ -92,7 +92,7 @@ class FileStorageContainer
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['customProperties'])) {
-            $this->customProperties = $data['customProperties'];
+            $this->customProperties = is_array($data['customProperties']) ? new FileStorageContainerCustomPropertyDictionary($data['customProperties']) : $data['customProperties'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -101,28 +101,28 @@ class FileStorageContainer
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lockState'])) {
-            $this->lockState = $data['lockState'];
+            $this->lockState = is_array($data['lockState']) ? new SiteLockState($data['lockState']) : $data['lockState'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new FileStorageContainerSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new FileStorageContainerStatus($data['status']) : $data['status'];
         }
         if (isset($data['viewpoint'])) {
-            $this->viewpoint = $data['viewpoint'];
+            $this->viewpoint = is_array($data['viewpoint']) ? new FileStorageContainerViewpoint($data['viewpoint']) : $data['viewpoint'];
         }
         if (isset($data['columns'])) {
             $this->columns = $data['columns'];
         }
         if (isset($data['drive'])) {
-            $this->drive = $data['drive'];
+            $this->drive = is_array($data['drive']) ? new Drive($data['drive']) : $data['drive'];
         }
         if (isset($data['permissions'])) {
             $this->permissions = $data['permissions'];
         }
         if (isset($data['recycleBin'])) {
-            $this->recycleBin = $data['recycleBin'];
+            $this->recycleBin = is_array($data['recycleBin']) ? new RecycleBin($data['recycleBin']) : $data['recycleBin'];
         }
     }
 }

@@ -56,7 +56,7 @@ class ConditionalAccessRoot
             $this->authenticationContextClassReferences = $data['authenticationContextClassReferences'];
         }
         if (isset($data['authenticationStrength'])) {
-            $this->authenticationStrength = $data['authenticationStrength'];
+            $this->authenticationStrength = is_array($data['authenticationStrength']) ? new AuthenticationStrengthRoot($data['authenticationStrength']) : $data['authenticationStrength'];
         }
         if (isset($data['namedLocations'])) {
             $this->namedLocations = $data['namedLocations'];

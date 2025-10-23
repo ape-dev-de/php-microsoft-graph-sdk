@@ -59,7 +59,7 @@ class WorkbookFilterCriteria
             $this->filterOn = $data['filterOn'];
         }
         if (isset($data['icon'])) {
-            $this->icon = $data['icon'];
+            $this->icon = is_array($data['icon']) ? new WorkbookIcon($data['icon']) : $data['icon'];
         }
         if (isset($data['operator'])) {
             $this->operator = $data['operator'];

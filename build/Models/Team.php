@@ -185,10 +185,10 @@ class Team
             $this->firstChannelName = $data['firstChannelName'];
         }
         if (isset($data['funSettings'])) {
-            $this->funSettings = $data['funSettings'];
+            $this->funSettings = is_array($data['funSettings']) ? new TeamFunSettings($data['funSettings']) : $data['funSettings'];
         }
         if (isset($data['guestSettings'])) {
-            $this->guestSettings = $data['guestSettings'];
+            $this->guestSettings = is_array($data['guestSettings']) ? new TeamGuestSettings($data['guestSettings']) : $data['guestSettings'];
         }
         if (isset($data['internalId'])) {
             $this->internalId = $data['internalId'];
@@ -197,22 +197,22 @@ class Team
             $this->isArchived = $data['isArchived'];
         }
         if (isset($data['memberSettings'])) {
-            $this->memberSettings = $data['memberSettings'];
+            $this->memberSettings = is_array($data['memberSettings']) ? new TeamMemberSettings($data['memberSettings']) : $data['memberSettings'];
         }
         if (isset($data['messagingSettings'])) {
-            $this->messagingSettings = $data['messagingSettings'];
+            $this->messagingSettings = is_array($data['messagingSettings']) ? new TeamMessagingSettings($data['messagingSettings']) : $data['messagingSettings'];
         }
         if (isset($data['specialization'])) {
-            $this->specialization = $data['specialization'];
+            $this->specialization = is_array($data['specialization']) ? new TeamSpecialization($data['specialization']) : $data['specialization'];
         }
         if (isset($data['summary'])) {
-            $this->summary = $data['summary'];
+            $this->summary = is_array($data['summary']) ? new TeamSummary($data['summary']) : $data['summary'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['visibility'])) {
-            $this->visibility = $data['visibility'];
+            $this->visibility = is_array($data['visibility']) ? new TeamVisibilityType($data['visibility']) : $data['visibility'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
@@ -224,7 +224,7 @@ class Team
             $this->channels = $data['channels'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];
         }
         if (isset($data['incomingChannels'])) {
             $this->incomingChannels = $data['incomingChannels'];
@@ -242,19 +242,19 @@ class Team
             $this->permissionGrants = $data['permissionGrants'];
         }
         if (isset($data['photo'])) {
-            $this->photo = $data['photo'];
+            $this->photo = is_array($data['photo']) ? new ProfilePhoto($data['photo']) : $data['photo'];
         }
         if (isset($data['primaryChannel'])) {
-            $this->primaryChannel = $data['primaryChannel'];
+            $this->primaryChannel = is_array($data['primaryChannel']) ? new Channel($data['primaryChannel']) : $data['primaryChannel'];
         }
         if (isset($data['schedule'])) {
-            $this->schedule = $data['schedule'];
+            $this->schedule = is_array($data['schedule']) ? new Schedule($data['schedule']) : $data['schedule'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];
         }
         if (isset($data['template'])) {
-            $this->template = $data['template'];
+            $this->template = is_array($data['template']) ? new TeamsTemplate($data['template']) : $data['template'];
         }
     }
 }

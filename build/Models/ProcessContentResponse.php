@@ -38,7 +38,7 @@ class ProcessContentResponse
             $this->processingErrors = $data['processingErrors'];
         }
         if (isset($data['protectionScopeState'])) {
-            $this->protectionScopeState = $data['protectionScopeState'];
+            $this->protectionScopeState = is_array($data['protectionScopeState']) ? new ProtectionScopeState($data['protectionScopeState']) : $data['protectionScopeState'];
         }
     }
 }

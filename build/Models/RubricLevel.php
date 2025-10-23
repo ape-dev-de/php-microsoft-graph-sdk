@@ -35,13 +35,13 @@ class RubricLevel
     public function __construct(array $data = [])
     {
         if (isset($data['description'])) {
-            $this->description = $data['description'];
+            $this->description = is_array($data['description']) ? new EducationItemBody($data['description']) : $data['description'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['grading'])) {
-            $this->grading = $data['grading'];
+            $this->grading = is_array($data['grading']) ? new EducationAssignmentGradeType($data['grading']) : $data['grading'];
         }
         if (isset($data['levelId'])) {
             $this->levelId = $data['levelId'];

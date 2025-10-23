@@ -113,10 +113,10 @@ class WorkbookTable
             $this->rows = $data['rows'];
         }
         if (isset($data['sort'])) {
-            $this->sort = $data['sort'];
+            $this->sort = is_array($data['sort']) ? new WorkbookTableSort($data['sort']) : $data['sort'];
         }
         if (isset($data['worksheet'])) {
-            $this->worksheet = $data['worksheet'];
+            $this->worksheet = is_array($data['worksheet']) ? new WorkbookWorksheet($data['worksheet']) : $data['worksheet'];
         }
     }
 }

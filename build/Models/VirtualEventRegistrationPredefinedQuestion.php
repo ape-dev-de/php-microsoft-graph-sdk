@@ -41,7 +41,7 @@ class VirtualEventRegistrationPredefinedQuestion
             $this->isRequired = $data['isRequired'];
         }
         if (isset($data['label'])) {
-            $this->label = $data['label'];
+            $this->label = is_array($data['label']) ? new VirtualEventRegistrationPredefinedQuestionLabel($data['label']) : $data['label'];
         }
     }
 }

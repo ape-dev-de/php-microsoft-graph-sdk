@@ -29,10 +29,10 @@ class AttendeeBase
     public function __construct(array $data = [])
     {
         if (isset($data['emailAddress'])) {
-            $this->emailAddress = $data['emailAddress'];
+            $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new AttendeeType($data['type']) : $data['type'];
         }
     }
 }

@@ -23,7 +23,7 @@ class PendingOperations
     public function __construct(array $data = [])
     {
         if (isset($data['pendingContentUpdate'])) {
-            $this->pendingContentUpdate = $data['pendingContentUpdate'];
+            $this->pendingContentUpdate = is_array($data['pendingContentUpdate']) ? new PendingContentUpdate($data['pendingContentUpdate']) : $data['pendingContentUpdate'];
         }
     }
 }

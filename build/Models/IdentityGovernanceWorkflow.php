@@ -107,7 +107,7 @@ class IdentityGovernanceWorkflow
             $this->id = $data['id'];
         }
         if (isset($data['category'])) {
-            $this->category = $data['category'];
+            $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['category']) : $data['category'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -119,7 +119,7 @@ class IdentityGovernanceWorkflow
             $this->displayName = $data['displayName'];
         }
         if (isset($data['executionConditions'])) {
-            $this->executionConditions = $data['executionConditions'];
+            $this->executionConditions = is_array($data['executionConditions']) ? new IdentityGovernanceWorkflowExecutionConditions($data['executionConditions']) : $data['executionConditions'];
         }
         if (isset($data['isEnabled'])) {
             $this->isEnabled = $data['isEnabled'];
@@ -131,10 +131,10 @@ class IdentityGovernanceWorkflow
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new User($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new User($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['tasks'])) {
             $this->tasks = $data['tasks'];

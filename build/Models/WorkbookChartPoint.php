@@ -35,7 +35,7 @@ class WorkbookChartPoint
             $this->value = $data['value'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookChartPointFormat($data['format']) : $data['format'];
         }
     }
 }

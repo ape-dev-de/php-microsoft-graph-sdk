@@ -47,7 +47,7 @@ class Win32LobAppPowerShellScriptRule
     public function __construct(array $data = [])
     {
         if (isset($data['ruleType'])) {
-            $this->ruleType = $data['ruleType'];
+            $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
         }
         if (isset($data['comparisonValue'])) {
             $this->comparisonValue = $data['comparisonValue'];
@@ -59,16 +59,16 @@ class Win32LobAppPowerShellScriptRule
             $this->enforceSignatureCheck = $data['enforceSignatureCheck'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = $data['operationType'];
+            $this->operationType = is_array($data['operationType']) ? new Win32LobAppPowerShellScriptRuleOperationType($data['operationType']) : $data['operationType'];
         }
         if (isset($data['operator'])) {
-            $this->operator = $data['operator'];
+            $this->operator = is_array($data['operator']) ? new Win32LobAppRuleOperator($data['operator']) : $data['operator'];
         }
         if (isset($data['runAs32Bit'])) {
             $this->runAs32Bit = $data['runAs32Bit'];
         }
         if (isset($data['runAsAccount'])) {
-            $this->runAsAccount = $data['runAsAccount'];
+            $this->runAsAccount = is_array($data['runAsAccount']) ? new RunAsAccountType($data['runAsAccount']) : $data['runAsAccount'];
         }
         if (isset($data['scriptContent'])) {
             $this->scriptContent = $data['scriptContent'];

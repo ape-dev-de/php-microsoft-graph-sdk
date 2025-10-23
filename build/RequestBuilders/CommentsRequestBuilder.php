@@ -23,7 +23,7 @@ class CommentsRequestBuilder extends BaseRequestBuilder
     public function post(?string $ifMatch = null, array $body): array
     {
         $queryParams = [];
-        if ($ifMatch !== null) {
+        if ($ifMatch !== null && $ifMatch !== '') {
             $queryParams['If-Match'] = $ifMatch;
         }
         $response = $this->client->post($this->requestUrl, $body);

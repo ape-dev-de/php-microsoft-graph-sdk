@@ -29,7 +29,7 @@ class UnifiedRoleManagementPolicyRule
             $this->id = $data['id'];
         }
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new UnifiedRoleManagementPolicyRuleTarget($data['target']) : $data['target'];
         }
     }
 }

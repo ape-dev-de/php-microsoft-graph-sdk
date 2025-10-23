@@ -53,10 +53,10 @@ class SecurityPassiveDnsRecord
             $this->recordType = $data['recordType'];
         }
         if (isset($data['artifact'])) {
-            $this->artifact = $data['artifact'];
+            $this->artifact = is_array($data['artifact']) ? new SecurityArtifact($data['artifact']) : $data['artifact'];
         }
         if (isset($data['parentHost'])) {
-            $this->parentHost = $data['parentHost'];
+            $this->parentHost = is_array($data['parentHost']) ? new SecurityHost($data['parentHost']) : $data['parentHost'];
         }
     }
 }

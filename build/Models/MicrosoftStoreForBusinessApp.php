@@ -110,7 +110,7 @@ class MicrosoftStoreForBusinessApp
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
-            $this->largeIcon = $data['largeIcon'];
+            $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -128,7 +128,7 @@ class MicrosoftStoreForBusinessApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -137,7 +137,7 @@ class MicrosoftStoreForBusinessApp
             $this->categories = $data['categories'];
         }
         if (isset($data['licenseType'])) {
-            $this->licenseType = $data['licenseType'];
+            $this->licenseType = is_array($data['licenseType']) ? new MicrosoftStoreForBusinessLicenseType($data['licenseType']) : $data['licenseType'];
         }
         if (isset($data['packageIdentityName'])) {
             $this->packageIdentityName = $data['packageIdentityName'];

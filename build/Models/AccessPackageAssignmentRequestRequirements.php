@@ -71,7 +71,7 @@ class AccessPackageAssignmentRequestRequirements
             $this->policyId = $data['policyId'];
         }
         if (isset($data['schedule'])) {
-            $this->schedule = $data['schedule'];
+            $this->schedule = is_array($data['schedule']) ? new EntitlementManagementSchedule($data['schedule']) : $data['schedule'];
         }
         if (isset($data['questions'])) {
             $this->questions = $data['questions'];

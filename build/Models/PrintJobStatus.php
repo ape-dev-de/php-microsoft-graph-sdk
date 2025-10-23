@@ -41,7 +41,7 @@ class PrintJobStatus
             $this->isAcquiredByPrinter = $data['isAcquiredByPrinter'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new PrintJobProcessingState($data['state']) : $data['state'];
         }
     }
 }

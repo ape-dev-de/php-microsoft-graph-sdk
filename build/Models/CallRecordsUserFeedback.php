@@ -29,13 +29,13 @@ class CallRecordsUserFeedback
     public function __construct(array $data = [])
     {
         if (isset($data['rating'])) {
-            $this->rating = $data['rating'];
+            $this->rating = is_array($data['rating']) ? new CallRecordsUserFeedbackRating($data['rating']) : $data['rating'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];
         }
         if (isset($data['tokens'])) {
-            $this->tokens = $data['tokens'];
+            $this->tokens = is_array($data['tokens']) ? new CallRecordsFeedbackTokenSet($data['tokens']) : $data['tokens'];
         }
     }
 }

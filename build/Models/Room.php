@@ -86,13 +86,13 @@ class Room
             $this->id = $data['id'];
         }
         if (isset($data['address'])) {
-            $this->address = $data['address'];
+            $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['geoCoordinates'])) {
-            $this->geoCoordinates = $data['geoCoordinates'];
+            $this->geoCoordinates = is_array($data['geoCoordinates']) ? new OutlookGeoCoordinates($data['geoCoordinates']) : $data['geoCoordinates'];
         }
         if (isset($data['phone'])) {
             $this->phone = $data['phone'];
@@ -101,7 +101,7 @@ class Room
             $this->audioDeviceName = $data['audioDeviceName'];
         }
         if (isset($data['bookingType'])) {
-            $this->bookingType = $data['bookingType'];
+            $this->bookingType = is_array($data['bookingType']) ? new BookingType($data['bookingType']) : $data['bookingType'];
         }
         if (isset($data['building'])) {
             $this->building = $data['building'];

@@ -29,7 +29,7 @@ class UserSolutionRoot
             $this->id = $data['id'];
         }
         if (isset($data['workingTimeSchedule'])) {
-            $this->workingTimeSchedule = $data['workingTimeSchedule'];
+            $this->workingTimeSchedule = is_array($data['workingTimeSchedule']) ? new WorkingTimeSchedule($data['workingTimeSchedule']) : $data['workingTimeSchedule'];
         }
     }
 }

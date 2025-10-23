@@ -32,7 +32,7 @@ class ShiftAvailability
     public function __construct(array $data = [])
     {
         if (isset($data['recurrence'])) {
-            $this->recurrence = $data['recurrence'];
+            $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
         if (isset($data['timeSlots'])) {
             $this->timeSlots = $data['timeSlots'];

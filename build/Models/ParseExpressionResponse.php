@@ -41,7 +41,7 @@ class ParseExpressionResponse
     public function __construct(array $data = [])
     {
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['evaluationResult'])) {
             $this->evaluationResult = $data['evaluationResult'];
@@ -50,7 +50,7 @@ class ParseExpressionResponse
             $this->evaluationSucceeded = $data['evaluationSucceeded'];
         }
         if (isset($data['parsedExpression'])) {
-            $this->parsedExpression = $data['parsedExpression'];
+            $this->parsedExpression = is_array($data['parsedExpression']) ? new AttributeMappingSource($data['parsedExpression']) : $data['parsedExpression'];
         }
         if (isset($data['parsingSucceeded'])) {
             $this->parsingSucceeded = $data['parsingSucceeded'];

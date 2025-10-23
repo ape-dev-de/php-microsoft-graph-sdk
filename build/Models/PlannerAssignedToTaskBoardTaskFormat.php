@@ -32,7 +32,7 @@ class PlannerAssignedToTaskBoardTaskFormat
             $this->id = $data['id'];
         }
         if (isset($data['orderHintsByAssignee'])) {
-            $this->orderHintsByAssignee = $data['orderHintsByAssignee'];
+            $this->orderHintsByAssignee = is_array($data['orderHintsByAssignee']) ? new PlannerOrderHintsByAssignee($data['orderHintsByAssignee']) : $data['orderHintsByAssignee'];
         }
         if (isset($data['unassignedOrderHint'])) {
             $this->unassignedOrderHint = $data['unassignedOrderHint'];

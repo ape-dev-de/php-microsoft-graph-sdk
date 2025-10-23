@@ -23,7 +23,7 @@ class TimeClockSettings
     public function __construct(array $data = [])
     {
         if (isset($data['approvedLocation'])) {
-            $this->approvedLocation = $data['approvedLocation'];
+            $this->approvedLocation = is_array($data['approvedLocation']) ? new GeoCoordinates($data['approvedLocation']) : $data['approvedLocation'];
         }
     }
 }

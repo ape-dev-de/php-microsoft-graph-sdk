@@ -35,10 +35,10 @@ class TrainingReminderNotification
             $this->defaultLanguage = $data['defaultLanguage'];
         }
         if (isset($data['endUserNotification'])) {
-            $this->endUserNotification = $data['endUserNotification'];
+            $this->endUserNotification = is_array($data['endUserNotification']) ? new EndUserNotification($data['endUserNotification']) : $data['endUserNotification'];
         }
         if (isset($data['deliveryFrequency'])) {
-            $this->deliveryFrequency = $data['deliveryFrequency'];
+            $this->deliveryFrequency = is_array($data['deliveryFrequency']) ? new NotificationDeliveryFrequency($data['deliveryFrequency']) : $data['deliveryFrequency'];
         }
     }
 }

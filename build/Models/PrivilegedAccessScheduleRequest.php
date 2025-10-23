@@ -74,7 +74,7 @@ class PrivilegedAccessScheduleRequest
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -86,7 +86,7 @@ class PrivilegedAccessScheduleRequest
             $this->status = $data['status'];
         }
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new ScheduleRequestActions($data['action']) : $data['action'];
         }
         if (isset($data['isValidationOnly'])) {
             $this->isValidationOnly = $data['isValidationOnly'];
@@ -95,10 +95,10 @@ class PrivilegedAccessScheduleRequest
             $this->justification = $data['justification'];
         }
         if (isset($data['scheduleInfo'])) {
-            $this->scheduleInfo = $data['scheduleInfo'];
+            $this->scheduleInfo = is_array($data['scheduleInfo']) ? new RequestSchedule($data['scheduleInfo']) : $data['scheduleInfo'];
         }
         if (isset($data['ticketInfo'])) {
-            $this->ticketInfo = $data['ticketInfo'];
+            $this->ticketInfo = is_array($data['ticketInfo']) ? new TicketInfo($data['ticketInfo']) : $data['ticketInfo'];
         }
     }
 }

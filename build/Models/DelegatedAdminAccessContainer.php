@@ -26,7 +26,7 @@ class DelegatedAdminAccessContainer
             $this->accessContainerId = $data['accessContainerId'];
         }
         if (isset($data['accessContainerType'])) {
-            $this->accessContainerType = $data['accessContainerType'];
+            $this->accessContainerType = is_array($data['accessContainerType']) ? new DelegatedAdminAccessContainerType($data['accessContainerType']) : $data['accessContainerType'];
         }
     }
 }

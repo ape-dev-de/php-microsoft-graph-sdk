@@ -152,7 +152,7 @@ class Windows10MobileCompliancePolicy
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceComplianceDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['scheduledActionsForRule'])) {
             $this->scheduledActionsForRule = $data['scheduledActionsForRule'];
@@ -161,7 +161,7 @@ class Windows10MobileCompliancePolicy
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceComplianceUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['bitLockerEnabled'])) {
             $this->bitLockerEnabled = $data['bitLockerEnabled'];
@@ -200,7 +200,7 @@ class Windows10MobileCompliancePolicy
             $this->passwordRequired = $data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordRequireToUnlockFromIdle'])) {
             $this->passwordRequireToUnlockFromIdle = $data['passwordRequireToUnlockFromIdle'];

@@ -131,7 +131,7 @@ class IosVppApp
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
-            $this->largeIcon = $data['largeIcon'];
+            $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -149,7 +149,7 @@ class IosVppApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -158,7 +158,7 @@ class IosVppApp
             $this->categories = $data['categories'];
         }
         if (isset($data['applicableDeviceType'])) {
-            $this->applicableDeviceType = $data['applicableDeviceType'];
+            $this->applicableDeviceType = is_array($data['applicableDeviceType']) ? new IosDeviceType($data['applicableDeviceType']) : $data['applicableDeviceType'];
         }
         if (isset($data['appStoreUrl'])) {
             $this->appStoreUrl = $data['appStoreUrl'];
@@ -167,7 +167,7 @@ class IosVppApp
             $this->bundleId = $data['bundleId'];
         }
         if (isset($data['licensingType'])) {
-            $this->licensingType = $data['licensingType'];
+            $this->licensingType = is_array($data['licensingType']) ? new VppLicensingType($data['licensingType']) : $data['licensingType'];
         }
         if (isset($data['releaseDateTime'])) {
             $this->releaseDateTime = is_string($data['releaseDateTime']) ? new \DateTimeImmutable($data['releaseDateTime']) : $data['releaseDateTime'];
@@ -179,7 +179,7 @@ class IosVppApp
             $this->usedLicenseCount = $data['usedLicenseCount'];
         }
         if (isset($data['vppTokenAccountType'])) {
-            $this->vppTokenAccountType = $data['vppTokenAccountType'];
+            $this->vppTokenAccountType = is_array($data['vppTokenAccountType']) ? new VppTokenAccountType($data['vppTokenAccountType']) : $data['vppTokenAccountType'];
         }
         if (isset($data['vppTokenAppleId'])) {
             $this->vppTokenAppleId = $data['vppTokenAppleId'];

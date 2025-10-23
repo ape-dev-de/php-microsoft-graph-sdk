@@ -100,13 +100,13 @@ class MeRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): User
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
-        if ($expand !== null) {
+        if ($expand !== null && $expand !== '') {
             $queryParams['$expand'] = implode(',', $expand);
         }
-        if ($consistencyLevel !== null) {
+        if ($consistencyLevel !== null && $consistencyLevel !== '') {
             $queryParams['ConsistencyLevel'] = $consistencyLevel;
         }
         $response = $this->client->get($this->requestUrl, $queryParams);

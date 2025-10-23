@@ -71,13 +71,13 @@ class WorkforceIntegration
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -89,16 +89,16 @@ class WorkforceIntegration
             $this->displayName = $data['displayName'];
         }
         if (isset($data['eligibilityFilteringEnabledEntities'])) {
-            $this->eligibilityFilteringEnabledEntities = $data['eligibilityFilteringEnabledEntities'];
+            $this->eligibilityFilteringEnabledEntities = is_array($data['eligibilityFilteringEnabledEntities']) ? new EligibilityFilteringEnabledEntities($data['eligibilityFilteringEnabledEntities']) : $data['eligibilityFilteringEnabledEntities'];
         }
         if (isset($data['encryption'])) {
-            $this->encryption = $data['encryption'];
+            $this->encryption = is_array($data['encryption']) ? new WorkforceIntegrationEncryption($data['encryption']) : $data['encryption'];
         }
         if (isset($data['isActive'])) {
             $this->isActive = $data['isActive'];
         }
         if (isset($data['supportedEntities'])) {
-            $this->supportedEntities = $data['supportedEntities'];
+            $this->supportedEntities = is_array($data['supportedEntities']) ? new WorkforceIntegrationSupportedEntities($data['supportedEntities']) : $data['supportedEntities'];
         }
         if (isset($data['url'])) {
             $this->url = $data['url'];

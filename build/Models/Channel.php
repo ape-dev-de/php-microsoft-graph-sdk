@@ -113,10 +113,10 @@ class Channel
             $this->isFavoriteByDefault = $data['isFavoriteByDefault'];
         }
         if (isset($data['membershipType'])) {
-            $this->membershipType = $data['membershipType'];
+            $this->membershipType = is_array($data['membershipType']) ? new ChannelMembershipType($data['membershipType']) : $data['membershipType'];
         }
         if (isset($data['summary'])) {
-            $this->summary = $data['summary'];
+            $this->summary = is_array($data['summary']) ? new ChannelSummary($data['summary']) : $data['summary'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
@@ -128,7 +128,7 @@ class Channel
             $this->allMembers = $data['allMembers'];
         }
         if (isset($data['filesFolder'])) {
-            $this->filesFolder = $data['filesFolder'];
+            $this->filesFolder = is_array($data['filesFolder']) ? new DriveItem($data['filesFolder']) : $data['filesFolder'];
         }
         if (isset($data['members'])) {
             $this->members = $data['members'];

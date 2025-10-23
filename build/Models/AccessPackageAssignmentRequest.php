@@ -98,25 +98,25 @@ class AccessPackageAssignmentRequest
             $this->justification = $data['justification'];
         }
         if (isset($data['requestType'])) {
-            $this->requestType = $data['requestType'];
+            $this->requestType = is_array($data['requestType']) ? new AccessPackageRequestType($data['requestType']) : $data['requestType'];
         }
         if (isset($data['schedule'])) {
-            $this->schedule = $data['schedule'];
+            $this->schedule = is_array($data['schedule']) ? new EntitlementManagementSchedule($data['schedule']) : $data['schedule'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new AccessPackageRequestState($data['state']) : $data['state'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];
         }
         if (isset($data['accessPackage'])) {
-            $this->accessPackage = $data['accessPackage'];
+            $this->accessPackage = is_array($data['accessPackage']) ? new AccessPackage($data['accessPackage']) : $data['accessPackage'];
         }
         if (isset($data['assignment'])) {
-            $this->assignment = $data['assignment'];
+            $this->assignment = is_array($data['assignment']) ? new AccessPackageAssignment($data['assignment']) : $data['assignment'];
         }
         if (isset($data['requestor'])) {
-            $this->requestor = $data['requestor'];
+            $this->requestor = is_array($data['requestor']) ? new AccessPackageSubject($data['requestor']) : $data['requestor'];
         }
     }
 }

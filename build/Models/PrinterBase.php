@@ -62,10 +62,10 @@ class PrinterBase
             $this->id = $data['id'];
         }
         if (isset($data['capabilities'])) {
-            $this->capabilities = $data['capabilities'];
+            $this->capabilities = is_array($data['capabilities']) ? new PrinterCapabilities($data['capabilities']) : $data['capabilities'];
         }
         if (isset($data['defaults'])) {
-            $this->defaults = $data['defaults'];
+            $this->defaults = is_array($data['defaults']) ? new PrinterDefaults($data['defaults']) : $data['defaults'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -74,7 +74,7 @@ class PrinterBase
             $this->isAcceptingJobs = $data['isAcceptingJobs'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new PrinterLocation($data['location']) : $data['location'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];
@@ -83,7 +83,7 @@ class PrinterBase
             $this->model = $data['model'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new PrinterStatus($data['status']) : $data['status'];
         }
         if (isset($data['jobs'])) {
             $this->jobs = $data['jobs'];

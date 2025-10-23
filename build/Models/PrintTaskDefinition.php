@@ -35,7 +35,7 @@ class PrintTaskDefinition
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new AppIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

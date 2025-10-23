@@ -26,7 +26,7 @@ class RubricQualityFeedbackModel
     public function __construct(array $data = [])
     {
         if (isset($data['feedback'])) {
-            $this->feedback = $data['feedback'];
+            $this->feedback = is_array($data['feedback']) ? new EducationItemBody($data['feedback']) : $data['feedback'];
         }
         if (isset($data['qualityId'])) {
             $this->qualityId = $data['qualityId'];

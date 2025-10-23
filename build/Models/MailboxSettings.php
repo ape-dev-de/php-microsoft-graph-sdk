@@ -62,16 +62,16 @@ class MailboxSettings
             $this->archiveFolder = $data['archiveFolder'];
         }
         if (isset($data['automaticRepliesSetting'])) {
-            $this->automaticRepliesSetting = $data['automaticRepliesSetting'];
+            $this->automaticRepliesSetting = is_array($data['automaticRepliesSetting']) ? new AutomaticRepliesSetting($data['automaticRepliesSetting']) : $data['automaticRepliesSetting'];
         }
         if (isset($data['dateFormat'])) {
             $this->dateFormat = $data['dateFormat'];
         }
         if (isset($data['delegateMeetingMessageDeliveryOptions'])) {
-            $this->delegateMeetingMessageDeliveryOptions = $data['delegateMeetingMessageDeliveryOptions'];
+            $this->delegateMeetingMessageDeliveryOptions = is_array($data['delegateMeetingMessageDeliveryOptions']) ? new DelegateMeetingMessageDeliveryOptions($data['delegateMeetingMessageDeliveryOptions']) : $data['delegateMeetingMessageDeliveryOptions'];
         }
         if (isset($data['language'])) {
-            $this->language = $data['language'];
+            $this->language = is_array($data['language']) ? new LocaleInfo($data['language']) : $data['language'];
         }
         if (isset($data['timeFormat'])) {
             $this->timeFormat = $data['timeFormat'];
@@ -80,10 +80,10 @@ class MailboxSettings
             $this->timeZone = $data['timeZone'];
         }
         if (isset($data['userPurpose'])) {
-            $this->userPurpose = $data['userPurpose'];
+            $this->userPurpose = is_array($data['userPurpose']) ? new UserPurpose($data['userPurpose']) : $data['userPurpose'];
         }
         if (isset($data['workingHours'])) {
-            $this->workingHours = $data['workingHours'];
+            $this->workingHours = is_array($data['workingHours']) ? new WorkingHours($data['workingHours']) : $data['workingHours'];
         }
     }
 }

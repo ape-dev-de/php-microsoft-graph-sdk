@@ -176,16 +176,16 @@ class VirtualEventSession
             $this->allowCopyingAndSharingMeetingContent = $data['allowCopyingAndSharingMeetingContent'];
         }
         if (isset($data['allowedLobbyAdmitters'])) {
-            $this->allowedLobbyAdmitters = $data['allowedLobbyAdmitters'];
+            $this->allowedLobbyAdmitters = is_array($data['allowedLobbyAdmitters']) ? new AllowedLobbyAdmitterRoles($data['allowedLobbyAdmitters']) : $data['allowedLobbyAdmitters'];
         }
         if (isset($data['allowedPresenters'])) {
-            $this->allowedPresenters = $data['allowedPresenters'];
+            $this->allowedPresenters = is_array($data['allowedPresenters']) ? new OnlineMeetingPresenters($data['allowedPresenters']) : $data['allowedPresenters'];
         }
         if (isset($data['allowLiveShare'])) {
-            $this->allowLiveShare = $data['allowLiveShare'];
+            $this->allowLiveShare = is_array($data['allowLiveShare']) ? new MeetingLiveShareOptions($data['allowLiveShare']) : $data['allowLiveShare'];
         }
         if (isset($data['allowMeetingChat'])) {
-            $this->allowMeetingChat = $data['allowMeetingChat'];
+            $this->allowMeetingChat = is_array($data['allowMeetingChat']) ? new MeetingChatMode($data['allowMeetingChat']) : $data['allowMeetingChat'];
         }
         if (isset($data['allowParticipantsToChangeName'])) {
             $this->allowParticipantsToChangeName = $data['allowParticipantsToChangeName'];
@@ -206,13 +206,13 @@ class VirtualEventSession
             $this->allowWhiteboard = $data['allowWhiteboard'];
         }
         if (isset($data['audioConferencing'])) {
-            $this->audioConferencing = $data['audioConferencing'];
+            $this->audioConferencing = is_array($data['audioConferencing']) ? new AudioConferencing($data['audioConferencing']) : $data['audioConferencing'];
         }
         if (isset($data['chatInfo'])) {
-            $this->chatInfo = $data['chatInfo'];
+            $this->chatInfo = is_array($data['chatInfo']) ? new ChatInfo($data['chatInfo']) : $data['chatInfo'];
         }
         if (isset($data['chatRestrictions'])) {
-            $this->chatRestrictions = $data['chatRestrictions'];
+            $this->chatRestrictions = is_array($data['chatRestrictions']) ? new ChatRestrictions($data['chatRestrictions']) : $data['chatRestrictions'];
         }
         if (isset($data['isEndToEndEncryptionEnabled'])) {
             $this->isEndToEndEncryptionEnabled = $data['isEndToEndEncryptionEnabled'];
@@ -221,22 +221,22 @@ class VirtualEventSession
             $this->isEntryExitAnnounced = $data['isEntryExitAnnounced'];
         }
         if (isset($data['joinInformation'])) {
-            $this->joinInformation = $data['joinInformation'];
+            $this->joinInformation = is_array($data['joinInformation']) ? new ItemBody($data['joinInformation']) : $data['joinInformation'];
         }
         if (isset($data['joinMeetingIdSettings'])) {
-            $this->joinMeetingIdSettings = $data['joinMeetingIdSettings'];
+            $this->joinMeetingIdSettings = is_array($data['joinMeetingIdSettings']) ? new JoinMeetingIdSettings($data['joinMeetingIdSettings']) : $data['joinMeetingIdSettings'];
         }
         if (isset($data['joinWebUrl'])) {
             $this->joinWebUrl = $data['joinWebUrl'];
         }
         if (isset($data['lobbyBypassSettings'])) {
-            $this->lobbyBypassSettings = $data['lobbyBypassSettings'];
+            $this->lobbyBypassSettings = is_array($data['lobbyBypassSettings']) ? new LobbyBypassSettings($data['lobbyBypassSettings']) : $data['lobbyBypassSettings'];
         }
         if (isset($data['recordAutomatically'])) {
             $this->recordAutomatically = $data['recordAutomatically'];
         }
         if (isset($data['shareMeetingChatHistoryDefault'])) {
-            $this->shareMeetingChatHistoryDefault = $data['shareMeetingChatHistoryDefault'];
+            $this->shareMeetingChatHistoryDefault = is_array($data['shareMeetingChatHistoryDefault']) ? new MeetingChatHistoryDefaultMode($data['shareMeetingChatHistoryDefault']) : $data['shareMeetingChatHistoryDefault'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];
@@ -245,16 +245,16 @@ class VirtualEventSession
             $this->videoTeleconferenceId = $data['videoTeleconferenceId'];
         }
         if (isset($data['watermarkProtection'])) {
-            $this->watermarkProtection = $data['watermarkProtection'];
+            $this->watermarkProtection = is_array($data['watermarkProtection']) ? new WatermarkProtectionValues($data['watermarkProtection']) : $data['watermarkProtection'];
         }
         if (isset($data['attendanceReports'])) {
             $this->attendanceReports = $data['attendanceReports'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_array($data['endDateTime']) ? new DateTimeTimeZone($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['videoOnDemandWebUrl'])) {
             $this->videoOnDemandWebUrl = $data['videoOnDemandWebUrl'];

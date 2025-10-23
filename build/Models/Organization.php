@@ -176,7 +176,7 @@ class Organization
             $this->marketingNotificationEmails = $data['marketingNotificationEmails'];
         }
         if (isset($data['mobileDeviceManagementAuthority'])) {
-            $this->mobileDeviceManagementAuthority = $data['mobileDeviceManagementAuthority'];
+            $this->mobileDeviceManagementAuthority = is_array($data['mobileDeviceManagementAuthority']) ? new MdmAuthority($data['mobileDeviceManagementAuthority']) : $data['mobileDeviceManagementAuthority'];
         }
         if (isset($data['onPremisesLastSyncDateTime'])) {
             $this->onPremisesLastSyncDateTime = is_string($data['onPremisesLastSyncDateTime']) ? new \DateTimeImmutable($data['onPremisesLastSyncDateTime']) : $data['onPremisesLastSyncDateTime'];
@@ -185,7 +185,7 @@ class Organization
             $this->onPremisesSyncEnabled = $data['onPremisesSyncEnabled'];
         }
         if (isset($data['partnerTenantType'])) {
-            $this->partnerTenantType = $data['partnerTenantType'];
+            $this->partnerTenantType = is_array($data['partnerTenantType']) ? new PartnerTenantType($data['partnerTenantType']) : $data['partnerTenantType'];
         }
         if (isset($data['postalCode'])) {
             $this->postalCode = $data['postalCode'];
@@ -194,7 +194,7 @@ class Organization
             $this->preferredLanguage = $data['preferredLanguage'];
         }
         if (isset($data['privacyProfile'])) {
-            $this->privacyProfile = $data['privacyProfile'];
+            $this->privacyProfile = is_array($data['privacyProfile']) ? new PrivacyProfile($data['privacyProfile']) : $data['privacyProfile'];
         }
         if (isset($data['provisionedPlans'])) {
             $this->provisionedPlans = $data['provisionedPlans'];
@@ -221,7 +221,7 @@ class Organization
             $this->verifiedDomains = $data['verifiedDomains'];
         }
         if (isset($data['branding'])) {
-            $this->branding = $data['branding'];
+            $this->branding = is_array($data['branding']) ? new OrganizationalBranding($data['branding']) : $data['branding'];
         }
         if (isset($data['certificateBasedAuthConfiguration'])) {
             $this->certificateBasedAuthConfiguration = $data['certificateBasedAuthConfiguration'];

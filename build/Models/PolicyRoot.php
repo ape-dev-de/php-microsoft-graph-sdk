@@ -146,22 +146,22 @@ class PolicyRoot
             $this->activityBasedTimeoutPolicies = $data['activityBasedTimeoutPolicies'];
         }
         if (isset($data['adminConsentRequestPolicy'])) {
-            $this->adminConsentRequestPolicy = $data['adminConsentRequestPolicy'];
+            $this->adminConsentRequestPolicy = is_array($data['adminConsentRequestPolicy']) ? new AdminConsentRequestPolicy($data['adminConsentRequestPolicy']) : $data['adminConsentRequestPolicy'];
         }
         if (isset($data['appManagementPolicies'])) {
             $this->appManagementPolicies = $data['appManagementPolicies'];
         }
         if (isset($data['authenticationFlowsPolicy'])) {
-            $this->authenticationFlowsPolicy = $data['authenticationFlowsPolicy'];
+            $this->authenticationFlowsPolicy = is_array($data['authenticationFlowsPolicy']) ? new AuthenticationFlowsPolicy($data['authenticationFlowsPolicy']) : $data['authenticationFlowsPolicy'];
         }
         if (isset($data['authenticationMethodsPolicy'])) {
-            $this->authenticationMethodsPolicy = $data['authenticationMethodsPolicy'];
+            $this->authenticationMethodsPolicy = is_array($data['authenticationMethodsPolicy']) ? new AuthenticationMethodsPolicy($data['authenticationMethodsPolicy']) : $data['authenticationMethodsPolicy'];
         }
         if (isset($data['authenticationStrengthPolicies'])) {
             $this->authenticationStrengthPolicies = $data['authenticationStrengthPolicies'];
         }
         if (isset($data['authorizationPolicy'])) {
-            $this->authorizationPolicy = $data['authorizationPolicy'];
+            $this->authorizationPolicy = is_array($data['authorizationPolicy']) ? new AuthorizationPolicy($data['authorizationPolicy']) : $data['authorizationPolicy'];
         }
         if (isset($data['claimsMappingPolicies'])) {
             $this->claimsMappingPolicies = $data['claimsMappingPolicies'];
@@ -170,13 +170,13 @@ class PolicyRoot
             $this->conditionalAccessPolicies = $data['conditionalAccessPolicies'];
         }
         if (isset($data['crossTenantAccessPolicy'])) {
-            $this->crossTenantAccessPolicy = $data['crossTenantAccessPolicy'];
+            $this->crossTenantAccessPolicy = is_array($data['crossTenantAccessPolicy']) ? new CrossTenantAccessPolicy($data['crossTenantAccessPolicy']) : $data['crossTenantAccessPolicy'];
         }
         if (isset($data['defaultAppManagementPolicy'])) {
-            $this->defaultAppManagementPolicy = $data['defaultAppManagementPolicy'];
+            $this->defaultAppManagementPolicy = is_array($data['defaultAppManagementPolicy']) ? new TenantAppManagementPolicy($data['defaultAppManagementPolicy']) : $data['defaultAppManagementPolicy'];
         }
         if (isset($data['deviceRegistrationPolicy'])) {
-            $this->deviceRegistrationPolicy = $data['deviceRegistrationPolicy'];
+            $this->deviceRegistrationPolicy = is_array($data['deviceRegistrationPolicy']) ? new DeviceRegistrationPolicy($data['deviceRegistrationPolicy']) : $data['deviceRegistrationPolicy'];
         }
         if (isset($data['featureRolloutPolicies'])) {
             $this->featureRolloutPolicies = $data['featureRolloutPolicies'];
@@ -185,7 +185,7 @@ class PolicyRoot
             $this->homeRealmDiscoveryPolicies = $data['homeRealmDiscoveryPolicies'];
         }
         if (isset($data['identitySecurityDefaultsEnforcementPolicy'])) {
-            $this->identitySecurityDefaultsEnforcementPolicy = $data['identitySecurityDefaultsEnforcementPolicy'];
+            $this->identitySecurityDefaultsEnforcementPolicy = is_array($data['identitySecurityDefaultsEnforcementPolicy']) ? new IdentitySecurityDefaultsEnforcementPolicy($data['identitySecurityDefaultsEnforcementPolicy']) : $data['identitySecurityDefaultsEnforcementPolicy'];
         }
         if (isset($data['permissionGrantPolicies'])) {
             $this->permissionGrantPolicies = $data['permissionGrantPolicies'];

@@ -62,7 +62,7 @@ class ItemReference
             $this->shareId = $data['shareId'];
         }
         if (isset($data['sharepointIds'])) {
-            $this->sharepointIds = $data['sharepointIds'];
+            $this->sharepointIds = is_array($data['sharepointIds']) ? new SharepointIds($data['sharepointIds']) : $data['sharepointIds'];
         }
         if (isset($data['siteId'])) {
             $this->siteId = $data['siteId'];

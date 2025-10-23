@@ -26,7 +26,7 @@ class AccessReviewNotificationRecipientItem
     public function __construct(array $data = [])
     {
         if (isset($data['notificationRecipientScope'])) {
-            $this->notificationRecipientScope = $data['notificationRecipientScope'];
+            $this->notificationRecipientScope = is_array($data['notificationRecipientScope']) ? new AccessReviewNotificationRecipientScope($data['notificationRecipientScope']) : $data['notificationRecipientScope'];
         }
         if (isset($data['notificationTemplateType'])) {
             $this->notificationTemplateType = $data['notificationTemplateType'];

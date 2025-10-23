@@ -74,10 +74,10 @@ class ReflectCheckInResponse
             $this->responderId = $data['responderId'];
         }
         if (isset($data['responseEmotion'])) {
-            $this->responseEmotion = $data['responseEmotion'];
+            $this->responseEmotion = is_array($data['responseEmotion']) ? new ResponseEmotionType($data['responseEmotion']) : $data['responseEmotion'];
         }
         if (isset($data['responseFeedback'])) {
-            $this->responseFeedback = $data['responseFeedback'];
+            $this->responseFeedback = is_array($data['responseFeedback']) ? new ResponseFeedbackType($data['responseFeedback']) : $data['responseFeedback'];
         }
         if (isset($data['submitDateTime'])) {
             $this->submitDateTime = is_string($data['submitDateTime']) ? new \DateTimeImmutable($data['submitDateTime']) : $data['submitDateTime'];

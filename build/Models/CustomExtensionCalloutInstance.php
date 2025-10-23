@@ -47,7 +47,7 @@ class CustomExtensionCalloutInstance
             $this->externalCorrelationId = $data['externalCorrelationId'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new CustomExtensionCalloutInstanceStatus($data['status']) : $data['status'];
         }
     }
 }

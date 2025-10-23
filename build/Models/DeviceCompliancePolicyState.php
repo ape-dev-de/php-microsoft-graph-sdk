@@ -47,7 +47,7 @@ class DeviceCompliancePolicyState
             $this->displayName = $data['displayName'];
         }
         if (isset($data['platformType'])) {
-            $this->platformType = $data['platformType'];
+            $this->platformType = is_array($data['platformType']) ? new PolicyPlatformType($data['platformType']) : $data['platformType'];
         }
         if (isset($data['settingCount'])) {
             $this->settingCount = $data['settingCount'];
@@ -56,7 +56,7 @@ class DeviceCompliancePolicyState
             $this->settingStates = $data['settingStates'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new ComplianceStatus($data['state']) : $data['state'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

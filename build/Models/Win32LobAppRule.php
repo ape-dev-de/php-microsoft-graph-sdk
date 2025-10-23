@@ -20,7 +20,7 @@ class Win32LobAppRule
     public function __construct(array $data = [])
     {
         if (isset($data['ruleType'])) {
-            $this->ruleType = $data['ruleType'];
+            $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
         }
     }
 }

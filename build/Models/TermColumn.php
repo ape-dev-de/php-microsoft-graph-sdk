@@ -41,10 +41,10 @@ class TermColumn
             $this->showFullyQualifiedName = $data['showFullyQualifiedName'];
         }
         if (isset($data['parentTerm'])) {
-            $this->parentTerm = $data['parentTerm'];
+            $this->parentTerm = is_array($data['parentTerm']) ? new TermStoreTerm($data['parentTerm']) : $data['parentTerm'];
         }
         if (isset($data['termSet'])) {
-            $this->termSet = $data['termSet'];
+            $this->termSet = is_array($data['termSet']) ? new TermStoreSet($data['termSet']) : $data['termSet'];
         }
     }
 }

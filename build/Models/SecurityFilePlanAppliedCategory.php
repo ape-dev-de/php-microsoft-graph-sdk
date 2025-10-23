@@ -29,7 +29,7 @@ class SecurityFilePlanAppliedCategory
             $this->displayName = $data['displayName'];
         }
         if (isset($data['subcategory'])) {
-            $this->subcategory = $data['subcategory'];
+            $this->subcategory = is_array($data['subcategory']) ? new SecurityFilePlanSubcategory($data['subcategory']) : $data['subcategory'];
         }
     }
 }

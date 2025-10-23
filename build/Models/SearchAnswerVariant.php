@@ -44,7 +44,7 @@ class SearchAnswerVariant
             $this->languageTag = $data['languageTag'];
         }
         if (isset($data['platform'])) {
-            $this->platform = $data['platform'];
+            $this->platform = is_array($data['platform']) ? new DevicePlatformType($data['platform']) : $data['platform'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];

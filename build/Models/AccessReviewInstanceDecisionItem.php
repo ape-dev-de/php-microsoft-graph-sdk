@@ -83,7 +83,7 @@ class AccessReviewInstanceDecisionItem
             $this->accessReviewId = $data['accessReviewId'];
         }
         if (isset($data['appliedBy'])) {
-            $this->appliedBy = $data['appliedBy'];
+            $this->appliedBy = is_array($data['appliedBy']) ? new UserIdentity($data['appliedBy']) : $data['appliedBy'];
         }
         if (isset($data['appliedDateTime'])) {
             $this->appliedDateTime = is_string($data['appliedDateTime']) ? new \DateTimeImmutable($data['appliedDateTime']) : $data['appliedDateTime'];
@@ -98,7 +98,7 @@ class AccessReviewInstanceDecisionItem
             $this->justification = $data['justification'];
         }
         if (isset($data['principal'])) {
-            $this->principal = $data['principal'];
+            $this->principal = is_array($data['principal']) ? new Identity($data['principal']) : $data['principal'];
         }
         if (isset($data['principalLink'])) {
             $this->principalLink = $data['principalLink'];
@@ -107,13 +107,13 @@ class AccessReviewInstanceDecisionItem
             $this->recommendation = $data['recommendation'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new AccessReviewInstanceDecisionItemResource($data['resource']) : $data['resource'];
         }
         if (isset($data['resourceLink'])) {
             $this->resourceLink = $data['resourceLink'];
         }
         if (isset($data['reviewedBy'])) {
-            $this->reviewedBy = $data['reviewedBy'];
+            $this->reviewedBy = is_array($data['reviewedBy']) ? new UserIdentity($data['reviewedBy']) : $data['reviewedBy'];
         }
         if (isset($data['reviewedDateTime'])) {
             $this->reviewedDateTime = is_string($data['reviewedDateTime']) ? new \DateTimeImmutable($data['reviewedDateTime']) : $data['reviewedDateTime'];

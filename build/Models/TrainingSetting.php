@@ -23,7 +23,7 @@ class TrainingSetting
     public function __construct(array $data = [])
     {
         if (isset($data['settingType'])) {
-            $this->settingType = $data['settingType'];
+            $this->settingType = is_array($data['settingType']) ? new TrainingSettingType($data['settingType']) : $data['settingType'];
         }
     }
 }

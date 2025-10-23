@@ -83,7 +83,7 @@ class ResellerDelegatedAdminRelationship
             $this->id = $data['id'];
         }
         if (isset($data['accessDetails'])) {
-            $this->accessDetails = $data['accessDetails'];
+            $this->accessDetails = is_array($data['accessDetails']) ? new DelegatedAdminAccessDetails($data['accessDetails']) : $data['accessDetails'];
         }
         if (isset($data['activatedDateTime'])) {
             $this->activatedDateTime = is_string($data['activatedDateTime']) ? new \DateTimeImmutable($data['activatedDateTime']) : $data['activatedDateTime'];
@@ -95,7 +95,7 @@ class ResellerDelegatedAdminRelationship
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['customer'])) {
-            $this->customer = $data['customer'];
+            $this->customer = is_array($data['customer']) ? new DelegatedAdminRelationshipCustomerParticipant($data['customer']) : $data['customer'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -110,7 +110,7 @@ class ResellerDelegatedAdminRelationship
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new DelegatedAdminRelationshipStatus($data['status']) : $data['status'];
         }
         if (isset($data['accessAssignments'])) {
             $this->accessAssignments = $data['accessAssignments'];

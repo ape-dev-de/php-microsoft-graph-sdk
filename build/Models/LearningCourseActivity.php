@@ -65,7 +65,7 @@ class LearningCourseActivity
             $this->learningProviderId = $data['learningProviderId'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new CourseStatus($data['status']) : $data['status'];
         }
     }
 }

@@ -32,7 +32,7 @@ class MeetingParticipants
             $this->attendees = $data['attendees'];
         }
         if (isset($data['organizer'])) {
-            $this->organizer = $data['organizer'];
+            $this->organizer = is_array($data['organizer']) ? new MeetingParticipantInfo($data['organizer']) : $data['organizer'];
         }
     }
 }

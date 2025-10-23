@@ -35,7 +35,7 @@ class EntitlementManagementSettings
             $this->durationUntilExternalUserDeletedAfterBlocked = $data['durationUntilExternalUserDeletedAfterBlocked'];
         }
         if (isset($data['externalUserLifecycleAction'])) {
-            $this->externalUserLifecycleAction = $data['externalUserLifecycleAction'];
+            $this->externalUserLifecycleAction = is_array($data['externalUserLifecycleAction']) ? new AccessPackageExternalUserLifecycleAction($data['externalUserLifecycleAction']) : $data['externalUserLifecycleAction'];
         }
     }
 }

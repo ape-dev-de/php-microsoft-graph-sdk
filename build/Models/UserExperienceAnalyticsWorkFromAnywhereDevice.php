@@ -158,7 +158,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->deviceName = $data['deviceName'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = $data['healthStatus'];
+            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['isCloudManagedGatewayEnabled'])) {
             $this->isCloudManagedGatewayEnabled = $data['isCloudManagedGatewayEnabled'];
@@ -218,7 +218,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->tpmCheckFailed = $data['tpmCheckFailed'];
         }
         if (isset($data['upgradeEligibility'])) {
-            $this->upgradeEligibility = $data['upgradeEligibility'];
+            $this->upgradeEligibility = is_array($data['upgradeEligibility']) ? new OperatingSystemUpgradeEligibility($data['upgradeEligibility']) : $data['upgradeEligibility'];
         }
         if (isset($data['windowsScore'])) {
             $this->windowsScore = $data['windowsScore'];

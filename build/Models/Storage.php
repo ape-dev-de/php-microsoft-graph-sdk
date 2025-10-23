@@ -29,10 +29,10 @@ class Storage
     public function __construct(array $data = [])
     {
         if (isset($data['fileStorage'])) {
-            $this->fileStorage = $data['fileStorage'];
+            $this->fileStorage = is_array($data['fileStorage']) ? new FileStorage($data['fileStorage']) : $data['fileStorage'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new StorageSettings($data['settings']) : $data['settings'];
         }
     }
 }

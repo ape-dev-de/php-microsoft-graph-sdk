@@ -137,7 +137,7 @@ class SecurityDeviceEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -149,13 +149,13 @@ class SecurityDeviceEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['azureAdDeviceId'])) {
             $this->azureAdDeviceId = $data['azureAdDeviceId'];
         }
         if (isset($data['defenderAvStatus'])) {
-            $this->defenderAvStatus = $data['defenderAvStatus'];
+            $this->defenderAvStatus = is_array($data['defenderAvStatus']) ? new SecurityDefenderAvStatus($data['defenderAvStatus']) : $data['defenderAvStatus'];
         }
         if (isset($data['deviceDnsName'])) {
             $this->deviceDnsName = $data['deviceDnsName'];
@@ -167,7 +167,7 @@ class SecurityDeviceEvidence
             $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = $data['healthStatus'];
+            $this->healthStatus = is_array($data['healthStatus']) ? new SecurityDeviceHealthStatus($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['hostName'])) {
             $this->hostName = $data['hostName'];
@@ -191,7 +191,7 @@ class SecurityDeviceEvidence
             $this->ntDomain = $data['ntDomain'];
         }
         if (isset($data['onboardingStatus'])) {
-            $this->onboardingStatus = $data['onboardingStatus'];
+            $this->onboardingStatus = is_array($data['onboardingStatus']) ? new SecurityOnboardingStatus($data['onboardingStatus']) : $data['onboardingStatus'];
         }
         if (isset($data['osBuild'])) {
             $this->osBuild = $data['osBuild'];
@@ -206,13 +206,13 @@ class SecurityDeviceEvidence
             $this->rbacGroupName = $data['rbacGroupName'];
         }
         if (isset($data['riskScore'])) {
-            $this->riskScore = $data['riskScore'];
+            $this->riskScore = is_array($data['riskScore']) ? new SecurityDeviceRiskScore($data['riskScore']) : $data['riskScore'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];
         }
         if (isset($data['vmMetadata'])) {
-            $this->vmMetadata = $data['vmMetadata'];
+            $this->vmMetadata = is_array($data['vmMetadata']) ? new SecurityVmMetadata($data['vmMetadata']) : $data['vmMetadata'];
         }
     }
 }

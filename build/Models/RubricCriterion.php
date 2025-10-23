@@ -23,7 +23,7 @@ class RubricCriterion
     public function __construct(array $data = [])
     {
         if (isset($data['description'])) {
-            $this->description = $data['description'];
+            $this->description = is_array($data['description']) ? new EducationItemBody($data['description']) : $data['description'];
         }
     }
 }

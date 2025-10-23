@@ -47,10 +47,10 @@ class PartnersBillingBilling
             $this->operations = $data['operations'];
         }
         if (isset($data['reconciliation'])) {
-            $this->reconciliation = $data['reconciliation'];
+            $this->reconciliation = is_array($data['reconciliation']) ? new PartnersBillingBillingReconciliation($data['reconciliation']) : $data['reconciliation'];
         }
         if (isset($data['usage'])) {
-            $this->usage = $data['usage'];
+            $this->usage = is_array($data['usage']) ? new PartnersBillingAzureUsage($data['usage']) : $data['usage'];
         }
     }
 }

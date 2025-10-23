@@ -23,7 +23,7 @@ class RegistrationEnforcement
     public function __construct(array $data = [])
     {
         if (isset($data['authenticationMethodsRegistrationCampaign'])) {
-            $this->authenticationMethodsRegistrationCampaign = $data['authenticationMethodsRegistrationCampaign'];
+            $this->authenticationMethodsRegistrationCampaign = is_array($data['authenticationMethodsRegistrationCampaign']) ? new AuthenticationMethodsRegistrationCampaign($data['authenticationMethodsRegistrationCampaign']) : $data['authenticationMethodsRegistrationCampaign'];
         }
     }
 }

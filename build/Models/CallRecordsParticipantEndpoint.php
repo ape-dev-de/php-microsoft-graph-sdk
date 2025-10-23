@@ -53,10 +53,10 @@ class CallRecordsParticipantEndpoint
     public function __construct(array $data = [])
     {
         if (isset($data['userAgent'])) {
-            $this->userAgent = $data['userAgent'];
+            $this->userAgent = is_array($data['userAgent']) ? new CallRecordsUserAgent($data['userAgent']) : $data['userAgent'];
         }
         if (isset($data['associatedIdentity'])) {
-            $this->associatedIdentity = $data['associatedIdentity'];
+            $this->associatedIdentity = is_array($data['associatedIdentity']) ? new Identity($data['associatedIdentity']) : $data['associatedIdentity'];
         }
         if (isset($data['cpuCoresCount'])) {
             $this->cpuCoresCount = $data['cpuCoresCount'];
@@ -68,10 +68,10 @@ class CallRecordsParticipantEndpoint
             $this->cpuProcessorSpeedInMhz = $data['cpuProcessorSpeedInMhz'];
         }
         if (isset($data['feedback'])) {
-            $this->feedback = $data['feedback'];
+            $this->feedback = is_array($data['feedback']) ? new CallRecordsUserFeedback($data['feedback']) : $data['feedback'];
         }
         if (isset($data['identity'])) {
-            $this->identity = $data['identity'];
+            $this->identity = is_array($data['identity']) ? new IdentitySet($data['identity']) : $data['identity'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

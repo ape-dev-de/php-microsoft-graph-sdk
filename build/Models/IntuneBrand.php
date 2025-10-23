@@ -80,13 +80,13 @@ class IntuneBrand
             $this->contactITPhoneNumber = $data['contactITPhoneNumber'];
         }
         if (isset($data['darkBackgroundLogo'])) {
-            $this->darkBackgroundLogo = $data['darkBackgroundLogo'];
+            $this->darkBackgroundLogo = is_array($data['darkBackgroundLogo']) ? new MimeContent($data['darkBackgroundLogo']) : $data['darkBackgroundLogo'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lightBackgroundLogo'])) {
-            $this->lightBackgroundLogo = $data['lightBackgroundLogo'];
+            $this->lightBackgroundLogo = is_array($data['lightBackgroundLogo']) ? new MimeContent($data['lightBackgroundLogo']) : $data['lightBackgroundLogo'];
         }
         if (isset($data['onlineSupportSiteName'])) {
             $this->onlineSupportSiteName = $data['onlineSupportSiteName'];
@@ -107,7 +107,7 @@ class IntuneBrand
             $this->showNameNextToLogo = $data['showNameNextToLogo'];
         }
         if (isset($data['themeColor'])) {
-            $this->themeColor = $data['themeColor'];
+            $this->themeColor = is_array($data['themeColor']) ? new RgbColor($data['themeColor']) : $data['themeColor'];
         }
     }
 }

@@ -26,7 +26,7 @@ class IdentityGovernanceTimeBasedAttributeTrigger
             $this->offsetInDays = $data['offsetInDays'];
         }
         if (isset($data['timeBasedAttribute'])) {
-            $this->timeBasedAttribute = $data['timeBasedAttribute'];
+            $this->timeBasedAttribute = is_array($data['timeBasedAttribute']) ? new IdentityGovernanceWorkflowTriggerTimeBasedAttribute($data['timeBasedAttribute']) : $data['timeBasedAttribute'];
         }
     }
 }

@@ -137,7 +137,7 @@ class Windows81CompliancePolicy
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceComplianceDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['scheduledActionsForRule'])) {
             $this->scheduledActionsForRule = $data['scheduledActionsForRule'];
@@ -146,7 +146,7 @@ class Windows81CompliancePolicy
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceComplianceUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['osMaximumVersion'])) {
             $this->osMaximumVersion = $data['osMaximumVersion'];
@@ -176,7 +176,7 @@ class Windows81CompliancePolicy
             $this->passwordRequired = $data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['storageRequireEncryption'])) {
             $this->storageRequireEncryption = $data['storageRequireEncryption'];

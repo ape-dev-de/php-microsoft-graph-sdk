@@ -71,7 +71,7 @@ class SecurityIpEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -83,7 +83,7 @@ class SecurityIpEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['countryLetterCode'])) {
             $this->countryLetterCode = $data['countryLetterCode'];
@@ -92,10 +92,10 @@ class SecurityIpEvidence
             $this->ipAddress = $data['ipAddress'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new SecurityGeoLocation($data['location']) : $data['location'];
         }
         if (isset($data['stream'])) {
-            $this->stream = $data['stream'];
+            $this->stream = is_array($data['stream']) ? new SecurityStream($data['stream']) : $data['stream'];
         }
     }
 }

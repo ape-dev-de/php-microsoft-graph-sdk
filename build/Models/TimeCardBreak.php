@@ -38,13 +38,13 @@ class TimeCardBreak
             $this->breakId = $data['breakId'];
         }
         if (isset($data['end'])) {
-            $this->end = $data['end'];
+            $this->end = is_array($data['end']) ? new TimeCardEvent($data['end']) : $data['end'];
         }
         if (isset($data['notes'])) {
-            $this->notes = $data['notes'];
+            $this->notes = is_array($data['notes']) ? new ItemBody($data['notes']) : $data['notes'];
         }
         if (isset($data['start'])) {
-            $this->start = $data['start'];
+            $this->start = is_array($data['start']) ? new TimeCardEvent($data['start']) : $data['start'];
         }
     }
 }

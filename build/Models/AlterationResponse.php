@@ -35,10 +35,10 @@ class AlterationResponse
             $this->originalQueryString = $data['originalQueryString'];
         }
         if (isset($data['queryAlteration'])) {
-            $this->queryAlteration = $data['queryAlteration'];
+            $this->queryAlteration = is_array($data['queryAlteration']) ? new SearchAlteration($data['queryAlteration']) : $data['queryAlteration'];
         }
         if (isset($data['queryAlterationType'])) {
-            $this->queryAlterationType = $data['queryAlterationType'];
+            $this->queryAlterationType = is_array($data['queryAlterationType']) ? new SearchAlterationType($data['queryAlterationType']) : $data['queryAlterationType'];
         }
     }
 }

@@ -23,7 +23,7 @@ class ConditionalAccessFilter
     public function __construct(array $data = [])
     {
         if (isset($data['mode'])) {
-            $this->mode = $data['mode'];
+            $this->mode = is_array($data['mode']) ? new FilterMode($data['mode']) : $data['mode'];
         }
         if (isset($data['rule'])) {
             $this->rule = $data['rule'];

@@ -158,7 +158,7 @@ class SubjectRightsRequest
             $this->id = $data['id'];
         }
         if (isset($data['assignedTo'])) {
-            $this->assignedTo = $data['assignedTo'];
+            $this->assignedTo = is_array($data['assignedTo']) ? new Identity($data['assignedTo']) : $data['assignedTo'];
         }
         if (isset($data['closedDateTime'])) {
             $this->closedDateTime = is_string($data['closedDateTime']) ? new \DateTimeImmutable($data['closedDateTime']) : $data['closedDateTime'];
@@ -167,16 +167,16 @@ class SubjectRightsRequest
             $this->contentQuery = $data['contentQuery'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['dataSubject'])) {
-            $this->dataSubject = $data['dataSubject'];
+            $this->dataSubject = is_array($data['dataSubject']) ? new DataSubject($data['dataSubject']) : $data['dataSubject'];
         }
         if (isset($data['dataSubjectType'])) {
-            $this->dataSubjectType = $data['dataSubjectType'];
+            $this->dataSubjectType = is_array($data['dataSubjectType']) ? new DataSubjectType($data['dataSubjectType']) : $data['dataSubjectType'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -197,19 +197,19 @@ class SubjectRightsRequest
             $this->includeAuthoredContent = $data['includeAuthoredContent'];
         }
         if (isset($data['insight'])) {
-            $this->insight = $data['insight'];
+            $this->insight = is_array($data['insight']) ? new SubjectRightsRequestDetail($data['insight']) : $data['insight'];
         }
         if (isset($data['internalDueDateTime'])) {
             $this->internalDueDateTime = is_string($data['internalDueDateTime']) ? new \DateTimeImmutable($data['internalDueDateTime']) : $data['internalDueDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['mailboxLocations'])) {
-            $this->mailboxLocations = $data['mailboxLocations'];
+            $this->mailboxLocations = is_array($data['mailboxLocations']) ? new SubjectRightsRequestMailboxLocation($data['mailboxLocations']) : $data['mailboxLocations'];
         }
         if (isset($data['pauseAfterEstimate'])) {
             $this->pauseAfterEstimate = $data['pauseAfterEstimate'];
@@ -218,16 +218,16 @@ class SubjectRightsRequest
             $this->regulations = $data['regulations'];
         }
         if (isset($data['siteLocations'])) {
-            $this->siteLocations = $data['siteLocations'];
+            $this->siteLocations = is_array($data['siteLocations']) ? new SubjectRightsRequestSiteLocation($data['siteLocations']) : $data['siteLocations'];
         }
         if (isset($data['stages'])) {
             $this->stages = $data['stages'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SubjectRightsRequestStatus($data['status']) : $data['status'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new SubjectRightsRequestType($data['type']) : $data['type'];
         }
         if (isset($data['approvers'])) {
             $this->approvers = $data['approvers'];
@@ -239,7 +239,7 @@ class SubjectRightsRequest
             $this->notes = $data['notes'];
         }
         if (isset($data['team'])) {
-            $this->team = $data['team'];
+            $this->team = is_array($data['team']) ? new Team($data['team']) : $data['team'];
         }
     }
 }

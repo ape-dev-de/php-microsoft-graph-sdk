@@ -35,10 +35,10 @@ class WorkbookChartDataLabelFormat
             $this->id = $data['id'];
         }
         if (isset($data['fill'])) {
-            $this->fill = $data['fill'];
+            $this->fill = is_array($data['fill']) ? new WorkbookChartFill($data['fill']) : $data['fill'];
         }
         if (isset($data['font'])) {
-            $this->font = $data['font'];
+            $this->font = is_array($data['font']) ? new WorkbookChartFont($data['font']) : $data['font'];
         }
     }
 }

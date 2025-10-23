@@ -29,10 +29,10 @@ class IdentityGovernanceTriggerAndScopeBasedConditions
     public function __construct(array $data = [])
     {
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new SubjectSet($data['scope']) : $data['scope'];
         }
         if (isset($data['trigger'])) {
-            $this->trigger = $data['trigger'];
+            $this->trigger = is_array($data['trigger']) ? new IdentityGovernanceWorkflowExecutionTrigger($data['trigger']) : $data['trigger'];
         }
     }
 }

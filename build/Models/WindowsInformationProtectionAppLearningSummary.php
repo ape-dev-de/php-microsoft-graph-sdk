@@ -35,7 +35,7 @@ class WindowsInformationProtectionAppLearningSummary
             $this->applicationName = $data['applicationName'];
         }
         if (isset($data['applicationType'])) {
-            $this->applicationType = $data['applicationType'];
+            $this->applicationType = is_array($data['applicationType']) ? new ApplicationType($data['applicationType']) : $data['applicationType'];
         }
         if (isset($data['deviceCount'])) {
             $this->deviceCount = $data['deviceCount'];

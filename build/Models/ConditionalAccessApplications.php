@@ -47,7 +47,7 @@ class ConditionalAccessApplications
     public function __construct(array $data = [])
     {
         if (isset($data['applicationFilter'])) {
-            $this->applicationFilter = $data['applicationFilter'];
+            $this->applicationFilter = is_array($data['applicationFilter']) ? new ConditionalAccessFilter($data['applicationFilter']) : $data['applicationFilter'];
         }
         if (isset($data['excludeApplications'])) {
             $this->excludeApplications = $data['excludeApplications'];

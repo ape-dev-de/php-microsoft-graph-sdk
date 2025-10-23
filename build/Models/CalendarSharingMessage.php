@@ -209,7 +209,7 @@ class CalendarSharingMessage
             $this->bccRecipients = $data['bccRecipients'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['bodyPreview'])) {
             $this->bodyPreview = $data['bodyPreview'];
@@ -224,19 +224,19 @@ class CalendarSharingMessage
             $this->conversationIndex = $data['conversationIndex'];
         }
         if (isset($data['flag'])) {
-            $this->flag = $data['flag'];
+            $this->flag = is_array($data['flag']) ? new FollowupFlag($data['flag']) : $data['flag'];
         }
         if (isset($data['from'])) {
-            $this->from = $data['from'];
+            $this->from = is_array($data['from']) ? new Recipient($data['from']) : $data['from'];
         }
         if (isset($data['hasAttachments'])) {
             $this->hasAttachments = $data['hasAttachments'];
         }
         if (isset($data['importance'])) {
-            $this->importance = $data['importance'];
+            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
         }
         if (isset($data['inferenceClassification'])) {
-            $this->inferenceClassification = $data['inferenceClassification'];
+            $this->inferenceClassification = is_array($data['inferenceClassification']) ? new InferenceClassificationType($data['inferenceClassification']) : $data['inferenceClassification'];
         }
         if (isset($data['internetMessageHeaders'])) {
             $this->internetMessageHeaders = $data['internetMessageHeaders'];
@@ -266,7 +266,7 @@ class CalendarSharingMessage
             $this->replyTo = $data['replyTo'];
         }
         if (isset($data['sender'])) {
-            $this->sender = $data['sender'];
+            $this->sender = is_array($data['sender']) ? new Recipient($data['sender']) : $data['sender'];
         }
         if (isset($data['sentDateTime'])) {
             $this->sentDateTime = is_string($data['sentDateTime']) ? new \DateTimeImmutable($data['sentDateTime']) : $data['sentDateTime'];
@@ -278,7 +278,7 @@ class CalendarSharingMessage
             $this->toRecipients = $data['toRecipients'];
         }
         if (isset($data['uniqueBody'])) {
-            $this->uniqueBody = $data['uniqueBody'];
+            $this->uniqueBody = is_array($data['uniqueBody']) ? new ItemBody($data['uniqueBody']) : $data['uniqueBody'];
         }
         if (isset($data['webLink'])) {
             $this->webLink = $data['webLink'];
@@ -299,7 +299,7 @@ class CalendarSharingMessage
             $this->canAccept = $data['canAccept'];
         }
         if (isset($data['sharingMessageAction'])) {
-            $this->sharingMessageAction = $data['sharingMessageAction'];
+            $this->sharingMessageAction = is_array($data['sharingMessageAction']) ? new CalendarSharingMessageAction($data['sharingMessageAction']) : $data['sharingMessageAction'];
         }
         if (isset($data['sharingMessageActions'])) {
             $this->sharingMessageActions = $data['sharingMessageActions'];

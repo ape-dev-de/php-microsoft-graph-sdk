@@ -41,16 +41,16 @@ class IdentityGovernanceCustomTaskExtensionCalloutData
     public function __construct(array $data = [])
     {
         if (isset($data['subject'])) {
-            $this->subject = $data['subject'];
+            $this->subject = is_array($data['subject']) ? new User($data['subject']) : $data['subject'];
         }
         if (isset($data['task'])) {
-            $this->task = $data['task'];
+            $this->task = is_array($data['task']) ? new IdentityGovernanceTask($data['task']) : $data['task'];
         }
         if (isset($data['taskProcessingresult'])) {
-            $this->taskProcessingresult = $data['taskProcessingresult'];
+            $this->taskProcessingresult = is_array($data['taskProcessingresult']) ? new IdentityGovernanceTaskProcessingResult($data['taskProcessingresult']) : $data['taskProcessingresult'];
         }
         if (isset($data['workflow'])) {
-            $this->workflow = $data['workflow'];
+            $this->workflow = is_array($data['workflow']) ? new IdentityGovernanceWorkflow($data['workflow']) : $data['workflow'];
         }
     }
 }

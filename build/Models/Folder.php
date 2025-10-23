@@ -29,7 +29,7 @@ class Folder
             $this->childCount = $data['childCount'];
         }
         if (isset($data['view'])) {
-            $this->view = $data['view'];
+            $this->view = is_array($data['view']) ? new FolderView($data['view']) : $data['view'];
         }
     }
 }

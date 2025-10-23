@@ -29,7 +29,7 @@ class WorkbookChartAxisTitleFormat
             $this->id = $data['id'];
         }
         if (isset($data['font'])) {
-            $this->font = $data['font'];
+            $this->font = is_array($data['font']) ? new WorkbookChartFont($data['font']) : $data['font'];
         }
     }
 }

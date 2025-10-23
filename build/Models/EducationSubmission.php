@@ -119,46 +119,46 @@ class EducationSubmission
             $this->assignmentId = $data['assignmentId'];
         }
         if (isset($data['excusedBy'])) {
-            $this->excusedBy = $data['excusedBy'];
+            $this->excusedBy = is_array($data['excusedBy']) ? new IdentitySet($data['excusedBy']) : $data['excusedBy'];
         }
         if (isset($data['excusedDateTime'])) {
             $this->excusedDateTime = is_string($data['excusedDateTime']) ? new \DateTimeImmutable($data['excusedDateTime']) : $data['excusedDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['reassignedBy'])) {
-            $this->reassignedBy = $data['reassignedBy'];
+            $this->reassignedBy = is_array($data['reassignedBy']) ? new IdentitySet($data['reassignedBy']) : $data['reassignedBy'];
         }
         if (isset($data['reassignedDateTime'])) {
             $this->reassignedDateTime = is_string($data['reassignedDateTime']) ? new \DateTimeImmutable($data['reassignedDateTime']) : $data['reassignedDateTime'];
         }
         if (isset($data['recipient'])) {
-            $this->recipient = $data['recipient'];
+            $this->recipient = is_array($data['recipient']) ? new EducationSubmissionRecipient($data['recipient']) : $data['recipient'];
         }
         if (isset($data['resourcesFolderUrl'])) {
             $this->resourcesFolderUrl = $data['resourcesFolderUrl'];
         }
         if (isset($data['returnedBy'])) {
-            $this->returnedBy = $data['returnedBy'];
+            $this->returnedBy = is_array($data['returnedBy']) ? new IdentitySet($data['returnedBy']) : $data['returnedBy'];
         }
         if (isset($data['returnedDateTime'])) {
             $this->returnedDateTime = is_string($data['returnedDateTime']) ? new \DateTimeImmutable($data['returnedDateTime']) : $data['returnedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new EducationSubmissionStatus($data['status']) : $data['status'];
         }
         if (isset($data['submittedBy'])) {
-            $this->submittedBy = $data['submittedBy'];
+            $this->submittedBy = is_array($data['submittedBy']) ? new IdentitySet($data['submittedBy']) : $data['submittedBy'];
         }
         if (isset($data['submittedDateTime'])) {
             $this->submittedDateTime = is_string($data['submittedDateTime']) ? new \DateTimeImmutable($data['submittedDateTime']) : $data['submittedDateTime'];
         }
         if (isset($data['unsubmittedBy'])) {
-            $this->unsubmittedBy = $data['unsubmittedBy'];
+            $this->unsubmittedBy = is_array($data['unsubmittedBy']) ? new IdentitySet($data['unsubmittedBy']) : $data['unsubmittedBy'];
         }
         if (isset($data['unsubmittedDateTime'])) {
             $this->unsubmittedDateTime = is_string($data['unsubmittedDateTime']) ? new \DateTimeImmutable($data['unsubmittedDateTime']) : $data['unsubmittedDateTime'];

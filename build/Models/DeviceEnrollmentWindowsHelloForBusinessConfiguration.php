@@ -104,13 +104,13 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->assignments = $data['assignments'];
         }
         if (isset($data['enhancedBiometricsState'])) {
-            $this->enhancedBiometricsState = $data['enhancedBiometricsState'];
+            $this->enhancedBiometricsState = is_array($data['enhancedBiometricsState']) ? new Enablement($data['enhancedBiometricsState']) : $data['enhancedBiometricsState'];
         }
         if (isset($data['pinExpirationInDays'])) {
             $this->pinExpirationInDays = $data['pinExpirationInDays'];
         }
         if (isset($data['pinLowercaseCharactersUsage'])) {
-            $this->pinLowercaseCharactersUsage = $data['pinLowercaseCharactersUsage'];
+            $this->pinLowercaseCharactersUsage = is_array($data['pinLowercaseCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinLowercaseCharactersUsage']) : $data['pinLowercaseCharactersUsage'];
         }
         if (isset($data['pinMaximumLength'])) {
             $this->pinMaximumLength = $data['pinMaximumLength'];
@@ -122,10 +122,10 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->pinPreviousBlockCount = $data['pinPreviousBlockCount'];
         }
         if (isset($data['pinSpecialCharactersUsage'])) {
-            $this->pinSpecialCharactersUsage = $data['pinSpecialCharactersUsage'];
+            $this->pinSpecialCharactersUsage = is_array($data['pinSpecialCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinSpecialCharactersUsage']) : $data['pinSpecialCharactersUsage'];
         }
         if (isset($data['pinUppercaseCharactersUsage'])) {
-            $this->pinUppercaseCharactersUsage = $data['pinUppercaseCharactersUsage'];
+            $this->pinUppercaseCharactersUsage = is_array($data['pinUppercaseCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinUppercaseCharactersUsage']) : $data['pinUppercaseCharactersUsage'];
         }
         if (isset($data['remotePassportEnabled'])) {
             $this->remotePassportEnabled = $data['remotePassportEnabled'];
@@ -134,7 +134,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->securityDeviceRequired = $data['securityDeviceRequired'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new Enablement($data['state']) : $data['state'];
         }
         if (isset($data['unlockWithBiometricsEnabled'])) {
             $this->unlockWithBiometricsEnabled = $data['unlockWithBiometricsEnabled'];

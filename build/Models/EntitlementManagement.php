@@ -128,7 +128,7 @@ class EntitlementManagement
             $this->resources = $data['resources'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new EntitlementManagementSettings($data['settings']) : $data['settings'];
         }
     }
 }

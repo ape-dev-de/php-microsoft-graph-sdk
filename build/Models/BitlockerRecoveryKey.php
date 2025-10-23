@@ -47,7 +47,7 @@ class BitlockerRecoveryKey
             $this->key = $data['key'];
         }
         if (isset($data['volumeType'])) {
-            $this->volumeType = $data['volumeType'];
+            $this->volumeType = is_array($data['volumeType']) ? new VolumeType($data['volumeType']) : $data['volumeType'];
         }
     }
 }

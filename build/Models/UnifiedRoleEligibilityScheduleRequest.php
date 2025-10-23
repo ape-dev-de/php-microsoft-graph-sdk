@@ -119,7 +119,7 @@ class UnifiedRoleEligibilityScheduleRequest
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -131,7 +131,7 @@ class UnifiedRoleEligibilityScheduleRequest
             $this->status = $data['status'];
         }
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new UnifiedRoleScheduleRequestActions($data['action']) : $data['action'];
         }
         if (isset($data['appScopeId'])) {
             $this->appScopeId = $data['appScopeId'];
@@ -152,28 +152,28 @@ class UnifiedRoleEligibilityScheduleRequest
             $this->roleDefinitionId = $data['roleDefinitionId'];
         }
         if (isset($data['scheduleInfo'])) {
-            $this->scheduleInfo = $data['scheduleInfo'];
+            $this->scheduleInfo = is_array($data['scheduleInfo']) ? new RequestSchedule($data['scheduleInfo']) : $data['scheduleInfo'];
         }
         if (isset($data['targetScheduleId'])) {
             $this->targetScheduleId = $data['targetScheduleId'];
         }
         if (isset($data['ticketInfo'])) {
-            $this->ticketInfo = $data['ticketInfo'];
+            $this->ticketInfo = is_array($data['ticketInfo']) ? new TicketInfo($data['ticketInfo']) : $data['ticketInfo'];
         }
         if (isset($data['appScope'])) {
-            $this->appScope = $data['appScope'];
+            $this->appScope = is_array($data['appScope']) ? new AppScope($data['appScope']) : $data['appScope'];
         }
         if (isset($data['directoryScope'])) {
-            $this->directoryScope = $data['directoryScope'];
+            $this->directoryScope = is_array($data['directoryScope']) ? new DirectoryObject($data['directoryScope']) : $data['directoryScope'];
         }
         if (isset($data['principal'])) {
-            $this->principal = $data['principal'];
+            $this->principal = is_array($data['principal']) ? new DirectoryObject($data['principal']) : $data['principal'];
         }
         if (isset($data['roleDefinition'])) {
-            $this->roleDefinition = $data['roleDefinition'];
+            $this->roleDefinition = is_array($data['roleDefinition']) ? new UnifiedRoleDefinition($data['roleDefinition']) : $data['roleDefinition'];
         }
         if (isset($data['targetSchedule'])) {
-            $this->targetSchedule = $data['targetSchedule'];
+            $this->targetSchedule = is_array($data['targetSchedule']) ? new UnifiedRoleEligibilitySchedule($data['targetSchedule']) : $data['targetSchedule'];
         }
     }
 }

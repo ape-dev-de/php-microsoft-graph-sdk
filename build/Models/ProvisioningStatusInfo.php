@@ -29,10 +29,10 @@ class ProvisioningStatusInfo
     public function __construct(array $data = [])
     {
         if (isset($data['errorInformation'])) {
-            $this->errorInformation = $data['errorInformation'];
+            $this->errorInformation = is_array($data['errorInformation']) ? new ProvisioningErrorInfo($data['errorInformation']) : $data['errorInformation'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ProvisioningResult($data['status']) : $data['status'];
         }
     }
 }

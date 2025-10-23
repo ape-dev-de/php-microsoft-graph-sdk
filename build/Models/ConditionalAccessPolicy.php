@@ -56,7 +56,7 @@ class ConditionalAccessPolicy
             $this->id = $data['id'];
         }
         if (isset($data['conditions'])) {
-            $this->conditions = $data['conditions'];
+            $this->conditions = is_array($data['conditions']) ? new ConditionalAccessConditionSet($data['conditions']) : $data['conditions'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -68,16 +68,16 @@ class ConditionalAccessPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['grantControls'])) {
-            $this->grantControls = $data['grantControls'];
+            $this->grantControls = is_array($data['grantControls']) ? new ConditionalAccessGrantControls($data['grantControls']) : $data['grantControls'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['sessionControls'])) {
-            $this->sessionControls = $data['sessionControls'];
+            $this->sessionControls = is_array($data['sessionControls']) ? new ConditionalAccessSessionControls($data['sessionControls']) : $data['sessionControls'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new ConditionalAccessPolicyState($data['state']) : $data['state'];
         }
         if (isset($data['templateId'])) {
             $this->templateId = $data['templateId'];

@@ -26,7 +26,7 @@ class Win32LobAppReturnCode
             $this->returnCode = $data['returnCode'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new Win32LobAppReturnCodeType($data['type']) : $data['type'];
         }
     }
 }

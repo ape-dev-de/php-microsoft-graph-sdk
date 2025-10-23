@@ -98,19 +98,19 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration
             $this->assignments = $data['assignments'];
         }
         if (isset($data['androidRestriction'])) {
-            $this->androidRestriction = $data['androidRestriction'];
+            $this->androidRestriction = is_array($data['androidRestriction']) ? new DeviceEnrollmentPlatformRestriction($data['androidRestriction']) : $data['androidRestriction'];
         }
         if (isset($data['iosRestriction'])) {
-            $this->iosRestriction = $data['iosRestriction'];
+            $this->iosRestriction = is_array($data['iosRestriction']) ? new DeviceEnrollmentPlatformRestriction($data['iosRestriction']) : $data['iosRestriction'];
         }
         if (isset($data['macOSRestriction'])) {
-            $this->macOSRestriction = $data['macOSRestriction'];
+            $this->macOSRestriction = is_array($data['macOSRestriction']) ? new DeviceEnrollmentPlatformRestriction($data['macOSRestriction']) : $data['macOSRestriction'];
         }
         if (isset($data['windowsMobileRestriction'])) {
-            $this->windowsMobileRestriction = $data['windowsMobileRestriction'];
+            $this->windowsMobileRestriction = is_array($data['windowsMobileRestriction']) ? new DeviceEnrollmentPlatformRestriction($data['windowsMobileRestriction']) : $data['windowsMobileRestriction'];
         }
         if (isset($data['windowsRestriction'])) {
-            $this->windowsRestriction = $data['windowsRestriction'];
+            $this->windowsRestriction = is_array($data['windowsRestriction']) ? new DeviceEnrollmentPlatformRestriction($data['windowsRestriction']) : $data['windowsRestriction'];
         }
     }
 }

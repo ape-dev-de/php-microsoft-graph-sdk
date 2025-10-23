@@ -32,7 +32,7 @@ class SecurityCvssSummary
             $this->score = $data['score'];
         }
         if (isset($data['severity'])) {
-            $this->severity = $data['severity'];
+            $this->severity = is_array($data['severity']) ? new SecurityVulnerabilitySeverity($data['severity']) : $data['severity'];
         }
         if (isset($data['vectorString'])) {
             $this->vectorString = $data['vectorString'];

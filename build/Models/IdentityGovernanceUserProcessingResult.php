@@ -65,7 +65,7 @@ class IdentityGovernanceUserProcessingResult
             $this->failedTasksCount = $data['failedTasksCount'];
         }
         if (isset($data['processingStatus'])) {
-            $this->processingStatus = $data['processingStatus'];
+            $this->processingStatus = is_array($data['processingStatus']) ? new IdentityGovernanceLifecycleWorkflowProcessingStatus($data['processingStatus']) : $data['processingStatus'];
         }
         if (isset($data['scheduledDateTime'])) {
             $this->scheduledDateTime = is_string($data['scheduledDateTime']) ? new \DateTimeImmutable($data['scheduledDateTime']) : $data['scheduledDateTime'];
@@ -80,13 +80,13 @@ class IdentityGovernanceUserProcessingResult
             $this->totalUnprocessedTasksCount = $data['totalUnprocessedTasksCount'];
         }
         if (isset($data['workflowExecutionType'])) {
-            $this->workflowExecutionType = $data['workflowExecutionType'];
+            $this->workflowExecutionType = is_array($data['workflowExecutionType']) ? new IdentityGovernanceWorkflowExecutionType($data['workflowExecutionType']) : $data['workflowExecutionType'];
         }
         if (isset($data['workflowVersion'])) {
             $this->workflowVersion = $data['workflowVersion'];
         }
         if (isset($data['subject'])) {
-            $this->subject = $data['subject'];
+            $this->subject = is_array($data['subject']) ? new User($data['subject']) : $data['subject'];
         }
         if (isset($data['taskProcessingResults'])) {
             $this->taskProcessingResults = $data['taskProcessingResults'];

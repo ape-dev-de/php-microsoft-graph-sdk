@@ -59,22 +59,22 @@ class SharedInsight
             $this->id = $data['id'];
         }
         if (isset($data['lastShared'])) {
-            $this->lastShared = $data['lastShared'];
+            $this->lastShared = is_array($data['lastShared']) ? new SharingDetail($data['lastShared']) : $data['lastShared'];
         }
         if (isset($data['resourceReference'])) {
-            $this->resourceReference = $data['resourceReference'];
+            $this->resourceReference = is_array($data['resourceReference']) ? new ResourceReference($data['resourceReference']) : $data['resourceReference'];
         }
         if (isset($data['resourceVisualization'])) {
-            $this->resourceVisualization = $data['resourceVisualization'];
+            $this->resourceVisualization = is_array($data['resourceVisualization']) ? new ResourceVisualization($data['resourceVisualization']) : $data['resourceVisualization'];
         }
         if (isset($data['sharingHistory'])) {
             $this->sharingHistory = $data['sharingHistory'];
         }
         if (isset($data['lastSharedMethod'])) {
-            $this->lastSharedMethod = $data['lastSharedMethod'];
+            $this->lastSharedMethod = is_array($data['lastSharedMethod']) ? new Entity($data['lastSharedMethod']) : $data['lastSharedMethod'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new Entity($data['resource']) : $data['resource'];
         }
     }
 }

@@ -95,7 +95,7 @@ class SecurityKubernetesServiceEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -107,31 +107,31 @@ class SecurityKubernetesServiceEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['clusterIP'])) {
-            $this->clusterIP = $data['clusterIP'];
+            $this->clusterIP = is_array($data['clusterIP']) ? new SecurityIpEvidence($data['clusterIP']) : $data['clusterIP'];
         }
         if (isset($data['externalIPs'])) {
             $this->externalIPs = $data['externalIPs'];
         }
         if (isset($data['labels'])) {
-            $this->labels = $data['labels'];
+            $this->labels = is_array($data['labels']) ? new SecurityDictionary($data['labels']) : $data['labels'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['namespace'])) {
-            $this->namespace = $data['namespace'];
+            $this->namespace = is_array($data['namespace']) ? new SecurityKubernetesNamespaceEvidence($data['namespace']) : $data['namespace'];
         }
         if (isset($data['selector'])) {
-            $this->selector = $data['selector'];
+            $this->selector = is_array($data['selector']) ? new SecurityDictionary($data['selector']) : $data['selector'];
         }
         if (isset($data['servicePorts'])) {
             $this->servicePorts = $data['servicePorts'];
         }
         if (isset($data['serviceType'])) {
-            $this->serviceType = $data['serviceType'];
+            $this->serviceType = is_array($data['serviceType']) ? new SecurityKubernetesServiceType($data['serviceType']) : $data['serviceType'];
         }
     }
 }

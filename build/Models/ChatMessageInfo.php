@@ -50,22 +50,22 @@ class ChatMessageInfo
             $this->id = $data['id'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['eventDetail'])) {
-            $this->eventDetail = $data['eventDetail'];
+            $this->eventDetail = is_array($data['eventDetail']) ? new EventMessageDetail($data['eventDetail']) : $data['eventDetail'];
         }
         if (isset($data['from'])) {
-            $this->from = $data['from'];
+            $this->from = is_array($data['from']) ? new ChatMessageFromIdentitySet($data['from']) : $data['from'];
         }
         if (isset($data['isDeleted'])) {
             $this->isDeleted = $data['isDeleted'];
         }
         if (isset($data['messageType'])) {
-            $this->messageType = $data['messageType'];
+            $this->messageType = is_array($data['messageType']) ? new ChatMessageType($data['messageType']) : $data['messageType'];
         }
     }
 }

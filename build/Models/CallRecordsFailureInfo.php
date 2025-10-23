@@ -26,7 +26,7 @@ class CallRecordsFailureInfo
             $this->reason = $data['reason'];
         }
         if (isset($data['stage'])) {
-            $this->stage = $data['stage'];
+            $this->stage = is_array($data['stage']) ? new CallRecordsFailureStage($data['stage']) : $data['stage'];
         }
     }
 }

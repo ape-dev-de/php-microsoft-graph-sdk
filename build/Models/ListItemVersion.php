@@ -44,16 +44,16 @@ class ListItemVersion
             $this->id = $data['id'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['publication'])) {
-            $this->publication = $data['publication'];
+            $this->publication = is_array($data['publication']) ? new PublicationFacet($data['publication']) : $data['publication'];
         }
         if (isset($data['fields'])) {
-            $this->fields = $data['fields'];
+            $this->fields = is_array($data['fields']) ? new FieldValueSet($data['fields']) : $data['fields'];
         }
     }
 }

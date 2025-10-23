@@ -47,7 +47,7 @@ class ODataErrorsMainError
             $this->details = $data['details'];
         }
         if (isset($data['innerError'])) {
-            $this->innerError = $data['innerError'];
+            $this->innerError = is_array($data['innerError']) ? new ODataErrorsInnerError($data['innerError']) : $data['innerError'];
         }
     }
 }

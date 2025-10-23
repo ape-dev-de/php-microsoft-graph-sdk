@@ -32,7 +32,7 @@ class ContentActivity
             $this->id = $data['id'];
         }
         if (isset($data['contentMetadata'])) {
-            $this->contentMetadata = $data['contentMetadata'];
+            $this->contentMetadata = is_array($data['contentMetadata']) ? new ProcessContentRequest($data['contentMetadata']) : $data['contentMetadata'];
         }
         if (isset($data['scopeIdentifier'])) {
             $this->scopeIdentifier = $data['scopeIdentifier'];

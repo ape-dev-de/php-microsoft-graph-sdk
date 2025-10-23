@@ -35,13 +35,13 @@ class AuthenticationMethodFeatureConfiguration
     public function __construct(array $data = [])
     {
         if (isset($data['excludeTarget'])) {
-            $this->excludeTarget = $data['excludeTarget'];
+            $this->excludeTarget = is_array($data['excludeTarget']) ? new FeatureTarget($data['excludeTarget']) : $data['excludeTarget'];
         }
         if (isset($data['includeTarget'])) {
-            $this->includeTarget = $data['includeTarget'];
+            $this->includeTarget = is_array($data['includeTarget']) ? new FeatureTarget($data['includeTarget']) : $data['includeTarget'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new AdvancedConfigState($data['state']) : $data['state'];
         }
     }
 }

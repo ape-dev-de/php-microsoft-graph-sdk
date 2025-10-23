@@ -77,7 +77,7 @@ class AuditEvent
             $this->activityType = $data['activityType'];
         }
         if (isset($data['actor'])) {
-            $this->actor = $data['actor'];
+            $this->actor = is_array($data['actor']) ? new AuditActor($data['actor']) : $data['actor'];
         }
         if (isset($data['category'])) {
             $this->category = $data['category'];

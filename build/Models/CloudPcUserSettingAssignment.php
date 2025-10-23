@@ -35,7 +35,7 @@ class CloudPcUserSettingAssignment
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new CloudPcManagementAssignmentTarget($data['target']) : $data['target'];
         }
     }
 }

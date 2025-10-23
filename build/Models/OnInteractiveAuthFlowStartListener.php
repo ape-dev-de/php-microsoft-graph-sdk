@@ -41,10 +41,10 @@ class OnInteractiveAuthFlowStartListener
             $this->authenticationEventsFlowId = $data['authenticationEventsFlowId'];
         }
         if (isset($data['conditions'])) {
-            $this->conditions = $data['conditions'];
+            $this->conditions = is_array($data['conditions']) ? new AuthenticationConditions($data['conditions']) : $data['conditions'];
         }
         if (isset($data['handler'])) {
-            $this->handler = $data['handler'];
+            $this->handler = is_array($data['handler']) ? new OnInteractiveAuthFlowStartHandler($data['handler']) : $data['handler'];
         }
     }
 }

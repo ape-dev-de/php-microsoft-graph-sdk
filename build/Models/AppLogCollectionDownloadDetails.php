@@ -26,7 +26,7 @@ class AppLogCollectionDownloadDetails
     public function __construct(array $data = [])
     {
         if (isset($data['appLogDecryptionAlgorithm'])) {
-            $this->appLogDecryptionAlgorithm = $data['appLogDecryptionAlgorithm'];
+            $this->appLogDecryptionAlgorithm = is_array($data['appLogDecryptionAlgorithm']) ? new AppLogDecryptionAlgorithm($data['appLogDecryptionAlgorithm']) : $data['appLogDecryptionAlgorithm'];
         }
         if (isset($data['decryptionKey'])) {
             $this->decryptionKey = $data['decryptionKey'];

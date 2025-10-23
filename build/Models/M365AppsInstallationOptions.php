@@ -32,13 +32,13 @@ class M365AppsInstallationOptions
             $this->id = $data['id'];
         }
         if (isset($data['appsForMac'])) {
-            $this->appsForMac = $data['appsForMac'];
+            $this->appsForMac = is_array($data['appsForMac']) ? new AppsInstallationOptionsForMac($data['appsForMac']) : $data['appsForMac'];
         }
         if (isset($data['appsForWindows'])) {
-            $this->appsForWindows = $data['appsForWindows'];
+            $this->appsForWindows = is_array($data['appsForWindows']) ? new AppsInstallationOptionsForWindows($data['appsForWindows']) : $data['appsForWindows'];
         }
         if (isset($data['updateChannel'])) {
-            $this->updateChannel = $data['updateChannel'];
+            $this->updateChannel = is_array($data['updateChannel']) ? new AppsUpdateChannelType($data['updateChannel']) : $data['updateChannel'];
         }
     }
 }

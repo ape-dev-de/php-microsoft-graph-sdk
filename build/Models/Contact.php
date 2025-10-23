@@ -203,7 +203,7 @@ class Contact
             $this->birthday = is_string($data['birthday']) ? new \DateTimeImmutable($data['birthday']) : $data['birthday'];
         }
         if (isset($data['businessAddress'])) {
-            $this->businessAddress = $data['businessAddress'];
+            $this->businessAddress = is_array($data['businessAddress']) ? new PhysicalAddress($data['businessAddress']) : $data['businessAddress'];
         }
         if (isset($data['businessHomePage'])) {
             $this->businessHomePage = $data['businessHomePage'];
@@ -236,7 +236,7 @@ class Contact
             $this->givenName = $data['givenName'];
         }
         if (isset($data['homeAddress'])) {
-            $this->homeAddress = $data['homeAddress'];
+            $this->homeAddress = is_array($data['homeAddress']) ? new PhysicalAddress($data['homeAddress']) : $data['homeAddress'];
         }
         if (isset($data['homePhones'])) {
             $this->homePhones = $data['homePhones'];
@@ -266,7 +266,7 @@ class Contact
             $this->officeLocation = $data['officeLocation'];
         }
         if (isset($data['otherAddress'])) {
-            $this->otherAddress = $data['otherAddress'];
+            $this->otherAddress = is_array($data['otherAddress']) ? new PhysicalAddress($data['otherAddress']) : $data['otherAddress'];
         }
         if (isset($data['parentFolderId'])) {
             $this->parentFolderId = $data['parentFolderId'];
@@ -302,7 +302,7 @@ class Contact
             $this->multiValueExtendedProperties = $data['multiValueExtendedProperties'];
         }
         if (isset($data['photo'])) {
-            $this->photo = $data['photo'];
+            $this->photo = is_array($data['photo']) ? new ProfilePhoto($data['photo']) : $data['photo'];
         }
         if (isset($data['singleValueExtendedProperties'])) {
             $this->singleValueExtendedProperties = $data['singleValueExtendedProperties'];

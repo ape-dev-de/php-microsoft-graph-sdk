@@ -71,7 +71,7 @@ class CallTranscript
             $this->meetingId = $data['meetingId'];
         }
         if (isset($data['meetingOrganizer'])) {
-            $this->meetingOrganizer = $data['meetingOrganizer'];
+            $this->meetingOrganizer = is_array($data['meetingOrganizer']) ? new IdentitySet($data['meetingOrganizer']) : $data['meetingOrganizer'];
         }
         if (isset($data['metadataContent'])) {
             $this->metadataContent = $data['metadataContent'];

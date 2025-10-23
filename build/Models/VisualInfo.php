@@ -35,7 +35,7 @@ class VisualInfo
     public function __construct(array $data = [])
     {
         if (isset($data['attribution'])) {
-            $this->attribution = $data['attribution'];
+            $this->attribution = is_array($data['attribution']) ? new ImageInfo($data['attribution']) : $data['attribution'];
         }
         if (isset($data['backgroundColor'])) {
             $this->backgroundColor = $data['backgroundColor'];

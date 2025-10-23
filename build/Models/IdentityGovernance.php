@@ -53,22 +53,22 @@ class IdentityGovernance
     public function __construct(array $data = [])
     {
         if (isset($data['accessReviews'])) {
-            $this->accessReviews = $data['accessReviews'];
+            $this->accessReviews = is_array($data['accessReviews']) ? new AccessReviewSet($data['accessReviews']) : $data['accessReviews'];
         }
         if (isset($data['appConsent'])) {
-            $this->appConsent = $data['appConsent'];
+            $this->appConsent = is_array($data['appConsent']) ? new AppConsentApprovalRoute($data['appConsent']) : $data['appConsent'];
         }
         if (isset($data['entitlementManagement'])) {
-            $this->entitlementManagement = $data['entitlementManagement'];
+            $this->entitlementManagement = is_array($data['entitlementManagement']) ? new EntitlementManagement($data['entitlementManagement']) : $data['entitlementManagement'];
         }
         if (isset($data['lifecycleWorkflows'])) {
-            $this->lifecycleWorkflows = $data['lifecycleWorkflows'];
+            $this->lifecycleWorkflows = is_array($data['lifecycleWorkflows']) ? new IdentityGovernanceLifecycleWorkflowsContainer($data['lifecycleWorkflows']) : $data['lifecycleWorkflows'];
         }
         if (isset($data['privilegedAccess'])) {
-            $this->privilegedAccess = $data['privilegedAccess'];
+            $this->privilegedAccess = is_array($data['privilegedAccess']) ? new PrivilegedAccessRoot($data['privilegedAccess']) : $data['privilegedAccess'];
         }
         if (isset($data['termsOfUse'])) {
-            $this->termsOfUse = $data['termsOfUse'];
+            $this->termsOfUse = is_array($data['termsOfUse']) ? new TermsOfUseContainer($data['termsOfUse']) : $data['termsOfUse'];
         }
     }
 }

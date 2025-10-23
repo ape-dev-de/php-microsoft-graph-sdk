@@ -35,7 +35,7 @@ class EducationAssignmentResource
             $this->distributeForStudentWork = $data['distributeForStudentWork'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new EducationResource($data['resource']) : $data['resource'];
         }
     }
 }

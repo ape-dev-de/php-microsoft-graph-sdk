@@ -71,7 +71,7 @@ class IdentityGovernanceTaskReport
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['processingStatus'])) {
-            $this->processingStatus = $data['processingStatus'];
+            $this->processingStatus = is_array($data['processingStatus']) ? new IdentityGovernanceLifecycleWorkflowProcessingStatus($data['processingStatus']) : $data['processingStatus'];
         }
         if (isset($data['runId'])) {
             $this->runId = $data['runId'];
@@ -89,10 +89,10 @@ class IdentityGovernanceTaskReport
             $this->unprocessedUsersCount = $data['unprocessedUsersCount'];
         }
         if (isset($data['task'])) {
-            $this->task = $data['task'];
+            $this->task = is_array($data['task']) ? new IdentityGovernanceTask($data['task']) : $data['task'];
         }
         if (isset($data['taskDefinition'])) {
-            $this->taskDefinition = $data['taskDefinition'];
+            $this->taskDefinition = is_array($data['taskDefinition']) ? new IdentityGovernanceTaskDefinition($data['taskDefinition']) : $data['taskDefinition'];
         }
         if (isset($data['taskProcessingResults'])) {
             $this->taskProcessingResults = $data['taskProcessingResults'];

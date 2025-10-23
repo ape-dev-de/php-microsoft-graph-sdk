@@ -29,7 +29,7 @@ class PinnedChatMessageInfo
             $this->id = $data['id'];
         }
         if (isset($data['message'])) {
-            $this->message = $data['message'];
+            $this->message = is_array($data['message']) ? new ChatMessage($data['message']) : $data['message'];
         }
     }
 }

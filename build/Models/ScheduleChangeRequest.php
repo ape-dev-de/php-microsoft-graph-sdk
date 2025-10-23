@@ -71,19 +71,19 @@ class ScheduleChangeRequest
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['assignedTo'])) {
-            $this->assignedTo = $data['assignedTo'];
+            $this->assignedTo = is_array($data['assignedTo']) ? new ScheduleChangeRequestActor($data['assignedTo']) : $data['assignedTo'];
         }
         if (isset($data['managerActionDateTime'])) {
             $this->managerActionDateTime = is_string($data['managerActionDateTime']) ? new \DateTimeImmutable($data['managerActionDateTime']) : $data['managerActionDateTime'];
@@ -104,7 +104,7 @@ class ScheduleChangeRequest
             $this->senderUserId = $data['senderUserId'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new ScheduleChangeState($data['state']) : $data['state'];
         }
     }
 }

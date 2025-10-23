@@ -47,19 +47,19 @@ class TrainingNotificationSetting
     public function __construct(array $data = [])
     {
         if (isset($data['notificationPreference'])) {
-            $this->notificationPreference = $data['notificationPreference'];
+            $this->notificationPreference = is_array($data['notificationPreference']) ? new EndUserNotificationPreference($data['notificationPreference']) : $data['notificationPreference'];
         }
         if (isset($data['positiveReinforcement'])) {
-            $this->positiveReinforcement = $data['positiveReinforcement'];
+            $this->positiveReinforcement = is_array($data['positiveReinforcement']) ? new PositiveReinforcementNotification($data['positiveReinforcement']) : $data['positiveReinforcement'];
         }
         if (isset($data['settingType'])) {
-            $this->settingType = $data['settingType'];
+            $this->settingType = is_array($data['settingType']) ? new EndUserNotificationSettingType($data['settingType']) : $data['settingType'];
         }
         if (isset($data['trainingAssignment'])) {
-            $this->trainingAssignment = $data['trainingAssignment'];
+            $this->trainingAssignment = is_array($data['trainingAssignment']) ? new BaseEndUserNotification($data['trainingAssignment']) : $data['trainingAssignment'];
         }
         if (isset($data['trainingReminder'])) {
-            $this->trainingReminder = $data['trainingReminder'];
+            $this->trainingReminder = is_array($data['trainingReminder']) ? new TrainingReminderNotification($data['trainingReminder']) : $data['trainingReminder'];
         }
     }
 }

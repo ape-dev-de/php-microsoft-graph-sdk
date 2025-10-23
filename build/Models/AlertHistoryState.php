@@ -56,10 +56,10 @@ class AlertHistoryState
             $this->comments = $data['comments'];
         }
         if (isset($data['feedback'])) {
-            $this->feedback = $data['feedback'];
+            $this->feedback = is_array($data['feedback']) ? new AlertFeedback($data['feedback']) : $data['feedback'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new AlertStatus($data['status']) : $data['status'];
         }
         if (isset($data['updatedDateTime'])) {
             $this->updatedDateTime = is_string($data['updatedDateTime']) ? new \DateTimeImmutable($data['updatedDateTime']) : $data['updatedDateTime'];

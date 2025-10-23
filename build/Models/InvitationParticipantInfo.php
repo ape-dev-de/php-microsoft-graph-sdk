@@ -35,7 +35,7 @@ class InvitationParticipantInfo
             $this->hidden = $data['hidden'];
         }
         if (isset($data['identity'])) {
-            $this->identity = $data['identity'];
+            $this->identity = is_array($data['identity']) ? new IdentitySet($data['identity']) : $data['identity'];
         }
         if (isset($data['participantId'])) {
             $this->participantId = $data['participantId'];

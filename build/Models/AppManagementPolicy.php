@@ -59,7 +59,7 @@ class AppManagementPolicy
             $this->isEnabled = $data['isEnabled'];
         }
         if (isset($data['restrictions'])) {
-            $this->restrictions = $data['restrictions'];
+            $this->restrictions = is_array($data['restrictions']) ? new CustomAppManagementConfiguration($data['restrictions']) : $data['restrictions'];
         }
         if (isset($data['appliesTo'])) {
             $this->appliesTo = $data['appliesTo'];

@@ -149,13 +149,13 @@ class TargetedManagedAppProtection
             $this->allowedDataStorageLocations = $data['allowedDataStorageLocations'];
         }
         if (isset($data['allowedInboundDataTransferSources'])) {
-            $this->allowedInboundDataTransferSources = $data['allowedInboundDataTransferSources'];
+            $this->allowedInboundDataTransferSources = is_array($data['allowedInboundDataTransferSources']) ? new ManagedAppDataTransferLevel($data['allowedInboundDataTransferSources']) : $data['allowedInboundDataTransferSources'];
         }
         if (isset($data['allowedOutboundClipboardSharingLevel'])) {
-            $this->allowedOutboundClipboardSharingLevel = $data['allowedOutboundClipboardSharingLevel'];
+            $this->allowedOutboundClipboardSharingLevel = is_array($data['allowedOutboundClipboardSharingLevel']) ? new ManagedAppClipboardSharingLevel($data['allowedOutboundClipboardSharingLevel']) : $data['allowedOutboundClipboardSharingLevel'];
         }
         if (isset($data['allowedOutboundDataTransferDestinations'])) {
-            $this->allowedOutboundDataTransferDestinations = $data['allowedOutboundDataTransferDestinations'];
+            $this->allowedOutboundDataTransferDestinations = is_array($data['allowedOutboundDataTransferDestinations']) ? new ManagedAppDataTransferLevel($data['allowedOutboundDataTransferDestinations']) : $data['allowedOutboundDataTransferDestinations'];
         }
         if (isset($data['contactSyncBlocked'])) {
             $this->contactSyncBlocked = $data['contactSyncBlocked'];
@@ -173,7 +173,7 @@ class TargetedManagedAppProtection
             $this->fingerprintBlocked = $data['fingerprintBlocked'];
         }
         if (isset($data['managedBrowser'])) {
-            $this->managedBrowser = $data['managedBrowser'];
+            $this->managedBrowser = is_array($data['managedBrowser']) ? new ManagedBrowserType($data['managedBrowser']) : $data['managedBrowser'];
         }
         if (isset($data['managedBrowserToOpenLinksRequired'])) {
             $this->managedBrowserToOpenLinksRequired = $data['managedBrowserToOpenLinksRequired'];
@@ -212,7 +212,7 @@ class TargetedManagedAppProtection
             $this->periodOnlineBeforeAccessCheck = $data['periodOnlineBeforeAccessCheck'];
         }
         if (isset($data['pinCharacterSet'])) {
-            $this->pinCharacterSet = $data['pinCharacterSet'];
+            $this->pinCharacterSet = is_array($data['pinCharacterSet']) ? new ManagedAppPinCharacterSet($data['pinCharacterSet']) : $data['pinCharacterSet'];
         }
         if (isset($data['pinRequired'])) {
             $this->pinRequired = $data['pinRequired'];

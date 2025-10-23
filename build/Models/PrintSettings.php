@@ -29,7 +29,7 @@ class PrintSettings
             $this->documentConversionEnabled = $data['documentConversionEnabled'];
         }
         if (isset($data['printerDiscoverySettings'])) {
-            $this->printerDiscoverySettings = $data['printerDiscoverySettings'];
+            $this->printerDiscoverySettings = is_array($data['printerDiscoverySettings']) ? new PrinterDiscoverySettings($data['printerDiscoverySettings']) : $data['printerDiscoverySettings'];
         }
     }
 }

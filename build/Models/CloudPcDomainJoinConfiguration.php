@@ -35,13 +35,13 @@ class CloudPcDomainJoinConfiguration
     public function __construct(array $data = [])
     {
         if (isset($data['domainJoinType'])) {
-            $this->domainJoinType = $data['domainJoinType'];
+            $this->domainJoinType = is_array($data['domainJoinType']) ? new CloudPcDomainJoinType($data['domainJoinType']) : $data['domainJoinType'];
         }
         if (isset($data['onPremisesConnectionId'])) {
             $this->onPremisesConnectionId = $data['onPremisesConnectionId'];
         }
         if (isset($data['regionGroup'])) {
-            $this->regionGroup = $data['regionGroup'];
+            $this->regionGroup = is_array($data['regionGroup']) ? new CloudPcRegionGroup($data['regionGroup']) : $data['regionGroup'];
         }
         if (isset($data['regionName'])) {
             $this->regionName = $data['regionName'];

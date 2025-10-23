@@ -35,7 +35,7 @@ class SharingInvitation
             $this->email = $data['email'];
         }
         if (isset($data['invitedBy'])) {
-            $this->invitedBy = $data['invitedBy'];
+            $this->invitedBy = is_array($data['invitedBy']) ? new IdentitySet($data['invitedBy']) : $data['invitedBy'];
         }
         if (isset($data['redeemedBy'])) {
             $this->redeemedBy = $data['redeemedBy'];

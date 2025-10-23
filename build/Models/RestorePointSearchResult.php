@@ -29,7 +29,7 @@ class RestorePointSearchResult
             $this->artifactHitCount = $data['artifactHitCount'];
         }
         if (isset($data['restorePoint'])) {
-            $this->restorePoint = $data['restorePoint'];
+            $this->restorePoint = is_array($data['restorePoint']) ? new RestorePoint($data['restorePoint']) : $data['restorePoint'];
         }
     }
 }

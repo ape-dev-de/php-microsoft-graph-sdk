@@ -29,7 +29,7 @@ class SimulationReport
     public function __construct(array $data = [])
     {
         if (isset($data['overview'])) {
-            $this->overview = $data['overview'];
+            $this->overview = is_array($data['overview']) ? new SimulationReportOverview($data['overview']) : $data['overview'];
         }
         if (isset($data['simulationUsers'])) {
             $this->simulationUsers = $data['simulationUsers'];

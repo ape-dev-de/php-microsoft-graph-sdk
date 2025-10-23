@@ -98,7 +98,7 @@ class MobileThreatDefenseConnector
             $this->microsoftDefenderForEndpointAttachEnabled = $data['microsoftDefenderForEndpointAttachEnabled'];
         }
         if (isset($data['partnerState'])) {
-            $this->partnerState = $data['partnerState'];
+            $this->partnerState = is_array($data['partnerState']) ? new MobileThreatPartnerTenantState($data['partnerState']) : $data['partnerState'];
         }
         if (isset($data['partnerUnresponsivenessThresholdInDays'])) {
             $this->partnerUnresponsivenessThresholdInDays = $data['partnerUnresponsivenessThresholdInDays'];

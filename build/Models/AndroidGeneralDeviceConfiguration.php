@@ -257,13 +257,13 @@ class AndroidGeneralDeviceConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['appsBlockClipboardSharing'])) {
             $this->appsBlockClipboardSharing = $data['appsBlockClipboardSharing'];
@@ -302,7 +302,7 @@ class AndroidGeneralDeviceConfiguration
             $this->cellularBlockWiFiTethering = $data['cellularBlockWiFiTethering'];
         }
         if (isset($data['compliantAppListType'])) {
-            $this->compliantAppListType = $data['compliantAppListType'];
+            $this->compliantAppListType = is_array($data['compliantAppListType']) ? new AppListType($data['compliantAppListType']) : $data['compliantAppListType'];
         }
         if (isset($data['compliantAppsList'])) {
             $this->compliantAppsList = $data['compliantAppsList'];
@@ -359,7 +359,7 @@ class AndroidGeneralDeviceConfiguration
             $this->passwordRequired = $data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new AndroidRequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
             $this->passwordSignInFailureCountBeforeFactoryReset = $data['passwordSignInFailureCountBeforeFactoryReset'];
@@ -404,7 +404,7 @@ class AndroidGeneralDeviceConfiguration
             $this->webBrowserBlockPopups = $data['webBrowserBlockPopups'];
         }
         if (isset($data['webBrowserCookieSettings'])) {
-            $this->webBrowserCookieSettings = $data['webBrowserCookieSettings'];
+            $this->webBrowserCookieSettings = is_array($data['webBrowserCookieSettings']) ? new WebBrowserCookieSettings($data['webBrowserCookieSettings']) : $data['webBrowserCookieSettings'];
         }
         if (isset($data['wiFiBlocked'])) {
             $this->wiFiBlocked = $data['wiFiBlocked'];

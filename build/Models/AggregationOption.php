@@ -26,7 +26,7 @@ class AggregationOption
     public function __construct(array $data = [])
     {
         if (isset($data['bucketDefinition'])) {
-            $this->bucketDefinition = $data['bucketDefinition'];
+            $this->bucketDefinition = is_array($data['bucketDefinition']) ? new BucketAggregationDefinition($data['bucketDefinition']) : $data['bucketDefinition'];
         }
         if (isset($data['field'])) {
             $this->field = $data['field'];

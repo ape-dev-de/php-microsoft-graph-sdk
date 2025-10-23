@@ -53,7 +53,7 @@ class AgreementFileVersion
             $this->displayName = $data['displayName'];
         }
         if (isset($data['fileData'])) {
-            $this->fileData = $data['fileData'];
+            $this->fileData = is_array($data['fileData']) ? new AgreementFileData($data['fileData']) : $data['fileData'];
         }
         if (isset($data['fileName'])) {
             $this->fileName = $data['fileName'];

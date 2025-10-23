@@ -95,7 +95,7 @@ class AccessPackage
             $this->assignmentPolicies = $data['assignmentPolicies'];
         }
         if (isset($data['catalog'])) {
-            $this->catalog = $data['catalog'];
+            $this->catalog = is_array($data['catalog']) ? new AccessPackageCatalog($data['catalog']) : $data['catalog'];
         }
         if (isset($data['incompatibleAccessPackages'])) {
             $this->incompatibleAccessPackages = $data['incompatibleAccessPackages'];

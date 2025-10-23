@@ -131,7 +131,7 @@ class Domain
             $this->passwordValidityPeriodInDays = $data['passwordValidityPeriodInDays'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new DomainState($data['state']) : $data['state'];
         }
         if (isset($data['supportedServices'])) {
             $this->supportedServices = $data['supportedServices'];
@@ -143,7 +143,7 @@ class Domain
             $this->federationConfiguration = $data['federationConfiguration'];
         }
         if (isset($data['rootDomain'])) {
-            $this->rootDomain = $data['rootDomain'];
+            $this->rootDomain = is_array($data['rootDomain']) ? new Domain($data['rootDomain']) : $data['rootDomain'];
         }
         if (isset($data['serviceConfigurationRecords'])) {
             $this->serviceConfigurationRecords = $data['serviceConfigurationRecords'];

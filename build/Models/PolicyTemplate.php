@@ -35,10 +35,10 @@ class PolicyTemplate
             $this->id = $data['id'];
         }
         if (isset($data['multiTenantOrganizationIdentitySynchronization'])) {
-            $this->multiTenantOrganizationIdentitySynchronization = $data['multiTenantOrganizationIdentitySynchronization'];
+            $this->multiTenantOrganizationIdentitySynchronization = is_array($data['multiTenantOrganizationIdentitySynchronization']) ? new MultiTenantOrganizationIdentitySyncPolicyTemplate($data['multiTenantOrganizationIdentitySynchronization']) : $data['multiTenantOrganizationIdentitySynchronization'];
         }
         if (isset($data['multiTenantOrganizationPartnerConfiguration'])) {
-            $this->multiTenantOrganizationPartnerConfiguration = $data['multiTenantOrganizationPartnerConfiguration'];
+            $this->multiTenantOrganizationPartnerConfiguration = is_array($data['multiTenantOrganizationPartnerConfiguration']) ? new MultiTenantOrganizationPartnerConfigurationTemplate($data['multiTenantOrganizationPartnerConfiguration']) : $data['multiTenantOrganizationPartnerConfiguration'];
         }
     }
 }

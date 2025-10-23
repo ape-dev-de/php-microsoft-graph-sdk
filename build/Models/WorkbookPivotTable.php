@@ -35,7 +35,7 @@ class WorkbookPivotTable
             $this->name = $data['name'];
         }
         if (isset($data['worksheet'])) {
-            $this->worksheet = $data['worksheet'];
+            $this->worksheet = is_array($data['worksheet']) ? new WorkbookWorksheet($data['worksheet']) : $data['worksheet'];
         }
     }
 }

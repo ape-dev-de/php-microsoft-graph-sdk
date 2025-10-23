@@ -122,13 +122,13 @@ class BookingService
             $this->defaultDuration = $data['defaultDuration'];
         }
         if (isset($data['defaultLocation'])) {
-            $this->defaultLocation = $data['defaultLocation'];
+            $this->defaultLocation = is_array($data['defaultLocation']) ? new Location($data['defaultLocation']) : $data['defaultLocation'];
         }
         if (isset($data['defaultPrice'])) {
             $this->defaultPrice = $data['defaultPrice'];
         }
         if (isset($data['defaultPriceType'])) {
-            $this->defaultPriceType = $data['defaultPriceType'];
+            $this->defaultPriceType = is_array($data['defaultPriceType']) ? new BookingPriceType($data['defaultPriceType']) : $data['defaultPriceType'];
         }
         if (isset($data['defaultReminders'])) {
             $this->defaultReminders = $data['defaultReminders'];
@@ -170,7 +170,7 @@ class BookingService
             $this->preBuffer = $data['preBuffer'];
         }
         if (isset($data['schedulingPolicy'])) {
-            $this->schedulingPolicy = $data['schedulingPolicy'];
+            $this->schedulingPolicy = is_array($data['schedulingPolicy']) ? new BookingSchedulingPolicy($data['schedulingPolicy']) : $data['schedulingPolicy'];
         }
         if (isset($data['smsNotificationsEnabled'])) {
             $this->smsNotificationsEnabled = $data['smsNotificationsEnabled'];

@@ -32,10 +32,10 @@ class OnPremisesDirectorySynchronization
             $this->id = $data['id'];
         }
         if (isset($data['configuration'])) {
-            $this->configuration = $data['configuration'];
+            $this->configuration = is_array($data['configuration']) ? new OnPremisesDirectorySynchronizationConfiguration($data['configuration']) : $data['configuration'];
         }
         if (isset($data['features'])) {
-            $this->features = $data['features'];
+            $this->features = is_array($data['features']) ? new OnPremisesDirectorySynchronizationFeature($data['features']) : $data['features'];
         }
     }
 }

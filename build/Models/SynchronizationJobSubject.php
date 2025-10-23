@@ -29,7 +29,7 @@ class SynchronizationJobSubject
     public function __construct(array $data = [])
     {
         if (isset($data['links'])) {
-            $this->links = $data['links'];
+            $this->links = is_array($data['links']) ? new SynchronizationLinkedObjects($data['links']) : $data['links'];
         }
         if (isset($data['objectId'])) {
             $this->objectId = $data['objectId'];

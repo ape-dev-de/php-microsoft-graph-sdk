@@ -56,7 +56,7 @@ class ApprovalStage
             $this->justification = $data['justification'];
         }
         if (isset($data['reviewedBy'])) {
-            $this->reviewedBy = $data['reviewedBy'];
+            $this->reviewedBy = is_array($data['reviewedBy']) ? new Identity($data['reviewedBy']) : $data['reviewedBy'];
         }
         if (isset($data['reviewedDateTime'])) {
             $this->reviewedDateTime = is_string($data['reviewedDateTime']) ? new \DateTimeImmutable($data['reviewedDateTime']) : $data['reviewedDateTime'];

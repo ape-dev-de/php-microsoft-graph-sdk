@@ -32,7 +32,7 @@ class ChatMessageMention
             $this->id = $data['id'];
         }
         if (isset($data['mentioned'])) {
-            $this->mentioned = $data['mentioned'];
+            $this->mentioned = is_array($data['mentioned']) ? new ChatMessageMentionedIdentitySet($data['mentioned']) : $data['mentioned'];
         }
         if (isset($data['mentionText'])) {
             $this->mentionText = $data['mentionText'];

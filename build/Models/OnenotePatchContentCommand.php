@@ -32,13 +32,13 @@ class OnenotePatchContentCommand
     public function __construct(array $data = [])
     {
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new OnenotePatchActionType($data['action']) : $data['action'];
         }
         if (isset($data['content'])) {
             $this->content = $data['content'];
         }
         if (isset($data['position'])) {
-            $this->position = $data['position'];
+            $this->position = is_array($data['position']) ? new OnenotePatchInsertPosition($data['position']) : $data['position'];
         }
         if (isset($data['target'])) {
             $this->target = $data['target'];

@@ -26,7 +26,7 @@ class FileHash
     public function __construct(array $data = [])
     {
         if (isset($data['hashType'])) {
-            $this->hashType = $data['hashType'];
+            $this->hashType = is_array($data['hashType']) ? new FileHashType($data['hashType']) : $data['hashType'];
         }
         if (isset($data['hashValue'])) {
             $this->hashValue = $data['hashValue'];

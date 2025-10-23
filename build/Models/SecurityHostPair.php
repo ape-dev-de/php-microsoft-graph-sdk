@@ -47,10 +47,10 @@ class SecurityHostPair
             $this->linkKind = $data['linkKind'];
         }
         if (isset($data['childHost'])) {
-            $this->childHost = $data['childHost'];
+            $this->childHost = is_array($data['childHost']) ? new SecurityHost($data['childHost']) : $data['childHost'];
         }
         if (isset($data['parentHost'])) {
-            $this->parentHost = $data['parentHost'];
+            $this->parentHost = is_array($data['parentHost']) ? new SecurityHost($data['parentHost']) : $data['parentHost'];
         }
     }
 }

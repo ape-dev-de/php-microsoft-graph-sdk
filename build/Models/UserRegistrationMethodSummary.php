@@ -44,10 +44,10 @@ class UserRegistrationMethodSummary
             $this->userRegistrationMethodCounts = $data['userRegistrationMethodCounts'];
         }
         if (isset($data['userRoles'])) {
-            $this->userRoles = $data['userRoles'];
+            $this->userRoles = is_array($data['userRoles']) ? new IncludedUserRoles($data['userRoles']) : $data['userRoles'];
         }
         if (isset($data['userTypes'])) {
-            $this->userTypes = $data['userTypes'];
+            $this->userTypes = is_array($data['userTypes']) ? new IncludedUserTypes($data['userTypes']) : $data['userTypes'];
         }
     }
 }

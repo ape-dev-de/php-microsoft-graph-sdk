@@ -173,10 +173,10 @@ class MdmWindowsInformationProtectionPolicy
             $this->azureRightsManagementServicesAllowed = $data['azureRightsManagementServicesAllowed'];
         }
         if (isset($data['dataRecoveryCertificate'])) {
-            $this->dataRecoveryCertificate = $data['dataRecoveryCertificate'];
+            $this->dataRecoveryCertificate = is_array($data['dataRecoveryCertificate']) ? new WindowsInformationProtectionDataRecoveryCertificate($data['dataRecoveryCertificate']) : $data['dataRecoveryCertificate'];
         }
         if (isset($data['enforcementLevel'])) {
-            $this->enforcementLevel = $data['enforcementLevel'];
+            $this->enforcementLevel = is_array($data['enforcementLevel']) ? new WindowsInformationProtectionEnforcementLevel($data['enforcementLevel']) : $data['enforcementLevel'];
         }
         if (isset($data['enterpriseDomain'])) {
             $this->enterpriseDomain = $data['enterpriseDomain'];

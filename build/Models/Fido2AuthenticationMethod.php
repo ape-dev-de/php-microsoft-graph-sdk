@@ -53,7 +53,7 @@ class Fido2AuthenticationMethod
             $this->attestationCertificates = $data['attestationCertificates'];
         }
         if (isset($data['attestationLevel'])) {
-            $this->attestationLevel = $data['attestationLevel'];
+            $this->attestationLevel = is_array($data['attestationLevel']) ? new AttestationLevel($data['attestationLevel']) : $data['attestationLevel'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

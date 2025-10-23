@@ -38,7 +38,7 @@ class StandardTimeZoneOffset
             $this->dayOccurrence = $data['dayOccurrence'];
         }
         if (isset($data['dayOfWeek'])) {
-            $this->dayOfWeek = $data['dayOfWeek'];
+            $this->dayOfWeek = is_array($data['dayOfWeek']) ? new DayOfWeek($data['dayOfWeek']) : $data['dayOfWeek'];
         }
         if (isset($data['month'])) {
             $this->month = $data['month'];

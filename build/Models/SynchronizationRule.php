@@ -62,13 +62,13 @@ class SynchronizationRule
             $this->id = $data['id'];
         }
         if (isset($data['containerFilter'])) {
-            $this->containerFilter = $data['containerFilter'];
+            $this->containerFilter = is_array($data['containerFilter']) ? new ContainerFilter($data['containerFilter']) : $data['containerFilter'];
         }
         if (isset($data['editable'])) {
             $this->editable = $data['editable'];
         }
         if (isset($data['groupFilter'])) {
-            $this->groupFilter = $data['groupFilter'];
+            $this->groupFilter = is_array($data['groupFilter']) ? new GroupFilter($data['groupFilter']) : $data['groupFilter'];
         }
         if (isset($data['metadata'])) {
             $this->metadata = $data['metadata'];

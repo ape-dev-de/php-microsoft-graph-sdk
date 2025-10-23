@@ -29,10 +29,10 @@ class AttendeeAvailability
     public function __construct(array $data = [])
     {
         if (isset($data['attendee'])) {
-            $this->attendee = $data['attendee'];
+            $this->attendee = is_array($data['attendee']) ? new AttendeeBase($data['attendee']) : $data['attendee'];
         }
         if (isset($data['availability'])) {
-            $this->availability = $data['availability'];
+            $this->availability = is_array($data['availability']) ? new FreeBusyStatus($data['availability']) : $data['availability'];
         }
     }
 }

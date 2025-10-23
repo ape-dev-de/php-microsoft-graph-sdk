@@ -107,10 +107,10 @@ class AccessPackageAssignmentPolicy
             $this->id = $data['id'];
         }
         if (isset($data['allowedTargetScope'])) {
-            $this->allowedTargetScope = $data['allowedTargetScope'];
+            $this->allowedTargetScope = is_array($data['allowedTargetScope']) ? new AllowedTargetScope($data['allowedTargetScope']) : $data['allowedTargetScope'];
         }
         if (isset($data['automaticRequestSettings'])) {
-            $this->automaticRequestSettings = $data['automaticRequestSettings'];
+            $this->automaticRequestSettings = is_array($data['automaticRequestSettings']) ? new AccessPackageAutomaticRequestSettings($data['automaticRequestSettings']) : $data['automaticRequestSettings'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -122,31 +122,31 @@ class AccessPackageAssignmentPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['expiration'])) {
-            $this->expiration = $data['expiration'];
+            $this->expiration = is_array($data['expiration']) ? new ExpirationPattern($data['expiration']) : $data['expiration'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['notificationSettings'])) {
-            $this->notificationSettings = $data['notificationSettings'];
+            $this->notificationSettings = is_array($data['notificationSettings']) ? new AccessPackageNotificationSettings($data['notificationSettings']) : $data['notificationSettings'];
         }
         if (isset($data['requestApprovalSettings'])) {
-            $this->requestApprovalSettings = $data['requestApprovalSettings'];
+            $this->requestApprovalSettings = is_array($data['requestApprovalSettings']) ? new AccessPackageAssignmentApprovalSettings($data['requestApprovalSettings']) : $data['requestApprovalSettings'];
         }
         if (isset($data['requestorSettings'])) {
-            $this->requestorSettings = $data['requestorSettings'];
+            $this->requestorSettings = is_array($data['requestorSettings']) ? new AccessPackageAssignmentRequestorSettings($data['requestorSettings']) : $data['requestorSettings'];
         }
         if (isset($data['reviewSettings'])) {
-            $this->reviewSettings = $data['reviewSettings'];
+            $this->reviewSettings = is_array($data['reviewSettings']) ? new AccessPackageAssignmentReviewSettings($data['reviewSettings']) : $data['reviewSettings'];
         }
         if (isset($data['specificAllowedTargets'])) {
             $this->specificAllowedTargets = $data['specificAllowedTargets'];
         }
         if (isset($data['accessPackage'])) {
-            $this->accessPackage = $data['accessPackage'];
+            $this->accessPackage = is_array($data['accessPackage']) ? new AccessPackage($data['accessPackage']) : $data['accessPackage'];
         }
         if (isset($data['catalog'])) {
-            $this->catalog = $data['catalog'];
+            $this->catalog = is_array($data['catalog']) ? new AccessPackageCatalog($data['catalog']) : $data['catalog'];
         }
         if (isset($data['customExtensionStageSettings'])) {
             $this->customExtensionStageSettings = $data['customExtensionStageSettings'];

@@ -50,16 +50,16 @@ class ServiceStatus
     public function __construct(array $data = [])
     {
         if (isset($data['backupServiceConsumer'])) {
-            $this->backupServiceConsumer = $data['backupServiceConsumer'];
+            $this->backupServiceConsumer = is_array($data['backupServiceConsumer']) ? new BackupServiceConsumer($data['backupServiceConsumer']) : $data['backupServiceConsumer'];
         }
         if (isset($data['disableReason'])) {
-            $this->disableReason = $data['disableReason'];
+            $this->disableReason = is_array($data['disableReason']) ? new DisableReason($data['disableReason']) : $data['disableReason'];
         }
         if (isset($data['gracePeriodDateTime'])) {
             $this->gracePeriodDateTime = is_string($data['gracePeriodDateTime']) ? new \DateTimeImmutable($data['gracePeriodDateTime']) : $data['gracePeriodDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -68,7 +68,7 @@ class ServiceStatus
             $this->restoreAllowedTillDateTime = is_string($data['restoreAllowedTillDateTime']) ? new \DateTimeImmutable($data['restoreAllowedTillDateTime']) : $data['restoreAllowedTillDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new BackupServiceStatus($data['status']) : $data['status'];
         }
     }
 }

@@ -41,7 +41,7 @@ class ScoredEmailAddress
             $this->relevanceScore = $data['relevanceScore'];
         }
         if (isset($data['selectionLikelihood'])) {
-            $this->selectionLikelihood = $data['selectionLikelihood'];
+            $this->selectionLikelihood = is_array($data['selectionLikelihood']) ? new SelectionLikelihoodInfo($data['selectionLikelihood']) : $data['selectionLikelihood'];
         }
     }
 }

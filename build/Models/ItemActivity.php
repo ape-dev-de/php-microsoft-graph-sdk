@@ -44,16 +44,16 @@ class ItemActivity
             $this->id = $data['id'];
         }
         if (isset($data['access'])) {
-            $this->access = $data['access'];
+            $this->access = is_array($data['access']) ? new AccessAction($data['access']) : $data['access'];
         }
         if (isset($data['activityDateTime'])) {
             $this->activityDateTime = is_string($data['activityDateTime']) ? new \DateTimeImmutable($data['activityDateTime']) : $data['activityDateTime'];
         }
         if (isset($data['actor'])) {
-            $this->actor = $data['actor'];
+            $this->actor = is_array($data['actor']) ? new IdentitySet($data['actor']) : $data['actor'];
         }
         if (isset($data['driveItem'])) {
-            $this->driveItem = $data['driveItem'];
+            $this->driveItem = is_array($data['driveItem']) ? new DriveItem($data['driveItem']) : $data['driveItem'];
         }
     }
 }

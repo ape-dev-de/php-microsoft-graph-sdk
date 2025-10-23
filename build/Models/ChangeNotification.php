@@ -59,22 +59,22 @@ class ChangeNotification
             $this->id = $data['id'];
         }
         if (isset($data['changeType'])) {
-            $this->changeType = $data['changeType'];
+            $this->changeType = is_array($data['changeType']) ? new ChangeType($data['changeType']) : $data['changeType'];
         }
         if (isset($data['clientState'])) {
             $this->clientState = $data['clientState'];
         }
         if (isset($data['encryptedContent'])) {
-            $this->encryptedContent = $data['encryptedContent'];
+            $this->encryptedContent = is_array($data['encryptedContent']) ? new ChangeNotificationEncryptedContent($data['encryptedContent']) : $data['encryptedContent'];
         }
         if (isset($data['lifecycleEvent'])) {
-            $this->lifecycleEvent = $data['lifecycleEvent'];
+            $this->lifecycleEvent = is_array($data['lifecycleEvent']) ? new LifecycleEventType($data['lifecycleEvent']) : $data['lifecycleEvent'];
         }
         if (isset($data['resource'])) {
             $this->resource = $data['resource'];
         }
         if (isset($data['resourceData'])) {
-            $this->resourceData = $data['resourceData'];
+            $this->resourceData = is_array($data['resourceData']) ? new ResourceData($data['resourceData']) : $data['resourceData'];
         }
         if (isset($data['subscriptionExpirationDateTime'])) {
             $this->subscriptionExpirationDateTime = is_string($data['subscriptionExpirationDateTime']) ? new \DateTimeImmutable($data['subscriptionExpirationDateTime']) : $data['subscriptionExpirationDateTime'];

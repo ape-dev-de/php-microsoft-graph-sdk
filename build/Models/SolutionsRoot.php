@@ -41,7 +41,7 @@ class SolutionsRoot
     public function __construct(array $data = [])
     {
         if (isset($data['backupRestore'])) {
-            $this->backupRestore = $data['backupRestore'];
+            $this->backupRestore = is_array($data['backupRestore']) ? new BackupRestoreRoot($data['backupRestore']) : $data['backupRestore'];
         }
         if (isset($data['bookingBusinesses'])) {
             $this->bookingBusinesses = $data['bookingBusinesses'];
@@ -50,7 +50,7 @@ class SolutionsRoot
             $this->bookingCurrencies = $data['bookingCurrencies'];
         }
         if (isset($data['virtualEvents'])) {
-            $this->virtualEvents = $data['virtualEvents'];
+            $this->virtualEvents = is_array($data['virtualEvents']) ? new VirtualEventsRoot($data['virtualEvents']) : $data['virtualEvents'];
         }
     }
 }

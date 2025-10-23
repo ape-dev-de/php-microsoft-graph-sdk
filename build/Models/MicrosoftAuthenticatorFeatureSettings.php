@@ -29,10 +29,10 @@ class MicrosoftAuthenticatorFeatureSettings
     public function __construct(array $data = [])
     {
         if (isset($data['displayAppInformationRequiredState'])) {
-            $this->displayAppInformationRequiredState = $data['displayAppInformationRequiredState'];
+            $this->displayAppInformationRequiredState = is_array($data['displayAppInformationRequiredState']) ? new AuthenticationMethodFeatureConfiguration($data['displayAppInformationRequiredState']) : $data['displayAppInformationRequiredState'];
         }
         if (isset($data['displayLocationInformationRequiredState'])) {
-            $this->displayLocationInformationRequiredState = $data['displayLocationInformationRequiredState'];
+            $this->displayLocationInformationRequiredState = is_array($data['displayLocationInformationRequiredState']) ? new AuthenticationMethodFeatureConfiguration($data['displayLocationInformationRequiredState']) : $data['displayLocationInformationRequiredState'];
         }
     }
 }

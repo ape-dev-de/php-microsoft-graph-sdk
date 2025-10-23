@@ -35,7 +35,7 @@ class AuthenticationEventListener
             $this->authenticationEventsFlowId = $data['authenticationEventsFlowId'];
         }
         if (isset($data['conditions'])) {
-            $this->conditions = $data['conditions'];
+            $this->conditions = is_array($data['conditions']) ? new AuthenticationConditions($data['conditions']) : $data['conditions'];
         }
     }
 }

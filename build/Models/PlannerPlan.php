@@ -62,10 +62,10 @@ class PlannerPlan
             $this->id = $data['id'];
         }
         if (isset($data['container'])) {
-            $this->container = $data['container'];
+            $this->container = is_array($data['container']) ? new PlannerPlanContainer($data['container']) : $data['container'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -80,7 +80,7 @@ class PlannerPlan
             $this->buckets = $data['buckets'];
         }
         if (isset($data['details'])) {
-            $this->details = $data['details'];
+            $this->details = is_array($data['details']) ? new PlannerPlanDetails($data['details']) : $data['details'];
         }
         if (isset($data['tasks'])) {
             $this->tasks = $data['tasks'];

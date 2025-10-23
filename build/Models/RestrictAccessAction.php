@@ -29,10 +29,10 @@ class RestrictAccessAction
     public function __construct(array $data = [])
     {
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new DlpAction($data['action']) : $data['action'];
         }
         if (isset($data['restrictionAction'])) {
-            $this->restrictionAction = $data['restrictionAction'];
+            $this->restrictionAction = is_array($data['restrictionAction']) ? new RestrictionAction($data['restrictionAction']) : $data['restrictionAction'];
         }
     }
 }

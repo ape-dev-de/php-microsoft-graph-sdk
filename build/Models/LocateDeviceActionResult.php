@@ -38,7 +38,7 @@ class LocateDeviceActionResult
             $this->actionName = $data['actionName'];
         }
         if (isset($data['actionState'])) {
-            $this->actionState = $data['actionState'];
+            $this->actionState = is_array($data['actionState']) ? new ActionState($data['actionState']) : $data['actionState'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
@@ -47,7 +47,7 @@ class LocateDeviceActionResult
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['deviceLocation'])) {
-            $this->deviceLocation = $data['deviceLocation'];
+            $this->deviceLocation = is_array($data['deviceLocation']) ? new DeviceGeoLocation($data['deviceLocation']) : $data['deviceLocation'];
         }
     }
 }

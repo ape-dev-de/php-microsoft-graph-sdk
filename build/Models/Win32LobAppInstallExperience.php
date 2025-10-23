@@ -23,10 +23,10 @@ class Win32LobAppInstallExperience
     public function __construct(array $data = [])
     {
         if (isset($data['deviceRestartBehavior'])) {
-            $this->deviceRestartBehavior = $data['deviceRestartBehavior'];
+            $this->deviceRestartBehavior = is_array($data['deviceRestartBehavior']) ? new Win32LobAppRestartBehavior($data['deviceRestartBehavior']) : $data['deviceRestartBehavior'];
         }
         if (isset($data['runAsAccount'])) {
-            $this->runAsAccount = $data['runAsAccount'];
+            $this->runAsAccount = is_array($data['runAsAccount']) ? new RunAsAccountType($data['runAsAccount']) : $data['runAsAccount'];
         }
     }
 }

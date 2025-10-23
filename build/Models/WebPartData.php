@@ -44,7 +44,7 @@ class WebPartData
             $this->properties = $data['properties'];
         }
         if (isset($data['serverProcessedContent'])) {
-            $this->serverProcessedContent = $data['serverProcessedContent'];
+            $this->serverProcessedContent = is_array($data['serverProcessedContent']) ? new ServerProcessedContent($data['serverProcessedContent']) : $data['serverProcessedContent'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];

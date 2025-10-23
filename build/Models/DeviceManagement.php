@@ -407,28 +407,28 @@ class DeviceManagement
             $this->id = $data['id'];
         }
         if (isset($data['deviceProtectionOverview'])) {
-            $this->deviceProtectionOverview = $data['deviceProtectionOverview'];
+            $this->deviceProtectionOverview = is_array($data['deviceProtectionOverview']) ? new DeviceProtectionOverview($data['deviceProtectionOverview']) : $data['deviceProtectionOverview'];
         }
         if (isset($data['intuneAccountId'])) {
             $this->intuneAccountId = $data['intuneAccountId'];
         }
         if (isset($data['intuneBrand'])) {
-            $this->intuneBrand = $data['intuneBrand'];
+            $this->intuneBrand = is_array($data['intuneBrand']) ? new IntuneBrand($data['intuneBrand']) : $data['intuneBrand'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new DeviceManagementSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['subscriptionState'])) {
-            $this->subscriptionState = $data['subscriptionState'];
+            $this->subscriptionState = is_array($data['subscriptionState']) ? new DeviceManagementSubscriptionState($data['subscriptionState']) : $data['subscriptionState'];
         }
         if (isset($data['userExperienceAnalyticsSettings'])) {
-            $this->userExperienceAnalyticsSettings = $data['userExperienceAnalyticsSettings'];
+            $this->userExperienceAnalyticsSettings = is_array($data['userExperienceAnalyticsSettings']) ? new UserExperienceAnalyticsSettings($data['userExperienceAnalyticsSettings']) : $data['userExperienceAnalyticsSettings'];
         }
         if (isset($data['windowsMalwareOverview'])) {
-            $this->windowsMalwareOverview = $data['windowsMalwareOverview'];
+            $this->windowsMalwareOverview = is_array($data['windowsMalwareOverview']) ? new WindowsMalwareOverview($data['windowsMalwareOverview']) : $data['windowsMalwareOverview'];
         }
         if (isset($data['applePushNotificationCertificate'])) {
-            $this->applePushNotificationCertificate = $data['applePushNotificationCertificate'];
+            $this->applePushNotificationCertificate = is_array($data['applePushNotificationCertificate']) ? new ApplePushNotificationCertificate($data['applePushNotificationCertificate']) : $data['applePushNotificationCertificate'];
         }
         if (isset($data['auditEvents'])) {
             $this->auditEvents = $data['auditEvents'];
@@ -437,7 +437,7 @@ class DeviceManagement
             $this->complianceManagementPartners = $data['complianceManagementPartners'];
         }
         if (isset($data['conditionalAccessSettings'])) {
-            $this->conditionalAccessSettings = $data['conditionalAccessSettings'];
+            $this->conditionalAccessSettings = is_array($data['conditionalAccessSettings']) ? new OnPremisesConditionalAccessSettings($data['conditionalAccessSettings']) : $data['conditionalAccessSettings'];
         }
         if (isset($data['detectedApps'])) {
             $this->detectedApps = $data['detectedApps'];
@@ -449,13 +449,13 @@ class DeviceManagement
             $this->deviceCompliancePolicies = $data['deviceCompliancePolicies'];
         }
         if (isset($data['deviceCompliancePolicyDeviceStateSummary'])) {
-            $this->deviceCompliancePolicyDeviceStateSummary = $data['deviceCompliancePolicyDeviceStateSummary'];
+            $this->deviceCompliancePolicyDeviceStateSummary = is_array($data['deviceCompliancePolicyDeviceStateSummary']) ? new DeviceCompliancePolicyDeviceStateSummary($data['deviceCompliancePolicyDeviceStateSummary']) : $data['deviceCompliancePolicyDeviceStateSummary'];
         }
         if (isset($data['deviceCompliancePolicySettingStateSummaries'])) {
             $this->deviceCompliancePolicySettingStateSummaries = $data['deviceCompliancePolicySettingStateSummaries'];
         }
         if (isset($data['deviceConfigurationDeviceStateSummaries'])) {
-            $this->deviceConfigurationDeviceStateSummaries = $data['deviceConfigurationDeviceStateSummaries'];
+            $this->deviceConfigurationDeviceStateSummaries = is_array($data['deviceConfigurationDeviceStateSummaries']) ? new DeviceConfigurationDeviceStateSummary($data['deviceConfigurationDeviceStateSummaries']) : $data['deviceConfigurationDeviceStateSummaries'];
         }
         if (isset($data['deviceConfigurations'])) {
             $this->deviceConfigurations = $data['deviceConfigurations'];
@@ -476,7 +476,7 @@ class DeviceManagement
             $this->iosUpdateStatuses = $data['iosUpdateStatuses'];
         }
         if (isset($data['managedDeviceOverview'])) {
-            $this->managedDeviceOverview = $data['managedDeviceOverview'];
+            $this->managedDeviceOverview = is_array($data['managedDeviceOverview']) ? new ManagedDeviceOverview($data['managedDeviceOverview']) : $data['managedDeviceOverview'];
         }
         if (isset($data['managedDevices'])) {
             $this->managedDevices = $data['managedDevices'];
@@ -494,7 +494,7 @@ class DeviceManagement
             $this->remoteAssistancePartners = $data['remoteAssistancePartners'];
         }
         if (isset($data['reports'])) {
-            $this->reports = $data['reports'];
+            $this->reports = is_array($data['reports']) ? new DeviceManagementReports($data['reports']) : $data['reports'];
         }
         if (isset($data['resourceOperations'])) {
             $this->resourceOperations = $data['resourceOperations'];
@@ -506,7 +506,7 @@ class DeviceManagement
             $this->roleDefinitions = $data['roleDefinitions'];
         }
         if (isset($data['softwareUpdateStatusSummary'])) {
-            $this->softwareUpdateStatusSummary = $data['softwareUpdateStatusSummary'];
+            $this->softwareUpdateStatusSummary = is_array($data['softwareUpdateStatusSummary']) ? new SoftwareUpdateStatusSummary($data['softwareUpdateStatusSummary']) : $data['softwareUpdateStatusSummary'];
         }
         if (isset($data['telecomExpenseManagementPartners'])) {
             $this->telecomExpenseManagementPartners = $data['telecomExpenseManagementPartners'];
@@ -542,7 +542,7 @@ class DeviceManagement
             $this->userExperienceAnalyticsAppHealthOSVersionPerformance = $data['userExperienceAnalyticsAppHealthOSVersionPerformance'];
         }
         if (isset($data['userExperienceAnalyticsAppHealthOverview'])) {
-            $this->userExperienceAnalyticsAppHealthOverview = $data['userExperienceAnalyticsAppHealthOverview'];
+            $this->userExperienceAnalyticsAppHealthOverview = is_array($data['userExperienceAnalyticsAppHealthOverview']) ? new UserExperienceAnalyticsCategory($data['userExperienceAnalyticsAppHealthOverview']) : $data['userExperienceAnalyticsAppHealthOverview'];
         }
         if (isset($data['userExperienceAnalyticsBaselines'])) {
             $this->userExperienceAnalyticsBaselines = $data['userExperienceAnalyticsBaselines'];
@@ -572,13 +572,13 @@ class DeviceManagement
             $this->userExperienceAnalyticsModelScores = $data['userExperienceAnalyticsModelScores'];
         }
         if (isset($data['userExperienceAnalyticsOverview'])) {
-            $this->userExperienceAnalyticsOverview = $data['userExperienceAnalyticsOverview'];
+            $this->userExperienceAnalyticsOverview = is_array($data['userExperienceAnalyticsOverview']) ? new UserExperienceAnalyticsOverview($data['userExperienceAnalyticsOverview']) : $data['userExperienceAnalyticsOverview'];
         }
         if (isset($data['userExperienceAnalyticsScoreHistory'])) {
             $this->userExperienceAnalyticsScoreHistory = $data['userExperienceAnalyticsScoreHistory'];
         }
         if (isset($data['userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric'])) {
-            $this->userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = $data['userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric'];
+            $this->userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = is_array($data['userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric']) ? new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric($data['userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric']) : $data['userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric'];
         }
         if (isset($data['userExperienceAnalyticsWorkFromAnywhereMetrics'])) {
             $this->userExperienceAnalyticsWorkFromAnywhereMetrics = $data['userExperienceAnalyticsWorkFromAnywhereMetrics'];
@@ -587,7 +587,7 @@ class DeviceManagement
             $this->userExperienceAnalyticsWorkFromAnywhereModelPerformance = $data['userExperienceAnalyticsWorkFromAnywhereModelPerformance'];
         }
         if (isset($data['virtualEndpoint'])) {
-            $this->virtualEndpoint = $data['virtualEndpoint'];
+            $this->virtualEndpoint = is_array($data['virtualEndpoint']) ? new VirtualEndpoint($data['virtualEndpoint']) : $data['virtualEndpoint'];
         }
         if (isset($data['windowsAutopilotDeviceIdentities'])) {
             $this->windowsAutopilotDeviceIdentities = $data['windowsAutopilotDeviceIdentities'];

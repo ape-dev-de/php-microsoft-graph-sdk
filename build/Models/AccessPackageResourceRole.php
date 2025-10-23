@@ -53,7 +53,7 @@ class AccessPackageResourceRole
             $this->originSystem = $data['originSystem'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new AccessPackageResource($data['resource']) : $data['resource'];
         }
     }
 }

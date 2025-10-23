@@ -113,22 +113,22 @@ class Security
             $this->alerts_v2 = $data['alerts_v2'];
         }
         if (isset($data['attackSimulation'])) {
-            $this->attackSimulation = $data['attackSimulation'];
+            $this->attackSimulation = is_array($data['attackSimulation']) ? new AttackSimulationRoot($data['attackSimulation']) : $data['attackSimulation'];
         }
         if (isset($data['cases'])) {
-            $this->cases = $data['cases'];
+            $this->cases = is_array($data['cases']) ? new SecurityCasesRoot($data['cases']) : $data['cases'];
         }
         if (isset($data['dataSecurityAndGovernance'])) {
-            $this->dataSecurityAndGovernance = $data['dataSecurityAndGovernance'];
+            $this->dataSecurityAndGovernance = is_array($data['dataSecurityAndGovernance']) ? new TenantDataSecurityAndGovernance($data['dataSecurityAndGovernance']) : $data['dataSecurityAndGovernance'];
         }
         if (isset($data['identities'])) {
-            $this->identities = $data['identities'];
+            $this->identities = is_array($data['identities']) ? new SecurityIdentityContainer($data['identities']) : $data['identities'];
         }
         if (isset($data['incidents'])) {
             $this->incidents = $data['incidents'];
         }
         if (isset($data['labels'])) {
-            $this->labels = $data['labels'];
+            $this->labels = is_array($data['labels']) ? new SecurityLabelsRoot($data['labels']) : $data['labels'];
         }
         if (isset($data['secureScoreControlProfiles'])) {
             $this->secureScoreControlProfiles = $data['secureScoreControlProfiles'];
@@ -140,13 +140,13 @@ class Security
             $this->subjectRightsRequests = $data['subjectRightsRequests'];
         }
         if (isset($data['threatIntelligence'])) {
-            $this->threatIntelligence = $data['threatIntelligence'];
+            $this->threatIntelligence = is_array($data['threatIntelligence']) ? new SecurityThreatIntelligence($data['threatIntelligence']) : $data['threatIntelligence'];
         }
         if (isset($data['triggers'])) {
-            $this->triggers = $data['triggers'];
+            $this->triggers = is_array($data['triggers']) ? new SecurityTriggersRoot($data['triggers']) : $data['triggers'];
         }
         if (isset($data['triggerTypes'])) {
-            $this->triggerTypes = $data['triggerTypes'];
+            $this->triggerTypes = is_array($data['triggerTypes']) ? new SecurityTriggerTypesRoot($data['triggerTypes']) : $data['triggerTypes'];
         }
     }
 }

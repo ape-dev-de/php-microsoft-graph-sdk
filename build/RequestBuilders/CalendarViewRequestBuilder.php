@@ -34,34 +34,34 @@ class CalendarViewRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null, ?array $expand = null, string $start, string $end, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): BookingAppointmentCollectionResponse
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
-        if ($expand !== null) {
+        if ($expand !== null && $expand !== '') {
             $queryParams['$expand'] = implode(',', $expand);
         }
-        if ($start !== null) {
+        if ($start !== null && $start !== '') {
             $queryParams['start'] = $start;
         }
-        if ($end !== null) {
+        if ($end !== null && $end !== '') {
             $queryParams['end'] = $end;
         }
-        if ($top !== null) {
+        if ($top !== null && $top !== '') {
             $queryParams['$top'] = $top;
         }
-        if ($skip !== null) {
+        if ($skip !== null && $skip !== '') {
             $queryParams['$skip'] = $skip;
         }
-        if ($search !== null) {
+        if ($search !== null && $search !== '') {
             $queryParams['$search'] = $search;
         }
-        if ($filter !== null) {
+        if ($filter !== null && $filter !== '') {
             $queryParams['$filter'] = $filter;
         }
-        if ($count !== null) {
+        if ($count !== null && $count !== '') {
             $queryParams['$count'] = $count;
         }
-        if ($orderby !== null) {
+        if ($orderby !== null && $orderby !== '') {
             $queryParams['$orderby'] = implode(',', $orderby);
         }
         $response = $this->client->get($this->requestUrl, $queryParams);

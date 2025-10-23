@@ -32,7 +32,7 @@ class BookingReminder
             $this->offset = $data['offset'];
         }
         if (isset($data['recipients'])) {
-            $this->recipients = $data['recipients'];
+            $this->recipients = is_array($data['recipients']) ? new BookingReminderRecipients($data['recipients']) : $data['recipients'];
         }
     }
 }

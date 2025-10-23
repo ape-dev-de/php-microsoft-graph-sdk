@@ -53,7 +53,7 @@ class TermsAndConditionsAcceptanceStatus
             $this->userPrincipalName = $data['userPrincipalName'];
         }
         if (isset($data['termsAndConditions'])) {
-            $this->termsAndConditions = $data['termsAndConditions'];
+            $this->termsAndConditions = is_array($data['termsAndConditions']) ? new TermsAndConditions($data['termsAndConditions']) : $data['termsAndConditions'];
         }
     }
 }

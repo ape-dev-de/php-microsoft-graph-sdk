@@ -80,7 +80,7 @@ class MobileAppContentFile
             $this->sizeEncrypted = $data['sizeEncrypted'];
         }
         if (isset($data['uploadState'])) {
-            $this->uploadState = $data['uploadState'];
+            $this->uploadState = is_array($data['uploadState']) ? new MobileAppContentFileUploadState($data['uploadState']) : $data['uploadState'];
         }
     }
 }

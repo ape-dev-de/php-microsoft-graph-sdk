@@ -71,7 +71,7 @@ class Invitation
             $this->invitedUserEmailAddress = $data['invitedUserEmailAddress'];
         }
         if (isset($data['invitedUserMessageInfo'])) {
-            $this->invitedUserMessageInfo = $data['invitedUserMessageInfo'];
+            $this->invitedUserMessageInfo = is_array($data['invitedUserMessageInfo']) ? new InvitedUserMessageInfo($data['invitedUserMessageInfo']) : $data['invitedUserMessageInfo'];
         }
         if (isset($data['invitedUserType'])) {
             $this->invitedUserType = $data['invitedUserType'];
@@ -92,7 +92,7 @@ class Invitation
             $this->status = $data['status'];
         }
         if (isset($data['invitedUser'])) {
-            $this->invitedUser = $data['invitedUser'];
+            $this->invitedUser = is_array($data['invitedUser']) ? new User($data['invitedUser']) : $data['invitedUser'];
         }
         if (isset($data['invitedUserSponsors'])) {
             $this->invitedUserSponsors = $data['invitedUserSponsors'];

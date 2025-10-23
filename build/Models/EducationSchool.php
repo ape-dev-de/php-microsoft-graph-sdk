@@ -101,16 +101,16 @@ class EducationSchool
             $this->displayName = $data['displayName'];
         }
         if (isset($data['externalSource'])) {
-            $this->externalSource = $data['externalSource'];
+            $this->externalSource = is_array($data['externalSource']) ? new EducationExternalSource($data['externalSource']) : $data['externalSource'];
         }
         if (isset($data['externalSourceDetail'])) {
             $this->externalSourceDetail = $data['externalSourceDetail'];
         }
         if (isset($data['address'])) {
-            $this->address = $data['address'];
+            $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];
@@ -140,7 +140,7 @@ class EducationSchool
             $this->schoolNumber = $data['schoolNumber'];
         }
         if (isset($data['administrativeUnit'])) {
-            $this->administrativeUnit = $data['administrativeUnit'];
+            $this->administrativeUnit = is_array($data['administrativeUnit']) ? new AdministrativeUnit($data['administrativeUnit']) : $data['administrativeUnit'];
         }
         if (isset($data['classes'])) {
             $this->classes = $data['classes'];

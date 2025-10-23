@@ -23,7 +23,7 @@ class ConditionalAccessAllExternalTenants
     public function __construct(array $data = [])
     {
         if (isset($data['membershipKind'])) {
-            $this->membershipKind = $data['membershipKind'];
+            $this->membershipKind = is_array($data['membershipKind']) ? new ConditionalAccessExternalTenantsMembershipKind($data['membershipKind']) : $data['membershipKind'];
         }
     }
 }

@@ -47,7 +47,7 @@ class SimulationAutomationRun
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SimulationAutomationRunStatus($data['status']) : $data['status'];
         }
     }
 }

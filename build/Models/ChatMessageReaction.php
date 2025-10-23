@@ -44,7 +44,7 @@ class ChatMessageReaction
             $this->reactionType = $data['reactionType'];
         }
         if (isset($data['user'])) {
-            $this->user = $data['user'];
+            $this->user = is_array($data['user']) ? new ChatMessageReactionIdentitySet($data['user']) : $data['user'];
         }
     }
 }

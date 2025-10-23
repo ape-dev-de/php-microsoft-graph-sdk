@@ -80,7 +80,7 @@ class WorkbookWorksheet
             $this->pivotTables = $data['pivotTables'];
         }
         if (isset($data['protection'])) {
-            $this->protection = $data['protection'];
+            $this->protection = is_array($data['protection']) ? new WorkbookWorksheetProtection($data['protection']) : $data['protection'];
         }
         if (isset($data['tables'])) {
             $this->tables = $data['tables'];

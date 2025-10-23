@@ -32,13 +32,13 @@ class MultiTenantOrganizationJoinRequestTransitionDetails
     public function __construct(array $data = [])
     {
         if (isset($data['desiredMemberState'])) {
-            $this->desiredMemberState = $data['desiredMemberState'];
+            $this->desiredMemberState = is_array($data['desiredMemberState']) ? new MultiTenantOrganizationMemberState($data['desiredMemberState']) : $data['desiredMemberState'];
         }
         if (isset($data['details'])) {
             $this->details = $data['details'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new MultiTenantOrganizationMemberProcessingStatus($data['status']) : $data['status'];
         }
     }
 }

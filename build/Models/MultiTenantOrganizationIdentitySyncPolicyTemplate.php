@@ -32,10 +32,10 @@ class MultiTenantOrganizationIdentitySyncPolicyTemplate
             $this->id = $data['id'];
         }
         if (isset($data['templateApplicationLevel'])) {
-            $this->templateApplicationLevel = $data['templateApplicationLevel'];
+            $this->templateApplicationLevel = is_array($data['templateApplicationLevel']) ? new TemplateApplicationLevel($data['templateApplicationLevel']) : $data['templateApplicationLevel'];
         }
         if (isset($data['userSyncInbound'])) {
-            $this->userSyncInbound = $data['userSyncInbound'];
+            $this->userSyncInbound = is_array($data['userSyncInbound']) ? new CrossTenantUserSyncInbound($data['userSyncInbound']) : $data['userSyncInbound'];
         }
     }
 }

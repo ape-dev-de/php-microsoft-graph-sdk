@@ -95,7 +95,7 @@ class SecurityProcessEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -107,13 +107,13 @@ class SecurityProcessEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['detectionStatus'])) {
-            $this->detectionStatus = $data['detectionStatus'];
+            $this->detectionStatus = is_array($data['detectionStatus']) ? new SecurityDetectionStatus($data['detectionStatus']) : $data['detectionStatus'];
         }
         if (isset($data['imageFile'])) {
-            $this->imageFile = $data['imageFile'];
+            $this->imageFile = is_array($data['imageFile']) ? new SecurityFileDetails($data['imageFile']) : $data['imageFile'];
         }
         if (isset($data['mdeDeviceId'])) {
             $this->mdeDeviceId = $data['mdeDeviceId'];
@@ -125,7 +125,7 @@ class SecurityProcessEvidence
             $this->parentProcessId = $data['parentProcessId'];
         }
         if (isset($data['parentProcessImageFile'])) {
-            $this->parentProcessImageFile = $data['parentProcessImageFile'];
+            $this->parentProcessImageFile = is_array($data['parentProcessImageFile']) ? new SecurityFileDetails($data['parentProcessImageFile']) : $data['parentProcessImageFile'];
         }
         if (isset($data['processCommandLine'])) {
             $this->processCommandLine = $data['processCommandLine'];
@@ -137,7 +137,7 @@ class SecurityProcessEvidence
             $this->processId = $data['processId'];
         }
         if (isset($data['userAccount'])) {
-            $this->userAccount = $data['userAccount'];
+            $this->userAccount = is_array($data['userAccount']) ? new SecurityUserAccount($data['userAccount']) : $data['userAccount'];
         }
     }
 }

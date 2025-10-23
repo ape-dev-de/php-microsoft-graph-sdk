@@ -59,7 +59,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance
             $this->cloudProvisioningScore = $data['cloudProvisioningScore'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = $data['healthStatus'];
+            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];

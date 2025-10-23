@@ -41,13 +41,13 @@ class PeopleAdminSettings
             $this->id = $data['id'];
         }
         if (isset($data['itemInsights'])) {
-            $this->itemInsights = $data['itemInsights'];
+            $this->itemInsights = is_array($data['itemInsights']) ? new InsightsSettings($data['itemInsights']) : $data['itemInsights'];
         }
         if (isset($data['profileCardProperties'])) {
             $this->profileCardProperties = $data['profileCardProperties'];
         }
         if (isset($data['pronouns'])) {
-            $this->pronouns = $data['pronouns'];
+            $this->pronouns = is_array($data['pronouns']) ? new PronounsSettings($data['pronouns']) : $data['pronouns'];
         }
     }
 }

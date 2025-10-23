@@ -41,16 +41,16 @@ class FollowupFlag
     public function __construct(array $data = [])
     {
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_array($data['completedDateTime']) ? new DateTimeTimeZone($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['dueDateTime'])) {
-            $this->dueDateTime = $data['dueDateTime'];
+            $this->dueDateTime = is_array($data['dueDateTime']) ? new DateTimeTimeZone($data['dueDateTime']) : $data['dueDateTime'];
         }
         if (isset($data['flagStatus'])) {
-            $this->flagStatus = $data['flagStatus'];
+            $this->flagStatus = is_array($data['flagStatus']) ? new FollowupFlagStatus($data['flagStatus']) : $data['flagStatus'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

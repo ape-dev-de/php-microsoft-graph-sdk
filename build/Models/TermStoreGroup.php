@@ -59,7 +59,7 @@ class TermStoreGroup
             $this->parentSiteId = $data['parentSiteId'];
         }
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new TermStoreTermGroupScope($data['scope']) : $data['scope'];
         }
         if (isset($data['sets'])) {
             $this->sets = $data['sets'];

@@ -56,7 +56,7 @@ class ObjectMapping
             $this->enabled = $data['enabled'];
         }
         if (isset($data['flowTypes'])) {
-            $this->flowTypes = $data['flowTypes'];
+            $this->flowTypes = is_array($data['flowTypes']) ? new ObjectFlowTypes($data['flowTypes']) : $data['flowTypes'];
         }
         if (isset($data['metadata'])) {
             $this->metadata = $data['metadata'];
@@ -65,7 +65,7 @@ class ObjectMapping
             $this->name = $data['name'];
         }
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new Filter($data['scope']) : $data['scope'];
         }
         if (isset($data['sourceObjectName'])) {
             $this->sourceObjectName = $data['sourceObjectName'];

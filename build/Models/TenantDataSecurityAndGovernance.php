@@ -35,7 +35,7 @@ class TenantDataSecurityAndGovernance
             $this->sensitivityLabels = $data['sensitivityLabels'];
         }
         if (isset($data['protectionScopes'])) {
-            $this->protectionScopes = $data['protectionScopes'];
+            $this->protectionScopes = is_array($data['protectionScopes']) ? new TenantProtectionScopeContainer($data['protectionScopes']) : $data['protectionScopes'];
         }
     }
 }

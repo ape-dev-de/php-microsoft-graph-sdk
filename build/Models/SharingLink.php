@@ -38,7 +38,7 @@ class SharingLink
     public function __construct(array $data = [])
     {
         if (isset($data['application'])) {
-            $this->application = $data['application'];
+            $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
         if (isset($data['preventsDownload'])) {
             $this->preventsDownload = $data['preventsDownload'];

@@ -83,7 +83,7 @@ class AndroidManagedAppRegistration
             $this->id = $data['id'];
         }
         if (isset($data['appIdentifier'])) {
-            $this->appIdentifier = $data['appIdentifier'];
+            $this->appIdentifier = is_array($data['appIdentifier']) ? new MobileAppIdentifier($data['appIdentifier']) : $data['appIdentifier'];
         }
         if (isset($data['applicationVersion'])) {
             $this->applicationVersion = $data['applicationVersion'];

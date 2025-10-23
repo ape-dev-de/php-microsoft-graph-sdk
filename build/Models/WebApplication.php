@@ -44,7 +44,7 @@ class WebApplication
             $this->homePageUrl = $data['homePageUrl'];
         }
         if (isset($data['implicitGrantSettings'])) {
-            $this->implicitGrantSettings = $data['implicitGrantSettings'];
+            $this->implicitGrantSettings = is_array($data['implicitGrantSettings']) ? new ImplicitGrantSettings($data['implicitGrantSettings']) : $data['implicitGrantSettings'];
         }
         if (isset($data['logoutUrl'])) {
             $this->logoutUrl = $data['logoutUrl'];

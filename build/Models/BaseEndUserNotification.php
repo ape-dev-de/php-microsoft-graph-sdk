@@ -29,7 +29,7 @@ class BaseEndUserNotification
             $this->defaultLanguage = $data['defaultLanguage'];
         }
         if (isset($data['endUserNotification'])) {
-            $this->endUserNotification = $data['endUserNotification'];
+            $this->endUserNotification = is_array($data['endUserNotification']) ? new EndUserNotification($data['endUserNotification']) : $data['endUserNotification'];
         }
     }
 }

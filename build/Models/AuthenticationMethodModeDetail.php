@@ -29,7 +29,7 @@ class AuthenticationMethodModeDetail
             $this->id = $data['id'];
         }
         if (isset($data['authenticationMethod'])) {
-            $this->authenticationMethod = $data['authenticationMethod'];
+            $this->authenticationMethod = is_array($data['authenticationMethod']) ? new BaseAuthenticationMethod($data['authenticationMethod']) : $data['authenticationMethod'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

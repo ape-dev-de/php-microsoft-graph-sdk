@@ -41,10 +41,10 @@ class BroadcastMeetingSettings
     public function __construct(array $data = [])
     {
         if (isset($data['allowedAudience'])) {
-            $this->allowedAudience = $data['allowedAudience'];
+            $this->allowedAudience = is_array($data['allowedAudience']) ? new BroadcastMeetingAudience($data['allowedAudience']) : $data['allowedAudience'];
         }
         if (isset($data['captions'])) {
-            $this->captions = $data['captions'];
+            $this->captions = is_array($data['captions']) ? new BroadcastMeetingCaptionSettings($data['captions']) : $data['captions'];
         }
         if (isset($data['isAttendeeReportEnabled'])) {
             $this->isAttendeeReportEnabled = $data['isAttendeeReportEnabled'];

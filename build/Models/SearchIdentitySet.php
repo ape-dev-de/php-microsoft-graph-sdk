@@ -35,13 +35,13 @@ class SearchIdentitySet
     public function __construct(array $data = [])
     {
         if (isset($data['application'])) {
-            $this->application = $data['application'];
+            $this->application = is_array($data['application']) ? new SearchIdentity($data['application']) : $data['application'];
         }
         if (isset($data['device'])) {
-            $this->device = $data['device'];
+            $this->device = is_array($data['device']) ? new SearchIdentity($data['device']) : $data['device'];
         }
         if (isset($data['user'])) {
-            $this->user = $data['user'];
+            $this->user = is_array($data['user']) ? new SearchIdentity($data['user']) : $data['user'];
         }
     }
 }

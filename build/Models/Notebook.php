@@ -89,13 +89,13 @@ class Notebook
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -107,7 +107,7 @@ class Notebook
             $this->isShared = $data['isShared'];
         }
         if (isset($data['links'])) {
-            $this->links = $data['links'];
+            $this->links = is_array($data['links']) ? new NotebookLinks($data['links']) : $data['links'];
         }
         if (isset($data['sectionGroupsUrl'])) {
             $this->sectionGroupsUrl = $data['sectionGroupsUrl'];
@@ -116,7 +116,7 @@ class Notebook
             $this->sectionsUrl = $data['sectionsUrl'];
         }
         if (isset($data['userRole'])) {
-            $this->userRole = $data['userRole'];
+            $this->userRole = is_array($data['userRole']) ? new OnenoteUserRole($data['userRole']) : $data['userRole'];
         }
         if (isset($data['sectionGroups'])) {
             $this->sectionGroups = $data['sectionGroups'];

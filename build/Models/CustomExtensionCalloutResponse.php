@@ -29,7 +29,7 @@ class CustomExtensionCalloutResponse
     public function __construct(array $data = [])
     {
         if (isset($data['data'])) {
-            $this->data = $data['data'];
+            $this->data = is_array($data['data']) ? new CustomExtensionData($data['data']) : $data['data'];
         }
         if (isset($data['source'])) {
             $this->source = $data['source'];

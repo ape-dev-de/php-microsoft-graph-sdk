@@ -59,7 +59,7 @@ class PrintModel
     public function __construct(array $data = [])
     {
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new PrintSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['connectors'])) {
             $this->connectors = $data['connectors'];

@@ -26,7 +26,7 @@ class SensitivityLabelAssignment
     public function __construct(array $data = [])
     {
         if (isset($data['assignmentMethod'])) {
-            $this->assignmentMethod = $data['assignmentMethod'];
+            $this->assignmentMethod = is_array($data['assignmentMethod']) ? new SensitivityLabelAssignmentMethod($data['assignmentMethod']) : $data['assignmentMethod'];
         }
         if (isset($data['sensitivityLabelId'])) {
             $this->sensitivityLabelId = $data['sensitivityLabelId'];

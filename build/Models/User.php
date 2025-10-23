@@ -662,7 +662,7 @@ class User
             $this->assignedPlans = $data['assignedPlans'];
         }
         if (isset($data['authorizationInfo'])) {
-            $this->authorizationInfo = $data['authorizationInfo'];
+            $this->authorizationInfo = is_array($data['authorizationInfo']) ? new AuthorizationInfo($data['authorizationInfo']) : $data['authorizationInfo'];
         }
         if (isset($data['birthday'])) {
             $this->birthday = is_string($data['birthday']) ? new \DateTimeImmutable($data['birthday']) : $data['birthday'];
@@ -689,7 +689,7 @@ class User
             $this->creationType = $data['creationType'];
         }
         if (isset($data['customSecurityAttributes'])) {
-            $this->customSecurityAttributes = $data['customSecurityAttributes'];
+            $this->customSecurityAttributes = is_array($data['customSecurityAttributes']) ? new CustomSecurityAttributeValue($data['customSecurityAttributes']) : $data['customSecurityAttributes'];
         }
         if (isset($data['department'])) {
             $this->department = $data['department'];
@@ -710,7 +710,7 @@ class User
             $this->employeeLeaveDateTime = is_string($data['employeeLeaveDateTime']) ? new \DateTimeImmutable($data['employeeLeaveDateTime']) : $data['employeeLeaveDateTime'];
         }
         if (isset($data['employeeOrgData'])) {
-            $this->employeeOrgData = $data['employeeOrgData'];
+            $this->employeeOrgData = is_array($data['employeeOrgData']) ? new EmployeeOrgData($data['employeeOrgData']) : $data['employeeOrgData'];
         }
         if (isset($data['employeeType'])) {
             $this->employeeType = $data['employeeType'];
@@ -761,7 +761,7 @@ class User
             $this->mail = $data['mail'];
         }
         if (isset($data['mailboxSettings'])) {
-            $this->mailboxSettings = $data['mailboxSettings'];
+            $this->mailboxSettings = is_array($data['mailboxSettings']) ? new MailboxSettings($data['mailboxSettings']) : $data['mailboxSettings'];
         }
         if (isset($data['mailNickname'])) {
             $this->mailNickname = $data['mailNickname'];
@@ -782,7 +782,7 @@ class User
             $this->onPremisesDomainName = $data['onPremisesDomainName'];
         }
         if (isset($data['onPremisesExtensionAttributes'])) {
-            $this->onPremisesExtensionAttributes = $data['onPremisesExtensionAttributes'];
+            $this->onPremisesExtensionAttributes = is_array($data['onPremisesExtensionAttributes']) ? new OnPremisesExtensionAttributes($data['onPremisesExtensionAttributes']) : $data['onPremisesExtensionAttributes'];
         }
         if (isset($data['onPremisesImmutableId'])) {
             $this->onPremisesImmutableId = $data['onPremisesImmutableId'];
@@ -812,7 +812,7 @@ class User
             $this->passwordPolicies = $data['passwordPolicies'];
         }
         if (isset($data['passwordProfile'])) {
-            $this->passwordProfile = $data['passwordProfile'];
+            $this->passwordProfile = is_array($data['passwordProfile']) ? new PasswordProfile($data['passwordProfile']) : $data['passwordProfile'];
         }
         if (isset($data['pastProjects'])) {
             $this->pastProjects = $data['pastProjects'];
@@ -830,7 +830,7 @@ class User
             $this->preferredName = $data['preferredName'];
         }
         if (isset($data['print'])) {
-            $this->print = $data['print'];
+            $this->print = is_array($data['print']) ? new UserPrint($data['print']) : $data['print'];
         }
         if (isset($data['provisionedPlans'])) {
             $this->provisionedPlans = $data['provisionedPlans'];
@@ -854,7 +854,7 @@ class User
             $this->showInAddressList = $data['showInAddressList'];
         }
         if (isset($data['signInActivity'])) {
-            $this->signInActivity = $data['signInActivity'];
+            $this->signInActivity = is_array($data['signInActivity']) ? new SignInActivity($data['signInActivity']) : $data['signInActivity'];
         }
         if (isset($data['signInSessionsValidFromDateTime'])) {
             $this->signInSessionsValidFromDateTime = is_string($data['signInSessionsValidFromDateTime']) ? new \DateTimeImmutable($data['signInSessionsValidFromDateTime']) : $data['signInSessionsValidFromDateTime'];
@@ -890,10 +890,10 @@ class User
             $this->appRoleAssignments = $data['appRoleAssignments'];
         }
         if (isset($data['authentication'])) {
-            $this->authentication = $data['authentication'];
+            $this->authentication = is_array($data['authentication']) ? new Authentication($data['authentication']) : $data['authentication'];
         }
         if (isset($data['calendar'])) {
-            $this->calendar = $data['calendar'];
+            $this->calendar = is_array($data['calendar']) ? new Calendar($data['calendar']) : $data['calendar'];
         }
         if (isset($data['calendarGroups'])) {
             $this->calendarGroups = $data['calendarGroups'];
@@ -908,7 +908,7 @@ class User
             $this->chats = $data['chats'];
         }
         if (isset($data['cloudClipboard'])) {
-            $this->cloudClipboard = $data['cloudClipboard'];
+            $this->cloudClipboard = is_array($data['cloudClipboard']) ? new CloudClipboardRoot($data['cloudClipboard']) : $data['cloudClipboard'];
         }
         if (isset($data['contactFolders'])) {
             $this->contactFolders = $data['contactFolders'];
@@ -920,7 +920,7 @@ class User
             $this->createdObjects = $data['createdObjects'];
         }
         if (isset($data['dataSecurityAndGovernance'])) {
-            $this->dataSecurityAndGovernance = $data['dataSecurityAndGovernance'];
+            $this->dataSecurityAndGovernance = is_array($data['dataSecurityAndGovernance']) ? new UserDataSecurityAndGovernance($data['dataSecurityAndGovernance']) : $data['dataSecurityAndGovernance'];
         }
         if (isset($data['deviceManagementTroubleshootingEvents'])) {
             $this->deviceManagementTroubleshootingEvents = $data['deviceManagementTroubleshootingEvents'];
@@ -929,13 +929,13 @@ class User
             $this->directReports = $data['directReports'];
         }
         if (isset($data['drive'])) {
-            $this->drive = $data['drive'];
+            $this->drive = is_array($data['drive']) ? new Drive($data['drive']) : $data['drive'];
         }
         if (isset($data['drives'])) {
             $this->drives = $data['drives'];
         }
         if (isset($data['employeeExperience'])) {
-            $this->employeeExperience = $data['employeeExperience'];
+            $this->employeeExperience = is_array($data['employeeExperience']) ? new EmployeeExperienceUser($data['employeeExperience']) : $data['employeeExperience'];
         }
         if (isset($data['events'])) {
             $this->events = $data['events'];
@@ -947,10 +947,10 @@ class User
             $this->followedSites = $data['followedSites'];
         }
         if (isset($data['inferenceClassification'])) {
-            $this->inferenceClassification = $data['inferenceClassification'];
+            $this->inferenceClassification = is_array($data['inferenceClassification']) ? new InferenceClassification($data['inferenceClassification']) : $data['inferenceClassification'];
         }
         if (isset($data['insights'])) {
-            $this->insights = $data['insights'];
+            $this->insights = is_array($data['insights']) ? new ItemInsights($data['insights']) : $data['insights'];
         }
         if (isset($data['joinedTeams'])) {
             $this->joinedTeams = $data['joinedTeams'];
@@ -968,7 +968,7 @@ class User
             $this->managedDevices = $data['managedDevices'];
         }
         if (isset($data['manager'])) {
-            $this->manager = $data['manager'];
+            $this->manager = is_array($data['manager']) ? new DirectoryObject($data['manager']) : $data['manager'];
         }
         if (isset($data['memberOf'])) {
             $this->memberOf = $data['memberOf'];
@@ -980,13 +980,13 @@ class User
             $this->oauth2PermissionGrants = $data['oauth2PermissionGrants'];
         }
         if (isset($data['onenote'])) {
-            $this->onenote = $data['onenote'];
+            $this->onenote = is_array($data['onenote']) ? new Onenote($data['onenote']) : $data['onenote'];
         }
         if (isset($data['onlineMeetings'])) {
             $this->onlineMeetings = $data['onlineMeetings'];
         }
         if (isset($data['outlook'])) {
-            $this->outlook = $data['outlook'];
+            $this->outlook = is_array($data['outlook']) ? new OutlookUser($data['outlook']) : $data['outlook'];
         }
         if (isset($data['ownedDevices'])) {
             $this->ownedDevices = $data['ownedDevices'];
@@ -1001,16 +1001,16 @@ class User
             $this->permissionGrants = $data['permissionGrants'];
         }
         if (isset($data['photo'])) {
-            $this->photo = $data['photo'];
+            $this->photo = is_array($data['photo']) ? new ProfilePhoto($data['photo']) : $data['photo'];
         }
         if (isset($data['photos'])) {
             $this->photos = $data['photos'];
         }
         if (isset($data['planner'])) {
-            $this->planner = $data['planner'];
+            $this->planner = is_array($data['planner']) ? new PlannerUser($data['planner']) : $data['planner'];
         }
         if (isset($data['presence'])) {
-            $this->presence = $data['presence'];
+            $this->presence = is_array($data['presence']) ? new Presence($data['presence']) : $data['presence'];
         }
         if (isset($data['registeredDevices'])) {
             $this->registeredDevices = $data['registeredDevices'];
@@ -1019,19 +1019,19 @@ class User
             $this->scopedRoleMemberOf = $data['scopedRoleMemberOf'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new UserSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['solutions'])) {
-            $this->solutions = $data['solutions'];
+            $this->solutions = is_array($data['solutions']) ? new UserSolutionRoot($data['solutions']) : $data['solutions'];
         }
         if (isset($data['sponsors'])) {
             $this->sponsors = $data['sponsors'];
         }
         if (isset($data['teamwork'])) {
-            $this->teamwork = $data['teamwork'];
+            $this->teamwork = is_array($data['teamwork']) ? new UserTeamwork($data['teamwork']) : $data['teamwork'];
         }
         if (isset($data['todo'])) {
-            $this->todo = $data['todo'];
+            $this->todo = is_array($data['todo']) ? new Todo($data['todo']) : $data['todo'];
         }
         if (isset($data['transitiveMemberOf'])) {
             $this->transitiveMemberOf = $data['transitiveMemberOf'];

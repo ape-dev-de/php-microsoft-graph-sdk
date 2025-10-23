@@ -83,7 +83,7 @@ class IdentityContainer
             $this->b2xUserFlows = $data['b2xUserFlows'];
         }
         if (isset($data['conditionalAccess'])) {
-            $this->conditionalAccess = $data['conditionalAccess'];
+            $this->conditionalAccess = is_array($data['conditionalAccess']) ? new ConditionalAccessRoot($data['conditionalAccess']) : $data['conditionalAccess'];
         }
         if (isset($data['customAuthenticationExtensions'])) {
             $this->customAuthenticationExtensions = $data['customAuthenticationExtensions'];

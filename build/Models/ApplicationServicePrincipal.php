@@ -29,10 +29,10 @@ class ApplicationServicePrincipal
     public function __construct(array $data = [])
     {
         if (isset($data['application'])) {
-            $this->application = $data['application'];
+            $this->application = is_array($data['application']) ? new Application($data['application']) : $data['application'];
         }
         if (isset($data['servicePrincipal'])) {
-            $this->servicePrincipal = $data['servicePrincipal'];
+            $this->servicePrincipal = is_array($data['servicePrincipal']) ? new ServicePrincipal($data['servicePrincipal']) : $data['servicePrincipal'];
         }
     }
 }

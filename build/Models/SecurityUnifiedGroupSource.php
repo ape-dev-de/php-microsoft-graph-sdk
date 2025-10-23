@@ -50,7 +50,7 @@ class SecurityUnifiedGroupSource
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -59,13 +59,13 @@ class SecurityUnifiedGroupSource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['holdStatus'])) {
-            $this->holdStatus = $data['holdStatus'];
+            $this->holdStatus = is_array($data['holdStatus']) ? new SecurityDataSourceHoldStatus($data['holdStatus']) : $data['holdStatus'];
         }
         if (isset($data['includedSources'])) {
-            $this->includedSources = $data['includedSources'];
+            $this->includedSources = is_array($data['includedSources']) ? new SecuritySourceType($data['includedSources']) : $data['includedSources'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];
         }
     }
 }

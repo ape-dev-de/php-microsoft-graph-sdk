@@ -68,7 +68,7 @@ class AccessReviewHistoryDefinition
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new UserIdentity($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -86,13 +86,13 @@ class AccessReviewHistoryDefinition
             $this->reviewHistoryPeriodStartDateTime = is_string($data['reviewHistoryPeriodStartDateTime']) ? new \DateTimeImmutable($data['reviewHistoryPeriodStartDateTime']) : $data['reviewHistoryPeriodStartDateTime'];
         }
         if (isset($data['scheduleSettings'])) {
-            $this->scheduleSettings = $data['scheduleSettings'];
+            $this->scheduleSettings = is_array($data['scheduleSettings']) ? new AccessReviewHistoryScheduleSettings($data['scheduleSettings']) : $data['scheduleSettings'];
         }
         if (isset($data['scopes'])) {
             $this->scopes = $data['scopes'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new AccessReviewHistoryStatus($data['status']) : $data['status'];
         }
         if (isset($data['instances'])) {
             $this->instances = $data['instances'];

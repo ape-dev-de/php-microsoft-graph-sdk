@@ -35,10 +35,10 @@ class PositiveReinforcementNotification
             $this->defaultLanguage = $data['defaultLanguage'];
         }
         if (isset($data['endUserNotification'])) {
-            $this->endUserNotification = $data['endUserNotification'];
+            $this->endUserNotification = is_array($data['endUserNotification']) ? new EndUserNotification($data['endUserNotification']) : $data['endUserNotification'];
         }
         if (isset($data['deliveryPreference'])) {
-            $this->deliveryPreference = $data['deliveryPreference'];
+            $this->deliveryPreference = is_array($data['deliveryPreference']) ? new NotificationDeliveryPreference($data['deliveryPreference']) : $data['deliveryPreference'];
         }
     }
 }

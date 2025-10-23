@@ -47,7 +47,7 @@ class WorkbookChartTitle
             $this->visible = $data['visible'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookChartTitleFormat($data['format']) : $data['format'];
         }
     }
 }

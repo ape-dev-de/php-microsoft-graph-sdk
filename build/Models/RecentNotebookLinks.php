@@ -29,10 +29,10 @@ class RecentNotebookLinks
     public function __construct(array $data = [])
     {
         if (isset($data['oneNoteClientUrl'])) {
-            $this->oneNoteClientUrl = $data['oneNoteClientUrl'];
+            $this->oneNoteClientUrl = is_array($data['oneNoteClientUrl']) ? new ExternalLink($data['oneNoteClientUrl']) : $data['oneNoteClientUrl'];
         }
         if (isset($data['oneNoteWebUrl'])) {
-            $this->oneNoteWebUrl = $data['oneNoteWebUrl'];
+            $this->oneNoteWebUrl = is_array($data['oneNoteWebUrl']) ? new ExternalLink($data['oneNoteWebUrl']) : $data['oneNoteWebUrl'];
         }
     }
 }

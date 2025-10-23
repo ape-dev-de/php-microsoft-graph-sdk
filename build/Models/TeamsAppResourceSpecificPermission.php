@@ -26,7 +26,7 @@ class TeamsAppResourceSpecificPermission
     public function __construct(array $data = [])
     {
         if (isset($data['permissionType'])) {
-            $this->permissionType = $data['permissionType'];
+            $this->permissionType = is_array($data['permissionType']) ? new TeamsAppResourceSpecificPermissionType($data['permissionType']) : $data['permissionType'];
         }
         if (isset($data['permissionValue'])) {
             $this->permissionValue = $data['permissionValue'];

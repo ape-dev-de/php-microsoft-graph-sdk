@@ -29,7 +29,7 @@ class CopilotAdminSetting
             $this->id = $data['id'];
         }
         if (isset($data['limitedMode'])) {
-            $this->limitedMode = $data['limitedMode'];
+            $this->limitedMode = is_array($data['limitedMode']) ? new CopilotAdminLimitedMode($data['limitedMode']) : $data['limitedMode'];
         }
     }
 }

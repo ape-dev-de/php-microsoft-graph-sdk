@@ -56,7 +56,7 @@ class TodoTaskList
             $this->isShared = $data['isShared'];
         }
         if (isset($data['wellknownListName'])) {
-            $this->wellknownListName = $data['wellknownListName'];
+            $this->wellknownListName = is_array($data['wellknownListName']) ? new WellknownListName($data['wellknownListName']) : $data['wellknownListName'];
         }
         if (isset($data['extensions'])) {
             $this->extensions = $data['extensions'];

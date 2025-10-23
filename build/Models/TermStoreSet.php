@@ -77,7 +77,7 @@ class TermStoreSet
             $this->children = $data['children'];
         }
         if (isset($data['parentGroup'])) {
-            $this->parentGroup = $data['parentGroup'];
+            $this->parentGroup = is_array($data['parentGroup']) ? new TermStoreGroup($data['parentGroup']) : $data['parentGroup'];
         }
         if (isset($data['relations'])) {
             $this->relations = $data['relations'];

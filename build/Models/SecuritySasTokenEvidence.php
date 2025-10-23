@@ -95,7 +95,7 @@ class SecuritySasTokenEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = $data['remediationStatus'];
+            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -107,7 +107,7 @@ class SecuritySasTokenEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = $data['verdict'];
+            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['allowedIpAddresses'])) {
             $this->allowedIpAddresses = $data['allowedIpAddresses'];
@@ -137,7 +137,7 @@ class SecuritySasTokenEvidence
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['storageResource'])) {
-            $this->storageResource = $data['storageResource'];
+            $this->storageResource = is_array($data['storageResource']) ? new SecurityAzureResourceEvidence($data['storageResource']) : $data['storageResource'];
         }
     }
 }

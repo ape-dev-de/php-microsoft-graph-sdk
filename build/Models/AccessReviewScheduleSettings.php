@@ -98,7 +98,7 @@ class AccessReviewScheduleSettings
             $this->recommendationsEnabled = $data['recommendationsEnabled'];
         }
         if (isset($data['recurrence'])) {
-            $this->recurrence = $data['recurrence'];
+            $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
         if (isset($data['reminderNotificationsEnabled'])) {
             $this->reminderNotificationsEnabled = $data['reminderNotificationsEnabled'];

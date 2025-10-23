@@ -101,13 +101,13 @@ class UserActivity
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new Status($data['status']) : $data['status'];
         }
         if (isset($data['userTimezone'])) {
             $this->userTimezone = $data['userTimezone'];
         }
         if (isset($data['visualElements'])) {
-            $this->visualElements = $data['visualElements'];
+            $this->visualElements = is_array($data['visualElements']) ? new VisualInfo($data['visualElements']) : $data['visualElements'];
         }
         if (isset($data['historyItems'])) {
             $this->historyItems = $data['historyItems'];

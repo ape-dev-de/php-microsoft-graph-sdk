@@ -89,28 +89,28 @@ class ConditionalAccessConditionSet
     public function __construct(array $data = [])
     {
         if (isset($data['applications'])) {
-            $this->applications = $data['applications'];
+            $this->applications = is_array($data['applications']) ? new ConditionalAccessApplications($data['applications']) : $data['applications'];
         }
         if (isset($data['authenticationFlows'])) {
-            $this->authenticationFlows = $data['authenticationFlows'];
+            $this->authenticationFlows = is_array($data['authenticationFlows']) ? new ConditionalAccessAuthenticationFlows($data['authenticationFlows']) : $data['authenticationFlows'];
         }
         if (isset($data['clientApplications'])) {
-            $this->clientApplications = $data['clientApplications'];
+            $this->clientApplications = is_array($data['clientApplications']) ? new ConditionalAccessClientApplications($data['clientApplications']) : $data['clientApplications'];
         }
         if (isset($data['clientAppTypes'])) {
             $this->clientAppTypes = $data['clientAppTypes'];
         }
         if (isset($data['devices'])) {
-            $this->devices = $data['devices'];
+            $this->devices = is_array($data['devices']) ? new ConditionalAccessDevices($data['devices']) : $data['devices'];
         }
         if (isset($data['insiderRiskLevels'])) {
-            $this->insiderRiskLevels = $data['insiderRiskLevels'];
+            $this->insiderRiskLevels = is_array($data['insiderRiskLevels']) ? new ConditionalAccessInsiderRiskLevels($data['insiderRiskLevels']) : $data['insiderRiskLevels'];
         }
         if (isset($data['locations'])) {
-            $this->locations = $data['locations'];
+            $this->locations = is_array($data['locations']) ? new ConditionalAccessLocations($data['locations']) : $data['locations'];
         }
         if (isset($data['platforms'])) {
-            $this->platforms = $data['platforms'];
+            $this->platforms = is_array($data['platforms']) ? new ConditionalAccessPlatforms($data['platforms']) : $data['platforms'];
         }
         if (isset($data['servicePrincipalRiskLevels'])) {
             $this->servicePrincipalRiskLevels = $data['servicePrincipalRiskLevels'];
@@ -122,7 +122,7 @@ class ConditionalAccessConditionSet
             $this->userRiskLevels = $data['userRiskLevels'];
         }
         if (isset($data['users'])) {
-            $this->users = $data['users'];
+            $this->users = is_array($data['users']) ? new ConditionalAccessUsers($data['users']) : $data['users'];
         }
     }
 }

@@ -44,10 +44,10 @@ class SimulationReportOverview
             $this->resolvedTargetsCount = $data['resolvedTargetsCount'];
         }
         if (isset($data['simulationEventsContent'])) {
-            $this->simulationEventsContent = $data['simulationEventsContent'];
+            $this->simulationEventsContent = is_array($data['simulationEventsContent']) ? new SimulationEventsContent($data['simulationEventsContent']) : $data['simulationEventsContent'];
         }
         if (isset($data['trainingEventsContent'])) {
-            $this->trainingEventsContent = $data['trainingEventsContent'];
+            $this->trainingEventsContent = is_array($data['trainingEventsContent']) ? new TrainingEventsContent($data['trainingEventsContent']) : $data['trainingEventsContent'];
         }
     }
 }

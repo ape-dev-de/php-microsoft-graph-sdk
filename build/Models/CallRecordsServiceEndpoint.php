@@ -23,7 +23,7 @@ class CallRecordsServiceEndpoint
     public function __construct(array $data = [])
     {
         if (isset($data['userAgent'])) {
-            $this->userAgent = $data['userAgent'];
+            $this->userAgent = is_array($data['userAgent']) ? new CallRecordsUserAgent($data['userAgent']) : $data['userAgent'];
         }
     }
 }

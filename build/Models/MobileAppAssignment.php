@@ -38,13 +38,13 @@ class MobileAppAssignment
             $this->id = $data['id'];
         }
         if (isset($data['intent'])) {
-            $this->intent = $data['intent'];
+            $this->intent = is_array($data['intent']) ? new InstallIntent($data['intent']) : $data['intent'];
         }
         if (isset($data['settings'])) {
-            $this->settings = $data['settings'];
+            $this->settings = is_array($data['settings']) ? new MobileAppAssignmentSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['target'])) {
-            $this->target = $data['target'];
+            $this->target = is_array($data['target']) ? new DeviceAndAppManagementAssignmentTarget($data['target']) : $data['target'];
         }
     }
 }

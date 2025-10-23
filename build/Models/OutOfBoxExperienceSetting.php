@@ -35,7 +35,7 @@ class OutOfBoxExperienceSetting
     public function __construct(array $data = [])
     {
         if (isset($data['deviceUsageType'])) {
-            $this->deviceUsageType = $data['deviceUsageType'];
+            $this->deviceUsageType = is_array($data['deviceUsageType']) ? new WindowsDeviceUsageType($data['deviceUsageType']) : $data['deviceUsageType'];
         }
         if (isset($data['escapeLinkHidden'])) {
             $this->escapeLinkHidden = $data['escapeLinkHidden'];
@@ -50,7 +50,7 @@ class OutOfBoxExperienceSetting
             $this->privacySettingsHidden = $data['privacySettingsHidden'];
         }
         if (isset($data['userType'])) {
-            $this->userType = $data['userType'];
+            $this->userType = is_array($data['userType']) ? new WindowsUserType($data['userType']) : $data['userType'];
         }
     }
 }

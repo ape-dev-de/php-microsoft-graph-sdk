@@ -29,7 +29,7 @@ class AiUser
             $this->id = $data['id'];
         }
         if (isset($data['interactionHistory'])) {
-            $this->interactionHistory = $data['interactionHistory'];
+            $this->interactionHistory = is_array($data['interactionHistory']) ? new AiInteractionHistory($data['interactionHistory']) : $data['interactionHistory'];
         }
     }
 }

@@ -41,7 +41,7 @@ class UserTrainingStatusInfo
             $this->displayName = $data['displayName'];
         }
         if (isset($data['trainingStatus'])) {
-            $this->trainingStatus = $data['trainingStatus'];
+            $this->trainingStatus = is_array($data['trainingStatus']) ? new TrainingStatus($data['trainingStatus']) : $data['trainingStatus'];
         }
     }
 }

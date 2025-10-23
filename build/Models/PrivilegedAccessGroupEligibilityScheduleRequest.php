@@ -107,7 +107,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -119,7 +119,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
             $this->status = $data['status'];
         }
         if (isset($data['action'])) {
-            $this->action = $data['action'];
+            $this->action = is_array($data['action']) ? new ScheduleRequestActions($data['action']) : $data['action'];
         }
         if (isset($data['isValidationOnly'])) {
             $this->isValidationOnly = $data['isValidationOnly'];
@@ -128,13 +128,13 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
             $this->justification = $data['justification'];
         }
         if (isset($data['scheduleInfo'])) {
-            $this->scheduleInfo = $data['scheduleInfo'];
+            $this->scheduleInfo = is_array($data['scheduleInfo']) ? new RequestSchedule($data['scheduleInfo']) : $data['scheduleInfo'];
         }
         if (isset($data['ticketInfo'])) {
-            $this->ticketInfo = $data['ticketInfo'];
+            $this->ticketInfo = is_array($data['ticketInfo']) ? new TicketInfo($data['ticketInfo']) : $data['ticketInfo'];
         }
         if (isset($data['accessId'])) {
-            $this->accessId = $data['accessId'];
+            $this->accessId = is_array($data['accessId']) ? new PrivilegedAccessGroupRelationships($data['accessId']) : $data['accessId'];
         }
         if (isset($data['groupId'])) {
             $this->groupId = $data['groupId'];
@@ -146,13 +146,13 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
             $this->targetScheduleId = $data['targetScheduleId'];
         }
         if (isset($data['group'])) {
-            $this->group = $data['group'];
+            $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];
         }
         if (isset($data['principal'])) {
-            $this->principal = $data['principal'];
+            $this->principal = is_array($data['principal']) ? new DirectoryObject($data['principal']) : $data['principal'];
         }
         if (isset($data['targetSchedule'])) {
-            $this->targetSchedule = $data['targetSchedule'];
+            $this->targetSchedule = is_array($data['targetSchedule']) ? new PrivilegedAccessGroupEligibilitySchedule($data['targetSchedule']) : $data['targetSchedule'];
         }
     }
 }

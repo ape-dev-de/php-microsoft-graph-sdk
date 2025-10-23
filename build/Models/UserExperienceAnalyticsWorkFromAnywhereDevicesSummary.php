@@ -71,13 +71,13 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
     public function __construct(array $data = [])
     {
         if (isset($data['autopilotDevicesSummary'])) {
-            $this->autopilotDevicesSummary = $data['autopilotDevicesSummary'];
+            $this->autopilotDevicesSummary = is_array($data['autopilotDevicesSummary']) ? new UserExperienceAnalyticsAutopilotDevicesSummary($data['autopilotDevicesSummary']) : $data['autopilotDevicesSummary'];
         }
         if (isset($data['cloudIdentityDevicesSummary'])) {
-            $this->cloudIdentityDevicesSummary = $data['cloudIdentityDevicesSummary'];
+            $this->cloudIdentityDevicesSummary = is_array($data['cloudIdentityDevicesSummary']) ? new UserExperienceAnalyticsCloudIdentityDevicesSummary($data['cloudIdentityDevicesSummary']) : $data['cloudIdentityDevicesSummary'];
         }
         if (isset($data['cloudManagementDevicesSummary'])) {
-            $this->cloudManagementDevicesSummary = $data['cloudManagementDevicesSummary'];
+            $this->cloudManagementDevicesSummary = is_array($data['cloudManagementDevicesSummary']) ? new UserExperienceAnalyticsCloudManagementDevicesSummary($data['cloudManagementDevicesSummary']) : $data['cloudManagementDevicesSummary'];
         }
         if (isset($data['coManagedDevices'])) {
             $this->coManagedDevices = $data['coManagedDevices'];
@@ -107,7 +107,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
             $this->windows10Devices = $data['windows10Devices'];
         }
         if (isset($data['windows10DevicesSummary'])) {
-            $this->windows10DevicesSummary = $data['windows10DevicesSummary'];
+            $this->windows10DevicesSummary = is_array($data['windows10DevicesSummary']) ? new UserExperienceAnalyticsWindows10DevicesSummary($data['windows10DevicesSummary']) : $data['windows10DevicesSummary'];
         }
         if (isset($data['windows10DevicesWithoutTenantAttach'])) {
             $this->windows10DevicesWithoutTenantAttach = $data['windows10DevicesWithoutTenantAttach'];

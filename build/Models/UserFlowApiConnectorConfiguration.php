@@ -29,10 +29,10 @@ class UserFlowApiConnectorConfiguration
     public function __construct(array $data = [])
     {
         if (isset($data['postAttributeCollection'])) {
-            $this->postAttributeCollection = $data['postAttributeCollection'];
+            $this->postAttributeCollection = is_array($data['postAttributeCollection']) ? new IdentityApiConnector($data['postAttributeCollection']) : $data['postAttributeCollection'];
         }
         if (isset($data['postFederationSignup'])) {
-            $this->postFederationSignup = $data['postFederationSignup'];
+            $this->postFederationSignup = is_array($data['postFederationSignup']) ? new IdentityApiConnector($data['postFederationSignup']) : $data['postFederationSignup'];
         }
     }
 }

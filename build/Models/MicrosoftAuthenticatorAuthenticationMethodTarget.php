@@ -35,10 +35,10 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget
             $this->isRegistrationRequired = $data['isRegistrationRequired'];
         }
         if (isset($data['targetType'])) {
-            $this->targetType = $data['targetType'];
+            $this->targetType = is_array($data['targetType']) ? new AuthenticationMethodTargetType($data['targetType']) : $data['targetType'];
         }
         if (isset($data['authenticationMode'])) {
-            $this->authenticationMode = $data['authenticationMode'];
+            $this->authenticationMode = is_array($data['authenticationMode']) ? new MicrosoftAuthenticatorAuthenticationMode($data['authenticationMode']) : $data['authenticationMode'];
         }
     }
 }

@@ -56,7 +56,7 @@ class BookingCustomerInformation
             $this->emailAddress = $data['emailAddress'];
         }
         if (isset($data['location'])) {
-            $this->location = $data['location'];
+            $this->location = is_array($data['location']) ? new Location($data['location']) : $data['location'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

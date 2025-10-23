@@ -44,10 +44,10 @@ class SearchResponse
             $this->hitsContainers = $data['hitsContainers'];
         }
         if (isset($data['queryAlterationResponse'])) {
-            $this->queryAlterationResponse = $data['queryAlterationResponse'];
+            $this->queryAlterationResponse = is_array($data['queryAlterationResponse']) ? new AlterationResponse($data['queryAlterationResponse']) : $data['queryAlterationResponse'];
         }
         if (isset($data['resultTemplates'])) {
-            $this->resultTemplates = $data['resultTemplates'];
+            $this->resultTemplates = is_array($data['resultTemplates']) ? new ResultTemplateDictionary($data['resultTemplates']) : $data['resultTemplates'];
         }
         if (isset($data['searchTerms'])) {
             $this->searchTerms = $data['searchTerms'];

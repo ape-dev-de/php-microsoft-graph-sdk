@@ -47,7 +47,7 @@ class AppLogCollectionRequest
             $this->errorMessage = $data['errorMessage'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new AppLogUploadState($data['status']) : $data['status'];
         }
     }
 }

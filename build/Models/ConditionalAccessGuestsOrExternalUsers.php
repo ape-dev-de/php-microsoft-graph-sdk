@@ -26,10 +26,10 @@ class ConditionalAccessGuestsOrExternalUsers
     public function __construct(array $data = [])
     {
         if (isset($data['externalTenants'])) {
-            $this->externalTenants = $data['externalTenants'];
+            $this->externalTenants = is_array($data['externalTenants']) ? new ConditionalAccessExternalTenants($data['externalTenants']) : $data['externalTenants'];
         }
         if (isset($data['guestOrExternalUserTypes'])) {
-            $this->guestOrExternalUserTypes = $data['guestOrExternalUserTypes'];
+            $this->guestOrExternalUserTypes = is_array($data['guestOrExternalUserTypes']) ? new ConditionalAccessGuestOrExternalUserTypes($data['guestOrExternalUserTypes']) : $data['guestOrExternalUserTypes'];
         }
     }
 }

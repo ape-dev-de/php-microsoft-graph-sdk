@@ -47,10 +47,10 @@ class RestorePoint
             $this->protectionDateTime = is_string($data['protectionDateTime']) ? new \DateTimeImmutable($data['protectionDateTime']) : $data['protectionDateTime'];
         }
         if (isset($data['tags'])) {
-            $this->tags = $data['tags'];
+            $this->tags = is_array($data['tags']) ? new RestorePointTags($data['tags']) : $data['tags'];
         }
         if (isset($data['protectionUnit'])) {
-            $this->protectionUnit = $data['protectionUnit'];
+            $this->protectionUnit = is_array($data['protectionUnit']) ? new ProtectionUnitBase($data['protectionUnit']) : $data['protectionUnit'];
         }
     }
 }

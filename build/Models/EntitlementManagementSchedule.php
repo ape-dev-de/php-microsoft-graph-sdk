@@ -32,10 +32,10 @@ class EntitlementManagementSchedule
     public function __construct(array $data = [])
     {
         if (isset($data['expiration'])) {
-            $this->expiration = $data['expiration'];
+            $this->expiration = is_array($data['expiration']) ? new ExpirationPattern($data['expiration']) : $data['expiration'];
         }
         if (isset($data['recurrence'])) {
-            $this->recurrence = $data['recurrence'];
+            $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];

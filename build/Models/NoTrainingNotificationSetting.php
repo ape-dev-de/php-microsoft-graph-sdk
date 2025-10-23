@@ -41,16 +41,16 @@ class NoTrainingNotificationSetting
     public function __construct(array $data = [])
     {
         if (isset($data['notificationPreference'])) {
-            $this->notificationPreference = $data['notificationPreference'];
+            $this->notificationPreference = is_array($data['notificationPreference']) ? new EndUserNotificationPreference($data['notificationPreference']) : $data['notificationPreference'];
         }
         if (isset($data['positiveReinforcement'])) {
-            $this->positiveReinforcement = $data['positiveReinforcement'];
+            $this->positiveReinforcement = is_array($data['positiveReinforcement']) ? new PositiveReinforcementNotification($data['positiveReinforcement']) : $data['positiveReinforcement'];
         }
         if (isset($data['settingType'])) {
-            $this->settingType = $data['settingType'];
+            $this->settingType = is_array($data['settingType']) ? new EndUserNotificationSettingType($data['settingType']) : $data['settingType'];
         }
         if (isset($data['simulationNotification'])) {
-            $this->simulationNotification = $data['simulationNotification'];
+            $this->simulationNotification = is_array($data['simulationNotification']) ? new SimulationNotification($data['simulationNotification']) : $data['simulationNotification'];
         }
     }
 }

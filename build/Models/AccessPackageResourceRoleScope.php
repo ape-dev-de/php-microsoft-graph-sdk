@@ -41,10 +41,10 @@ class AccessPackageResourceRoleScope
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['role'])) {
-            $this->role = $data['role'];
+            $this->role = is_array($data['role']) ? new AccessPackageResourceRole($data['role']) : $data['role'];
         }
         if (isset($data['scope'])) {
-            $this->scope = $data['scope'];
+            $this->scope = is_array($data['scope']) ? new AccessPackageResourceScope($data['scope']) : $data['scope'];
         }
     }
 }

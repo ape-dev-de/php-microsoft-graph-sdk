@@ -146,7 +146,7 @@ class OrganizationalBrandingLocalization
             $this->cdnList = $data['cdnList'];
         }
         if (isset($data['contentCustomization'])) {
-            $this->contentCustomization = $data['contentCustomization'];
+            $this->contentCustomization = is_array($data['contentCustomization']) ? new ContentCustomization($data['contentCustomization']) : $data['contentCustomization'];
         }
         if (isset($data['customAccountResetCredentialsUrl'])) {
             $this->customAccountResetCredentialsUrl = $data['customAccountResetCredentialsUrl'];
@@ -197,10 +197,10 @@ class OrganizationalBrandingLocalization
             $this->headerLogoRelativeUrl = $data['headerLogoRelativeUrl'];
         }
         if (isset($data['loginPageLayoutConfiguration'])) {
-            $this->loginPageLayoutConfiguration = $data['loginPageLayoutConfiguration'];
+            $this->loginPageLayoutConfiguration = is_array($data['loginPageLayoutConfiguration']) ? new LoginPageLayoutConfiguration($data['loginPageLayoutConfiguration']) : $data['loginPageLayoutConfiguration'];
         }
         if (isset($data['loginPageTextVisibilitySettings'])) {
-            $this->loginPageTextVisibilitySettings = $data['loginPageTextVisibilitySettings'];
+            $this->loginPageTextVisibilitySettings = is_array($data['loginPageTextVisibilitySettings']) ? new LoginPageTextVisibilitySettings($data['loginPageTextVisibilitySettings']) : $data['loginPageTextVisibilitySettings'];
         }
         if (isset($data['signInPageText'])) {
             $this->signInPageText = $data['signInPageText'];

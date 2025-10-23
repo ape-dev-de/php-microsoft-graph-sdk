@@ -59,7 +59,7 @@ class ReportRoot
     public function __construct(array $data = [])
     {
         if (isset($data['authenticationMethods'])) {
-            $this->authenticationMethods = $data['authenticationMethods'];
+            $this->authenticationMethods = is_array($data['authenticationMethods']) ? new AuthenticationMethodsRoot($data['authenticationMethods']) : $data['authenticationMethods'];
         }
         if (isset($data['dailyPrintUsageByPrinter'])) {
             $this->dailyPrintUsageByPrinter = $data['dailyPrintUsageByPrinter'];
@@ -74,10 +74,10 @@ class ReportRoot
             $this->monthlyPrintUsageByUser = $data['monthlyPrintUsageByUser'];
         }
         if (isset($data['partners'])) {
-            $this->partners = $data['partners'];
+            $this->partners = is_array($data['partners']) ? new Partners($data['partners']) : $data['partners'];
         }
         if (isset($data['security'])) {
-            $this->security = $data['security'];
+            $this->security = is_array($data['security']) ? new SecurityReportsRoot($data['security']) : $data['security'];
         }
     }
 }

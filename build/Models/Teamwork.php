@@ -65,7 +65,7 @@ class Teamwork
             $this->deletedTeams = $data['deletedTeams'];
         }
         if (isset($data['teamsAppSettings'])) {
-            $this->teamsAppSettings = $data['teamsAppSettings'];
+            $this->teamsAppSettings = is_array($data['teamsAppSettings']) ? new TeamsAppSettings($data['teamsAppSettings']) : $data['teamsAppSettings'];
         }
         if (isset($data['workforceIntegrations'])) {
             $this->workforceIntegrations = $data['workforceIntegrations'];

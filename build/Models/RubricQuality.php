@@ -41,7 +41,7 @@ class RubricQuality
             $this->criteria = $data['criteria'];
         }
         if (isset($data['description'])) {
-            $this->description = $data['description'];
+            $this->description = is_array($data['description']) ? new EducationItemBody($data['description']) : $data['description'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

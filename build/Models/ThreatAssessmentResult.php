@@ -41,7 +41,7 @@ class ThreatAssessmentResult
             $this->message = $data['message'];
         }
         if (isset($data['resultType'])) {
-            $this->resultType = $data['resultType'];
+            $this->resultType = is_array($data['resultType']) ? new ThreatAssessmentResultType($data['resultType']) : $data['resultType'];
         }
     }
 }

@@ -83,34 +83,34 @@ class SecurityFilePlanDescriptor
             $this->id = $data['id'];
         }
         if (isset($data['authority'])) {
-            $this->authority = $data['authority'];
+            $this->authority = is_array($data['authority']) ? new SecurityFilePlanAuthority($data['authority']) : $data['authority'];
         }
         if (isset($data['category'])) {
-            $this->category = $data['category'];
+            $this->category = is_array($data['category']) ? new SecurityFilePlanAppliedCategory($data['category']) : $data['category'];
         }
         if (isset($data['citation'])) {
-            $this->citation = $data['citation'];
+            $this->citation = is_array($data['citation']) ? new SecurityFilePlanCitation($data['citation']) : $data['citation'];
         }
         if (isset($data['department'])) {
-            $this->department = $data['department'];
+            $this->department = is_array($data['department']) ? new SecurityFilePlanDepartment($data['department']) : $data['department'];
         }
         if (isset($data['filePlanReference'])) {
-            $this->filePlanReference = $data['filePlanReference'];
+            $this->filePlanReference = is_array($data['filePlanReference']) ? new SecurityFilePlanReference($data['filePlanReference']) : $data['filePlanReference'];
         }
         if (isset($data['authorityTemplate'])) {
-            $this->authorityTemplate = $data['authorityTemplate'];
+            $this->authorityTemplate = is_array($data['authorityTemplate']) ? new SecurityAuthorityTemplate($data['authorityTemplate']) : $data['authorityTemplate'];
         }
         if (isset($data['categoryTemplate'])) {
-            $this->categoryTemplate = $data['categoryTemplate'];
+            $this->categoryTemplate = is_array($data['categoryTemplate']) ? new SecurityCategoryTemplate($data['categoryTemplate']) : $data['categoryTemplate'];
         }
         if (isset($data['citationTemplate'])) {
-            $this->citationTemplate = $data['citationTemplate'];
+            $this->citationTemplate = is_array($data['citationTemplate']) ? new SecurityCitationTemplate($data['citationTemplate']) : $data['citationTemplate'];
         }
         if (isset($data['departmentTemplate'])) {
-            $this->departmentTemplate = $data['departmentTemplate'];
+            $this->departmentTemplate = is_array($data['departmentTemplate']) ? new SecurityDepartmentTemplate($data['departmentTemplate']) : $data['departmentTemplate'];
         }
         if (isset($data['filePlanReferenceTemplate'])) {
-            $this->filePlanReferenceTemplate = $data['filePlanReferenceTemplate'];
+            $this->filePlanReferenceTemplate = is_array($data['filePlanReferenceTemplate']) ? new SecurityFilePlanReferenceTemplate($data['filePlanReferenceTemplate']) : $data['filePlanReferenceTemplate'];
         }
     }
 }

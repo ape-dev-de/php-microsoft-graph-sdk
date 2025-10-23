@@ -44,7 +44,7 @@ class SecuritySiteSource
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -53,10 +53,10 @@ class SecuritySiteSource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['holdStatus'])) {
-            $this->holdStatus = $data['holdStatus'];
+            $this->holdStatus = is_array($data['holdStatus']) ? new SecurityDataSourceHoldStatus($data['holdStatus']) : $data['holdStatus'];
         }
         if (isset($data['site'])) {
-            $this->site = $data['site'];
+            $this->site = is_array($data['site']) ? new Site($data['site']) : $data['site'];
         }
     }
 }

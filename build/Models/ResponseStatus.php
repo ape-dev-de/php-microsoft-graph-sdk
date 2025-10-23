@@ -26,7 +26,7 @@ class ResponseStatus
     public function __construct(array $data = [])
     {
         if (isset($data['response'])) {
-            $this->response = $data['response'];
+            $this->response = is_array($data['response']) ? new ResponseType($data['response']) : $data['response'];
         }
         if (isset($data['time'])) {
             $this->time = is_string($data['time']) ? new \DateTimeImmutable($data['time']) : $data['time'];

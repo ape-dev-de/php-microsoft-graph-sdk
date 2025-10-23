@@ -38,10 +38,10 @@ class AuthoredNote
             $this->id = $data['id'];
         }
         if (isset($data['author'])) {
-            $this->author = $data['author'];
+            $this->author = is_array($data['author']) ? new Identity($data['author']) : $data['author'];
         }
         if (isset($data['content'])) {
-            $this->content = $data['content'];
+            $this->content = is_array($data['content']) ? new ItemBody($data['content']) : $data['content'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

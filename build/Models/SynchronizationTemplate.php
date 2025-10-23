@@ -68,7 +68,7 @@ class SynchronizationTemplate
             $this->metadata = $data['metadata'];
         }
         if (isset($data['schema'])) {
-            $this->schema = $data['schema'];
+            $this->schema = is_array($data['schema']) ? new SynchronizationSchema($data['schema']) : $data['schema'];
         }
     }
 }

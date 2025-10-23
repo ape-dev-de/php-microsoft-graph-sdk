@@ -26,7 +26,7 @@ class RequestSignatureVerification
     public function __construct(array $data = [])
     {
         if (isset($data['allowedWeakAlgorithms'])) {
-            $this->allowedWeakAlgorithms = $data['allowedWeakAlgorithms'];
+            $this->allowedWeakAlgorithms = is_array($data['allowedWeakAlgorithms']) ? new WeakAlgorithms($data['allowedWeakAlgorithms']) : $data['allowedWeakAlgorithms'];
         }
         if (isset($data['isSignedRequestRequired'])) {
             $this->isSignedRequestRequired = $data['isSignedRequestRequired'];

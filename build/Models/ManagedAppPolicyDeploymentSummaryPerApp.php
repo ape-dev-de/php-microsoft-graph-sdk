@@ -29,7 +29,7 @@ class ManagedAppPolicyDeploymentSummaryPerApp
             $this->configurationAppliedUserCount = $data['configurationAppliedUserCount'];
         }
         if (isset($data['mobileAppIdentifier'])) {
-            $this->mobileAppIdentifier = $data['mobileAppIdentifier'];
+            $this->mobileAppIdentifier = is_array($data['mobileAppIdentifier']) ? new MobileAppIdentifier($data['mobileAppIdentifier']) : $data['mobileAppIdentifier'];
         }
     }
 }

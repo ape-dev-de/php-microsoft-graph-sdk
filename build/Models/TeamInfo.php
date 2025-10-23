@@ -41,7 +41,7 @@ class TeamInfo
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['team'])) {
-            $this->team = $data['team'];
+            $this->team = is_array($data['team']) ? new Team($data['team']) : $data['team'];
         }
     }
 }

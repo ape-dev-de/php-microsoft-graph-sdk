@@ -44,10 +44,10 @@ class UserDataSecurityAndGovernance
             $this->sensitivityLabels = $data['sensitivityLabels'];
         }
         if (isset($data['activities'])) {
-            $this->activities = $data['activities'];
+            $this->activities = is_array($data['activities']) ? new ActivitiesContainer($data['activities']) : $data['activities'];
         }
         if (isset($data['protectionScopes'])) {
-            $this->protectionScopes = $data['protectionScopes'];
+            $this->protectionScopes = is_array($data['protectionScopes']) ? new UserProtectionScopeContainer($data['protectionScopes']) : $data['protectionScopes'];
         }
     }
 }

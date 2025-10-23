@@ -29,7 +29,7 @@ class SecurityResource
             $this->resource = $data['resource'];
         }
         if (isset($data['resourceType'])) {
-            $this->resourceType = $data['resourceType'];
+            $this->resourceType = is_array($data['resourceType']) ? new SecurityResourceType($data['resourceType']) : $data['resourceType'];
         }
     }
 }

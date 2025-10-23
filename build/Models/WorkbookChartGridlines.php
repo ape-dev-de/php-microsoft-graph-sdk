@@ -35,7 +35,7 @@ class WorkbookChartGridlines
             $this->visible = $data['visible'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookChartGridlinesFormat($data['format']) : $data['format'];
         }
     }
 }

@@ -26,7 +26,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     public function get(?array $select = null): EmployeeExperience
     {
         $queryParams = [];
-        if ($select !== null) {
+        if ($select !== null && $select !== '') {
             $queryParams['$select'] = implode(',', $select);
         }
         $response = $this->client->get($this->requestUrl, $queryParams);

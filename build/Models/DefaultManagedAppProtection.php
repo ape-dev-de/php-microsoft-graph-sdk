@@ -185,13 +185,13 @@ class DefaultManagedAppProtection
             $this->allowedDataStorageLocations = $data['allowedDataStorageLocations'];
         }
         if (isset($data['allowedInboundDataTransferSources'])) {
-            $this->allowedInboundDataTransferSources = $data['allowedInboundDataTransferSources'];
+            $this->allowedInboundDataTransferSources = is_array($data['allowedInboundDataTransferSources']) ? new ManagedAppDataTransferLevel($data['allowedInboundDataTransferSources']) : $data['allowedInboundDataTransferSources'];
         }
         if (isset($data['allowedOutboundClipboardSharingLevel'])) {
-            $this->allowedOutboundClipboardSharingLevel = $data['allowedOutboundClipboardSharingLevel'];
+            $this->allowedOutboundClipboardSharingLevel = is_array($data['allowedOutboundClipboardSharingLevel']) ? new ManagedAppClipboardSharingLevel($data['allowedOutboundClipboardSharingLevel']) : $data['allowedOutboundClipboardSharingLevel'];
         }
         if (isset($data['allowedOutboundDataTransferDestinations'])) {
-            $this->allowedOutboundDataTransferDestinations = $data['allowedOutboundDataTransferDestinations'];
+            $this->allowedOutboundDataTransferDestinations = is_array($data['allowedOutboundDataTransferDestinations']) ? new ManagedAppDataTransferLevel($data['allowedOutboundDataTransferDestinations']) : $data['allowedOutboundDataTransferDestinations'];
         }
         if (isset($data['contactSyncBlocked'])) {
             $this->contactSyncBlocked = $data['contactSyncBlocked'];
@@ -209,7 +209,7 @@ class DefaultManagedAppProtection
             $this->fingerprintBlocked = $data['fingerprintBlocked'];
         }
         if (isset($data['managedBrowser'])) {
-            $this->managedBrowser = $data['managedBrowser'];
+            $this->managedBrowser = is_array($data['managedBrowser']) ? new ManagedBrowserType($data['managedBrowser']) : $data['managedBrowser'];
         }
         if (isset($data['managedBrowserToOpenLinksRequired'])) {
             $this->managedBrowserToOpenLinksRequired = $data['managedBrowserToOpenLinksRequired'];
@@ -248,7 +248,7 @@ class DefaultManagedAppProtection
             $this->periodOnlineBeforeAccessCheck = $data['periodOnlineBeforeAccessCheck'];
         }
         if (isset($data['pinCharacterSet'])) {
-            $this->pinCharacterSet = $data['pinCharacterSet'];
+            $this->pinCharacterSet = is_array($data['pinCharacterSet']) ? new ManagedAppPinCharacterSet($data['pinCharacterSet']) : $data['pinCharacterSet'];
         }
         if (isset($data['pinRequired'])) {
             $this->pinRequired = $data['pinRequired'];
@@ -263,7 +263,7 @@ class DefaultManagedAppProtection
             $this->simplePinBlocked = $data['simplePinBlocked'];
         }
         if (isset($data['appDataEncryptionType'])) {
-            $this->appDataEncryptionType = $data['appDataEncryptionType'];
+            $this->appDataEncryptionType = is_array($data['appDataEncryptionType']) ? new ManagedAppDataEncryptionType($data['appDataEncryptionType']) : $data['appDataEncryptionType'];
         }
         if (isset($data['customSettings'])) {
             $this->customSettings = $data['customSettings'];
@@ -296,7 +296,7 @@ class DefaultManagedAppProtection
             $this->apps = $data['apps'];
         }
         if (isset($data['deploymentSummary'])) {
-            $this->deploymentSummary = $data['deploymentSummary'];
+            $this->deploymentSummary = is_array($data['deploymentSummary']) ? new ManagedAppPolicyDeploymentSummary($data['deploymentSummary']) : $data['deploymentSummary'];
         }
     }
 }

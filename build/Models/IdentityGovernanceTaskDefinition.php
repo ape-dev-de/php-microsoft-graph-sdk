@@ -44,7 +44,7 @@ class IdentityGovernanceTaskDefinition
             $this->id = $data['id'];
         }
         if (isset($data['category'])) {
-            $this->category = $data['category'];
+            $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleTaskCategory($data['category']) : $data['category'];
         }
         if (isset($data['continueOnError'])) {
             $this->continueOnError = $data['continueOnError'];

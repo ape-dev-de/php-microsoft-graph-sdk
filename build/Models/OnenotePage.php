@@ -95,7 +95,7 @@ class OnenotePage
             $this->level = $data['level'];
         }
         if (isset($data['links'])) {
-            $this->links = $data['links'];
+            $this->links = is_array($data['links']) ? new PageLinks($data['links']) : $data['links'];
         }
         if (isset($data['order'])) {
             $this->order = $data['order'];
@@ -107,10 +107,10 @@ class OnenotePage
             $this->userTags = $data['userTags'];
         }
         if (isset($data['parentNotebook'])) {
-            $this->parentNotebook = $data['parentNotebook'];
+            $this->parentNotebook = is_array($data['parentNotebook']) ? new Notebook($data['parentNotebook']) : $data['parentNotebook'];
         }
         if (isset($data['parentSection'])) {
-            $this->parentSection = $data['parentSection'];
+            $this->parentSection = is_array($data['parentSection']) ? new OnenoteSection($data['parentSection']) : $data['parentSection'];
         }
     }
 }

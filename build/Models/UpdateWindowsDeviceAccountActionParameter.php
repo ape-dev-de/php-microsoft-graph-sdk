@@ -41,7 +41,7 @@ class UpdateWindowsDeviceAccountActionParameter
             $this->calendarSyncEnabled = $data['calendarSyncEnabled'];
         }
         if (isset($data['deviceAccount'])) {
-            $this->deviceAccount = $data['deviceAccount'];
+            $this->deviceAccount = is_array($data['deviceAccount']) ? new WindowsDeviceAccount($data['deviceAccount']) : $data['deviceAccount'];
         }
         if (isset($data['deviceAccountEmail'])) {
             $this->deviceAccountEmail = $data['deviceAccountEmail'];

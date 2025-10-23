@@ -26,7 +26,7 @@ class ToneInfo
             $this->sequenceId = $data['sequenceId'];
         }
         if (isset($data['tone'])) {
-            $this->tone = $data['tone'];
+            $this->tone = is_array($data['tone']) ? new Tone($data['tone']) : $data['tone'];
         }
     }
 }

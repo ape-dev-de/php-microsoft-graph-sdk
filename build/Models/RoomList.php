@@ -50,13 +50,13 @@ class RoomList
             $this->id = $data['id'];
         }
         if (isset($data['address'])) {
-            $this->address = $data['address'];
+            $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['geoCoordinates'])) {
-            $this->geoCoordinates = $data['geoCoordinates'];
+            $this->geoCoordinates = is_array($data['geoCoordinates']) ? new OutlookGeoCoordinates($data['geoCoordinates']) : $data['geoCoordinates'];
         }
         if (isset($data['phone'])) {
             $this->phone = $data['phone'];

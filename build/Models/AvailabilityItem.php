@@ -32,16 +32,16 @@ class AvailabilityItem
     public function __construct(array $data = [])
     {
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_array($data['endDateTime']) ? new DateTimeTimeZone($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['serviceId'])) {
             $this->serviceId = $data['serviceId'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new BookingsAvailabilityStatus($data['status']) : $data['status'];
         }
     }
 }

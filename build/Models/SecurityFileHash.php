@@ -23,7 +23,7 @@ class SecurityFileHash
     public function __construct(array $data = [])
     {
         if (isset($data['algorithm'])) {
-            $this->algorithm = $data['algorithm'];
+            $this->algorithm = is_array($data['algorithm']) ? new SecurityFileHashAlgorithm($data['algorithm']) : $data['algorithm'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

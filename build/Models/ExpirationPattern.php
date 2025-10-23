@@ -35,7 +35,7 @@ class ExpirationPattern
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new ExpirationPatternType($data['type']) : $data['type'];
         }
     }
 }

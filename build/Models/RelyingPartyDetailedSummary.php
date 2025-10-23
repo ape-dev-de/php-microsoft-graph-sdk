@@ -65,7 +65,7 @@ class RelyingPartyDetailedSummary
             $this->failedSignInCount = $data['failedSignInCount'];
         }
         if (isset($data['migrationStatus'])) {
-            $this->migrationStatus = $data['migrationStatus'];
+            $this->migrationStatus = is_array($data['migrationStatus']) ? new MigrationStatus($data['migrationStatus']) : $data['migrationStatus'];
         }
         if (isset($data['migrationValidationDetails'])) {
             $this->migrationValidationDetails = $data['migrationValidationDetails'];

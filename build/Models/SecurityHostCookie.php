@@ -50,7 +50,7 @@ class SecurityHostCookie
             $this->name = $data['name'];
         }
         if (isset($data['host'])) {
-            $this->host = $data['host'];
+            $this->host = is_array($data['host']) ? new SecurityHost($data['host']) : $data['host'];
         }
     }
 }

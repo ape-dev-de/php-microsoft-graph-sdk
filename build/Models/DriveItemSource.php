@@ -26,7 +26,7 @@ class DriveItemSource
     public function __construct(array $data = [])
     {
         if (isset($data['application'])) {
-            $this->application = $data['application'];
+            $this->application = is_array($data['application']) ? new DriveItemSourceApplication($data['application']) : $data['application'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];

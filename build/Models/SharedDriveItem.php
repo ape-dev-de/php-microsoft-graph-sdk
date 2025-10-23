@@ -119,7 +119,7 @@ class SharedDriveItem
             $this->id = $data['id'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -131,7 +131,7 @@ class SharedDriveItem
             $this->eTag = $data['eTag'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -140,40 +140,40 @@ class SharedDriveItem
             $this->name = $data['name'];
         }
         if (isset($data['parentReference'])) {
-            $this->parentReference = $data['parentReference'];
+            $this->parentReference = is_array($data['parentReference']) ? new ItemReference($data['parentReference']) : $data['parentReference'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
         if (isset($data['createdByUser'])) {
-            $this->createdByUser = $data['createdByUser'];
+            $this->createdByUser = is_array($data['createdByUser']) ? new User($data['createdByUser']) : $data['createdByUser'];
         }
         if (isset($data['lastModifiedByUser'])) {
-            $this->lastModifiedByUser = $data['lastModifiedByUser'];
+            $this->lastModifiedByUser = is_array($data['lastModifiedByUser']) ? new User($data['lastModifiedByUser']) : $data['lastModifiedByUser'];
         }
         if (isset($data['owner'])) {
-            $this->owner = $data['owner'];
+            $this->owner = is_array($data['owner']) ? new IdentitySet($data['owner']) : $data['owner'];
         }
         if (isset($data['driveItem'])) {
-            $this->driveItem = $data['driveItem'];
+            $this->driveItem = is_array($data['driveItem']) ? new DriveItem($data['driveItem']) : $data['driveItem'];
         }
         if (isset($data['items'])) {
             $this->items = $data['items'];
         }
         if (isset($data['list'])) {
-            $this->list = $data['list'];
+            $this->list = is_array($data['list']) ? new ListModel($data['list']) : $data['list'];
         }
         if (isset($data['listItem'])) {
-            $this->listItem = $data['listItem'];
+            $this->listItem = is_array($data['listItem']) ? new ListItem($data['listItem']) : $data['listItem'];
         }
         if (isset($data['permission'])) {
-            $this->permission = $data['permission'];
+            $this->permission = is_array($data['permission']) ? new Permission($data['permission']) : $data['permission'];
         }
         if (isset($data['root'])) {
-            $this->root = $data['root'];
+            $this->root = is_array($data['root']) ? new DriveItem($data['root']) : $data['root'];
         }
         if (isset($data['site'])) {
-            $this->site = $data['site'];
+            $this->site = is_array($data['site']) ? new Site($data['site']) : $data['site'];
         }
     }
 }

@@ -65,10 +65,10 @@ class TeamsAppDefinition
             $this->id = $data['id'];
         }
         if (isset($data['authorization'])) {
-            $this->authorization = $data['authorization'];
+            $this->authorization = is_array($data['authorization']) ? new TeamsAppAuthorization($data['authorization']) : $data['authorization'];
         }
         if (isset($data['createdBy'])) {
-            $this->createdBy = $data['createdBy'];
+            $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -80,7 +80,7 @@ class TeamsAppDefinition
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = $data['publishingState'];
+            $this->publishingState = is_array($data['publishingState']) ? new TeamsAppPublishingState($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['shortDescription'])) {
             $this->shortDescription = $data['shortDescription'];
@@ -92,7 +92,7 @@ class TeamsAppDefinition
             $this->version = $data['version'];
         }
         if (isset($data['bot'])) {
-            $this->bot = $data['bot'];
+            $this->bot = is_array($data['bot']) ? new TeamworkBot($data['bot']) : $data['bot'];
         }
     }
 }

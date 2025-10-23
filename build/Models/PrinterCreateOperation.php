@@ -41,13 +41,13 @@ class PrinterCreateOperation
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new PrintOperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['certificate'])) {
             $this->certificate = $data['certificate'];
         }
         if (isset($data['printer'])) {
-            $this->printer = $data['printer'];
+            $this->printer = is_array($data['printer']) ? new Printer($data['printer']) : $data['printer'];
         }
     }
 }

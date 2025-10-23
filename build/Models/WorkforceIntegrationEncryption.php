@@ -26,7 +26,7 @@ class WorkforceIntegrationEncryption
     public function __construct(array $data = [])
     {
         if (isset($data['protocol'])) {
-            $this->protocol = $data['protocol'];
+            $this->protocol = is_array($data['protocol']) ? new WorkforceIntegrationEncryptionProtocol($data['protocol']) : $data['protocol'];
         }
         if (isset($data['secret'])) {
             $this->secret = $data['secret'];

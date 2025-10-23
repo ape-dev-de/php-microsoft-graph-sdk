@@ -44,7 +44,7 @@ class IdentityGovernanceWorkflowTemplate
             $this->id = $data['id'];
         }
         if (isset($data['category'])) {
-            $this->category = $data['category'];
+            $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['category']) : $data['category'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -53,7 +53,7 @@ class IdentityGovernanceWorkflowTemplate
             $this->displayName = $data['displayName'];
         }
         if (isset($data['executionConditions'])) {
-            $this->executionConditions = $data['executionConditions'];
+            $this->executionConditions = is_array($data['executionConditions']) ? new IdentityGovernanceWorkflowExecutionConditions($data['executionConditions']) : $data['executionConditions'];
         }
         if (isset($data['tasks'])) {
             $this->tasks = $data['tasks'];

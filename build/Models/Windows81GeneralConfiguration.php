@@ -197,13 +197,13 @@ class Windows81GeneralConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['accountsBlockAddingNonMicrosoftAccountEmail'])) {
             $this->accountsBlockAddingNonMicrosoftAccountEmail = $data['accountsBlockAddingNonMicrosoftAccountEmail'];
@@ -239,10 +239,10 @@ class Windows81GeneralConfiguration
             $this->browserEnterpriseModeSiteListLocation = $data['browserEnterpriseModeSiteListLocation'];
         }
         if (isset($data['browserInternetSecurityLevel'])) {
-            $this->browserInternetSecurityLevel = $data['browserInternetSecurityLevel'];
+            $this->browserInternetSecurityLevel = is_array($data['browserInternetSecurityLevel']) ? new InternetSiteSecurityLevel($data['browserInternetSecurityLevel']) : $data['browserInternetSecurityLevel'];
         }
         if (isset($data['browserIntranetSecurityLevel'])) {
-            $this->browserIntranetSecurityLevel = $data['browserIntranetSecurityLevel'];
+            $this->browserIntranetSecurityLevel = is_array($data['browserIntranetSecurityLevel']) ? new SiteSecurityLevel($data['browserIntranetSecurityLevel']) : $data['browserIntranetSecurityLevel'];
         }
         if (isset($data['browserLoggingReportLocation'])) {
             $this->browserLoggingReportLocation = $data['browserLoggingReportLocation'];
@@ -260,7 +260,7 @@ class Windows81GeneralConfiguration
             $this->browserRequireSmartScreen = $data['browserRequireSmartScreen'];
         }
         if (isset($data['browserTrustedSitesSecurityLevel'])) {
-            $this->browserTrustedSitesSecurityLevel = $data['browserTrustedSitesSecurityLevel'];
+            $this->browserTrustedSitesSecurityLevel = is_array($data['browserTrustedSitesSecurityLevel']) ? new SiteSecurityLevel($data['browserTrustedSitesSecurityLevel']) : $data['browserTrustedSitesSecurityLevel'];
         }
         if (isset($data['cellularBlockDataRoaming'])) {
             $this->cellularBlockDataRoaming = $data['cellularBlockDataRoaming'];
@@ -287,7 +287,7 @@ class Windows81GeneralConfiguration
             $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
             $this->passwordSignInFailureCountBeforeFactoryReset = $data['passwordSignInFailureCountBeforeFactoryReset'];
@@ -299,7 +299,7 @@ class Windows81GeneralConfiguration
             $this->updatesRequireAutomaticUpdates = $data['updatesRequireAutomaticUpdates'];
         }
         if (isset($data['userAccountControlSettings'])) {
-            $this->userAccountControlSettings = $data['userAccountControlSettings'];
+            $this->userAccountControlSettings = is_array($data['userAccountControlSettings']) ? new WindowsUserAccountControlSettings($data['userAccountControlSettings']) : $data['userAccountControlSettings'];
         }
         if (isset($data['workFoldersUrl'])) {
             $this->workFoldersUrl = $data['workFoldersUrl'];

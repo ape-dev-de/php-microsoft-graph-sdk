@@ -143,13 +143,13 @@ class WorkbookRange
             $this->valueTypes = $data['valueTypes'];
         }
         if (isset($data['format'])) {
-            $this->format = $data['format'];
+            $this->format = is_array($data['format']) ? new WorkbookRangeFormat($data['format']) : $data['format'];
         }
         if (isset($data['sort'])) {
-            $this->sort = $data['sort'];
+            $this->sort = is_array($data['sort']) ? new WorkbookRangeSort($data['sort']) : $data['sort'];
         }
         if (isset($data['worksheet'])) {
-            $this->worksheet = $data['worksheet'];
+            $this->worksheet = is_array($data['worksheet']) ? new WorkbookWorksheet($data['worksheet']) : $data['worksheet'];
         }
     }
 }

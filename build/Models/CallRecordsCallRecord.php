@@ -89,7 +89,7 @@ class CallRecordsCallRecord
             $this->modalities = $data['modalities'];
         }
         if (isset($data['organizer'])) {
-            $this->organizer = $data['organizer'];
+            $this->organizer = is_array($data['organizer']) ? new IdentitySet($data['organizer']) : $data['organizer'];
         }
         if (isset($data['participants'])) {
             $this->participants = $data['participants'];
@@ -98,13 +98,13 @@ class CallRecordsCallRecord
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_array($data['type']) ? new CallRecordsCallType($data['type']) : $data['type'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];
         }
         if (isset($data['organizer_v2'])) {
-            $this->organizer_v2 = $data['organizer_v2'];
+            $this->organizer_v2 = is_array($data['organizer_v2']) ? new CallRecordsOrganizer($data['organizer_v2']) : $data['organizer_v2'];
         }
         if (isset($data['participants_v2'])) {
             $this->participants_v2 = $data['participants_v2'];

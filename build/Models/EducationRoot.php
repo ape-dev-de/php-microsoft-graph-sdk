@@ -50,10 +50,10 @@ class EducationRoot
             $this->classes = $data['classes'];
         }
         if (isset($data['me'])) {
-            $this->me = $data['me'];
+            $this->me = is_array($data['me']) ? new EducationUser($data['me']) : $data['me'];
         }
         if (isset($data['reports'])) {
-            $this->reports = $data['reports'];
+            $this->reports = is_array($data['reports']) ? new ReportsRoot($data['reports']) : $data['reports'];
         }
         if (isset($data['schools'])) {
             $this->schools = $data['schools'];

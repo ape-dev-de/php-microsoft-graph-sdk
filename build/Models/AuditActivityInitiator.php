@@ -29,10 +29,10 @@ class AuditActivityInitiator
     public function __construct(array $data = [])
     {
         if (isset($data['app'])) {
-            $this->app = $data['app'];
+            $this->app = is_array($data['app']) ? new AppIdentity($data['app']) : $data['app'];
         }
         if (isset($data['user'])) {
-            $this->user = $data['user'];
+            $this->user = is_array($data['user']) ? new UserIdentity($data['user']) : $data['user'];
         }
     }
 }

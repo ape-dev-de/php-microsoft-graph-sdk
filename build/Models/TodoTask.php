@@ -119,7 +119,7 @@ class TodoTask
             $this->id = $data['id'];
         }
         if (isset($data['body'])) {
-            $this->body = $data['body'];
+            $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['bodyLastModifiedDateTime'])) {
             $this->bodyLastModifiedDateTime = is_string($data['bodyLastModifiedDateTime']) ? new \DateTimeImmutable($data['bodyLastModifiedDateTime']) : $data['bodyLastModifiedDateTime'];
@@ -128,19 +128,19 @@ class TodoTask
             $this->categories = $data['categories'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_array($data['completedDateTime']) ? new DateTimeTimeZone($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['dueDateTime'])) {
-            $this->dueDateTime = $data['dueDateTime'];
+            $this->dueDateTime = is_array($data['dueDateTime']) ? new DateTimeTimeZone($data['dueDateTime']) : $data['dueDateTime'];
         }
         if (isset($data['hasAttachments'])) {
             $this->hasAttachments = $data['hasAttachments'];
         }
         if (isset($data['importance'])) {
-            $this->importance = $data['importance'];
+            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
         }
         if (isset($data['isReminderOn'])) {
             $this->isReminderOn = $data['isReminderOn'];
@@ -149,16 +149,16 @@ class TodoTask
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['recurrence'])) {
-            $this->recurrence = $data['recurrence'];
+            $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
         if (isset($data['reminderDateTime'])) {
-            $this->reminderDateTime = $data['reminderDateTime'];
+            $this->reminderDateTime = is_array($data['reminderDateTime']) ? new DateTimeTimeZone($data['reminderDateTime']) : $data['reminderDateTime'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new TaskStatus($data['status']) : $data['status'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];

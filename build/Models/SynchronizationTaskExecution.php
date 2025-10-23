@@ -92,10 +92,10 @@ class SynchronizationTaskExecution
             $this->countImportedReferenceDeltas = $data['countImportedReferenceDeltas'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new SynchronizationError($data['error']) : $data['error'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new SynchronizationTaskExecutionResult($data['state']) : $data['state'];
         }
         if (isset($data['timeBegan'])) {
             $this->timeBegan = is_string($data['timeBegan']) ? new \DateTimeImmutable($data['timeBegan']) : $data['timeBegan'];

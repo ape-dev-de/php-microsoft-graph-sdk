@@ -29,7 +29,7 @@ class CrossTenantAccessPolicyTargetConfiguration
     public function __construct(array $data = [])
     {
         if (isset($data['accessType'])) {
-            $this->accessType = $data['accessType'];
+            $this->accessType = is_array($data['accessType']) ? new CrossTenantAccessPolicyTargetConfigurationAccessType($data['accessType']) : $data['accessType'];
         }
         if (isset($data['targets'])) {
             $this->targets = $data['targets'];

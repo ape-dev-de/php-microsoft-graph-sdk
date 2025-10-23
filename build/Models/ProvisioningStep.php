@@ -44,16 +44,16 @@ class ProvisioningStep
             $this->description = $data['description'];
         }
         if (isset($data['details'])) {
-            $this->details = $data['details'];
+            $this->details = is_array($data['details']) ? new DetailsInfo($data['details']) : $data['details'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['provisioningStepType'])) {
-            $this->provisioningStepType = $data['provisioningStepType'];
+            $this->provisioningStepType = is_array($data['provisioningStepType']) ? new ProvisioningStepType($data['provisioningStepType']) : $data['provisioningStepType'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new ProvisioningResult($data['status']) : $data['status'];
         }
     }
 }

@@ -38,19 +38,19 @@ class ProcessContentRequest
     public function __construct(array $data = [])
     {
         if (isset($data['activityMetadata'])) {
-            $this->activityMetadata = $data['activityMetadata'];
+            $this->activityMetadata = is_array($data['activityMetadata']) ? new ActivityMetadata($data['activityMetadata']) : $data['activityMetadata'];
         }
         if (isset($data['contentEntries'])) {
             $this->contentEntries = $data['contentEntries'];
         }
         if (isset($data['deviceMetadata'])) {
-            $this->deviceMetadata = $data['deviceMetadata'];
+            $this->deviceMetadata = is_array($data['deviceMetadata']) ? new DeviceMetadata($data['deviceMetadata']) : $data['deviceMetadata'];
         }
         if (isset($data['integratedAppMetadata'])) {
-            $this->integratedAppMetadata = $data['integratedAppMetadata'];
+            $this->integratedAppMetadata = is_array($data['integratedAppMetadata']) ? new IntegratedApplicationMetadata($data['integratedAppMetadata']) : $data['integratedAppMetadata'];
         }
         if (isset($data['protectedAppMetadata'])) {
-            $this->protectedAppMetadata = $data['protectedAppMetadata'];
+            $this->protectedAppMetadata = is_array($data['protectedAppMetadata']) ? new ProtectedApplicationMetadata($data['protectedAppMetadata']) : $data['protectedAppMetadata'];
         }
     }
 }

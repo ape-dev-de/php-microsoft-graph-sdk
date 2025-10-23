@@ -26,7 +26,7 @@ class ArtifactQuery
     public function __construct(array $data = [])
     {
         if (isset($data['artifactType'])) {
-            $this->artifactType = $data['artifactType'];
+            $this->artifactType = is_array($data['artifactType']) ? new RestorableArtifact($data['artifactType']) : $data['artifactType'];
         }
         if (isset($data['queryExpression'])) {
             $this->queryExpression = $data['queryExpression'];

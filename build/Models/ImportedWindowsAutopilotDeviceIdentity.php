@@ -65,7 +65,7 @@ class ImportedWindowsAutopilotDeviceIdentity
             $this->serialNumber = $data['serialNumber'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new ImportedWindowsAutopilotDeviceIdentityState($data['state']) : $data['state'];
         }
     }
 }

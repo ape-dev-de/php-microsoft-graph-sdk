@@ -53,7 +53,7 @@ class DetectedApp
             $this->displayName = $data['displayName'];
         }
         if (isset($data['platform'])) {
-            $this->platform = $data['platform'];
+            $this->platform = is_array($data['platform']) ? new DetectedAppPlatformType($data['platform']) : $data['platform'];
         }
         if (isset($data['publisher'])) {
             $this->publisher = $data['publisher'];

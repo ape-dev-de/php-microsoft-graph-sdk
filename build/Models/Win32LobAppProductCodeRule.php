@@ -29,7 +29,7 @@ class Win32LobAppProductCodeRule
     public function __construct(array $data = [])
     {
         if (isset($data['ruleType'])) {
-            $this->ruleType = $data['ruleType'];
+            $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
         }
         if (isset($data['productCode'])) {
             $this->productCode = $data['productCode'];
@@ -38,7 +38,7 @@ class Win32LobAppProductCodeRule
             $this->productVersion = $data['productVersion'];
         }
         if (isset($data['productVersionOperator'])) {
-            $this->productVersionOperator = $data['productVersionOperator'];
+            $this->productVersionOperator = is_array($data['productVersionOperator']) ? new Win32LobAppRuleOperator($data['productVersionOperator']) : $data['productVersionOperator'];
         }
     }
 }

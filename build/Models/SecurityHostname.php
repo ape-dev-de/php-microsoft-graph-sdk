@@ -143,7 +143,7 @@ class SecurityHostname
             $this->ports = $data['ports'];
         }
         if (isset($data['reputation'])) {
-            $this->reputation = $data['reputation'];
+            $this->reputation = is_array($data['reputation']) ? new SecurityHostReputation($data['reputation']) : $data['reputation'];
         }
         if (isset($data['sslCertificates'])) {
             $this->sslCertificates = $data['sslCertificates'];
@@ -155,7 +155,7 @@ class SecurityHostname
             $this->trackers = $data['trackers'];
         }
         if (isset($data['whois'])) {
-            $this->whois = $data['whois'];
+            $this->whois = is_array($data['whois']) ? new SecurityWhoisRecord($data['whois']) : $data['whois'];
         }
         if (isset($data['registrant'])) {
             $this->registrant = $data['registrant'];

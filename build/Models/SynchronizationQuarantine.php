@@ -41,13 +41,13 @@ class SynchronizationQuarantine
             $this->currentBegan = is_string($data['currentBegan']) ? new \DateTimeImmutable($data['currentBegan']) : $data['currentBegan'];
         }
         if (isset($data['error'])) {
-            $this->error = $data['error'];
+            $this->error = is_array($data['error']) ? new SynchronizationError($data['error']) : $data['error'];
         }
         if (isset($data['nextAttempt'])) {
             $this->nextAttempt = is_string($data['nextAttempt']) ? new \DateTimeImmutable($data['nextAttempt']) : $data['nextAttempt'];
         }
         if (isset($data['reason'])) {
-            $this->reason = $data['reason'];
+            $this->reason = is_array($data['reason']) ? new QuarantineReason($data['reason']) : $data['reason'];
         }
         if (isset($data['seriesBegan'])) {
             $this->seriesBegan = is_string($data['seriesBegan']) ? new \DateTimeImmutable($data['seriesBegan']) : $data['seriesBegan'];

@@ -35,7 +35,7 @@ class TimeCardEvent
             $this->isAtApprovedLocation = $data['isAtApprovedLocation'];
         }
         if (isset($data['notes'])) {
-            $this->notes = $data['notes'];
+            $this->notes = is_array($data['notes']) ? new ItemBody($data['notes']) : $data['notes'];
         }
     }
 }

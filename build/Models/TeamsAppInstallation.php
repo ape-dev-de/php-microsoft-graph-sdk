@@ -41,13 +41,13 @@ class TeamsAppInstallation
             $this->id = $data['id'];
         }
         if (isset($data['consentedPermissionSet'])) {
-            $this->consentedPermissionSet = $data['consentedPermissionSet'];
+            $this->consentedPermissionSet = is_array($data['consentedPermissionSet']) ? new TeamsAppPermissionSet($data['consentedPermissionSet']) : $data['consentedPermissionSet'];
         }
         if (isset($data['teamsApp'])) {
-            $this->teamsApp = $data['teamsApp'];
+            $this->teamsApp = is_array($data['teamsApp']) ? new TeamsApp($data['teamsApp']) : $data['teamsApp'];
         }
         if (isset($data['teamsAppDefinition'])) {
-            $this->teamsAppDefinition = $data['teamsAppDefinition'];
+            $this->teamsAppDefinition = is_array($data['teamsAppDefinition']) ? new TeamsAppDefinition($data['teamsAppDefinition']) : $data['teamsAppDefinition'];
         }
     }
 }

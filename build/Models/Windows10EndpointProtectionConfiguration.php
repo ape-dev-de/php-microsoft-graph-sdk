@@ -227,13 +227,13 @@ class Windows10EndpointProtectionConfiguration
             $this->deviceStatuses = $data['deviceStatuses'];
         }
         if (isset($data['deviceStatusOverview'])) {
-            $this->deviceStatusOverview = $data['deviceStatusOverview'];
+            $this->deviceStatusOverview = is_array($data['deviceStatusOverview']) ? new DeviceConfigurationDeviceOverview($data['deviceStatusOverview']) : $data['deviceStatusOverview'];
         }
         if (isset($data['userStatuses'])) {
             $this->userStatuses = $data['userStatuses'];
         }
         if (isset($data['userStatusOverview'])) {
-            $this->userStatusOverview = $data['userStatusOverview'];
+            $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['applicationGuardAllowPersistence'])) {
             $this->applicationGuardAllowPersistence = $data['applicationGuardAllowPersistence'];
@@ -251,10 +251,10 @@ class Windows10EndpointProtectionConfiguration
             $this->applicationGuardAllowPrintToXPS = $data['applicationGuardAllowPrintToXPS'];
         }
         if (isset($data['applicationGuardBlockClipboardSharing'])) {
-            $this->applicationGuardBlockClipboardSharing = $data['applicationGuardBlockClipboardSharing'];
+            $this->applicationGuardBlockClipboardSharing = is_array($data['applicationGuardBlockClipboardSharing']) ? new ApplicationGuardBlockClipboardSharingType($data['applicationGuardBlockClipboardSharing']) : $data['applicationGuardBlockClipboardSharing'];
         }
         if (isset($data['applicationGuardBlockFileTransfer'])) {
-            $this->applicationGuardBlockFileTransfer = $data['applicationGuardBlockFileTransfer'];
+            $this->applicationGuardBlockFileTransfer = is_array($data['applicationGuardBlockFileTransfer']) ? new ApplicationGuardBlockFileTransferType($data['applicationGuardBlockFileTransfer']) : $data['applicationGuardBlockFileTransfer'];
         }
         if (isset($data['applicationGuardBlockNonEnterpriseContent'])) {
             $this->applicationGuardBlockNonEnterpriseContent = $data['applicationGuardBlockNonEnterpriseContent'];
@@ -266,7 +266,7 @@ class Windows10EndpointProtectionConfiguration
             $this->applicationGuardForceAuditing = $data['applicationGuardForceAuditing'];
         }
         if (isset($data['appLockerApplicationControl'])) {
-            $this->appLockerApplicationControl = $data['appLockerApplicationControl'];
+            $this->appLockerApplicationControl = is_array($data['appLockerApplicationControl']) ? new AppLockerApplicationControlType($data['appLockerApplicationControl']) : $data['appLockerApplicationControl'];
         }
         if (isset($data['bitLockerDisableWarningForOtherDiskEncryption'])) {
             $this->bitLockerDisableWarningForOtherDiskEncryption = $data['bitLockerDisableWarningForOtherDiskEncryption'];
@@ -278,7 +278,7 @@ class Windows10EndpointProtectionConfiguration
             $this->bitLockerEncryptDevice = $data['bitLockerEncryptDevice'];
         }
         if (isset($data['bitLockerRemovableDrivePolicy'])) {
-            $this->bitLockerRemovableDrivePolicy = $data['bitLockerRemovableDrivePolicy'];
+            $this->bitLockerRemovableDrivePolicy = is_array($data['bitLockerRemovableDrivePolicy']) ? new BitLockerRemovableDrivePolicy($data['bitLockerRemovableDrivePolicy']) : $data['bitLockerRemovableDrivePolicy'];
         }
         if (isset($data['defenderAdditionalGuardedFolders'])) {
             $this->defenderAdditionalGuardedFolders = $data['defenderAdditionalGuardedFolders'];
@@ -302,7 +302,7 @@ class Windows10EndpointProtectionConfiguration
             $this->firewallBlockStatefulFTP = $data['firewallBlockStatefulFTP'];
         }
         if (isset($data['firewallCertificateRevocationListCheckMethod'])) {
-            $this->firewallCertificateRevocationListCheckMethod = $data['firewallCertificateRevocationListCheckMethod'];
+            $this->firewallCertificateRevocationListCheckMethod = is_array($data['firewallCertificateRevocationListCheckMethod']) ? new FirewallCertificateRevocationListCheckMethodType($data['firewallCertificateRevocationListCheckMethod']) : $data['firewallCertificateRevocationListCheckMethod'];
         }
         if (isset($data['firewallIdleTimeoutForSecurityAssociationInSeconds'])) {
             $this->firewallIdleTimeoutForSecurityAssociationInSeconds = $data['firewallIdleTimeoutForSecurityAssociationInSeconds'];
@@ -323,19 +323,19 @@ class Windows10EndpointProtectionConfiguration
             $this->firewallMergeKeyingModuleSettings = $data['firewallMergeKeyingModuleSettings'];
         }
         if (isset($data['firewallPacketQueueingMethod'])) {
-            $this->firewallPacketQueueingMethod = $data['firewallPacketQueueingMethod'];
+            $this->firewallPacketQueueingMethod = is_array($data['firewallPacketQueueingMethod']) ? new FirewallPacketQueueingMethodType($data['firewallPacketQueueingMethod']) : $data['firewallPacketQueueingMethod'];
         }
         if (isset($data['firewallPreSharedKeyEncodingMethod'])) {
-            $this->firewallPreSharedKeyEncodingMethod = $data['firewallPreSharedKeyEncodingMethod'];
+            $this->firewallPreSharedKeyEncodingMethod = is_array($data['firewallPreSharedKeyEncodingMethod']) ? new FirewallPreSharedKeyEncodingMethodType($data['firewallPreSharedKeyEncodingMethod']) : $data['firewallPreSharedKeyEncodingMethod'];
         }
         if (isset($data['firewallProfileDomain'])) {
-            $this->firewallProfileDomain = $data['firewallProfileDomain'];
+            $this->firewallProfileDomain = is_array($data['firewallProfileDomain']) ? new WindowsFirewallNetworkProfile($data['firewallProfileDomain']) : $data['firewallProfileDomain'];
         }
         if (isset($data['firewallProfilePrivate'])) {
-            $this->firewallProfilePrivate = $data['firewallProfilePrivate'];
+            $this->firewallProfilePrivate = is_array($data['firewallProfilePrivate']) ? new WindowsFirewallNetworkProfile($data['firewallProfilePrivate']) : $data['firewallProfilePrivate'];
         }
         if (isset($data['firewallProfilePublic'])) {
-            $this->firewallProfilePublic = $data['firewallProfilePublic'];
+            $this->firewallProfilePublic = is_array($data['firewallProfilePublic']) ? new WindowsFirewallNetworkProfile($data['firewallProfilePublic']) : $data['firewallProfilePublic'];
         }
         if (isset($data['smartScreenBlockOverrideForFiles'])) {
             $this->smartScreenBlockOverrideForFiles = $data['smartScreenBlockOverrideForFiles'];

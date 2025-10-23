@@ -47,7 +47,7 @@ class TargetResource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['groupType'])) {
-            $this->groupType = $data['groupType'];
+            $this->groupType = is_array($data['groupType']) ? new GroupType($data['groupType']) : $data['groupType'];
         }
         if (isset($data['modifiedProperties'])) {
             $this->modifiedProperties = $data['modifiedProperties'];

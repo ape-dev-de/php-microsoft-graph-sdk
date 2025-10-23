@@ -38,10 +38,10 @@ class ConversationMemberRoleUpdatedEventMessageDetail
             $this->conversationMemberRoles = $data['conversationMemberRoles'];
         }
         if (isset($data['conversationMemberUser'])) {
-            $this->conversationMemberUser = $data['conversationMemberUser'];
+            $this->conversationMemberUser = is_array($data['conversationMemberUser']) ? new TeamworkUserIdentity($data['conversationMemberUser']) : $data['conversationMemberUser'];
         }
         if (isset($data['initiator'])) {
-            $this->initiator = $data['initiator'];
+            $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
     }
 }

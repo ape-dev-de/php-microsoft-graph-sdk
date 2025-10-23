@@ -44,7 +44,7 @@ class WorkingHours
             $this->startTime = $data['startTime'];
         }
         if (isset($data['timeZone'])) {
-            $this->timeZone = $data['timeZone'];
+            $this->timeZone = is_array($data['timeZone']) ? new TimeZoneBase($data['timeZone']) : $data['timeZone'];
         }
     }
 }

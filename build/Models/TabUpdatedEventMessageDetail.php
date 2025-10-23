@@ -26,7 +26,7 @@ class TabUpdatedEventMessageDetail
     public function __construct(array $data = [])
     {
         if (isset($data['initiator'])) {
-            $this->initiator = $data['initiator'];
+            $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
         if (isset($data['tabId'])) {
             $this->tabId = $data['tabId'];

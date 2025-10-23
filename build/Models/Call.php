@@ -158,28 +158,28 @@ class Call
             $this->callChainId = $data['callChainId'];
         }
         if (isset($data['callOptions'])) {
-            $this->callOptions = $data['callOptions'];
+            $this->callOptions = is_array($data['callOptions']) ? new CallOptions($data['callOptions']) : $data['callOptions'];
         }
         if (isset($data['callRoutes'])) {
             $this->callRoutes = $data['callRoutes'];
         }
         if (isset($data['chatInfo'])) {
-            $this->chatInfo = $data['chatInfo'];
+            $this->chatInfo = is_array($data['chatInfo']) ? new ChatInfo($data['chatInfo']) : $data['chatInfo'];
         }
         if (isset($data['direction'])) {
-            $this->direction = $data['direction'];
+            $this->direction = is_array($data['direction']) ? new CallDirection($data['direction']) : $data['direction'];
         }
         if (isset($data['incomingContext'])) {
-            $this->incomingContext = $data['incomingContext'];
+            $this->incomingContext = is_array($data['incomingContext']) ? new IncomingContext($data['incomingContext']) : $data['incomingContext'];
         }
         if (isset($data['mediaConfig'])) {
-            $this->mediaConfig = $data['mediaConfig'];
+            $this->mediaConfig = is_array($data['mediaConfig']) ? new MediaConfig($data['mediaConfig']) : $data['mediaConfig'];
         }
         if (isset($data['mediaState'])) {
-            $this->mediaState = $data['mediaState'];
+            $this->mediaState = is_array($data['mediaState']) ? new CallMediaState($data['mediaState']) : $data['mediaState'];
         }
         if (isset($data['meetingInfo'])) {
-            $this->meetingInfo = $data['meetingInfo'];
+            $this->meetingInfo = is_array($data['meetingInfo']) ? new MeetingInfo($data['meetingInfo']) : $data['meetingInfo'];
         }
         if (isset($data['myParticipantId'])) {
             $this->myParticipantId = $data['myParticipantId'];
@@ -188,13 +188,13 @@ class Call
             $this->requestedModalities = $data['requestedModalities'];
         }
         if (isset($data['resultInfo'])) {
-            $this->resultInfo = $data['resultInfo'];
+            $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['source'])) {
-            $this->source = $data['source'];
+            $this->source = is_array($data['source']) ? new ParticipantInfo($data['source']) : $data['source'];
         }
         if (isset($data['state'])) {
-            $this->state = $data['state'];
+            $this->state = is_array($data['state']) ? new CallState($data['state']) : $data['state'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];
@@ -206,10 +206,10 @@ class Call
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['toneInfo'])) {
-            $this->toneInfo = $data['toneInfo'];
+            $this->toneInfo = is_array($data['toneInfo']) ? new ToneInfo($data['toneInfo']) : $data['toneInfo'];
         }
         if (isset($data['transcription'])) {
-            $this->transcription = $data['transcription'];
+            $this->transcription = is_array($data['transcription']) ? new CallTranscriptionInfo($data['transcription']) : $data['transcription'];
         }
         if (isset($data['audioRoutingGroups'])) {
             $this->audioRoutingGroups = $data['audioRoutingGroups'];

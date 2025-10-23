@@ -50,19 +50,19 @@ class SecurityEdiscoveryCaseSettings
             $this->id = $data['id'];
         }
         if (isset($data['caseType'])) {
-            $this->caseType = $data['caseType'];
+            $this->caseType = is_array($data['caseType']) ? new SecurityCaseType($data['caseType']) : $data['caseType'];
         }
         if (isset($data['ocr'])) {
-            $this->ocr = $data['ocr'];
+            $this->ocr = is_array($data['ocr']) ? new SecurityOcrSettings($data['ocr']) : $data['ocr'];
         }
         if (isset($data['redundancyDetection'])) {
-            $this->redundancyDetection = $data['redundancyDetection'];
+            $this->redundancyDetection = is_array($data['redundancyDetection']) ? new SecurityRedundancyDetectionSettings($data['redundancyDetection']) : $data['redundancyDetection'];
         }
         if (isset($data['reviewSetSettings'])) {
-            $this->reviewSetSettings = $data['reviewSetSettings'];
+            $this->reviewSetSettings = is_array($data['reviewSetSettings']) ? new SecurityReviewSetSettings($data['reviewSetSettings']) : $data['reviewSetSettings'];
         }
         if (isset($data['topicModeling'])) {
-            $this->topicModeling = $data['topicModeling'];
+            $this->topicModeling = is_array($data['topicModeling']) ? new SecurityTopicModelingSettings($data['topicModeling']) : $data['topicModeling'];
         }
     }
 }

@@ -101,7 +101,7 @@ class SecurityIncident
             $this->assignedTo = $data['assignedTo'];
         }
         if (isset($data['classification'])) {
-            $this->classification = $data['classification'];
+            $this->classification = is_array($data['classification']) ? new SecurityAlertClassification($data['classification']) : $data['classification'];
         }
         if (isset($data['comments'])) {
             $this->comments = $data['comments'];
@@ -116,7 +116,7 @@ class SecurityIncident
             $this->description = $data['description'];
         }
         if (isset($data['determination'])) {
-            $this->determination = $data['determination'];
+            $this->determination = is_array($data['determination']) ? new SecurityAlertDetermination($data['determination']) : $data['determination'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -137,10 +137,10 @@ class SecurityIncident
             $this->resolvingComment = $data['resolvingComment'];
         }
         if (isset($data['severity'])) {
-            $this->severity = $data['severity'];
+            $this->severity = is_array($data['severity']) ? new SecurityAlertSeverity($data['severity']) : $data['severity'];
         }
         if (isset($data['status'])) {
-            $this->status = $data['status'];
+            $this->status = is_array($data['status']) ? new SecurityIncidentStatus($data['status']) : $data['status'];
         }
         if (isset($data['summary'])) {
             $this->summary = $data['summary'];

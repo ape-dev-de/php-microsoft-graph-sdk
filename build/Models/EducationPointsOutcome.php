@@ -44,16 +44,16 @@ class EducationPointsOutcome
             $this->id = $data['id'];
         }
         if (isset($data['lastModifiedBy'])) {
-            $this->lastModifiedBy = $data['lastModifiedBy'];
+            $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['points'])) {
-            $this->points = $data['points'];
+            $this->points = is_array($data['points']) ? new EducationAssignmentPointsGrade($data['points']) : $data['points'];
         }
         if (isset($data['publishedPoints'])) {
-            $this->publishedPoints = $data['publishedPoints'];
+            $this->publishedPoints = is_array($data['publishedPoints']) ? new EducationAssignmentPointsGrade($data['publishedPoints']) : $data['publishedPoints'];
         }
     }
 }

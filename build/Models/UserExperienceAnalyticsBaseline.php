@@ -83,25 +83,25 @@ class UserExperienceAnalyticsBaseline
             $this->isBuiltIn = $data['isBuiltIn'];
         }
         if (isset($data['appHealthMetrics'])) {
-            $this->appHealthMetrics = $data['appHealthMetrics'];
+            $this->appHealthMetrics = is_array($data['appHealthMetrics']) ? new UserExperienceAnalyticsCategory($data['appHealthMetrics']) : $data['appHealthMetrics'];
         }
         if (isset($data['batteryHealthMetrics'])) {
-            $this->batteryHealthMetrics = $data['batteryHealthMetrics'];
+            $this->batteryHealthMetrics = is_array($data['batteryHealthMetrics']) ? new UserExperienceAnalyticsCategory($data['batteryHealthMetrics']) : $data['batteryHealthMetrics'];
         }
         if (isset($data['bestPracticesMetrics'])) {
-            $this->bestPracticesMetrics = $data['bestPracticesMetrics'];
+            $this->bestPracticesMetrics = is_array($data['bestPracticesMetrics']) ? new UserExperienceAnalyticsCategory($data['bestPracticesMetrics']) : $data['bestPracticesMetrics'];
         }
         if (isset($data['deviceBootPerformanceMetrics'])) {
-            $this->deviceBootPerformanceMetrics = $data['deviceBootPerformanceMetrics'];
+            $this->deviceBootPerformanceMetrics = is_array($data['deviceBootPerformanceMetrics']) ? new UserExperienceAnalyticsCategory($data['deviceBootPerformanceMetrics']) : $data['deviceBootPerformanceMetrics'];
         }
         if (isset($data['rebootAnalyticsMetrics'])) {
-            $this->rebootAnalyticsMetrics = $data['rebootAnalyticsMetrics'];
+            $this->rebootAnalyticsMetrics = is_array($data['rebootAnalyticsMetrics']) ? new UserExperienceAnalyticsCategory($data['rebootAnalyticsMetrics']) : $data['rebootAnalyticsMetrics'];
         }
         if (isset($data['resourcePerformanceMetrics'])) {
-            $this->resourcePerformanceMetrics = $data['resourcePerformanceMetrics'];
+            $this->resourcePerformanceMetrics = is_array($data['resourcePerformanceMetrics']) ? new UserExperienceAnalyticsCategory($data['resourcePerformanceMetrics']) : $data['resourcePerformanceMetrics'];
         }
         if (isset($data['workFromAnywhereMetrics'])) {
-            $this->workFromAnywhereMetrics = $data['workFromAnywhereMetrics'];
+            $this->workFromAnywhereMetrics = is_array($data['workFromAnywhereMetrics']) ? new UserExperienceAnalyticsCategory($data['workFromAnywhereMetrics']) : $data['workFromAnywhereMetrics'];
         }
     }
 }

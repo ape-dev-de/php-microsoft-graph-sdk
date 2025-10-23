@@ -29,7 +29,7 @@ class EducationModuleResource
             $this->id = $data['id'];
         }
         if (isset($data['resource'])) {
-            $this->resource = $data['resource'];
+            $this->resource = is_array($data['resource']) ? new EducationResource($data['resource']) : $data['resource'];
         }
     }
 }

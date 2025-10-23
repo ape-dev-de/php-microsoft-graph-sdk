@@ -53,7 +53,7 @@ class UnifiedRoleManagementPolicyAssignment
             $this->scopeType = $data['scopeType'];
         }
         if (isset($data['policy'])) {
-            $this->policy = $data['policy'];
+            $this->policy = is_array($data['policy']) ? new UnifiedRoleManagementPolicy($data['policy']) : $data['policy'];
         }
     }
 }

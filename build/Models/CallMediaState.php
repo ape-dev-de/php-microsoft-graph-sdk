@@ -23,7 +23,7 @@ class CallMediaState
     public function __construct(array $data = [])
     {
         if (isset($data['audio'])) {
-            $this->audio = $data['audio'];
+            $this->audio = is_array($data['audio']) ? new MediaState($data['audio']) : $data['audio'];
         }
     }
 }
