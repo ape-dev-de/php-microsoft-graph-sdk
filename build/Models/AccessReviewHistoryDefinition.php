@@ -71,7 +71,7 @@ class AccessReviewHistoryDefinition
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['decisions'])) {
             $this->decisions = $data['decisions'];
@@ -80,10 +80,10 @@ class AccessReviewHistoryDefinition
             $this->displayName = $data['displayName'];
         }
         if (isset($data['reviewHistoryPeriodEndDateTime'])) {
-            $this->reviewHistoryPeriodEndDateTime = $data['reviewHistoryPeriodEndDateTime'];
+            $this->reviewHistoryPeriodEndDateTime = is_string($data['reviewHistoryPeriodEndDateTime']) ? new \DateTimeImmutable($data['reviewHistoryPeriodEndDateTime']) : $data['reviewHistoryPeriodEndDateTime'];
         }
         if (isset($data['reviewHistoryPeriodStartDateTime'])) {
-            $this->reviewHistoryPeriodStartDateTime = $data['reviewHistoryPeriodStartDateTime'];
+            $this->reviewHistoryPeriodStartDateTime = is_string($data['reviewHistoryPeriodStartDateTime']) ? new \DateTimeImmutable($data['reviewHistoryPeriodStartDateTime']) : $data['reviewHistoryPeriodStartDateTime'];
         }
         if (isset($data['scheduleSettings'])) {
             $this->scheduleSettings = $data['scheduleSettings'];

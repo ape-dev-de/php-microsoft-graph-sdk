@@ -131,10 +131,10 @@ class DeviceAppManagement
             $this->microsoftStoreForBusinessLanguage = $data['microsoftStoreForBusinessLanguage'];
         }
         if (isset($data['microsoftStoreForBusinessLastCompletedApplicationSyncTime'])) {
-            $this->microsoftStoreForBusinessLastCompletedApplicationSyncTime = $data['microsoftStoreForBusinessLastCompletedApplicationSyncTime'];
+            $this->microsoftStoreForBusinessLastCompletedApplicationSyncTime = is_string($data['microsoftStoreForBusinessLastCompletedApplicationSyncTime']) ? new \DateTimeImmutable($data['microsoftStoreForBusinessLastCompletedApplicationSyncTime']) : $data['microsoftStoreForBusinessLastCompletedApplicationSyncTime'];
         }
         if (isset($data['microsoftStoreForBusinessLastSuccessfulSyncDateTime'])) {
-            $this->microsoftStoreForBusinessLastSuccessfulSyncDateTime = $data['microsoftStoreForBusinessLastSuccessfulSyncDateTime'];
+            $this->microsoftStoreForBusinessLastSuccessfulSyncDateTime = is_string($data['microsoftStoreForBusinessLastSuccessfulSyncDateTime']) ? new \DateTimeImmutable($data['microsoftStoreForBusinessLastSuccessfulSyncDateTime']) : $data['microsoftStoreForBusinessLastSuccessfulSyncDateTime'];
         }
         if (isset($data['androidManagedAppProtections'])) {
             $this->androidManagedAppProtections = $data['androidManagedAppProtections'];

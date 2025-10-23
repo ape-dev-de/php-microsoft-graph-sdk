@@ -29,7 +29,7 @@ class EducationAssignmentGrade
             $this->gradedBy = $data['gradedBy'];
         }
         if (isset($data['gradedDateTime'])) {
-            $this->gradedDateTime = $data['gradedDateTime'];
+            $this->gradedDateTime = is_string($data['gradedDateTime']) ? new \DateTimeImmutable($data['gradedDateTime']) : $data['gradedDateTime'];
         }
     }
 }

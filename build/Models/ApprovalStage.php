@@ -59,7 +59,7 @@ class ApprovalStage
             $this->reviewedBy = $data['reviewedBy'];
         }
         if (isset($data['reviewedDateTime'])) {
-            $this->reviewedDateTime = $data['reviewedDateTime'];
+            $this->reviewedDateTime = is_string($data['reviewedDateTime']) ? new \DateTimeImmutable($data['reviewedDateTime']) : $data['reviewedDateTime'];
         }
         if (isset($data['reviewResult'])) {
             $this->reviewResult = $data['reviewResult'];

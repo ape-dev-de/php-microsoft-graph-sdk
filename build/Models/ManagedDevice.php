@@ -242,7 +242,7 @@ class ManagedDevice
             $this->azureADRegistered = $data['azureADRegistered'];
         }
         if (isset($data['complianceGracePeriodExpirationDateTime'])) {
-            $this->complianceGracePeriodExpirationDateTime = $data['complianceGracePeriodExpirationDateTime'];
+            $this->complianceGracePeriodExpirationDateTime = is_string($data['complianceGracePeriodExpirationDateTime']) ? new \DateTimeImmutable($data['complianceGracePeriodExpirationDateTime']) : $data['complianceGracePeriodExpirationDateTime'];
         }
         if (isset($data['complianceState'])) {
             $this->complianceState = $data['complianceState'];
@@ -272,7 +272,7 @@ class ManagedDevice
             $this->easActivated = $data['easActivated'];
         }
         if (isset($data['easActivationDateTime'])) {
-            $this->easActivationDateTime = $data['easActivationDateTime'];
+            $this->easActivationDateTime = is_string($data['easActivationDateTime']) ? new \DateTimeImmutable($data['easActivationDateTime']) : $data['easActivationDateTime'];
         }
         if (isset($data['easDeviceId'])) {
             $this->easDeviceId = $data['easDeviceId'];
@@ -281,7 +281,7 @@ class ManagedDevice
             $this->emailAddress = $data['emailAddress'];
         }
         if (isset($data['enrolledDateTime'])) {
-            $this->enrolledDateTime = $data['enrolledDateTime'];
+            $this->enrolledDateTime = is_string($data['enrolledDateTime']) ? new \DateTimeImmutable($data['enrolledDateTime']) : $data['enrolledDateTime'];
         }
         if (isset($data['enrollmentProfileName'])) {
             $this->enrollmentProfileName = $data['enrollmentProfileName'];
@@ -296,7 +296,7 @@ class ManagedDevice
             $this->exchangeAccessStateReason = $data['exchangeAccessStateReason'];
         }
         if (isset($data['exchangeLastSuccessfulSyncDateTime'])) {
-            $this->exchangeLastSuccessfulSyncDateTime = $data['exchangeLastSuccessfulSyncDateTime'];
+            $this->exchangeLastSuccessfulSyncDateTime = is_string($data['exchangeLastSuccessfulSyncDateTime']) ? new \DateTimeImmutable($data['exchangeLastSuccessfulSyncDateTime']) : $data['exchangeLastSuccessfulSyncDateTime'];
         }
         if (isset($data['freeStorageSpaceInBytes'])) {
             $this->freeStorageSpaceInBytes = $data['freeStorageSpaceInBytes'];
@@ -317,7 +317,7 @@ class ManagedDevice
             $this->jailBroken = $data['jailBroken'];
         }
         if (isset($data['lastSyncDateTime'])) {
-            $this->lastSyncDateTime = $data['lastSyncDateTime'];
+            $this->lastSyncDateTime = is_string($data['lastSyncDateTime']) ? new \DateTimeImmutable($data['lastSyncDateTime']) : $data['lastSyncDateTime'];
         }
         if (isset($data['managedDeviceName'])) {
             $this->managedDeviceName = $data['managedDeviceName'];
@@ -329,7 +329,7 @@ class ManagedDevice
             $this->managementAgent = $data['managementAgent'];
         }
         if (isset($data['managementCertificateExpirationDate'])) {
-            $this->managementCertificateExpirationDate = $data['managementCertificateExpirationDate'];
+            $this->managementCertificateExpirationDate = is_string($data['managementCertificateExpirationDate']) ? new \DateTimeImmutable($data['managementCertificateExpirationDate']) : $data['managementCertificateExpirationDate'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];

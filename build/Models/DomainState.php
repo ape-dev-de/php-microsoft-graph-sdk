@@ -26,7 +26,7 @@ class DomainState
     public function __construct(array $data = [])
     {
         if (isset($data['lastActionDateTime'])) {
-            $this->lastActionDateTime = $data['lastActionDateTime'];
+            $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['operation'])) {
             $this->operation = $data['operation'];

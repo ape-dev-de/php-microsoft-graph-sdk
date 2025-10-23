@@ -74,7 +74,7 @@ class ComplianceManagementPartner
             $this->iosOnboarded = $data['iosOnboarded'];
         }
         if (isset($data['lastHeartbeatDateTime'])) {
-            $this->lastHeartbeatDateTime = $data['lastHeartbeatDateTime'];
+            $this->lastHeartbeatDateTime = is_string($data['lastHeartbeatDateTime']) ? new \DateTimeImmutable($data['lastHeartbeatDateTime']) : $data['lastHeartbeatDateTime'];
         }
         if (isset($data['macOsEnrollmentAssignments'])) {
             $this->macOsEnrollmentAssignments = $data['macOsEnrollmentAssignments'];

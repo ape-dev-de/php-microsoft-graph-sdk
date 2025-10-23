@@ -62,7 +62,7 @@ class DeviceManagementExchangeConnector
             $this->exchangeOrganization = $data['exchangeOrganization'];
         }
         if (isset($data['lastSyncDateTime'])) {
-            $this->lastSyncDateTime = $data['lastSyncDateTime'];
+            $this->lastSyncDateTime = is_string($data['lastSyncDateTime']) ? new \DateTimeImmutable($data['lastSyncDateTime']) : $data['lastSyncDateTime'];
         }
         if (isset($data['primarySmtpAddress'])) {
             $this->primarySmtpAddress = $data['primarySmtpAddress'];

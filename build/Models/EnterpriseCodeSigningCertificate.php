@@ -50,7 +50,7 @@ class EnterpriseCodeSigningCertificate
             $this->content = $data['content'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['issuer'])) {
             $this->issuer = $data['issuer'];
@@ -68,7 +68,7 @@ class EnterpriseCodeSigningCertificate
             $this->subjectName = $data['subjectName'];
         }
         if (isset($data['uploadDateTime'])) {
-            $this->uploadDateTime = $data['uploadDateTime'];
+            $this->uploadDateTime = is_string($data['uploadDateTime']) ? new \DateTimeImmutable($data['uploadDateTime']) : $data['uploadDateTime'];
         }
     }
 }

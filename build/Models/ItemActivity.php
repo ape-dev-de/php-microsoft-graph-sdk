@@ -47,7 +47,7 @@ class ItemActivity
             $this->access = $data['access'];
         }
         if (isset($data['activityDateTime'])) {
-            $this->activityDateTime = $data['activityDateTime'];
+            $this->activityDateTime = is_string($data['activityDateTime']) ? new \DateTimeImmutable($data['activityDateTime']) : $data['activityDateTime'];
         }
         if (isset($data['actor'])) {
             $this->actor = $data['actor'];

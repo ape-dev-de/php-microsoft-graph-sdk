@@ -41,7 +41,7 @@ class ExternalConnectorsExternalActivityResult
             $this->id = $data['id'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['type'])) {
             $this->type = $data['type'];

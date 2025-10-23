@@ -104,7 +104,7 @@ class IosVppEBook
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -119,13 +119,13 @@ class IosVppEBook
             $this->largeCover = $data['largeCover'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['privacyInformationUrl'])) {
             $this->privacyInformationUrl = $data['privacyInformationUrl'];
         }
         if (isset($data['publishedDateTime'])) {
-            $this->publishedDateTime = $data['publishedDateTime'];
+            $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
         }
         if (isset($data['publisher'])) {
             $this->publisher = $data['publisher'];

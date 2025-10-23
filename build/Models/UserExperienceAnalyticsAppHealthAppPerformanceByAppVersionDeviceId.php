@@ -68,7 +68,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId
             $this->deviceId = $data['deviceId'];
         }
         if (isset($data['processedDateTime'])) {
-            $this->processedDateTime = $data['processedDateTime'];
+            $this->processedDateTime = is_string($data['processedDateTime']) ? new \DateTimeImmutable($data['processedDateTime']) : $data['processedDateTime'];
         }
     }
 }

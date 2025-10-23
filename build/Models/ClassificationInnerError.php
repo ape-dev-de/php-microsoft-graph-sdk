@@ -38,7 +38,7 @@ class ClassificationInnerError
             $this->code = $data['code'];
         }
         if (isset($data['errorDateTime'])) {
-            $this->errorDateTime = $data['errorDateTime'];
+            $this->errorDateTime = is_string($data['errorDateTime']) ? new \DateTimeImmutable($data['errorDateTime']) : $data['errorDateTime'];
         }
     }
 }

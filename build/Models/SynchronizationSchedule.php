@@ -26,7 +26,7 @@ class SynchronizationSchedule
     public function __construct(array $data = [])
     {
         if (isset($data['expiration'])) {
-            $this->expiration = $data['expiration'];
+            $this->expiration = is_string($data['expiration']) ? new \DateTimeImmutable($data['expiration']) : $data['expiration'];
         }
         if (isset($data['interval'])) {
             $this->interval = $data['interval'];

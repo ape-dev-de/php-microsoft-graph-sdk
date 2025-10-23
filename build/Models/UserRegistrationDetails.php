@@ -104,7 +104,7 @@ class UserRegistrationDetails
             $this->isSystemPreferredAuthenticationMethodEnabled = $data['isSystemPreferredAuthenticationMethodEnabled'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['methodsRegistered'])) {
             $this->methodsRegistered = $data['methodsRegistered'];

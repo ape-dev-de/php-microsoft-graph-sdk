@@ -74,13 +74,13 @@ class SecurityHostPort
             $this->banners = $data['banners'];
         }
         if (isset($data['firstSeenDateTime'])) {
-            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+            $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['lastScanDateTime'])) {
-            $this->lastScanDateTime = $data['lastScanDateTime'];
+            $this->lastScanDateTime = is_string($data['lastScanDateTime']) ? new \DateTimeImmutable($data['lastScanDateTime']) : $data['lastScanDateTime'];
         }
         if (isset($data['lastSeenDateTime'])) {
-            $this->lastSeenDateTime = $data['lastSeenDateTime'];
+            $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['port'])) {
             $this->port = $data['port'];

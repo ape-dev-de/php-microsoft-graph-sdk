@@ -65,13 +65,13 @@ class VppToken
             $this->countryOrRegion = $data['countryOrRegion'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['lastSyncDateTime'])) {
-            $this->lastSyncDateTime = $data['lastSyncDateTime'];
+            $this->lastSyncDateTime = is_string($data['lastSyncDateTime']) ? new \DateTimeImmutable($data['lastSyncDateTime']) : $data['lastSyncDateTime'];
         }
         if (isset($data['lastSyncStatus'])) {
             $this->lastSyncStatus = $data['lastSyncStatus'];

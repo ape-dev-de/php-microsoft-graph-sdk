@@ -23,7 +23,7 @@ class IncompleteData
     public function __construct(array $data = [])
     {
         if (isset($data['missingDataBeforeDateTime'])) {
-            $this->missingDataBeforeDateTime = $data['missingDataBeforeDateTime'];
+            $this->missingDataBeforeDateTime = is_string($data['missingDataBeforeDateTime']) ? new \DateTimeImmutable($data['missingDataBeforeDateTime']) : $data['missingDataBeforeDateTime'];
         }
         if (isset($data['wasThrottled'])) {
             $this->wasThrottled = $data['wasThrottled'];

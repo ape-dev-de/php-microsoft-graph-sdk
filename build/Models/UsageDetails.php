@@ -23,10 +23,10 @@ class UsageDetails
     public function __construct(array $data = [])
     {
         if (isset($data['lastAccessedDateTime'])) {
-            $this->lastAccessedDateTime = $data['lastAccessedDateTime'];
+            $this->lastAccessedDateTime = is_string($data['lastAccessedDateTime']) ? new \DateTimeImmutable($data['lastAccessedDateTime']) : $data['lastAccessedDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
     }
 }

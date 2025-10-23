@@ -113,7 +113,7 @@ class AccessPackageAssignmentPolicy
             $this->automaticRequestSettings = $data['automaticRequestSettings'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -125,7 +125,7 @@ class AccessPackageAssignmentPolicy
             $this->expiration = $data['expiration'];
         }
         if (isset($data['modifiedDateTime'])) {
-            $this->modifiedDateTime = $data['modifiedDateTime'];
+            $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['notificationSettings'])) {
             $this->notificationSettings = $data['notificationSettings'];

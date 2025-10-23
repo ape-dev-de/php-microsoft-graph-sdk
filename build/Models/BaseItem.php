@@ -74,7 +74,7 @@ class BaseItem
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -86,7 +86,7 @@ class BaseItem
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

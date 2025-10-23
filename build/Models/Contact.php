@@ -191,16 +191,16 @@ class Contact
             $this->changeKey = $data['changeKey'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['assistantName'])) {
             $this->assistantName = $data['assistantName'];
         }
         if (isset($data['birthday'])) {
-            $this->birthday = $data['birthday'];
+            $this->birthday = is_string($data['birthday']) ? new \DateTimeImmutable($data['birthday']) : $data['birthday'];
         }
         if (isset($data['businessAddress'])) {
             $this->businessAddress = $data['businessAddress'];

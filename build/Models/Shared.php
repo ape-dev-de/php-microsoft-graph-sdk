@@ -44,7 +44,7 @@ class Shared
             $this->sharedBy = $data['sharedBy'];
         }
         if (isset($data['sharedDateTime'])) {
-            $this->sharedDateTime = $data['sharedDateTime'];
+            $this->sharedDateTime = is_string($data['sharedDateTime']) ? new \DateTimeImmutable($data['sharedDateTime']) : $data['sharedDateTime'];
         }
     }
 }

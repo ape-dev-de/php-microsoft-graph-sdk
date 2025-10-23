@@ -644,7 +644,7 @@ class User
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['aboutMe'])) {
             $this->aboutMe = $data['aboutMe'];
@@ -665,7 +665,7 @@ class User
             $this->authorizationInfo = $data['authorizationInfo'];
         }
         if (isset($data['birthday'])) {
-            $this->birthday = $data['birthday'];
+            $this->birthday = is_string($data['birthday']) ? new \DateTimeImmutable($data['birthday']) : $data['birthday'];
         }
         if (isset($data['businessPhones'])) {
             $this->businessPhones = $data['businessPhones'];
@@ -683,7 +683,7 @@ class User
             $this->country = $data['country'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['creationType'])) {
             $this->creationType = $data['creationType'];
@@ -701,13 +701,13 @@ class User
             $this->displayName = $data['displayName'];
         }
         if (isset($data['employeeHireDate'])) {
-            $this->employeeHireDate = $data['employeeHireDate'];
+            $this->employeeHireDate = is_string($data['employeeHireDate']) ? new \DateTimeImmutable($data['employeeHireDate']) : $data['employeeHireDate'];
         }
         if (isset($data['employeeId'])) {
             $this->employeeId = $data['employeeId'];
         }
         if (isset($data['employeeLeaveDateTime'])) {
-            $this->employeeLeaveDateTime = $data['employeeLeaveDateTime'];
+            $this->employeeLeaveDateTime = is_string($data['employeeLeaveDateTime']) ? new \DateTimeImmutable($data['employeeLeaveDateTime']) : $data['employeeLeaveDateTime'];
         }
         if (isset($data['employeeOrgData'])) {
             $this->employeeOrgData = $data['employeeOrgData'];
@@ -719,7 +719,7 @@ class User
             $this->externalUserState = $data['externalUserState'];
         }
         if (isset($data['externalUserStateChangeDateTime'])) {
-            $this->externalUserStateChangeDateTime = $data['externalUserStateChangeDateTime'];
+            $this->externalUserStateChangeDateTime = is_string($data['externalUserStateChangeDateTime']) ? new \DateTimeImmutable($data['externalUserStateChangeDateTime']) : $data['externalUserStateChangeDateTime'];
         }
         if (isset($data['faxNumber'])) {
             $this->faxNumber = $data['faxNumber'];
@@ -728,7 +728,7 @@ class User
             $this->givenName = $data['givenName'];
         }
         if (isset($data['hireDate'])) {
-            $this->hireDate = $data['hireDate'];
+            $this->hireDate = is_string($data['hireDate']) ? new \DateTimeImmutable($data['hireDate']) : $data['hireDate'];
         }
         if (isset($data['identities'])) {
             $this->identities = $data['identities'];
@@ -749,7 +749,7 @@ class User
             $this->jobTitle = $data['jobTitle'];
         }
         if (isset($data['lastPasswordChangeDateTime'])) {
-            $this->lastPasswordChangeDateTime = $data['lastPasswordChangeDateTime'];
+            $this->lastPasswordChangeDateTime = is_string($data['lastPasswordChangeDateTime']) ? new \DateTimeImmutable($data['lastPasswordChangeDateTime']) : $data['lastPasswordChangeDateTime'];
         }
         if (isset($data['legalAgeGroupClassification'])) {
             $this->legalAgeGroupClassification = $data['legalAgeGroupClassification'];
@@ -788,7 +788,7 @@ class User
             $this->onPremisesImmutableId = $data['onPremisesImmutableId'];
         }
         if (isset($data['onPremisesLastSyncDateTime'])) {
-            $this->onPremisesLastSyncDateTime = $data['onPremisesLastSyncDateTime'];
+            $this->onPremisesLastSyncDateTime = is_string($data['onPremisesLastSyncDateTime']) ? new \DateTimeImmutable($data['onPremisesLastSyncDateTime']) : $data['onPremisesLastSyncDateTime'];
         }
         if (isset($data['onPremisesProvisioningErrors'])) {
             $this->onPremisesProvisioningErrors = $data['onPremisesProvisioningErrors'];
@@ -857,7 +857,7 @@ class User
             $this->signInActivity = $data['signInActivity'];
         }
         if (isset($data['signInSessionsValidFromDateTime'])) {
-            $this->signInSessionsValidFromDateTime = $data['signInSessionsValidFromDateTime'];
+            $this->signInSessionsValidFromDateTime = is_string($data['signInSessionsValidFromDateTime']) ? new \DateTimeImmutable($data['signInSessionsValidFromDateTime']) : $data['signInSessionsValidFromDateTime'];
         }
         if (isset($data['skills'])) {
             $this->skills = $data['skills'];

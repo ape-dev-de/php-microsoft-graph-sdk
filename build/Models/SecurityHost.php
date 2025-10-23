@@ -107,10 +107,10 @@ class SecurityHost
             $this->id = $data['id'];
         }
         if (isset($data['firstSeenDateTime'])) {
-            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+            $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['lastSeenDateTime'])) {
-            $this->lastSeenDateTime = $data['lastSeenDateTime'];
+            $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['childHostPairs'])) {
             $this->childHostPairs = $data['childHostPairs'];

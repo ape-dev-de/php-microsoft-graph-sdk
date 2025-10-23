@@ -29,7 +29,7 @@ class TimeCardEvent
     public function __construct(array $data = [])
     {
         if (isset($data['dateTime'])) {
-            $this->dateTime = $data['dateTime'];
+            $this->dateTime = is_string($data['dateTime']) ? new \DateTimeImmutable($data['dateTime']) : $data['dateTime'];
         }
         if (isset($data['isAtApprovedLocation'])) {
             $this->isAtApprovedLocation = $data['isAtApprovedLocation'];

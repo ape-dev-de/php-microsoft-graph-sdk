@@ -32,7 +32,7 @@ class PlannerAssignment
             $this->assignedBy = $data['assignedBy'];
         }
         if (isset($data['assignedDateTime'])) {
-            $this->assignedDateTime = $data['assignedDateTime'];
+            $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
         if (isset($data['orderHint'])) {
             $this->orderHint = $data['orderHint'];

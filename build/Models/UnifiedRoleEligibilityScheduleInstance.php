@@ -95,7 +95,7 @@ class UnifiedRoleEligibilityScheduleInstance
             $this->roleDefinition = $data['roleDefinition'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['memberType'])) {
             $this->memberType = $data['memberType'];
@@ -104,7 +104,7 @@ class UnifiedRoleEligibilityScheduleInstance
             $this->roleEligibilityScheduleId = $data['roleEligibilityScheduleId'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

@@ -146,7 +146,7 @@ class PlannerTask
             $this->completedBy = $data['completedBy'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['conversationThreadId'])) {
             $this->conversationThreadId = $data['conversationThreadId'];
@@ -155,10 +155,10 @@ class PlannerTask
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['dueDateTime'])) {
-            $this->dueDateTime = $data['dueDateTime'];
+            $this->dueDateTime = is_string($data['dueDateTime']) ? new \DateTimeImmutable($data['dueDateTime']) : $data['dueDateTime'];
         }
         if (isset($data['hasDescription'])) {
             $this->hasDescription = $data['hasDescription'];
@@ -182,7 +182,7 @@ class PlannerTask
             $this->referenceCount = $data['referenceCount'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];

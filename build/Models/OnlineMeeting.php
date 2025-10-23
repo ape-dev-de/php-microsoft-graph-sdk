@@ -287,10 +287,10 @@ class OnlineMeeting
             $this->broadcastSettings = $data['broadcastSettings'];
         }
         if (isset($data['creationDateTime'])) {
-            $this->creationDateTime = $data['creationDateTime'];
+            $this->creationDateTime = is_string($data['creationDateTime']) ? new \DateTimeImmutable($data['creationDateTime']) : $data['creationDateTime'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];
@@ -305,7 +305,7 @@ class OnlineMeeting
             $this->participants = $data['participants'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['recordings'])) {
             $this->recordings = $data['recordings'];

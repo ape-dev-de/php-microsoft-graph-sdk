@@ -59,19 +59,19 @@ class MultiTenantOrganizationMember
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['addedByTenantId'])) {
             $this->addedByTenantId = $data['addedByTenantId'];
         }
         if (isset($data['addedDateTime'])) {
-            $this->addedDateTime = $data['addedDateTime'];
+            $this->addedDateTime = is_string($data['addedDateTime']) ? new \DateTimeImmutable($data['addedDateTime']) : $data['addedDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['joinedDateTime'])) {
-            $this->joinedDateTime = $data['joinedDateTime'];
+            $this->joinedDateTime = is_string($data['joinedDateTime']) ? new \DateTimeImmutable($data['joinedDateTime']) : $data['joinedDateTime'];
         }
         if (isset($data['role'])) {
             $this->role = $data['role'];

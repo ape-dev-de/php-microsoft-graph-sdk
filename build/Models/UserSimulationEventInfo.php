@@ -44,7 +44,7 @@ class UserSimulationEventInfo
             $this->clickSource = $data['clickSource'];
         }
         if (isset($data['eventDateTime'])) {
-            $this->eventDateTime = $data['eventDateTime'];
+            $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['eventName'])) {
             $this->eventName = $data['eventName'];

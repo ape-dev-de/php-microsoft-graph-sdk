@@ -35,19 +35,19 @@ class SignInActivity
     public function __construct(array $data = [])
     {
         if (isset($data['lastNonInteractiveSignInDateTime'])) {
-            $this->lastNonInteractiveSignInDateTime = $data['lastNonInteractiveSignInDateTime'];
+            $this->lastNonInteractiveSignInDateTime = is_string($data['lastNonInteractiveSignInDateTime']) ? new \DateTimeImmutable($data['lastNonInteractiveSignInDateTime']) : $data['lastNonInteractiveSignInDateTime'];
         }
         if (isset($data['lastNonInteractiveSignInRequestId'])) {
             $this->lastNonInteractiveSignInRequestId = $data['lastNonInteractiveSignInRequestId'];
         }
         if (isset($data['lastSignInDateTime'])) {
-            $this->lastSignInDateTime = $data['lastSignInDateTime'];
+            $this->lastSignInDateTime = is_string($data['lastSignInDateTime']) ? new \DateTimeImmutable($data['lastSignInDateTime']) : $data['lastSignInDateTime'];
         }
         if (isset($data['lastSignInRequestId'])) {
             $this->lastSignInRequestId = $data['lastSignInRequestId'];
         }
         if (isset($data['lastSuccessfulSignInDateTime'])) {
-            $this->lastSuccessfulSignInDateTime = $data['lastSuccessfulSignInDateTime'];
+            $this->lastSuccessfulSignInDateTime = is_string($data['lastSuccessfulSignInDateTime']) ? new \DateTimeImmutable($data['lastSuccessfulSignInDateTime']) : $data['lastSuccessfulSignInDateTime'];
         }
         if (isset($data['lastSuccessfulSignInRequestId'])) {
             $this->lastSuccessfulSignInRequestId = $data['lastSuccessfulSignInRequestId'];

@@ -122,7 +122,7 @@ class PrinterShare
             $this->allowAllUsers = $data['allowAllUsers'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['viewPoint'])) {
             $this->viewPoint = $data['viewPoint'];

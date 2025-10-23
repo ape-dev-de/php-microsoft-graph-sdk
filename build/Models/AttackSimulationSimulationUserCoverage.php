@@ -44,7 +44,7 @@ class AttackSimulationSimulationUserCoverage
             $this->compromisedCount = $data['compromisedCount'];
         }
         if (isset($data['latestSimulationDateTime'])) {
-            $this->latestSimulationDateTime = $data['latestSimulationDateTime'];
+            $this->latestSimulationDateTime = is_string($data['latestSimulationDateTime']) ? new \DateTimeImmutable($data['latestSimulationDateTime']) : $data['latestSimulationDateTime'];
         }
         if (isset($data['simulationCount'])) {
             $this->simulationCount = $data['simulationCount'];

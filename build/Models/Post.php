@@ -107,10 +107,10 @@ class Post
             $this->changeKey = $data['changeKey'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['body'])) {
             $this->body = $data['body'];
@@ -131,7 +131,7 @@ class Post
             $this->newParticipants = $data['newParticipants'];
         }
         if (isset($data['receivedDateTime'])) {
-            $this->receivedDateTime = $data['receivedDateTime'];
+            $this->receivedDateTime = is_string($data['receivedDateTime']) ? new \DateTimeImmutable($data['receivedDateTime']) : $data['receivedDateTime'];
         }
         if (isset($data['sender'])) {
             $this->sender = $data['sender'];

@@ -35,7 +35,7 @@ class RecurrenceRange
     public function __construct(array $data = [])
     {
         if (isset($data['endDate'])) {
-            $this->endDate = $data['endDate'];
+            $this->endDate = is_string($data['endDate']) ? new \DateTimeImmutable($data['endDate']) : $data['endDate'];
         }
         if (isset($data['numberOfOccurrences'])) {
             $this->numberOfOccurrences = $data['numberOfOccurrences'];
@@ -44,7 +44,7 @@ class RecurrenceRange
             $this->recurrenceTimeZone = $data['recurrenceTimeZone'];
         }
         if (isset($data['startDate'])) {
-            $this->startDate = $data['startDate'];
+            $this->startDate = is_string($data['startDate']) ? new \DateTimeImmutable($data['startDate']) : $data['startDate'];
         }
         if (isset($data['type'])) {
             $this->type = $data['type'];

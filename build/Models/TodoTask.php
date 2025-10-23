@@ -122,7 +122,7 @@ class TodoTask
             $this->body = $data['body'];
         }
         if (isset($data['bodyLastModifiedDateTime'])) {
-            $this->bodyLastModifiedDateTime = $data['bodyLastModifiedDateTime'];
+            $this->bodyLastModifiedDateTime = is_string($data['bodyLastModifiedDateTime']) ? new \DateTimeImmutable($data['bodyLastModifiedDateTime']) : $data['bodyLastModifiedDateTime'];
         }
         if (isset($data['categories'])) {
             $this->categories = $data['categories'];
@@ -131,7 +131,7 @@ class TodoTask
             $this->completedDateTime = $data['completedDateTime'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['dueDateTime'])) {
             $this->dueDateTime = $data['dueDateTime'];
@@ -146,7 +146,7 @@ class TodoTask
             $this->isReminderOn = $data['isReminderOn'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['recurrence'])) {
             $this->recurrence = $data['recurrence'];

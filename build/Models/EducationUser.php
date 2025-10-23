@@ -260,7 +260,7 @@ class EducationUser
             $this->provisionedPlans = $data['provisionedPlans'];
         }
         if (isset($data['refreshTokensValidFromDateTime'])) {
-            $this->refreshTokensValidFromDateTime = $data['refreshTokensValidFromDateTime'];
+            $this->refreshTokensValidFromDateTime = is_string($data['refreshTokensValidFromDateTime']) ? new \DateTimeImmutable($data['refreshTokensValidFromDateTime']) : $data['refreshTokensValidFromDateTime'];
         }
         if (isset($data['relatedContacts'])) {
             $this->relatedContacts = $data['relatedContacts'];

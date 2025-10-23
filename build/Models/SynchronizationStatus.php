@@ -95,10 +95,10 @@ class SynchronizationStatus
             $this->quarantine = $data['quarantine'];
         }
         if (isset($data['steadyStateFirstAchievedTime'])) {
-            $this->steadyStateFirstAchievedTime = $data['steadyStateFirstAchievedTime'];
+            $this->steadyStateFirstAchievedTime = is_string($data['steadyStateFirstAchievedTime']) ? new \DateTimeImmutable($data['steadyStateFirstAchievedTime']) : $data['steadyStateFirstAchievedTime'];
         }
         if (isset($data['steadyStateLastAchievedTime'])) {
-            $this->steadyStateLastAchievedTime = $data['steadyStateLastAchievedTime'];
+            $this->steadyStateLastAchievedTime = is_string($data['steadyStateLastAchievedTime']) ? new \DateTimeImmutable($data['steadyStateLastAchievedTime']) : $data['steadyStateLastAchievedTime'];
         }
         if (isset($data['synchronizedEntryCountByType'])) {
             $this->synchronizedEntryCountByType = $data['synchronizedEntryCountByType'];

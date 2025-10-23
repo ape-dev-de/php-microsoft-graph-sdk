@@ -47,7 +47,7 @@ class LicenseAssignmentState
             $this->error = $data['error'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['skuId'])) {
             $this->skuId = $data['skuId'];

@@ -50,7 +50,7 @@ class EmergencyCallEvent
             $this->callEventType = $data['callEventType'];
         }
         if (isset($data['eventDateTime'])) {
-            $this->eventDateTime = $data['eventDateTime'];
+            $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['participants'])) {
             $this->participants = $data['participants'];

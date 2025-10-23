@@ -77,7 +77,7 @@ class ChangeNotification
             $this->resourceData = $data['resourceData'];
         }
         if (isset($data['subscriptionExpirationDateTime'])) {
-            $this->subscriptionExpirationDateTime = $data['subscriptionExpirationDateTime'];
+            $this->subscriptionExpirationDateTime = is_string($data['subscriptionExpirationDateTime']) ? new \DateTimeImmutable($data['subscriptionExpirationDateTime']) : $data['subscriptionExpirationDateTime'];
         }
         if (isset($data['subscriptionId'])) {
             $this->subscriptionId = $data['subscriptionId'];

@@ -29,7 +29,7 @@ class SecuritySubdomain
             $this->id = $data['id'];
         }
         if (isset($data['firstSeenDateTime'])) {
-            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+            $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['host'])) {
             $this->host = $data['host'];

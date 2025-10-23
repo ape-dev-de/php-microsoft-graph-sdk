@@ -83,7 +83,7 @@ class RiskyUserHistoryItem
             $this->riskDetail = $data['riskDetail'];
         }
         if (isset($data['riskLastUpdatedDateTime'])) {
-            $this->riskLastUpdatedDateTime = $data['riskLastUpdatedDateTime'];
+            $this->riskLastUpdatedDateTime = is_string($data['riskLastUpdatedDateTime']) ? new \DateTimeImmutable($data['riskLastUpdatedDateTime']) : $data['riskLastUpdatedDateTime'];
         }
         if (isset($data['riskLevel'])) {
             $this->riskLevel = $data['riskLevel'];

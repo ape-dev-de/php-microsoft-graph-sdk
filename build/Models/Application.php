@@ -257,7 +257,7 @@ class Application
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['addIns'])) {
             $this->addIns = $data['addIns'];
@@ -281,7 +281,7 @@ class Application
             $this->certification = $data['certification'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['defaultRedirectUri'])) {
             $this->defaultRedirectUri = $data['defaultRedirectUri'];

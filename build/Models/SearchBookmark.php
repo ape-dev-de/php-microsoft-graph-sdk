@@ -104,16 +104,16 @@ class SearchBookmark
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
         if (isset($data['availabilityEndDateTime'])) {
-            $this->availabilityEndDateTime = $data['availabilityEndDateTime'];
+            $this->availabilityEndDateTime = is_string($data['availabilityEndDateTime']) ? new \DateTimeImmutable($data['availabilityEndDateTime']) : $data['availabilityEndDateTime'];
         }
         if (isset($data['availabilityStartDateTime'])) {
-            $this->availabilityStartDateTime = $data['availabilityStartDateTime'];
+            $this->availabilityStartDateTime = is_string($data['availabilityStartDateTime']) ? new \DateTimeImmutable($data['availabilityStartDateTime']) : $data['availabilityStartDateTime'];
         }
         if (isset($data['categories'])) {
             $this->categories = $data['categories'];

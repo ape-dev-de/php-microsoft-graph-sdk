@@ -59,7 +59,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails
             $this->deviceId = $data['deviceId'];
         }
         if (isset($data['eventDateTime'])) {
-            $this->eventDateTime = $data['eventDateTime'];
+            $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['eventType'])) {
             $this->eventType = $data['eventType'];

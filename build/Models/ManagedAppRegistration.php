@@ -89,7 +89,7 @@ class ManagedAppRegistration
             $this->applicationVersion = $data['applicationVersion'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['deviceName'])) {
             $this->deviceName = $data['deviceName'];
@@ -104,7 +104,7 @@ class ManagedAppRegistration
             $this->flaggedReasons = $data['flaggedReasons'];
         }
         if (isset($data['lastSyncDateTime'])) {
-            $this->lastSyncDateTime = $data['lastSyncDateTime'];
+            $this->lastSyncDateTime = is_string($data['lastSyncDateTime']) ? new \DateTimeImmutable($data['lastSyncDateTime']) : $data['lastSyncDateTime'];
         }
         if (isset($data['managementSdkVersion'])) {
             $this->managementSdkVersion = $data['managementSdkVersion'];

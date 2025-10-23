@@ -131,7 +131,7 @@ class SecurityDeviceEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -164,7 +164,7 @@ class SecurityDeviceEvidence
             $this->dnsDomain = $data['dnsDomain'];
         }
         if (isset($data['firstSeenDateTime'])) {
-            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+            $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['healthStatus'])) {
             $this->healthStatus = $data['healthStatus'];

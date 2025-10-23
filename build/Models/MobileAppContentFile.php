@@ -56,10 +56,10 @@ class MobileAppContentFile
             $this->azureStorageUri = $data['azureStorageUri'];
         }
         if (isset($data['azureStorageUriExpirationDateTime'])) {
-            $this->azureStorageUriExpirationDateTime = $data['azureStorageUriExpirationDateTime'];
+            $this->azureStorageUriExpirationDateTime = is_string($data['azureStorageUriExpirationDateTime']) ? new \DateTimeImmutable($data['azureStorageUriExpirationDateTime']) : $data['azureStorageUriExpirationDateTime'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isCommitted'])) {
             $this->isCommitted = $data['isCommitted'];

@@ -77,7 +77,7 @@ class SecurityEdiscoveryCustodian
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -86,16 +86,16 @@ class SecurityEdiscoveryCustodian
             $this->holdStatus = $data['holdStatus'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['releasedDateTime'])) {
-            $this->releasedDateTime = $data['releasedDateTime'];
+            $this->releasedDateTime = is_string($data['releasedDateTime']) ? new \DateTimeImmutable($data['releasedDateTime']) : $data['releasedDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];
         }
         if (isset($data['acknowledgedDateTime'])) {
-            $this->acknowledgedDateTime = $data['acknowledgedDateTime'];
+            $this->acknowledgedDateTime = is_string($data['acknowledgedDateTime']) ? new \DateTimeImmutable($data['acknowledgedDateTime']) : $data['acknowledgedDateTime'];
         }
         if (isset($data['email'])) {
             $this->email = $data['email'];

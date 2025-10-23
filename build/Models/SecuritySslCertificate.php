@@ -62,22 +62,22 @@ class SecuritySslCertificate
             $this->id = $data['id'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['fingerprint'])) {
             $this->fingerprint = $data['fingerprint'];
         }
         if (isset($data['firstSeenDateTime'])) {
-            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+            $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['issueDateTime'])) {
-            $this->issueDateTime = $data['issueDateTime'];
+            $this->issueDateTime = is_string($data['issueDateTime']) ? new \DateTimeImmutable($data['issueDateTime']) : $data['issueDateTime'];
         }
         if (isset($data['issuer'])) {
             $this->issuer = $data['issuer'];
         }
         if (isset($data['lastSeenDateTime'])) {
-            $this->lastSeenDateTime = $data['lastSeenDateTime'];
+            $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['serialNumber'])) {
             $this->serialNumber = $data['serialNumber'];

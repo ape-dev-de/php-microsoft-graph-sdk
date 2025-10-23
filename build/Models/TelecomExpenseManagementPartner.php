@@ -47,7 +47,7 @@ class TelecomExpenseManagementPartner
             $this->enabled = $data['enabled'];
         }
         if (isset($data['lastConnectionDateTime'])) {
-            $this->lastConnectionDateTime = $data['lastConnectionDateTime'];
+            $this->lastConnectionDateTime = is_string($data['lastConnectionDateTime']) ? new \DateTimeImmutable($data['lastConnectionDateTime']) : $data['lastConnectionDateTime'];
         }
         if (isset($data['url'])) {
             $this->url = $data['url'];

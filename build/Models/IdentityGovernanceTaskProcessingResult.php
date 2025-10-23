@@ -44,10 +44,10 @@ class IdentityGovernanceTaskProcessingResult
             $this->id = $data['id'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['failureReason'])) {
             $this->failureReason = $data['failureReason'];
@@ -56,7 +56,7 @@ class IdentityGovernanceTaskProcessingResult
             $this->processingStatus = $data['processingStatus'];
         }
         if (isset($data['startedDateTime'])) {
-            $this->startedDateTime = $data['startedDateTime'];
+            $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

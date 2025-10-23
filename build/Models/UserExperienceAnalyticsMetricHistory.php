@@ -35,7 +35,7 @@ class UserExperienceAnalyticsMetricHistory
             $this->deviceId = $data['deviceId'];
         }
         if (isset($data['metricDateTime'])) {
-            $this->metricDateTime = $data['metricDateTime'];
+            $this->metricDateTime = is_string($data['metricDateTime']) ? new \DateTimeImmutable($data['metricDateTime']) : $data['metricDateTime'];
         }
         if (isset($data['metricType'])) {
             $this->metricType = $data['metricType'];

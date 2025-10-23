@@ -68,10 +68,10 @@ class CloudPcDeviceImage
             $this->errorCode = $data['errorCode'];
         }
         if (isset($data['expirationDate'])) {
-            $this->expirationDate = $data['expirationDate'];
+            $this->expirationDate = is_string($data['expirationDate']) ? new \DateTimeImmutable($data['expirationDate']) : $data['expirationDate'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['operatingSystem'])) {
             $this->operatingSystem = $data['operatingSystem'];

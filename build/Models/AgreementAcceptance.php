@@ -83,10 +83,10 @@ class AgreementAcceptance
             $this->deviceOSVersion = $data['deviceOSVersion'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['recordedDateTime'])) {
-            $this->recordedDateTime = $data['recordedDateTime'];
+            $this->recordedDateTime = is_string($data['recordedDateTime']) ? new \DateTimeImmutable($data['recordedDateTime']) : $data['recordedDateTime'];
         }
         if (isset($data['state'])) {
             $this->state = $data['state'];

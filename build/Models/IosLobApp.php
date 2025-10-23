@@ -113,7 +113,7 @@ class IosLobApp
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -134,7 +134,7 @@ class IosLobApp
             $this->largeIcon = $data['largeIcon'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['notes'])) {
             $this->notes = $data['notes'];
@@ -179,7 +179,7 @@ class IosLobApp
             $this->bundleId = $data['bundleId'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['minimumSupportedOperatingSystem'])) {
             $this->minimumSupportedOperatingSystem = $data['minimumSupportedOperatingSystem'];

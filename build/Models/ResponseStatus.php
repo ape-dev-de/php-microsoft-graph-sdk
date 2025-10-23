@@ -29,7 +29,7 @@ class ResponseStatus
             $this->response = $data['response'];
         }
         if (isset($data['time'])) {
-            $this->time = $data['time'];
+            $this->time = is_string($data['time']) ? new \DateTimeImmutable($data['time']) : $data['time'];
         }
     }
 }

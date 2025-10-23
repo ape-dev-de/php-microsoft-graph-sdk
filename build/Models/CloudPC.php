@@ -74,13 +74,13 @@ class CloudPC
             $this->displayName = $data['displayName'];
         }
         if (isset($data['gracePeriodEndDateTime'])) {
-            $this->gracePeriodEndDateTime = $data['gracePeriodEndDateTime'];
+            $this->gracePeriodEndDateTime = is_string($data['gracePeriodEndDateTime']) ? new \DateTimeImmutable($data['gracePeriodEndDateTime']) : $data['gracePeriodEndDateTime'];
         }
         if (isset($data['imageDisplayName'])) {
             $this->imageDisplayName = $data['imageDisplayName'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['managedDeviceId'])) {
             $this->managedDeviceId = $data['managedDeviceId'];

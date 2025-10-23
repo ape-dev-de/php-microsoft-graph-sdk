@@ -68,7 +68,7 @@ class Photo
             $this->orientation = $data['orientation'];
         }
         if (isset($data['takenDateTime'])) {
-            $this->takenDateTime = $data['takenDateTime'];
+            $this->takenDateTime = is_string($data['takenDateTime']) ? new \DateTimeImmutable($data['takenDateTime']) : $data['takenDateTime'];
         }
     }
 }

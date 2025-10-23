@@ -35,7 +35,7 @@ class UserTrainingContentEventInfo
             $this->browser = $data['browser'];
         }
         if (isset($data['contentDateTime'])) {
-            $this->contentDateTime = $data['contentDateTime'];
+            $this->contentDateTime = is_string($data['contentDateTime']) ? new \DateTimeImmutable($data['contentDateTime']) : $data['contentDateTime'];
         }
         if (isset($data['ipAddress'])) {
             $this->ipAddress = $data['ipAddress'];

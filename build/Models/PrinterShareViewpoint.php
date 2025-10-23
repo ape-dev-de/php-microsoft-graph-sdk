@@ -20,7 +20,7 @@ class PrinterShareViewpoint
     public function __construct(array $data = [])
     {
         if (isset($data['lastUsedDateTime'])) {
-            $this->lastUsedDateTime = $data['lastUsedDateTime'];
+            $this->lastUsedDateTime = is_string($data['lastUsedDateTime']) ? new \DateTimeImmutable($data['lastUsedDateTime']) : $data['lastUsedDateTime'];
         }
     }
 }

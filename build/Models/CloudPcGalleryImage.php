@@ -56,10 +56,10 @@ class CloudPcGalleryImage
             $this->displayName = $data['displayName'];
         }
         if (isset($data['endDate'])) {
-            $this->endDate = $data['endDate'];
+            $this->endDate = is_string($data['endDate']) ? new \DateTimeImmutable($data['endDate']) : $data['endDate'];
         }
         if (isset($data['expirationDate'])) {
-            $this->expirationDate = $data['expirationDate'];
+            $this->expirationDate = is_string($data['expirationDate']) ? new \DateTimeImmutable($data['expirationDate']) : $data['expirationDate'];
         }
         if (isset($data['offerName'])) {
             $this->offerName = $data['offerName'];
@@ -74,7 +74,7 @@ class CloudPcGalleryImage
             $this->skuName = $data['skuName'];
         }
         if (isset($data['startDate'])) {
-            $this->startDate = $data['startDate'];
+            $this->startDate = is_string($data['startDate']) ? new \DateTimeImmutable($data['startDate']) : $data['startDate'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

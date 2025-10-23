@@ -44,13 +44,13 @@ class CertificateBasedAuthPki
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

@@ -38,7 +38,7 @@ class EducationStudent
     public function __construct(array $data = [])
     {
         if (isset($data['birthDate'])) {
-            $this->birthDate = $data['birthDate'];
+            $this->birthDate = is_string($data['birthDate']) ? new \DateTimeImmutable($data['birthDate']) : $data['birthDate'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];

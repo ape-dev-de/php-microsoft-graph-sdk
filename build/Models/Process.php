@@ -65,7 +65,7 @@ class Process
             $this->commandLine = $data['commandLine'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['fileHash'])) {
             $this->fileHash = $data['fileHash'];
@@ -80,7 +80,7 @@ class Process
             $this->name = $data['name'];
         }
         if (isset($data['parentProcessCreatedDateTime'])) {
-            $this->parentProcessCreatedDateTime = $data['parentProcessCreatedDateTime'];
+            $this->parentProcessCreatedDateTime = is_string($data['parentProcessCreatedDateTime']) ? new \DateTimeImmutable($data['parentProcessCreatedDateTime']) : $data['parentProcessCreatedDateTime'];
         }
         if (isset($data['parentProcessId'])) {
             $this->parentProcessId = $data['parentProcessId'];

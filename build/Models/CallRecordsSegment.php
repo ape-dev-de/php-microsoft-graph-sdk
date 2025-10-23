@@ -59,7 +59,7 @@ class CallRecordsSegment
             $this->caller = $data['caller'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['failureInfo'])) {
             $this->failureInfo = $data['failureInfo'];
@@ -68,7 +68,7 @@ class CallRecordsSegment
             $this->media = $data['media'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

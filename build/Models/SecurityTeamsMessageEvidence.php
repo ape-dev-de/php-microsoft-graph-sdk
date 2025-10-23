@@ -140,7 +140,7 @@ class SecurityTeamsMessageEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -185,7 +185,7 @@ class SecurityTeamsMessageEvidence
             $this->isOwned = $data['isOwned'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['messageDirection'])) {
             $this->messageDirection = $data['messageDirection'];
@@ -200,7 +200,7 @@ class SecurityTeamsMessageEvidence
             $this->parentMessageId = $data['parentMessageId'];
         }
         if (isset($data['receivedDateTime'])) {
-            $this->receivedDateTime = $data['receivedDateTime'];
+            $this->receivedDateTime = is_string($data['receivedDateTime']) ? new \DateTimeImmutable($data['receivedDateTime']) : $data['receivedDateTime'];
         }
         if (isset($data['recipients'])) {
             $this->recipients = $data['recipients'];

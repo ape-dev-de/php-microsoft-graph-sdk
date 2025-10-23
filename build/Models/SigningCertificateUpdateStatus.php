@@ -26,7 +26,7 @@ class SigningCertificateUpdateStatus
             $this->certificateUpdateResult = $data['certificateUpdateResult'];
         }
         if (isset($data['lastRunDateTime'])) {
-            $this->lastRunDateTime = $data['lastRunDateTime'];
+            $this->lastRunDateTime = is_string($data['lastRunDateTime']) ? new \DateTimeImmutable($data['lastRunDateTime']) : $data['lastRunDateTime'];
         }
     }
 }

@@ -200,10 +200,10 @@ class CalendarSharingMessage
             $this->changeKey = $data['changeKey'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['bccRecipients'])) {
             $this->bccRecipients = $data['bccRecipients'];
@@ -260,7 +260,7 @@ class CalendarSharingMessage
             $this->parentFolderId = $data['parentFolderId'];
         }
         if (isset($data['receivedDateTime'])) {
-            $this->receivedDateTime = $data['receivedDateTime'];
+            $this->receivedDateTime = is_string($data['receivedDateTime']) ? new \DateTimeImmutable($data['receivedDateTime']) : $data['receivedDateTime'];
         }
         if (isset($data['replyTo'])) {
             $this->replyTo = $data['replyTo'];
@@ -269,7 +269,7 @@ class CalendarSharingMessage
             $this->sender = $data['sender'];
         }
         if (isset($data['sentDateTime'])) {
-            $this->sentDateTime = $data['sentDateTime'];
+            $this->sentDateTime = is_string($data['sentDateTime']) ? new \DateTimeImmutable($data['sentDateTime']) : $data['sentDateTime'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

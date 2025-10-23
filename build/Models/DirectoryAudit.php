@@ -65,7 +65,7 @@ class DirectoryAudit
             $this->id = $data['id'];
         }
         if (isset($data['activityDateTime'])) {
-            $this->activityDateTime = $data['activityDateTime'];
+            $this->activityDateTime = is_string($data['activityDateTime']) ? new \DateTimeImmutable($data['activityDateTime']) : $data['activityDateTime'];
         }
         if (isset($data['activityDisplayName'])) {
             $this->activityDisplayName = $data['activityDisplayName'];

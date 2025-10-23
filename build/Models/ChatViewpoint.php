@@ -26,7 +26,7 @@ class ChatViewpoint
             $this->isHidden = $data['isHidden'];
         }
         if (isset($data['lastMessageReadDateTime'])) {
-            $this->lastMessageReadDateTime = $data['lastMessageReadDateTime'];
+            $this->lastMessageReadDateTime = is_string($data['lastMessageReadDateTime']) ? new \DateTimeImmutable($data['lastMessageReadDateTime']) : $data['lastMessageReadDateTime'];
         }
     }
 }

@@ -65,13 +65,13 @@ class CompanySubscription
             $this->commerceSubscriptionId = $data['commerceSubscriptionId'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isTrial'])) {
             $this->isTrial = $data['isTrial'];
         }
         if (isset($data['nextLifecycleDateTime'])) {
-            $this->nextLifecycleDateTime = $data['nextLifecycleDateTime'];
+            $this->nextLifecycleDateTime = is_string($data['nextLifecycleDateTime']) ? new \DateTimeImmutable($data['nextLifecycleDateTime']) : $data['nextLifecycleDateTime'];
         }
         if (isset($data['ownerId'])) {
             $this->ownerId = $data['ownerId'];

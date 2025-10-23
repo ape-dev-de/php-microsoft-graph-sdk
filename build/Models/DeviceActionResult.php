@@ -35,10 +35,10 @@ class DeviceActionResult
             $this->actionState = $data['actionState'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

@@ -50,19 +50,19 @@ class AccessReviewHistoryInstance
             $this->downloadUri = $data['downloadUri'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['fulfilledDateTime'])) {
-            $this->fulfilledDateTime = $data['fulfilledDateTime'];
+            $this->fulfilledDateTime = is_string($data['fulfilledDateTime']) ? new \DateTimeImmutable($data['fulfilledDateTime']) : $data['fulfilledDateTime'];
         }
         if (isset($data['reviewHistoryPeriodEndDateTime'])) {
-            $this->reviewHistoryPeriodEndDateTime = $data['reviewHistoryPeriodEndDateTime'];
+            $this->reviewHistoryPeriodEndDateTime = is_string($data['reviewHistoryPeriodEndDateTime']) ? new \DateTimeImmutable($data['reviewHistoryPeriodEndDateTime']) : $data['reviewHistoryPeriodEndDateTime'];
         }
         if (isset($data['reviewHistoryPeriodStartDateTime'])) {
-            $this->reviewHistoryPeriodStartDateTime = $data['reviewHistoryPeriodStartDateTime'];
+            $this->reviewHistoryPeriodStartDateTime = is_string($data['reviewHistoryPeriodStartDateTime']) ? new \DateTimeImmutable($data['reviewHistoryPeriodStartDateTime']) : $data['reviewHistoryPeriodStartDateTime'];
         }
         if (isset($data['runDateTime'])) {
-            $this->runDateTime = $data['runDateTime'];
+            $this->runDateTime = is_string($data['runDateTime']) ? new \DateTimeImmutable($data['runDateTime']) : $data['runDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

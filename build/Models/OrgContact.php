@@ -110,7 +110,7 @@ class OrgContact
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['addresses'])) {
             $this->addresses = $data['addresses'];
@@ -137,7 +137,7 @@ class OrgContact
             $this->mailNickname = $data['mailNickname'];
         }
         if (isset($data['onPremisesLastSyncDateTime'])) {
-            $this->onPremisesLastSyncDateTime = $data['onPremisesLastSyncDateTime'];
+            $this->onPremisesLastSyncDateTime = is_string($data['onPremisesLastSyncDateTime']) ? new \DateTimeImmutable($data['onPremisesLastSyncDateTime']) : $data['onPremisesLastSyncDateTime'];
         }
         if (isset($data['onPremisesProvisioningErrors'])) {
             $this->onPremisesProvisioningErrors = $data['onPremisesProvisioningErrors'];

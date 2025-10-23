@@ -107,7 +107,7 @@ class SecurityIncident
             $this->comments = $data['comments'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['customTags'])) {
             $this->customTags = $data['customTags'];
@@ -128,7 +128,7 @@ class SecurityIncident
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastUpdateDateTime'])) {
-            $this->lastUpdateDateTime = $data['lastUpdateDateTime'];
+            $this->lastUpdateDateTime = is_string($data['lastUpdateDateTime']) ? new \DateTimeImmutable($data['lastUpdateDateTime']) : $data['lastUpdateDateTime'];
         }
         if (isset($data['redirectIncidentId'])) {
             $this->redirectIncidentId = $data['redirectIncidentId'];

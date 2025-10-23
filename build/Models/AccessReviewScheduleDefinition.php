@@ -101,7 +101,7 @@ class AccessReviewScheduleDefinition
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['descriptionForAdmins'])) {
             $this->descriptionForAdmins = $data['descriptionForAdmins'];
@@ -119,7 +119,7 @@ class AccessReviewScheduleDefinition
             $this->instanceEnumerationScope = $data['instanceEnumerationScope'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['reviewers'])) {
             $this->reviewers = $data['reviewers'];

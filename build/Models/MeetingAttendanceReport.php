@@ -47,10 +47,10 @@ class MeetingAttendanceReport
             $this->externalEventInformation = $data['externalEventInformation'];
         }
         if (isset($data['meetingEndDateTime'])) {
-            $this->meetingEndDateTime = $data['meetingEndDateTime'];
+            $this->meetingEndDateTime = is_string($data['meetingEndDateTime']) ? new \DateTimeImmutable($data['meetingEndDateTime']) : $data['meetingEndDateTime'];
         }
         if (isset($data['meetingStartDateTime'])) {
-            $this->meetingStartDateTime = $data['meetingStartDateTime'];
+            $this->meetingStartDateTime = is_string($data['meetingStartDateTime']) ? new \DateTimeImmutable($data['meetingStartDateTime']) : $data['meetingStartDateTime'];
         }
         if (isset($data['totalParticipantCount'])) {
             $this->totalParticipantCount = $data['totalParticipantCount'];

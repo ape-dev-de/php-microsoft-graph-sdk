@@ -44,7 +44,7 @@ class DataPolicyOperation
             $this->id = $data['id'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['progress'])) {
             $this->progress = $data['progress'];
@@ -56,7 +56,7 @@ class DataPolicyOperation
             $this->storageLocation = $data['storageLocation'];
         }
         if (isset($data['submittedDateTime'])) {
-            $this->submittedDateTime = $data['submittedDateTime'];
+            $this->submittedDateTime = is_string($data['submittedDateTime']) ? new \DateTimeImmutable($data['submittedDateTime']) : $data['submittedDateTime'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

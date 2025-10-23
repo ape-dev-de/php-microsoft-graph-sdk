@@ -62,7 +62,7 @@ class DeviceManagementPartner
             $this->isConfigured = $data['isConfigured'];
         }
         if (isset($data['lastHeartbeatDateTime'])) {
-            $this->lastHeartbeatDateTime = $data['lastHeartbeatDateTime'];
+            $this->lastHeartbeatDateTime = is_string($data['lastHeartbeatDateTime']) ? new \DateTimeImmutable($data['lastHeartbeatDateTime']) : $data['lastHeartbeatDateTime'];
         }
         if (isset($data['partnerAppType'])) {
             $this->partnerAppType = $data['partnerAppType'];
@@ -74,10 +74,10 @@ class DeviceManagementPartner
             $this->singleTenantAppId = $data['singleTenantAppId'];
         }
         if (isset($data['whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime'])) {
-            $this->whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = $data['whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime'];
+            $this->whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = is_string($data['whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime']) ? new \DateTimeImmutable($data['whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime']) : $data['whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime'];
         }
         if (isset($data['whenPartnerDevicesWillBeRemovedDateTime'])) {
-            $this->whenPartnerDevicesWillBeRemovedDateTime = $data['whenPartnerDevicesWillBeRemovedDateTime'];
+            $this->whenPartnerDevicesWillBeRemovedDateTime = is_string($data['whenPartnerDevicesWillBeRemovedDateTime']) ? new \DateTimeImmutable($data['whenPartnerDevicesWillBeRemovedDateTime']) : $data['whenPartnerDevicesWillBeRemovedDateTime'];
         }
     }
 }

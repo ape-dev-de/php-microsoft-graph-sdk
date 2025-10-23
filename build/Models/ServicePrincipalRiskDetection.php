@@ -110,7 +110,7 @@ class ServicePrincipalRiskDetection
             $this->activity = $data['activity'];
         }
         if (isset($data['activityDateTime'])) {
-            $this->activityDateTime = $data['activityDateTime'];
+            $this->activityDateTime = is_string($data['activityDateTime']) ? new \DateTimeImmutable($data['activityDateTime']) : $data['activityDateTime'];
         }
         if (isset($data['additionalInfo'])) {
             $this->additionalInfo = $data['additionalInfo'];
@@ -122,7 +122,7 @@ class ServicePrincipalRiskDetection
             $this->correlationId = $data['correlationId'];
         }
         if (isset($data['detectedDateTime'])) {
-            $this->detectedDateTime = $data['detectedDateTime'];
+            $this->detectedDateTime = is_string($data['detectedDateTime']) ? new \DateTimeImmutable($data['detectedDateTime']) : $data['detectedDateTime'];
         }
         if (isset($data['detectionTimingType'])) {
             $this->detectionTimingType = $data['detectionTimingType'];
@@ -134,7 +134,7 @@ class ServicePrincipalRiskDetection
             $this->keyIds = $data['keyIds'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['location'])) {
             $this->location = $data['location'];

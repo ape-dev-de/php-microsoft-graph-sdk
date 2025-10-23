@@ -56,16 +56,16 @@ class ServiceStatus
             $this->disableReason = $data['disableReason'];
         }
         if (isset($data['gracePeriodDateTime'])) {
-            $this->gracePeriodDateTime = $data['gracePeriodDateTime'];
+            $this->gracePeriodDateTime = is_string($data['gracePeriodDateTime']) ? new \DateTimeImmutable($data['gracePeriodDateTime']) : $data['gracePeriodDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['restoreAllowedTillDateTime'])) {
-            $this->restoreAllowedTillDateTime = $data['restoreAllowedTillDateTime'];
+            $this->restoreAllowedTillDateTime = is_string($data['restoreAllowedTillDateTime']) ? new \DateTimeImmutable($data['restoreAllowedTillDateTime']) : $data['restoreAllowedTillDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

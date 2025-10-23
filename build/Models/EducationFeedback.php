@@ -35,7 +35,7 @@ class EducationFeedback
             $this->feedbackBy = $data['feedbackBy'];
         }
         if (isset($data['feedbackDateTime'])) {
-            $this->feedbackDateTime = $data['feedbackDateTime'];
+            $this->feedbackDateTime = is_string($data['feedbackDateTime']) ? new \DateTimeImmutable($data['feedbackDateTime']) : $data['feedbackDateTime'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];

@@ -41,7 +41,7 @@ class DeviceLocalCredential
             $this->accountSid = $data['accountSid'];
         }
         if (isset($data['backupDateTime'])) {
-            $this->backupDateTime = $data['backupDateTime'];
+            $this->backupDateTime = is_string($data['backupDateTime']) ? new \DateTimeImmutable($data['backupDateTime']) : $data['backupDateTime'];
         }
         if (isset($data['passwordBase64'])) {
             $this->passwordBase64 = $data['passwordBase64'];

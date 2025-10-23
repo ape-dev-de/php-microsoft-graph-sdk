@@ -83,7 +83,7 @@ class UnifiedRoleEligibilitySchedule
             $this->appScopeId = $data['appScopeId'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['createdUsing'])) {
             $this->createdUsing = $data['createdUsing'];
@@ -92,7 +92,7 @@ class UnifiedRoleEligibilitySchedule
             $this->directoryScopeId = $data['directoryScopeId'];
         }
         if (isset($data['modifiedDateTime'])) {
-            $this->modifiedDateTime = $data['modifiedDateTime'];
+            $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['principalId'])) {
             $this->principalId = $data['principalId'];

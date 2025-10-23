@@ -86,7 +86,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance
             $this->meanTimeToFailureInMinutes = $data['meanTimeToFailureInMinutes'];
         }
         if (isset($data['processedDateTime'])) {
-            $this->processedDateTime = $data['processedDateTime'];
+            $this->processedDateTime = is_string($data['processedDateTime']) ? new \DateTimeImmutable($data['processedDateTime']) : $data['processedDateTime'];
         }
     }
 }

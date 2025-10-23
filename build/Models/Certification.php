@@ -35,7 +35,7 @@ class Certification
             $this->certificationDetailsUrl = $data['certificationDetailsUrl'];
         }
         if (isset($data['certificationExpirationDateTime'])) {
-            $this->certificationExpirationDateTime = $data['certificationExpirationDateTime'];
+            $this->certificationExpirationDateTime = is_string($data['certificationExpirationDateTime']) ? new \DateTimeImmutable($data['certificationExpirationDateTime']) : $data['certificationExpirationDateTime'];
         }
         if (isset($data['isCertifiedByMicrosoft'])) {
             $this->isCertifiedByMicrosoft = $data['isCertifiedByMicrosoft'];
@@ -44,7 +44,7 @@ class Certification
             $this->isPublisherAttested = $data['isPublisherAttested'];
         }
         if (isset($data['lastCertificationDateTime'])) {
-            $this->lastCertificationDateTime = $data['lastCertificationDateTime'];
+            $this->lastCertificationDateTime = is_string($data['lastCertificationDateTime']) ? new \DateTimeImmutable($data['lastCertificationDateTime']) : $data['lastCertificationDateTime'];
         }
     }
 }

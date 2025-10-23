@@ -137,7 +137,7 @@ class ReadingAssignmentSubmission
             $this->studentId = $data['studentId'];
         }
         if (isset($data['submissionDateTime'])) {
-            $this->submissionDateTime = $data['submissionDateTime'];
+            $this->submissionDateTime = is_string($data['submissionDateTime']) ? new \DateTimeImmutable($data['submissionDateTime']) : $data['submissionDateTime'];
         }
         if (isset($data['submissionId'])) {
             $this->submissionId = $data['submissionId'];

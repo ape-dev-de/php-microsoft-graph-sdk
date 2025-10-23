@@ -29,13 +29,13 @@ class CloudPcOnPremisesConnectionStatusDetail
     public function __construct(array $data = [])
     {
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['healthChecks'])) {
             $this->healthChecks = $data['healthChecks'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

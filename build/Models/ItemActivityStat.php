@@ -86,7 +86,7 @@ class ItemActivityStat
             $this->edit = $data['edit'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['incompleteData'])) {
             $this->incompleteData = $data['incompleteData'];
@@ -98,7 +98,7 @@ class ItemActivityStat
             $this->move = $data['move'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['activities'])) {
             $this->activities = $data['activities'];

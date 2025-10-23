@@ -50,7 +50,7 @@ class DeviceGeoLocation
             $this->horizontalAccuracy = $data['horizontalAccuracy'];
         }
         if (isset($data['lastCollectedDateTime'])) {
-            $this->lastCollectedDateTime = $data['lastCollectedDateTime'];
+            $this->lastCollectedDateTime = is_string($data['lastCollectedDateTime']) ? new \DateTimeImmutable($data['lastCollectedDateTime']) : $data['lastCollectedDateTime'];
         }
         if (isset($data['latitude'])) {
             $this->latitude = $data['latitude'];

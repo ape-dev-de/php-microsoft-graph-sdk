@@ -167,7 +167,7 @@ class AndroidManagedAppProtection
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -176,7 +176,7 @@ class AndroidManagedAppProtection
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

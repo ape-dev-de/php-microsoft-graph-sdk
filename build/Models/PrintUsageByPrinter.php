@@ -92,7 +92,7 @@ class PrintUsageByPrinter
             $this->singleSidedSheetCount = $data['singleSidedSheetCount'];
         }
         if (isset($data['usageDate'])) {
-            $this->usageDate = $data['usageDate'];
+            $this->usageDate = is_string($data['usageDate']) ? new \DateTimeImmutable($data['usageDate']) : $data['usageDate'];
         }
         if (isset($data['printerId'])) {
             $this->printerId = $data['printerId'];

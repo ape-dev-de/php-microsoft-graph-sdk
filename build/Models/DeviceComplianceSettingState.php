@@ -56,7 +56,7 @@ class DeviceComplianceSettingState
             $this->id = $data['id'];
         }
         if (isset($data['complianceGracePeriodExpirationDateTime'])) {
-            $this->complianceGracePeriodExpirationDateTime = $data['complianceGracePeriodExpirationDateTime'];
+            $this->complianceGracePeriodExpirationDateTime = is_string($data['complianceGracePeriodExpirationDateTime']) ? new \DateTimeImmutable($data['complianceGracePeriodExpirationDateTime']) : $data['complianceGracePeriodExpirationDateTime'];
         }
         if (isset($data['deviceId'])) {
             $this->deviceId = $data['deviceId'];

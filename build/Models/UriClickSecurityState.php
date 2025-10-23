@@ -41,7 +41,7 @@ class UriClickSecurityState
             $this->clickAction = $data['clickAction'];
         }
         if (isset($data['clickDateTime'])) {
-            $this->clickDateTime = $data['clickDateTime'];
+            $this->clickDateTime = is_string($data['clickDateTime']) ? new \DateTimeImmutable($data['clickDateTime']) : $data['clickDateTime'];
         }
         if (isset($data['sourceId'])) {
             $this->sourceId = $data['sourceId'];

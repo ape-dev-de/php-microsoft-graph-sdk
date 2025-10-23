@@ -164,7 +164,7 @@ class DeviceHealthAttestationState
             $this->healthStatusMismatchInfo = $data['healthStatusMismatchInfo'];
         }
         if (isset($data['issuedDateTime'])) {
-            $this->issuedDateTime = $data['issuedDateTime'];
+            $this->issuedDateTime = is_string($data['issuedDateTime']) ? new \DateTimeImmutable($data['issuedDateTime']) : $data['issuedDateTime'];
         }
         if (isset($data['lastUpdateDateTime'])) {
             $this->lastUpdateDateTime = $data['lastUpdateDateTime'];

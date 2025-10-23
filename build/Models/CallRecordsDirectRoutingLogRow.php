@@ -101,10 +101,10 @@ class CallRecordsDirectRoutingLogRow
             $this->duration = $data['duration'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['failureDateTime'])) {
-            $this->failureDateTime = $data['failureDateTime'];
+            $this->failureDateTime = is_string($data['failureDateTime']) ? new \DateTimeImmutable($data['failureDateTime']) : $data['failureDateTime'];
         }
         if (isset($data['finalSipCode'])) {
             $this->finalSipCode = $data['finalSipCode'];
@@ -113,7 +113,7 @@ class CallRecordsDirectRoutingLogRow
             $this->finalSipCodePhrase = $data['finalSipCodePhrase'];
         }
         if (isset($data['inviteDateTime'])) {
-            $this->inviteDateTime = $data['inviteDateTime'];
+            $this->inviteDateTime = is_string($data['inviteDateTime']) ? new \DateTimeImmutable($data['inviteDateTime']) : $data['inviteDateTime'];
         }
         if (isset($data['mediaBypassEnabled'])) {
             $this->mediaBypassEnabled = $data['mediaBypassEnabled'];
@@ -125,7 +125,7 @@ class CallRecordsDirectRoutingLogRow
             $this->signalingLocation = $data['signalingLocation'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['successfulCall'])) {
             $this->successfulCall = $data['successfulCall'];

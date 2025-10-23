@@ -35,10 +35,10 @@ class ChecklistItem
             $this->id = $data['id'];
         }
         if (isset($data['checkedDateTime'])) {
-            $this->checkedDateTime = $data['checkedDateTime'];
+            $this->checkedDateTime = is_string($data['checkedDateTime']) ? new \DateTimeImmutable($data['checkedDateTime']) : $data['checkedDateTime'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

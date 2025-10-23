@@ -74,13 +74,13 @@ class BrowserSiteList
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['publishedBy'])) {
             $this->publishedBy = $data['publishedBy'];
         }
         if (isset($data['publishedDateTime'])) {
-            $this->publishedDateTime = $data['publishedDateTime'];
+            $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
         }
         if (isset($data['revision'])) {
             $this->revision = $data['revision'];

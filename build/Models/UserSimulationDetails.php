@@ -59,7 +59,7 @@ class UserSimulationDetails
             $this->completedTrainingsCount = $data['completedTrainingsCount'];
         }
         if (isset($data['compromisedDateTime'])) {
-            $this->compromisedDateTime = $data['compromisedDateTime'];
+            $this->compromisedDateTime = is_string($data['compromisedDateTime']) ? new \DateTimeImmutable($data['compromisedDateTime']) : $data['compromisedDateTime'];
         }
         if (isset($data['inProgressTrainingsCount'])) {
             $this->inProgressTrainingsCount = $data['inProgressTrainingsCount'];
@@ -68,7 +68,7 @@ class UserSimulationDetails
             $this->isCompromised = $data['isCompromised'];
         }
         if (isset($data['reportedPhishDateTime'])) {
-            $this->reportedPhishDateTime = $data['reportedPhishDateTime'];
+            $this->reportedPhishDateTime = is_string($data['reportedPhishDateTime']) ? new \DateTimeImmutable($data['reportedPhishDateTime']) : $data['reportedPhishDateTime'];
         }
         if (isset($data['simulationEvents'])) {
             $this->simulationEvents = $data['simulationEvents'];

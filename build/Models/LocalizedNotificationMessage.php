@@ -41,7 +41,7 @@ class LocalizedNotificationMessage
             $this->isDefault = $data['isDefault'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['locale'])) {
             $this->locale = $data['locale'];

@@ -50,13 +50,13 @@ class BookingCustomQuestion
             $this->answerOptions = $data['answerOptions'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
     }
 }

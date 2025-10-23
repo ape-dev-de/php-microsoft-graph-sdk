@@ -71,7 +71,7 @@ class IdentityGovernanceRun
             $this->id = $data['id'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['failedTasksCount'])) {
             $this->failedTasksCount = $data['failedTasksCount'];
@@ -80,16 +80,16 @@ class IdentityGovernanceRun
             $this->failedUsersCount = $data['failedUsersCount'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['processingStatus'])) {
             $this->processingStatus = $data['processingStatus'];
         }
         if (isset($data['scheduledDateTime'])) {
-            $this->scheduledDateTime = $data['scheduledDateTime'];
+            $this->scheduledDateTime = is_string($data['scheduledDateTime']) ? new \DateTimeImmutable($data['scheduledDateTime']) : $data['scheduledDateTime'];
         }
         if (isset($data['startedDateTime'])) {
-            $this->startedDateTime = $data['startedDateTime'];
+            $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['successfulUsersCount'])) {
             $this->successfulUsersCount = $data['successfulUsersCount'];

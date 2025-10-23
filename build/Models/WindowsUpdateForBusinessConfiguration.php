@@ -188,7 +188,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -197,7 +197,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];
@@ -263,13 +263,13 @@ class WindowsUpdateForBusinessConfiguration
             $this->featureUpdatesPaused = $data['featureUpdatesPaused'];
         }
         if (isset($data['featureUpdatesPauseExpiryDateTime'])) {
-            $this->featureUpdatesPauseExpiryDateTime = $data['featureUpdatesPauseExpiryDateTime'];
+            $this->featureUpdatesPauseExpiryDateTime = is_string($data['featureUpdatesPauseExpiryDateTime']) ? new \DateTimeImmutable($data['featureUpdatesPauseExpiryDateTime']) : $data['featureUpdatesPauseExpiryDateTime'];
         }
         if (isset($data['featureUpdatesPauseStartDate'])) {
-            $this->featureUpdatesPauseStartDate = $data['featureUpdatesPauseStartDate'];
+            $this->featureUpdatesPauseStartDate = is_string($data['featureUpdatesPauseStartDate']) ? new \DateTimeImmutable($data['featureUpdatesPauseStartDate']) : $data['featureUpdatesPauseStartDate'];
         }
         if (isset($data['featureUpdatesRollbackStartDateTime'])) {
-            $this->featureUpdatesRollbackStartDateTime = $data['featureUpdatesRollbackStartDateTime'];
+            $this->featureUpdatesRollbackStartDateTime = is_string($data['featureUpdatesRollbackStartDateTime']) ? new \DateTimeImmutable($data['featureUpdatesRollbackStartDateTime']) : $data['featureUpdatesRollbackStartDateTime'];
         }
         if (isset($data['featureUpdatesRollbackWindowInDays'])) {
             $this->featureUpdatesRollbackWindowInDays = $data['featureUpdatesRollbackWindowInDays'];
@@ -296,13 +296,13 @@ class WindowsUpdateForBusinessConfiguration
             $this->qualityUpdatesPaused = $data['qualityUpdatesPaused'];
         }
         if (isset($data['qualityUpdatesPauseExpiryDateTime'])) {
-            $this->qualityUpdatesPauseExpiryDateTime = $data['qualityUpdatesPauseExpiryDateTime'];
+            $this->qualityUpdatesPauseExpiryDateTime = is_string($data['qualityUpdatesPauseExpiryDateTime']) ? new \DateTimeImmutable($data['qualityUpdatesPauseExpiryDateTime']) : $data['qualityUpdatesPauseExpiryDateTime'];
         }
         if (isset($data['qualityUpdatesPauseStartDate'])) {
-            $this->qualityUpdatesPauseStartDate = $data['qualityUpdatesPauseStartDate'];
+            $this->qualityUpdatesPauseStartDate = is_string($data['qualityUpdatesPauseStartDate']) ? new \DateTimeImmutable($data['qualityUpdatesPauseStartDate']) : $data['qualityUpdatesPauseStartDate'];
         }
         if (isset($data['qualityUpdatesRollbackStartDateTime'])) {
-            $this->qualityUpdatesRollbackStartDateTime = $data['qualityUpdatesRollbackStartDateTime'];
+            $this->qualityUpdatesRollbackStartDateTime = is_string($data['qualityUpdatesRollbackStartDateTime']) ? new \DateTimeImmutable($data['qualityUpdatesRollbackStartDateTime']) : $data['qualityUpdatesRollbackStartDateTime'];
         }
         if (isset($data['qualityUpdatesWillBeRolledBack'])) {
             $this->qualityUpdatesWillBeRolledBack = $data['qualityUpdatesWillBeRolledBack'];

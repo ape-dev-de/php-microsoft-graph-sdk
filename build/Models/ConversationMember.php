@@ -41,7 +41,7 @@ class ConversationMember
             $this->roles = $data['roles'];
         }
         if (isset($data['visibleHistoryStartDateTime'])) {
-            $this->visibleHistoryStartDateTime = $data['visibleHistoryStartDateTime'];
+            $this->visibleHistoryStartDateTime = is_string($data['visibleHistoryStartDateTime']) ? new \DateTimeImmutable($data['visibleHistoryStartDateTime']) : $data['visibleHistoryStartDateTime'];
         }
     }
 }

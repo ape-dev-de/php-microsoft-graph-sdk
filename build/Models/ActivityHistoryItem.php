@@ -56,19 +56,19 @@ class ActivityHistoryItem
             $this->activeDurationSeconds = $data['activeDurationSeconds'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['lastActiveDateTime'])) {
-            $this->lastActiveDateTime = $data['lastActiveDateTime'];
+            $this->lastActiveDateTime = is_string($data['lastActiveDateTime']) ? new \DateTimeImmutable($data['lastActiveDateTime']) : $data['lastActiveDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['startedDateTime'])) {
-            $this->startedDateTime = $data['startedDateTime'];
+            $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

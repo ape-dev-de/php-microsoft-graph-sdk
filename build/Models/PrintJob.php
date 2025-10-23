@@ -65,7 +65,7 @@ class PrintJob
             $this->id = $data['id'];
         }
         if (isset($data['acknowledgedDateTime'])) {
-            $this->acknowledgedDateTime = $data['acknowledgedDateTime'];
+            $this->acknowledgedDateTime = is_string($data['acknowledgedDateTime']) ? new \DateTimeImmutable($data['acknowledgedDateTime']) : $data['acknowledgedDateTime'];
         }
         if (isset($data['configuration'])) {
             $this->configuration = $data['configuration'];
@@ -74,7 +74,7 @@ class PrintJob
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['errorCode'])) {
             $this->errorCode = $data['errorCode'];

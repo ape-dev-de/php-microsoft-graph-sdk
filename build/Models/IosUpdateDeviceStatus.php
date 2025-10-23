@@ -56,7 +56,7 @@ class IosUpdateDeviceStatus
             $this->id = $data['id'];
         }
         if (isset($data['complianceGracePeriodExpirationDateTime'])) {
-            $this->complianceGracePeriodExpirationDateTime = $data['complianceGracePeriodExpirationDateTime'];
+            $this->complianceGracePeriodExpirationDateTime = is_string($data['complianceGracePeriodExpirationDateTime']) ? new \DateTimeImmutable($data['complianceGracePeriodExpirationDateTime']) : $data['complianceGracePeriodExpirationDateTime'];
         }
         if (isset($data['deviceDisplayName'])) {
             $this->deviceDisplayName = $data['deviceDisplayName'];
@@ -71,7 +71,7 @@ class IosUpdateDeviceStatus
             $this->installStatus = $data['installStatus'];
         }
         if (isset($data['lastReportedDateTime'])) {
-            $this->lastReportedDateTime = $data['lastReportedDateTime'];
+            $this->lastReportedDateTime = is_string($data['lastReportedDateTime']) ? new \DateTimeImmutable($data['lastReportedDateTime']) : $data['lastReportedDateTime'];
         }
         if (isset($data['osVersion'])) {
             $this->osVersion = $data['osVersion'];

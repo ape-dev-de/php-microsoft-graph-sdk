@@ -38,7 +38,7 @@ class RequestSchedule
             $this->recurrence = $data['recurrence'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

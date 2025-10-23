@@ -32,7 +32,7 @@ class OnPremisesProvisioningError
             $this->category = $data['category'];
         }
         if (isset($data['occurredDateTime'])) {
-            $this->occurredDateTime = $data['occurredDateTime'];
+            $this->occurredDateTime = is_string($data['occurredDateTime']) ? new \DateTimeImmutable($data['occurredDateTime']) : $data['occurredDateTime'];
         }
         if (isset($data['propertyCausingError'])) {
             $this->propertyCausingError = $data['propertyCausingError'];

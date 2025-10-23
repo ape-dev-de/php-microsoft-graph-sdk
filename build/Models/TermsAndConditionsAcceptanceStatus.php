@@ -41,7 +41,7 @@ class TermsAndConditionsAcceptanceStatus
             $this->id = $data['id'];
         }
         if (isset($data['acceptedDateTime'])) {
-            $this->acceptedDateTime = $data['acceptedDateTime'];
+            $this->acceptedDateTime = is_string($data['acceptedDateTime']) ? new \DateTimeImmutable($data['acceptedDateTime']) : $data['acceptedDateTime'];
         }
         if (isset($data['acceptedVersion'])) {
             $this->acceptedVersion = $data['acceptedVersion'];

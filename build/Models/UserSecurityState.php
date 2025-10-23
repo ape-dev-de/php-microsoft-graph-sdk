@@ -83,7 +83,7 @@ class UserSecurityState
             $this->isVpn = $data['isVpn'];
         }
         if (isset($data['logonDateTime'])) {
-            $this->logonDateTime = $data['logonDateTime'];
+            $this->logonDateTime = is_string($data['logonDateTime']) ? new \DateTimeImmutable($data['logonDateTime']) : $data['logonDateTime'];
         }
         if (isset($data['logonId'])) {
             $this->logonId = $data['logonId'];

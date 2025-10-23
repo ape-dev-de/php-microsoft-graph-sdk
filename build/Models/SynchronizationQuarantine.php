@@ -38,19 +38,19 @@ class SynchronizationQuarantine
     public function __construct(array $data = [])
     {
         if (isset($data['currentBegan'])) {
-            $this->currentBegan = $data['currentBegan'];
+            $this->currentBegan = is_string($data['currentBegan']) ? new \DateTimeImmutable($data['currentBegan']) : $data['currentBegan'];
         }
         if (isset($data['error'])) {
             $this->error = $data['error'];
         }
         if (isset($data['nextAttempt'])) {
-            $this->nextAttempt = $data['nextAttempt'];
+            $this->nextAttempt = is_string($data['nextAttempt']) ? new \DateTimeImmutable($data['nextAttempt']) : $data['nextAttempt'];
         }
         if (isset($data['reason'])) {
             $this->reason = $data['reason'];
         }
         if (isset($data['seriesBegan'])) {
-            $this->seriesBegan = $data['seriesBegan'];
+            $this->seriesBegan = is_string($data['seriesBegan']) ? new \DateTimeImmutable($data['seriesBegan']) : $data['seriesBegan'];
         }
         if (isset($data['seriesCount'])) {
             $this->seriesCount = $data['seriesCount'];

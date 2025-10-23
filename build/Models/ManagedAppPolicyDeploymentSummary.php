@@ -50,7 +50,7 @@ class ManagedAppPolicyDeploymentSummary
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastRefreshTime'])) {
-            $this->lastRefreshTime = $data['lastRefreshTime'];
+            $this->lastRefreshTime = is_string($data['lastRefreshTime']) ? new \DateTimeImmutable($data['lastRefreshTime']) : $data['lastRefreshTime'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

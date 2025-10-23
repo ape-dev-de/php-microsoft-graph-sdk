@@ -74,7 +74,7 @@ class SecuritySubmissionMailEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -113,7 +113,7 @@ class SecuritySubmissionMailEvidence
             $this->subject = $data['subject'];
         }
         if (isset($data['submissionDateTime'])) {
-            $this->submissionDateTime = $data['submissionDateTime'];
+            $this->submissionDateTime = is_string($data['submissionDateTime']) ? new \DateTimeImmutable($data['submissionDateTime']) : $data['submissionDateTime'];
         }
         if (isset($data['submissionId'])) {
             $this->submissionId = $data['submissionId'];

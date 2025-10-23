@@ -89,19 +89,19 @@ class ServiceUpdateMessage
             $this->details = $data['details'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];
         }
         if (isset($data['actionRequiredByDateTime'])) {
-            $this->actionRequiredByDateTime = $data['actionRequiredByDateTime'];
+            $this->actionRequiredByDateTime = is_string($data['actionRequiredByDateTime']) ? new \DateTimeImmutable($data['actionRequiredByDateTime']) : $data['actionRequiredByDateTime'];
         }
         if (isset($data['attachmentsArchive'])) {
             $this->attachmentsArchive = $data['attachmentsArchive'];

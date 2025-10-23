@@ -83,7 +83,7 @@ class Subscription
             $this->encryptionCertificateId = $data['encryptionCertificateId'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['includeResourceData'])) {
             $this->includeResourceData = $data['includeResourceData'];

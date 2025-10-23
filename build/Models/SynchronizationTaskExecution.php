@@ -98,10 +98,10 @@ class SynchronizationTaskExecution
             $this->state = $data['state'];
         }
         if (isset($data['timeBegan'])) {
-            $this->timeBegan = $data['timeBegan'];
+            $this->timeBegan = is_string($data['timeBegan']) ? new \DateTimeImmutable($data['timeBegan']) : $data['timeBegan'];
         }
         if (isset($data['timeEnded'])) {
-            $this->timeEnded = $data['timeEnded'];
+            $this->timeEnded = is_string($data['timeEnded']) ? new \DateTimeImmutable($data['timeEnded']) : $data['timeEnded'];
         }
     }
 }

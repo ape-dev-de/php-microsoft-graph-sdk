@@ -86,7 +86,7 @@ class AccessReviewInstanceDecisionItem
             $this->appliedBy = $data['appliedBy'];
         }
         if (isset($data['appliedDateTime'])) {
-            $this->appliedDateTime = $data['appliedDateTime'];
+            $this->appliedDateTime = is_string($data['appliedDateTime']) ? new \DateTimeImmutable($data['appliedDateTime']) : $data['appliedDateTime'];
         }
         if (isset($data['applyResult'])) {
             $this->applyResult = $data['applyResult'];
@@ -116,7 +116,7 @@ class AccessReviewInstanceDecisionItem
             $this->reviewedBy = $data['reviewedBy'];
         }
         if (isset($data['reviewedDateTime'])) {
-            $this->reviewedDateTime = $data['reviewedDateTime'];
+            $this->reviewedDateTime = is_string($data['reviewedDateTime']) ? new \DateTimeImmutable($data['reviewedDateTime']) : $data['reviewedDateTime'];
         }
         if (isset($data['insights'])) {
             $this->insights = $data['insights'];

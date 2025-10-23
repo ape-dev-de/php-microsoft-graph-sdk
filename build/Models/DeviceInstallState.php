@@ -59,7 +59,7 @@ class DeviceInstallState
             $this->installState = $data['installState'];
         }
         if (isset($data['lastSyncDateTime'])) {
-            $this->lastSyncDateTime = $data['lastSyncDateTime'];
+            $this->lastSyncDateTime = is_string($data['lastSyncDateTime']) ? new \DateTimeImmutable($data['lastSyncDateTime']) : $data['lastSyncDateTime'];
         }
         if (isset($data['osDescription'])) {
             $this->osDescription = $data['osDescription'];

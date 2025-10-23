@@ -62,7 +62,7 @@ class ReflectCheckInResponse
             $this->classId = $data['classId'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['creatorId'])) {
             $this->creatorId = $data['creatorId'];
@@ -80,7 +80,7 @@ class ReflectCheckInResponse
             $this->responseFeedback = $data['responseFeedback'];
         }
         if (isset($data['submitDateTime'])) {
-            $this->submitDateTime = $data['submitDateTime'];
+            $this->submitDateTime = is_string($data['submitDateTime']) ? new \DateTimeImmutable($data['submitDateTime']) : $data['submitDateTime'];
         }
     }
 }

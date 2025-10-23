@@ -29,7 +29,7 @@ class ServiceProvisioningXmlError
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isResolved'])) {
             $this->isResolved = $data['isResolved'];

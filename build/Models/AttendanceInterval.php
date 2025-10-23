@@ -29,10 +29,10 @@ class AttendanceInterval
             $this->durationInSeconds = $data['durationInSeconds'];
         }
         if (isset($data['joinDateTime'])) {
-            $this->joinDateTime = $data['joinDateTime'];
+            $this->joinDateTime = is_string($data['joinDateTime']) ? new \DateTimeImmutable($data['joinDateTime']) : $data['joinDateTime'];
         }
         if (isset($data['leaveDateTime'])) {
-            $this->leaveDateTime = $data['leaveDateTime'];
+            $this->leaveDateTime = is_string($data['leaveDateTime']) ? new \DateTimeImmutable($data['leaveDateTime']) : $data['leaveDateTime'];
         }
     }
 }

@@ -77,7 +77,7 @@ class SecurityIntelligenceProfile
             $this->description = $data['description'];
         }
         if (isset($data['firstActiveDateTime'])) {
-            $this->firstActiveDateTime = $data['firstActiveDateTime'];
+            $this->firstActiveDateTime = is_string($data['firstActiveDateTime']) ? new \DateTimeImmutable($data['firstActiveDateTime']) : $data['firstActiveDateTime'];
         }
         if (isset($data['kind'])) {
             $this->kind = $data['kind'];

@@ -41,7 +41,7 @@ class MicrosoftCustomTrainingSetting
             $this->settingType = $data['settingType'];
         }
         if (isset($data['completionDateTime'])) {
-            $this->completionDateTime = $data['completionDateTime'];
+            $this->completionDateTime = is_string($data['completionDateTime']) ? new \DateTimeImmutable($data['completionDateTime']) : $data['completionDateTime'];
         }
         if (isset($data['trainingAssignmentMappings'])) {
             $this->trainingAssignmentMappings = $data['trainingAssignmentMappings'];

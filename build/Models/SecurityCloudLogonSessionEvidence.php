@@ -77,7 +77,7 @@ class SecurityCloudLogonSessionEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -110,7 +110,7 @@ class SecurityCloudLogonSessionEvidence
             $this->operatingSystem = $data['operatingSystem'];
         }
         if (isset($data['previousLogonDateTime'])) {
-            $this->previousLogonDateTime = $data['previousLogonDateTime'];
+            $this->previousLogonDateTime = is_string($data['previousLogonDateTime']) ? new \DateTimeImmutable($data['previousLogonDateTime']) : $data['previousLogonDateTime'];
         }
         if (isset($data['protocol'])) {
             $this->protocol = $data['protocol'];
@@ -119,7 +119,7 @@ class SecurityCloudLogonSessionEvidence
             $this->sessionId = $data['sessionId'];
         }
         if (isset($data['startUtcDateTime'])) {
-            $this->startUtcDateTime = $data['startUtcDateTime'];
+            $this->startUtcDateTime = is_string($data['startUtcDateTime']) ? new \DateTimeImmutable($data['startUtcDateTime']) : $data['startUtcDateTime'];
         }
         if (isset($data['userAgent'])) {
             $this->userAgent = $data['userAgent'];

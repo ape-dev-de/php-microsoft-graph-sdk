@@ -59,7 +59,7 @@ class SecurityArticle
             $this->body = $data['body'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['imageUrl'])) {
             $this->imageUrl = $data['imageUrl'];
@@ -68,7 +68,7 @@ class SecurityArticle
             $this->isFeatured = $data['isFeatured'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['summary'])) {
             $this->summary = $data['summary'];

@@ -26,10 +26,10 @@ class MobileAppInstallTimeSettings
     public function __construct(array $data = [])
     {
         if (isset($data['deadlineDateTime'])) {
-            $this->deadlineDateTime = $data['deadlineDateTime'];
+            $this->deadlineDateTime = is_string($data['deadlineDateTime']) ? new \DateTimeImmutable($data['deadlineDateTime']) : $data['deadlineDateTime'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['useLocalTime'])) {
             $this->useLocalTime = $data['useLocalTime'];

@@ -110,7 +110,7 @@ class UserExperienceAnalyticsDeviceStartupHistory
             $this->restartStopCode = $data['restartStopCode'];
         }
         if (isset($data['startTime'])) {
-            $this->startTime = $data['startTime'];
+            $this->startTime = is_string($data['startTime']) ? new \DateTimeImmutable($data['startTime']) : $data['startTime'];
         }
         if (isset($data['totalBootTimeInMs'])) {
             $this->totalBootTimeInMs = $data['totalBootTimeInMs'];

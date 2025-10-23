@@ -68,7 +68,7 @@ class ProcessConversationMetadata
             $this->correlationId = $data['correlationId'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['identifier'])) {
             $this->identifier = $data['identifier'];
@@ -80,7 +80,7 @@ class ProcessConversationMetadata
             $this->length = $data['length'];
         }
         if (isset($data['modifiedDateTime'])) {
-            $this->modifiedDateTime = $data['modifiedDateTime'];
+            $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

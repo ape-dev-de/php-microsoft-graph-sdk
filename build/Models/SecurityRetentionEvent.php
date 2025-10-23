@@ -80,7 +80,7 @@ class SecurityRetentionEvent
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -98,16 +98,16 @@ class SecurityRetentionEvent
             $this->eventStatus = $data['eventStatus'];
         }
         if (isset($data['eventTriggerDateTime'])) {
-            $this->eventTriggerDateTime = $data['eventTriggerDateTime'];
+            $this->eventTriggerDateTime = is_string($data['eventTriggerDateTime']) ? new \DateTimeImmutable($data['eventTriggerDateTime']) : $data['eventTriggerDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['lastStatusUpdateDateTime'])) {
-            $this->lastStatusUpdateDateTime = $data['lastStatusUpdateDateTime'];
+            $this->lastStatusUpdateDateTime = is_string($data['lastStatusUpdateDateTime']) ? new \DateTimeImmutable($data['lastStatusUpdateDateTime']) : $data['lastStatusUpdateDateTime'];
         }
         if (isset($data['retentionEventType'])) {
             $this->retentionEventType = $data['retentionEventType'];

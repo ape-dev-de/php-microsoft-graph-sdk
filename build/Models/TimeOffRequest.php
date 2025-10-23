@@ -83,19 +83,19 @@ class TimeOffRequest
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['assignedTo'])) {
             $this->assignedTo = $data['assignedTo'];
         }
         if (isset($data['managerActionDateTime'])) {
-            $this->managerActionDateTime = $data['managerActionDateTime'];
+            $this->managerActionDateTime = is_string($data['managerActionDateTime']) ? new \DateTimeImmutable($data['managerActionDateTime']) : $data['managerActionDateTime'];
         }
         if (isset($data['managerActionMessage'])) {
             $this->managerActionMessage = $data['managerActionMessage'];
@@ -104,7 +104,7 @@ class TimeOffRequest
             $this->managerUserId = $data['managerUserId'];
         }
         if (isset($data['senderDateTime'])) {
-            $this->senderDateTime = $data['senderDateTime'];
+            $this->senderDateTime = is_string($data['senderDateTime']) ? new \DateTimeImmutable($data['senderDateTime']) : $data['senderDateTime'];
         }
         if (isset($data['senderMessage'])) {
             $this->senderMessage = $data['senderMessage'];
@@ -116,10 +116,10 @@ class TimeOffRequest
             $this->state = $data['state'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['timeOffReasonId'])) {
             $this->timeOffReasonId = $data['timeOffReasonId'];

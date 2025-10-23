@@ -68,7 +68,7 @@ class GranularMailboxRestoreArtifact
             $this->id = $data['id'];
         }
         if (isset($data['completionDateTime'])) {
-            $this->completionDateTime = $data['completionDateTime'];
+            $this->completionDateTime = is_string($data['completionDateTime']) ? new \DateTimeImmutable($data['completionDateTime']) : $data['completionDateTime'];
         }
         if (isset($data['destinationType'])) {
             $this->destinationType = $data['destinationType'];
@@ -77,7 +77,7 @@ class GranularMailboxRestoreArtifact
             $this->error = $data['error'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

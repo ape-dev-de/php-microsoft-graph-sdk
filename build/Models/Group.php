@@ -332,7 +332,7 @@ class Group
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['allowExternalSenders'])) {
             $this->allowExternalSenders = $data['allowExternalSenders'];
@@ -350,7 +350,7 @@ class Group
             $this->classification = $data['classification'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -359,7 +359,7 @@ class Group
             $this->displayName = $data['displayName'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['groupTypes'])) {
             $this->groupTypes = $data['groupTypes'];
@@ -407,7 +407,7 @@ class Group
             $this->onPremisesDomainName = $data['onPremisesDomainName'];
         }
         if (isset($data['onPremisesLastSyncDateTime'])) {
-            $this->onPremisesLastSyncDateTime = $data['onPremisesLastSyncDateTime'];
+            $this->onPremisesLastSyncDateTime = is_string($data['onPremisesLastSyncDateTime']) ? new \DateTimeImmutable($data['onPremisesLastSyncDateTime']) : $data['onPremisesLastSyncDateTime'];
         }
         if (isset($data['onPremisesNetBiosName'])) {
             $this->onPremisesNetBiosName = $data['onPremisesNetBiosName'];
@@ -434,7 +434,7 @@ class Group
             $this->proxyAddresses = $data['proxyAddresses'];
         }
         if (isset($data['renewedDateTime'])) {
-            $this->renewedDateTime = $data['renewedDateTime'];
+            $this->renewedDateTime = is_string($data['renewedDateTime']) ? new \DateTimeImmutable($data['renewedDateTime']) : $data['renewedDateTime'];
         }
         if (isset($data['securityEnabled'])) {
             $this->securityEnabled = $data['securityEnabled'];

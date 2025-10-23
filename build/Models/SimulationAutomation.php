@@ -68,7 +68,7 @@ class SimulationAutomation
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -80,13 +80,13 @@ class SimulationAutomation
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['lastRunDateTime'])) {
-            $this->lastRunDateTime = $data['lastRunDateTime'];
+            $this->lastRunDateTime = is_string($data['lastRunDateTime']) ? new \DateTimeImmutable($data['lastRunDateTime']) : $data['lastRunDateTime'];
         }
         if (isset($data['nextRunDateTime'])) {
-            $this->nextRunDateTime = $data['nextRunDateTime'];
+            $this->nextRunDateTime = is_string($data['nextRunDateTime']) ? new \DateTimeImmutable($data['nextRunDateTime']) : $data['nextRunDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

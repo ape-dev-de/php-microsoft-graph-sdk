@@ -26,7 +26,7 @@ class VerifiedPublisher
     public function __construct(array $data = [])
     {
         if (isset($data['addedDateTime'])) {
-            $this->addedDateTime = $data['addedDateTime'];
+            $this->addedDateTime = is_string($data['addedDateTime']) ? new \DateTimeImmutable($data['addedDateTime']) : $data['addedDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

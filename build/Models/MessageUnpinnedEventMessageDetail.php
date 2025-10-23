@@ -26,7 +26,7 @@ class MessageUnpinnedEventMessageDetail
     public function __construct(array $data = [])
     {
         if (isset($data['eventDateTime'])) {
-            $this->eventDateTime = $data['eventDateTime'];
+            $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['initiator'])) {
             $this->initiator = $data['initiator'];

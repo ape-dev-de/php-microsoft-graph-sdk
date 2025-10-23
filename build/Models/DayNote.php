@@ -59,16 +59,16 @@ class DayNote
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['dayNoteDate'])) {
-            $this->dayNoteDate = $data['dayNoteDate'];
+            $this->dayNoteDate = is_string($data['dayNoteDate']) ? new \DateTimeImmutable($data['dayNoteDate']) : $data['dayNoteDate'];
         }
         if (isset($data['draftDayNote'])) {
             $this->draftDayNote = $data['draftDayNote'];

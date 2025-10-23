@@ -29,7 +29,7 @@ class AssignedPlan
     public function __construct(array $data = [])
     {
         if (isset($data['assignedDateTime'])) {
-            $this->assignedDateTime = $data['assignedDateTime'];
+            $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
         if (isset($data['capabilityStatus'])) {
             $this->capabilityStatus = $data['capabilityStatus'];

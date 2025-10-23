@@ -50,7 +50,7 @@ class Conversation
             $this->hasAttachments = $data['hasAttachments'];
         }
         if (isset($data['lastDeliveredDateTime'])) {
-            $this->lastDeliveredDateTime = $data['lastDeliveredDateTime'];
+            $this->lastDeliveredDateTime = is_string($data['lastDeliveredDateTime']) ? new \DateTimeImmutable($data['lastDeliveredDateTime']) : $data['lastDeliveredDateTime'];
         }
         if (isset($data['preview'])) {
             $this->preview = $data['preview'];

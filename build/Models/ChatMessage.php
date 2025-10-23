@@ -137,10 +137,10 @@ class ChatMessage
             $this->chatId = $data['chatId'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['etag'])) {
             $this->etag = $data['etag'];
@@ -155,10 +155,10 @@ class ChatMessage
             $this->importance = $data['importance'];
         }
         if (isset($data['lastEditedDateTime'])) {
-            $this->lastEditedDateTime = $data['lastEditedDateTime'];
+            $this->lastEditedDateTime = is_string($data['lastEditedDateTime']) ? new \DateTimeImmutable($data['lastEditedDateTime']) : $data['lastEditedDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['locale'])) {
             $this->locale = $data['locale'];

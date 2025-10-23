@@ -47,7 +47,7 @@ class KeyCredential
             $this->displayName = $data['displayName'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['key'])) {
             $this->key = $data['key'];
@@ -56,7 +56,7 @@ class KeyCredential
             $this->keyId = $data['keyId'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['type'])) {
             $this->type = $data['type'];

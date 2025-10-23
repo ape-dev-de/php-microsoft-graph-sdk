@@ -26,7 +26,7 @@ class UserExperienceAnalyticsScoreHistory
             $this->id = $data['id'];
         }
         if (isset($data['startupDateTime'])) {
-            $this->startupDateTime = $data['startupDateTime'];
+            $this->startupDateTime = is_string($data['startupDateTime']) ? new \DateTimeImmutable($data['startupDateTime']) : $data['startupDateTime'];
         }
     }
 }

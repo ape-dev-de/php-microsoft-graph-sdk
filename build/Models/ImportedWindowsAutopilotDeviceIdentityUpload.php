@@ -35,7 +35,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTimeUtc'])) {
-            $this->createdDateTimeUtc = $data['createdDateTimeUtc'];
+            $this->createdDateTimeUtc = is_string($data['createdDateTimeUtc']) ? new \DateTimeImmutable($data['createdDateTimeUtc']) : $data['createdDateTimeUtc'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

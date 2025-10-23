@@ -62,7 +62,7 @@ class MessageSecurityState
             $this->messageFingerprint = $data['messageFingerprint'];
         }
         if (isset($data['messageReceivedDateTime'])) {
-            $this->messageReceivedDateTime = $data['messageReceivedDateTime'];
+            $this->messageReceivedDateTime = is_string($data['messageReceivedDateTime']) ? new \DateTimeImmutable($data['messageReceivedDateTime']) : $data['messageReceivedDateTime'];
         }
         if (isset($data['messageSubject'])) {
             $this->messageSubject = $data['messageSubject'];

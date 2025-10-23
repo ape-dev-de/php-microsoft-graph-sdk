@@ -146,7 +146,7 @@ class Organization
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['assignedPlans'])) {
             $this->assignedPlans = $data['assignedPlans'];
@@ -164,7 +164,7 @@ class Organization
             $this->countryLetterCode = $data['countryLetterCode'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['defaultUsageLocation'])) {
             $this->defaultUsageLocation = $data['defaultUsageLocation'];
@@ -179,7 +179,7 @@ class Organization
             $this->mobileDeviceManagementAuthority = $data['mobileDeviceManagementAuthority'];
         }
         if (isset($data['onPremisesLastSyncDateTime'])) {
-            $this->onPremisesLastSyncDateTime = $data['onPremisesLastSyncDateTime'];
+            $this->onPremisesLastSyncDateTime = is_string($data['onPremisesLastSyncDateTime']) ? new \DateTimeImmutable($data['onPremisesLastSyncDateTime']) : $data['onPremisesLastSyncDateTime'];
         }
         if (isset($data['onPremisesSyncEnabled'])) {
             $this->onPremisesSyncEnabled = $data['onPremisesSyncEnabled'];

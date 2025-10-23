@@ -29,7 +29,7 @@ class SecurityResourceAccessEvent
     public function __construct(array $data = [])
     {
         if (isset($data['accessDateTime'])) {
-            $this->accessDateTime = $data['accessDateTime'];
+            $this->accessDateTime = is_string($data['accessDateTime']) ? new \DateTimeImmutable($data['accessDateTime']) : $data['accessDateTime'];
         }
         if (isset($data['accountId'])) {
             $this->accountId = $data['accountId'];

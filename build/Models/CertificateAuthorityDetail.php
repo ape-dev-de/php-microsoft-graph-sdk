@@ -62,7 +62,7 @@ class CertificateAuthorityDetail
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['certificate'])) {
             $this->certificate = $data['certificate'];
@@ -74,7 +74,7 @@ class CertificateAuthorityDetail
             $this->certificateRevocationListUrl = $data['certificateRevocationListUrl'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['deltaCertificateRevocationListUrl'])) {
             $this->deltaCertificateRevocationListUrl = $data['deltaCertificateRevocationListUrl'];
@@ -83,7 +83,7 @@ class CertificateAuthorityDetail
             $this->displayName = $data['displayName'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['isIssuerHintEnabled'])) {
             $this->isIssuerHintEnabled = $data['isIssuerHintEnabled'];

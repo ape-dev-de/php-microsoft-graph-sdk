@@ -56,7 +56,7 @@ class DeviceManagementExportJob
             $this->id = $data['id'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['filter'])) {
             $this->filter = $data['filter'];
@@ -71,7 +71,7 @@ class DeviceManagementExportJob
             $this->reportName = $data['reportName'];
         }
         if (isset($data['requestDateTime'])) {
-            $this->requestDateTime = $data['requestDateTime'];
+            $this->requestDateTime = is_string($data['requestDateTime']) ? new \DateTimeImmutable($data['requestDateTime']) : $data['requestDateTime'];
         }
         if (isset($data['select'])) {
             $this->select = $data['select'];

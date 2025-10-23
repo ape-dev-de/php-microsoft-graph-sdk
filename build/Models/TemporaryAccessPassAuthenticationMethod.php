@@ -44,7 +44,7 @@ class TemporaryAccessPassAuthenticationMethod
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isUsable'])) {
             $this->isUsable = $data['isUsable'];
@@ -59,7 +59,7 @@ class TemporaryAccessPassAuthenticationMethod
             $this->methodUsabilityReason = $data['methodUsabilityReason'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['temporaryAccessPass'])) {
             $this->temporaryAccessPass = $data['temporaryAccessPass'];

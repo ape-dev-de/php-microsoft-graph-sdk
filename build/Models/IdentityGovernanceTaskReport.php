@@ -62,13 +62,13 @@ class IdentityGovernanceTaskReport
             $this->id = $data['id'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['failedUsersCount'])) {
             $this->failedUsersCount = $data['failedUsersCount'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['processingStatus'])) {
             $this->processingStatus = $data['processingStatus'];
@@ -77,7 +77,7 @@ class IdentityGovernanceTaskReport
             $this->runId = $data['runId'];
         }
         if (isset($data['startedDateTime'])) {
-            $this->startedDateTime = $data['startedDateTime'];
+            $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['successfulUsersCount'])) {
             $this->successfulUsersCount = $data['successfulUsersCount'];

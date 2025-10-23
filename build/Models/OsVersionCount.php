@@ -29,7 +29,7 @@ class OsVersionCount
             $this->deviceCount = $data['deviceCount'];
         }
         if (isset($data['lastUpdateDateTime'])) {
-            $this->lastUpdateDateTime = $data['lastUpdateDateTime'];
+            $this->lastUpdateDateTime = is_string($data['lastUpdateDateTime']) ? new \DateTimeImmutable($data['lastUpdateDateTime']) : $data['lastUpdateDateTime'];
         }
         if (isset($data['osVersion'])) {
             $this->osVersion = $data['osVersion'];

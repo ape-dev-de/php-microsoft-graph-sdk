@@ -68,7 +68,7 @@ class LearningAssignment
             $this->id = $data['id'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['completionPercentage'])) {
             $this->completionPercentage = $data['completionPercentage'];
@@ -89,7 +89,7 @@ class LearningAssignment
             $this->status = $data['status'];
         }
         if (isset($data['assignedDateTime'])) {
-            $this->assignedDateTime = $data['assignedDateTime'];
+            $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
         if (isset($data['assignerUserId'])) {
             $this->assignerUserId = $data['assignerUserId'];

@@ -41,7 +41,7 @@ class ManagedDeviceMobileAppConfigurationUserStatus
             $this->devicesCount = $data['devicesCount'];
         }
         if (isset($data['lastReportedDateTime'])) {
-            $this->lastReportedDateTime = $data['lastReportedDateTime'];
+            $this->lastReportedDateTime = is_string($data['lastReportedDateTime']) ? new \DateTimeImmutable($data['lastReportedDateTime']) : $data['lastReportedDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

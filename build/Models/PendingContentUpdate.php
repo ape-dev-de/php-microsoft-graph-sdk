@@ -20,7 +20,7 @@ class PendingContentUpdate
     public function __construct(array $data = [])
     {
         if (isset($data['queuedDateTime'])) {
-            $this->queuedDateTime = $data['queuedDateTime'];
+            $this->queuedDateTime = is_string($data['queuedDateTime']) ? new \DateTimeImmutable($data['queuedDateTime']) : $data['queuedDateTime'];
         }
     }
 }

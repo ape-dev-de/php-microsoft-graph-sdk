@@ -35,7 +35,7 @@ class KeyCredentialConfiguration
             $this->maxLifetime = $data['maxLifetime'];
         }
         if (isset($data['restrictForAppsCreatedAfterDateTime'])) {
-            $this->restrictForAppsCreatedAfterDateTime = $data['restrictForAppsCreatedAfterDateTime'];
+            $this->restrictForAppsCreatedAfterDateTime = is_string($data['restrictForAppsCreatedAfterDateTime']) ? new \DateTimeImmutable($data['restrictForAppsCreatedAfterDateTime']) : $data['restrictForAppsCreatedAfterDateTime'];
         }
         if (isset($data['restrictionType'])) {
             $this->restrictionType = $data['restrictionType'];

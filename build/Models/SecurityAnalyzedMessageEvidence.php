@@ -116,7 +116,7 @@ class SecurityAnalyzedMessageEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -164,7 +164,7 @@ class SecurityAnalyzedMessageEvidence
             $this->p2Sender = $data['p2Sender'];
         }
         if (isset($data['receivedDateTime'])) {
-            $this->receivedDateTime = $data['receivedDateTime'];
+            $this->receivedDateTime = is_string($data['receivedDateTime']) ? new \DateTimeImmutable($data['receivedDateTime']) : $data['receivedDateTime'];
         }
         if (isset($data['recipientEmailAddress'])) {
             $this->recipientEmailAddress = $data['recipientEmailAddress'];

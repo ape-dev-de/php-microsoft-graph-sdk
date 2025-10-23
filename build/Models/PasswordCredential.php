@@ -44,7 +44,7 @@ class PasswordCredential
             $this->displayName = $data['displayName'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['hint'])) {
             $this->hint = $data['hint'];
@@ -56,7 +56,7 @@ class PasswordCredential
             $this->secretText = $data['secretText'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
     }
 }

@@ -83,7 +83,7 @@ class MailAssessmentRequest
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['expectedAssessment'])) {
             $this->expectedAssessment = $data['expectedAssessment'];

@@ -65,7 +65,7 @@ class BrowserSiteHistory
             $this->mergeType = $data['mergeType'];
         }
         if (isset($data['publishedDateTime'])) {
-            $this->publishedDateTime = $data['publishedDateTime'];
+            $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
         }
         if (isset($data['targetEnvironment'])) {
             $this->targetEnvironment = $data['targetEnvironment'];

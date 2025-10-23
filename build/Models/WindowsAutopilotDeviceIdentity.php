@@ -86,7 +86,7 @@ class WindowsAutopilotDeviceIdentity
             $this->groupTag = $data['groupTag'];
         }
         if (isset($data['lastContactedDateTime'])) {
-            $this->lastContactedDateTime = $data['lastContactedDateTime'];
+            $this->lastContactedDateTime = is_string($data['lastContactedDateTime']) ? new \DateTimeImmutable($data['lastContactedDateTime']) : $data['lastContactedDateTime'];
         }
         if (isset($data['managedDeviceId'])) {
             $this->managedDeviceId = $data['managedDeviceId'];

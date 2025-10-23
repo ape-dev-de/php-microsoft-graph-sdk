@@ -50,7 +50,7 @@ class BookingCustomer
             $this->addresses = $data['addresses'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -59,7 +59,7 @@ class BookingCustomer
             $this->emailAddress = $data['emailAddress'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['phones'])) {
             $this->phones = $data['phones'];

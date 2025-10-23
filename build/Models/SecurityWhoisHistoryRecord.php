@@ -116,16 +116,16 @@ class SecurityWhoisHistoryRecord
             $this->domainStatus = $data['domainStatus'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['firstSeenDateTime'])) {
-            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+            $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['lastSeenDateTime'])) {
-            $this->lastSeenDateTime = $data['lastSeenDateTime'];
+            $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['lastUpdateDateTime'])) {
-            $this->lastUpdateDateTime = $data['lastUpdateDateTime'];
+            $this->lastUpdateDateTime = is_string($data['lastUpdateDateTime']) ? new \DateTimeImmutable($data['lastUpdateDateTime']) : $data['lastUpdateDateTime'];
         }
         if (isset($data['nameservers'])) {
             $this->nameservers = $data['nameservers'];
@@ -143,7 +143,7 @@ class SecurityWhoisHistoryRecord
             $this->registrar = $data['registrar'];
         }
         if (isset($data['registrationDateTime'])) {
-            $this->registrationDateTime = $data['registrationDateTime'];
+            $this->registrationDateTime = is_string($data['registrationDateTime']) ? new \DateTimeImmutable($data['registrationDateTime']) : $data['registrationDateTime'];
         }
         if (isset($data['technical'])) {
             $this->technical = $data['technical'];

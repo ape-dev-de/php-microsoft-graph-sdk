@@ -38,7 +38,7 @@ class RecentNotebook
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastAccessedTime'])) {
-            $this->lastAccessedTime = $data['lastAccessedTime'];
+            $this->lastAccessedTime = is_string($data['lastAccessedTime']) ? new \DateTimeImmutable($data['lastAccessedTime']) : $data['lastAccessedTime'];
         }
         if (isset($data['links'])) {
             $this->links = $data['links'];

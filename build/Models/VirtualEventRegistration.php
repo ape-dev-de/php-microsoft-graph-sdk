@@ -71,7 +71,7 @@ class VirtualEventRegistration
             $this->id = $data['id'];
         }
         if (isset($data['cancelationDateTime'])) {
-            $this->cancelationDateTime = $data['cancelationDateTime'];
+            $this->cancelationDateTime = is_string($data['cancelationDateTime']) ? new \DateTimeImmutable($data['cancelationDateTime']) : $data['cancelationDateTime'];
         }
         if (isset($data['email'])) {
             $this->email = $data['email'];
@@ -92,7 +92,7 @@ class VirtualEventRegistration
             $this->preferredTimezone = $data['preferredTimezone'];
         }
         if (isset($data['registrationDateTime'])) {
-            $this->registrationDateTime = $data['registrationDateTime'];
+            $this->registrationDateTime = is_string($data['registrationDateTime']) ? new \DateTimeImmutable($data['registrationDateTime']) : $data['registrationDateTime'];
         }
         if (isset($data['registrationQuestionAnswers'])) {
             $this->registrationQuestionAnswers = $data['registrationQuestionAnswers'];

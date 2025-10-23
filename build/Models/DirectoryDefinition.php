@@ -47,7 +47,7 @@ class DirectoryDefinition
             $this->discoverabilities = $data['discoverabilities'];
         }
         if (isset($data['discoveryDateTime'])) {
-            $this->discoveryDateTime = $data['discoveryDateTime'];
+            $this->discoveryDateTime = is_string($data['discoveryDateTime']) ? new \DateTimeImmutable($data['discoveryDateTime']) : $data['discoveryDateTime'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

@@ -44,13 +44,13 @@ class PrintDocument
             $this->displayName = $data['displayName'];
         }
         if (isset($data['downloadedDateTime'])) {
-            $this->downloadedDateTime = $data['downloadedDateTime'];
+            $this->downloadedDateTime = is_string($data['downloadedDateTime']) ? new \DateTimeImmutable($data['downloadedDateTime']) : $data['downloadedDateTime'];
         }
         if (isset($data['size'])) {
             $this->size = $data['size'];
         }
         if (isset($data['uploadedDateTime'])) {
-            $this->uploadedDateTime = $data['uploadedDateTime'];
+            $this->uploadedDateTime = is_string($data['uploadedDateTime']) ? new \DateTimeImmutable($data['uploadedDateTime']) : $data['uploadedDateTime'];
         }
     }
 }

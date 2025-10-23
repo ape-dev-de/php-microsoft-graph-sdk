@@ -62,7 +62,7 @@ class AlertHistoryState
             $this->status = $data['status'];
         }
         if (isset($data['updatedDateTime'])) {
-            $this->updatedDateTime = $data['updatedDateTime'];
+            $this->updatedDateTime = is_string($data['updatedDateTime']) ? new \DateTimeImmutable($data['updatedDateTime']) : $data['updatedDateTime'];
         }
         if (isset($data['user'])) {
             $this->user = $data['user'];

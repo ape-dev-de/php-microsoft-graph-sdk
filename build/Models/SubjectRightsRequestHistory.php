@@ -44,7 +44,7 @@ class SubjectRightsRequestHistory
             $this->changedBy = $data['changedBy'];
         }
         if (isset($data['eventDateTime'])) {
-            $this->eventDateTime = $data['eventDateTime'];
+            $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['stage'])) {
             $this->stage = $data['stage'];

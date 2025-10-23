@@ -38,7 +38,7 @@ class AttachmentSession
             $this->content = $data['content'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['nextExpectedRanges'])) {
             $this->nextExpectedRanges = $data['nextExpectedRanges'];

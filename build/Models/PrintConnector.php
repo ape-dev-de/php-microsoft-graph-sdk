@@ -59,7 +59,7 @@ class PrintConnector
             $this->operatingSystem = $data['operatingSystem'];
         }
         if (isset($data['registeredDateTime'])) {
-            $this->registeredDateTime = $data['registeredDateTime'];
+            $this->registeredDateTime = is_string($data['registeredDateTime']) ? new \DateTimeImmutable($data['registeredDateTime']) : $data['registeredDateTime'];
         }
     }
 }

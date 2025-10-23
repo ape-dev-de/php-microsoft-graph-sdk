@@ -32,10 +32,10 @@ class UserTrainingStatusInfo
     public function __construct(array $data = [])
     {
         if (isset($data['assignedDateTime'])) {
-            $this->assignedDateTime = $data['assignedDateTime'];
+            $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
         if (isset($data['completionDateTime'])) {
-            $this->completionDateTime = $data['completionDateTime'];
+            $this->completionDateTime = is_string($data['completionDateTime']) ? new \DateTimeImmutable($data['completionDateTime']) : $data['completionDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

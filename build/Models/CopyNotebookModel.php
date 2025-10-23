@@ -83,7 +83,7 @@ class CopyNotebookModel
             $this->createdByIdentity = $data['createdByIdentity'];
         }
         if (isset($data['createdTime'])) {
-            $this->createdTime = $data['createdTime'];
+            $this->createdTime = is_string($data['createdTime']) ? new \DateTimeImmutable($data['createdTime']) : $data['createdTime'];
         }
         if (isset($data['isDefault'])) {
             $this->isDefault = $data['isDefault'];
@@ -98,7 +98,7 @@ class CopyNotebookModel
             $this->lastModifiedByIdentity = $data['lastModifiedByIdentity'];
         }
         if (isset($data['lastModifiedTime'])) {
-            $this->lastModifiedTime = $data['lastModifiedTime'];
+            $this->lastModifiedTime = is_string($data['lastModifiedTime']) ? new \DateTimeImmutable($data['lastModifiedTime']) : $data['lastModifiedTime'];
         }
         if (isset($data['links'])) {
             $this->links = $data['links'];

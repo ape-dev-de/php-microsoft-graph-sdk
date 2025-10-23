@@ -41,13 +41,13 @@ class SecurityPassiveDnsRecord
             $this->id = $data['id'];
         }
         if (isset($data['collectedDateTime'])) {
-            $this->collectedDateTime = $data['collectedDateTime'];
+            $this->collectedDateTime = is_string($data['collectedDateTime']) ? new \DateTimeImmutable($data['collectedDateTime']) : $data['collectedDateTime'];
         }
         if (isset($data['firstSeenDateTime'])) {
-            $this->firstSeenDateTime = $data['firstSeenDateTime'];
+            $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['lastSeenDateTime'])) {
-            $this->lastSeenDateTime = $data['lastSeenDateTime'];
+            $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['recordType'])) {
             $this->recordType = $data['recordType'];

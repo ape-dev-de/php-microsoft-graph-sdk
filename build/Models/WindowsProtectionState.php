@@ -113,19 +113,19 @@ class WindowsProtectionState
             $this->isVirtualMachine = $data['isVirtualMachine'];
         }
         if (isset($data['lastFullScanDateTime'])) {
-            $this->lastFullScanDateTime = $data['lastFullScanDateTime'];
+            $this->lastFullScanDateTime = is_string($data['lastFullScanDateTime']) ? new \DateTimeImmutable($data['lastFullScanDateTime']) : $data['lastFullScanDateTime'];
         }
         if (isset($data['lastFullScanSignatureVersion'])) {
             $this->lastFullScanSignatureVersion = $data['lastFullScanSignatureVersion'];
         }
         if (isset($data['lastQuickScanDateTime'])) {
-            $this->lastQuickScanDateTime = $data['lastQuickScanDateTime'];
+            $this->lastQuickScanDateTime = is_string($data['lastQuickScanDateTime']) ? new \DateTimeImmutable($data['lastQuickScanDateTime']) : $data['lastQuickScanDateTime'];
         }
         if (isset($data['lastQuickScanSignatureVersion'])) {
             $this->lastQuickScanSignatureVersion = $data['lastQuickScanSignatureVersion'];
         }
         if (isset($data['lastReportedDateTime'])) {
-            $this->lastReportedDateTime = $data['lastReportedDateTime'];
+            $this->lastReportedDateTime = is_string($data['lastReportedDateTime']) ? new \DateTimeImmutable($data['lastReportedDateTime']) : $data['lastReportedDateTime'];
         }
         if (isset($data['malwareProtectionEnabled'])) {
             $this->malwareProtectionEnabled = $data['malwareProtectionEnabled'];

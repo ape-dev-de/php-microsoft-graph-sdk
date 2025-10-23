@@ -107,7 +107,7 @@ class NetworkConnection
             $this->direction = $data['direction'];
         }
         if (isset($data['domainRegisteredDateTime'])) {
-            $this->domainRegisteredDateTime = $data['domainRegisteredDateTime'];
+            $this->domainRegisteredDateTime = is_string($data['domainRegisteredDateTime']) ? new \DateTimeImmutable($data['domainRegisteredDateTime']) : $data['domainRegisteredDateTime'];
         }
         if (isset($data['localDnsName'])) {
             $this->localDnsName = $data['localDnsName'];

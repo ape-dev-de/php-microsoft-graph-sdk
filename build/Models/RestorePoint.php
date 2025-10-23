@@ -41,10 +41,10 @@ class RestorePoint
             $this->id = $data['id'];
         }
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['protectionDateTime'])) {
-            $this->protectionDateTime = $data['protectionDateTime'];
+            $this->protectionDateTime = is_string($data['protectionDateTime']) ? new \DateTimeImmutable($data['protectionDateTime']) : $data['protectionDateTime'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];

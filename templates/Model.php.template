@@ -69,9 +69,15 @@ foreach ($sortedProperties as $propName => $propDef):
     {
 <?php foreach ($sortedProperties as $propName => $propDef): 
     $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $propName))));
+    $type = $propDef['type'];
+    $isDateTime = str_contains($type, 'DateTimeInterface');
 ?>
         if (isset($data['<?= $propName ?>'])) {
+<?php if ($isDateTime): ?>
+            $this-><?= $phpPropName ?> = is_string($data['<?= $propName ?>']) ? new \DateTimeImmutable($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
+<?php else: ?>
             $this-><?= $phpPropName ?> = $data['<?= $propName ?>'];
+<?php endif; ?>
         }
 <?php endforeach; ?>
     }

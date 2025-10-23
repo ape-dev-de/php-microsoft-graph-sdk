@@ -80,13 +80,13 @@ class DelegatedAdminRelationship
             $this->accessDetails = $data['accessDetails'];
         }
         if (isset($data['activatedDateTime'])) {
-            $this->activatedDateTime = $data['activatedDateTime'];
+            $this->activatedDateTime = is_string($data['activatedDateTime']) ? new \DateTimeImmutable($data['activatedDateTime']) : $data['activatedDateTime'];
         }
         if (isset($data['autoExtendDuration'])) {
             $this->autoExtendDuration = $data['autoExtendDuration'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['customer'])) {
             $this->customer = $data['customer'];
@@ -98,10 +98,10 @@ class DelegatedAdminRelationship
             $this->duration = $data['duration'];
         }
         if (isset($data['endDateTime'])) {
-            $this->endDateTime = $data['endDateTime'];
+            $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

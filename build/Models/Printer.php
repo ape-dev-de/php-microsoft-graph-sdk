@@ -125,10 +125,10 @@ class Printer
             $this->isShared = $data['isShared'];
         }
         if (isset($data['lastSeenDateTime'])) {
-            $this->lastSeenDateTime = $data['lastSeenDateTime'];
+            $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['registeredDateTime'])) {
-            $this->registeredDateTime = $data['registeredDateTime'];
+            $this->registeredDateTime = is_string($data['registeredDateTime']) ? new \DateTimeImmutable($data['registeredDateTime']) : $data['registeredDateTime'];
         }
         if (isset($data['connectors'])) {
             $this->connectors = $data['connectors'];

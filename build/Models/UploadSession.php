@@ -29,7 +29,7 @@ class UploadSession
     public function __construct(array $data = [])
     {
         if (isset($data['expirationDateTime'])) {
-            $this->expirationDateTime = $data['expirationDateTime'];
+            $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['nextExpectedRanges'])) {
             $this->nextExpectedRanges = $data['nextExpectedRanges'];

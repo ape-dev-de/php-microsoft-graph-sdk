@@ -32,7 +32,7 @@ class ODataErrorsInnerError
             $this->clientRequestId = $data['client-request-id'];
         }
         if (isset($data['date'])) {
-            $this->date = $data['date'];
+            $this->date = is_string($data['date']) ? new \DateTimeImmutable($data['date']) : $data['date'];
         }
     }
 }

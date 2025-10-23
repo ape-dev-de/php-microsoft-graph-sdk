@@ -122,19 +122,19 @@ class EducationSubmission
             $this->excusedBy = $data['excusedBy'];
         }
         if (isset($data['excusedDateTime'])) {
-            $this->excusedDateTime = $data['excusedDateTime'];
+            $this->excusedDateTime = is_string($data['excusedDateTime']) ? new \DateTimeImmutable($data['excusedDateTime']) : $data['excusedDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['reassignedBy'])) {
             $this->reassignedBy = $data['reassignedBy'];
         }
         if (isset($data['reassignedDateTime'])) {
-            $this->reassignedDateTime = $data['reassignedDateTime'];
+            $this->reassignedDateTime = is_string($data['reassignedDateTime']) ? new \DateTimeImmutable($data['reassignedDateTime']) : $data['reassignedDateTime'];
         }
         if (isset($data['recipient'])) {
             $this->recipient = $data['recipient'];
@@ -146,7 +146,7 @@ class EducationSubmission
             $this->returnedBy = $data['returnedBy'];
         }
         if (isset($data['returnedDateTime'])) {
-            $this->returnedDateTime = $data['returnedDateTime'];
+            $this->returnedDateTime = is_string($data['returnedDateTime']) ? new \DateTimeImmutable($data['returnedDateTime']) : $data['returnedDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];
@@ -155,13 +155,13 @@ class EducationSubmission
             $this->submittedBy = $data['submittedBy'];
         }
         if (isset($data['submittedDateTime'])) {
-            $this->submittedDateTime = $data['submittedDateTime'];
+            $this->submittedDateTime = is_string($data['submittedDateTime']) ? new \DateTimeImmutable($data['submittedDateTime']) : $data['submittedDateTime'];
         }
         if (isset($data['unsubmittedBy'])) {
             $this->unsubmittedBy = $data['unsubmittedBy'];
         }
         if (isset($data['unsubmittedDateTime'])) {
-            $this->unsubmittedDateTime = $data['unsubmittedDateTime'];
+            $this->unsubmittedDateTime = is_string($data['unsubmittedDateTime']) ? new \DateTimeImmutable($data['unsubmittedDateTime']) : $data['unsubmittedDateTime'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];

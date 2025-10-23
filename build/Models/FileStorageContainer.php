@@ -89,7 +89,7 @@ class FileStorageContainer
             $this->containerTypeId = $data['containerTypeId'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['customProperties'])) {
             $this->customProperties = $data['customProperties'];

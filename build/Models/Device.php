@@ -155,7 +155,7 @@ class Device
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['accountEnabled'])) {
             $this->accountEnabled = $data['accountEnabled'];
@@ -164,10 +164,10 @@ class Device
             $this->alternativeSecurityIds = $data['alternativeSecurityIds'];
         }
         if (isset($data['approximateLastSignInDateTime'])) {
-            $this->approximateLastSignInDateTime = $data['approximateLastSignInDateTime'];
+            $this->approximateLastSignInDateTime = is_string($data['approximateLastSignInDateTime']) ? new \DateTimeImmutable($data['approximateLastSignInDateTime']) : $data['approximateLastSignInDateTime'];
         }
         if (isset($data['complianceExpirationDateTime'])) {
-            $this->complianceExpirationDateTime = $data['complianceExpirationDateTime'];
+            $this->complianceExpirationDateTime = is_string($data['complianceExpirationDateTime']) ? new \DateTimeImmutable($data['complianceExpirationDateTime']) : $data['complianceExpirationDateTime'];
         }
         if (isset($data['deviceCategory'])) {
             $this->deviceCategory = $data['deviceCategory'];
@@ -218,7 +218,7 @@ class Device
             $this->model = $data['model'];
         }
         if (isset($data['onPremisesLastSyncDateTime'])) {
-            $this->onPremisesLastSyncDateTime = $data['onPremisesLastSyncDateTime'];
+            $this->onPremisesLastSyncDateTime = is_string($data['onPremisesLastSyncDateTime']) ? new \DateTimeImmutable($data['onPremisesLastSyncDateTime']) : $data['onPremisesLastSyncDateTime'];
         }
         if (isset($data['onPremisesSecurityIdentifier'])) {
             $this->onPremisesSecurityIdentifier = $data['onPremisesSecurityIdentifier'];
@@ -239,7 +239,7 @@ class Device
             $this->profileType = $data['profileType'];
         }
         if (isset($data['registrationDateTime'])) {
-            $this->registrationDateTime = $data['registrationDateTime'];
+            $this->registrationDateTime = is_string($data['registrationDateTime']) ? new \DateTimeImmutable($data['registrationDateTime']) : $data['registrationDateTime'];
         }
         if (isset($data['systemLabels'])) {
             $this->systemLabels = $data['systemLabels'];

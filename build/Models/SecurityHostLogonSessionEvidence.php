@@ -68,7 +68,7 @@ class SecurityHostLogonSessionEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -92,7 +92,7 @@ class SecurityHostLogonSessionEvidence
             $this->account = $data['account'];
         }
         if (isset($data['endUtcDateTime'])) {
-            $this->endUtcDateTime = $data['endUtcDateTime'];
+            $this->endUtcDateTime = is_string($data['endUtcDateTime']) ? new \DateTimeImmutable($data['endUtcDateTime']) : $data['endUtcDateTime'];
         }
         if (isset($data['host'])) {
             $this->host = $data['host'];
@@ -101,7 +101,7 @@ class SecurityHostLogonSessionEvidence
             $this->sessionId = $data['sessionId'];
         }
         if (isset($data['startUtcDateTime'])) {
-            $this->startUtcDateTime = $data['startUtcDateTime'];
+            $this->startUtcDateTime = is_string($data['startUtcDateTime']) ? new \DateTimeImmutable($data['startUtcDateTime']) : $data['startUtcDateTime'];
         }
     }
 }

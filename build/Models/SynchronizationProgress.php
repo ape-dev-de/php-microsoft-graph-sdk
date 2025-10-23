@@ -32,7 +32,7 @@ class SynchronizationProgress
             $this->completedUnits = $data['completedUnits'];
         }
         if (isset($data['progressObservationDateTime'])) {
-            $this->progressObservationDateTime = $data['progressObservationDateTime'];
+            $this->progressObservationDateTime = is_string($data['progressObservationDateTime']) ? new \DateTimeImmutable($data['progressObservationDateTime']) : $data['progressObservationDateTime'];
         }
         if (isset($data['totalUnits'])) {
             $this->totalUnits = $data['totalUnits'];

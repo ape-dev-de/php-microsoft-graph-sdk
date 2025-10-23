@@ -158,10 +158,10 @@ class EducationAssignment
             $this->allowStudentsToAddResourcesToSubmission = $data['allowStudentsToAddResourcesToSubmission'];
         }
         if (isset($data['assignDateTime'])) {
-            $this->assignDateTime = $data['assignDateTime'];
+            $this->assignDateTime = is_string($data['assignDateTime']) ? new \DateTimeImmutable($data['assignDateTime']) : $data['assignDateTime'];
         }
         if (isset($data['assignedDateTime'])) {
-            $this->assignedDateTime = $data['assignedDateTime'];
+            $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
         if (isset($data['assignTo'])) {
             $this->assignTo = $data['assignTo'];
@@ -170,19 +170,19 @@ class EducationAssignment
             $this->classId = $data['classId'];
         }
         if (isset($data['closeDateTime'])) {
-            $this->closeDateTime = $data['closeDateTime'];
+            $this->closeDateTime = is_string($data['closeDateTime']) ? new \DateTimeImmutable($data['closeDateTime']) : $data['closeDateTime'];
         }
         if (isset($data['createdBy'])) {
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['dueDateTime'])) {
-            $this->dueDateTime = $data['dueDateTime'];
+            $this->dueDateTime = is_string($data['dueDateTime']) ? new \DateTimeImmutable($data['dueDateTime']) : $data['dueDateTime'];
         }
         if (isset($data['feedbackResourcesFolderUrl'])) {
             $this->feedbackResourcesFolderUrl = $data['feedbackResourcesFolderUrl'];
@@ -197,7 +197,7 @@ class EducationAssignment
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['moduleUrl'])) {
             $this->moduleUrl = $data['moduleUrl'];

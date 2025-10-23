@@ -161,7 +161,7 @@ class SubjectRightsRequest
             $this->assignedTo = $data['assignedTo'];
         }
         if (isset($data['closedDateTime'])) {
-            $this->closedDateTime = $data['closedDateTime'];
+            $this->closedDateTime = is_string($data['closedDateTime']) ? new \DateTimeImmutable($data['closedDateTime']) : $data['closedDateTime'];
         }
         if (isset($data['contentQuery'])) {
             $this->contentQuery = $data['contentQuery'];
@@ -170,7 +170,7 @@ class SubjectRightsRequest
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['dataSubject'])) {
             $this->dataSubject = $data['dataSubject'];
@@ -200,13 +200,13 @@ class SubjectRightsRequest
             $this->insight = $data['insight'];
         }
         if (isset($data['internalDueDateTime'])) {
-            $this->internalDueDateTime = $data['internalDueDateTime'];
+            $this->internalDueDateTime = is_string($data['internalDueDateTime']) ? new \DateTimeImmutable($data['internalDueDateTime']) : $data['internalDueDateTime'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = $data['lastModifiedBy'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['mailboxLocations'])) {
             $this->mailboxLocations = $data['mailboxLocations'];

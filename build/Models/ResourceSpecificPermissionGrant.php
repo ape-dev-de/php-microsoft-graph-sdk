@@ -41,7 +41,7 @@ class ResourceSpecificPermissionGrant
             $this->id = $data['id'];
         }
         if (isset($data['deletedDateTime'])) {
-            $this->deletedDateTime = $data['deletedDateTime'];
+            $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['clientAppId'])) {
             $this->clientAppId = $data['clientAppId'];

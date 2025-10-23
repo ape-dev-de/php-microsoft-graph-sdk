@@ -174,7 +174,7 @@ class GraphClient
         if (!empty($queryParams)) {
             $queryParts = [];
             foreach ($queryParams as $key => $value) {
-                $queryParts[] = $key . '=' . $value;
+                $queryParts[] = rawurlencode($key) . '=' . rawurlencode((string)$value);
             }
             $url .= '?' . implode('&', $queryParts);
         }

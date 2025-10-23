@@ -38,7 +38,7 @@ class OmaSettingDateTime
             $this->omaUri = $data['omaUri'];
         }
         if (isset($data['value'])) {
-            $this->value = $data['value'];
+            $this->value = is_string($data['value']) ? new \DateTimeImmutable($data['value']) : $data['value'];
         }
     }
 }

@@ -38,7 +38,7 @@ class RemoteAssistancePartner
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lastConnectionDateTime'])) {
-            $this->lastConnectionDateTime = $data['lastConnectionDateTime'];
+            $this->lastConnectionDateTime = is_string($data['lastConnectionDateTime']) ? new \DateTimeImmutable($data['lastConnectionDateTime']) : $data['lastConnectionDateTime'];
         }
         if (isset($data['onboardingStatus'])) {
             $this->onboardingStatus = $data['onboardingStatus'];

@@ -44,7 +44,7 @@ class SecureScoreControlStateUpdate
             $this->updatedBy = $data['updatedBy'];
         }
         if (isset($data['updatedDateTime'])) {
-            $this->updatedDateTime = $data['updatedDateTime'];
+            $this->updatedDateTime = is_string($data['updatedDateTime']) ? new \DateTimeImmutable($data['updatedDateTime']) : $data['updatedDateTime'];
         }
     }
 }

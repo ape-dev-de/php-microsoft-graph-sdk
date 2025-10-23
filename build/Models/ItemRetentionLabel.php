@@ -50,7 +50,7 @@ class ItemRetentionLabel
             $this->labelAppliedBy = $data['labelAppliedBy'];
         }
         if (isset($data['labelAppliedDateTime'])) {
-            $this->labelAppliedDateTime = $data['labelAppliedDateTime'];
+            $this->labelAppliedDateTime = is_string($data['labelAppliedDateTime']) ? new \DateTimeImmutable($data['labelAppliedDateTime']) : $data['labelAppliedDateTime'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

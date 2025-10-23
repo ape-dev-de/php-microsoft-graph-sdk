@@ -143,7 +143,7 @@ class SignIn
             $this->correlationId = $data['correlationId'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['deviceDetail'])) {
             $this->deviceDetail = $data['deviceDetail'];

@@ -26,7 +26,7 @@ class GovernanceInsight
             $this->id = $data['id'];
         }
         if (isset($data['insightCreatedDateTime'])) {
-            $this->insightCreatedDateTime = $data['insightCreatedDateTime'];
+            $this->insightCreatedDateTime = is_string($data['insightCreatedDateTime']) ? new \DateTimeImmutable($data['insightCreatedDateTime']) : $data['insightCreatedDateTime'];
         }
     }
 }

@@ -32,13 +32,13 @@ class EducationTerm
             $this->displayName = $data['displayName'];
         }
         if (isset($data['endDate'])) {
-            $this->endDate = $data['endDate'];
+            $this->endDate = is_string($data['endDate']) ? new \DateTimeImmutable($data['endDate']) : $data['endDate'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];
         }
         if (isset($data['startDate'])) {
-            $this->startDate = $data['startDate'];
+            $this->startDate = is_string($data['startDate']) ? new \DateTimeImmutable($data['startDate']) : $data['startDate'];
         }
     }
 }

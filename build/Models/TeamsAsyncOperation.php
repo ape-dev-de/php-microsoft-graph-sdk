@@ -53,13 +53,13 @@ class TeamsAsyncOperation
             $this->attemptsCount = $data['attemptsCount'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['error'])) {
             $this->error = $data['error'];
         }
         if (isset($data['lastActionDateTime'])) {
-            $this->lastActionDateTime = $data['lastActionDateTime'];
+            $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['operationType'])) {
             $this->operationType = $data['operationType'];

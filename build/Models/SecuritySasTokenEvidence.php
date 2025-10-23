@@ -89,7 +89,7 @@ class SecuritySasTokenEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -119,7 +119,7 @@ class SecuritySasTokenEvidence
             $this->allowedServices = $data['allowedServices'];
         }
         if (isset($data['expiryDateTime'])) {
-            $this->expiryDateTime = $data['expiryDateTime'];
+            $this->expiryDateTime = is_string($data['expiryDateTime']) ? new \DateTimeImmutable($data['expiryDateTime']) : $data['expiryDateTime'];
         }
         if (isset($data['permissions'])) {
             $this->permissions = $data['permissions'];
@@ -134,7 +134,7 @@ class SecuritySasTokenEvidence
             $this->signedWith = $data['signedWith'];
         }
         if (isset($data['startDateTime'])) {
-            $this->startDateTime = $data['startDateTime'];
+            $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['storageResource'])) {
             $this->storageResource = $data['storageResource'];

@@ -29,10 +29,10 @@ class UserSignInInsight
             $this->id = $data['id'];
         }
         if (isset($data['insightCreatedDateTime'])) {
-            $this->insightCreatedDateTime = $data['insightCreatedDateTime'];
+            $this->insightCreatedDateTime = is_string($data['insightCreatedDateTime']) ? new \DateTimeImmutable($data['insightCreatedDateTime']) : $data['insightCreatedDateTime'];
         }
         if (isset($data['lastSignInDateTime'])) {
-            $this->lastSignInDateTime = $data['lastSignInDateTime'];
+            $this->lastSignInDateTime = is_string($data['lastSignInDateTime']) ? new \DateTimeImmutable($data['lastSignInDateTime']) : $data['lastSignInDateTime'];
         }
     }
 }

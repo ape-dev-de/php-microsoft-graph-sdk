@@ -44,10 +44,10 @@ class DeviceLocalCredentialInfo
             $this->deviceName = $data['deviceName'];
         }
         if (isset($data['lastBackupDateTime'])) {
-            $this->lastBackupDateTime = $data['lastBackupDateTime'];
+            $this->lastBackupDateTime = is_string($data['lastBackupDateTime']) ? new \DateTimeImmutable($data['lastBackupDateTime']) : $data['lastBackupDateTime'];
         }
         if (isset($data['refreshDateTime'])) {
-            $this->refreshDateTime = $data['refreshDateTime'];
+            $this->refreshDateTime = is_string($data['refreshDateTime']) ? new \DateTimeImmutable($data['refreshDateTime']) : $data['refreshDateTime'];
         }
     }
 }

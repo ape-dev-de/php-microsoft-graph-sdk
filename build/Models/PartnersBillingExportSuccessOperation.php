@@ -38,10 +38,10 @@ class PartnersBillingExportSuccessOperation
             $this->id = $data['id'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['lastActionDateTime'])) {
-            $this->lastActionDateTime = $data['lastActionDateTime'];
+            $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

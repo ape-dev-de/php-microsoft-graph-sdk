@@ -68,7 +68,7 @@ class AccessPackageAssignment
             $this->customExtensionCalloutInstances = $data['customExtensionCalloutInstances'];
         }
         if (isset($data['expiredDateTime'])) {
-            $this->expiredDateTime = $data['expiredDateTime'];
+            $this->expiredDateTime = is_string($data['expiredDateTime']) ? new \DateTimeImmutable($data['expiredDateTime']) : $data['expiredDateTime'];
         }
         if (isset($data['schedule'])) {
             $this->schedule = $data['schedule'];

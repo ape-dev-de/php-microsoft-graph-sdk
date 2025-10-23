@@ -56,10 +56,10 @@ class ArchivedPrintJob
             $this->acquiredByPrinter = $data['acquiredByPrinter'];
         }
         if (isset($data['acquiredDateTime'])) {
-            $this->acquiredDateTime = $data['acquiredDateTime'];
+            $this->acquiredDateTime = is_string($data['acquiredDateTime']) ? new \DateTimeImmutable($data['acquiredDateTime']) : $data['acquiredDateTime'];
         }
         if (isset($data['completionDateTime'])) {
-            $this->completionDateTime = $data['completionDateTime'];
+            $this->completionDateTime = is_string($data['completionDateTime']) ? new \DateTimeImmutable($data['completionDateTime']) : $data['completionDateTime'];
         }
         if (isset($data['copiesPrinted'])) {
             $this->copiesPrinted = $data['copiesPrinted'];
@@ -68,7 +68,7 @@ class ArchivedPrintJob
             $this->createdBy = $data['createdBy'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['printerId'])) {
             $this->printerId = $data['printerId'];

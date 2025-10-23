@@ -89,7 +89,7 @@ class SecurityProcessEvidence
     public function __construct(array $data = [])
     {
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['detailedRoles'])) {
             $this->detailedRoles = $data['detailedRoles'];
@@ -119,7 +119,7 @@ class SecurityProcessEvidence
             $this->mdeDeviceId = $data['mdeDeviceId'];
         }
         if (isset($data['parentProcessCreationDateTime'])) {
-            $this->parentProcessCreationDateTime = $data['parentProcessCreationDateTime'];
+            $this->parentProcessCreationDateTime = is_string($data['parentProcessCreationDateTime']) ? new \DateTimeImmutable($data['parentProcessCreationDateTime']) : $data['parentProcessCreationDateTime'];
         }
         if (isset($data['parentProcessId'])) {
             $this->parentProcessId = $data['parentProcessId'];
@@ -131,7 +131,7 @@ class SecurityProcessEvidence
             $this->processCommandLine = $data['processCommandLine'];
         }
         if (isset($data['processCreationDateTime'])) {
-            $this->processCreationDateTime = $data['processCreationDateTime'];
+            $this->processCreationDateTime = is_string($data['processCreationDateTime']) ? new \DateTimeImmutable($data['processCreationDateTime']) : $data['processCreationDateTime'];
         }
         if (isset($data['processId'])) {
             $this->processId = $data['processId'];

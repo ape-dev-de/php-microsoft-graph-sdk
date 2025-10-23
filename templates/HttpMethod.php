@@ -28,7 +28,7 @@
 <?php if (!empty($parameters)): ?>
         $queryParams = [];
 <?php foreach ($parameters as $param): ?>
-        if ($<?= $param['name'] ?> !== null) {
+        if ($<?= $param['name'] ?> !== null && $<?= $param['name'] ?> !== '') {
 <?php if ($param['type'] === 'array' && $param['itemType']): ?>
             $queryParams['<?= $param['originalName'] ?? $param['name'] ?>'] = implode(',', $<?= $param['name'] ?>);
 <?php else: ?>

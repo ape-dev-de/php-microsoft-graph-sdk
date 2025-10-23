@@ -113,7 +113,7 @@ class BookingService
             $this->additionalInformation = $data['additionalInformation'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['customQuestions'])) {
             $this->customQuestions = $data['customQuestions'];
@@ -155,7 +155,7 @@ class BookingService
             $this->languageTag = $data['languageTag'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
-            $this->lastUpdatedDateTime = $data['lastUpdatedDateTime'];
+            $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['maximumAttendeesCount'])) {
             $this->maximumAttendeesCount = $data['maximumAttendeesCount'];

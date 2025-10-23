@@ -38,7 +38,7 @@ class AppLogCollectionRequest
             $this->id = $data['id'];
         }
         if (isset($data['completedDateTime'])) {
-            $this->completedDateTime = $data['completedDateTime'];
+            $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['customLogFolders'])) {
             $this->customLogFolders = $data['customLogFolders'];

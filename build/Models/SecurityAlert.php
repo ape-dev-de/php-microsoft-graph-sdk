@@ -173,7 +173,7 @@ class SecurityAlert
             $this->comments = $data['comments'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['customDetails'])) {
             $this->customDetails = $data['customDetails'];
@@ -194,7 +194,7 @@ class SecurityAlert
             $this->evidence = $data['evidence'];
         }
         if (isset($data['firstActivityDateTime'])) {
-            $this->firstActivityDateTime = $data['firstActivityDateTime'];
+            $this->firstActivityDateTime = is_string($data['firstActivityDateTime']) ? new \DateTimeImmutable($data['firstActivityDateTime']) : $data['firstActivityDateTime'];
         }
         if (isset($data['incidentId'])) {
             $this->incidentId = $data['incidentId'];
@@ -203,10 +203,10 @@ class SecurityAlert
             $this->incidentWebUrl = $data['incidentWebUrl'];
         }
         if (isset($data['lastActivityDateTime'])) {
-            $this->lastActivityDateTime = $data['lastActivityDateTime'];
+            $this->lastActivityDateTime = is_string($data['lastActivityDateTime']) ? new \DateTimeImmutable($data['lastActivityDateTime']) : $data['lastActivityDateTime'];
         }
         if (isset($data['lastUpdateDateTime'])) {
-            $this->lastUpdateDateTime = $data['lastUpdateDateTime'];
+            $this->lastUpdateDateTime = is_string($data['lastUpdateDateTime']) ? new \DateTimeImmutable($data['lastUpdateDateTime']) : $data['lastUpdateDateTime'];
         }
         if (isset($data['mitreTechniques'])) {
             $this->mitreTechniques = $data['mitreTechniques'];
@@ -221,7 +221,7 @@ class SecurityAlert
             $this->recommendedActions = $data['recommendedActions'];
         }
         if (isset($data['resolvedDateTime'])) {
-            $this->resolvedDateTime = $data['resolvedDateTime'];
+            $this->resolvedDateTime = is_string($data['resolvedDateTime']) ? new \DateTimeImmutable($data['resolvedDateTime']) : $data['resolvedDateTime'];
         }
         if (isset($data['serviceSource'])) {
             $this->serviceSource = $data['serviceSource'];

@@ -230,7 +230,7 @@ class Alert
             $this->category = $data['category'];
         }
         if (isset($data['closedDateTime'])) {
-            $this->closedDateTime = $data['closedDateTime'];
+            $this->closedDateTime = is_string($data['closedDateTime']) ? new \DateTimeImmutable($data['closedDateTime']) : $data['closedDateTime'];
         }
         if (isset($data['cloudAppStates'])) {
             $this->cloudAppStates = $data['cloudAppStates'];
@@ -242,7 +242,7 @@ class Alert
             $this->confidence = $data['confidence'];
         }
         if (isset($data['createdDateTime'])) {
-            $this->createdDateTime = $data['createdDateTime'];
+            $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -251,7 +251,7 @@ class Alert
             $this->detectionIds = $data['detectionIds'];
         }
         if (isset($data['eventDateTime'])) {
-            $this->eventDateTime = $data['eventDateTime'];
+            $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['feedback'])) {
             $this->feedback = $data['feedback'];
@@ -272,10 +272,10 @@ class Alert
             $this->investigationSecurityStates = $data['investigationSecurityStates'];
         }
         if (isset($data['lastEventDateTime'])) {
-            $this->lastEventDateTime = $data['lastEventDateTime'];
+            $this->lastEventDateTime = is_string($data['lastEventDateTime']) ? new \DateTimeImmutable($data['lastEventDateTime']) : $data['lastEventDateTime'];
         }
         if (isset($data['lastModifiedDateTime'])) {
-            $this->lastModifiedDateTime = $data['lastModifiedDateTime'];
+            $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['malwareStates'])) {
             $this->malwareStates = $data['malwareStates'];
