@@ -46,7 +46,6 @@ class GraphClient
     public function get(string $path, array $queryParams = []): ResponseInterface
     {
         $url = $this->buildUrl($path, $queryParams);
-        var_dump($url);
         $request = $this->requestFactory->createRequest('GET', $url);
         
         $token = $this->authProvider->getAccessToken();
