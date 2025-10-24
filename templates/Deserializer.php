@@ -21,11 +21,8 @@
         foreach ($data['value'] ?? [] as $item) {
             $items[] = <?= $itemDeserializer ?>;
         }
-        $collection = new <?= $collectionClass ?>([]);
+        $collection = new <?= $collectionClass ?>($data);
         $collection->value = $items;
-        $collection->odataContext = $data['@odata.context'] ?? null;
-        $collection->odataNextLink = $data['@odata.nextLink'] ?? null;
-        $collection->odataCount = $data['@odata.count'] ?? null;
         return $collection;
 <?php else: ?>
         // Single object

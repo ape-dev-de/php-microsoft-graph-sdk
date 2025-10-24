@@ -28,13 +28,23 @@
 <?php if (!empty($parameters)): ?>
         $queryParams = [];
 <?php foreach ($parameters as $param): ?>
-        if ($<?= $param['name'] ?> !== null && $<?= $param['name'] ?> !== '') {
-<?php if ($param['type'] === 'array' && $param['itemType']): ?>
-            $queryParams['<?= $param['originalName'] ?? $param['name'] ?>'] = implode(',', $<?= $param['name'] ?>);
-<?php else: ?>
-            $queryParams['<?= $param['originalName'] ?? $param['name'] ?>'] = $<?= $param['name'] ?>;
-<?php endif; ?>
+<?php if ($param['type'] === 'bool'): ?>
+        if ($<?= $param['name'] ?> !== null) {
+            $queryParams['<?= $param['originalName'] ?? $param['name'] ?>'] = $<?= $param['name'] ?> ? 'true' : 'false';
         }
+<?php elseif ($param['type'] === 'int'): ?>
+        if ($<?= $param['name'] ?> !== null) {
+            $queryParams['<?= $param['originalName'] ?? $param['name'] ?>'] = $<?= $param['name'] ?>;
+        }
+<?php elseif ($param['type'] === 'array' && $param['itemType']): ?>
+        if ($<?= $param['name'] ?> !== null && $<?= $param['name'] ?> !== []) {
+            $queryParams['<?= $param['originalName'] ?? $param['name'] ?>'] = implode(',', $<?= $param['name'] ?>);
+        }
+<?php else: ?>
+        if ($<?= $param['name'] ?> !== null && $<?= $param['name'] ?> !== '') {
+            $queryParams['<?= $param['originalName'] ?? $param['name'] ?>'] = $<?= $param['name'] ?>;
+        }
+<?php endif; ?>
 <?php endforeach; ?>
 <?php if (in_array(strtoupper($httpMethod), ['POST', 'PUT', 'PATCH'])): ?>
 <?php if ($bodyType === 'array'): ?>

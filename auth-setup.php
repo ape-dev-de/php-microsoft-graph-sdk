@@ -13,7 +13,7 @@ declare(strict_types=1);
  */
 
 const REDIRECT_URI = 'http://localhost:8888/callback';
-const SCOPES = 'User.Read.All Group.Read.All Application.Read.All Directory.Read.All offline_access';
+const SCOPES = 'User.Read.All Group.Read.All Application.Read.All Directory.Read.All offline_access Mail.ReadWrite Sites.ReadWrite.All Files.ReadWrite.All';
 
 // Microsoft's public client IDs for development
 const PUBLIC_CLIENT_IDS = [

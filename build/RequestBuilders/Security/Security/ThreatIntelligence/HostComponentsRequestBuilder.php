@@ -1,0 +1,141 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\ThreatIntelligence;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\SecurityHostComponentCollectionResponse;
+use ApeDevDe\MicrosoftGraphSdk\Models\SecurityHostComponent;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\ThreatIntelligence\HostComponents\HostComponentRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\ThreatIntelligence\HostComponents\CountRequestBuilder;
+
+/**
+ * Request builder for /security/threatIntelligence/hostComponents
+ */
+class HostComponentsRequestBuilder extends RootBaseRequestBuilder
+{
+    /**
+     * Get hostComponent
+     *
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
+     * @return SecurityHostComponentCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SecurityHostComponentCollectionResponse
+    {
+        $queryParams = [];
+        if ($select !== null && $select !== []) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null && $expand !== []) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null && $search !== '') {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null && $filter !== '') {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count ? 'true' : 'false';
+        }
+        if ($orderby !== null && $orderby !== []) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
+    }
+
+    /**
+     * Deserialize response to SecurityHostComponentCollectionResponse
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new SecurityHostComponent($item);
+        }
+        $collection = new SecurityHostComponentCollectionResponse($data);
+        $collection->value = $items;
+        return $collection;
+    }
+    /**
+     * Create new navigation property to hostComponents for security
+     * @param SecurityHostComponent $body Request body
+     * @return SecurityHostComponent
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(SecurityHostComponent $body): SecurityHostComponent
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
+    }
+
+    /**
+     * Deserialize response to SecurityHostComponent
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new SecurityHostComponent($data);
+    }
+    /**
+     * Get request builder for specific item by ID
+     *
+     * @param string $hostComponentId The item ID
+     * @return HostComponentRequestBuilder
+     */
+    public function byId(string $hostComponentId): HostComponentRequestBuilder
+    {
+        return new HostComponentRequestBuilder($this->client, $this->requestUrl . '/' . $hostComponentId);
+    }
+    /**
+     * Navigate to $count
+     *
+     * @return CountRequestBuilder
+     */
+    public function count(): CountRequestBuilder
+    {
+        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
+    }
+}

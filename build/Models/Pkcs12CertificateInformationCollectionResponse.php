@@ -5,35 +5,25 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Pkcs12CertificateInformationCollectionResponse - Collection response
+ * Pkcs12CertificateInformationCollectionResponse
  */
 class Pkcs12CertificateInformationCollectionResponse
 {
-    /**
-     * @var array<int, Pkcs12CertificateInformation>
+    /** 
+     * 
+     * @var Pkcs12CertificateInformation[]
      */
     public array $value = [];
-    
-    public ?string $odataContext = null;
-    public ?string $odataNextLink = null;
-    public ?int $odataCount = null;
-    
+
+
     /**
+     * Constructor - fast deserialization
      * @param array<string, mixed> $data
      */
     public function __construct(array $data = [])
     {
-        if (isset($data['value']) && is_array($data['value'])) {
+        if (isset($data['value'])) {
             $this->value = $data['value'];
-        }
-        if (isset($data['@odata.context'])) {
-            $this->odataContext = $data['@odata.context'];
-        }
-        if (isset($data['@odata.nextLink'])) {
-            $this->odataNextLink = $data['@odata.nextLink'];
-        }
-        if (isset($data['@odata.count'])) {
-            $this->odataCount = $data['@odata.count'];
         }
     }
 }

@@ -1,0 +1,145 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityGovernance\IdentityGovernance\PrivilegedAccess\Group\EligibilitySchedules;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\PrivilegedAccessGroupEligibilitySchedule;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityGovernance\IdentityGovernance\PrivilegedAccess\Group\EligibilitySchedules\GroupRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityGovernance\IdentityGovernance\PrivilegedAccess\Group\EligibilitySchedules\PrincipalRequestBuilder;
+
+/**
+ * Request builder for /identityGovernance/privilegedAccess/group/eligibilitySchedules/{privilegedAccessGroupEligibilitySchedule-id}
+ */
+class PrivilegedAccessGroupEligibilityScheduleRequestBuilder extends RootBaseRequestBuilder
+{
+    /**
+     * Get privilegedAccessGroupEligibilitySchedule
+     *
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return PrivilegedAccessGroupEligibilitySchedule
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function get(?array $select = null, ?array $expand = null): PrivilegedAccessGroupEligibilitySchedule
+    {
+        $queryParams = [];
+        if ($select !== null && $select !== []) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null && $expand !== []) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
+    }
+
+    /**
+     * Deserialize response to PrivilegedAccessGroupEligibilitySchedule
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new PrivilegedAccessGroupEligibilitySchedule($data);
+    }
+    /**
+     * Update the navigation property eligibilitySchedules in identityGovernance
+     * @param PrivilegedAccessGroupEligibilitySchedule $body Request body
+     * @return PrivilegedAccessGroupEligibilitySchedule
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(PrivilegedAccessGroupEligibilitySchedule $body): PrivilegedAccessGroupEligibilitySchedule
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to PrivilegedAccessGroupEligibilitySchedule
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new PrivilegedAccessGroupEligibilitySchedule($data);
+    }
+    /**
+     * Delete navigation property eligibilitySchedules for identityGovernance
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null && $ifMatch !== '') {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+    /**
+     * Navigate to group
+     *
+     * @return GroupRequestBuilder
+     */
+    public function group(): GroupRequestBuilder
+    {
+        return new GroupRequestBuilder($this->client, $this->requestUrl . '/group');
+    }
+    /**
+     * Navigate to principal
+     *
+     * @return PrincipalRequestBuilder
+     */
+    public function principal(): PrincipalRequestBuilder
+    {
+        return new PrincipalRequestBuilder($this->client, $this->requestUrl . '/principal');
+    }
+}

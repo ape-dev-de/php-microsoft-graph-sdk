@@ -78,18 +78,13 @@ $output->writeln('<info>✓ Loaded ' . count($allParameters) . ' parameter defin
 foreach ($rootNamespaces as $namespace) {
     $output->writeln("<info>Processing namespace: {$namespace}</info>");
     
-    // Build path tree
-    $tree = collectPathesRecursive($namespace);
+    // Phase 1: Build complete path tree with all metadata
+    $output->writeln("  <comment>Building complete path tree...</comment>");
+    $completeTree = buildCompletePathTree($namespace, $allResponses, $allParameters);
     
-    // Collect request builder information
-    $requestBuilders = [];
-    foreach ($tree as $rootPath => $node) {
-        $builderInfo = collectRequestBuildersRecursive($rootPath, $node, $allResponses, $allParameters);
-        $requestBuilders[$rootPath] = $builderInfo;
-    }
-    
-    // Generate request builder classes
-    generateRequestBuilderClasses($namespace, $requestBuilders, $schemas, $output);
+    // Phase 2: Generate request builders from complete tree
+    $output->writeln("  <comment>Generating request builders...</comment>");
+    generateRequestBuildersFromCompleteTree($namespace, $completeTree, $schemas, $output);
     
     $output->writeln("<info>✓ Completed namespace: {$namespace}</info>");
 }
@@ -463,6 +458,27 @@ function mapPrimitiveType(string $type): string
 }
 
 /**
+ * Check if a name is a PHP reserved keyword
+ */
+function isReservedKeyword(string $name): bool
+{
+    $reserved = [
+        'abstract', 'and', 'array', 'as', 'break', 'callable', 'case', 'catch', 'class', 'clone',
+        'const', 'continue', 'declare', 'default', 'die', 'do', 'echo', 'else', 'elseif', 'empty',
+        'enddeclare', 'endfor', 'endforeach', 'endif', 'endswitch', 'endwhile', 'eval', 'exit',
+        'extends', 'final', 'finally', 'fn', 'for', 'foreach', 'function', 'global', 'goto', 'if',
+        'implements', 'include', 'include_once', 'instanceof', 'insteadof', 'interface', 'isset',
+        'list', 'match', 'namespace', 'new', 'or', 'print', 'private', 'protected', 'public',
+        'readonly', 'require', 'require_once', 'return', 'static', 'switch', 'throw', 'trait',
+        'try', 'unset', 'use', 'var', 'while', 'xor', 'yield', 'yield from',
+        // Also include common types that might conflict
+        'int', 'float', 'bool', 'string', 'true', 'false', 'null', 'void', 'iterable', 'object', 'mixed', 'never'
+    ];
+    
+    return in_array(strtolower($name), $reserved);
+}
+
+/**
  * Normalize model name to PascalCase
  */
 function normalizeModelName(string $name): string
@@ -476,6 +492,11 @@ function normalizeModelName(string $name): string
     
     foreach ($parts as $part) {
         $normalized .= ucfirst($part);
+    }
+    
+    // Add Model suffix if it's a reserved keyword
+    if (isReservedKeyword($normalized)) {
+        $normalized .= 'Model';
     }
     
     return $normalized;
@@ -794,8 +815,40 @@ function collectCompoundModels(array $builderInfo, array &$compoundModels): void
 /**
  * Generate a single request builder class
  */
-function generateRequestBuilderClass(string $namespace, string $path, array $builderInfo, array $schemas, $output): void
+function generateRequestBuilderClass(string $namespace, string $path, array $builderInfo, array $schemas, $output, ?string $rootNamespace = null, ?string $subNamespace = null): void
 {
+    // Skip paths with parentheses in the root segment (OData function calls at root level only)
+    // Don't skip child paths like delta() which are legitimate OData operations
+    $pathSegments = array_values(array_filter(explode('/', $path)));
+    if ($rootNamespace === null && !empty($pathSegments) && strpos($pathSegments[0], '(') !== false) {
+        $output->writeln("  <comment>Skipping {$path} - root path contains parentheses (OData function)</comment>");
+        return;
+    }
+    
+    // Extract root namespace from path (first segment) only if not provided
+    if ($rootNamespace === null) {
+        $firstSegment = !empty($pathSegments) ? $pathSegments[0] : 'Root';
+        
+        // Remove special characters that aren't valid in namespaces
+        $firstSegment = preg_replace('/[^a-zA-Z0-9]/', '', $firstSegment);
+        
+        $rootNamespace = ucfirst($firstSegment);
+    }
+    
+    // Sub-namespace is passed from parent, default to empty if not provided
+    if ($subNamespace === null) {
+        $subNamespace = '';
+    }
+    
+    // Parameters and special paths don't use sub-namespace for themselves (but pass it to children)
+    $currentIsParameter = count($pathSegments) > 0 && preg_match('/^\{.+\}$/', end($pathSegments));
+    $currentIsSpecial = count($pathSegments) > 0 && needsPathNormalization(end($pathSegments));
+    
+    $namespaceForSelf = ($currentIsParameter || $currentIsSpecial) ? '' : $subNamespace;
+    
+    // Combine root and sub-namespace
+    $fullNamespace = $rootNamespace . ($namespaceForSelf ? '\\' . $namespaceForSelf : '');
+    
     // Normalize path for class name
     if (isPathParameter($path)) {
         $normalized = normalizePathParameter($path);
@@ -813,16 +866,23 @@ function generateRequestBuilderClass(string $namespace, string $path, array $bui
         return;
     }
     
-    $filePath = BUILD_DIR . '/RequestBuilders/' . $className . '.php';
-    
     // Track generated classes to avoid duplicates but keep the one with most children
     static $generatedClasses = [];
+    
+    // Create namespace-specific directory (with sub-namespaces)
+    $namespacedDir = BUILD_DIR . '/RequestBuilders/' . str_replace('\\', '/', $fullNamespace);
+    if (!is_dir($namespacedDir)) {
+        mkdir($namespacedDir, 0755, true);
+    }
+    
+    $filePath = $namespacedDir . '/' . $className . '.php';
+    $fullClassName = $fullNamespace . '\\' . $className;
     
     $childCount = count($builderInfo['childPaths'] ?? []);
     
     // If already generated, only regenerate if this version has more children
-    if (isset($generatedClasses[$className])) {
-        if ($childCount <= $generatedClasses[$className]) {
+    if (isset($generatedClasses[$fullClassName])) {
+        if ($childCount <= $generatedClasses[$fullClassName]) {
             // Skip this version, the existing one is better or equal
             return;
         }
@@ -830,18 +890,55 @@ function generateRequestBuilderClass(string $namespace, string $path, array $bui
     }
     
     // Track this generation
-    $generatedClasses[$className] = $childCount;
+    $generatedClasses[$fullClassName] = $childCount;
     
     // Generate class code
-    $code = generateRequestBuilderCode($namespace, $className, $path, $builderInfo, $schemas);
+    $code = generateRequestBuilderCode($fullNamespace, $className, $path, $builderInfo, $schemas);
     
     // Write to file
     file_put_contents($filePath, $code);
     
     // Generate child request builders recursively
+    // For children, extend the sub-namespace with the current path segment (if not a parameter and not root)
     if (!empty($builderInfo['childPaths'])) {
         foreach ($builderInfo['childPaths'] as $childPath => $childInfo) {
-            generateRequestBuilderClass($namespace, $childPath, $childInfo, $schemas, $output);
+            $childSubNamespace = $subNamespace;
+            
+            // Determine if child is a parameter or special path
+            $childIsParameter = isPathParameter($childPath);
+            $childNeedsNormalization = needsPathNormalization($childPath);
+            
+            // Determine sub-namespace for child:
+            // - If current is a regular collection (not parameter, not special), add it to sub-namespace for non-parameter children
+            // - Parameters themselves don't add to sub-namespace, but they PASS DOWN the existing sub-namespace to their children
+            // This ensures:
+            // - Regular children get sub-namespaces (messages under chats → Chats\Messages)
+            // - Parameters stay in parent namespace ({id} under mailFolders → Users\MailFolderRequestBuilder)
+            // - Children of parameters inherit the collection namespace (messages under {chat-id} → Chats\Messages)
+            // - Special paths stay in parent namespace ($count, delta())
+            $lastSegment = end($pathSegments);
+            $currentIsParameter = preg_match('/^\{.+\}$/', $lastSegment);
+            $isSpecialPath = needsPathNormalization($lastSegment);
+            
+            // Add current segment to sub-namespace if current is a regular collection
+            if (!$currentIsParameter && !$isSpecialPath && strtolower($lastSegment) !== strtolower($rootNamespace)) {
+                $cleanSegment = preg_replace('/[^a-zA-Z0-9]/', '', $lastSegment);
+                $cleanSegment = ucfirst($cleanSegment);
+                
+                if ($childIsParameter || $childNeedsNormalization) {
+                    // Parameter/special child: add parent to sub-namespace but child itself stays in parent namespace
+                    // This allows the parameter's children to inherit the collection namespace
+                    // e.g., {chat-id} stays in Users, but its child messages goes to Users\Chats
+                    $childSubNamespace = $subNamespace ? $subNamespace . '\\' . $cleanSegment : $cleanSegment;
+                } else {
+                    // Non-parameter child: add parent to sub-namespace AND child goes into that sub-namespace
+                    // e.g., messages under chats goes to Users\Chats
+                    $childSubNamespace = $subNamespace ? $subNamespace . '\\' . $cleanSegment : $cleanSegment;
+                }
+            }
+            // If current IS a parameter, pass down the existing sub-namespace unchanged
+            
+            generateRequestBuilderClass($namespace, $childPath, $childInfo, $schemas, $output, $rootNamespace, $childSubNamespace);
         }
     }
 }
@@ -865,7 +962,12 @@ function generateRequestBuilderCode(string $namespace, string $className, string
                         
                         // If it's a CollectionResponse, also import the item type
                         if (str_ends_with($type, 'CollectionResponse')) {
-                            $itemType = str_replace('CollectionResponse', '', $type);
+                            // Remove only the LAST CollectionResponse suffix to get item type
+                            $itemType = substr($type, 0, -strlen('CollectionResponse'));
+                            // Check if item type is a reserved keyword and needs Model suffix
+                            if (isReservedKeyword($itemType)) {
+                                $itemType .= 'Model';
+                            }
                             if (!in_array($itemType, ['string', 'int', 'float', 'bool', 'array', 'mixed', '\stdClass'])) {
                                 $imports[] = $itemType;
                             }
@@ -876,19 +978,45 @@ function generateRequestBuilderCode(string $namespace, string $className, string
         }
     }
     
-    // Collect child builder imports
+    // Collect child builder imports - children might be in sub-namespaces
+    // This logic must match the recursive generation logic
     $childBuilderImports = [];
+    
+    // Extract path segments to determine current context
+    $pathSegments = array_values(array_filter(explode('/', $path)));
+    
+    // Check if CURRENT path will add itself to sub-namespace for children
+    $currentSegment = count($pathSegments) > 0 ? end($pathSegments) : '';
+    $currentIsParameter = !empty($currentSegment) && preg_match('/^\{.+\}$/', $currentSegment);
+    $currentIsSpecial = !empty($currentSegment) && needsPathNormalization($currentSegment);
+    $currentIsRoot = !empty($currentSegment) && strtolower($currentSegment) === strtolower(explode('\\', $namespace)[0]);
+    
     foreach ($builderInfo['childPaths'] as $childPath => $childInfo) {
-        if (isPathParameter($childPath)) {
+        $isParameter = isPathParameter($childPath);
+        $isSpecialPath = needsPathNormalization($childPath);
+        
+        if ($isParameter) {
             $normalized = normalizePathParameter($childPath);
             $childClassName = $normalized['className'] . 'RequestBuilder';
-        } else if (needsPathNormalization($childPath)) {
+        } else if ($isSpecialPath) {
             $normalized = normalizeSpecialPath($childPath);
             $childClassName = $normalized['className'] . 'RequestBuilder';
         } else {
             $childClassName = normalizeModelName($childPath) . 'RequestBuilder';
         }
-        $childBuilderImports[] = $childClassName;
+        
+        // Determine child's namespace:
+        // If current path creates a subnamespace (not parameter/special/root), 
+        // then ALL children (including parameters) go into that subnamespace
+        if (!$currentIsParameter && !$currentIsSpecial && !$currentIsRoot) {
+            // Child will be in CurrentNamespace\CurrentSegment
+            $cleanSegment = preg_replace('/[^a-zA-Z0-9]/', '', $currentSegment);
+            $cleanSegment = ucfirst($cleanSegment);
+            $childBuilderImports[] = $cleanSegment . '\\' . $childClassName;
+        } else {
+            // Child stays in same namespace
+            $childBuilderImports[] = $childClassName;
+        }
     }
     
     $imports = array_unique($imports);
@@ -914,6 +1042,7 @@ function generateRequestBuilderCode(string $namespace, string $className, string
     
     // Use template to generate class
     return renderTemplate('RequestBuilder.php', [
+        'namespace' => $namespace,
         'className' => $className,
         'path' => $path,
         'imports' => $imports,
@@ -1001,15 +1130,35 @@ function generateDeserializerForMethod(string $methodName, string $returnType): 
         ]);
     }
     
-    // Check if collection (ends with CollectionResponse)
-    $isCollection = str_contains($returnType, 'CollectionResponse');
+    // Check if collection (ends with CollectionResponse AND the item type also ends with CollectionResponse)
+    // This handles cases like DeviceLogCollectionResponseCollectionResponse (collection of DeviceLogCollectionResponse)
+    // but NOT DeviceLogCollectionResponse (single entity that happens to have CollectionResponse in name)
+    $types = explode('|', $returnType);
+    $collectionType = trim($types[0]);
+    $isCollection = false;
+    $itemType = '';
+    
+    if (str_ends_with($collectionType, 'CollectionResponse')) {
+        // Remove only the LAST CollectionResponse suffix to get item type
+        $itemType = substr($collectionType, 0, -strlen('CollectionResponse'));
+        
+        // It's a real collection wrapper ONLY if:
+        // 1. The item type is not empty
+        // 2. The item type doesn't contain "Collection" (which would indicate the whole thing is a single entity model)
+        //    OR the item type ends with "Response" (which means it's a collection of response objects)
+        // Examples:
+        // - UserCollectionResponse -> User (no "Collection") -> IS a collection ✓
+        // - MessageCollectionResponse -> Message (no "Collection") -> IS a collection ✓
+        // - DeviceLogCollectionResponseCollectionResponse -> DeviceLogCollectionResponse (ends with "Response") -> IS a collection ✓
+        // - DeviceLogCollectionResponse -> DeviceLogCollection (contains "Collection") -> NOT a collection ✗
+        $isCollection = !empty($itemType) && (!str_contains($itemType, 'Collection') || str_ends_with($itemType, 'Response'));
+    }
     
     if ($isCollection) {
-        // Extract item type
-        $types = explode('|', $returnType);
-        $collectionType = trim($types[0]);
-        // Remove CollectionResponse suffix to get item type
-        $itemType = str_replace('CollectionResponse', '', $collectionType);
+        // Check if item type is a reserved keyword and needs Model suffix
+        if (isReservedKeyword($itemType)) {
+            $itemType .= 'Model';
+        }
         
         // For primitive collection types, don't instantiate, just use the value
         if (in_array($itemType, ['String', 'Int', 'Float', 'Bool'])) {
@@ -1310,6 +1459,7 @@ function normalizeSchemaStructure(array $schemaData): array
 
 /**
  * Generate individual models from schemas
+ * Uses exact schema names - no namespace organization needed
  */
 function generateIndividualModels(array $schemas, $output): void
 {
@@ -1319,16 +1469,34 @@ function generateIndividualModels(array $schemas, $output): void
     foreach ($schemas as $schemaName => $schemaData) {
         $modelName = normalizeModelName($schemaName);
         
-        // Skip collection response schemas - they'll be generated separately with proper type hints
-        if (str_ends_with(strtolower($schemaName), 'collectionresponse')) {
-            continue;
-        }
-        
         // Escape reserved keywords for filename (PSR-4 compliance)
         $escapedModelName = escapeReservedKeyword($modelName);
         $filePath = $modelsDir . "/{$escapedModelName}.php";
         if (file_exists($filePath)) {
             continue;
+        }
+        
+        // Skip collection response schemas - they'll be generated separately with proper type hints
+        // BUT we need to generate them if they exist in the schema (like DeviceLogCollectionResponse)
+        if (str_ends_with(strtolower($schemaName), 'collectionresponse')) {
+            // Check if this is a real model (has properties) or just a wrapper
+            $hasProperties = false;
+            if (isset($schemaData['allOf'])) {
+                foreach ($schemaData['allOf'] as $subSchema) {
+                    if (isset($subSchema['properties']) && !empty($subSchema['properties'])) {
+                        $hasProperties = true;
+                        break;
+                    }
+                }
+            } elseif (isset($schemaData['properties']) && !empty($schemaData['properties'])) {
+                $hasProperties = true;
+            }
+            
+            // If it's just a wrapper (no properties), skip it - will be generated by generateAllCollectionModels
+            if (!$hasProperties) {
+                continue;
+            }
+            // Otherwise, it's a real model that happens to have CollectionResponse in the name, so generate it
         }
         
         // Generate model (even if empty - some models have only @odata.type)
@@ -1398,6 +1566,103 @@ function resolveSchemaProperties(array $schemaData, array $allSchemas): array
     }
     
     return $properties;
+}
+
+/**
+ * Determine which namespace a model should belong to based on its name
+ * Uses heuristics to map model names to API namespaces
+ * More specific patterns are checked first to avoid false matches
+ */
+function determineModelNamespace(string $schemaName): string
+{
+    // Normalize schema name
+    $normalized = strtolower(str_replace(['microsoft.graph.', 'microsoft.graph'], '', $schemaName));
+    
+    // Check for exact matches first (most specific)
+    $exactMatches = [
+        'message' => 'Users',
+        'chatmessage' => 'Chats',
+        'serviceupdatemessage' => 'Admin',
+    ];
+    
+    if (isset($exactMatches[$normalized])) {
+        return $exactMatches[$normalized];
+    }
+    
+    // Common patterns for namespace determination (ordered by specificity)
+    $namespaceMap = [
+        // More specific patterns first to avoid false matches
+        'chatMessage' => 'Chats',
+        'serviceUpdateMessage' => 'Admin',
+        'serviceAnnouncement' => 'Admin',
+        'onlineMeeting' => 'Communications',
+        'directoryObject' => 'Directory',
+        'directoryRole' => 'Directory',
+        'servicePrincipal' => 'Applications',
+        'deviceManagement' => 'DeviceManagement',
+        'managedDevice' => 'DeviceManagement',
+        'deviceConfiguration' => 'DeviceManagement',
+        'plannerTask' => 'Planner',
+        'plannerBucket' => 'Planner',
+        'mailFolder' => 'Users',
+        'driveItem' => 'Drives',
+        'listItem' => 'Sites',
+        
+        // Then less specific patterns
+        'admin' => 'Admin',
+        'serviceUpdate' => 'Admin',
+        
+        // Teams & Communication
+        'team' => 'Teams',
+        'channel' => 'Teams',
+        'chat' => 'Chats',
+        'call' => 'Communications',
+        'meeting' => 'Communications',
+        
+        // Identity & Directory
+        'user' => 'Users',
+        'group' => 'Groups',
+        'device' => 'Devices',
+        'application' => 'Applications',
+        'organization' => 'Directory',
+        'domain' => 'Directory',
+        'contract' => 'Directory',
+        
+        // Sites & Content
+        'site' => 'Sites',
+        'list' => 'Sites',
+        'drive' => 'Drives',
+        
+        // Security & Compliance
+        'security' => 'Security',
+        'alert' => 'Security',
+        'incident' => 'Security',
+        'compliance' => 'Compliance',
+        
+        // Mail & Calendar (less specific patterns)
+        'message' => 'Users',
+        'calendar' => 'Users',
+        'event' => 'Users',
+        'contact' => 'Contacts',
+        
+        // Planner & Tasks
+        'planner' => 'Planner',
+        'todo' => 'Planner',
+        
+        // Reports & Analytics
+        'report' => 'Reports',
+        'auditLog' => 'AuditLogs',
+    ];
+    
+    // Check for partial matches
+    foreach ($namespaceMap as $pattern => $namespace) {
+        if (str_contains($normalized, strtolower($pattern))) {
+            return $namespace;
+        }
+    }
+    
+    // Default to Common for shared/generic models
+    return 'Common';
 }
 
 /**
@@ -1587,7 +1852,7 @@ function generateAllCollectionModels(array $schemas, $output): void
     $modelsDir = BUILD_DIR . '/Models';
     $generated = 0;
     
-    // Generate CollectionResponse for all existing models (not just schemas with properties)
+    // Generate CollectionResponse for all existing models
     $modelFiles = glob($modelsDir . '/*.php');
     foreach ($modelFiles as $modelFile) {
         $modelName = basename($modelFile, '.php');
@@ -1638,23 +1903,47 @@ function renderTemplate(string $templateName, array $data): string
 }
 
 /**
- * Check if a name is a PHP reserved keyword
+ * Resolve naming conflict by adding path-based prefix
+ * Extracts a meaningful prefix from the full path to disambiguate
  */
-function isReservedKeyword(string $name): bool
+function resolveConflictPrefix(string $newPath, string $existingPath): string
 {
-    $reserved = [
-        'abstract', 'and', 'array', 'as', 'break', 'callable', 'case', 'catch', 'class',
-        'clone', 'const', 'continue', 'declare', 'default', 'die', 'do', 'echo', 'else',
-        'elseif', 'empty', 'enddeclare', 'endfor', 'endforeach', 'endif', 'endswitch',
-        'endwhile', 'eval', 'exit', 'extends', 'final', 'finally', 'fn', 'for', 'foreach',
-        'function', 'global', 'goto', 'if', 'implements', 'include', 'include_once',
-        'instanceof', 'insteadof', 'interface', 'isset', 'list', 'match', 'namespace',
-        'new', 'or', 'print', 'private', 'protected', 'public', 'readonly', 'require',
-        'require_once', 'return', 'static', 'switch', 'throw', 'trait', 'try', 'unset',
-        'use', 'var', 'while', 'xor', 'yield', 'yield from'
-    ];
+    // Extract path segments (filter out empty and parameters)
+    $newSegments = array_values(array_filter(explode('/', $newPath), function($seg) {
+        return !empty($seg) && !preg_match('/^\{.+\}$/', $seg);
+    }));
+    $existingSegments = array_values(array_filter(explode('/', $existingPath), function($seg) {
+        return !empty($seg) && !preg_match('/^\{.+\}$/', $seg);
+    }));
     
-    return in_array(strtolower($name), $reserved);
+    // Find the first meaningful differing segment
+    $maxLen = max(count($newSegments), count($existingSegments));
+    
+    for ($i = 0; $i < $maxLen; $i++) {
+        $newSeg = $newSegments[$i] ?? null;
+        $existingSeg = $existingSegments[$i] ?? null;
+        
+        // If segments differ, use the parent segment as prefix
+        if ($newSeg !== $existingSeg) {
+            // Use the previous segment (parent) as prefix if available
+            if ($i > 0 && isset($newSegments[$i - 1])) {
+                $prefix = normalizeModelName($newSegments[$i - 1]);
+                return $prefix;
+            }
+            // Otherwise use the first segment (root namespace)
+            if (isset($newSegments[0])) {
+                $prefix = normalizeModelName($newSegments[0]);
+                return $prefix;
+            }
+        }
+    }
+    
+    // Fallback: use first segment
+    if (!empty($newSegments)) {
+        return normalizeModelName($newSegments[0]);
+    }
+    
+    return 'Custom';
 }
 
 /**
@@ -1818,7 +2107,9 @@ function collectNamespaces()
     $namespaces = [];
     foreach ($chunkFiles as $chunkFile) {
         $namespace = basename($chunkFile, '.yaml');
-        $namespaces[] = str_replace('paths_', '', $namespace);
+        $namespace = str_replace('paths_', '', $namespace);
+        // Capitalize first letter for proper namespace
+        $namespaces[] = ucfirst($namespace);
     }
 
     return $namespaces;
@@ -1895,6 +2186,12 @@ function processNamespace(string $namespace, string $chunkFile, array $schemas, 
     foreach ($models as $modelName => $modelDef) {
         generateModelFromDefinition(BUILD_DIR . '/Models', $modelName, $modelDef);
     }
+    
+    // Generate collection response wrappers for all collection types
+    generateCollectionResponseWrappers($models, BUILD_DIR . '/Models');
+    
+    // Generate missing models referenced in paths
+    generateMissingReferencedModels($paths, BUILD_DIR . '/Models', $schemas);
     
     // Generate request builders for root namespace
     generateRequestBuildersForNamespace($namespace, $paths, $output);
@@ -2074,6 +2371,7 @@ function generateRequestBuilderClassWithSubpaths(string $namespace, string $clas
 function extractModelsFromPaths(array $paths, array $schemas): array
 {
     $models = [];
+    $processedModels = [];
     
     foreach ($paths as $path => $methods) {
         foreach ($methods as $method => $operation) {
@@ -2335,6 +2633,163 @@ function generateModelFromDefinition(string $dir, string $name, array $definitio
     $code .= "}\n";
     
     file_put_contents($filePath, $code);
+}
+
+/**
+ * Generate collection response wrappers for all models that need them
+ */
+function generateCollectionResponseWrappers(array $models, string $modelsDir): void
+{
+    foreach ($models as $modelName => $modelDef) {
+        // Skip if model name already ends with CollectionResponse
+        if (str_ends_with($modelName, 'CollectionResponse')) {
+            continue;
+        }
+        
+        // Generate collection response wrapper
+        $collectionName = $modelName . 'CollectionResponse';
+        $filePath = $modelsDir . "/{$collectionName}.php";
+        
+        // Skip if already exists
+        if (file_exists($filePath)) {
+            continue;
+        }
+        
+        // Generate the collection response wrapper
+        $code = generateCollectionResponseCode($collectionName, $modelName);
+        file_put_contents($filePath, $code);
+    }
+}
+
+/**
+ * Generate missing models that are referenced in paths but don't exist
+ */
+function generateMissingReferencedModels(array $paths, string $modelsDir, array $schemas): void
+{
+    $referencedTypes = [];
+    
+    // Scan all paths for referenced return types
+    foreach ($paths as $path => $methods) {
+        foreach ($methods as $method => $operation) {
+            if (!is_array($operation)) {
+                continue;
+            }
+            
+            // Extract from responses
+            $responses = $operation['responses'] ?? [];
+            foreach ($responses as $code => $response) {
+                if (!is_array($response)) {
+                    continue;
+                }
+                
+                $content = $response['content'] ?? [];
+                foreach ($content as $contentType => $contentData) {
+                    $schema = $contentData['schema'] ?? null;
+                    if ($schema) {
+                        $modelName = extractModelNameFromSchema($schema);
+                        if ($modelName) {
+                            $referencedTypes[] = $modelName;
+                            
+                            // If it's a collection response, also track the item type
+                            if (str_ends_with($modelName, 'CollectionResponse')) {
+                                $itemType = substr($modelName, 0, -strlen('CollectionResponse'));
+                                if (!empty($itemType)) {
+                                    $referencedTypes[] = $itemType;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Extract from request body
+            $requestBody = $operation['requestBody'] ?? null;
+            if ($requestBody) {
+                $content = $requestBody['content'] ?? [];
+                foreach ($content as $contentType => $contentData) {
+                    $schema = $contentData['schema'] ?? null;
+                    if ($schema) {
+                        $modelName = extractModelNameFromSchema($schema);
+                        if ($modelName) {
+                            $referencedTypes[] = $modelName;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Generate stub models for any missing types
+    $referencedTypes = array_unique($referencedTypes);
+    foreach ($referencedTypes as $typeName) {
+        $filePath = $modelsDir . "/{$typeName}.php";
+        
+        // Skip if already exists
+        if (file_exists($filePath)) {
+            continue;
+        }
+        
+        // Check if it's a collection response
+        if (str_ends_with($typeName, 'CollectionResponse')) {
+            $itemType = substr($typeName, 0, -strlen('CollectionResponse'));
+            $code = generateCollectionResponseCode($typeName, $itemType);
+        } else {
+            // Generate a basic stub model
+            $code = generateStubModel($typeName, $schemas);
+        }
+        
+        file_put_contents($filePath, $code);
+    }
+}
+
+/**
+ * Generate a stub model from schema or create empty model
+ */
+function generateStubModel(string $modelName, array $schemas): string
+{
+    // Try to find the model in schemas
+    $originalSchemaName = findOriginalSchemaName($modelName, $schemas);
+    
+    if ($originalSchemaName && isset($schemas[$originalSchemaName])) {
+        // Extract full definition and generate proper model
+        $definition = extractModelDefinition($modelName, ['$ref' => '#/components/schemas/' . $originalSchemaName], $schemas);
+        
+        $extends = $definition['extends'] ?? null;
+        $properties = $definition['properties'] ?? [];
+        
+        $extendsClause = $extends ? " extends {$extends}" : ' extends BaseModel';
+        $escapedModelName = escapeReservedKeyword($modelName);
+        
+        $code = "<?php\n\ndeclare(strict_types=1);\n\nnamespace ApeDevDe\\MicrosoftGraphSdk\\Models;\n\n";
+        
+        if ($extends) {
+            $code .= "use ApeDevDe\\MicrosoftGraphSdk\\Models\\{$extends};\n";
+        } else {
+            $code .= "use ApeDevDe\\MicrosoftGraphSdk\\Models\\BaseModel;\n";
+        }
+        
+        $code .= "\n/**\n * {$escapedModelName}\n */\nclass {$escapedModelName}{$extendsClause}\n{\n";
+        
+        foreach ($properties as $propName => $propInfo) {
+            $type = $propInfo['type'] ?? 'mixed';
+            $description = $propInfo['description'] ?? '';
+            
+            if (!empty($description)) {
+                $code .= "    /**\n     * {$description}\n     * @var {$type}\n     */\n";
+            } else {
+                $code .= "    /** @var {$type} */\n";
+            }
+            $code .= "    public {$type} \${$propName};\n\n";
+        }
+        
+        $code .= "}\n";
+        
+        return $code;
+    }
+    
+    // Generate minimal stub model if not in schema
+    $escapedModelName = escapeReservedKeyword($modelName);
+    return "<?php\n\ndeclare(strict_types=1);\n\nnamespace ApeDevDe\\MicrosoftGraphSdk\\Models;\n\nuse ApeDevDe\\MicrosoftGraphSdk\\Models\\BaseModel;\n\n/**\n * {$escapedModelName}\n */\nclass {$escapedModelName} extends BaseModel\n{\n}\n";
 }
 
 /**
@@ -2745,16 +3200,27 @@ function generateRootRequestBuilder(string $buildDir, array $rootNamespaces): vo
 {
     $builderDir = $buildDir . '/RequestBuilders';
     
-    // Only include root namespaces (not subpaths)
+    // Collect all root namespace directories
     $namespaces = [];
-    foreach ($rootNamespaces as $namespace) {
-        $className = ucfirst($namespace) . 'RequestBuilder';
-        $filePath = $builderDir . '/' . $className . '.php';
+    $namespaceDirs = glob($builderDir . '/*', GLOB_ONLYDIR);
+    
+    foreach ($namespaceDirs as $namespaceDir) {
+        $namespace = basename($namespaceDir);
+        $className = $namespace . 'RequestBuilder';
         
-        if (file_exists($filePath)) {
-            $namespaces[$namespace] = $className;
+        // Check if the main RequestBuilder exists in this namespace
+        $mainBuilderFile = $namespaceDir . '/' . $className . '.php';
+        if (file_exists($mainBuilderFile)) {
+            $namespaces[$namespace] = [
+                'className' => $className,
+                'namespace' => $namespace,
+                'methodName' => lcfirst($namespace)
+            ];
         }
     }
+    
+    // Sort namespaces alphabetically
+    ksort($namespaces);
     
     // Generate GraphRequestBuilder using template
     $code = renderTemplate('GraphRequestBuilder.php.template', [
@@ -2762,4 +3228,246 @@ function generateRootRequestBuilder(string $buildDir, array $rootNamespaces): vo
     ]);
     
     file_put_contents($builderDir . '/GraphRequestBuilder.php', $code);
+}
+
+/**
+ * Build complete path tree with all metadata pre-parsed
+ * This creates a comprehensive tree structure where each node contains:
+ * - All HTTP methods and their metadata
+ * - All child paths recursively
+ * - Normalized class names
+ * - Full path information
+ */
+function buildCompletePathTree(string $namespace, array $allResponses, array $allParameters): array
+{
+    // Load all paths for this namespace (file is lowercase)
+    $pathsFile = TMP_DIR . "/paths_" . strtolower($namespace) . ".yaml";
+    if (!file_exists($pathsFile)) {
+        return [];
+    }
+    
+    $yaml = Yaml::parseFile($pathsFile);
+    $allPaths = $yaml['paths'] ?? [];
+    
+    // Sort paths by depth (shallowest first) to ensure parents are processed before children
+    uksort($allPaths, function($a, $b) {
+        return substr_count($a, '/') - substr_count($b, '/');
+    });
+    
+    // Build tree structure
+    $tree = [];
+    
+    foreach ($allPaths as $fullPath => $pathSpec) {
+        // Split path into segments
+        $segments = array_values(array_filter(explode('/', $fullPath)));
+        
+        // Skip if no segments
+        if (empty($segments)) {
+            continue;
+        }
+        
+        // Navigate/create tree structure
+        $currentNode = &$tree;
+        $currentPath = '';
+        
+        foreach ($segments as $index => $segment) {
+            $currentPath .= '/' . $segment;
+            $isLast = ($index === count($segments) - 1);
+            
+            // Initialize node if it doesn't exist
+            if (!isset($currentNode[$segment])) {
+                $currentNode[$segment] = [
+                    'segment' => $segment,
+                    'fullPath' => $currentPath,
+                    'methods' => [],
+                    'children' => [],
+                    'className' => determineClassName($segment),
+                    'isParameter' => isPathParameter($segment),
+                    'isSpecial' => needsPathNormalization($segment)
+                ];
+            }
+            
+            // If this is the last segment, add/merge the HTTP methods
+            if ($isLast) {
+                foreach (['get', 'post', 'put', 'patch', 'delete'] as $method) {
+                    if (isset($pathSpec[$method])) {
+                        $operation = $pathSpec[$method];
+                        // Merge methods - if method already exists, keep the one with more info
+                        $newMethodInfo = [
+                            'returnTypes' => resolveReturnTypes($operation['responses'] ?? [], $allResponses),
+                            'parameters' => extractParameters($operation, $allParameters),
+                            'summary' => $operation['summary'] ?? '',
+                            'description' => $operation['description'] ?? ''
+                        ];
+                        
+                        // Only overwrite if new method has more return types or if method doesn't exist
+                        if (!isset($currentNode[$segment]['methods'][$method]) ||
+                            count($newMethodInfo['returnTypes']) > count($currentNode[$segment]['methods'][$method]['returnTypes'])) {
+                            $currentNode[$segment]['methods'][$method] = $newMethodInfo;
+                        }
+                    }
+                }
+            }
+            
+            // Move to children for next iteration
+            $currentNode = &$currentNode[$segment]['children'];
+        }
+    }
+    
+    return $tree;
+}
+
+/**
+ * Determine class name for a path segment
+ */
+function determineClassName(string $segment): string
+{
+    if (isPathParameter($segment)) {
+        $normalized = normalizePathParameter($segment);
+        return $normalized['className'];
+    } else if (needsPathNormalization($segment)) {
+        $normalized = normalizeSpecialPath($segment);
+        return $normalized['className'];
+    } else {
+        return normalizeModelName($segment);
+    }
+}
+
+/**
+ * Generate request builders from complete tree
+ */
+function generateRequestBuildersFromCompleteTree(string $namespace, array $tree, array $schemas, $output): void
+{
+    foreach ($tree as $segment => $node) {
+        generateRequestBuilderFromNode($namespace, $node, $schemas, $output);
+    }
+}
+
+/**
+ * Generate a single request builder from a tree node
+ */
+function generateRequestBuilderFromNode(string $namespace, array $node, array $schemas, $output, string $parentNamespace = ''): void
+{
+    $segment = $node['segment'];
+    $className = $node['className'] . 'RequestBuilder';
+    $isParameter = $node['isParameter'];
+    $isSpecial = $node['isSpecial'];
+    
+    // Skip if class name conflicts with base class
+    if ($className === 'BaseRequestBuilder') {
+        return;
+    }
+    
+    // Determine namespace for this builder
+    // Parameters and special paths don't create sub-namespaces for themselves
+    $subNamespace = $parentNamespace;
+    
+    $fullNamespace = $namespace . ($subNamespace ? '\\' . $subNamespace : '');
+    
+    // Create directory
+    $namespacedDir = BUILD_DIR . '/RequestBuilders/' . str_replace('\\', '/', $fullNamespace);
+    if (!is_dir($namespacedDir)) {
+        mkdir($namespacedDir, 0755, true);
+    }
+    
+    $filePath = $namespacedDir . '/' . $className . '.php';
+    
+    // Track generated files to avoid overwriting better versions
+    static $generatedFiles = [];
+    $fileKey = $fullNamespace . '\\' . $className;
+    
+    // Generate code only if node has methods or children
+    if (!empty($node['methods']) || !empty($node['children'])) {
+        $childCount = count($node['children']);
+        
+        // Only generate if:
+        // 1. File doesn't exist yet, OR
+        // 2. This version has more children than the existing one
+        if (!isset($generatedFiles[$fileKey]) || $childCount > $generatedFiles[$fileKey]) {
+            $code = generateRequestBuilderCodeFromNode($fullNamespace, $className, $node, $schemas);
+            file_put_contents($filePath, $code);
+            $generatedFiles[$fileKey] = $childCount;
+        }
+    }
+    
+    // Process children
+    // If current node is not a parameter/special, children go into a sub-namespace
+    $childNamespace = $subNamespace;
+    if (!$isParameter && !$isSpecial && !empty($segment)) {
+        $cleanSegment = preg_replace('/[^a-zA-Z0-9]/', '', $segment);
+        $cleanSegment = ucfirst($cleanSegment);
+        $childNamespace = $subNamespace ? $subNamespace . '\\' . $cleanSegment : $cleanSegment;
+    }
+    
+    foreach ($node['children'] as $childSegment => $childNode) {
+        generateRequestBuilderFromNode($namespace, $childNode, $schemas, $output, $childNamespace);
+    }
+}
+
+/**
+ * Generate request builder code from a tree node
+ */
+function generateRequestBuilderCodeFromNode(string $namespace, string $className, array $node, array $schemas): string
+{
+    // Collect model imports from return types
+    $imports = [];
+    foreach ($node['methods'] as $method => $methodInfo) {
+        foreach ($methodInfo['returnTypes'] as $returnType) {
+            if (is_string($returnType) && !in_array($returnType, ['string', 'int', 'float', 'bool', 'array', 'mixed', '\stdClass'])) {
+                $types = explode('|', $returnType);
+                foreach ($types as $type) {
+                    $type = trim($type);
+                    if (!in_array($type, ['string', 'int', 'float', 'bool', 'array', 'mixed', '\stdClass'])) {
+                        $imports[] = $type;
+                        
+                        // If it's a collection response, also import the item type
+                        if (str_ends_with($type, 'CollectionResponse')) {
+                            $itemType = str_replace('CollectionResponse', '', $type);
+                            if (!empty($itemType) && !in_array($itemType, ['string', 'int', 'float', 'bool', 'array', 'mixed', '\stdClass'])) {
+                                $imports[] = $itemType;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    $imports = array_unique($imports);
+    
+    // Collect child builder imports
+    $childBuilderImports = [];
+    foreach ($node['children'] as $childSegment => $childNode) {
+        $childClassName = $childNode['className'] . 'RequestBuilder';
+        
+        // Determine child's relative namespace
+        if (!$node['isParameter'] && !$node['isSpecial']) {
+            $cleanSegment = preg_replace('/[^a-zA-Z0-9]/', '', $node['segment']);
+            $cleanSegment = ucfirst($cleanSegment);
+            $childBuilderImports[] = $cleanSegment . '\\' . $childClassName;
+        } else {
+            $childBuilderImports[] = $childClassName;
+        }
+    }
+    $childBuilderImports = array_unique($childBuilderImports);
+    
+    // Generate HTTP methods
+    $methods = '';
+    foreach ($node['methods'] as $httpMethod => $methodInfo) {
+        $methods .= generateHttpMethodFromTemplate($httpMethod, $methodInfo);
+    }
+    
+    // Generate child path methods (includes byId for parameter children)
+    foreach ($node['children'] as $childSegment => $childNode) {
+        $methods .= generateChildPathMethodFromTemplate($childSegment);
+    }
+    
+    // Use template to generate class
+    return renderTemplate('RequestBuilder.php', [
+        'namespace' => $namespace,
+        'className' => $className,
+        'path' => $node['fullPath'] ?? $node['segment'],
+        'imports' => $imports,
+        'childBuilderImports' => $childBuilderImports,
+        'methods' => $methods
+    ]);
 }

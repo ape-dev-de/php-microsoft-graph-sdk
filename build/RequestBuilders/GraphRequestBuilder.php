@@ -5,6 +5,75 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\AdminRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AgreementAcceptances\AgreementAcceptancesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Agreements\AgreementsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AppCatalogs\AppCatalogsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ApplicationTemplates\ApplicationTemplatesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\ApplicationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs\AuditLogsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationMethodConfigurations\AuthenticationMethodConfigurationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationMethodsPolicy\AuthenticationMethodsPolicyRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\ChatsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\CommunicationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Compliance\ComplianceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Connections\ConnectionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\ContactsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\ContractsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot\CopilotRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DataPolicyOperations\DataPolicyOperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceAppManagement\DeviceAppManagementRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\DeviceManagementRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\DevicesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Directory\DirectoryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjectsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoleTemplates\DirectoryRoleTemplatesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRolesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DomainDnsRecords\DomainDnsRecordsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Domains\DomainsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Drives\DrivesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\EducationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\EmployeeExperienceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\External\ExternalRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\FilterOperators\FilterOperatorsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Functions\FunctionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupLifecyclePolicies\GroupLifecyclePoliciesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupSettingTemplates\GroupSettingTemplatesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupSettings\GroupSettingsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\GroupsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\IdentityRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityGovernance\IdentityGovernanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\IdentityProtectionRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProviders\IdentityProvidersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InformationProtection\InformationProtectionRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Invitations\InvitationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\MeRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\OrganizationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\PermissionGrants\PermissionGrantsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places\PlacesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner\PlannerRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Policies\PoliciesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Privacy\PrivacyRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Reports\ReportsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RoleManagement\RoleManagementRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SchemaExtensions\SchemaExtensionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ScopedRoleMemberships\ScopedRoleMembershipsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\SearchRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\SecurityRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ServicePrincipals\ServicePrincipalsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Shares\SharesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\SitesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\SolutionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Storage\StorageRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SubscribedSkus\SubscribedSkusRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Subscriptions\SubscriptionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teams\TeamsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TeamsTemplates\TeamsTemplatesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\TeamworkRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TenantRelationships\TenantRelationshipsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\UsersRequestBuilder;
 
 class GraphRequestBuilder extends BaseRequestBuilder
 {
@@ -20,7 +89,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function agreementAcceptances(): AgreementAcceptancesRequestBuilder
     {
-        return new AgreementAcceptancesRequestBuilder($this->client, '/agreementAcceptances');
+        return new AgreementAcceptancesRequestBuilder($this->client, '/agreementacceptances');
     }
 
     public function agreements(): AgreementsRequestBuilder
@@ -30,12 +99,12 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function appCatalogs(): AppCatalogsRequestBuilder
     {
-        return new AppCatalogsRequestBuilder($this->client, '/appCatalogs');
+        return new AppCatalogsRequestBuilder($this->client, '/appcatalogs');
     }
 
     public function applicationTemplates(): ApplicationTemplatesRequestBuilder
     {
-        return new ApplicationTemplatesRequestBuilder($this->client, '/applicationTemplates');
+        return new ApplicationTemplatesRequestBuilder($this->client, '/applicationtemplates');
     }
 
     public function applications(): ApplicationsRequestBuilder
@@ -45,22 +114,22 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function auditLogs(): AuditLogsRequestBuilder
     {
-        return new AuditLogsRequestBuilder($this->client, '/auditLogs');
+        return new AuditLogsRequestBuilder($this->client, '/auditlogs');
     }
 
     public function authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder
     {
-        return new AuthenticationMethodConfigurationsRequestBuilder($this->client, '/authenticationMethodConfigurations');
+        return new AuthenticationMethodConfigurationsRequestBuilder($this->client, '/authenticationmethodconfigurations');
     }
 
     public function authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder
     {
-        return new AuthenticationMethodsPolicyRequestBuilder($this->client, '/authenticationMethodsPolicy');
+        return new AuthenticationMethodsPolicyRequestBuilder($this->client, '/authenticationmethodspolicy');
     }
 
     public function certificateBasedAuthConfiguration(): CertificateBasedAuthConfigurationRequestBuilder
     {
-        return new CertificateBasedAuthConfigurationRequestBuilder($this->client, '/certificateBasedAuthConfiguration');
+        return new CertificateBasedAuthConfigurationRequestBuilder($this->client, '/certificatebasedauthconfiguration');
     }
 
     public function chats(): ChatsRequestBuilder
@@ -100,17 +169,17 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function dataPolicyOperations(): DataPolicyOperationsRequestBuilder
     {
-        return new DataPolicyOperationsRequestBuilder($this->client, '/dataPolicyOperations');
+        return new DataPolicyOperationsRequestBuilder($this->client, '/datapolicyoperations');
     }
 
     public function deviceAppManagement(): DeviceAppManagementRequestBuilder
     {
-        return new DeviceAppManagementRequestBuilder($this->client, '/deviceAppManagement');
+        return new DeviceAppManagementRequestBuilder($this->client, '/deviceappmanagement');
     }
 
     public function deviceManagement(): DeviceManagementRequestBuilder
     {
-        return new DeviceManagementRequestBuilder($this->client, '/deviceManagement');
+        return new DeviceManagementRequestBuilder($this->client, '/devicemanagement');
     }
 
     public function devices(): DevicesRequestBuilder
@@ -125,22 +194,22 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function directoryObjects(): DirectoryObjectsRequestBuilder
     {
-        return new DirectoryObjectsRequestBuilder($this->client, '/directoryObjects');
+        return new DirectoryObjectsRequestBuilder($this->client, '/directoryobjects');
     }
 
     public function directoryRoleTemplates(): DirectoryRoleTemplatesRequestBuilder
     {
-        return new DirectoryRoleTemplatesRequestBuilder($this->client, '/directoryRoleTemplates');
+        return new DirectoryRoleTemplatesRequestBuilder($this->client, '/directoryroletemplates');
     }
 
     public function directoryRoles(): DirectoryRolesRequestBuilder
     {
-        return new DirectoryRolesRequestBuilder($this->client, '/directoryRoles');
+        return new DirectoryRolesRequestBuilder($this->client, '/directoryroles');
     }
 
     public function domainDnsRecords(): DomainDnsRecordsRequestBuilder
     {
-        return new DomainDnsRecordsRequestBuilder($this->client, '/domainDnsRecords');
+        return new DomainDnsRecordsRequestBuilder($this->client, '/domaindnsrecords');
     }
 
     public function domains(): DomainsRequestBuilder
@@ -160,7 +229,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function employeeExperience(): EmployeeExperienceRequestBuilder
     {
-        return new EmployeeExperienceRequestBuilder($this->client, '/employeeExperience');
+        return new EmployeeExperienceRequestBuilder($this->client, '/employeeexperience');
     }
 
     public function external(): ExternalRequestBuilder
@@ -170,7 +239,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function filterOperators(): FilterOperatorsRequestBuilder
     {
-        return new FilterOperatorsRequestBuilder($this->client, '/filterOperators');
+        return new FilterOperatorsRequestBuilder($this->client, '/filteroperators');
     }
 
     public function functions(): FunctionsRequestBuilder
@@ -180,17 +249,17 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder
     {
-        return new GroupLifecyclePoliciesRequestBuilder($this->client, '/groupLifecyclePolicies');
+        return new GroupLifecyclePoliciesRequestBuilder($this->client, '/grouplifecyclepolicies');
     }
 
     public function groupSettingTemplates(): GroupSettingTemplatesRequestBuilder
     {
-        return new GroupSettingTemplatesRequestBuilder($this->client, '/groupSettingTemplates');
+        return new GroupSettingTemplatesRequestBuilder($this->client, '/groupsettingtemplates');
     }
 
     public function groupSettings(): GroupSettingsRequestBuilder
     {
-        return new GroupSettingsRequestBuilder($this->client, '/groupSettings');
+        return new GroupSettingsRequestBuilder($this->client, '/groupsettings');
     }
 
     public function groups(): GroupsRequestBuilder
@@ -205,22 +274,22 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function identityGovernance(): IdentityGovernanceRequestBuilder
     {
-        return new IdentityGovernanceRequestBuilder($this->client, '/identityGovernance');
+        return new IdentityGovernanceRequestBuilder($this->client, '/identitygovernance');
     }
 
     public function identityProtection(): IdentityProtectionRequestBuilder
     {
-        return new IdentityProtectionRequestBuilder($this->client, '/identityProtection');
+        return new IdentityProtectionRequestBuilder($this->client, '/identityprotection');
     }
 
     public function identityProviders(): IdentityProvidersRequestBuilder
     {
-        return new IdentityProvidersRequestBuilder($this->client, '/identityProviders');
+        return new IdentityProvidersRequestBuilder($this->client, '/identityproviders');
     }
 
     public function informationProtection(): InformationProtectionRequestBuilder
     {
-        return new InformationProtectionRequestBuilder($this->client, '/informationProtection');
+        return new InformationProtectionRequestBuilder($this->client, '/informationprotection');
     }
 
     public function invitations(): InvitationsRequestBuilder
@@ -235,7 +304,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder
     {
-        return new Oauth2PermissionGrantsRequestBuilder($this->client, '/oauth2PermissionGrants');
+        return new Oauth2PermissionGrantsRequestBuilder($this->client, '/oauth2permissiongrants');
     }
 
     public function organization(): OrganizationRequestBuilder
@@ -245,7 +314,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function permissionGrants(): PermissionGrantsRequestBuilder
     {
-        return new PermissionGrantsRequestBuilder($this->client, '/permissionGrants');
+        return new PermissionGrantsRequestBuilder($this->client, '/permissiongrants');
     }
 
     public function places(): PlacesRequestBuilder
@@ -263,11 +332,6 @@ class GraphRequestBuilder extends BaseRequestBuilder
         return new PoliciesRequestBuilder($this->client, '/policies');
     }
 
-    public function print(): PrintRequestBuilder
-    {
-        return new PrintRequestBuilder($this->client, '/print');
-    }
-
     public function privacy(): PrivacyRequestBuilder
     {
         return new PrivacyRequestBuilder($this->client, '/privacy');
@@ -280,17 +344,17 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function roleManagement(): RoleManagementRequestBuilder
     {
-        return new RoleManagementRequestBuilder($this->client, '/roleManagement');
+        return new RoleManagementRequestBuilder($this->client, '/rolemanagement');
     }
 
     public function schemaExtensions(): SchemaExtensionsRequestBuilder
     {
-        return new SchemaExtensionsRequestBuilder($this->client, '/schemaExtensions');
+        return new SchemaExtensionsRequestBuilder($this->client, '/schemaextensions');
     }
 
     public function scopedRoleMemberships(): ScopedRoleMembershipsRequestBuilder
     {
-        return new ScopedRoleMembershipsRequestBuilder($this->client, '/scopedRoleMemberships');
+        return new ScopedRoleMembershipsRequestBuilder($this->client, '/scopedrolememberships');
     }
 
     public function search(): SearchRequestBuilder
@@ -305,7 +369,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function servicePrincipals(): ServicePrincipalsRequestBuilder
     {
-        return new ServicePrincipalsRequestBuilder($this->client, '/servicePrincipals');
+        return new ServicePrincipalsRequestBuilder($this->client, '/serviceprincipals');
     }
 
     public function shares(): SharesRequestBuilder
@@ -330,7 +394,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function subscribedSkus(): SubscribedSkusRequestBuilder
     {
-        return new SubscribedSkusRequestBuilder($this->client, '/subscribedSkus');
+        return new SubscribedSkusRequestBuilder($this->client, '/subscribedskus');
     }
 
     public function subscriptions(): SubscriptionsRequestBuilder
@@ -345,7 +409,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function teamsTemplates(): TeamsTemplatesRequestBuilder
     {
-        return new TeamsTemplatesRequestBuilder($this->client, '/teamsTemplates');
+        return new TeamsTemplatesRequestBuilder($this->client, '/teamstemplates');
     }
 
     public function teamwork(): TeamworkRequestBuilder
@@ -355,7 +419,7 @@ class GraphRequestBuilder extends BaseRequestBuilder
 
     public function tenantRelationships(): TenantRelationshipsRequestBuilder
     {
-        return new TenantRelationshipsRequestBuilder($this->client, '/tenantRelationships');
+        return new TenantRelationshipsRequestBuilder($this->client, '/tenantrelationships');
     }
 
     public function users(): UsersRequestBuilder

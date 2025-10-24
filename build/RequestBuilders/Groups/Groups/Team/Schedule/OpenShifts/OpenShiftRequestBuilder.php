@@ -1,0 +1,125 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\Groups\Team\Schedule\OpenShifts;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\OpenShift;
+
+/**
+ * Request builder for /groups/{group-id}/team/schedule/openShifts/{openShift-id}
+ */
+class OpenShiftRequestBuilder extends RootBaseRequestBuilder
+{
+    /**
+     * Get openShifts from groups
+     *
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return OpenShift
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function get(?array $select = null, ?array $expand = null): OpenShift
+    {
+        $queryParams = [];
+        if ($select !== null && $select !== []) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null && $expand !== []) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
+    }
+
+    /**
+     * Deserialize response to OpenShift
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new OpenShift($data);
+    }
+    /**
+     * Update the navigation property openShifts in groups
+     * @param OpenShift $body Request body
+     * @return OpenShift
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(OpenShift $body): OpenShift
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to OpenShift
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new OpenShift($data);
+    }
+    /**
+     * Delete navigation property openShifts for groups
+     *
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function delete(?string $ifMatch = null): mixed
+    {
+        $queryParams = [];
+        if ($ifMatch !== null && $ifMatch !== '') {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
+    }
+}

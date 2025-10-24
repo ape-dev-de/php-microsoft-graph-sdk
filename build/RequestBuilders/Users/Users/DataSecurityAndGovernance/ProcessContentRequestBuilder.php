@@ -1,0 +1,49 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Users\DataSecurityAndGovernance;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\ProcessContentResponse;
+
+/**
+ * Request builder for /users/{user-id}/dataSecurityAndGovernance/processContent
+ */
+class ProcessContentRequestBuilder extends RootBaseRequestBuilder
+{
+    /**
+     * Invoke action processContent
+     * @param ProcessContentResponse|\stdClass $body Request body
+     * @return ProcessContentResponse|\stdClass
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(ProcessContentResponse|\stdClass $body): ProcessContentResponse|\stdClass
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
+    }
+
+    /**
+     * Deserialize response to ProcessContentResponse|\stdClass
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new ProcessContentResponse($data);
+    }
+}

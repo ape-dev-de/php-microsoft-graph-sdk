@@ -1,0 +1,131 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Agreements;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\AgreementCollectionResponse;
+use ApeDevDe\MicrosoftGraphSdk\Models\Agreement;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Agreements\Agreements\AgreementRequestBuilder;
+
+/**
+ * Request builder for /agreements
+ */
+class AgreementsRequestBuilder extends RootBaseRequestBuilder
+{
+    /**
+     * Get entities from agreements
+     *
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @param int|null $top Show only the first n items
+     * @param int|null $skip Skip the first n items
+     * @param string|null $search Search items by search phrases
+     * @param string|null $filter Filter items by property values
+     * @param bool|null $count Include count of items
+     * @param array<int, string>|null $orderby Order items by property values
+     * @return AgreementCollectionResponse
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AgreementCollectionResponse
+    {
+        $queryParams = [];
+        if ($select !== null && $select !== []) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null && $expand !== []) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        if ($top !== null) {
+            $queryParams['$top'] = $top;
+        }
+        if ($skip !== null) {
+            $queryParams['$skip'] = $skip;
+        }
+        if ($search !== null && $search !== '') {
+            $queryParams['$search'] = $search;
+        }
+        if ($filter !== null && $filter !== '') {
+            $queryParams['$filter'] = $filter;
+        }
+        if ($count !== null) {
+            $queryParams['$count'] = $count ? 'true' : 'false';
+        }
+        if ($orderby !== null && $orderby !== []) {
+            $queryParams['$orderby'] = implode(',', $orderby);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
+    }
+
+    /**
+     * Deserialize response to AgreementCollectionResponse
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Collection response
+        $items = [];
+        foreach ($data['value'] ?? [] as $item) {
+            $items[] = new Agreement($item);
+        }
+        $collection = new AgreementCollectionResponse($data);
+        $collection->value = $items;
+        return $collection;
+    }
+    /**
+     * Add new entity to agreements
+     * @param Agreement $body Request body
+     * @return Agreement
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function post(Agreement $body): Agreement
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->post($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePost($responseBody);
+    }
+
+    /**
+     * Deserialize response to Agreement
+     */
+    private function deserializePost(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Agreement($data);
+    }
+    /**
+     * Get request builder for specific item by ID
+     *
+     * @param string $agreementId The item ID
+     * @return AgreementRequestBuilder
+     */
+    public function byId(string $agreementId): AgreementRequestBuilder
+    {
+        return new AgreementRequestBuilder($this->client, $this->requestUrl . '/' . $agreementId);
+    }
+}

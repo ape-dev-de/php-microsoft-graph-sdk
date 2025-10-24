@@ -6,6 +6,9 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+<?php foreach ($NAMESPACES as $ns): ?>
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\<?= $ns['namespace'] ?>\<?= $ns['className'] ?>;
+<?php endforeach; ?>
 
 class GraphRequestBuilder extends BaseRequestBuilder
 {
@@ -14,11 +17,11 @@ class GraphRequestBuilder extends BaseRequestBuilder
         parent::__construct($client, '');
     }
 
-<?php foreach ($NAMESPACES as $namespace => $className): ?>
-    public function <?= $namespace ?>(): <?= $className ?>
+<?php foreach ($NAMESPACES as $ns): ?>
+    public function <?= $ns['methodName'] ?>(): <?= $ns['className'] ?>
 
     {
-        return new <?= $className ?>($this->client, '/<?= $namespace ?>');
+        return new <?= $ns['className'] ?>($this->client, '/<?= strtolower($ns['namespace']) ?>');
     }
 
 <?php endforeach; ?>
