@@ -7,9 +7,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\AuditLogRoot;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs\AuditLogs\DirectoryAuditsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs\AuditLogs\ProvisioningRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs\AuditLogs\SignInsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs\DirectoryAuditsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs\ProvisioningRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuditLogs\SignInsRequestBuilder;
 
 /**
  * Request builder for /auditLogs

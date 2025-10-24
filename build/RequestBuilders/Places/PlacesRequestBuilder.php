@@ -6,9 +6,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places\Places\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places\Places\GraphRoomRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places\Places\GraphRoomListRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places\GraphRoomRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Places\GraphRoomListRequestBuilder;
 
 /**
  * Request builder for /places

@@ -7,14 +7,14 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityContainer;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\ApiConnectorsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\AuthenticationEventListenersRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\AuthenticationEventsFlowsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\B2xUserFlowsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\CustomAuthenticationExtensionsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\IdentityProvidersRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\UserFlowAttributesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\Identity\ConditionalAccessRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\ApiConnectorsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\AuthenticationEventListenersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\AuthenticationEventsFlowsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\B2xUserFlowsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\CustomAuthenticationExtensionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\IdentityProvidersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\UserFlowAttributesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\ConditionalAccessRequestBuilder;
 
 /**
  * Request builder for /identity

@@ -7,10 +7,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\EmployeeExperience;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\EmployeeExperience\CommunitiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\EmployeeExperience\EngagementAsyncOperationsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\EmployeeExperience\LearningCourseActivitiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\EmployeeExperience\LearningProvidersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\CommunitiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\EngagementAsyncOperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\LearningCourseActivitiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\EmployeeExperience\LearningProvidersRequestBuilder;
 
 /**
  * Request builder for /employeeExperience

@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\User;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Users\UserRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Users\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Users\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Users\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Users\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Users\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\UserRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /users

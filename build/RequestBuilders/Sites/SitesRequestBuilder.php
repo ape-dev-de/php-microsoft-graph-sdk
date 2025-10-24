@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\SiteCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Site;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\Sites\SiteRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\Sites\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\Sites\AddRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\Sites\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\Sites\GetAllSitesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\Sites\RemoveRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\SiteRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\AddRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\GetAllSitesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Sites\RemoveRequestBuilder;
 
 /**
  * Request builder for /sites

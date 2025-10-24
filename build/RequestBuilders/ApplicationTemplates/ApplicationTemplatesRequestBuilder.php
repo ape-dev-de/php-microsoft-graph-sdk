@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ApplicationTemplateCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\ApplicationTemplate;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ApplicationTemplates\ApplicationTemplates\ApplicationTemplateRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ApplicationTemplates\ApplicationTemplates\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ApplicationTemplates\ApplicationTemplateRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ApplicationTemplates\CountRequestBuilder;
 
 /**
  * Request builder for /applicationTemplates

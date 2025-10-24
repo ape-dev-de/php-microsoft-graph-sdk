@@ -7,10 +7,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\SolutionsRoot;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\Solutions\BackupRestoreRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\Solutions\BookingBusinessesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\Solutions\BookingCurrenciesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\Solutions\VirtualEventsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestoreRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BookingBusinessesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BookingCurrenciesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\VirtualEventsRequestBuilder;
 
 /**
  * Request builder for /solutions

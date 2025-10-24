@@ -8,9 +8,9 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityProviderCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityProvider;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProviders\IdentityProviders\IdentityProviderRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProviders\IdentityProviders\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProviders\IdentityProviders\AvailableProviderTypesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProviders\IdentityProviderRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProviders\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProviders\AvailableProviderTypesRequestBuilder;
 
 /**
  * Request builder for /identityProviders

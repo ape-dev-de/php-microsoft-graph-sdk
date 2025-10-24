@@ -7,10 +7,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityProtectionRoot;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\IdentityProtection\RiskDetectionsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\IdentityProtection\RiskyServicePrincipalsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\IdentityProtection\RiskyUsersRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\IdentityProtection\ServicePrincipalRiskDetectionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\RiskDetectionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\RiskyServicePrincipalsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\RiskyUsersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\IdentityProtection\ServicePrincipalRiskDetectionsRequestBuilder;
 
 /**
  * Request builder for /identityProtection

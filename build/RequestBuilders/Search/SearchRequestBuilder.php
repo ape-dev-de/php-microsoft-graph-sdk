@@ -7,10 +7,10 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\SearchEntity;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\Search\AcronymsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\Search\BookmarksRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\Search\QueryRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\Search\QnasRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\AcronymsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\BookmarksRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\QueryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Search\QnasRequestBuilder;
 
 /**
  * Request builder for /search

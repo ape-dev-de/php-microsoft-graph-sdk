@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\OrgContactCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\OrgContact;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\Contacts\OrgContactRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\Contacts\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\Contacts\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\Contacts\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\Contacts\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\Contacts\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\OrgContactRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contacts\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /contacts

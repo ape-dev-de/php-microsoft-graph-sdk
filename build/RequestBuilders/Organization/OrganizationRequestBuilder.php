@@ -6,35 +6,31 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\OrganizationCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Organization;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\Organization\OrganizationRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\Organization\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\Organization\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\Organization\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\Organization\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\Organization\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\BrandingRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CertificateBasedAuthConfigurationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\ExtensionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CheckMemberGroupsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CheckMemberObjectsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\GetMemberGroupsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\GetMemberObjectsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\RestoreRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\SetMobileDeviceManagementAuthorityRequestBuilder;
 
 /**
- * Request builder for /organization
+ * Request builder for /organization/{organization-id}
  */
 class OrganizationRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * List organizations
+     * Get organization
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @param int|null $top Show only the first n items
-     * @param int|null $skip Skip the first n items
-     * @param string|null $search Search items by search phrases
-     * @param string|null $filter Filter items by property values
-     * @param bool|null $count Include count of items
-     * @param array<int, string>|null $orderby Order items by property values
-     * @return OrganizationCollectionResponse
+     * @return Organization
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): OrganizationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null): Organization
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -43,24 +39,6 @@ class OrganizationRequestBuilder extends RootBaseRequestBuilder
         if ($expand !== null && $expand !== []) {
             $queryParams['$expand'] = implode(',', $expand);
         }
-        if ($top !== null) {
-            $queryParams['$top'] = $top;
-        }
-        if ($skip !== null) {
-            $queryParams['$skip'] = $skip;
-        }
-        if ($search !== null && $search !== '') {
-            $queryParams['$search'] = $search;
-        }
-        if ($filter !== null && $filter !== '') {
-            $queryParams['$filter'] = $filter;
-        }
-        if ($count !== null) {
-            $queryParams['$count'] = $count ? 'true' : 'false';
-        }
-        if ($orderby !== null && $orderby !== []) {
-            $queryParams['$orderby'] = implode(',', $orderby);
-        }
         $response = $this->client->get($this->requestUrl, $queryParams);
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
@@ -68,48 +46,9 @@ class OrganizationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to OrganizationCollectionResponse
-     */
-    private function deserializeGet(string $body): mixed
-    {
-        if (empty($body)) {
-            return null;
-        }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Collection response
-        $items = [];
-        foreach ($data['value'] ?? [] as $item) {
-            $items[] = new Organization($item);
-        }
-        $collection = new OrganizationCollectionResponse($data);
-        $collection->value = $items;
-        return $collection;
-    }
-    /**
-     * Add new entity to organization
-     * @param Organization $body Request body
-     * @return Organization
-     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
-     */
-    public function post(Organization $body): Organization
-    {
-        // Convert model to array
-        $bodyData = (array)$body;
-        $response = $this->client->post($this->requestUrl, $bodyData);
-        $this->client->checkResponse($response);
-        $responseBody = (string)$response->getBody();
-        return $this->deserializePost($responseBody);
-    }
-
-    /**
      * Deserialize response to Organization
      */
-    private function deserializePost(string $body): mixed
+    private function deserializeGet(string $body): mixed
     {
         if (empty($body)) {
             return null;
@@ -124,58 +63,153 @@ class OrganizationRequestBuilder extends RootBaseRequestBuilder
         return new Organization($data);
     }
     /**
-     * Get request builder for specific item by ID
-     *
-     * @param string $organizationId The item ID
-     * @return OrganizationRequestBuilder
+     * Update organization
+     * @param Organization $body Request body
+     * @return Organization
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function byId(string $organizationId): OrganizationRequestBuilder
+    public function patch(Organization $body): Organization
     {
-        return new OrganizationRequestBuilder($this->client, $this->requestUrl . '/' . $organizationId);
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to Organization
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Organization($data);
     }
     /**
-     * Navigate to $count
+     * Delete entity from organization
      *
-     * @return CountRequestBuilder
+     * @param string|null $ifMatch ETag
+     * @return mixed
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function count(): CountRequestBuilder
+    public function delete(?string $ifMatch = null): mixed
     {
-        return new CountRequestBuilder($this->client, $this->requestUrl . '/$count');
+        $queryParams = [];
+        if ($ifMatch !== null && $ifMatch !== '') {
+            $queryParams['If-Match'] = $ifMatch;
+        }
+        $response = $this->client->delete($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeDelete($responseBody);
+    }
+
+    /**
+     * Deserialize response to mixed
+     */
+    private function deserializeDelete(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return $data;
     }
     /**
-     * Navigate to delta()
+     * Navigate to branding
      *
-     * @return DeltaRequestBuilder
+     * @return BrandingRequestBuilder
      */
-    public function delta(): DeltaRequestBuilder
+    public function branding(): BrandingRequestBuilder
     {
-        return new DeltaRequestBuilder($this->client, $this->requestUrl . '/delta()');
+        return new BrandingRequestBuilder($this->client, $this->requestUrl . '/branding');
     }
     /**
-     * Navigate to getAvailableExtensionProperties
+     * Navigate to certificateBasedAuthConfiguration
      *
-     * @return GetAvailableExtensionPropertiesRequestBuilder
+     * @return CertificateBasedAuthConfigurationRequestBuilder
      */
-    public function getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder
+    public function certificateBasedAuthConfiguration(): CertificateBasedAuthConfigurationRequestBuilder
     {
-        return new GetAvailableExtensionPropertiesRequestBuilder($this->client, $this->requestUrl . '/getAvailableExtensionProperties');
+        return new CertificateBasedAuthConfigurationRequestBuilder($this->client, $this->requestUrl . '/certificateBasedAuthConfiguration');
     }
     /**
-     * Navigate to getByIds
+     * Navigate to extensions
      *
-     * @return GetByIdsRequestBuilder
+     * @return ExtensionsRequestBuilder
      */
-    public function getByIds(): GetByIdsRequestBuilder
+    public function extensions(): ExtensionsRequestBuilder
     {
-        return new GetByIdsRequestBuilder($this->client, $this->requestUrl . '/getByIds');
+        return new ExtensionsRequestBuilder($this->client, $this->requestUrl . '/extensions');
     }
     /**
-     * Navigate to validateProperties
+     * Navigate to checkMemberGroups
      *
-     * @return ValidatePropertiesRequestBuilder
+     * @return CheckMemberGroupsRequestBuilder
      */
-    public function validateProperties(): ValidatePropertiesRequestBuilder
+    public function checkMemberGroups(): CheckMemberGroupsRequestBuilder
     {
-        return new ValidatePropertiesRequestBuilder($this->client, $this->requestUrl . '/validateProperties');
+        return new CheckMemberGroupsRequestBuilder($this->client, $this->requestUrl . '/checkMemberGroups');
+    }
+    /**
+     * Navigate to checkMemberObjects
+     *
+     * @return CheckMemberObjectsRequestBuilder
+     */
+    public function checkMemberObjects(): CheckMemberObjectsRequestBuilder
+    {
+        return new CheckMemberObjectsRequestBuilder($this->client, $this->requestUrl . '/checkMemberObjects');
+    }
+    /**
+     * Navigate to getMemberGroups
+     *
+     * @return GetMemberGroupsRequestBuilder
+     */
+    public function getMemberGroups(): GetMemberGroupsRequestBuilder
+    {
+        return new GetMemberGroupsRequestBuilder($this->client, $this->requestUrl . '/getMemberGroups');
+    }
+    /**
+     * Navigate to getMemberObjects
+     *
+     * @return GetMemberObjectsRequestBuilder
+     */
+    public function getMemberObjects(): GetMemberObjectsRequestBuilder
+    {
+        return new GetMemberObjectsRequestBuilder($this->client, $this->requestUrl . '/getMemberObjects');
+    }
+    /**
+     * Navigate to restore
+     *
+     * @return RestoreRequestBuilder
+     */
+    public function restore(): RestoreRequestBuilder
+    {
+        return new RestoreRequestBuilder($this->client, $this->requestUrl . '/restore');
+    }
+    /**
+     * Navigate to setMobileDeviceManagementAuthority
+     *
+     * @return SetMobileDeviceManagementAuthorityRequestBuilder
+     */
+    public function setMobileDeviceManagementAuthority(): SetMobileDeviceManagementAuthorityRequestBuilder
+    {
+        return new SetMobileDeviceManagementAuthorityRequestBuilder($this->client, $this->requestUrl . '/setMobileDeviceManagementAuthority');
     }
 }

@@ -7,8 +7,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RoleManagement;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\RoleManagement;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RoleManagement\RoleManagement\DirectoryRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RoleManagement\RoleManagement\EntitlementManagementRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RoleManagement\DirectoryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\RoleManagement\EntitlementManagementRequestBuilder;
 
 /**
  * Request builder for /roleManagement

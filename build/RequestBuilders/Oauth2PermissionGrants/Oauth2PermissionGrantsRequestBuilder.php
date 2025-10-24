@@ -8,9 +8,9 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\OAuth2PermissionGrantCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\OAuth2PermissionGrant;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Oauth2PermissionGrants\Oauth2PermissionGrants\OAuth2PermissionGrantRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Oauth2PermissionGrants\Oauth2PermissionGrants\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Oauth2PermissionGrants\Oauth2PermissionGrants\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Oauth2PermissionGrants\OAuth2PermissionGrantRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Oauth2PermissionGrants\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Oauth2PermissionGrants\DeltaRequestBuilder;
 
 /**
  * Request builder for /oauth2PermissionGrants

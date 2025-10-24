@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\DirectoryRoleCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\DirectoryRole;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRoles\DirectoryRoleRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRoles\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRoles\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRoles\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRoles\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRoles\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DirectoryRoleRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryRoles\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /directoryRoles

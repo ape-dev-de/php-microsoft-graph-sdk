@@ -7,12 +7,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\Admin;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\Admin\EdgeRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\Admin\Microsoft365AppsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\Admin\PeopleRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\Admin\ReportSettingsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\Admin\ServiceAnnouncementRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\Admin\SharepointRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\EdgeRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\Microsoft365AppsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\PeopleRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\ReportSettingsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\ServiceAnnouncementRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Admin\SharepointRequestBuilder;
 
 /**
  * Request builder for /admin

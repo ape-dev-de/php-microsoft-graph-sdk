@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\DeviceCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Device;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\Devices\DeviceRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\Devices\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\Devices\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\Devices\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\Devices\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\Devices\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\DeviceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Devices\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /devices

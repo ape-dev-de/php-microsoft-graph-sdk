@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\DriveCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Drive;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Drives\Drives\DriveRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Drives\DriveRequestBuilder;
 
 /**
  * Request builder for /drives

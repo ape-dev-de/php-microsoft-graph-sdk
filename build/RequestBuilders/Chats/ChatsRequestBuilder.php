@@ -8,10 +8,10 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ChatCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Chat;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\Chats\ChatRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\Chats\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\Chats\GetAllMessagesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\Chats\GetAllRetainedMessagesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\ChatRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\GetAllMessagesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Chats\GetAllRetainedMessagesRequestBuilder;
 
 /**
  * Request builder for /chats

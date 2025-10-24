@@ -7,11 +7,11 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\EducationRoot;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\Education\ClassesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\Education\MeRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\Education\ReportsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\Education\SchoolsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\Education\UsersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\ClassesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\MeRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\ReportsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\SchoolsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\UsersRequestBuilder;
 
 /**
  * Request builder for /education

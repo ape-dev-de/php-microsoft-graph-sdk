@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ApplicationCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Application;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\Applications\ApplicationRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\Applications\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\Applications\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\Applications\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\Applications\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\Applications\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\ApplicationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Applications\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /applications

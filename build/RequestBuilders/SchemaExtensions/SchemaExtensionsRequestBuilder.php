@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\SchemaExtensionCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\SchemaExtension;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SchemaExtensions\SchemaExtensions\SchemaExtensionRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SchemaExtensions\SchemaExtensions\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SchemaExtensions\SchemaExtensionRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SchemaExtensions\CountRequestBuilder;
 
 /**
  * Request builder for /schemaExtensions

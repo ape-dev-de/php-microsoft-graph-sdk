@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ContractCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Contract;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\Contracts\ContractRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\Contracts\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\Contracts\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\Contracts\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\Contracts\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\Contracts\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\ContractRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Contracts\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /contracts

@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\GroupSettingCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\GroupSetting;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupSettings\GroupSettings\GroupSettingRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupSettings\GroupSettings\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupSettings\GroupSettingRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupSettings\CountRequestBuilder;
 
 /**
  * Request builder for /groupSettings

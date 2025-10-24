@@ -7,7 +7,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Privacy;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\Privacy;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Privacy\Privacy\SubjectRightsRequestsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Privacy\SubjectRightsRequestsRequestBuilder;
 
 /**
  * Request builder for /privacy

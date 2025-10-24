@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\SharedDriveItemCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\SharedDriveItem;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Shares\Shares\SharedDriveItemRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Shares\Shares\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Shares\SharedDriveItemRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Shares\CountRequestBuilder;
 
 /**
  * Request builder for /shares

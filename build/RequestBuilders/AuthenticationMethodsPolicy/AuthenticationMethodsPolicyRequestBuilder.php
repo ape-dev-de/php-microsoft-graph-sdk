@@ -7,7 +7,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationMethodsPolicy
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\AuthenticationMethodsPolicy;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationMethodsPolicy\AuthenticationMethodsPolicy\AuthenticationMethodConfigurationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AuthenticationMethodsPolicy\AuthenticationMethodConfigurationsRequestBuilder;
 
 /**
  * Request builder for /authenticationMethodsPolicy

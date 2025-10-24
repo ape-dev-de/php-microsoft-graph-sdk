@@ -7,21 +7,21 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\Security;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\AlertsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\AlertsV2RequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\AttackSimulationRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\CasesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\DataSecurityAndGovernanceRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\IdentitiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\IncidentsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\LabelsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\SecurityRunHuntingQueryRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\SecureScoreControlProfilesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\SecureScoresRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\SubjectRightsRequestsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\ThreatIntelligenceRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\TriggersRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\Security\TriggerTypesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\AlertsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\AlertsV2RequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\AttackSimulationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\CasesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\DataSecurityAndGovernanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\IdentitiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\IncidentsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\LabelsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\SecurityRunHuntingQueryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\SecureScoreControlProfilesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\SecureScoresRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\SubjectRightsRequestsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\ThreatIntelligenceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\TriggersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\TriggerTypesRequestBuilder;
 
 /**
  * Request builder for /security

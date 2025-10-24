@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\SubscriptionCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Subscription;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Subscriptions\Subscriptions\SubscriptionRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Subscriptions\SubscriptionRequestBuilder;
 
 /**
  * Request builder for /subscriptions

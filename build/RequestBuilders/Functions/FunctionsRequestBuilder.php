@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\AttributeMappingFunctionSchemaCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\AttributeMappingFunctionSchema;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Functions\Functions\AttributeMappingFunctionSchemaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Functions\Functions\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Functions\AttributeMappingFunctionSchemaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Functions\CountRequestBuilder;
 
 /**
  * Request builder for /functions

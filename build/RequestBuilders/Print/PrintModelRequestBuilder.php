@@ -7,12 +7,12 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\PrintModel;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\Print\ConnectorsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\Print\OperationsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\Print\PrintersRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\Print\ServicesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\Print\SharesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\Print\TaskDefinitionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\ConnectorsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\OperationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\PrintersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\ServicesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\SharesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Print\TaskDefinitionsRequestBuilder;
 
 /**
  * Request builder for /print

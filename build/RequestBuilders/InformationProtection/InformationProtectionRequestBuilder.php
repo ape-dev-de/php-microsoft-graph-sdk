@@ -7,8 +7,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InformationProtection;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\InformationProtection;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InformationProtection\InformationProtection\BitlockerRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InformationProtection\InformationProtection\ThreatAssessmentRequestsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InformationProtection\BitlockerRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\InformationProtection\ThreatAssessmentRequestsRequestBuilder;
 
 /**
  * Request builder for /informationProtection

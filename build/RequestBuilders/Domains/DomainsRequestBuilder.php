@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\DomainCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Domain;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Domains\Domains\DomainRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Domains\Domains\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Domains\DomainRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Domains\CountRequestBuilder;
 
 /**
  * Request builder for /domains

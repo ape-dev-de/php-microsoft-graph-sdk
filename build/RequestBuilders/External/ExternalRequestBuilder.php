@@ -7,7 +7,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\External;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternal;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\External\External\ConnectionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\External\ConnectionsRequestBuilder;
 
 /**
  * Request builder for /external

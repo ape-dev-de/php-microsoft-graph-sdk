@@ -7,8 +7,8 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Storage;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\Storage;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Storage\Storage\FileStorageRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Storage\Storage\SettingsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Storage\FileStorageRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Storage\SettingsRequestBuilder;
 
 /**
  * Request builder for /storage

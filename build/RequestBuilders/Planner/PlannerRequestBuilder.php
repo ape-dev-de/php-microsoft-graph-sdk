@@ -7,9 +7,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\Planner;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner\Planner\BucketsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner\Planner\PlansRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner\Planner\TasksRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner\BucketsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner\PlansRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Planner\TasksRequestBuilder;
 
 /**
  * Request builder for /planner

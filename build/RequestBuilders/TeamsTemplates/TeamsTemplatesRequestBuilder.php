@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\TeamsTemplateCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\TeamsTemplate;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TeamsTemplates\TeamsTemplates\TeamsTemplateRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TeamsTemplates\TeamsTemplates\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TeamsTemplates\TeamsTemplateRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\TeamsTemplates\CountRequestBuilder;
 
 /**
  * Request builder for /teamsTemplates

@@ -3392,11 +3392,17 @@ function generateRequestBuilderFromNode(string $namespace, array $node, array $s
     
     // Process children
     // If current node is not a parameter/special, children go into a sub-namespace
+    // BUT: Don't create sub-namespace if segment matches the root namespace (avoid Sites/Sites duplication)
     $childNamespace = $subNamespace;
     if (!$isParameter && !$isSpecial && !empty($segment)) {
         $cleanSegment = preg_replace('/[^a-zA-Z0-9]/', '', $segment);
         $cleanSegment = ucfirst($cleanSegment);
-        $childNamespace = $subNamespace ? $subNamespace . '\\' . $cleanSegment : $cleanSegment;
+        
+        // Only add sub-namespace if it's not the same as the root namespace
+        if (strtolower($cleanSegment) !== strtolower($namespace)) {
+            $childNamespace = $subNamespace ? $subNamespace . '\\' . $cleanSegment : $cleanSegment;
+        }
+        // Otherwise, keep $childNamespace as $subNamespace (no duplication)
     }
     
     foreach ($node['children'] as $childSegment => $childNode) {
@@ -3440,10 +3446,18 @@ function generateRequestBuilderCodeFromNode(string $namespace, string $className
         $childClassName = $childNode['className'] . 'RequestBuilder';
         
         // Determine child's relative namespace
+        // Don't add sub-namespace if current segment matches root namespace (avoid duplication)
         if (!$node['isParameter'] && !$node['isSpecial']) {
             $cleanSegment = preg_replace('/[^a-zA-Z0-9]/', '', $node['segment']);
             $cleanSegment = ucfirst($cleanSegment);
-            $childBuilderImports[] = $cleanSegment . '\\' . $childClassName;
+            
+            // Only add sub-namespace if it's not the same as the root namespace
+            if (strtolower($cleanSegment) !== strtolower($namespace)) {
+                $childBuilderImports[] = $cleanSegment . '\\' . $childClassName;
+            } else {
+                // Root level - no sub-namespace needed
+                $childBuilderImports[] = $childClassName;
+            }
         } else {
             $childBuilderImports[] = $childClassName;
         }

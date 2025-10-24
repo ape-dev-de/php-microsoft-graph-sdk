@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternalConnectionCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\ExternalConnectorsExternalConnection;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Connections\Connections\ExternalConnectionRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Connections\Connections\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Connections\ExternalConnectionRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Connections\CountRequestBuilder;
 
 /**
  * Request builder for /connections

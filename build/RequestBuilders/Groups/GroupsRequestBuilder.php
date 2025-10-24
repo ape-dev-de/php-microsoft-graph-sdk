@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\GroupCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Group;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\Groups\GroupRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\Groups\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\Groups\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\Groups\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\Groups\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\Groups\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\GroupRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Groups\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /groups

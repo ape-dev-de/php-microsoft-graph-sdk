@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\AgreementAcceptanceCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\AgreementAcceptance;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AgreementAcceptances\AgreementAcceptances\AgreementAcceptanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AgreementAcceptances\AgreementAcceptanceRequestBuilder;
 
 /**
  * Request builder for /agreementAcceptances

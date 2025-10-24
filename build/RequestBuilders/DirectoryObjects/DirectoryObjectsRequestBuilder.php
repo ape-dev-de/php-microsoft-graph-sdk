@@ -8,12 +8,12 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\DirectoryObjectCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\DirectoryObject;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjects\DirectoryObjectRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjects\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjects\DeltaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjects\GetAvailableExtensionPropertiesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjects\GetByIdsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjects\ValidatePropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DirectoryObjectRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\DeltaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\GetAvailableExtensionPropertiesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\GetByIdsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DirectoryObjects\ValidatePropertiesRequestBuilder;
 
 /**
  * Request builder for /directoryObjects

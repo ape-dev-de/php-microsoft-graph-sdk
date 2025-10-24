@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ScopedRoleMembershipCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\ScopedRoleMembership;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ScopedRoleMemberships\ScopedRoleMemberships\ScopedRoleMembershipRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ScopedRoleMemberships\ScopedRoleMemberships\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ScopedRoleMemberships\ScopedRoleMembershipRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\ScopedRoleMemberships\CountRequestBuilder;
 
 /**
  * Request builder for /scopedRoleMemberships

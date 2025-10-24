@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\GroupLifecyclePolicyCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\GroupLifecyclePolicy;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupLifecyclePolicies\GroupLifecyclePolicies\GroupLifecyclePolicyRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupLifecyclePolicies\GroupLifecyclePolicies\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupLifecyclePolicies\GroupLifecyclePolicyRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\GroupLifecyclePolicies\CountRequestBuilder;
 
 /**
  * Request builder for /groupLifecyclePolicies

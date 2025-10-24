@@ -7,11 +7,11 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\CloudCommunications;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\Communications\CallRecordsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\Communications\CallsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\Communications\GetPresencesByUserIdRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\Communications\OnlineMeetingsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\Communications\PresencesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\CallRecordsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\CallsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\GetPresencesByUserIdRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\OnlineMeetingsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Communications\PresencesRequestBuilder;
 
 /**
  * Request builder for /communications

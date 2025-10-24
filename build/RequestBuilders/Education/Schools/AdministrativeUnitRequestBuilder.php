@@ -1,0 +1,89 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Education\Schools;
+
+use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\AdministrativeUnit;
+
+/**
+ * Request builder for /education/schools/{educationSchool-id}/administrativeUnit
+ */
+class AdministrativeUnitRequestBuilder extends RootBaseRequestBuilder
+{
+    /**
+     * Get administrativeUnit from education
+     *
+     * @param array<int, string>|null $select Select properties to be returned
+     * @param array<int, string>|null $expand Expand related entities
+     * @return AdministrativeUnit
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function get(?array $select = null, ?array $expand = null): AdministrativeUnit
+    {
+        $queryParams = [];
+        if ($select !== null && $select !== []) {
+            $queryParams['$select'] = implode(',', $select);
+        }
+        if ($expand !== null && $expand !== []) {
+            $queryParams['$expand'] = implode(',', $expand);
+        }
+        $response = $this->client->get($this->requestUrl, $queryParams);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializeGet($responseBody);
+    }
+
+    /**
+     * Deserialize response to AdministrativeUnit
+     */
+    private function deserializeGet(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AdministrativeUnit($data);
+    }
+    /**
+     * Update the navigation property administrativeUnit in education
+     * @param AdministrativeUnit $body Request body
+     * @return AdministrativeUnit
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(AdministrativeUnit $body): AdministrativeUnit
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to AdministrativeUnit
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new AdministrativeUnit($data);
+    }
+}

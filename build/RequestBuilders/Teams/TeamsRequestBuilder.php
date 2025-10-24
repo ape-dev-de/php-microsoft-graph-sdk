@@ -8,9 +8,9 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\TeamCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Team;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teams\Teams\TeamRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teams\Teams\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teams\Teams\GetAllMessagesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teams\TeamRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teams\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teams\GetAllMessagesRequestBuilder;
 
 /**
  * Request builder for /teams

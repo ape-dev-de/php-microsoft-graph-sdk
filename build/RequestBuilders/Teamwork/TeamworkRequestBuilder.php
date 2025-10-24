@@ -7,11 +7,11 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\Teamwork;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\Teamwork\DeletedChatsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\Teamwork\DeletedTeamsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\Teamwork\SendActivityNotificationToRecipientsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\Teamwork\TeamsAppSettingsRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\Teamwork\WorkforceIntegrationsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\DeletedChatsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\DeletedTeamsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\SendActivityNotificationToRecipientsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\TeamsAppSettingsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Teamwork\WorkforceIntegrationsRequestBuilder;
 
 /**
  * Request builder for /teamwork

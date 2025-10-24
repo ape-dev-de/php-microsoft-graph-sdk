@@ -8,9 +8,9 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\InvitationCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Invitation;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Invitations\Invitations\CountRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Invitations\Invitations\InvitedUserRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Invitations\Invitations\InvitedUserSponsorsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Invitations\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Invitations\InvitedUserRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Invitations\InvitedUserSponsorsRequestBuilder;
 
 /**
  * Request builder for /invitations

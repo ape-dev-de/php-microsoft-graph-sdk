@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\SubscribedSkuCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\SubscribedSku;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SubscribedSkus\SubscribedSkus\SubscribedSkuRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\SubscribedSkus\SubscribedSkuRequestBuilder;
 
 /**
  * Request builder for /subscribedSkus

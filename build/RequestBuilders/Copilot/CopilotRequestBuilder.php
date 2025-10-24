@@ -7,9 +7,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\CopilotRoot;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot\Copilot\AdminRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot\Copilot\InteractionHistoryRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot\Copilot\UsersRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot\AdminRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot\InteractionHistoryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Copilot\UsersRequestBuilder;
 
 /**
  * Request builder for /copilot

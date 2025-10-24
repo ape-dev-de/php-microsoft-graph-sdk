@@ -7,7 +7,7 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AppCatalogs;
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\AppCatalogs;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AppCatalogs\AppCatalogs\TeamsAppsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\AppCatalogs\TeamsAppsRequestBuilder;
 
 /**
  * Request builder for /appCatalogs

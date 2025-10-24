@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\FilterOperatorSchemaCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\FilterOperatorSchema;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\FilterOperators\FilterOperators\FilterOperatorSchemaRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\FilterOperators\FilterOperators\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\FilterOperators\FilterOperatorSchemaRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\FilterOperators\CountRequestBuilder;
 
 /**
  * Request builder for /filterOperators

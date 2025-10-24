@@ -8,8 +8,8 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\DataPolicyOperationCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\DataPolicyOperation;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DataPolicyOperations\DataPolicyOperations\DataPolicyOperationRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DataPolicyOperations\DataPolicyOperations\CountRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DataPolicyOperations\DataPolicyOperationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DataPolicyOperations\CountRequestBuilder;
 
 /**
  * Request builder for /dataPolicyOperations
