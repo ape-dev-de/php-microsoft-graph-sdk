@@ -19,7 +19,7 @@ class AuthenticationEventsFlow
      * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
     /** The description of the events policy. */
     public ?string $description = null;

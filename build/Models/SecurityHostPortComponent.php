@@ -25,7 +25,7 @@ class SecurityHostPortComponent
      * 
      * @var SecurityHostComponent|\stdClass|null
      */
-    public mixed $component = null;
+    public SecurityHostComponent|\stdClass|null $component = null;
 
 
     /**

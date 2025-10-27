@@ -34,13 +34,13 @@ class AccessPackageSubject
      * The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue.
      * @var AccessPackageSubjectType|\stdClass|null
      */
-    public mixed $subjectType = null;
+    public AccessPackageSubjectType|\stdClass|null $subjectType = null;
 
     /** 
      * The connected organization of the subject. Read-only. Nullable.
      * @var ConnectedOrganization|\stdClass|null
      */
-    public mixed $connectedOrganization = null;
+    public ConnectedOrganization|\stdClass|null $connectedOrganization = null;
 
 
     /**

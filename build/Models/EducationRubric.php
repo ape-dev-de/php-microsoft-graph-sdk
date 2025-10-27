@@ -19,7 +19,7 @@ class EducationRubric
      * The user who created this resource.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class EducationRubric
      * The description of this rubric.
      * @var EducationItemBody|\stdClass|null
      */
-    public mixed $description = null;
+    public EducationItemBody|\stdClass|null $description = null;
 
     /** The name of this rubric. */
     public ?string $displayName = null;
@@ -37,13 +37,13 @@ class EducationRubric
      * The grading type of this rubric. You can use null for a no-points rubric or educationAssignmentPointsGradeType for a points rubric.
      * @var EducationAssignmentGradeType|\stdClass|null
      */
-    public mixed $grading = null;
+    public EducationAssignmentGradeType|\stdClass|null $grading = null;
 
     /** 
      * The last user to modify the resource.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Moment in time when the resource was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

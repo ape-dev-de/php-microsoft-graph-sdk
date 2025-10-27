@@ -40,7 +40,7 @@ class AadUserConversationMember
      * 
      * @var User|\stdClass|null
      */
-    public mixed $user = null;
+    public User|\stdClass|null $user = null;
 
 
     /**

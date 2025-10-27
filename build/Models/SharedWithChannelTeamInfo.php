@@ -25,7 +25,7 @@ class SharedWithChannelTeamInfo
      * 
      * @var Team|\stdClass|null
      */
-    public mixed $team = null;
+    public Team|\stdClass|null $team = null;
 
     /** Indicates whether the team is the host of the channel. */
     public ?bool $isHostTeam = null;

@@ -16,7 +16,7 @@ class ActionResultPart
      * The error that occurred, if any, during the bulk operation.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
 
     /**

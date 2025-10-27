@@ -18,11 +18,17 @@ class NumberColumn
     /** How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number. */
     public ?string $displayAs = null;
 
-    /** The maximum permitted value. */
-    public ?string $maximum = null;
+    /** 
+     * The maximum permitted value.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $maximum = null;
 
-    /** The minimum permitted value. */
-    public ?string $minimum = null;
+    /** 
+     * The minimum permitted value.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $minimum = null;
 
 
     /**

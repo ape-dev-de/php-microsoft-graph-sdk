@@ -25,7 +25,7 @@ class CallRecordsParticipantBase
      * The identity of the call participant.
      * @var CommunicationsIdentitySet|\stdClass|null
      */
-    public mixed $identity = null;
+    public CommunicationsIdentitySet|\stdClass|null $identity = null;
 
 
     /**

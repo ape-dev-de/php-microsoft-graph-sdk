@@ -28,13 +28,13 @@ class AlertHistoryState
      * 
      * @var AlertFeedback|\stdClass|null
      */
-    public mixed $feedback = null;
+    public AlertFeedback|\stdClass|null $feedback = null;
 
     /** 
      * 
      * @var AlertStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public AlertStatus|\stdClass|null $status = null;
 
     /**  */
     public ?\DateTimeInterface $updatedDateTime = null;

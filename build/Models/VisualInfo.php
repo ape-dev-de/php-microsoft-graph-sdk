@@ -16,7 +16,7 @@ class VisualInfo
      * Optional. JSON object used to represent an icon which represents the application used to generate the activity
      * @var ImageInfo|\stdClass|null
      */
-    public mixed $attribution = null;
+    public ImageInfo|\stdClass|null $attribution = null;
 
     /** Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color */
     public ?string $backgroundColor = null;

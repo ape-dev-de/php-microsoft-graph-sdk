@@ -67,13 +67,13 @@ class SecurityAnalyzedMessageEvidence
      * The P1 sender.
      * @var SecurityEmailSender|\stdClass|null
      */
-    public mixed $p1Sender = null;
+    public SecurityEmailSender|\stdClass|null $p1Sender = null;
 
     /** 
      * The P2 sender.
      * @var SecurityEmailSender|\stdClass|null
      */
-    public mixed $p2Sender = null;
+    public SecurityEmailSender|\stdClass|null $p2Sender = null;
 
     /** Date and time when the email was received. */
     public ?\DateTimeInterface $receivedDateTime = null;

@@ -49,7 +49,7 @@ class Person
      * The type of person.
      * @var PersonType|\stdClass|null
      */
-    public mixed $personType = null;
+    public PersonType|\stdClass|null $personType = null;
 
     /** 
      * The person's phone numbers.

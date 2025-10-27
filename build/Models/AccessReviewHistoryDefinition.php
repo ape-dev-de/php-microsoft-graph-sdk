@@ -40,7 +40,7 @@ class AccessReviewHistoryDefinition
      * The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime aren't defined. Not supported yet.
      * @var AccessReviewHistoryScheduleSettings|\stdClass|null
      */
-    public mixed $scheduleSettings = null;
+    public AccessReviewHistoryScheduleSettings|\stdClass|null $scheduleSettings = null;
 
     /** 
      * Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. Required.
@@ -52,7 +52,7 @@ class AccessReviewHistoryDefinition
      * Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue.
      * @var AccessReviewHistoryStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public AccessReviewHistoryStatus|\stdClass|null $status = null;
 
     /** 
      * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.

@@ -25,13 +25,13 @@ class UserDataSecurityAndGovernance
      * Container for activity logs (content processing and audit) related to this user. ContainsTarget: true.
      * @var ActivitiesContainer|\stdClass|null
      */
-    public mixed $activities = null;
+    public ActivitiesContainer|\stdClass|null $activities = null;
 
     /** 
      * 
      * @var UserProtectionScopeContainer|\stdClass|null
      */
-    public mixed $protectionScopes = null;
+    public UserProtectionScopeContainer|\stdClass|null $protectionScopes = null;
 
 
     /**

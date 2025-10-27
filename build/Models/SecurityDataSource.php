@@ -19,7 +19,7 @@ class SecurityDataSource
      * The user who created the dataSource.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time the dataSource was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -31,7 +31,7 @@ class SecurityDataSource
      * The hold status of the dataSource.The possible values are: notApplied, applied, applying, removing, partial
      * @var SecurityDataSourceHoldStatus|\stdClass|null
      */
-    public mixed $holdStatus = null;
+    public SecurityDataSourceHoldStatus|\stdClass|null $holdStatus = null;
 
 
     /**

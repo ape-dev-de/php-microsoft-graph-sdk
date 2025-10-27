@@ -19,7 +19,7 @@ class Room
      * The street address of the place.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $address = null;
+    public PhysicalAddress|\stdClass|null $address = null;
 
     /** The name associated with the place. */
     public ?string $displayName = null;
@@ -28,7 +28,7 @@ class Room
      * Specifies the place location in latitude, longitude, and (optionally) altitude coordinates.
      * @var OutlookGeoCoordinates|\stdClass|null
      */
-    public mixed $geoCoordinates = null;
+    public OutlookGeoCoordinates|\stdClass|null $geoCoordinates = null;
 
     /** The phone number of the place. */
     public ?string $phone = null;
@@ -40,7 +40,7 @@ class Room
      * Type of room. Possible values are standard, and reserved.
      * @var BookingType|\stdClass|null
      */
-    public mixed $bookingType = null;
+    public BookingType|\stdClass|null $bookingType = null;
 
     /** Specifies the building name or building number that the room is in. */
     public ?string $building = null;

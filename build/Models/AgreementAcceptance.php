@@ -43,7 +43,7 @@ class AgreementAcceptance
      * The state of the agreement acceptance. Possible values are: accepted, declined. Supports $filter (eq).
      * @var AgreementAcceptanceState|\stdClass|null
      */
-    public mixed $state = null;
+    public AgreementAcceptanceState|\stdClass|null $state = null;
 
     /** Display name of the user when the acceptance was recorded. */
     public ?string $userDisplayName = null;

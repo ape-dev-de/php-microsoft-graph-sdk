@@ -19,7 +19,7 @@ class WorkbookWorksheetProtection
      * Worksheet protection options. Read-only.
      * @var WorkbookWorksheetProtectionOptions|\stdClass|null
      */
-    public mixed $options = null;
+    public WorkbookWorksheetProtectionOptions|\stdClass|null $options = null;
 
     /** Indicates whether the worksheet is protected.  Read-only. */
     public ?bool $protected = null;

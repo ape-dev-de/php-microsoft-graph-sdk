@@ -25,13 +25,13 @@ class RestorePoint
      * The type of the restore point. The possible values are: none, fastRestore, unknownFutureValue.
      * @var RestorePointTags|\stdClass|null
      */
-    public mixed $tags = null;
+    public RestorePointTags|\stdClass|null $tags = null;
 
     /** 
      * The site, drive, or mailbox units that are protected under a protection policy.
      * @var ProtectionUnitBase|\stdClass|null
      */
-    public mixed $protectionUnit = null;
+    public ProtectionUnitBase|\stdClass|null $protectionUnit = null;
 
 
     /**

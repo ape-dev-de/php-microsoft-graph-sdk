@@ -19,43 +19,43 @@ class CrossTenantAccessPolicyConfigurationDefault
      * Determines the default configuration for automatic user consent settings. The inboundAllowed and outboundAllowed properties are always false and can't be updated in the default configuration. Read-only.
      * @var InboundOutboundPolicyConfiguration|\stdClass|null
      */
-    public mixed $automaticUserConsentSettings = null;
+    public InboundOutboundPolicyConfiguration|\stdClass|null $automaticUserConsentSettings = null;
 
     /** 
      * Defines your default configuration for users from other organizations accessing your resources via Microsoft Entra B2B collaboration.
      * @var CrossTenantAccessPolicyB2BSetting|\stdClass|null
      */
-    public mixed $b2bCollaborationInbound = null;
+    public CrossTenantAccessPolicyB2BSetting|\stdClass|null $b2bCollaborationInbound = null;
 
     /** 
      * Defines your default configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B collaboration.
      * @var CrossTenantAccessPolicyB2BSetting|\stdClass|null
      */
-    public mixed $b2bCollaborationOutbound = null;
+    public CrossTenantAccessPolicyB2BSetting|\stdClass|null $b2bCollaborationOutbound = null;
 
     /** 
      * Defines your default configuration for users from other organizations accessing your resources via Microsoft Entra B2B direct connect.
      * @var CrossTenantAccessPolicyB2BSetting|\stdClass|null
      */
-    public mixed $b2bDirectConnectInbound = null;
+    public CrossTenantAccessPolicyB2BSetting|\stdClass|null $b2bDirectConnectInbound = null;
 
     /** 
      * Defines your default configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B direct connect.
      * @var CrossTenantAccessPolicyB2BSetting|\stdClass|null
      */
-    public mixed $b2bDirectConnectOutbound = null;
+    public CrossTenantAccessPolicyB2BSetting|\stdClass|null $b2bDirectConnectOutbound = null;
 
     /** 
      * Determines the default configuration for trusting other Conditional Access claims from external Microsoft Entra organizations.
      * @var CrossTenantAccessPolicyInboundTrust|\stdClass|null
      */
-    public mixed $inboundTrust = null;
+    public CrossTenantAccessPolicyInboundTrust|\stdClass|null $inboundTrust = null;
 
     /** 
      * Defines the priority order based on which an identity provider is selected during invitation redemption for a guest user.
      * @var DefaultInvitationRedemptionIdentityProviderConfiguration|\stdClass|null
      */
-    public mixed $invitationRedemptionIdentityProviderConfiguration = null;
+    public DefaultInvitationRedemptionIdentityProviderConfiguration|\stdClass|null $invitationRedemptionIdentityProviderConfiguration = null;
 
     /** If true, the default configuration is set to the system default configuration. If false, the default settings are customized. */
     public ?bool $isServiceDefault = null;
@@ -64,7 +64,7 @@ class CrossTenantAccessPolicyConfigurationDefault
      * Defines the default tenant restrictions configuration for users in your organization who access an external organization on your network or devices.
      * @var CrossTenantAccessPolicyTenantRestrictions|\stdClass|null
      */
-    public mixed $tenantRestrictions = null;
+    public CrossTenantAccessPolicyTenantRestrictions|\stdClass|null $tenantRestrictions = null;
 
 
     /**

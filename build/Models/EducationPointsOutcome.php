@@ -19,7 +19,7 @@ class EducationPointsOutcome
      * The individual who updated the resource.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The moment in time when the resource was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -28,13 +28,13 @@ class EducationPointsOutcome
      * The numeric grade the teacher has given the student for this assignment.
      * @var EducationAssignmentPointsGrade|\stdClass|null
      */
-    public mixed $points = null;
+    public EducationAssignmentPointsGrade|\stdClass|null $points = null;
 
     /** 
      * A copy of the points property that is made when the grade is released to the student.
      * @var EducationAssignmentPointsGrade|\stdClass|null
      */
-    public mixed $publishedPoints = null;
+    public EducationAssignmentPointsGrade|\stdClass|null $publishedPoints = null;
 
 
     /**

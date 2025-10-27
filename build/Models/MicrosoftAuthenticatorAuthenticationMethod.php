@@ -31,7 +31,7 @@ class MicrosoftAuthenticatorAuthenticationMethod
      * The registered device on which Microsoft Authenticator resides. This property is null if the device isn't registered for passwordless Phone Sign-In.
      * @var Device|\stdClass|null
      */
-    public mixed $device = null;
+    public Device|\stdClass|null $device = null;
 
 
     /**

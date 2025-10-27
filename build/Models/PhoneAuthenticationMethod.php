@@ -22,13 +22,13 @@ class PhoneAuthenticationMethod
      * The type of this phone. Possible values are: mobile, alternateMobile, or office.
      * @var AuthenticationPhoneType|\stdClass|null
      */
-    public mixed $phoneType = null;
+    public AuthenticationPhoneType|\stdClass|null $phoneType = null;
 
     /** 
      * Whether a phone is ready to be used for SMS sign-in or not. Possible values are: notSupported, notAllowedByPolicy, notEnabled, phoneNumberNotUnique, ready, or notConfigured, unknownFutureValue.
      * @var AuthenticationMethodSignInState|\stdClass|null
      */
-    public mixed $smsSignInState = null;
+    public AuthenticationMethodSignInState|\stdClass|null $smsSignInState = null;
 
 
     /**

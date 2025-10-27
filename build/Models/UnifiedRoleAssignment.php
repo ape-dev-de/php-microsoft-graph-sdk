@@ -34,25 +34,25 @@ class UnifiedRoleAssignment
      * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
      * @var AppScope|\stdClass|null
      */
-    public mixed $appScope = null;
+    public AppScope|\stdClass|null $appScope = null;
 
     /** 
      * The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $directoryScope = null;
+    public DirectoryObject|\stdClass|null $directoryScope = null;
 
     /** 
      * Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
     /** 
      * The roleDefinition the assignment is for. Supports $expand.
      * @var UnifiedRoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public UnifiedRoleDefinition|\stdClass|null $roleDefinition = null;
 
 
     /**

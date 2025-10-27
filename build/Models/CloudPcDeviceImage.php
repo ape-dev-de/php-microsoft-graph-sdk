@@ -22,7 +22,7 @@ class CloudPcDeviceImage
      * The error code of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, sourceImageNotGeneralized, unknownFutureValue, vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: vmAlreadyAzureAdJoined, paidSourceImageNotSupport, sourceImageNotSupportCustomizeVMName, sourceImageSizeExceedsLimitation. Read-only.
      * @var CloudPcDeviceImageErrorCode|\stdClass|null
      */
-    public mixed $errorCode = null;
+    public CloudPcDeviceImageErrorCode|\stdClass|null $errorCode = null;
 
     /** The date when the image became unavailable. Read-only. */
     public ?\DateTimeInterface $expirationDate = null;
@@ -40,7 +40,7 @@ class CloudPcDeviceImage
      * The OS status of this image. Possible values are: supported, supportedWithWarning, unknown, unknownFutureValue. The default value is unknown. Read-only.
      * @var CloudPcDeviceImageOsStatus|\stdClass|null
      */
-    public mixed $osStatus = null;
+    public CloudPcDeviceImageOsStatus|\stdClass|null $osStatus = null;
 
     /** The unique identifier (ID) of the source image resource on Azure. The required ID format is: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'. Read-only. */
     public ?string $sourceImageResourceId = null;
@@ -49,7 +49,7 @@ class CloudPcDeviceImage
      * The status of the image on the Cloud PC. Possible values are: pending, ready, failed, unknownFutureValue. Read-only.
      * @var CloudPcDeviceImageStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public CloudPcDeviceImageStatus|\stdClass|null $status = null;
 
     /** The image version. For example, 0.0.1 and 1.5.13. Read-only. */
     public ?string $version = null;

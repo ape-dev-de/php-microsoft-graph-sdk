@@ -37,7 +37,7 @@ class Win32LobApp
      * The large icon, to be displayed in the app details and used for upload of the icon.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $largeIcon = null;
+    public MimeContent|\stdClass|null $largeIcon = null;
 
     /** The date and time the app was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -88,7 +88,7 @@ class Win32LobApp
      * Indicates the Windows architecture(s) this app should be installed on. The app will be treated as not applicable for devices with architectures not matching the selected value. When a non-null value is provided for the `allowedArchitectures` property, the value of the `applicableArchitectures` property is set to `none`. Possible values are: `null`, `x86`, `x64`, `arm64`.
      * @var WindowsArchitecture|\stdClass|null
      */
-    public mixed $allowedArchitectures = null;
+    public WindowsArchitecture|\stdClass|null $allowedArchitectures = null;
 
     /**  */
     public ?WindowsArchitecture $applicableArchitectures = null;
@@ -100,7 +100,7 @@ class Win32LobApp
      * The install experience for this app.
      * @var Win32LobAppInstallExperience|\stdClass|null
      */
-    public mixed $installExperience = null;
+    public Win32LobAppInstallExperience|\stdClass|null $installExperience = null;
 
     /** The value for the minimum CPU speed which is required to install this app. */
     public ?float $minimumCpuSpeedInMHz = null;
@@ -121,7 +121,7 @@ class Win32LobApp
      * The MSI details if this Win32 app is an MSI app.
      * @var Win32LobAppMsiInformation|\stdClass|null
      */
-    public mixed $msiInformation = null;
+    public Win32LobAppMsiInformation|\stdClass|null $msiInformation = null;
 
     /** 
      * The return codes for post installation behavior.

@@ -28,7 +28,7 @@ class BitlockerRecoveryKey
      * Indicates the type of volume the BitLocker key is associated with. The possible values are: 1 (for operatingSystemVolume), 2 (for fixedDataVolume), 3 (for removableDataVolume), and 4 (for unknownFutureValue).
      * @var VolumeType|\stdClass|null
      */
-    public mixed $volumeType = null;
+    public VolumeType|\stdClass|null $volumeType = null;
 
 
     /**

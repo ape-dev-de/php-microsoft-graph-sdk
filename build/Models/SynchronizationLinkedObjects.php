@@ -16,7 +16,7 @@ class SynchronizationLinkedObjects
      * 
      * @var SynchronizationJobSubject|\stdClass|null
      */
-    public mixed $manager = null;
+    public SynchronizationJobSubject|\stdClass|null $manager = null;
 
     /** 
      * All group members that you would like to provision.

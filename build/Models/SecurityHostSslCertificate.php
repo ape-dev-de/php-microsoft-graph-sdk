@@ -31,13 +31,13 @@ class SecurityHostSslCertificate
      * The host for this hostSslCertificate.
      * @var SecurityHost|\stdClass|null
      */
-    public mixed $host = null;
+    public SecurityHost|\stdClass|null $host = null;
 
     /** 
      * The sslCertificate for this hostSslCertificate.
      * @var SecuritySslCertificate|\stdClass|null
      */
-    public mixed $sslCertificate = null;
+    public SecuritySslCertificate|\stdClass|null $sslCertificate = null;
 
 
     /**

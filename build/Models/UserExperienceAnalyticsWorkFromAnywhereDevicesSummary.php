@@ -16,19 +16,19 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
      * The user experience analytics work from anywhere Autopilot devices summary. Read-only.
      * @var UserExperienceAnalyticsAutopilotDevicesSummary|\stdClass|null
      */
-    public mixed $autopilotDevicesSummary = null;
+    public UserExperienceAnalyticsAutopilotDevicesSummary|\stdClass|null $autopilotDevicesSummary = null;
 
     /** 
      * The user experience analytics work from anywhere Cloud Identity devices summary. Read-only.
      * @var UserExperienceAnalyticsCloudIdentityDevicesSummary|\stdClass|null
      */
-    public mixed $cloudIdentityDevicesSummary = null;
+    public UserExperienceAnalyticsCloudIdentityDevicesSummary|\stdClass|null $cloudIdentityDevicesSummary = null;
 
     /** 
      * The user experience analytics work from anywhere Cloud management devices summary. Read-only.
      * @var UserExperienceAnalyticsCloudManagementDevicesSummary|\stdClass|null
      */
-    public mixed $cloudManagementDevicesSummary = null;
+    public UserExperienceAnalyticsCloudManagementDevicesSummary|\stdClass|null $cloudManagementDevicesSummary = null;
 
     /** Total number of co-managed devices. Read-only. Valid values -2147483648 to 2147483647 */
     public ?float $coManagedDevices = null;
@@ -61,7 +61,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
      * The user experience analytics work from anywhere Windows 10 devices summary. Read-only.
      * @var UserExperienceAnalyticsWindows10DevicesSummary|\stdClass|null
      */
-    public mixed $windows10DevicesSummary = null;
+    public UserExperienceAnalyticsWindows10DevicesSummary|\stdClass|null $windows10DevicesSummary = null;
 
     /** The count of windows 10 devices that are Intune and co-managed. Read-only. Valid values -2147483648 to 2147483647 */
     public ?float $windows10DevicesWithoutTenantAttach = null;

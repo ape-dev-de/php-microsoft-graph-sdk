@@ -19,7 +19,7 @@ class IosLobAppProvisioningConfigurationAssignment
      * The target group assignment defined by the admin.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

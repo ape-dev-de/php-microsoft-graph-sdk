@@ -31,7 +31,7 @@ class TermStoreGroup
      * Returns the type of the group. Possible values are: global, system, and siteCollection.
      * @var TermStoreTermGroupScope|\stdClass|null
      */
-    public mixed $scope = null;
+    public TermStoreTermGroupScope|\stdClass|null $scope = null;
 
     /** 
      * All sets under the group in a term [store].

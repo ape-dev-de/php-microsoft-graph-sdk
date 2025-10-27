@@ -19,7 +19,7 @@ class WebApplication
      * Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
      * @var ImplicitGrantSettings|\stdClass|null
      */
-    public mixed $implicitGrantSettings = null;
+    public ImplicitGrantSettings|\stdClass|null $implicitGrantSettings = null;
 
     /** Specifies the URL that is used by Microsoft's authorization service to log out a user using front-channel, back-channel or SAML logout protocols. */
     public ?string $logoutUrl = null;

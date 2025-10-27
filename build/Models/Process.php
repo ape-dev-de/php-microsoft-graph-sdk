@@ -25,13 +25,13 @@ class Process
      * Complex type containing file hashes (cryptographic and location-sensitive).
      * @var FileHash|\stdClass|null
      */
-    public mixed $fileHash = null;
+    public FileHash|\stdClass|null $fileHash = null;
 
     /** 
      * The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
      * @var ProcessIntegrityLevel|\stdClass|null
      */
-    public mixed $integrityLevel = null;
+    public ProcessIntegrityLevel|\stdClass|null $integrityLevel = null;
 
     /** True if the process is elevated. */
     public ?bool $isElevated = null;

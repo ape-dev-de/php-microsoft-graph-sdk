@@ -46,13 +46,13 @@ class SecurityUserEvidence
      * 
      * @var SecurityStream|\stdClass|null
      */
-    public mixed $stream = null;
+    public SecurityStream|\stdClass|null $stream = null;
 
     /** 
      * The user account details.
      * @var SecurityUserAccount|\stdClass|null
      */
-    public mixed $userAccount = null;
+    public SecurityUserAccount|\stdClass|null $userAccount = null;
 
 
     /**

@@ -16,7 +16,7 @@ class Win32LobAppAssignmentSettings
      * The auto-update settings to apply for this app assignment.
      * @var Win32LobAppAutoUpdateSettings|\stdClass|null
      */
-    public mixed $autoUpdateSettings = null;
+    public Win32LobAppAutoUpdateSettings|\stdClass|null $autoUpdateSettings = null;
 
     /**  */
     public ?Win32LobAppDeliveryOptimizationPriority $deliveryOptimizationPriority = null;
@@ -25,7 +25,7 @@ class Win32LobAppAssignmentSettings
      * The install time settings to apply for this app assignment.
      * @var MobileAppInstallTimeSettings|\stdClass|null
      */
-    public mixed $installTimeSettings = null;
+    public MobileAppInstallTimeSettings|\stdClass|null $installTimeSettings = null;
 
     /**  */
     public ?Win32LobAppNotification $notifications = null;
@@ -34,7 +34,7 @@ class Win32LobAppAssignmentSettings
      * The reboot settings to apply for this app assignment.
      * @var Win32LobAppRestartSettings|\stdClass|null
      */
-    public mixed $restartSettings = null;
+    public Win32LobAppRestartSettings|\stdClass|null $restartSettings = null;
 
 
     /**

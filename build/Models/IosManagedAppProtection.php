@@ -148,7 +148,7 @@ class IosManagedAppProtection
      * Navigation property to deployment summary of the configuration.
      * @var ManagedAppPolicyDeploymentSummary|\stdClass|null
      */
-    public mixed $deploymentSummary = null;
+    public ManagedAppPolicyDeploymentSummary|\stdClass|null $deploymentSummary = null;
 
 
     /**

@@ -25,7 +25,7 @@ class Phone
      * The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
      * @var PhoneType|\stdClass|null
      */
-    public mixed $type = null;
+    public PhoneType|\stdClass|null $type = null;
 
 
     /**

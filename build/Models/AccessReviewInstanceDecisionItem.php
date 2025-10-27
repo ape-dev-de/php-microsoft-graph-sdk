@@ -22,7 +22,7 @@ class AccessReviewInstanceDecisionItem
      * The identifier of the user who applied the decision. Read-only.
      * @var UserIdentity|\stdClass|null
      */
-    public mixed $appliedBy = null;
+    public UserIdentity|\stdClass|null $appliedBy = null;
 
     /** The timestamp when the approval decision was applied.00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't applied the decision or it was automatically applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only. */
     public ?\DateTimeInterface $appliedDateTime = null;
@@ -40,7 +40,7 @@ class AccessReviewInstanceDecisionItem
      * Every decision item in an access review represents a principal's access to a resource. This property represents details of the principal. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is 'Bob' and the resource is 'Sales'. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only.
      * @var Identity|\stdClass|null
      */
-    public mixed $principal = null;
+    public Identity|\stdClass|null $principal = null;
 
     /** A link to the principal object. For example, https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only. */
     public ?string $principalLink = null;
@@ -52,7 +52,7 @@ class AccessReviewInstanceDecisionItem
      * Every decision item in an access review represents a principal's access to a resource. This property represents details of the resource. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is Bob and the resource is 'Sales'. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only.
      * @var AccessReviewInstanceDecisionItemResource|\stdClass|null
      */
-    public mixed $resource = null;
+    public AccessReviewInstanceDecisionItemResource|\stdClass|null $resource = null;
 
     /** A link to the resource. For example, https://graph.microsoft.com/v1.0/servicePrincipals/c86300f3-8695-4320-9f6e-32a2555f5ff8. Supports $select. Read-only. */
     public ?string $resourceLink = null;
@@ -61,7 +61,7 @@ class AccessReviewInstanceDecisionItem
      * The identifier of the reviewer.00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Supports $select. Read-only.
      * @var UserIdentity|\stdClass|null
      */
-    public mixed $reviewedBy = null;
+    public UserIdentity|\stdClass|null $reviewedBy = null;
 
     /** The timestamp when the review decision occurred. Supports $select. Read-only. */
     public ?\DateTimeInterface $reviewedDateTime = null;

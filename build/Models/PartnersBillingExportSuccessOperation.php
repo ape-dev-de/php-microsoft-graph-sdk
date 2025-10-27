@@ -25,7 +25,7 @@ class PartnersBillingExportSuccessOperation
      * The status of the operation. Possible values are: notStarted, running, completed, failed, unknownFutureValue.
      * @var LongRunningOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public LongRunningOperationStatus|\stdClass|null $status = null;
 
     /**  */
     public ?PartnersBillingManifest $resourceLocation = null;

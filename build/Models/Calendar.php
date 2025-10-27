@@ -37,13 +37,13 @@ class Calendar
      * Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: auto, lightBlue, lightGreen, lightOrange, lightGray, lightYellow, lightTeal, lightPink, lightBrown, lightRed, maxColor.
      * @var CalendarColor|\stdClass|null
      */
-    public mixed $color = null;
+    public CalendarColor|\stdClass|null $color = null;
 
     /** 
      * The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
      * @var OnlineMeetingProviderType|\stdClass|null
      */
-    public mixed $defaultOnlineMeetingProvider = null;
+    public OnlineMeetingProviderType|\stdClass|null $defaultOnlineMeetingProvider = null;
 
     /** The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is empty. Read-only. */
     public ?string $hexColor = null;
@@ -64,7 +64,7 @@ class Calendar
      * If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user.
      * @var EmailAddress|\stdClass|null
      */
-    public mixed $owner = null;
+    public EmailAddress|\stdClass|null $owner = null;
 
     /** 
      * The permissions of the users with whom the calendar is shared.

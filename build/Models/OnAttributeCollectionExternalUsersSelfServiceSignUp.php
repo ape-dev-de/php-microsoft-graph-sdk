@@ -16,7 +16,7 @@ class OnAttributeCollectionExternalUsersSelfServiceSignUp
      * Required. The configuration for how attributes are displayed in the sign-up experience defined by a user flow, like the externalUsersSelfServiceSignupEventsFlow, specifically on the attribute collection page.
      * @var AuthenticationAttributeCollectionPage|\stdClass|null
      */
-    public mixed $attributeCollectionPage = null;
+    public AuthenticationAttributeCollectionPage|\stdClass|null $attributeCollectionPage = null;
 
     /** 
      * 

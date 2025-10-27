@@ -25,7 +25,7 @@ class Operation
      * The current status of the operation: notStarted, running, completed, failed
      * @var OperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public OperationStatus|\stdClass|null $status = null;
 
 
     /**

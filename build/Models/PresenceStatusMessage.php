@@ -16,13 +16,13 @@ class PresenceStatusMessage
      * Time in which the status message expires.If not provided, the status message doesn't expire.expiryDateTime.dateTime shouldn't include time zone.expiryDateTime isn't available when you request the presence of another user.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $expiryDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $expiryDateTime = null;
 
     /** 
      * Status message item. The only supported format currently is message.contentType = 'text'.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $message = null;
+    public ItemBody|\stdClass|null $message = null;
 
     /** Time in which the status message was published.Read-only.publishedDateTime isn't available when you request the presence of another user. */
     public ?\DateTimeInterface $publishedDateTime = null;

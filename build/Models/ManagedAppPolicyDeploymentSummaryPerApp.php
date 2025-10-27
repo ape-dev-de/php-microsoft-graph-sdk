@@ -19,7 +19,7 @@ class ManagedAppPolicyDeploymentSummaryPerApp
      * Deployment of an app.
      * @var MobileAppIdentifier|\stdClass|null
      */
-    public mixed $mobileAppIdentifier = null;
+    public MobileAppIdentifier|\stdClass|null $mobileAppIdentifier = null;
 
 
     /**

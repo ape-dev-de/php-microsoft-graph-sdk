@@ -19,7 +19,7 @@ class ExternalConnectorsIdentity
      * The type of identity. Possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
      * @var ExternalConnectorsIdentityType|\stdClass|null
      */
-    public mixed $type = null;
+    public ExternalConnectorsIdentityType|\stdClass|null $type = null;
 
 
     /**

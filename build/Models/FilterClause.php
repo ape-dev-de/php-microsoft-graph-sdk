@@ -22,7 +22,7 @@ class FilterClause
      * Values that the source operand will be tested against.
      * @var FilterOperand|\stdClass|null
      */
-    public mixed $targetOperand = null;
+    public FilterOperand|\stdClass|null $targetOperand = null;
 
 
     /**

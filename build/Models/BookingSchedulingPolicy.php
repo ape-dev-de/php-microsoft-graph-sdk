@@ -25,7 +25,7 @@ class BookingSchedulingPolicy
      * General availability of the service defined by the scheduling policy.
      * @var BookingsAvailability|\stdClass|null
      */
-    public mixed $generalAvailability = null;
+    public BookingsAvailability|\stdClass|null $generalAvailability = null;
 
     /** Indicates whether the meeting invite is sent to the customers. The default value is false. */
     public ?bool $isMeetingInviteToCustomersEnabled = null;

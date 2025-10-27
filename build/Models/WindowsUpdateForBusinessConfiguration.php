@@ -52,7 +52,7 @@ class WindowsUpdateForBusinessConfiguration
      * Device Configuration devices status overview
      * @var DeviceConfigurationDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceConfigurationDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * Device configuration installation status by user.
@@ -64,7 +64,7 @@ class WindowsUpdateForBusinessConfiguration
      * Device Configuration users status overview
      * @var DeviceConfigurationUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceConfigurationUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported. */
     public ?bool $allowWindows11Upgrade = null;
@@ -127,7 +127,7 @@ class WindowsUpdateForBusinessConfiguration
      * The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.
      * @var WindowsUpdateInstallScheduleType|\stdClass|null
      */
-    public mixed $installationSchedule = null;
+    public WindowsUpdateInstallScheduleType|\stdClass|null $installationSchedule = null;
 
     /** When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported. */
     public ?bool $microsoftUpdateServiceAllowed = null;
@@ -172,7 +172,7 @@ class WindowsUpdateForBusinessConfiguration
      * Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue.
      * @var WindowsUpdateForBusinessUpdateWeeks|\stdClass|null
      */
-    public mixed $updateWeeks = null;
+    public WindowsUpdateForBusinessUpdateWeeks|\stdClass|null $updateWeeks = null;
 
     /**  */
     public ?Enablement $userPauseAccess = null;

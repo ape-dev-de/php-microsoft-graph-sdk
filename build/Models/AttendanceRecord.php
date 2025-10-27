@@ -28,13 +28,13 @@ class AttendanceRecord
      * The external information for a virtualEventRegistration.
      * @var VirtualEventExternalRegistrationInformation|\stdClass|null
      */
-    public mixed $externalRegistrationInformation = null;
+    public VirtualEventExternalRegistrationInformation|\stdClass|null $externalRegistrationInformation = null;
 
     /** 
      * The identity of the user associated with this attendance record. The specific type is one of the following derived types of identity, depending on the user type: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
      * @var Identity|\stdClass|null
      */
-    public mixed $identity = null;
+    public Identity|\stdClass|null $identity = null;
 
     /** Unique identifier of a virtualEventRegistration that is available to all participants registered for the virtualEventWebinar. */
     public ?string $registrationId = null;

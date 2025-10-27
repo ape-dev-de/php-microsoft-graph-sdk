@@ -81,8 +81,11 @@ class BookingAppointment
     /** The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format. */
     public ?string $preBuffer = null;
 
-    /** The regular price for an appointment for the specified bookingService. */
-    public ?string $price = null;
+    /** 
+     * The regular price for an appointment for the specified bookingService.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $price = null;
 
     /**  */
     public ?BookingPriceType $priceType = null;
@@ -103,7 +106,7 @@ class BookingAppointment
      * The location where the service is delivered.
      * @var Location|\stdClass|null
      */
-    public mixed $serviceLocation = null;
+    public Location|\stdClass|null $serviceLocation = null;
 
     /** The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it's computed from the service associated with the appointment by the serviceId property. */
     public ?string $serviceName = null;

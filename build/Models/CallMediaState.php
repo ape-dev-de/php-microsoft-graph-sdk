@@ -16,7 +16,7 @@ class CallMediaState
      * The audio media state. Possible values are: active, inactive, unknownFutureValue.
      * @var MediaState|\stdClass|null
      */
-    public mixed $audio = null;
+    public MediaState|\stdClass|null $audio = null;
 
 
     /**

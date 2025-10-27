@@ -18,8 +18,11 @@ class IdentityUserFlow
     /**  */
     public ?UserFlowType $userFlowType = null;
 
-    /**  */
-    public ?string $userFlowTypeVersion = null;
+    /** 
+     * 
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $userFlowTypeVersion = null;
 
 
     /**

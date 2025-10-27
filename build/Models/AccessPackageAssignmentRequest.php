@@ -40,19 +40,19 @@ class AccessPackageAssignmentRequest
      * The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. Requests from the user have a requestType of userAdd, userUpdate, or userRemove. This property can't be changed once set.
      * @var AccessPackageRequestType|\stdClass|null
      */
-    public mixed $requestType = null;
+    public AccessPackageRequestType|\stdClass|null $requestType = null;
 
     /** 
      * The range of dates that access is to be assigned to the requestor. This property can't be changed once set, but a new schedule for an assignment can be included in another userUpdate or UserExtend or adminUpdate assignment request.
      * @var EntitlementManagementSchedule|\stdClass|null
      */
-    public mixed $schedule = null;
+    public EntitlementManagementSchedule|\stdClass|null $schedule = null;
 
     /** 
      * The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. Supports $filter (eq).
      * @var AccessPackageRequestState|\stdClass|null
      */
-    public mixed $state = null;
+    public AccessPackageRequestState|\stdClass|null $state = null;
 
     /** More information on the request processing status. Read-only. */
     public ?string $status = null;
@@ -61,19 +61,19 @@ class AccessPackageAssignmentRequest
      * The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
      * @var AccessPackage|\stdClass|null
      */
-    public mixed $accessPackage = null;
+    public AccessPackage|\stdClass|null $accessPackage = null;
 
     /** 
      * For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created. For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
      * @var AccessPackageAssignment|\stdClass|null
      */
-    public mixed $assignment = null;
+    public AccessPackageAssignment|\stdClass|null $assignment = null;
 
     /** 
      * The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
      * @var AccessPackageSubject|\stdClass|null
      */
-    public mixed $requestor = null;
+    public AccessPackageSubject|\stdClass|null $requestor = null;
 
 
     /**

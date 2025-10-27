@@ -19,7 +19,7 @@ class PrintSettings
      * Specifies settings that affect printer discovery when using Universal Print.
      * @var PrinterDiscoverySettings|\stdClass|null
      */
-    public mixed $printerDiscoverySettings = null;
+    public PrinterDiscoverySettings|\stdClass|null $printerDiscoverySettings = null;
 
 
     /**

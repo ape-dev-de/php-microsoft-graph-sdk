@@ -52,7 +52,7 @@ class Windows81GeneralConfiguration
      * Device Configuration devices status overview
      * @var DeviceConfigurationDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceConfigurationDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * Device configuration installation status by user.
@@ -64,7 +64,7 @@ class Windows81GeneralConfiguration
      * Device Configuration users status overview
      * @var DeviceConfigurationUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceConfigurationUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     public ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null;

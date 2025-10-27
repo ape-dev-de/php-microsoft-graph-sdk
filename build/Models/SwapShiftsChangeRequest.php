@@ -19,7 +19,7 @@ class SwapShiftsChangeRequest
      * Identity of the creator of the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class SwapShiftsChangeRequest
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,7 +37,7 @@ class SwapShiftsChangeRequest
      * Indicates who the request is assigned to. Possible values are: sender, recipient, manager, system, unknownFutureValue.
      * @var ScheduleChangeRequestActor|\stdClass|null
      */
-    public mixed $assignedTo = null;
+    public ScheduleChangeRequestActor|\stdClass|null $assignedTo = null;
 
     /** The date and time when the manager approved or declined the scheduleChangeRequest. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $managerActionDateTime = null;
@@ -61,7 +61,7 @@ class SwapShiftsChangeRequest
      * The state of the scheduleChangeRequest. Possible values are: pending, approved, declined, unknownFutureValue.
      * @var ScheduleChangeState|\stdClass|null
      */
-    public mixed $state = null;
+    public ScheduleChangeState|\stdClass|null $state = null;
 
     /** The date and time when the recipient approved or declined the request. */
     public ?\DateTimeInterface $recipientActionDateTime = null;

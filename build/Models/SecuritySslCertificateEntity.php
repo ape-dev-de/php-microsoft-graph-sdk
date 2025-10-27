@@ -16,7 +16,7 @@ class SecuritySslCertificateEntity
      * A physical address of the entity.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $address = null;
+    public PhysicalAddress|\stdClass|null $address = null;
 
     /** 
      * Alternate names for this entity that are part of the certificate.

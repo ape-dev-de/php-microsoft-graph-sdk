@@ -18,8 +18,11 @@ class UserExperienceAnalyticsMetric
     /** The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score. */
     public ?string $unit = null;
 
-    /** The value of the user experience analytics metric. */
-    public ?string $value = null;
+    /** 
+     * The value of the user experience analytics metric.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $value = null;
 
 
     /**

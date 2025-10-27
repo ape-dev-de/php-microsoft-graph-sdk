@@ -16,7 +16,7 @@ class Shared
      * The identity of the owner of the shared item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $owner = null;
+    public IdentitySet|\stdClass|null $owner = null;
 
     /** Indicates the scope of how the item is shared. The possible values are: anonymous, organization, or users. Read-only. */
     public ?string $scope = null;
@@ -25,7 +25,7 @@ class Shared
      * The identity of the user who shared the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $sharedBy = null;
+    public IdentitySet|\stdClass|null $sharedBy = null;
 
     /** The UTC date and time when the item was shared. Read-only. */
     public ?\DateTimeInterface $sharedDateTime = null;

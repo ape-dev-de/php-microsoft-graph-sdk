@@ -16,7 +16,7 @@ class AccessPackageResourceAttributeQuestion
      * 
      * @var AccessPackageQuestion|\stdClass|null
      */
-    public mixed $question = null;
+    public AccessPackageQuestion|\stdClass|null $question = null;
 
 
     /**

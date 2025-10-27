@@ -25,7 +25,7 @@ class UnifiedRoleEligibilityScheduleRequest
      * The principal that created the request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The request creation date time. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,7 +40,7 @@ class UnifiedRoleEligibilityScheduleRequest
      * Represents the type of operation on the role eligibility request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign eligible roles to principals.adminRemove: For administrators to remove eligible roles from principals. adminUpdate: For administrators to change existing role eligibilities.adminExtend: For administrators to extend expiring role eligibilities.adminRenew: For administrators to renew expired eligibilities.selfActivate: For users to activate their assignments.selfDeactivate: For users to deactivate their active assignments.selfExtend: For users to request to extend their expiring assignments.selfRenew: For users to request to renew their expired assignments.
      * @var UnifiedRoleScheduleRequestActions|\stdClass|null
      */
-    public mixed $action = null;
+    public UnifiedRoleScheduleRequestActions|\stdClass|null $action = null;
 
     /** Identifier of the app-specific scope when the role eligibility is scoped to an app. The scope of a role eligibility determines the set of resources for which the principal is eligible to access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, ne, and on null values). */
     public ?string $appScopeId = null;
@@ -64,7 +64,7 @@ class UnifiedRoleEligibilityScheduleRequest
      * The period of the role eligibility. Recurring schedules are currently unsupported.
      * @var RequestSchedule|\stdClass|null
      */
-    public mixed $scheduleInfo = null;
+    public RequestSchedule|\stdClass|null $scheduleInfo = null;
 
     /** Identifier of the schedule object that's linked to the eligibility request. Supports $filter (eq, ne). */
     public ?string $targetScheduleId = null;
@@ -73,37 +73,37 @@ class UnifiedRoleEligibilityScheduleRequest
      * Ticket details linked to the role eligibility request including details of the ticket number and ticket system. Optional.
      * @var TicketInfo|\stdClass|null
      */
-    public mixed $ticketInfo = null;
+    public TicketInfo|\stdClass|null $ticketInfo = null;
 
     /** 
      * Read-only property with details of the app-specific scope when the role eligibility is scoped to an app. Nullable. Supports $expand.
      * @var AppScope|\stdClass|null
      */
-    public mixed $appScope = null;
+    public AppScope|\stdClass|null $appScope = null;
 
     /** 
      * The directory object that is the scope of the role eligibility. Read-only. Supports $expand.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $directoryScope = null;
+    public DirectoryObject|\stdClass|null $directoryScope = null;
 
     /** 
      * The principal that's getting a role eligibility through the request. Supports $expand.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
     /** 
      * Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand.
      * @var UnifiedRoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public UnifiedRoleDefinition|\stdClass|null $roleDefinition = null;
 
     /** 
      * The schedule for a role eligibility that is referenced through the targetScheduleId property. Supports $expand.
      * @var UnifiedRoleEligibilitySchedule|\stdClass|null
      */
-    public mixed $targetSchedule = null;
+    public UnifiedRoleEligibilitySchedule|\stdClass|null $targetSchedule = null;
 
 
     /**

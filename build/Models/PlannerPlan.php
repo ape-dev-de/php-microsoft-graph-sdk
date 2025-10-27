@@ -19,13 +19,13 @@ class PlannerPlan
      * Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it's set, this property can’t be updated. Required.
      * @var PlannerPlanContainer|\stdClass|null
      */
-    public mixed $container = null;
+    public PlannerPlanContainer|\stdClass|null $container = null;
 
     /** 
      * Read-only. The user who created the plan.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -46,7 +46,7 @@ class PlannerPlan
      * Read-only. Nullable. Extra details about the plan.
      * @var PlannerPlanDetails|\stdClass|null
      */
-    public mixed $details = null;
+    public PlannerPlanDetails|\stdClass|null $details = null;
 
     /** 
      * Read-only. Nullable. Collection of tasks in the plan.

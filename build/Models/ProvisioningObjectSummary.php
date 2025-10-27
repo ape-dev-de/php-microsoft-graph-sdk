@@ -31,7 +31,7 @@ class ProvisioningObjectSummary
      * Details of who initiated this provisioning. Supports $filter (eq, contains).
      * @var Initiator|\stdClass|null
      */
-    public mixed $initiatedBy = null;
+    public Initiator|\stdClass|null $initiatedBy = null;
 
     /** The unique ID for the whole provisioning job. Supports $filter (eq, contains). */
     public ?string $jobId = null;
@@ -46,13 +46,13 @@ class ProvisioningObjectSummary
      * Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Microsoft Entra activity list. Supports $filter (eq, contains).
      * @var ProvisioningAction|\stdClass|null
      */
-    public mixed $provisioningAction = null;
+    public ProvisioningAction|\stdClass|null $provisioningAction = null;
 
     /** 
      * Details of provisioning status.
      * @var ProvisioningStatusInfo|\stdClass|null
      */
-    public mixed $provisioningStatusInfo = null;
+    public ProvisioningStatusInfo|\stdClass|null $provisioningStatusInfo = null;
 
     /** 
      * Details of each step in provisioning.
@@ -64,31 +64,31 @@ class ProvisioningObjectSummary
      * Represents the service principal used for provisioning. Supports $filter (eq) for id and name.
      * @var ProvisioningServicePrincipal|\stdClass|null
      */
-    public mixed $servicePrincipal = null;
+    public ProvisioningServicePrincipal|\stdClass|null $servicePrincipal = null;
 
     /** 
      * Details of source object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      * @var ProvisionedIdentity|\stdClass|null
      */
-    public mixed $sourceIdentity = null;
+    public ProvisionedIdentity|\stdClass|null $sourceIdentity = null;
 
     /** 
      * Details of source system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      * @var ProvisioningSystem|\stdClass|null
      */
-    public mixed $sourceSystem = null;
+    public ProvisioningSystem|\stdClass|null $sourceSystem = null;
 
     /** 
      * Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      * @var ProvisionedIdentity|\stdClass|null
      */
-    public mixed $targetIdentity = null;
+    public ProvisionedIdentity|\stdClass|null $targetIdentity = null;
 
     /** 
      * Details of target system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      * @var ProvisioningSystem|\stdClass|null
      */
-    public mixed $targetSystem = null;
+    public ProvisioningSystem|\stdClass|null $targetSystem = null;
 
     /** Unique Microsoft Entra tenant ID. Supports $filter (eq, contains). */
     public ?string $tenantId = null;

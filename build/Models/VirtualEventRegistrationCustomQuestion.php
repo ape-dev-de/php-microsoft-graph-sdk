@@ -31,7 +31,7 @@ class VirtualEventRegistrationCustomQuestion
      * Input type of the registration question answer. Possible values are text, multilineText, singleChoice, multiChoice, boolean, and unknownFutureValue.
      * @var VirtualEventRegistrationQuestionAnswerInputType|\stdClass|null
      */
-    public mixed $answerInputType = null;
+    public VirtualEventRegistrationQuestionAnswerInputType|\stdClass|null $answerInputType = null;
 
 
     /**

@@ -16,7 +16,7 @@ class DriveItemSource
      * Enumeration value that indicates the source application where the file was created.
      * @var DriveItemSourceApplication|\stdClass|null
      */
-    public mixed $application = null;
+    public DriveItemSourceApplication|\stdClass|null $application = null;
 
     /** The external identifier for the drive item from the source. */
     public ?string $externalId = null;

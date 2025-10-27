@@ -25,13 +25,13 @@ class IdentityGovernanceLifecycleWorkflowsContainer
      * Deleted workflows in your lifecycle workflows instance.
      * @var DeletedItemContainer|\stdClass|null
      */
-    public mixed $deletedItems = null;
+    public DeletedItemContainer|\stdClass|null $deletedItems = null;
 
     /** 
      * The insight container holding workflow insight summaries for a tenant.
      * @var IdentityGovernanceInsights|\stdClass|null
      */
-    public mixed $insights = null;
+    public IdentityGovernanceInsights|\stdClass|null $insights = null;
 
     /**  */
     public ?IdentityGovernanceLifecycleManagementSettings $settings = null;

@@ -19,7 +19,7 @@ class SecurityResource
      * Represents type of security resources related to an alert. Possible values are: attacked, related.
      * @var SecurityResourceType|\stdClass|null
      */
-    public mixed $resourceType = null;
+    public SecurityResourceType|\stdClass|null $resourceType = null;
 
 
     /**

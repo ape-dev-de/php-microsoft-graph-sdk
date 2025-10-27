@@ -19,7 +19,7 @@ class SharedDriveItem
      * Identity of the user, device, or application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class SharedDriveItem
      * Identity of the user, device, and application that last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class SharedDriveItem
      * Parent information, if the item has a parent. Read-write.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
     public ?string $webUrl = null;
@@ -55,25 +55,25 @@ class SharedDriveItem
      * Identity of the user who created the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $createdByUser = null;
+    public User|\stdClass|null $createdByUser = null;
 
     /** 
      * Identity of the user who last modified the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedByUser = null;
+    public User|\stdClass|null $lastModifiedByUser = null;
 
     /** 
      * Information about the owner of the shared item being referenced.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $owner = null;
+    public IdentitySet|\stdClass|null $owner = null;
 
     /** 
      * Used to access the underlying driveItem
      * @var DriveItem|\stdClass|null
      */
-    public mixed $driveItem = null;
+    public DriveItem|\stdClass|null $driveItem = null;
 
     /** 
      * All driveItems contained in the sharing root. This collection cannot be enumerated.
@@ -85,31 +85,31 @@ class SharedDriveItem
      * Used to access the underlying list
      * @var ListModel|\stdClass|null
      */
-    public mixed $list = null;
+    public ListModel|\stdClass|null $list = null;
 
     /** 
      * Used to access the underlying listItem
      * @var ListItem|\stdClass|null
      */
-    public mixed $listItem = null;
+    public ListItem|\stdClass|null $listItem = null;
 
     /** 
      * Used to access the permission representing the underlying sharing link
      * @var Permission|\stdClass|null
      */
-    public mixed $permission = null;
+    public Permission|\stdClass|null $permission = null;
 
     /** 
      * Used to access the underlying driveItem. Deprecated -- use driveItem instead.
      * @var DriveItem|\stdClass|null
      */
-    public mixed $root = null;
+    public DriveItem|\stdClass|null $root = null;
 
     /** 
      * Used to access the underlying site
      * @var Site|\stdClass|null
      */
-    public mixed $site = null;
+    public Site|\stdClass|null $site = null;
 
 
     /**

@@ -25,7 +25,7 @@ class AgreementFileLocalization
      * Data that represents the terms of use PDF document. Read-only.
      * @var AgreementFileData|\stdClass|null
      */
-    public mixed $fileData = null;
+    public AgreementFileData|\stdClass|null $fileData = null;
 
     /** Name of the agreement file (for example, TOU.pdf). Read-only. */
     public ?string $fileName = null;

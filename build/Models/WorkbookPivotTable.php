@@ -22,7 +22,7 @@ class WorkbookPivotTable
      * The worksheet that contains the current pivot table. Read-only.
      * @var WorkbookWorksheet|\stdClass|null
      */
-    public mixed $worksheet = null;
+    public WorkbookWorksheet|\stdClass|null $worksheet = null;
 
 
     /**

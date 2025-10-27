@@ -19,7 +19,7 @@ class OnPremisesDirectorySynchronization
      * Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant. Nullable.
      * @var OnPremisesDirectorySynchronizationConfiguration|\stdClass|null
      */
-    public mixed $configuration = null;
+    public OnPremisesDirectorySynchronizationConfiguration|\stdClass|null $configuration = null;
 
     /**  */
     public ?OnPremisesDirectorySynchronizationFeature $features = null;

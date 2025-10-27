@@ -34,7 +34,7 @@ class SubscribedSku
      * Information about the number and status of prepaid licenses.
      * @var LicenseUnitsDetail|\stdClass|null
      */
-    public mixed $prepaidUnits = null;
+    public LicenseUnitsDetail|\stdClass|null $prepaidUnits = null;
 
     /** 
      * Information about the service plans that are available with the SKU. Not nullable.

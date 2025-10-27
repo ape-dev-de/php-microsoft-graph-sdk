@@ -16,7 +16,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails
      * State of the tenant in the multitenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @var MultiTenantOrganizationMemberState|\stdClass|null
      */
-    public mixed $desiredMemberState = null;
+    public MultiTenantOrganizationMemberState|\stdClass|null $desiredMemberState = null;
 
     /** Details that explain the processing status if any. Read-only. */
     public ?string $details = null;
@@ -25,7 +25,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails
      * Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
      * @var MultiTenantOrganizationMemberProcessingStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public MultiTenantOrganizationMemberProcessingStatus|\stdClass|null $status = null;
 
 
     /**

@@ -16,7 +16,7 @@ class MailTips
      * Mail tips for automatic reply if it has been set up by the recipient.
      * @var AutomaticRepliesMailTips|\stdClass|null
      */
-    public mixed $automaticReplies = null;
+    public AutomaticRepliesMailTips|\stdClass|null $automaticReplies = null;
 
     /** A custom mail tip that can be set on the recipient's mailbox. */
     public ?string $customMailTip = null;
@@ -28,13 +28,13 @@ class MailTips
      * The email address of the recipient to get mailtips for.
      * @var EmailAddress|\stdClass|null
      */
-    public mixed $emailAddress = null;
+    public EmailAddress|\stdClass|null $emailAddress = null;
 
     /** 
      * Errors that occur during the getMailTips action.
      * @var MailTipsError|\stdClass|null
      */
-    public mixed $error = null;
+    public MailTipsError|\stdClass|null $error = null;
 
     /** The number of external members if the recipient is a distribution list. */
     public ?float $externalMemberCount = null;
@@ -52,7 +52,7 @@ class MailTips
      * The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.
      * @var RecipientScopeType|\stdClass|null
      */
-    public mixed $recipientScope = null;
+    public RecipientScopeType|\stdClass|null $recipientScope = null;
 
     /** 
      * Recipients suggested based on previous contexts where they appear in the same message.

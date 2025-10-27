@@ -16,7 +16,7 @@ class ConditionalAccessExternalTenants
      * The membership kind. Possible values are: all, enumerated, unknownFutureValue. The enumerated member references an conditionalAccessEnumeratedExternalTenants object.
      * @var ConditionalAccessExternalTenantsMembershipKind|\stdClass|null
      */
-    public mixed $membershipKind = null;
+    public ConditionalAccessExternalTenantsMembershipKind|\stdClass|null $membershipKind = null;
 
 
     /**

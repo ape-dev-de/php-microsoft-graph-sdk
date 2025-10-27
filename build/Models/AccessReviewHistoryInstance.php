@@ -37,7 +37,7 @@ class AccessReviewHistoryInstance
      * Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method.
      * @var AccessReviewHistoryStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public AccessReviewHistoryStatus|\stdClass|null $status = null;
 
 
     /**

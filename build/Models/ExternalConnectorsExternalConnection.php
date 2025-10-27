@@ -19,13 +19,13 @@ class ExternalConnectorsExternalConnection
      * Collects configurable settings related to activities involving connector content.
      * @var ExternalConnectorsActivitySettings|\stdClass|null
      */
-    public mixed $activitySettings = null;
+    public ExternalConnectorsActivitySettings|\stdClass|null $activitySettings = null;
 
     /** 
      * Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
      * @var ExternalConnectorsConfiguration|\stdClass|null
      */
-    public mixed $configuration = null;
+    public ExternalConnectorsConfiguration|\stdClass|null $configuration = null;
 
     /** The Teams app ID. Optional. */
     public ?string $connectorId = null;
@@ -40,13 +40,13 @@ class ExternalConnectorsExternalConnection
      * The settings configuring the search experience for content in this connection, such as the display templates for search results.
      * @var ExternalConnectorsSearchSettings|\stdClass|null
      */
-    public mixed $searchSettings = null;
+    public ExternalConnectorsSearchSettings|\stdClass|null $searchSettings = null;
 
     /** 
      * Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      * @var ExternalConnectorsConnectionState|\stdClass|null
      */
-    public mixed $state = null;
+    public ExternalConnectorsConnectionState|\stdClass|null $state = null;
 
     /** 
      * 
@@ -70,7 +70,7 @@ class ExternalConnectorsExternalConnection
      * 
      * @var ExternalConnectorsSchema|\stdClass|null
      */
-    public mixed $schema = null;
+    public ExternalConnectorsSchema|\stdClass|null $schema = null;
 
 
     /**

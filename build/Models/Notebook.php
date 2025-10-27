@@ -25,7 +25,7 @@ class Notebook
      * Identity of the user, device, and application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The name of the notebook. */
     public ?string $displayName = null;
@@ -34,7 +34,7 @@ class Notebook
      * Identity of the user, device, and application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -49,7 +49,7 @@ class Notebook
      * Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
      * @var NotebookLinks|\stdClass|null
      */
-    public mixed $links = null;
+    public NotebookLinks|\stdClass|null $links = null;
 
     /** The URL for the sectionGroups navigation property, which returns all the section groups in the notebook. Read-only. */
     public ?string $sectionGroupsUrl = null;
@@ -61,7 +61,7 @@ class Notebook
      * Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
      * @var OnenoteUserRole|\stdClass|null
      */
-    public mixed $userRole = null;
+    public OnenoteUserRole|\stdClass|null $userRole = null;
 
     /** 
      * The section groups in the notebook. Read-only. Nullable.

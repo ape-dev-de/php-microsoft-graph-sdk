@@ -19,19 +19,19 @@ class SecurityWhoisRecord
      * The contact information for the abuse contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $abuse = null;
+    public SecurityWhoisContact|\stdClass|null $abuse = null;
 
     /** 
      * The contact information for the admin contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $admin = null;
+    public SecurityWhoisContact|\stdClass|null $admin = null;
 
     /** 
      * The contact information for the billing contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $billing = null;
+    public SecurityWhoisContact|\stdClass|null $billing = null;
 
     /** The domain status for this WHOIS object. */
     public ?string $domainStatus = null;
@@ -58,7 +58,7 @@ class SecurityWhoisRecord
      * The contact information for the noc contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $noc = null;
+    public SecurityWhoisContact|\stdClass|null $noc = null;
 
     /** The raw WHOIS details for this WHOIS object. */
     public ?string $rawWhoisText = null;
@@ -67,13 +67,13 @@ class SecurityWhoisRecord
      * The contact information for the registrant contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $registrant = null;
+    public SecurityWhoisContact|\stdClass|null $registrant = null;
 
     /** 
      * The contact information for the registrar contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $registrar = null;
+    public SecurityWhoisContact|\stdClass|null $registrar = null;
 
     /** The date and time when this WHOIS record was registered with a registrar. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $registrationDateTime = null;
@@ -82,7 +82,7 @@ class SecurityWhoisRecord
      * The contact information for the technical contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $technical = null;
+    public SecurityWhoisContact|\stdClass|null $technical = null;
 
     /** The WHOIS server that provides the details. */
     public ?string $whoisServer = null;
@@ -91,7 +91,7 @@ class SecurityWhoisRecord
      * The contact information for the zone contact.
      * @var SecurityWhoisContact|\stdClass|null
      */
-    public mixed $zone = null;
+    public SecurityWhoisContact|\stdClass|null $zone = null;
 
     /**  */
     public ?SecurityHost $host = null;

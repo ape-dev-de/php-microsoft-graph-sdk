@@ -16,13 +16,13 @@ class AuditActivityInitiator
      * If the resource initiating the activity is an app, this property indicates all the app related information like appId and name.
      * @var AppIdentity|\stdClass|null
      */
-    public mixed $app = null;
+    public AppIdentity|\stdClass|null $app = null;
 
     /** 
      * If the resource initiating the activity is a user, this property Indicates all the user related information like user ID and userPrincipalName.
      * @var UserIdentity|\stdClass|null
      */
-    public mixed $user = null;
+    public UserIdentity|\stdClass|null $user = null;
 
 
     /**

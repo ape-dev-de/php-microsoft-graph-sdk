@@ -37,7 +37,7 @@ class ObjectMapping
      * Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
      * @var Filter|\stdClass|null
      */
-    public mixed $scope = null;
+    public Filter|\stdClass|null $scope = null;
 
     /** Name of the object in the source directory. Must match the object name from the source directory definition. */
     public ?string $sourceObjectName = null;

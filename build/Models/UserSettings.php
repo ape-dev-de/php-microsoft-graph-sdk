@@ -25,19 +25,19 @@ class UserSettings
      * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
      * @var UserInsightsSettings|\stdClass|null
      */
-    public mixed $itemInsights = null;
+    public UserInsightsSettings|\stdClass|null $itemInsights = null;
 
     /** 
      * 
      * @var ShiftPreferences|\stdClass|null
      */
-    public mixed $shiftPreferences = null;
+    public ShiftPreferences|\stdClass|null $shiftPreferences = null;
 
     /** 
      * 
      * @var UserStorage|\stdClass|null
      */
-    public mixed $storage = null;
+    public UserStorage|\stdClass|null $storage = null;
 
     /** 
      * 

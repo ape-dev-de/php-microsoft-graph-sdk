@@ -28,7 +28,7 @@ class LongRunningOperation
      * The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @var LongRunningOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public LongRunningOperationStatus|\stdClass|null $status = null;
 
     /** Details about the status of the operation. */
     public ?string $statusDetail = null;

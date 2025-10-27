@@ -16,7 +16,7 @@ class MicrosoftCustomTrainingSetting
      * Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue.
      * @var TrainingSettingType|\stdClass|null
      */
-    public mixed $settingType = null;
+    public TrainingSettingType|\stdClass|null $settingType = null;
 
     /** The completion date and time of the training. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $completionDateTime = null;
@@ -31,7 +31,7 @@ class MicrosoftCustomTrainingSetting
      * The training completion duration that needs to be provided before scheduling the training. Possible values are: week, fortnite, month, unknownFutureValue.
      * @var TrainingCompletionDuration|\stdClass|null
      */
-    public mixed $trainingCompletionDuration = null;
+    public TrainingCompletionDuration|\stdClass|null $trainingCompletionDuration = null;
 
 
     /**

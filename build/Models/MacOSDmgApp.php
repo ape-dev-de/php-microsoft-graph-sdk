@@ -37,7 +37,7 @@ class MacOSDmgApp
      * The large icon, to be displayed in the app details and used for upload of the icon.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $largeIcon = null;
+    public MimeContent|\stdClass|null $largeIcon = null;
 
     /** The date and time the app was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -97,7 +97,7 @@ class MacOSDmgApp
      * ComplexType macOSMinimumOperatingSystem that indicates the minimum operating system applicable for the application.
      * @var MacOSMinimumOperatingSystem|\stdClass|null
      */
-    public mixed $minimumSupportedOperatingSystem = null;
+    public MacOSMinimumOperatingSystem|\stdClass|null $minimumSupportedOperatingSystem = null;
 
     /** The bundleId of the primary .app in the DMG (Apple Disk Image). This maps to the CFBundleIdentifier in the app's bundle configuration. */
     public ?string $primaryBundleId = null;

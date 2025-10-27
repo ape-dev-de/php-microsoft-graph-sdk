@@ -37,7 +37,7 @@ class Win32LobAppPowerShellScriptRule
      * The execution context of the script. Do not specify this value if the rule is used for detection. Script detection rules will run in the same context as the associated app install context. Possible values are: system, user.
      * @var RunAsAccountType|\stdClass|null
      */
-    public mixed $runAsAccount = null;
+    public RunAsAccountType|\stdClass|null $runAsAccount = null;
 
     /** The base64-encoded script content. */
     public ?string $scriptContent = null;

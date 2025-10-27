@@ -19,7 +19,7 @@ class BackupRestoreRoot
      * Represents the tenant-level status of the Backup Storage service.
      * @var ServiceStatus|\stdClass|null
      */
-    public mixed $serviceStatus = null;
+    public ServiceStatus|\stdClass|null $serviceStatus = null;
 
     /** 
      * The list of drive inclusion rules applied to the tenant.

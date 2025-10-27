@@ -16,13 +16,13 @@ class CrossTenantAccessPolicyB2BSetting
      * The list of applications targeted with your cross-tenant access policy.
      * @var CrossTenantAccessPolicyTargetConfiguration|\stdClass|null
      */
-    public mixed $applications = null;
+    public CrossTenantAccessPolicyTargetConfiguration|\stdClass|null $applications = null;
 
     /** 
      * The list of users and groups targeted with your cross-tenant access policy.
      * @var CrossTenantAccessPolicyTargetConfiguration|\stdClass|null
      */
-    public mixed $usersAndGroups = null;
+    public CrossTenantAccessPolicyTargetConfiguration|\stdClass|null $usersAndGroups = null;
 
 
     /**

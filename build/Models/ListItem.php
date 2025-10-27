@@ -19,7 +19,7 @@ class ListItem
      * Identity of the user, device, or application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class ListItem
      * Identity of the user, device, and application that last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class ListItem
      * Parent information, if the item has a parent. Read-write.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
     public ?string $webUrl = null;
@@ -55,31 +55,31 @@ class ListItem
      * Identity of the user who created the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $createdByUser = null;
+    public User|\stdClass|null $createdByUser = null;
 
     /** 
      * Identity of the user who last modified the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedByUser = null;
+    public User|\stdClass|null $lastModifiedByUser = null;
 
     /** 
      * The content type of this list item
      * @var ContentTypeInfo|\stdClass|null
      */
-    public mixed $contentType = null;
+    public ContentTypeInfo|\stdClass|null $contentType = null;
 
     /** 
      * Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @var SharepointIds|\stdClass|null
      */
-    public mixed $sharepointIds = null;
+    public SharepointIds|\stdClass|null $sharepointIds = null;
 
     /** 
      * Analytics about the view activities that took place on this item.
      * @var ItemAnalytics|\stdClass|null
      */
-    public mixed $analytics = null;
+    public ItemAnalytics|\stdClass|null $analytics = null;
 
     /** 
      * Version information for a document set version created by a user.
@@ -91,13 +91,13 @@ class ListItem
      * For document libraries, the driveItem relationship exposes the listItem as a driveItem
      * @var DriveItem|\stdClass|null
      */
-    public mixed $driveItem = null;
+    public DriveItem|\stdClass|null $driveItem = null;
 
     /** 
      * The values of the columns set on this list item.
      * @var FieldValueSet|\stdClass|null
      */
-    public mixed $fields = null;
+    public FieldValueSet|\stdClass|null $fields = null;
 
     /** 
      * The list of previous versions of the list item.

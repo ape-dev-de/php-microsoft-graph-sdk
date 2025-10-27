@@ -19,7 +19,7 @@ class LandingPage
      * Identity of the user who created the landing page.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public EmailIdentity|\stdClass|null $createdBy = null;
 
     /** Date and time when the landing page was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class LandingPage
      * Email identity of the user who last modified the landing page.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public EmailIdentity|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time when the landing page was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,13 +46,13 @@ class LandingPage
      * The source of the content. Possible values are: unknown, global, tenant, unknownFutureValue.
      * @var SimulationContentSource|\stdClass|null
      */
-    public mixed $source = null;
+    public SimulationContentSource|\stdClass|null $source = null;
 
     /** 
      * The status of the simulation. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue.
      * @var SimulationContentStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SimulationContentStatus|\stdClass|null $status = null;
 
     /** 
      * Supported locales.

@@ -49,7 +49,7 @@ class SecurityKubernetesServiceAccountEvidence
      * The service account namespace.
      * @var SecurityKubernetesNamespaceEvidence|\stdClass|null
      */
-    public mixed $namespace = null;
+    public SecurityKubernetesNamespaceEvidence|\stdClass|null $namespace = null;
 
 
     /**

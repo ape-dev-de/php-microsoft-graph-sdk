@@ -52,7 +52,7 @@ class ManagedDeviceMobileAppConfiguration
      * App configuration device status summary.
      * @var ManagedDeviceMobileAppConfigurationDeviceSummary|\stdClass|null
      */
-    public mixed $deviceStatusSummary = null;
+    public ManagedDeviceMobileAppConfigurationDeviceSummary|\stdClass|null $deviceStatusSummary = null;
 
     /** 
      * List of ManagedDeviceMobileAppConfigurationUserStatus.
@@ -64,7 +64,7 @@ class ManagedDeviceMobileAppConfiguration
      * App configuration user status summary.
      * @var ManagedDeviceMobileAppConfigurationUserSummary|\stdClass|null
      */
-    public mixed $userStatusSummary = null;
+    public ManagedDeviceMobileAppConfigurationUserSummary|\stdClass|null $userStatusSummary = null;
 
 
     /**

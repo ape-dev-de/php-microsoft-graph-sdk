@@ -31,7 +31,7 @@ class AppManagementPolicy
      * Restrictions that apply to an application or service principal object.
      * @var CustomAppManagementConfiguration|\stdClass|null
      */
-    public mixed $restrictions = null;
+    public CustomAppManagementConfiguration|\stdClass|null $restrictions = null;
 
     /** 
      * Collection of applications and service principals to which the policy is applied.

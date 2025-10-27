@@ -16,19 +16,19 @@ class CalendarSharingMessageAction
      * 
      * @var CalendarSharingAction|\stdClass|null
      */
-    public mixed $action = null;
+    public CalendarSharingAction|\stdClass|null $action = null;
 
     /** 
      * 
      * @var CalendarSharingActionType|\stdClass|null
      */
-    public mixed $actionType = null;
+    public CalendarSharingActionType|\stdClass|null $actionType = null;
 
     /** 
      * 
      * @var CalendarSharingActionImportance|\stdClass|null
      */
-    public mixed $importance = null;
+    public CalendarSharingActionImportance|\stdClass|null $importance = null;
 
 
     /**

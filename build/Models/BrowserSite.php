@@ -40,7 +40,7 @@ class BrowserSite
      * The user who last modified the site.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time when the site was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

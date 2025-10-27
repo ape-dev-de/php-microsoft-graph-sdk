@@ -49,7 +49,7 @@ class SecurityBlobContainerEvidence
      * The storage which the blob container belongs to.
      * @var SecurityAzureResourceEvidence|\stdClass|null
      */
-    public mixed $storageResource = null;
+    public SecurityAzureResourceEvidence|\stdClass|null $storageResource = null;
 
     /** The full URL representation of the blob container. */
     public ?string $url = null;

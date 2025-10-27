@@ -16,7 +16,7 @@ class EducationFeedback
      * User who created the feedback.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $feedbackBy = null;
+    public IdentitySet|\stdClass|null $feedbackBy = null;
 
     /** Moment in time when the feedback was given. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $feedbackDateTime = null;
@@ -25,7 +25,7 @@ class EducationFeedback
      * Feedback.
      * @var EducationItemBody|\stdClass|null
      */
-    public mixed $text = null;
+    public EducationItemBody|\stdClass|null $text = null;
 
 
     /**

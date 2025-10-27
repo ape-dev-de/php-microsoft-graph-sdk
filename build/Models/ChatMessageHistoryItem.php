@@ -22,7 +22,7 @@ class ChatMessageHistoryItem
      * The reaction in the modified message.
      * @var ChatMessageReaction|\stdClass|null
      */
-    public mixed $reaction = null;
+    public ChatMessageReaction|\stdClass|null $reaction = null;
 
 
     /**

@@ -52,7 +52,7 @@ class IosDeviceFeaturesConfiguration
      * Device Configuration devices status overview
      * @var DeviceConfigurationDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceConfigurationDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * Device configuration installation status by user.
@@ -64,7 +64,7 @@ class IosDeviceFeaturesConfiguration
      * Device Configuration users status overview
      * @var DeviceConfigurationUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceConfigurationUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** Asset tag information for the device, displayed on the login window and lock screen. */
     public ?string $assetTagTemplate = null;

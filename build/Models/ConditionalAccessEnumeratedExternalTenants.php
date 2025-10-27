@@ -16,7 +16,7 @@ class ConditionalAccessEnumeratedExternalTenants
      * The membership kind. Possible values are: all, enumerated, unknownFutureValue. The enumerated member references an conditionalAccessEnumeratedExternalTenants object.
      * @var ConditionalAccessExternalTenantsMembershipKind|\stdClass|null
      */
-    public mixed $membershipKind = null;
+    public ConditionalAccessExternalTenantsMembershipKind|\stdClass|null $membershipKind = null;
 
     /** 
      * A collection of tenant IDs that define the scope of a policy targeting conditional access for guests and external users.

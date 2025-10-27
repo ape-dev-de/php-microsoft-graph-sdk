@@ -88,7 +88,7 @@ class OrgContact
      * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $manager = null;
+    public DirectoryObject|\stdClass|null $manager = null;
 
     /** 
      * Groups that this contact is a member of. Read-only. Nullable. Supports $expand.

@@ -28,7 +28,7 @@ class Agreement
      * Expiration schedule and frequency of agreement for all users. Supports $filter (eq).
      * @var TermsExpiration|\stdClass|null
      */
-    public mixed $termsExpiration = null;
+    public TermsExpiration|\stdClass|null $termsExpiration = null;
 
     /** The duration after which the user must reaccept the terms of use. The value is represented in ISO 8601 format for durations. Supports $filter (eq). */
     public ?string $userReacceptRequiredFrequency = null;
@@ -43,7 +43,7 @@ class Agreement
      * Default PDF linked to this agreement.
      * @var AgreementFile|\stdClass|null
      */
-    public mixed $file = null;
+    public AgreementFile|\stdClass|null $file = null;
 
     /** 
      * PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.

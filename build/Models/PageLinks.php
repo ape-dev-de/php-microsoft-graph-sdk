@@ -16,13 +16,13 @@ class PageLinks
      * Opens the page in the OneNote native client if it's installed.
      * @var ExternalLink|\stdClass|null
      */
-    public mixed $oneNoteClientUrl = null;
+    public ExternalLink|\stdClass|null $oneNoteClientUrl = null;
 
     /** 
      * Opens the page in OneNote on the web.
      * @var ExternalLink|\stdClass|null
      */
-    public mixed $oneNoteWebUrl = null;
+    public ExternalLink|\stdClass|null $oneNoteWebUrl = null;
 
 
     /**

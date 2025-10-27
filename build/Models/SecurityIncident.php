@@ -22,7 +22,7 @@ class SecurityIncident
      * The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      * @var SecurityAlertClassification|\stdClass|null
      */
-    public mixed $classification = null;
+    public SecurityAlertClassification|\stdClass|null $classification = null;
 
     /** 
      * Array of comments created by the Security Operations (SecOps) team when the incident is managed.
@@ -46,7 +46,7 @@ class SecurityIncident
      * Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @var SecurityAlertDetermination|\stdClass|null
      */
-    public mixed $determination = null;
+    public SecurityAlertDetermination|\stdClass|null $determination = null;
 
     /** The incident name. */
     public ?string $displayName = null;

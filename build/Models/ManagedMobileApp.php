@@ -19,7 +19,7 @@ class ManagedMobileApp
      * The identifier for an app with it's operating system type.
      * @var MobileAppIdentifier|\stdClass|null
      */
-    public mixed $mobileAppIdentifier = null;
+    public MobileAppIdentifier|\stdClass|null $mobileAppIdentifier = null;
 
     /** Version of the entity. */
     public ?string $version = null;

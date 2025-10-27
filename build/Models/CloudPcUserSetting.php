@@ -34,7 +34,7 @@ class CloudPcUserSetting
      * Defines how frequently a restore point is created that is, a snapshot is taken) for users' provisioned Cloud PCs (default is 12 hours), and whether the user is allowed to restore their own Cloud PCs to a backup made at a specific point in time.
      * @var CloudPcRestorePointSetting|\stdClass|null
      */
-    public mixed $restorePointSetting = null;
+    public CloudPcRestorePointSetting|\stdClass|null $restorePointSetting = null;
 
     /** 
      * Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting.

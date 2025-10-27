@@ -25,7 +25,7 @@ class CalendarPermission
      * Represents a share recipient or delegate who has access to the calendar. For the 'My Organization' share recipient, the address property is null. Read-only.
      * @var EmailAddress|\stdClass|null
      */
-    public mixed $emailAddress = null;
+    public EmailAddress|\stdClass|null $emailAddress = null;
 
     /** True if the user in context (recipient or delegate) is inside the same organization as the calendar owner. */
     public ?bool $isInsideOrganization = null;
@@ -37,7 +37,7 @@ class CalendarPermission
      * Current permission level of the calendar share recipient or delegate.
      * @var CalendarRoleType|\stdClass|null
      */
-    public mixed $role = null;
+    public CalendarRoleType|\stdClass|null $role = null;
 
 
     /**

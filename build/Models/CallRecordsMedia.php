@@ -16,25 +16,25 @@ class CallRecordsMedia
      * Device information associated with the callee endpoint of this media.
      * @var CallRecordsDeviceInfo|\stdClass|null
      */
-    public mixed $calleeDevice = null;
+    public CallRecordsDeviceInfo|\stdClass|null $calleeDevice = null;
 
     /** 
      * Network information associated with the callee endpoint of this media.
      * @var CallRecordsNetworkInfo|\stdClass|null
      */
-    public mixed $calleeNetwork = null;
+    public CallRecordsNetworkInfo|\stdClass|null $calleeNetwork = null;
 
     /** 
      * Device information associated with the caller endpoint of this media.
      * @var CallRecordsDeviceInfo|\stdClass|null
      */
-    public mixed $callerDevice = null;
+    public CallRecordsDeviceInfo|\stdClass|null $callerDevice = null;
 
     /** 
      * Network information associated with the caller endpoint of this media.
      * @var CallRecordsNetworkInfo|\stdClass|null
      */
-    public mixed $callerNetwork = null;
+    public CallRecordsNetworkInfo|\stdClass|null $callerNetwork = null;
 
     /** How the media was identified during media negotiation stage. */
     public ?string $label = null;

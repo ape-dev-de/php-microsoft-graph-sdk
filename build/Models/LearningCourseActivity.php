@@ -37,7 +37,7 @@ class LearningCourseActivity
      * The status of the course activity. Possible values are: notStarted, inProgress, completed. Required.
      * @var CourseStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public CourseStatus|\stdClass|null $status = null;
 
 
     /**

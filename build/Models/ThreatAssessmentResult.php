@@ -25,7 +25,7 @@ class ThreatAssessmentResult
      * The threat assessment result type. Possible values are: checkPolicy, rescan.
      * @var ThreatAssessmentResultType|\stdClass|null
      */
-    public mixed $resultType = null;
+    public ThreatAssessmentResultType|\stdClass|null $resultType = null;
 
 
     /**

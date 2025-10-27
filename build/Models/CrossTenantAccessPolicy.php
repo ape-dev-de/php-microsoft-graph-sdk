@@ -34,7 +34,7 @@ class CrossTenantAccessPolicy
      * Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
      * @var CrossTenantAccessPolicyConfigurationDefault|\stdClass|null
      */
-    public mixed $default = null;
+    public CrossTenantAccessPolicyConfigurationDefault|\stdClass|null $default = null;
 
     /** 
      * Defines partner-specific configurations for external Microsoft Entra organizations.
@@ -46,7 +46,7 @@ class CrossTenantAccessPolicy
      * Represents the base policy in the directory for multitenant organization settings.
      * @var PolicyTemplate|\stdClass|null
      */
-    public mixed $templates = null;
+    public PolicyTemplate|\stdClass|null $templates = null;
 
 
     /**

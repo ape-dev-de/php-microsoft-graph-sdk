@@ -22,7 +22,7 @@ class SecurityAlert
      * A collection of other alert properties, including user-defined properties. Any custom details defined in the alert, and any dynamic content in the alert details, are stored here.
      * @var SecurityDictionary|\stdClass|null
      */
-    public mixed $additionalData = null;
+    public SecurityDictionary|\stdClass|null $additionalData = null;
 
     /** The ID of the policy that generated the alert, and populated when there is a specific policy that generated the alert, whether configured by a customer or a built-in policy. */
     public ?string $alertPolicyId = null;
@@ -40,7 +40,7 @@ class SecurityAlert
      * Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      * @var SecurityAlertClassification|\stdClass|null
      */
-    public mixed $classification = null;
+    public SecurityAlertClassification|\stdClass|null $classification = null;
 
     /** 
      * Array of comments created by the Security Operations (SecOps) team during the alert management process.
@@ -55,7 +55,7 @@ class SecurityAlert
      * User defined custom fields with string values.
      * @var SecurityDictionary|\stdClass|null
      */
-    public mixed $customDetails = null;
+    public SecurityDictionary|\stdClass|null $customDetails = null;
 
     /** String value describing each alert. */
     public ?string $description = null;
@@ -64,7 +64,7 @@ class SecurityAlert
      * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot.
      * @var SecurityDetectionSource|\stdClass|null
      */
-    public mixed $detectionSource = null;
+    public SecurityDetectionSource|\stdClass|null $detectionSource = null;
 
     /** The ID of the detector that triggered the alert. */
     public ?string $detectorId = null;
@@ -73,7 +73,7 @@ class SecurityAlert
      * Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @var SecurityAlertDetermination|\stdClass|null
      */
-    public mixed $determination = null;
+    public SecurityAlertDetermination|\stdClass|null $determination = null;
 
     /** 
      * Collection of evidence related to the alert.

@@ -19,7 +19,7 @@ class ServiceApp
      * The Entra ID application ID.
      * @var Identity|\stdClass|null
      */
-    public mixed $application = null;
+    public Identity|\stdClass|null $application = null;
 
     /** Timestamp of the effective activation of the service app. */
     public ?\DateTimeInterface $effectiveDateTime = null;
@@ -28,7 +28,7 @@ class ServiceApp
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Timestamp of the last modification of the entity. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -40,7 +40,7 @@ class ServiceApp
      * The status of the service app. This value indicates whether or not the application can be used to control the backup service. The possible values are: inactive, active, pendingActive, pendingInactive, unknownFutureValue.
      * @var ServiceAppStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ServiceAppStatus|\stdClass|null $status = null;
 
 
     /**

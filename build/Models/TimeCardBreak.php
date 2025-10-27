@@ -19,13 +19,13 @@ class TimeCardBreak
      * The start event of the timeCardBreak.
      * @var TimeCardEvent|\stdClass|null
      */
-    public mixed $end = null;
+    public TimeCardEvent|\stdClass|null $end = null;
 
     /** 
      * Notes about the timeCardBreak.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $notes = null;
+    public ItemBody|\stdClass|null $notes = null;
 
     /**  */
     public ?TimeCardEvent $start = null;

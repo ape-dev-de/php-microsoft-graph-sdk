@@ -16,7 +16,7 @@ class AuthenticationConditions
      * Applications which trigger a custom authentication extension.
      * @var AuthenticationConditionsApplications|\stdClass|null
      */
-    public mixed $applications = null;
+    public AuthenticationConditionsApplications|\stdClass|null $applications = null;
 
 
     /**

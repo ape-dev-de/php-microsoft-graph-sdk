@@ -40,13 +40,13 @@ class SharepointSettings
      * Specifies the idle session sign-out policies for the tenant.
      * @var IdleSessionSignOut|\stdClass|null
      */
-    public mixed $idleSessionSignOut = null;
+    public IdleSessionSignOut|\stdClass|null $idleSessionSignOut = null;
 
     /** 
      * Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.
      * @var ImageTaggingChoice|\stdClass|null
      */
-    public mixed $imageTaggingOption = null;
+    public ImageTaggingChoice|\stdClass|null $imageTaggingOption = null;
 
     /** Indicates whether comments are allowed on modern site pages in SharePoint. */
     public ?bool $isCommentingOnSitePagesEnabled = null;
@@ -112,13 +112,13 @@ class SharepointSettings
      * Sharing capability for the tenant. Possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly.
      * @var SharingCapabilities|\stdClass|null
      */
-    public mixed $sharingCapability = null;
+    public SharingCapabilities|\stdClass|null $sharingCapability = null;
 
     /** 
      * Specifies the external sharing mode for domains. Possible values are: none, allowList, blockList.
      * @var SharingDomainRestrictionMode|\stdClass|null
      */
-    public mixed $sharingDomainRestrictionMode = null;
+    public SharingDomainRestrictionMode|\stdClass|null $sharingDomainRestrictionMode = null;
 
     /** The value of the team site managed path. This is the path under which new team sites will be created. */
     public ?string $siteCreationDefaultManagedPath = null;

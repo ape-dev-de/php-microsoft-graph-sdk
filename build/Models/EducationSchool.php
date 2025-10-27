@@ -25,7 +25,7 @@ class EducationSchool
      * Source where this organization was created from. Possible values are: sis, manual.
      * @var EducationExternalSource|\stdClass|null
      */
-    public mixed $externalSource = null;
+    public EducationExternalSource|\stdClass|null $externalSource = null;
 
     /** The name of the external source this resource was generated from. */
     public ?string $externalSourceDetail = null;
@@ -34,13 +34,13 @@ class EducationSchool
      * Address of the school.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $address = null;
+    public PhysicalAddress|\stdClass|null $address = null;
 
     /** 
      * Entity who created the school.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** ID of school in syncing system. */
     public ?string $externalId = null;
@@ -73,7 +73,7 @@ class EducationSchool
      * The underlying administrativeUnit for this school.
      * @var AdministrativeUnit|\stdClass|null
      */
-    public mixed $administrativeUnit = null;
+    public AdministrativeUnit|\stdClass|null $administrativeUnit = null;
 
     /** 
      * Classes taught at the school. Nullable.

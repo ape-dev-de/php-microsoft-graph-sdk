@@ -19,7 +19,7 @@ class SecurityEdiscoveryEstimateOperation
      * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult.
      * @var SecurityCaseAction|\stdClass|null
      */
-    public mixed $action = null;
+    public SecurityCaseAction|\stdClass|null $action = null;
 
     /** The date and time the operation was completed. */
     public ?\DateTimeInterface $completedDateTime = null;
@@ -28,7 +28,7 @@ class SecurityEdiscoveryEstimateOperation
      * The user that created the operation.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time the operation was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,13 +40,13 @@ class SecurityEdiscoveryEstimateOperation
      * Contains success and failure-specific result information.
      * @var ResultInfo|\stdClass|null
      */
-    public mixed $resultInfo = null;
+    public ResultInfo|\stdClass|null $resultInfo = null;
 
     /** 
      * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
      * @var SecurityCaseOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityCaseOperationStatus|\stdClass|null $status = null;
 
     /** The estimated count of items for the search that matched the content query. */
     public ?float $indexedItemCount = null;
@@ -70,7 +70,7 @@ class SecurityEdiscoveryEstimateOperation
      * The options to generate statistics. Possible values are: includeRefiners, includeQueryStats, includeUnindexedStats, advancedIndexing, locationsWithoutHits, unknownFutureValue.
      * @var SecurityStatisticsOptions|\stdClass|null
      */
-    public mixed $statisticsOptions = null;
+    public SecurityStatisticsOptions|\stdClass|null $statisticsOptions = null;
 
     /** The estimated count of unindexed items for the collection. */
     public ?float $unindexedItemCount = null;
@@ -82,7 +82,7 @@ class SecurityEdiscoveryEstimateOperation
      * eDiscovery search.
      * @var SecurityEdiscoverySearch|\stdClass|null
      */
-    public mixed $search = null;
+    public SecurityEdiscoverySearch|\stdClass|null $search = null;
 
 
     /**

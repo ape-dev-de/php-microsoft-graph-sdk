@@ -16,7 +16,7 @@ class DlpActionInfo
      * The type of DLP action. Possible value is restrictAccessAction.
      * @var DlpAction|\stdClass|null
      */
-    public mixed $action = null;
+    public DlpAction|\stdClass|null $action = null;
 
 
     /**

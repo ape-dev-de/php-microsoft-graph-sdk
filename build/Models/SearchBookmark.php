@@ -25,7 +25,7 @@ class SearchBookmark
      * Details of the user who created or last modified the search answer. Read-only.
      * @var SearchIdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public SearchIdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time when the search answer was created or last edited. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -58,7 +58,7 @@ class SearchBookmark
      * Keywords that trigger this bookmark to appear in search results.
      * @var SearchAnswerKeyword|\stdClass|null
      */
-    public mixed $keywords = null;
+    public SearchAnswerKeyword|\stdClass|null $keywords = null;
 
     /** 
      * A list of geographically specific language names in which this bookmark can be viewed. Each language tag value follows the pattern {language}-{region}. For example, en-us is English as used in the United States. For the list of possible values, see Supported language tags.

@@ -16,19 +16,19 @@ class SearchIdentitySet
      * 
      * @var SearchIdentity|\stdClass|null
      */
-    public mixed $application = null;
+    public SearchIdentity|\stdClass|null $application = null;
 
     /** 
      * 
      * @var SearchIdentity|\stdClass|null
      */
-    public mixed $device = null;
+    public SearchIdentity|\stdClass|null $device = null;
 
     /** 
      * 
      * @var SearchIdentity|\stdClass|null
      */
-    public mixed $user = null;
+    public SearchIdentity|\stdClass|null $user = null;
 
 
     /**

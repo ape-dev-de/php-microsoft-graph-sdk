@@ -19,7 +19,7 @@ class EducationItemBody
      * 
      * @var BodyType|\stdClass|null
      */
-    public mixed $contentType = null;
+    public BodyType|\stdClass|null $contentType = null;
 
 
     /**

@@ -16,37 +16,37 @@ class IdentityGovernance
      * 
      * @var AccessReviewSet|\stdClass|null
      */
-    public mixed $accessReviews = null;
+    public AccessReviewSet|\stdClass|null $accessReviews = null;
 
     /** 
      * 
      * @var AppConsentApprovalRoute|\stdClass|null
      */
-    public mixed $appConsent = null;
+    public AppConsentApprovalRoute|\stdClass|null $appConsent = null;
 
     /** 
      * 
      * @var EntitlementManagement|\stdClass|null
      */
-    public mixed $entitlementManagement = null;
+    public EntitlementManagement|\stdClass|null $entitlementManagement = null;
 
     /** 
      * 
      * @var IdentityGovernanceLifecycleWorkflowsContainer|\stdClass|null
      */
-    public mixed $lifecycleWorkflows = null;
+    public IdentityGovernanceLifecycleWorkflowsContainer|\stdClass|null $lifecycleWorkflows = null;
 
     /** 
      * 
      * @var PrivilegedAccessRoot|\stdClass|null
      */
-    public mixed $privilegedAccess = null;
+    public PrivilegedAccessRoot|\stdClass|null $privilegedAccess = null;
 
     /** 
      * 
      * @var TermsOfUseContainer|\stdClass|null
      */
-    public mixed $termsOfUse = null;
+    public TermsOfUseContainer|\stdClass|null $termsOfUse = null;
 
 
     /**

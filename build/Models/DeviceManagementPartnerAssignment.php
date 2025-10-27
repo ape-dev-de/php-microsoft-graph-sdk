@@ -16,7 +16,7 @@ class DeviceManagementPartnerAssignment
      * User groups targeting for devices to be enrolled through partner.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

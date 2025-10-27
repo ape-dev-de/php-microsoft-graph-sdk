@@ -64,7 +64,7 @@ class LearningContent
      * The difficulty level of the learning content. Possible values are: Beginner, Intermediate, Advanced, unknownFutureValue. Optional.
      * @var Level|\stdClass|null
      */
-    public mixed $level = null;
+    public Level|\stdClass|null $level = null;
 
     /** The number of pages of the learning content, for example, 9. Optional. */
     public ?float $numberOfPages = null;

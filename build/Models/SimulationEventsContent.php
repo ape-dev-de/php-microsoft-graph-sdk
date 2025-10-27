@@ -12,8 +12,11 @@ class SimulationEventsContent
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign. */
-    public ?string $compromisedRate = null;
+    /** 
+     * Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $compromisedRate = null;
 
     /** 
      * List of simulation events in an attack simulation and training campaign.

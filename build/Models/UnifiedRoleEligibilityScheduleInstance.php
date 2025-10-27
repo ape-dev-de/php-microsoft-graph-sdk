@@ -31,25 +31,25 @@ class UnifiedRoleEligibilityScheduleInstance
      * Read-only property with details of the app-specific scope when the assignment or role eligibility is scoped to an app. Nullable.
      * @var AppScope|\stdClass|null
      */
-    public mixed $appScope = null;
+    public AppScope|\stdClass|null $appScope = null;
 
     /** 
      * The directory object that is the scope of the assignment or role eligibility. Read-only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $directoryScope = null;
+    public DirectoryObject|\stdClass|null $directoryScope = null;
 
     /** 
      * The principal that's getting a role assignment or role eligibility through the request.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
     /** 
      * Detailed information for the roleDefinition object that is referenced through the roleDefinitionId property.
      * @var UnifiedRoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public UnifiedRoleDefinition|\stdClass|null $roleDefinition = null;
 
     /** The end date of the schedule instance. */
     public ?\DateTimeInterface $endDateTime = null;

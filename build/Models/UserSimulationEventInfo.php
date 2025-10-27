@@ -19,7 +19,7 @@ class UserSimulationEventInfo
      * 
      * @var ClickSource|\stdClass|null
      */
-    public mixed $clickSource = null;
+    public ClickSource|\stdClass|null $clickSource = null;
 
     /** Date and time of the simulation event by a user in an attack simulation and training campaign. */
     public ?\DateTimeInterface $eventDateTime = null;

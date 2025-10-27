@@ -16,13 +16,13 @@ class BroadcastMeetingSettings
      * Defines who can join the Teams live event. Possible values are listed in the following table.
      * @var BroadcastMeetingAudience|\stdClass|null
      */
-    public mixed $allowedAudience = null;
+    public BroadcastMeetingAudience|\stdClass|null $allowedAudience = null;
 
     /** 
      * Caption settings of a Teams live event.
      * @var BroadcastMeetingCaptionSettings|\stdClass|null
      */
-    public mixed $captions = null;
+    public BroadcastMeetingCaptionSettings|\stdClass|null $captions = null;
 
     /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
     public ?bool $isAttendeeReportEnabled = null;

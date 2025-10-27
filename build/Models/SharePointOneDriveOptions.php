@@ -16,7 +16,7 @@ class SharePointOneDriveOptions
      * The type of search content. The possible values are: sharedContent, privateContent, unknownFutureValue. Read-only.
      * @var SearchContent|\stdClass|null
      */
-    public mixed $includeContent = null;
+    public SearchContent|\stdClass|null $includeContent = null;
 
 
     /**

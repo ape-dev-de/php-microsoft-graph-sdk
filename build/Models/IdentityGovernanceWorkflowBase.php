@@ -28,7 +28,7 @@ class IdentityGovernanceWorkflowBase
      * Defines when and for who the workflow will run.
      * @var IdentityGovernanceWorkflowExecutionConditions|\stdClass|null
      */
-    public mixed $executionConditions = null;
+    public IdentityGovernanceWorkflowExecutionConditions|\stdClass|null $executionConditions = null;
 
     /** Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true. */
     public ?bool $isEnabled = null;
@@ -43,13 +43,13 @@ class IdentityGovernanceWorkflowBase
      * The user who created the workflow.
      * @var User|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public User|\stdClass|null $createdBy = null;
 
     /** 
      * The unique identifier of the Microsoft Entra identity that last modified the workflow.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public User|\stdClass|null $lastModifiedBy = null;
 
     /** 
      * The tasks in the workflow.

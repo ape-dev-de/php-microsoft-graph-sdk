@@ -40,7 +40,7 @@ class CalendarSharingMessage
      * The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $body = null;
+    public ItemBody|\stdClass|null $body = null;
 
     /** The first 255 characters of the message body. It is in text format. */
     public ?string $bodyPreview = null;
@@ -61,13 +61,13 @@ class CalendarSharingMessage
      * Indicates the status, start date, due date, or completion date for the message.
      * @var FollowupFlag|\stdClass|null
      */
-    public mixed $flag = null;
+    public FollowupFlag|\stdClass|null $flag = null;
 
     /** 
      * The owner of the mailbox from which the message is sent. In most cases, this value is the same as the sender property, except for sharing or delegation scenarios. The value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.
      * @var Recipient|\stdClass|null
      */
-    public mixed $from = null;
+    public Recipient|\stdClass|null $from = null;
 
     /** Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>. */
     public ?bool $hasAttachments = null;
@@ -76,13 +76,13 @@ class CalendarSharingMessage
      * The importance of the message. The possible values are: low, normal, and high.
      * @var Importance|\stdClass|null
      */
-    public mixed $importance = null;
+    public Importance|\stdClass|null $importance = null;
 
     /** 
      * The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. The possible values are: focused or other.
      * @var InferenceClassificationType|\stdClass|null
      */
-    public mixed $inferenceClassification = null;
+    public InferenceClassificationType|\stdClass|null $inferenceClassification = null;
 
     /** 
      * A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.
@@ -121,7 +121,7 @@ class CalendarSharingMessage
      * The account that is used to generate the message. In most cases, this value is the same as the from property. You can set this property to a different value when sending a message from a shared mailbox, for a shared calendar, or as a delegate. In any case, the value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.
      * @var Recipient|\stdClass|null
      */
-    public mixed $sender = null;
+    public Recipient|\stdClass|null $sender = null;
 
     /** The date and time the message was sent.  The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $sentDateTime = null;
@@ -139,7 +139,7 @@ class CalendarSharingMessage
      * The part of the body of the message that is unique to the current message. uniqueBody is not returned by default but can be retrieved for a given message by use of the ?$select=uniqueBody query. It can be in HTML or text format.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $uniqueBody = null;
+    public ItemBody|\stdClass|null $uniqueBody = null;
 
     /** The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, the browser shows the message in the Outlook on the web review pane.The message opens in the browser if you are signed in to your mailbox via Outlook on the web. You are prompted to sign in if you are not already signed in with the browser.This URL cannot be accessed from within an iFrame. */
     public ?string $webLink = null;
@@ -175,7 +175,7 @@ class CalendarSharingMessage
      * 
      * @var CalendarSharingMessageAction|\stdClass|null
      */
-    public mixed $sharingMessageAction = null;
+    public CalendarSharingMessageAction|\stdClass|null $sharingMessageAction = null;
 
     /** 
      * 

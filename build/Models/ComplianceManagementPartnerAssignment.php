@@ -16,7 +16,7 @@ class ComplianceManagementPartnerAssignment
      * Group assignment target.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

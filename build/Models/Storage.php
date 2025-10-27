@@ -16,13 +16,13 @@ class Storage
      * 
      * @var FileStorage|\stdClass|null
      */
-    public mixed $fileStorage = null;
+    public FileStorage|\stdClass|null $fileStorage = null;
 
     /** 
      * 
      * @var StorageSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public StorageSettings|\stdClass|null $settings = null;
 
 
     /**

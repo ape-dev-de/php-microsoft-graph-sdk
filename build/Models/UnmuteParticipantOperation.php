@@ -22,7 +22,7 @@ class UnmuteParticipantOperation
      * The result information. Read-only.
      * @var ResultInfo|\stdClass|null
      */
-    public mixed $resultInfo = null;
+    public ResultInfo|\stdClass|null $resultInfo = null;
 
     /**  */
     public ?OperationStatus $status = null;

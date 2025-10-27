@@ -22,13 +22,13 @@ class OnTokenIssuanceStartListener
      * The conditions on which this authenticationEventListener should trigger.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
     /** 
      * The handler to invoke when conditions are met for this onTokenIssuanceStartListener.
      * @var OnTokenIssuanceStartHandler|\stdClass|null
      */
-    public mixed $handler = null;
+    public OnTokenIssuanceStartHandler|\stdClass|null $handler = null;
 
 
     /**

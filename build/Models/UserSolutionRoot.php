@@ -19,7 +19,7 @@ class UserSolutionRoot
      * The working time schedule entity associated with the solution.
      * @var WorkingTimeSchedule|\stdClass|null
      */
-    public mixed $workingTimeSchedule = null;
+    public WorkingTimeSchedule|\stdClass|null $workingTimeSchedule = null;
 
 
     /**

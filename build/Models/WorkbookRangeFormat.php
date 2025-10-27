@@ -15,14 +15,20 @@ class WorkbookRangeFormat
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
-    /** The width of all columns within the range. If the column widths aren't uniform, null will be returned. */
-    public ?string $columnWidth = null;
+    /** 
+     * The width of all columns within the range. If the column widths aren't uniform, null will be returned.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $columnWidth = null;
 
     /** The horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed. */
     public ?string $horizontalAlignment = null;
 
-    /** The height of all rows in the range. If the row heights aren't uniform null will be returned. */
-    public ?string $rowHeight = null;
+    /** 
+     * The height of all rows in the range. If the row heights aren't uniform null will be returned.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $rowHeight = null;
 
     /** The vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed. */
     public ?string $verticalAlignment = null;
@@ -40,19 +46,19 @@ class WorkbookRangeFormat
      * Returns the fill object defined on the overall range. Read-only.
      * @var WorkbookRangeFill|\stdClass|null
      */
-    public mixed $fill = null;
+    public WorkbookRangeFill|\stdClass|null $fill = null;
 
     /** 
      * Returns the font object defined on the overall range selected Read-only.
      * @var WorkbookRangeFont|\stdClass|null
      */
-    public mixed $font = null;
+    public WorkbookRangeFont|\stdClass|null $font = null;
 
     /** 
      * Returns the format protection object for a range. Read-only.
      * @var WorkbookFormatProtection|\stdClass|null
      */
-    public mixed $protection = null;
+    public WorkbookFormatProtection|\stdClass|null $protection = null;
 
 
     /**

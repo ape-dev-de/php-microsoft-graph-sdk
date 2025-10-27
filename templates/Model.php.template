@@ -42,6 +42,9 @@ foreach ($sortedProperties as $propName => $propDef):
     $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $normalizedPropName))));
     $hasUnion = str_contains($type, '|');
     $isArray = $type === 'array';
+    // Check if type is nullable (starts with ?)
+    $isNullable = str_starts_with($type, '?');
+    $cleanTypeForDoc = str_replace('?', '', $type);
 ?>
 <?php if ($isArray): ?>
     /** 
@@ -56,9 +59,9 @@ foreach ($sortedProperties as $propName => $propDef):
     /** 
      * <?= $description ? $description : '' ?>
 
-     * @var <?= str_replace('?', '', $type) ?>|null
+     * @var <?= $cleanTypeForDoc ?>|null
      */
-    public mixed $<?= $phpPropName ?> = null;
+    public <?= $cleanTypeForDoc ?>|null $<?= $phpPropName ?> = null;
 
 <?php else: ?>
     /** <?= $description ? $description : '' ?> */

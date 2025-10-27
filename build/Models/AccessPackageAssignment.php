@@ -28,13 +28,13 @@ class AccessPackageAssignment
      * When the access assignment is to be in place. Read-only.
      * @var EntitlementManagementSchedule|\stdClass|null
      */
-    public mixed $schedule = null;
+    public EntitlementManagementSchedule|\stdClass|null $schedule = null;
 
     /** 
      * The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq).
      * @var AccessPackageAssignmentState|\stdClass|null
      */
-    public mixed $state = null;
+    public AccessPackageAssignmentState|\stdClass|null $state = null;
 
     /** More information about the assignment lifecycle. Possible values include Delivering, Delivered, AutoAssignmentInGracePeriod, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered. Read-only. */
     public ?string $status = null;
@@ -43,19 +43,19 @@ class AccessPackageAssignment
      * Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
      * @var AccessPackage|\stdClass|null
      */
-    public mixed $accessPackage = null;
+    public AccessPackage|\stdClass|null $accessPackage = null;
 
     /** 
      * Read-only. Supports $filter (eq) on the id property and $expand query parameters.
      * @var AccessPackageAssignmentPolicy|\stdClass|null
      */
-    public mixed $assignmentPolicy = null;
+    public AccessPackageAssignmentPolicy|\stdClass|null $assignmentPolicy = null;
 
     /** 
      * The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
      * @var AccessPackageSubject|\stdClass|null
      */
-    public mixed $target = null;
+    public AccessPackageSubject|\stdClass|null $target = null;
 
 
     /**

@@ -19,7 +19,7 @@ class SecurityUnifiedGroupSource
      * The user who created the dataSource.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time the dataSource was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -31,13 +31,13 @@ class SecurityUnifiedGroupSource
      * The hold status of the dataSource.The possible values are: notApplied, applied, applying, removing, partial
      * @var SecurityDataSourceHoldStatus|\stdClass|null
      */
-    public mixed $holdStatus = null;
+    public SecurityDataSourceHoldStatus|\stdClass|null $holdStatus = null;
 
     /** 
      * Specifies which sources are included in this group. Possible values are: mailbox, site.
      * @var SecuritySourceType|\stdClass|null
      */
-    public mixed $includedSources = null;
+    public SecuritySourceType|\stdClass|null $includedSources = null;
 
     /**  */
     public ?Group $group = null;

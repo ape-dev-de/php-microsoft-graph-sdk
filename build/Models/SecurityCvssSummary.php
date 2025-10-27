@@ -12,14 +12,17 @@ class SecurityCvssSummary
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** The CVSS score about this vulnerability. */
-    public ?string $score = null;
+    /** 
+     * The CVSS score about this vulnerability.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $score = null;
 
     /** 
      * The CVSS severity rating for this vulnerability. The possible values are: none, low, medium, high, critical, unknownFutureValue.
      * @var SecurityVulnerabilitySeverity|\stdClass|null
      */
-    public mixed $severity = null;
+    public SecurityVulnerabilitySeverity|\stdClass|null $severity = null;
 
     /** The CVSS vector string for this vulnerability. */
     public ?string $vectorString = null;

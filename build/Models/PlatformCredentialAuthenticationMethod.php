@@ -25,19 +25,19 @@ class PlatformCredentialAuthenticationMethod
      * Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.
      * @var AuthenticationMethodKeyStrength|\stdClass|null
      */
-    public mixed $keyStrength = null;
+    public AuthenticationMethodKeyStrength|\stdClass|null $keyStrength = null;
 
     /** 
      * Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.
      * @var AuthenticationMethodPlatform|\stdClass|null
      */
-    public mixed $platform = null;
+    public AuthenticationMethodPlatform|\stdClass|null $platform = null;
 
     /** 
      * The registered device on which this Platform Credential resides. Supports $expand. When you get a user's Platform Credential registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/platformCredentialAuthenticationMethod/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device.
      * @var Device|\stdClass|null
      */
-    public mixed $device = null;
+    public Device|\stdClass|null $device = null;
 
 
     /**

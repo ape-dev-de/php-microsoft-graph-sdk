@@ -25,7 +25,7 @@ class EducationOrganization
      * Source where this organization was created from. Possible values are: sis, manual.
      * @var EducationExternalSource|\stdClass|null
      */
-    public mixed $externalSource = null;
+    public EducationExternalSource|\stdClass|null $externalSource = null;
 
     /** The name of the external source this resource was generated from. */
     public ?string $externalSourceDetail = null;

@@ -19,19 +19,19 @@ class SignInFrequencySessionControl
      * The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue. This property isn't required when using frequencyInterval with the value of timeBased.
      * @var SignInFrequencyAuthenticationType|\stdClass|null
      */
-    public mixed $authenticationType = null;
+    public SignInFrequencyAuthenticationType|\stdClass|null $authenticationType = null;
 
     /** 
      * The possible values are timeBased, everyTime, unknownFutureValue. Sign-in frequency of everyTime is available for risky users, risky sign-ins, and Intune device enrollment. For more information, see Require reauthentication every time.
      * @var SignInFrequencyInterval|\stdClass|null
      */
-    public mixed $frequencyInterval = null;
+    public SignInFrequencyInterval|\stdClass|null $frequencyInterval = null;
 
     /** 
      * Possible values are: days, hours.
      * @var SigninFrequencyType|\stdClass|null
      */
-    public mixed $type = null;
+    public SigninFrequencyType|\stdClass|null $type = null;
 
     /** The number of days or hours. */
     public ?float $value = null;

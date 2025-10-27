@@ -19,7 +19,7 @@ class X509CertificateUserBinding
      * 
      * @var X509CertificateAffinityLevel|\stdClass|null
      */
-    public mixed $trustAffinityLevel = null;
+    public X509CertificateAffinityLevel|\stdClass|null $trustAffinityLevel = null;
 
     /** Defines the Microsoft Entra user property of the user object to use for the binding. The possible values are: userPrincipalName, onPremisesUserPrincipalName, certificateUserIds. Required. */
     public ?string $userProperty = null;

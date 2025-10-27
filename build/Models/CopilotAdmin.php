@@ -19,7 +19,7 @@ class CopilotAdmin
      * 
      * @var CopilotAdminSetting|\stdClass|null
      */
-    public mixed $settings = null;
+    public CopilotAdminSetting|\stdClass|null $settings = null;
 
 
     /**

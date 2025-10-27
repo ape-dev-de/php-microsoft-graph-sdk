@@ -19,7 +19,7 @@ class ProvisioningErrorInfo
      * Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue
      * @var ProvisioningStatusErrorCategory|\stdClass|null
      */
-    public mixed $errorCategory = null;
+    public ProvisioningStatusErrorCategory|\stdClass|null $errorCategory = null;
 
     /** Unique error code if any occurred. Learn more */
     public ?string $errorCode = null;

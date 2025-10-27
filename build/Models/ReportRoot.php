@@ -16,7 +16,7 @@ class ReportRoot
      * Container for navigation properties for Microsoft Entra authentication methods resources.
      * @var AuthenticationMethodsRoot|\stdClass|null
      */
-    public mixed $authenticationMethods = null;
+    public AuthenticationMethodsRoot|\stdClass|null $authenticationMethods = null;
 
     /** 
      * Retrieve a list of daily print usage summaries, grouped by printer.
@@ -46,13 +46,13 @@ class ReportRoot
      * Represents billing details for a Microsoft direct partner.
      * @var Partners|\stdClass|null
      */
-    public mixed $partners = null;
+    public Partners|\stdClass|null $partners = null;
 
     /** 
      * Represents an abstract type that contains resources for attack simulation and training reports.
      * @var SecurityReportsRoot|\stdClass|null
      */
-    public mixed $security = null;
+    public SecurityReportsRoot|\stdClass|null $security = null;
 
 
     /**

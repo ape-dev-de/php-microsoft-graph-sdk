@@ -37,7 +37,7 @@ class ConditionalAccessGrantControls
      * 
      * @var AuthenticationStrengthPolicy|\stdClass|null
      */
-    public mixed $authenticationStrength = null;
+    public AuthenticationStrengthPolicy|\stdClass|null $authenticationStrength = null;
 
 
     /**

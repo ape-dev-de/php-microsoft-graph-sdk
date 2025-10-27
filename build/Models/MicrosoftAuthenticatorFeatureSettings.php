@@ -16,13 +16,13 @@ class MicrosoftAuthenticatorFeatureSettings
      * Determines whether the user's Authenticator app shows them the client app they're signing into.
      * @var AuthenticationMethodFeatureConfiguration|\stdClass|null
      */
-    public mixed $displayAppInformationRequiredState = null;
+    public AuthenticationMethodFeatureConfiguration|\stdClass|null $displayAppInformationRequiredState = null;
 
     /** 
      * Determines whether the user's Authenticator app shows them the geographic location of where the authentication request originated from.
      * @var AuthenticationMethodFeatureConfiguration|\stdClass|null
      */
-    public mixed $displayLocationInformationRequiredState = null;
+    public AuthenticationMethodFeatureConfiguration|\stdClass|null $displayLocationInformationRequiredState = null;
 
 
     /**

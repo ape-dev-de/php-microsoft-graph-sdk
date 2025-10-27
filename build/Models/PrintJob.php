@@ -25,7 +25,7 @@ class PrintJob
      * 
      * @var UserIdentity|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public UserIdentity|\stdClass|null $createdBy = null;
 
     /** The DateTimeOffset when the job was created. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;

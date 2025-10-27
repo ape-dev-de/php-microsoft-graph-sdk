@@ -31,25 +31,25 @@ class VirtualEventSession
      * Specifies the users who can admit from the lobby. Possible values are: organizerAndCoOrganizersAndPresenters, organizerAndCoOrganizers, unknownFutureValue.
      * @var AllowedLobbyAdmitterRoles|\stdClass|null
      */
-    public mixed $allowedLobbyAdmitters = null;
+    public AllowedLobbyAdmitterRoles|\stdClass|null $allowedLobbyAdmitters = null;
 
     /** 
      * Specifies who can be a presenter in a meeting. Possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue. Inherited from onlineMeetingBase.
      * @var OnlineMeetingPresenters|\stdClass|null
      */
-    public mixed $allowedPresenters = null;
+    public OnlineMeetingPresenters|\stdClass|null $allowedPresenters = null;
 
     /** 
      * Indicates whether live share is enabled for the meeting. Possible values are: enabled, disabled, unknownFutureValue.
      * @var MeetingLiveShareOptions|\stdClass|null
      */
-    public mixed $allowLiveShare = null;
+    public MeetingLiveShareOptions|\stdClass|null $allowLiveShare = null;
 
     /** 
      * Specifies the mode of the meeting chat.
      * @var MeetingChatMode|\stdClass|null
      */
-    public mixed $allowMeetingChat = null;
+    public MeetingChatMode|\stdClass|null $allowMeetingChat = null;
 
     /** Specifies if participants are allowed to rename themselves in an instance of the meeting. */
     public ?bool $allowParticipantsToChangeName = null;
@@ -73,19 +73,19 @@ class VirtualEventSession
      * The phone access (dial-in) information for an online meeting. Read-only.
      * @var AudioConferencing|\stdClass|null
      */
-    public mixed $audioConferencing = null;
+    public AudioConferencing|\stdClass|null $audioConferencing = null;
 
     /** 
      * The chat information associated with this online meeting.
      * @var ChatInfo|\stdClass|null
      */
-    public mixed $chatInfo = null;
+    public ChatInfo|\stdClass|null $chatInfo = null;
 
     /** 
      * Specifies the configuration settings for meeting chat restrictions.
      * @var ChatRestrictions|\stdClass|null
      */
-    public mixed $chatRestrictions = null;
+    public ChatRestrictions|\stdClass|null $chatRestrictions = null;
 
     /** Indicates whether end-to-end encryption (E2EE) is enabled for the online meeting. */
     public ?bool $isEndToEndEncryptionEnabled = null;
@@ -97,13 +97,13 @@ class VirtualEventSession
      * The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $joinInformation = null;
+    public ItemBody|\stdClass|null $joinInformation = null;
 
     /** 
      * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings can't be modified. To make any changes to this property, you must cancel this meeting and create a new one.
      * @var JoinMeetingIdSettings|\stdClass|null
      */
-    public mixed $joinMeetingIdSettings = null;
+    public JoinMeetingIdSettings|\stdClass|null $joinMeetingIdSettings = null;
 
     /** The join URL of the online meeting. Read-only. */
     public ?string $joinWebUrl = null;
@@ -112,7 +112,7 @@ class VirtualEventSession
      * Specifies which participants can bypass the meeting lobby.
      * @var LobbyBypassSettings|\stdClass|null
      */
-    public mixed $lobbyBypassSettings = null;
+    public LobbyBypassSettings|\stdClass|null $lobbyBypassSettings = null;
 
     /** Indicates whether to record the meeting automatically. */
     public ?bool $recordAutomatically = null;
@@ -121,7 +121,7 @@ class VirtualEventSession
      * Specifies whether meeting chat history is shared with participants.  Possible values are: all, none, unknownFutureValue.
      * @var MeetingChatHistoryDefaultMode|\stdClass|null
      */
-    public mixed $shareMeetingChatHistoryDefault = null;
+    public MeetingChatHistoryDefaultMode|\stdClass|null $shareMeetingChatHistoryDefault = null;
 
     /** The subject of the online meeting. */
     public ?string $subject = null;
@@ -133,7 +133,7 @@ class VirtualEventSession
      * Specifies whether the client application should apply a watermark to a content type.
      * @var WatermarkProtectionValues|\stdClass|null
      */
-    public mixed $watermarkProtection = null;
+    public WatermarkProtectionValues|\stdClass|null $watermarkProtection = null;
 
     /** 
      * The attendance reports of an online meeting. Read-only.
@@ -145,13 +145,13 @@ class VirtualEventSession
      * The virtual event session end time.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $endDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $endDateTime = null;
 
     /** 
      * The virtual event session start time.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $startDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $startDateTime = null;
 
     /** The URL of the video on demand (VOD) for Microsoft Teams events that allows webinar and town hall organizers to quickly publish and share event recordings. */
     public ?string $videoOnDemandWebUrl = null;

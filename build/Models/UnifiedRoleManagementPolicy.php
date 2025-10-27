@@ -28,7 +28,7 @@ class UnifiedRoleManagementPolicy
      * The identity who last modified the role setting.
      * @var Identity|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public Identity|\stdClass|null $lastModifiedBy = null;
 
     /** The time when the role setting was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

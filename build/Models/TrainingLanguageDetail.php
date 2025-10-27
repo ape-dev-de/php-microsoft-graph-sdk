@@ -22,7 +22,7 @@ class TrainingLanguageDetail
      * Identity of the user who created the language details.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public EmailIdentity|\stdClass|null $createdBy = null;
 
     /** Date and time when the language details were created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,7 +40,7 @@ class TrainingLanguageDetail
      * Identity of the user who last modified the details.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public EmailIdentity|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time when the trainingLanguageDetail was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

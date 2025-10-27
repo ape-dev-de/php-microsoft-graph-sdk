@@ -48,8 +48,11 @@ class SecureScoreControlProfile
     /** Time at which the control profile entity was last modified. The Timestamp type represents date and time */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
 
-    /** max attainable score for the control. */
-    public ?string $maxScore = null;
+    /** 
+     * max attainable score for the control.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $maxScore = null;
 
     /** Microsoft's stack ranking of control. */
     public ?float $rank = null;
@@ -82,7 +85,7 @@ class SecureScoreControlProfile
      * Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
      * @var SecurityVendorInformation|\stdClass|null
      */
-    public mixed $vendorInformation = null;
+    public SecurityVendorInformation|\stdClass|null $vendorInformation = null;
 
 
     /**

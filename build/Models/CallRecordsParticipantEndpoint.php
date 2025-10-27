@@ -16,13 +16,13 @@ class CallRecordsParticipantEndpoint
      * User-agent reported by this endpoint.
      * @var CallRecordsUserAgent|\stdClass|null
      */
-    public mixed $userAgent = null;
+    public CallRecordsUserAgent|\stdClass|null $userAgent = null;
 
     /** 
      * Identity associated with the endpoint.
      * @var Identity|\stdClass|null
      */
-    public mixed $associatedIdentity = null;
+    public Identity|\stdClass|null $associatedIdentity = null;
 
     /** CPU number of cores used by the media endpoint. */
     public ?float $cpuCoresCount = null;
@@ -37,13 +37,13 @@ class CallRecordsParticipantEndpoint
      * The feedback provided by the user of this endpoint about the quality of the session.
      * @var CallRecordsUserFeedback|\stdClass|null
      */
-    public mixed $feedback = null;
+    public CallRecordsUserFeedback|\stdClass|null $feedback = null;
 
     /** 
      * Identity associated with the endpoint. The identity property is deprecated and will stop returning data on June 30, 2026. Going forward, use the associatedIdentity property.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $identity = null;
+    public IdentitySet|\stdClass|null $identity = null;
 
     /** Name of the device used by the media endpoint. */
     public ?string $name = null;

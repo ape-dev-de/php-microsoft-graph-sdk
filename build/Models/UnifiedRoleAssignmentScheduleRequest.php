@@ -25,7 +25,7 @@ class UnifiedRoleAssignmentScheduleRequest
      * The principal that created the request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The request creation date time. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,7 +40,7 @@ class UnifiedRoleAssignmentScheduleRequest
      * Represents the type of the operation on the role assignment request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign roles to principals.adminRemove: For administrators to remove principals from roles. adminUpdate: For administrators to change existing role assignments.adminExtend: For administrators to extend expiring assignments.adminRenew: For administrators to renew expired assignments.selfActivate: For principals to activate their assignments.selfDeactivate: For principals to deactivate their active assignments.selfExtend: For principals to request to extend their expiring assignments.selfRenew: For principals to request to renew their expired assignments.
      * @var UnifiedRoleScheduleRequestActions|\stdClass|null
      */
-    public mixed $action = null;
+    public UnifiedRoleScheduleRequestActions|\stdClass|null $action = null;
 
     /** Identifier of the app-specific scope when the assignment is scoped to an app. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, ne, and on null values). */
     public ?string $appScopeId = null;
@@ -64,7 +64,7 @@ class UnifiedRoleAssignmentScheduleRequest
      * The period of the role assignment. Recurring schedules are currently unsupported.
      * @var RequestSchedule|\stdClass|null
      */
-    public mixed $scheduleInfo = null;
+    public RequestSchedule|\stdClass|null $scheduleInfo = null;
 
     /** Identifier of the schedule object that's linked to the assignment request. Supports $filter (eq, ne). */
     public ?string $targetScheduleId = null;
@@ -73,43 +73,43 @@ class UnifiedRoleAssignmentScheduleRequest
      * Ticket details linked to the role assignment request including details of the ticket number and ticket system.
      * @var TicketInfo|\stdClass|null
      */
-    public mixed $ticketInfo = null;
+    public TicketInfo|\stdClass|null $ticketInfo = null;
 
     /** 
      * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it's null. Supports $expand and $select nested in $expand.
      * @var UnifiedRoleEligibilitySchedule|\stdClass|null
      */
-    public mixed $activatedUsing = null;
+    public UnifiedRoleEligibilitySchedule|\stdClass|null $activatedUsing = null;
 
     /** 
      * Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand.
      * @var AppScope|\stdClass|null
      */
-    public mixed $appScope = null;
+    public AppScope|\stdClass|null $appScope = null;
 
     /** 
      * The directory object that is the scope of the assignment. Read-only. Supports $expand.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $directoryScope = null;
+    public DirectoryObject|\stdClass|null $directoryScope = null;
 
     /** 
      * The principal that's getting a role assignment through the request. Supports $expand and $select nested in $expand for id only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
     /** 
      * Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand and $select nested in $expand.
      * @var UnifiedRoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public UnifiedRoleDefinition|\stdClass|null $roleDefinition = null;
 
     /** 
      * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand and $select nested in $expand.
      * @var UnifiedRoleAssignmentSchedule|\stdClass|null
      */
-    public mixed $targetSchedule = null;
+    public UnifiedRoleAssignmentSchedule|\stdClass|null $targetSchedule = null;
 
 
     /**

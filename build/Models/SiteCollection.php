@@ -16,7 +16,7 @@ class SiteCollection
      * Represents whether the site collection is recently archived, fully archived, or reactivating. Possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue.
      * @var SiteArchivalDetails|\stdClass|null
      */
-    public mixed $archivalDetails = null;
+    public SiteArchivalDetails|\stdClass|null $archivalDetails = null;
 
     /** The geographic region code for where this site collection resides. Only present for multi-geo tenants. Read-only. */
     public ?string $dataLocationCode = null;
@@ -28,7 +28,7 @@ class SiteCollection
      * If present, indicates that this is a root site collection in SharePoint. Read-only.
      * @var Root|\stdClass|null
      */
-    public mixed $root = null;
+    public Root|\stdClass|null $root = null;
 
 
     /**

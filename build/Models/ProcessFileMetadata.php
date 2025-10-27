@@ -16,7 +16,7 @@ class ProcessFileMetadata
      * Represents the actual content, either as text (textContent) or binary data (binaryContent). Optional if metadata alone is sufficient for policy evaluation. Do not use for contentActivities.
      * @var ContentBase|\stdClass|null
      */
-    public mixed $content = null;
+    public ContentBase|\stdClass|null $content = null;
 
     /** An identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation). */
     public ?string $correlationId = null;
@@ -46,7 +46,7 @@ class ProcessFileMetadata
      * A dictionary containing custom metadata associated with the file, potentially extracted by the calling application.
      * @var CustomMetadataDictionary|\stdClass|null
      */
-    public mixed $customProperties = null;
+    public CustomMetadataDictionary|\stdClass|null $customProperties = null;
 
     /** The unique identifier (for example, Entra User ID or UPN) of the owner of the file. */
     public ?string $ownerId = null;

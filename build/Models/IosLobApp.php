@@ -37,7 +37,7 @@ class IosLobApp
      * The large icon, to be displayed in the app details and used for upload of the icon.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $largeIcon = null;
+    public MimeContent|\stdClass|null $largeIcon = null;
 
     /** The date and time the app was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -100,7 +100,7 @@ class IosLobApp
      * The value for the minimum applicable operating system.
      * @var IosMinimumOperatingSystem|\stdClass|null
      */
-    public mixed $minimumSupportedOperatingSystem = null;
+    public IosMinimumOperatingSystem|\stdClass|null $minimumSupportedOperatingSystem = null;
 
     /** The version number of iOS Line of Business (LoB) app. */
     public ?string $versionNumber = null;

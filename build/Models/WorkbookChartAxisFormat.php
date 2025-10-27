@@ -19,13 +19,13 @@ class WorkbookChartAxisFormat
      * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
      * @var WorkbookChartFont|\stdClass|null
      */
-    public mixed $font = null;
+    public WorkbookChartFont|\stdClass|null $font = null;
 
     /** 
      * Represents chart line formatting. Read-only.
      * @var WorkbookChartLineFormat|\stdClass|null
      */
-    public mixed $line = null;
+    public WorkbookChartLineFormat|\stdClass|null $line = null;
 
 
     /**

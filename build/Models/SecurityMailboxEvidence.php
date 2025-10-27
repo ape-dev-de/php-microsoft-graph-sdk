@@ -55,7 +55,7 @@ class SecurityMailboxEvidence
      * The user account of the mailbox.
      * @var SecurityUserAccount|\stdClass|null
      */
-    public mixed $userAccount = null;
+    public SecurityUserAccount|\stdClass|null $userAccount = null;
 
 
     /**

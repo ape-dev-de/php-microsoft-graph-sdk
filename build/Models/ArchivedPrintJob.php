@@ -31,7 +31,7 @@ class ArchivedPrintJob
      * The user who created the print job. Read-only.
      * @var UserIdentity|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public UserIdentity|\stdClass|null $createdBy = null;
 
     /** The dateTimeOffset when the job was created. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;

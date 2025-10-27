@@ -19,13 +19,13 @@ class WorkbookChartDataLabelFormat
      * Represents the fill format of the current chart data label. Read-only.
      * @var WorkbookChartFill|\stdClass|null
      */
-    public mixed $fill = null;
+    public WorkbookChartFill|\stdClass|null $fill = null;
 
     /** 
      * Represents the font attributes (font name, font size, color, etc.) for a chart data label. Read-only.
      * @var WorkbookChartFont|\stdClass|null
      */
-    public mixed $font = null;
+    public WorkbookChartFont|\stdClass|null $font = null;
 
 
     /**

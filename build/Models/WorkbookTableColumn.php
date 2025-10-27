@@ -28,7 +28,7 @@ class WorkbookTableColumn
      * The filter applied to the column. Read-only.
      * @var WorkbookFilter|\stdClass|null
      */
-    public mixed $filter = null;
+    public WorkbookFilter|\stdClass|null $filter = null;
 
 
     /**

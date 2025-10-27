@@ -16,19 +16,19 @@ class SubjectRightsRequestStageDetail
      * Describes the error, if any, for the current stage.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** 
      * The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue, approval. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: approval.
      * @var SubjectRightsRequestStage|\stdClass|null
      */
-    public mixed $stage = null;
+    public SubjectRightsRequestStage|\stdClass|null $stage = null;
 
     /** 
      * Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
      * @var SubjectRightsRequestStageStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SubjectRightsRequestStageStatus|\stdClass|null $status = null;
 
 
     /**

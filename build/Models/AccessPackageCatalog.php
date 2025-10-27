@@ -19,7 +19,7 @@ class AccessPackageCatalog
      * Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.
      * @var AccessPackageCatalogType|\stdClass|null
      */
-    public mixed $catalogType = null;
+    public AccessPackageCatalogType|\stdClass|null $catalogType = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,7 +40,7 @@ class AccessPackageCatalog
      * Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue.
      * @var AccessPackageCatalogState|\stdClass|null
      */
-    public mixed $state = null;
+    public AccessPackageCatalogState|\stdClass|null $state = null;
 
     /** 
      * The access packages in this catalog. Read-only. Nullable.

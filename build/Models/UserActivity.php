@@ -49,7 +49,7 @@ class UserActivity
      * Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
      * @var Status|\stdClass|null
      */
-    public mixed $status = null;
+    public Status|\stdClass|null $status = null;
 
     /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation. */
     public ?string $userTimezone = null;

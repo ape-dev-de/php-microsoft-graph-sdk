@@ -28,7 +28,7 @@ class TeamworkTag
      * The type of the tag. Default is standard.
      * @var TeamworkTagType|\stdClass|null
      */
-    public mixed $tagType = null;
+    public TeamworkTagType|\stdClass|null $tagType = null;
 
     /** ID of the team in which the tag is defined. */
     public ?string $teamId = null;

@@ -19,7 +19,7 @@ class CloudAppSecuritySessionControl
      * Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
      * @var CloudAppSecuritySessionControlType|\stdClass|null
      */
-    public mixed $cloudAppSecurityType = null;
+    public CloudAppSecuritySessionControlType|\stdClass|null $cloudAppSecurityType = null;
 
 
     /**

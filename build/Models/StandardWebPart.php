@@ -22,7 +22,7 @@ class StandardWebPart
      * Data of the webPart.
      * @var WebPartData|\stdClass|null
      */
-    public mixed $data = null;
+    public WebPartData|\stdClass|null $data = null;
 
     /** A Guid that indicates the webPart type. */
     public ?string $webPartType = null;

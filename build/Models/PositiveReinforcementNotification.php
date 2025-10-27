@@ -19,13 +19,13 @@ class PositiveReinforcementNotification
      * 
      * @var EndUserNotification|\stdClass|null
      */
-    public mixed $endUserNotification = null;
+    public EndUserNotification|\stdClass|null $endUserNotification = null;
 
     /** 
      * Delivery preference. Possible values are: unknown, deliverImmedietly, deliverAfterCampaignEnd, unknownFutureValue.
      * @var NotificationDeliveryPreference|\stdClass|null
      */
-    public mixed $deliveryPreference = null;
+    public NotificationDeliveryPreference|\stdClass|null $deliveryPreference = null;
 
 
     /**

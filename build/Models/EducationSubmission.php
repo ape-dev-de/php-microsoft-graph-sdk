@@ -22,7 +22,7 @@ class EducationSubmission
      * The user that marked the submission as excused.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $excusedBy = null;
+    public IdentitySet|\stdClass|null $excusedBy = null;
 
     /** The time that the submission was excused. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $excusedDateTime = null;
@@ -31,7 +31,7 @@ class EducationSubmission
      * The identities of those who modified the submission.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time the submission was modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -40,7 +40,7 @@ class EducationSubmission
      * User who moved the status of this submission to reassigned.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $reassignedBy = null;
+    public IdentitySet|\stdClass|null $reassignedBy = null;
 
     /** Moment in time when the submission was reassigned. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $reassignedDateTime = null;
@@ -49,7 +49,7 @@ class EducationSubmission
      * Who this submission is assigned to.
      * @var EducationSubmissionRecipient|\stdClass|null
      */
-    public mixed $recipient = null;
+    public EducationSubmissionRecipient|\stdClass|null $recipient = null;
 
     /** Folder where all file resources for this submission need to be stored. */
     public ?string $resourcesFolderUrl = null;
@@ -58,7 +58,7 @@ class EducationSubmission
      * User who moved the status of this submission to returned.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $returnedBy = null;
+    public IdentitySet|\stdClass|null $returnedBy = null;
 
     /** Moment in time when the submission was returned. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $returnedDateTime = null;
@@ -67,13 +67,13 @@ class EducationSubmission
      * Read-only. Possible values are: excused, reassigned, returned, submitted and working. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: excused and reassigned.
      * @var EducationSubmissionStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public EducationSubmissionStatus|\stdClass|null $status = null;
 
     /** 
      * User who moved the resource into the submitted state.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $submittedBy = null;
+    public IdentitySet|\stdClass|null $submittedBy = null;
 
     /** Moment in time when the submission was moved into the submitted state. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $submittedDateTime = null;
@@ -82,7 +82,7 @@ class EducationSubmission
      * User who moved the resource from submitted into the working state.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $unsubmittedBy = null;
+    public IdentitySet|\stdClass|null $unsubmittedBy = null;
 
     /** Moment in time when the submission was moved from submitted into the working state. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $unsubmittedDateTime = null;

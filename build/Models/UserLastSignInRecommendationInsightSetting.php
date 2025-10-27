@@ -19,7 +19,7 @@ class UserLastSignInRecommendationInsightSetting
      * Indicates whether inactivity is calculated based on the user's inactivity in the tenant or in the application. The possible values are tenant, application, unknownFutureValue. application is only relevant when the access review is a review of an assignment to an application.
      * @var UserSignInRecommendationScope|\stdClass|null
      */
-    public mixed $signInScope = null;
+    public UserSignInRecommendationScope|\stdClass|null $signInScope = null;
 
 
     /**

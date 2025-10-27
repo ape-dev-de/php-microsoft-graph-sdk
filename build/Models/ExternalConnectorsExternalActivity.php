@@ -25,7 +25,7 @@ class ExternalConnectorsExternalActivity
      * Represents an identity used to identify who is responsible for the activity.
      * @var ExternalConnectorsIdentity|\stdClass|null
      */
-    public mixed $performedBy = null;
+    public ExternalConnectorsIdentity|\stdClass|null $performedBy = null;
 
 
     /**

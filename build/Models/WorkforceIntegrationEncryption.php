@@ -16,7 +16,7 @@ class WorkforceIntegrationEncryption
      * Possible values are: sharedSecret, unknownFutureValue.
      * @var WorkforceIntegrationEncryptionProtocol|\stdClass|null
      */
-    public mixed $protocol = null;
+    public WorkforceIntegrationEncryptionProtocol|\stdClass|null $protocol = null;
 
     /** Encryption shared secret. */
     public ?string $secret = null;

@@ -16,13 +16,13 @@ class CustomExtensionOverwriteConfiguration
      * 
      * @var CustomExtensionBehaviorOnError|\stdClass|null
      */
-    public mixed $behaviorOnError = null;
+    public CustomExtensionBehaviorOnError|\stdClass|null $behaviorOnError = null;
 
     /** 
      * Configuration regarding properties of the custom extension which can be overwritten per event listener. If no values are provided, the properties on the custom extension are used.
      * @var CustomExtensionClientConfiguration|\stdClass|null
      */
-    public mixed $clientConfiguration = null;
+    public CustomExtensionClientConfiguration|\stdClass|null $clientConfiguration = null;
 
 
     /**

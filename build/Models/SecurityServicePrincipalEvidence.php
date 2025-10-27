@@ -58,7 +58,7 @@ class SecurityServicePrincipalEvidence
      * 
      * @var SecurityServicePrincipalType|\stdClass|null
      */
-    public mixed $servicePrincipalType = null;
+    public SecurityServicePrincipalType|\stdClass|null $servicePrincipalType = null;
 
     /**  */
     public ?string $tenantId = null;

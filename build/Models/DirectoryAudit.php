@@ -46,7 +46,7 @@ class DirectoryAudit
      * Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.
      * @var OperationResult|\stdClass|null
      */
-    public mixed $result = null;
+    public OperationResult|\stdClass|null $result = null;
 
     /** Indicates the reason for failure if the result is failure or timeout. */
     public ?string $resultReason = null;

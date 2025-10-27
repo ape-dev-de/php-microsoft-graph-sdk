@@ -16,7 +16,7 @@ class IdentityGovernanceCustomTaskExtensionCallbackData
      * Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
      * @var IdentityGovernanceCustomTaskExtensionOperationStatus|\stdClass|null
      */
-    public mixed $operationStatus = null;
+    public IdentityGovernanceCustomTaskExtensionOperationStatus|\stdClass|null $operationStatus = null;
 
 
     /**

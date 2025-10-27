@@ -28,7 +28,7 @@ class RecurrenceRange
      * The recurrence range. The possible values are: endDate, noEnd, numbered. Required.
      * @var RecurrenceRangeType|\stdClass|null
      */
-    public mixed $type = null;
+    public RecurrenceRangeType|\stdClass|null $type = null;
 
 
     /**

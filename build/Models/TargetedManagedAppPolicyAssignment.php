@@ -19,7 +19,7 @@ class TargetedManagedAppPolicyAssignment
      * Identifier for deployment to a group or app
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

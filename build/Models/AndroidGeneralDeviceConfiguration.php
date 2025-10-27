@@ -52,7 +52,7 @@ class AndroidGeneralDeviceConfiguration
      * Device Configuration devices status overview
      * @var DeviceConfigurationDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceConfigurationDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * Device configuration installation status by user.
@@ -64,7 +64,7 @@ class AndroidGeneralDeviceConfiguration
      * Device Configuration users status overview
      * @var DeviceConfigurationUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceConfigurationUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** Indicates whether or not to block clipboard sharing to copy and paste between applications. */
     public ?bool $appsBlockClipboardSharing = null;

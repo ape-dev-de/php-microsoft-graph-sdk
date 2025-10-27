@@ -22,13 +22,13 @@ class CustomTimeZone
      * Specifies when the time zone switches from standard time to daylight saving time.
      * @var DaylightTimeZoneOffset|\stdClass|null
      */
-    public mixed $daylightOffset = null;
+    public DaylightTimeZoneOffset|\stdClass|null $daylightOffset = null;
 
     /** 
      * Specifies when the time zone switches from daylight saving time to standard time.
      * @var StandardTimeZoneOffset|\stdClass|null
      */
-    public mixed $standardOffset = null;
+    public StandardTimeZoneOffset|\stdClass|null $standardOffset = null;
 
 
     /**

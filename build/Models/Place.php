@@ -19,7 +19,7 @@ class Place
      * The street address of the place.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $address = null;
+    public PhysicalAddress|\stdClass|null $address = null;
 
     /** The name associated with the place. */
     public ?string $displayName = null;
@@ -28,7 +28,7 @@ class Place
      * Specifies the place location in latitude, longitude, and (optionally) altitude coordinates.
      * @var OutlookGeoCoordinates|\stdClass|null
      */
-    public mixed $geoCoordinates = null;
+    public OutlookGeoCoordinates|\stdClass|null $geoCoordinates = null;
 
     /** The phone number of the place. */
     public ?string $phone = null;

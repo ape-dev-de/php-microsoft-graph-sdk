@@ -43,25 +43,25 @@ class UnifiedRoleEligibilitySchedule
      * Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable.
      * @var AppScope|\stdClass|null
      */
-    public mixed $appScope = null;
+    public AppScope|\stdClass|null $appScope = null;
 
     /** 
      * The directory object that is the scope of the role eligibility or assignment. Read-only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $directoryScope = null;
+    public DirectoryObject|\stdClass|null $directoryScope = null;
 
     /** 
      * The principal that's getting a role assignment or that's eligible for a role through the request.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
     /** 
      * Detailed information for the roleDefinition object that is referenced through the roleDefinitionId property.
      * @var UnifiedRoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public UnifiedRoleDefinition|\stdClass|null $roleDefinition = null;
 
     /** How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne). */
     public ?string $memberType = null;
@@ -70,7 +70,7 @@ class UnifiedRoleEligibilitySchedule
      * The period of the role eligibility.
      * @var RequestSchedule|\stdClass|null
      */
-    public mixed $scheduleInfo = null;
+    public RequestSchedule|\stdClass|null $scheduleInfo = null;
 
 
     /**

@@ -43,7 +43,7 @@ class MessageRuleActions
      * Sets the importance of the message, which can be: low, normal, high.
      * @var Importance|\stdClass|null
      */
-    public mixed $markImportance = null;
+    public Importance|\stdClass|null $markImportance = null;
 
     /** The ID of the folder that a message will be moved to. */
     public ?string $moveToFolder = null;

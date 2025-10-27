@@ -31,7 +31,7 @@ class DelegatedAdminRelationship
      * The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Can't be changed by the customer.
      * @var DelegatedAdminRelationshipCustomerParticipant|\stdClass|null
      */
-    public mixed $customer = null;
+    public DelegatedAdminRelationshipCustomerParticipant|\stdClass|null $customer = null;
 
     /** The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner and is set by the partner only when the relationship is in the created status and can't be changed by the customer. Maximum length is 50 characters. */
     public ?string $displayName = null;
@@ -49,7 +49,7 @@ class DelegatedAdminRelationship
      * The status of the relationship. Read Only. The possible values are: activating, active, approvalPending, approved, created, expired, expiring, terminated, terminating, terminationRequested, unknownFutureValue. Supports $orderby.
      * @var DelegatedAdminRelationshipStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public DelegatedAdminRelationshipStatus|\stdClass|null $status = null;
 
     /** 
      * The access assignments associated with the delegated admin relationship.

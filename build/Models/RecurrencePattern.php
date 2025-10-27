@@ -25,13 +25,13 @@ class RecurrencePattern
      * The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
      * @var DayOfWeek|\stdClass|null
      */
-    public mixed $firstDayOfWeek = null;
+    public DayOfWeek|\stdClass|null $firstDayOfWeek = null;
 
     /** 
      * Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
      * @var WeekIndex|\stdClass|null
      */
-    public mixed $index = null;
+    public WeekIndex|\stdClass|null $index = null;
 
     /** The number of units between occurrences, where units can be in days, weeks, months, or years, depending on the type. Required. */
     public ?float $interval = null;
@@ -43,7 +43,7 @@ class RecurrencePattern
      * The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property.
      * @var RecurrencePatternType|\stdClass|null
      */
-    public mixed $type = null;
+    public RecurrencePatternType|\stdClass|null $type = null;
 
 
     /**

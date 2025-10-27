@@ -19,13 +19,13 @@ class CallRecordsSegment
      * Endpoint that answered this segment.
      * @var CallRecordsEndpoint|\stdClass|null
      */
-    public mixed $callee = null;
+    public CallRecordsEndpoint|\stdClass|null $callee = null;
 
     /** 
      * Endpoint that initiated this segment.
      * @var CallRecordsEndpoint|\stdClass|null
      */
-    public mixed $caller = null;
+    public CallRecordsEndpoint|\stdClass|null $caller = null;
 
     /** UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $endDateTime = null;
@@ -34,7 +34,7 @@ class CallRecordsSegment
      * Failure information associated with the segment if it failed.
      * @var CallRecordsFailureInfo|\stdClass|null
      */
-    public mixed $failureInfo = null;
+    public CallRecordsFailureInfo|\stdClass|null $failureInfo = null;
 
     /** 
      * Media associated with this segment.

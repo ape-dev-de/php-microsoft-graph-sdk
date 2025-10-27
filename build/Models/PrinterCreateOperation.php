@@ -28,7 +28,7 @@ class PrinterCreateOperation
      * The created printer entity. Read-only.
      * @var Printer|\stdClass|null
      */
-    public mixed $printer = null;
+    public Printer|\stdClass|null $printer = null;
 
 
     /**

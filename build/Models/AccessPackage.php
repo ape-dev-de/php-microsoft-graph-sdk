@@ -46,7 +46,7 @@ class AccessPackage
      * Required when creating the access package. Read-only. Nullable.
      * @var AccessPackageCatalog|\stdClass|null
      */
-    public mixed $catalog = null;
+    public AccessPackageCatalog|\stdClass|null $catalog = null;
 
     /** 
      * The access packages whose assigned users are ineligible to be assigned this access package.

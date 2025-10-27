@@ -19,7 +19,7 @@ class EducationModule
      * The display name of the user that created the module.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date time the module was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -37,7 +37,7 @@ class EducationModule
      * The last user that modified the module.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date time the module was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -49,7 +49,7 @@ class EducationModule
      * Status of the module. You can't use a PATCH operation to update this value. Possible values are: draft and published.
      * @var EducationModuleStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public EducationModuleStatus|\stdClass|null $status = null;
 
     /** 
      * Learning objects that are associated with this module. Only teachers can modify this list. Nullable.

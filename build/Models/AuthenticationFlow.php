@@ -16,7 +16,7 @@ class AuthenticationFlow
      * Represents the transfer methods in scope for the policy. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue. Default value is none.
      * @var ConditionalAccessTransferMethods|\stdClass|null
      */
-    public mixed $transferMethod = null;
+    public ConditionalAccessTransferMethods|\stdClass|null $transferMethod = null;
 
 
     /**

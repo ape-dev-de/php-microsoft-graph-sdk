@@ -16,13 +16,13 @@ class RestrictAccessAction
      * The type of DLP action. Possible value is restrictAccessAction.
      * @var DlpAction|\stdClass|null
      */
-    public mixed $action = null;
+    public DlpAction|\stdClass|null $action = null;
 
     /** 
      * Action for the app to take. The possible values are: warn, audit, block.
      * @var RestrictionAction|\stdClass|null
      */
-    public mixed $restrictionAction = null;
+    public RestrictionAction|\stdClass|null $restrictionAction = null;
 
 
     /**

@@ -16,7 +16,7 @@ class Bundle
      * If the bundle is an album, then the album property is included
      * @var Album|\stdClass|null
      */
-    public mixed $album = null;
+    public Album|\stdClass|null $album = null;
 
     /** Number of children contained immediately within this container. */
     public ?float $childCount = null;

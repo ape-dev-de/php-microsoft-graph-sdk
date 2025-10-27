@@ -22,13 +22,13 @@ class EducationRoot
      * 
      * @var EducationUser|\stdClass|null
      */
-    public mixed $me = null;
+    public EducationUser|\stdClass|null $me = null;
 
     /** 
      * 
      * @var ReportsRoot|\stdClass|null
      */
-    public mixed $reports = null;
+    public ReportsRoot|\stdClass|null $reports = null;
 
     /** 
      * 

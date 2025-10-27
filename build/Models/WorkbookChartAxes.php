@@ -19,19 +19,19 @@ class WorkbookChartAxes
      * Represents the category axis in a chart. Read-only.
      * @var WorkbookChartAxis|\stdClass|null
      */
-    public mixed $categoryAxis = null;
+    public WorkbookChartAxis|\stdClass|null $categoryAxis = null;
 
     /** 
      * Represents the series axis of a 3-dimensional chart. Read-only.
      * @var WorkbookChartAxis|\stdClass|null
      */
-    public mixed $seriesAxis = null;
+    public WorkbookChartAxis|\stdClass|null $seriesAxis = null;
 
     /** 
      * Represents the value axis in an axis. Read-only.
      * @var WorkbookChartAxis|\stdClass|null
      */
-    public mixed $valueAxis = null;
+    public WorkbookChartAxis|\stdClass|null $valueAxis = null;
 
 
     /**

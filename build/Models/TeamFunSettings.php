@@ -25,7 +25,7 @@ class TeamFunSettings
      * Giphy content rating. Possible values are: moderate, strict.
      * @var GiphyRatingType|\stdClass|null
      */
-    public mixed $giphyContentRating = null;
+    public GiphyRatingType|\stdClass|null $giphyContentRating = null;
 
 
     /**

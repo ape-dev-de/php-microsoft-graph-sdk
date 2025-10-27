@@ -28,7 +28,7 @@ class BookingCustomerInformation
      * Represents location information for the bookingCustomer who is booking the appointment.
      * @var Location|\stdClass|null
      */
-    public mixed $location = null;
+    public Location|\stdClass|null $location = null;
 
     /** The customer's name. */
     public ?string $name = null;

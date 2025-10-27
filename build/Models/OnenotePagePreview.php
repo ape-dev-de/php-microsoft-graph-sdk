@@ -16,7 +16,7 @@ class OnenotePagePreview
      * 
      * @var OnenotePagePreviewLinks|\stdClass|null
      */
-    public mixed $links = null;
+    public OnenotePagePreviewLinks|\stdClass|null $links = null;
 
     /**  */
     public ?string $previewText = null;

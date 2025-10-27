@@ -19,7 +19,7 @@ class DelegatedPermissionClassification
      * The classification value. Possible values: low, medium (preview), high (preview). Doesn't support $filter.
      * @var PermissionClassificationType|\stdClass|null
      */
-    public mixed $classification = null;
+    public PermissionClassificationType|\stdClass|null $classification = null;
 
     /** The unique identifier (id) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Required on create. Doesn't support $filter. */
     public ?string $permissionId = null;

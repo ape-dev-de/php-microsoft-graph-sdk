@@ -16,13 +16,13 @@ class CopilotRoot
      * 
      * @var CopilotAdmin|\stdClass|null
      */
-    public mixed $admin = null;
+    public CopilotAdmin|\stdClass|null $admin = null;
 
     /** 
      * 
      * @var AiInteractionHistory|\stdClass|null
      */
-    public mixed $interactionHistory = null;
+    public AiInteractionHistory|\stdClass|null $interactionHistory = null;
 
     /** 
      * 

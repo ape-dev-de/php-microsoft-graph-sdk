@@ -34,7 +34,7 @@ class AuditEvent
      * AAD user and application that are associated with the audit event.
      * @var AuditActor|\stdClass|null
      */
-    public mixed $actor = null;
+    public AuditActor|\stdClass|null $actor = null;
 
     /** Audit category. */
     public ?string $category = null;

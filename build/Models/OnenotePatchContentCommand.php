@@ -22,7 +22,7 @@ class OnenotePatchContentCommand
      * The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.
      * @var OnenotePatchInsertPosition|\stdClass|null
      */
-    public mixed $position = null;
+    public OnenotePatchInsertPosition|\stdClass|null $position = null;
 
     /** The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or title keyword. */
     public ?string $target = null;

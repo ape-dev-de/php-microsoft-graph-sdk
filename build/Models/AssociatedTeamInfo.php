@@ -25,7 +25,7 @@ class AssociatedTeamInfo
      * 
      * @var Team|\stdClass|null
      */
-    public mixed $team = null;
+    public Team|\stdClass|null $team = null;
 
 
     /**

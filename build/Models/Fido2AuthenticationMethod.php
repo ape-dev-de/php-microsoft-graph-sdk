@@ -28,7 +28,7 @@ class Fido2AuthenticationMethod
      * The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
      * @var AttestationLevel|\stdClass|null
      */
-    public mixed $attestationLevel = null;
+    public AttestationLevel|\stdClass|null $attestationLevel = null;
 
     /** The timestamp when this key was registered to the user. */
     public ?\DateTimeInterface $createdDateTime = null;

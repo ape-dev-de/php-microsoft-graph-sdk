@@ -19,13 +19,13 @@ class SynchronizationJob
      * Schedule used to run the job. Read-only.
      * @var SynchronizationSchedule|\stdClass|null
      */
-    public mixed $schedule = null;
+    public SynchronizationSchedule|\stdClass|null $schedule = null;
 
     /** 
      * Status of the job, which includes when the job was last run, current job state, and errors.
      * @var SynchronizationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SynchronizationStatus|\stdClass|null $status = null;
 
     /** 
      * Settings associated with the job. Some settings are inherited from the template.
@@ -40,13 +40,13 @@ class SynchronizationJob
      * The bulk upload operation for the job.
      * @var BulkUpload|\stdClass|null
      */
-    public mixed $bulkUpload = null;
+    public BulkUpload|\stdClass|null $bulkUpload = null;
 
     /** 
      * The synchronization schema configured for the job.
      * @var SynchronizationSchema|\stdClass|null
      */
-    public mixed $schema = null;
+    public SynchronizationSchema|\stdClass|null $schema = null;
 
 
     /**

@@ -25,7 +25,7 @@ class FileStorageContainer
      * Custom property collection for the fileStorageContainer. Read-write.
      * @var FileStorageContainerCustomPropertyDictionary|\stdClass|null
      */
-    public mixed $customProperties = null;
+    public FileStorageContainerCustomPropertyDictionary|\stdClass|null $customProperties = null;
 
     /** Provides a user-visible description of the fileStorageContainer. Read-write. */
     public ?string $description = null;
@@ -37,7 +37,7 @@ class FileStorageContainer
      * Indicates the lock state of the fileStorageContainer. The possible values are unlocked and lockedReadOnly. Read-only.
      * @var SiteLockState|\stdClass|null
      */
-    public mixed $lockState = null;
+    public SiteLockState|\stdClass|null $lockState = null;
 
     /**  */
     public ?FileStorageContainerSettings $settings = null;
@@ -46,13 +46,13 @@ class FileStorageContainer
      * Status of the fileStorageContainer. Containers are created as inactive and require activation. Inactive containers are subjected to automatic deletion in 24 hours. The possible values are: inactive, active. Read-only.
      * @var FileStorageContainerStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public FileStorageContainerStatus|\stdClass|null $status = null;
 
     /** 
      * Data specific to the current user. Read-only.
      * @var FileStorageContainerViewpoint|\stdClass|null
      */
-    public mixed $viewpoint = null;
+    public FileStorageContainerViewpoint|\stdClass|null $viewpoint = null;
 
     /** 
      * 
@@ -64,7 +64,7 @@ class FileStorageContainer
      * The drive of the resource fileStorageContainer. Read-only.
      * @var Drive|\stdClass|null
      */
-    public mixed $drive = null;
+    public Drive|\stdClass|null $drive = null;
 
     /** 
      * The set of permissions for users in the fileStorageContainer. Permission for each user is set by the roles property. The possible values are: reader, writer, manager, and owner. Read-write.
@@ -76,7 +76,7 @@ class FileStorageContainer
      * Recycle bin of the fileStorageContainer. Read-only.
      * @var RecycleBin|\stdClass|null
      */
-    public mixed $recycleBin = null;
+    public RecycleBin|\stdClass|null $recycleBin = null;
 
 
     /**

@@ -25,7 +25,7 @@ class WorkbookChartAxisTitle
      * Represents the formatting of chart axis title. Read-only.
      * @var WorkbookChartAxisTitleFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartAxisTitleFormat|\stdClass|null $format = null;
 
 
     /**

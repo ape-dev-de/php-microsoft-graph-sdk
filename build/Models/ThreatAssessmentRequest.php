@@ -22,13 +22,13 @@ class ThreatAssessmentRequest
      * The content type of threat assessment. Possible values are: mail, url, file.
      * @var ThreatAssessmentContentType|\stdClass|null
      */
-    public mixed $contentType = null;
+    public ThreatAssessmentContentType|\stdClass|null $contentType = null;
 
     /** 
      * The threat assessment request creator.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,13 +40,13 @@ class ThreatAssessmentRequest
      * The source of the threat assessment request. Possible values are: administrator.
      * @var ThreatAssessmentRequestSource|\stdClass|null
      */
-    public mixed $requestSource = null;
+    public ThreatAssessmentRequestSource|\stdClass|null $requestSource = null;
 
     /** 
      * The assessment process status. Possible values are: pending, completed.
      * @var ThreatAssessmentStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ThreatAssessmentStatus|\stdClass|null $status = null;
 
     /** 
      * A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.

@@ -25,13 +25,13 @@ class SimulationReportOverview
      * Summary of simulation events in the attack simulation and training campaign.
      * @var SimulationEventsContent|\stdClass|null
      */
-    public mixed $simulationEventsContent = null;
+    public SimulationEventsContent|\stdClass|null $simulationEventsContent = null;
 
     /** 
      * Summary of assigned trainings in the attack simulation and training campaign.
      * @var TrainingEventsContent|\stdClass|null
      */
-    public mixed $trainingEventsContent = null;
+    public TrainingEventsContent|\stdClass|null $trainingEventsContent = null;
 
 
     /**

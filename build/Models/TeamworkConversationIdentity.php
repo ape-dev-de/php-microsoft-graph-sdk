@@ -22,7 +22,7 @@ class TeamworkConversationIdentity
      * Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
      * @var TeamworkConversationIdentityType|\stdClass|null
      */
-    public mixed $conversationIdentityType = null;
+    public TeamworkConversationIdentityType|\stdClass|null $conversationIdentityType = null;
 
 
     /**

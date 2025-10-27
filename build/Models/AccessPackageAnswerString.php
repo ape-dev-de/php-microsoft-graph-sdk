@@ -19,7 +19,7 @@ class AccessPackageAnswerString
      * 
      * @var AccessPackageQuestion|\stdClass|null
      */
-    public mixed $answeredQuestion = null;
+    public AccessPackageQuestion|\stdClass|null $answeredQuestion = null;
 
     /** The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute. */
     public ?string $value = null;

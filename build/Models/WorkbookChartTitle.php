@@ -28,7 +28,7 @@ class WorkbookChartTitle
      * The formatting of a chart title, which includes fill and font formatting. Read-only.
      * @var WorkbookChartTitleFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartTitleFormat|\stdClass|null $format = null;
 
 
     /**

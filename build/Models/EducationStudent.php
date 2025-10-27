@@ -22,7 +22,7 @@ class EducationStudent
      * The possible values are: female, male, other, unknownFutureValue.
      * @var EducationGender|\stdClass|null
      */
-    public mixed $gender = null;
+    public EducationGender|\stdClass|null $gender = null;
 
     /** Current grade level of the student. */
     public ?string $grade = null;

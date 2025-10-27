@@ -52,7 +52,7 @@ class Windows81CompliancePolicy
      * Device compliance devices status overview
      * @var DeviceComplianceDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceComplianceDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
@@ -70,7 +70,7 @@ class Windows81CompliancePolicy
      * Device compliance users status overview
      * @var DeviceComplianceUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceComplianceUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** Maximum Windows 8.1 version. */
     public ?string $osMaximumVersion = null;

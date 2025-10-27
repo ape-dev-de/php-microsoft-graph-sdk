@@ -37,19 +37,19 @@ class Participant
      * Information about whether the participant has recording capability.
      * @var RecordingInfo|\stdClass|null
      */
-    public mixed $recordingInfo = null;
+    public RecordingInfo|\stdClass|null $recordingInfo = null;
 
     /** 
      * Indicates the reason why the participant was removed from the roster.
      * @var RemovedState|\stdClass|null
      */
-    public mixed $removedState = null;
+    public RemovedState|\stdClass|null $removedState = null;
 
     /** 
      * Indicates the reason or reasons media content from this participant is restricted.
      * @var OnlineMeetingRestricted|\stdClass|null
      */
-    public mixed $restrictedExperience = null;
+    public OnlineMeetingRestricted|\stdClass|null $restrictedExperience = null;
 
     /** Indicates the roster sequence number in which the participant was last updated. */
     public ?float $rosterSequenceNumber = null;

@@ -19,7 +19,7 @@ class UpdateWindowsDeviceAccountActionParameter
      * Not yet documented
      * @var WindowsDeviceAccount|\stdClass|null
      */
-    public mixed $deviceAccount = null;
+    public WindowsDeviceAccount|\stdClass|null $deviceAccount = null;
 
     /** Not yet documented */
     public ?string $deviceAccountEmail = null;

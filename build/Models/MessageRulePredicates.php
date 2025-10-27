@@ -49,7 +49,7 @@ class MessageRulePredicates
      * The importance that is stamped on an incoming message in order for the condition or exception to apply: low, normal, high.
      * @var Importance|\stdClass|null
      */
-    public mixed $importance = null;
+    public Importance|\stdClass|null $importance = null;
 
     /** Indicates whether an incoming message must be an approval request in order for the condition or exception to apply. */
     public ?bool $isApprovalRequest = null;
@@ -88,7 +88,7 @@ class MessageRulePredicates
      * Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.
      * @var MessageActionFlag|\stdClass|null
      */
-    public mixed $messageActionFlag = null;
+    public MessageActionFlag|\stdClass|null $messageActionFlag = null;
 
     /** Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply. */
     public ?bool $notSentToMe = null;
@@ -109,7 +109,7 @@ class MessageRulePredicates
      * Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.
      * @var Sensitivity|\stdClass|null
      */
-    public mixed $sensitivity = null;
+    public Sensitivity|\stdClass|null $sensitivity = null;
 
     /** Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply. */
     public ?bool $sentCcMe = null;
@@ -139,7 +139,7 @@ class MessageRulePredicates
      * Represents the minimum and maximum sizes (in kilobytes) that an incoming message must fall in between in order for the condition or exception to apply.
      * @var SizeRange|\stdClass|null
      */
-    public mixed $withinSizeRange = null;
+    public SizeRange|\stdClass|null $withinSizeRange = null;
 
 
     /**

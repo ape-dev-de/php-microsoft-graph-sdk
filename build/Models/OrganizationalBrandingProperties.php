@@ -40,7 +40,7 @@ class OrganizationalBrandingProperties
      * Represents the content options to be customized throughout the authentication flow for a tenant. NOTE: Supported by Microsoft Entra External ID in external tenants only.
      * @var ContentCustomization|\stdClass|null
      */
-    public mixed $contentCustomization = null;
+    public ContentCustomization|\stdClass|null $contentCustomization = null;
 
     /** A custom URL for resetting account credentials. This URL must be in ASCII format or non-ASCII characters must be URL encoded, and not exceed 128 characters. */
     public ?string $customAccountResetCredentialsUrl = null;
@@ -94,13 +94,13 @@ class OrganizationalBrandingProperties
      * Represents the layout configuration to be displayed on the login page for a tenant.
      * @var LoginPageLayoutConfiguration|\stdClass|null
      */
-    public mixed $loginPageLayoutConfiguration = null;
+    public LoginPageLayoutConfiguration|\stdClass|null $loginPageLayoutConfiguration = null;
 
     /** 
      * Represents the various texts that can be hidden on the login page for a tenant.
      * @var LoginPageTextVisibilitySettings|\stdClass|null
      */
-    public mixed $loginPageTextVisibilitySettings = null;
+    public LoginPageTextVisibilitySettings|\stdClass|null $loginPageTextVisibilitySettings = null;
 
     /** Text that appears at the bottom of the sign-in box. Use this to communicate additional information, such as the phone number to your help desk or a legal statement. This text must be in Unicode format and not exceed 1024 characters. */
     public ?string $signInPageText = null;

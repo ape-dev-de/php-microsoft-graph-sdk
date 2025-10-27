@@ -25,7 +25,7 @@ class ConditionalAccessRoot
      * 
      * @var AuthenticationStrengthRoot|\stdClass|null
      */
-    public mixed $authenticationStrength = null;
+    public AuthenticationStrengthRoot|\stdClass|null $authenticationStrength = null;
 
     /** 
      * Read-only. Nullable. Returns a collection of the specified named locations.

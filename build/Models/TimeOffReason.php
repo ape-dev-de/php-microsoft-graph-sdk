@@ -19,7 +19,7 @@ class TimeOffReason
      * Identity of the creator of the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class TimeOffReason
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -43,7 +43,7 @@ class TimeOffReason
      * Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
      * @var TimeOffReasonIconType|\stdClass|null
      */
-    public mixed $iconType = null;
+    public TimeOffReasonIconType|\stdClass|null $iconType = null;
 
     /** Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
     public ?bool $isActive = null;

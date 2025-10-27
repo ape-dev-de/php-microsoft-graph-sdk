@@ -16,7 +16,7 @@ class SynchronizationMetadataEntry
      * Possible values are: GalleryApplicationIdentifier, GalleryApplicationKey, IsOAuthEnabled, IsSynchronizationAgentAssignmentRequired, IsSynchronizationAgentRequired, IsSynchronizationInPreview, OAuthSettings, SynchronizationLearnMoreIbizaFwLink, ConfigurationFields.
      * @var SynchronizationMetadata|\stdClass|null
      */
-    public mixed $key = null;
+    public SynchronizationMetadata|\stdClass|null $key = null;
 
     /** Value of the metadata property. */
     public ?string $value = null;

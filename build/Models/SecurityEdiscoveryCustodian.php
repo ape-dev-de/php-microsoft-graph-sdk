@@ -25,7 +25,7 @@ class SecurityEdiscoveryCustodian
      * The hold status of the dataSourceContainer. The possible values are: notApplied, applied, applying, removing, partial
      * @var SecurityDataSourceHoldStatus|\stdClass|null
      */
-    public mixed $holdStatus = null;
+    public SecurityDataSourceHoldStatus|\stdClass|null $holdStatus = null;
 
     /** Last modified date and time of the dataSourceContainer. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,7 +37,7 @@ class SecurityEdiscoveryCustodian
      * Latest status of the dataSourceContainer. Possible values are: Active, Released.
      * @var SecurityDataSourceContainerStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityDataSourceContainerStatus|\stdClass|null $status = null;
 
     /** Date and time the custodian acknowledged a hold notification. */
     public ?\DateTimeInterface $acknowledgedDateTime = null;
@@ -49,7 +49,7 @@ class SecurityEdiscoveryCustodian
      * Operation entity that represents the latest indexing for the custodian.
      * @var SecurityEdiscoveryIndexOperation|\stdClass|null
      */
-    public mixed $lastIndexOperation = null;
+    public SecurityEdiscoveryIndexOperation|\stdClass|null $lastIndexOperation = null;
 
     /** 
      * Data source entity for SharePoint sites associated with the custodian.

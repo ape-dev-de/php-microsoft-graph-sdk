@@ -12,8 +12,11 @@ class EducationAssignmentPointsGradeType
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** Max points possible for this assignment. */
-    public ?string $maxPoints = null;
+    /** 
+     * Max points possible for this assignment.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $maxPoints = null;
 
 
     /**

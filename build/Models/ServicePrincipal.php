@@ -61,7 +61,7 @@ class ServicePrincipal
      * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role.
      * @var CustomSecurityAttributeValue|\stdClass|null
      */
-    public mixed $customSecurityAttributes = null;
+    public CustomSecurityAttributeValue|\stdClass|null $customSecurityAttributes = null;
 
     /** Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps displays the application description in this field. The maximum allowed size is 1,024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     public ?string $description = null;
@@ -79,7 +79,7 @@ class ServicePrincipal
      * Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @var InformationalUrl|\stdClass|null
      */
-    public mixed $info = null;
+    public InformationalUrl|\stdClass|null $info = null;
 
     /** 
      * The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le).
@@ -136,7 +136,7 @@ class ServicePrincipal
      * The collection for settings related to saml single sign-on.
      * @var SamlSingleSignOnSettings|\stdClass|null
      */
-    public mixed $samlSingleSignOnSettings = null;
+    public SamlSingleSignOnSettings|\stdClass|null $samlSingleSignOnSettings = null;
 
     /** 
      * Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Microsoft Entra ID. For example,Client apps can specify a resource URI that is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).
@@ -163,7 +163,7 @@ class ServicePrincipal
      * Specifies the verified publisher of the application that's linked to this service principal.
      * @var VerifiedPublisher|\stdClass|null
      */
-    public mixed $verifiedPublisher = null;
+    public VerifiedPublisher|\stdClass|null $verifiedPublisher = null;
 
     /** 
      * The appManagementPolicy applied to this application.
@@ -247,13 +247,13 @@ class ServicePrincipal
      * The remoteDesktopSecurityConfiguration object applied to this service principal. Supports $filter (eq) for isRemoteDesktopProtocolEnabled property.
      * @var RemoteDesktopSecurityConfiguration|\stdClass|null
      */
-    public mixed $remoteDesktopSecurityConfiguration = null;
+    public RemoteDesktopSecurityConfiguration|\stdClass|null $remoteDesktopSecurityConfiguration = null;
 
     /** 
      * Represents the capability for Microsoft Entra identity synchronization through the Microsoft Graph API.
      * @var Synchronization|\stdClass|null
      */
-    public mixed $synchronization = null;
+    public Synchronization|\stdClass|null $synchronization = null;
 
     /** 
      * The tokenIssuancePolicies assigned to this service principal.

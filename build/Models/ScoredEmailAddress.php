@@ -18,14 +18,17 @@ class ScoredEmailAddress
     /**  */
     public ?string $itemId = null;
 
-    /** The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships. */
-    public ?string $relevanceScore = null;
+    /** 
+     * The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $relevanceScore = null;
 
     /** 
      * 
      * @var SelectionLikelihoodInfo|\stdClass|null
      */
-    public mixed $selectionLikelihood = null;
+    public SelectionLikelihoodInfo|\stdClass|null $selectionLikelihood = null;
 
 
     /**

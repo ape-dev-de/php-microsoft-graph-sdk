@@ -25,7 +25,7 @@ class SectionGroup
      * Identity of the user, device, and application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The name of the notebook. */
     public ?string $displayName = null;
@@ -34,7 +34,7 @@ class SectionGroup
      * Identity of the user, device, and application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -49,13 +49,13 @@ class SectionGroup
      * The notebook that contains the section group. Read-only.
      * @var Notebook|\stdClass|null
      */
-    public mixed $parentNotebook = null;
+    public Notebook|\stdClass|null $parentNotebook = null;
 
     /** 
      * The section group that contains the section group. Read-only.
      * @var SectionGroup|\stdClass|null
      */
-    public mixed $parentSectionGroup = null;
+    public SectionGroup|\stdClass|null $parentSectionGroup = null;
 
     /** 
      * The section groups in the section. Read-only. Nullable.

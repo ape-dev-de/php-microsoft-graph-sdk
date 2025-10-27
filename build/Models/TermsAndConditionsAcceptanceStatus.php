@@ -31,7 +31,7 @@ class TermsAndConditionsAcceptanceStatus
      * Navigation link to the terms and conditions that are assigned.
      * @var TermsAndConditions|\stdClass|null
      */
-    public mixed $termsAndConditions = null;
+    public TermsAndConditions|\stdClass|null $termsAndConditions = null;
 
 
     /**

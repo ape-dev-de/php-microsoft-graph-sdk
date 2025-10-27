@@ -19,7 +19,7 @@ class Partners
      * Represents billing details for billed and unbilled data.
      * @var PartnersBillingBilling|\stdClass|null
      */
-    public mixed $billing = null;
+    public PartnersBillingBilling|\stdClass|null $billing = null;
 
 
     /**

@@ -19,7 +19,7 @@ class WorkforceIntegration
      * Identity of the creator of the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class WorkforceIntegration
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -43,13 +43,13 @@ class WorkforceIntegration
      * Support to view eligibility-filtered results. Possible values are: none, swapRequest, offerShiftRequest, unknownFutureValue, timeOffReason. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: timeOffReason.
      * @var EligibilityFilteringEnabledEntities|\stdClass|null
      */
-    public mixed $eligibilityFilteringEnabledEntities = null;
+    public EligibilityFilteringEnabledEntities|\stdClass|null $eligibilityFilteringEnabledEntities = null;
 
     /** 
      * The workforce integration encryption resource.
      * @var WorkforceIntegrationEncryption|\stdClass|null
      */
-    public mixed $encryption = null;
+    public WorkforceIntegrationEncryption|\stdClass|null $encryption = null;
 
     /** Indicates whether this workforce integration is currently active and available. */
     public ?bool $isActive = null;
@@ -58,7 +58,7 @@ class WorkforceIntegration
      * The Shifts entities supported for synchronous change notifications. Shifts call back to the provided URL when client changes occur to the entities specified in this property. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openShift, openShiftRequest, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard , timeOffReason , timeOff , timeOffRequest.
      * @var WorkforceIntegrationSupportedEntities|\stdClass|null
      */
-    public mixed $supportedEntities = null;
+    public WorkforceIntegrationSupportedEntities|\stdClass|null $supportedEntities = null;
 
     /** Workforce Integration URL for callbacks from the Shifts service. */
     public ?string $url = null;

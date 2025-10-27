@@ -19,13 +19,13 @@ class PrinterShare
      * The capabilities of the printer/printerShare.
      * @var PrinterCapabilities|\stdClass|null
      */
-    public mixed $capabilities = null;
+    public PrinterCapabilities|\stdClass|null $capabilities = null;
 
     /** 
      * The default print settings of printer/printerShare.
      * @var PrinterDefaults|\stdClass|null
      */
-    public mixed $defaults = null;
+    public PrinterDefaults|\stdClass|null $defaults = null;
 
     /** The name of the printer/printerShare. */
     public ?string $displayName = null;
@@ -37,7 +37,7 @@ class PrinterShare
      * The physical and/or organizational location of the printer/printerShare.
      * @var PrinterLocation|\stdClass|null
      */
-    public mixed $location = null;
+    public PrinterLocation|\stdClass|null $location = null;
 
     /** The manufacturer of the printer/printerShare. */
     public ?string $manufacturer = null;
@@ -64,7 +64,7 @@ class PrinterShare
      * Additional data for a printer share as viewed by the signed-in user.
      * @var PrinterShareViewpoint|\stdClass|null
      */
-    public mixed $viewPoint = null;
+    public PrinterShareViewpoint|\stdClass|null $viewPoint = null;
 
     /** 
      * The groups whose users have access to print using the printer.
@@ -82,7 +82,7 @@ class PrinterShare
      * The printer that this printer share is related to.
      * @var Printer|\stdClass|null
      */
-    public mixed $printer = null;
+    public Printer|\stdClass|null $printer = null;
 
 
     /**

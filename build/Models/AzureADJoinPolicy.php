@@ -16,7 +16,7 @@ class AzureADJoinPolicy
      * 
      * @var DeviceRegistrationMembership|\stdClass|null
      */
-    public mixed $allowedToJoin = null;
+    public DeviceRegistrationMembership|\stdClass|null $allowedToJoin = null;
 
     /**  */
     public ?bool $isAdminConfigurable = null;

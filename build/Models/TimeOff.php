@@ -19,7 +19,7 @@ class TimeOff
      * Identity of the creator of the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class TimeOff
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,7 +37,7 @@ class TimeOff
      * The draft version of this timeOff item that is viewable by managers. It must be shared before it's visible to team members. Required.
      * @var TimeOffItem|\stdClass|null
      */
-    public mixed $draftTimeOff = null;
+    public TimeOffItem|\stdClass|null $draftTimeOff = null;
 
     /** The timeOff is marked for deletion, a process that is finalized when the schedule is shared. */
     public ?bool $isStagedForDeletion = null;
@@ -46,7 +46,7 @@ class TimeOff
      * The shared version of this timeOff that is viewable by both employees and managers. Updates to the sharedTimeOff property send notifications to users in the Teams client. Required.
      * @var TimeOffItem|\stdClass|null
      */
-    public mixed $sharedTimeOff = null;
+    public TimeOffItem|\stdClass|null $sharedTimeOff = null;
 
     /** ID of the user assigned to the timeOff. Required. */
     public ?string $userId = null;

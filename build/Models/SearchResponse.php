@@ -22,13 +22,13 @@ class SearchResponse
      * Provides information related to spelling corrections in the alteration response.
      * @var AlterationResponse|\stdClass|null
      */
-    public mixed $queryAlterationResponse = null;
+    public AlterationResponse|\stdClass|null $queryAlterationResponse = null;
 
     /** 
      * A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
      * @var ResultTemplateDictionary|\stdClass|null
      */
-    public mixed $resultTemplates = null;
+    public ResultTemplateDictionary|\stdClass|null $resultTemplates = null;
 
     /** 
      * Contains the search terms sent in the initial search query.

@@ -19,7 +19,7 @@ class SynchronizationQuarantine
      * Describes the error(s) that occurred when putting the synchronization job into quarantine.
      * @var SynchronizationError|\stdClass|null
      */
-    public mixed $error = null;
+    public SynchronizationError|\stdClass|null $error = null;
 
     /** Date and time when the next attempt to re-evaluate the quarantine will be made. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $nextAttempt = null;

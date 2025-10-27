@@ -19,7 +19,7 @@ class ManagedDeviceMobileAppConfigurationAssignment
      * Assignment target that the T&C policy is assigned to.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

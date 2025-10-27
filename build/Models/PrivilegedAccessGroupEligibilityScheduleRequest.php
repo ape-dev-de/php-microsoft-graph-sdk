@@ -25,7 +25,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
      * The principal that created the request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The request creation date time. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,7 +40,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
      * Represents the type of operation on the group membership or ownership assignment request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew. adminAssign: For administrators to assign group membership or ownership to principals.adminRemove: For administrators to remove principals from group membership or ownership. adminUpdate: For administrators to change existing group membership or ownership assignments.adminExtend: For administrators to extend expiring assignments.adminRenew: For administrators to renew expired assignments.selfActivate: For principals to activate their assignments.selfDeactivate: For principals to deactivate their active assignments.
      * @var ScheduleRequestActions|\stdClass|null
      */
-    public mixed $action = null;
+    public ScheduleRequestActions|\stdClass|null $action = null;
 
     /** Determines whether the call is a validation or an actual call. Only set this property if you want to check whether an activation is subject to additional rules like MFA before actually submitting the request. */
     public ?bool $isValidationOnly = null;
@@ -52,19 +52,19 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
      * The period of the group membership or ownership assignment. Recurring schedules are currently unsupported.
      * @var RequestSchedule|\stdClass|null
      */
-    public mixed $scheduleInfo = null;
+    public RequestSchedule|\stdClass|null $scheduleInfo = null;
 
     /** 
      * Ticket details linked to the group membership or ownership assignment request including details of the ticket number and ticket system.
      * @var TicketInfo|\stdClass|null
      */
-    public mixed $ticketInfo = null;
+    public TicketInfo|\stdClass|null $ticketInfo = null;
 
     /** 
      * The identifier of membership or ownership eligibility relationship to the group. Required. The possible values are: owner, member, unknownFutureValue.
      * @var PrivilegedAccessGroupRelationships|\stdClass|null
      */
-    public mixed $accessId = null;
+    public PrivilegedAccessGroupRelationships|\stdClass|null $accessId = null;
 
     /** The identifier of the group representing the scope of the membership and ownership eligibility through PIM for Groups. Required. */
     public ?string $groupId = null;
@@ -79,19 +79,19 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
      * References the group that is the scope of the membership or ownership eligibility request through PIM for Groups. Supports $expand and $select nested in $expand for select properties like id, displayName, and mail.
      * @var Group|\stdClass|null
      */
-    public mixed $group = null;
+    public Group|\stdClass|null $group = null;
 
     /** 
      * References the principal that's in the scope of the membership or ownership eligibility request through the group that's governed by PIM. Supports $expand and $select nested in $expand for id only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
     /** 
      * Schedule created by this request.
      * @var PrivilegedAccessGroupEligibilitySchedule|\stdClass|null
      */
-    public mixed $targetSchedule = null;
+    public PrivilegedAccessGroupEligibilitySchedule|\stdClass|null $targetSchedule = null;
 
 
     /**

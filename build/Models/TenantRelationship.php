@@ -28,7 +28,7 @@ class TenantRelationship
      * Defines an organization with more than one instance of Microsoft Entra ID.
      * @var MultiTenantOrganization|\stdClass|null
      */
-    public mixed $multiTenantOrganization = null;
+    public MultiTenantOrganization|\stdClass|null $multiTenantOrganization = null;
 
 
     /**

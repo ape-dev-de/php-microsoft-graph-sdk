@@ -43,7 +43,7 @@ class IdentityContainer
      * the entry point for the Conditional Access (CA) object model.
      * @var ConditionalAccessRoot|\stdClass|null
      */
-    public mixed $conditionalAccess = null;
+    public ConditionalAccessRoot|\stdClass|null $conditionalAccess = null;
 
     /** 
      * Represents custom extensions to authentication flows in Azure AD for workforce and customers.

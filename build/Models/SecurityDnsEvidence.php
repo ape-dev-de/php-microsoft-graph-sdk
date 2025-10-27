@@ -46,7 +46,7 @@ class SecurityDnsEvidence
      * 
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $dnsServerIp = null;
+    public SecurityIpEvidence|\stdClass|null $dnsServerIp = null;
 
     /**  */
     public ?string $domainName = null;
@@ -55,7 +55,7 @@ class SecurityDnsEvidence
      * 
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $hostIpAddress = null;
+    public SecurityIpEvidence|\stdClass|null $hostIpAddress = null;
 
     /** 
      * 

@@ -16,7 +16,7 @@ class RegistryKeyState
      * A Windows registry hive : HKEYCURRENTCONFIG HKEYCURRENTUSER HKEYLOCALMACHINE/SAM HKEYLOCALMACHINE/Security HKEYLOCALMACHINE/Software HKEYLOCALMACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault.
      * @var RegistryHive|\stdClass|null
      */
-    public mixed $hive = null;
+    public RegistryHive|\stdClass|null $hive = null;
 
     /** Current (i.e. changed) registry key (excludes HIVE). */
     public ?string $key = null;
@@ -34,7 +34,7 @@ class RegistryKeyState
      * Operation that changed the registry key name and/or value. Possible values are: unknown, create, modify, delete.
      * @var RegistryOperation|\stdClass|null
      */
-    public mixed $operation = null;
+    public RegistryOperation|\stdClass|null $operation = null;
 
     /** Process ID (PID) of the process that modified the registry key (process details will appear in the alert 'processes' collection). */
     public ?float $processId = null;
@@ -49,7 +49,7 @@ class RegistryKeyState
      * Registry key value type REGBINARY REGDWORD REGDWORDLITTLEENDIAN REGDWORDBIGENDIANREGEXPANDSZ REGLINK REGMULTISZ REGNONE REGQWORD REGQWORDLITTLEENDIAN REG_SZ Possible values are: unknown, binary, dword, dwordLittleEndian, dwordBigEndian, expandSz, link, multiSz, none, qword, qwordlittleEndian, sz.
      * @var RegistryValueType|\stdClass|null
      */
-    public mixed $valueType = null;
+    public RegistryValueType|\stdClass|null $valueType = null;
 
 
     /**

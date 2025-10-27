@@ -24,8 +24,11 @@ class UserTrainingContentEventInfo
     /** The operating system, platform, and device details of the user for the training event. */
     public ?string $osPlatformDeviceDetails = null;
 
-    /** Potential improvement in the tenant security posture after completion of the training by the user. */
-    public ?string $potentialScoreImpact = null;
+    /** 
+     * Potential improvement in the tenant security posture after completion of the training by the user.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $potentialScoreImpact = null;
 
 
     /**

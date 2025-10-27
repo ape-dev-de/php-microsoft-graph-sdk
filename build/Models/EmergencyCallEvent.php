@@ -31,7 +31,7 @@ class EmergencyCallEvent
      * 
      * @var EmergencyCallerInfo|\stdClass|null
      */
-    public mixed $callerInfo = null;
+    public EmergencyCallerInfo|\stdClass|null $callerInfo = null;
 
     /**  */
     public ?string $emergencyNumberDialed = null;

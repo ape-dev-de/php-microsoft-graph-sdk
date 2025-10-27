@@ -34,7 +34,7 @@ class SearchHit
      * 
      * @var Entity|\stdClass|null
      */
-    public mixed $resource = null;
+    public Entity|\stdClass|null $resource = null;
 
 
     /**

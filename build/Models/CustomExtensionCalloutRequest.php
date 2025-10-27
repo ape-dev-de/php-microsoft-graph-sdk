@@ -16,7 +16,7 @@ class CustomExtensionCalloutRequest
      * Contains the data that will be provided to the external system.
      * @var CustomExtensionData|\stdClass|null
      */
-    public mixed $data = null;
+    public CustomExtensionData|\stdClass|null $data = null;
 
     /** Identifies the source system or event context related to the callout request. */
     public ?string $source = null;

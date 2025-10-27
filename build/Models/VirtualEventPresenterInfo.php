@@ -16,13 +16,13 @@ class VirtualEventPresenterInfo
      * Identity information of the participant.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $identity = null;
+    public IdentitySet|\stdClass|null $identity = null;
 
     /** 
      * Specifies the participant's role in the meeting.
      * @var OnlineMeetingRole|\stdClass|null
      */
-    public mixed $role = null;
+    public OnlineMeetingRole|\stdClass|null $role = null;
 
     /** User principal name of the participant. */
     public ?string $upn = null;
@@ -31,7 +31,7 @@ class VirtualEventPresenterInfo
      * 
      * @var VirtualEventPresenterDetails|\stdClass|null
      */
-    public mixed $presenterDetails = null;
+    public VirtualEventPresenterDetails|\stdClass|null $presenterDetails = null;
 
 
     /**

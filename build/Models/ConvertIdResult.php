@@ -16,7 +16,7 @@ class ConvertIdResult
      * An error object indicating the reason for the conversion failure. This value isn't present if the conversion succeeded.
      * @var GenericError|\stdClass|null
      */
-    public mixed $errorDetails = null;
+    public GenericError|\stdClass|null $errorDetails = null;
 
     /** The identifier that was converted. This value is the original, un-converted identifier. */
     public ?string $sourceId = null;

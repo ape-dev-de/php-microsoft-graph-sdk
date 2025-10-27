@@ -22,7 +22,7 @@ class KeyCredentialConfiguration
      * The type of restriction being applied. Possible values are asymmetricKeyLifetime, and unknownFutureValue. Each value of restrictionType can be used only once per policy.
      * @var AppKeyCredentialRestrictionType|\stdClass|null
      */
-    public mixed $restrictionType = null;
+    public AppKeyCredentialRestrictionType|\stdClass|null $restrictionType = null;
 
     /**  */
     public ?AppManagementRestrictionState $state = null;

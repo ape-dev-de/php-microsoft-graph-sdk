@@ -16,7 +16,7 @@ class TeamworkActivityTopic
      * Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text.
      * @var TeamworkActivityTopicSource|\stdClass|null
      */
-    public mixed $source = null;
+    public TeamworkActivityTopicSource|\stdClass|null $source = null;
 
     /** The topic value. If the value of the source property is entityUrl, this must be a Microsoft Graph URL. If the value is text, this must be a plain text value. */
     public ?string $value = null;

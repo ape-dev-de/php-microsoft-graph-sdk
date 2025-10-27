@@ -22,13 +22,13 @@ class ConversationMemberRoleUpdatedEventMessageDetail
      * Identity of the conversation member user.
      * @var TeamworkUserIdentity|\stdClass|null
      */
-    public mixed $conversationMemberUser = null;
+    public TeamworkUserIdentity|\stdClass|null $conversationMemberUser = null;
 
     /** 
      * Initiator of the event.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
 
     /**

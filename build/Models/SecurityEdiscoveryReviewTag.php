@@ -19,7 +19,7 @@ class SecurityEdiscoveryReviewTag
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /**  */
     public ?string $description = null;
@@ -34,7 +34,7 @@ class SecurityEdiscoveryReviewTag
      * Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
      * @var SecurityChildSelectability|\stdClass|null
      */
-    public mixed $childSelectability = null;
+    public SecurityChildSelectability|\stdClass|null $childSelectability = null;
 
     /** 
      * Returns the tags that are a child of a tag.
@@ -46,7 +46,7 @@ class SecurityEdiscoveryReviewTag
      * Returns the parent tag of the specified tag.
      * @var SecurityEdiscoveryReviewTag|\stdClass|null
      */
-    public mixed $parent = null;
+    public SecurityEdiscoveryReviewTag|\stdClass|null $parent = null;
 
 
     /**

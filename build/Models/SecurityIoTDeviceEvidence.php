@@ -61,13 +61,13 @@ class SecurityIoTDeviceEvidence
      * The importance level for the IoT device. Possible values are low, normal, high, and unknownFutureValue.
      * @var SecurityIoTDeviceImportanceType|\stdClass|null
      */
-    public mixed $importance = null;
+    public SecurityIoTDeviceImportanceType|\stdClass|null $importance = null;
 
     /** 
      * The azureResourceEvidence entity that represents the IoT Hub that the device belongs to.
      * @var SecurityAzureResourceEvidence|\stdClass|null
      */
-    public mixed $ioTHub = null;
+    public SecurityAzureResourceEvidence|\stdClass|null $ioTHub = null;
 
     /** The ID of the Azure Security Center for the IoT agent that is running on the device. */
     public ?string $ioTSecurityAgentId = null;
@@ -76,7 +76,7 @@ class SecurityIoTDeviceEvidence
      * The current IP address of the device.
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $ipAddress = null;
+    public SecurityIpEvidence|\stdClass|null $ipAddress = null;
 
     /** Indicates whether the device classified as an authorized device. */
     public ?bool $isAuthorized = null;
@@ -136,7 +136,7 @@ class SecurityIoTDeviceEvidence
      * A URL reference to the source item where the device is managed.
      * @var SecurityUrlEvidence|\stdClass|null
      */
-    public mixed $sourceRef = null;
+    public SecurityUrlEvidence|\stdClass|null $sourceRef = null;
 
     /** The zone location of the device within a site. */
     public ?string $zone = null;

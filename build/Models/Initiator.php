@@ -22,7 +22,7 @@ class Initiator
      * Type of initiator. Possible values are: user, application, system, unknownFutureValue.
      * @var InitiatorType|\stdClass|null
      */
-    public mixed $initiatorType = null;
+    public InitiatorType|\stdClass|null $initiatorType = null;
 
 
     /**

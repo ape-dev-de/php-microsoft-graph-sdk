@@ -16,7 +16,7 @@ class RecordingInfo
      * The identities of the recording initiator.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
     /**  */
     public ?RecordingStatus $recordingStatus = null;

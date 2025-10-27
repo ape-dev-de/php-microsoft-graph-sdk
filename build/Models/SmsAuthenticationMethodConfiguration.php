@@ -25,7 +25,7 @@ class SmsAuthenticationMethodConfiguration
      * The state of the policy. Possible values are: enabled, disabled.
      * @var AuthenticationMethodState|\stdClass|null
      */
-    public mixed $state = null;
+    public AuthenticationMethodState|\stdClass|null $state = null;
 
     /** 
      * A collection of groups that are enabled to use the authentication method.

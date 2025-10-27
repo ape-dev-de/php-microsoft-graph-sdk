@@ -25,13 +25,13 @@ class ExternalConnectorsExternalActivityResult
      * Represents an identity used to identify who is responsible for the activity.
      * @var ExternalConnectorsIdentity|\stdClass|null
      */
-    public mixed $performedBy = null;
+    public ExternalConnectorsIdentity|\stdClass|null $performedBy = null;
 
     /** 
      * Error information that explains the failure to process an external activity.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
 
     /**

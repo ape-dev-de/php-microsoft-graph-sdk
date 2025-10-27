@@ -19,25 +19,25 @@ class TermStoreRelation
      * The type of relation. Possible values are: pin, reuse.
      * @var TermStoreRelationType|\stdClass|null
      */
-    public mixed $relationship = null;
+    public TermStoreRelationType|\stdClass|null $relationship = null;
 
     /** 
      * The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
      * @var TermStoreTerm|\stdClass|null
      */
-    public mixed $fromTerm = null;
+    public TermStoreTerm|\stdClass|null $fromTerm = null;
 
     /** 
      * The [set] in which the relation is relevant.
      * @var TermStoreSet|\stdClass|null
      */
-    public mixed $set = null;
+    public TermStoreSet|\stdClass|null $set = null;
 
     /** 
      * The to [term] of the relation. The term to which the relationship is defined.
      * @var TermStoreTerm|\stdClass|null
      */
-    public mixed $toTerm = null;
+    public TermStoreTerm|\stdClass|null $toTerm = null;
 
 
     /**

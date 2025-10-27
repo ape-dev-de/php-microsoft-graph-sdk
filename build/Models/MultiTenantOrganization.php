@@ -28,13 +28,13 @@ class MultiTenantOrganization
      * State of the multitenant organization. The possible values are: active, inactive, unknownFutureValue. active indicates the multitenant organization is created. inactive indicates the multitenant organization isn't created. Read-only.
      * @var MultiTenantOrganizationState|\stdClass|null
      */
-    public mixed $state = null;
+    public MultiTenantOrganizationState|\stdClass|null $state = null;
 
     /** 
      * Defines the status of a tenant joining a multitenant organization.
      * @var MultiTenantOrganizationJoinRequestRecord|\stdClass|null
      */
-    public mixed $joinRequest = null;
+    public MultiTenantOrganizationJoinRequestRecord|\stdClass|null $joinRequest = null;
 
     /** 
      * Defines tenants added to a multitenant organization.

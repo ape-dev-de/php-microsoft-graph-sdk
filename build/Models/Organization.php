@@ -67,7 +67,7 @@ class Organization
      * The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values.
      * @var PartnerTenantType|\stdClass|null
      */
-    public mixed $partnerTenantType = null;
+    public PartnerTenantType|\stdClass|null $partnerTenantType = null;
 
     /** Postal code of the address for the organization. */
     public ?string $postalCode = null;
@@ -79,7 +79,7 @@ class Organization
      * The privacy profile of an organization.
      * @var PrivacyProfile|\stdClass|null
      */
-    public mixed $privacyProfile = null;
+    public PrivacyProfile|\stdClass|null $privacyProfile = null;
 
     /** 
      * Not nullable.
@@ -124,7 +124,7 @@ class Organization
      * Branding for the organization. Nullable.
      * @var OrganizationalBranding|\stdClass|null
      */
-    public mixed $branding = null;
+    public OrganizationalBranding|\stdClass|null $branding = null;
 
     /** 
      * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.

@@ -46,7 +46,7 @@ class SecurityContainerImageEvidence
      * The digest image entity, in case this is a tag image.
      * @var SecurityContainerImageEvidence|\stdClass|null
      */
-    public mixed $digestImage = null;
+    public SecurityContainerImageEvidence|\stdClass|null $digestImage = null;
 
     /** The unique identifier for the container image entity. */
     public ?string $imageId = null;
@@ -55,7 +55,7 @@ class SecurityContainerImageEvidence
      * The container registry for this image.
      * @var SecurityContainerRegistryEvidence|\stdClass|null
      */
-    public mixed $registry = null;
+    public SecurityContainerRegistryEvidence|\stdClass|null $registry = null;
 
 
     /**

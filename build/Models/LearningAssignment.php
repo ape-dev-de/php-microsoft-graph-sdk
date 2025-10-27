@@ -37,7 +37,7 @@ class LearningAssignment
      * The status of the course activity. Possible values are: notStarted, inProgress, completed. Required.
      * @var CourseStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public CourseStatus|\stdClass|null $status = null;
 
     /** Assigned date for the course activity. Optional. */
     public ?\DateTimeInterface $assignedDateTime = null;
@@ -52,13 +52,13 @@ class LearningAssignment
      * Due date for the course activity. Optional.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $dueDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $dueDateTime = null;
 
     /** 
      * Notes for the course activity. Optional.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $notes = null;
+    public ItemBody|\stdClass|null $notes = null;
 
 
     /**

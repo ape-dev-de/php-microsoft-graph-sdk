@@ -19,7 +19,7 @@ class SecurityFormattedContent
      * The format of the content. The possible values are: text, html, markdown, unknownFutureValue.
      * @var SecurityContentFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public SecurityContentFormat|\stdClass|null $format = null;
 
 
     /**

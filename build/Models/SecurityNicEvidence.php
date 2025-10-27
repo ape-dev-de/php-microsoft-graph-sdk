@@ -46,7 +46,7 @@ class SecurityNicEvidence
      * The current IP address of the NIC.
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $ipAddress = null;
+    public SecurityIpEvidence|\stdClass|null $ipAddress = null;
 
     /** The MAC address of the NIC. */
     public ?string $macAddress = null;

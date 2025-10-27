@@ -37,7 +37,7 @@ class ManagedDevice
      * ConfigrMgr client enabled features. This property is read-only.
      * @var ConfigurationManagerClientEnabledFeatures|\stdClass|null
      */
-    public mixed $configurationManagerClientEnabledFeatures = null;
+    public ConfigurationManagerClientEnabledFeatures|\stdClass|null $configurationManagerClientEnabledFeatures = null;
 
     /** 
      * List of ComplexType deviceActionResult objects. This property is read-only.
@@ -55,7 +55,7 @@ class ManagedDevice
      * The device health attestation state. This property is read-only.
      * @var DeviceHealthAttestationState|\stdClass|null
      */
-    public mixed $deviceHealthAttestationState = null;
+    public DeviceHealthAttestationState|\stdClass|null $deviceHealthAttestationState = null;
 
     /** Name of the device. This property is read-only. */
     public ?string $deviceName = null;
@@ -190,7 +190,7 @@ class ManagedDevice
      * Device category
      * @var DeviceCategory|\stdClass|null
      */
-    public mixed $deviceCategory = null;
+    public DeviceCategory|\stdClass|null $deviceCategory = null;
 
     /** 
      * Device compliance policy states for this device.
@@ -220,7 +220,7 @@ class ManagedDevice
      * The device protection status. This property is read-only.
      * @var WindowsProtectionState|\stdClass|null
      */
-    public mixed $windowsProtectionState = null;
+    public WindowsProtectionState|\stdClass|null $windowsProtectionState = null;
 
 
     /**

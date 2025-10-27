@@ -16,7 +16,7 @@ class AutomaticRepliesSetting
      * The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @var ExternalAudienceScope|\stdClass|null
      */
-    public mixed $externalAudience = null;
+    public ExternalAudienceScope|\stdClass|null $externalAudience = null;
 
     /** The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled. */
     public ?string $externalReplyMessage = null;
@@ -28,19 +28,19 @@ class AutomaticRepliesSetting
      * The date and time that automatic replies are set to end, if Status is set to Scheduled.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $scheduledEndDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $scheduledEndDateTime = null;
 
     /** 
      * The date and time that automatic replies are set to begin, if Status is set to Scheduled.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $scheduledStartDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $scheduledStartDateTime = null;
 
     /** 
      * Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
      * @var AutomaticRepliesStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public AutomaticRepliesStatus|\stdClass|null $status = null;
 
 
     /**

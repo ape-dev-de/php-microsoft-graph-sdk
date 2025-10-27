@@ -19,7 +19,7 @@ class Reminder
      * The date, time and time zone that the event ends.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $eventEndTime = null;
+    public DateTimeTimeZone|\stdClass|null $eventEndTime = null;
 
     /** The unique ID of the event. Read only. */
     public ?string $eventId = null;
@@ -28,13 +28,13 @@ class Reminder
      * The location of the event.
      * @var Location|\stdClass|null
      */
-    public mixed $eventLocation = null;
+    public Location|\stdClass|null $eventLocation = null;
 
     /** 
      * The date, time, and time zone that the event starts.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $eventStartTime = null;
+    public DateTimeTimeZone|\stdClass|null $eventStartTime = null;
 
     /** The text of the event's subject line. */
     public ?string $eventSubject = null;
@@ -46,7 +46,7 @@ class Reminder
      * The date, time, and time zone that the reminder is set to occur.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $reminderFireTime = null;
+    public DateTimeTimeZone|\stdClass|null $reminderFireTime = null;
 
 
     /**

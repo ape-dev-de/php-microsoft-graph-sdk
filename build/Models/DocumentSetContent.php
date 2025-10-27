@@ -16,7 +16,7 @@ class DocumentSetContent
      * Content type information of the file.
      * @var ContentTypeInfo|\stdClass|null
      */
-    public mixed $contentType = null;
+    public ContentTypeInfo|\stdClass|null $contentType = null;
 
     /** Name of the file in resource folder that should be added as a default content or a template in the document set. */
     public ?string $fileName = null;

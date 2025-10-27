@@ -49,7 +49,7 @@ class SecurityDeviceEvidence
      * State of the Defender AntiMalware engine. The possible values are: notReporting, disabled, notUpdated, updated, unknown, notSupported, unknownFutureValue.
      * @var SecurityDefenderAvStatus|\stdClass|null
      */
-    public mixed $defenderAvStatus = null;
+    public SecurityDefenderAvStatus|\stdClass|null $defenderAvStatus = null;
 
     /** The fully qualified domain name (FQDN) for the device. */
     public ?string $deviceDnsName = null;
@@ -64,7 +64,7 @@ class SecurityDeviceEvidence
      * The health state of the device. The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.
      * @var SecurityDeviceHealthStatus|\stdClass|null
      */
-    public mixed $healthStatus = null;
+    public SecurityDeviceHealthStatus|\stdClass|null $healthStatus = null;
 
     /** The hostname without the domain suffix. */
     public ?string $hostName = null;
@@ -97,7 +97,7 @@ class SecurityDeviceEvidence
      * The status of the machine onboarding to Microsoft Defender for Endpoint. The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.
      * @var SecurityOnboardingStatus|\stdClass|null
      */
-    public mixed $onboardingStatus = null;
+    public SecurityOnboardingStatus|\stdClass|null $onboardingStatus = null;
 
     /** The build version for the operating system the device is running. */
     public ?float $osBuild = null;
@@ -115,7 +115,7 @@ class SecurityDeviceEvidence
      * Risk score as evaluated by Microsoft Defender for Endpoint. The possible values are: none, informational, low, medium, high, unknownFutureValue.
      * @var SecurityDeviceRiskScore|\stdClass|null
      */
-    public mixed $riskScore = null;
+    public SecurityDeviceRiskScore|\stdClass|null $riskScore = null;
 
     /** The version of the operating system platform. */
     public ?string $version = null;
@@ -124,7 +124,7 @@ class SecurityDeviceEvidence
      * Metadata of the virtual machine (VM) on which Microsoft Defender for Endpoint is running.
      * @var SecurityVmMetadata|\stdClass|null
      */
-    public mixed $vmMetadata = null;
+    public SecurityVmMetadata|\stdClass|null $vmMetadata = null;
 
 
     /**

@@ -19,7 +19,7 @@ class TeamsTab
      * Container for custom settings applied to a tab. The tab is considered configured only once this property is set.
      * @var TeamsTabConfiguration|\stdClass|null
      */
-    public mixed $configuration = null;
+    public TeamsTabConfiguration|\stdClass|null $configuration = null;
 
     /** Name of the tab. */
     public ?string $displayName = null;
@@ -31,7 +31,7 @@ class TeamsTab
      * The application that is linked to the tab. This can't be changed after tab creation.
      * @var TeamsApp|\stdClass|null
      */
-    public mixed $teamsApp = null;
+    public TeamsApp|\stdClass|null $teamsApp = null;
 
 
     /**

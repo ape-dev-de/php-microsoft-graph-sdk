@@ -19,7 +19,7 @@ class BaseEndUserNotification
      * 
      * @var EndUserNotification|\stdClass|null
      */
-    public mixed $endUserNotification = null;
+    public EndUserNotification|\stdClass|null $endUserNotification = null;
 
 
     /**

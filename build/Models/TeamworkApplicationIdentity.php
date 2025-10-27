@@ -22,7 +22,7 @@ class TeamworkApplicationIdentity
      * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.
      * @var TeamworkApplicationIdentityType|\stdClass|null
      */
-    public mixed $applicationIdentityType = null;
+    public TeamworkApplicationIdentityType|\stdClass|null $applicationIdentityType = null;
 
 
     /**

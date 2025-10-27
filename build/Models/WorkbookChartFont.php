@@ -27,8 +27,11 @@ class WorkbookChartFont
     /** The font name. For example 'Calibri'. */
     public ?string $name = null;
 
-    /** The size of the font. For example,  11. */
-    public ?string $size = null;
+    /** 
+     * The size of the font. For example,  11.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $size = null;
 
     /** The type of underlining applied to the font. The possible values are: None, Single. */
     public ?string $underline = null;

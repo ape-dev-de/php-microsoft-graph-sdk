@@ -19,7 +19,7 @@ class PlannerPlanContainer
      * The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. Optional.
      * @var PlannerContainerType|\stdClass|null
      */
-    public mixed $type = null;
+    public PlannerContainerType|\stdClass|null $type = null;
 
     /** The full canonical URL of the container. Optional. */
     public ?string $url = null;

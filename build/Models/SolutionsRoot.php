@@ -16,7 +16,7 @@ class SolutionsRoot
      * 
      * @var BackupRestoreRoot|\stdClass|null
      */
-    public mixed $backupRestore = null;
+    public BackupRestoreRoot|\stdClass|null $backupRestore = null;
 
     /** 
      * 
@@ -34,7 +34,7 @@ class SolutionsRoot
      * 
      * @var VirtualEventsRoot|\stdClass|null
      */
-    public mixed $virtualEvents = null;
+    public VirtualEventsRoot|\stdClass|null $virtualEvents = null;
 
 
     /**

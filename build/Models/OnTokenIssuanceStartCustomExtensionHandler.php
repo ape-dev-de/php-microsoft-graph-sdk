@@ -16,13 +16,13 @@ class OnTokenIssuanceStartCustomExtensionHandler
      * 
      * @var CustomExtensionOverwriteConfiguration|\stdClass|null
      */
-    public mixed $configuration = null;
+    public CustomExtensionOverwriteConfiguration|\stdClass|null $configuration = null;
 
     /** 
      * 
      * @var OnTokenIssuanceStartCustomExtension|\stdClass|null
      */
-    public mixed $customExtension = null;
+    public OnTokenIssuanceStartCustomExtension|\stdClass|null $customExtension = null;
 
 
     /**

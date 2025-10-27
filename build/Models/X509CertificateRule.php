@@ -25,19 +25,19 @@ class X509CertificateRule
      * The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
      * @var X509CertificateAuthenticationMode|\stdClass|null
      */
-    public mixed $x509CertificateAuthenticationMode = null;
+    public X509CertificateAuthenticationMode|\stdClass|null $x509CertificateAuthenticationMode = null;
 
     /** 
      * 
      * @var X509CertificateAffinityLevel|\stdClass|null
      */
-    public mixed $x509CertificateRequiredAffinityLevel = null;
+    public X509CertificateAffinityLevel|\stdClass|null $x509CertificateRequiredAffinityLevel = null;
 
     /** 
      * The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
      * @var X509CertificateRuleType|\stdClass|null
      */
-    public mixed $x509CertificateRuleType = null;
+    public X509CertificateRuleType|\stdClass|null $x509CertificateRuleType = null;
 
 
     /**

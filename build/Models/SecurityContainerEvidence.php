@@ -61,7 +61,7 @@ class SecurityContainerEvidence
      * The image used to run the container.
      * @var SecurityContainerImageEvidence|\stdClass|null
      */
-    public mixed $image = null;
+    public SecurityContainerImageEvidence|\stdClass|null $image = null;
 
     /** The privileged status. */
     public ?bool $isPrivileged = null;
@@ -73,7 +73,7 @@ class SecurityContainerEvidence
      * The pod this container belongs to.
      * @var SecurityKubernetesPodEvidence|\stdClass|null
      */
-    public mixed $pod = null;
+    public SecurityKubernetesPodEvidence|\stdClass|null $pod = null;
 
 
     /**

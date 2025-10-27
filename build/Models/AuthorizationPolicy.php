@@ -37,7 +37,7 @@ class AuthorizationPolicy
      * Indicates who can invite guests to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. For more information, see allowInvitesFrom values.
      * @var AllowInvitesFrom|\stdClass|null
      */
-    public mixed $allowInvitesFrom = null;
+    public AllowInvitesFrom|\stdClass|null $allowInvitesFrom = null;
 
     /** Indicates whether user consent for risky apps is allowed. We recommend keeping allowUserConsentForRiskyApps as false. Default value is false. */
     public ?bool $allowUserConsentForRiskyApps = null;

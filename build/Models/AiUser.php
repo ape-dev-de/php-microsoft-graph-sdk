@@ -19,7 +19,7 @@ class AiUser
      * 
      * @var AiInteractionHistory|\stdClass|null
      */
-    public mixed $interactionHistory = null;
+    public AiInteractionHistory|\stdClass|null $interactionHistory = null;
 
 
     /**

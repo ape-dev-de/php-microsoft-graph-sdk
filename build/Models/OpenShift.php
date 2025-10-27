@@ -19,7 +19,7 @@ class OpenShift
      * Identity of the creator of the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class OpenShift
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,7 +37,7 @@ class OpenShift
      * Draft changes in the openShift are only visible to managers until they're shared.
      * @var OpenShiftItem|\stdClass|null
      */
-    public mixed $draftOpenShift = null;
+    public OpenShiftItem|\stdClass|null $draftOpenShift = null;
 
     /** The openShift is marked for deletion, a process that is finalized when the schedule is shared. */
     public ?bool $isStagedForDeletion = null;
@@ -49,7 +49,7 @@ class OpenShift
      * The shared version of this openShift that is viewable by both employees and managers.
      * @var OpenShiftItem|\stdClass|null
      */
-    public mixed $sharedOpenShift = null;
+    public OpenShiftItem|\stdClass|null $sharedOpenShift = null;
 
 
     /**

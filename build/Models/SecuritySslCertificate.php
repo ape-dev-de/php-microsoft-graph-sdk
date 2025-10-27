@@ -31,7 +31,7 @@ class SecuritySslCertificate
      * The entity that grants this certificate.
      * @var SecuritySslCertificateEntity|\stdClass|null
      */
-    public mixed $issuer = null;
+    public SecuritySslCertificateEntity|\stdClass|null $issuer = null;
 
     /** The most recent date and time when this sslCertificate was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $lastSeenDateTime = null;
@@ -46,7 +46,7 @@ class SecuritySslCertificate
      * The person, site, machine, and so on, this certificate is for.
      * @var SecuritySslCertificateEntity|\stdClass|null
      */
-    public mixed $subject = null;
+    public SecuritySslCertificateEntity|\stdClass|null $subject = null;
 
     /** 
      * The host resources related with this sslCertificate.

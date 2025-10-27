@@ -25,7 +25,7 @@ class WorkbookSortField
      * Represents the icon that is the target of the condition if the sorting is on the cell's icon.
      * @var WorkbookIcon|\stdClass|null
      */
-    public mixed $icon = null;
+    public WorkbookIcon|\stdClass|null $icon = null;
 
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
     public ?float $key = null;

@@ -19,7 +19,7 @@ class ChatMessageMention
      * The entity (user, application, team, channel, or chat) that was @mentioned.
      * @var ChatMessageMentionedIdentitySet|\stdClass|null
      */
-    public mixed $mentioned = null;
+    public ChatMessageMentionedIdentitySet|\stdClass|null $mentioned = null;
 
     /** String used to represent the mention. For example, a user's display name, a team name. */
     public ?string $mentionText = null;

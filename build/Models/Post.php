@@ -34,7 +34,7 @@ class Post
      * The contents of the post. This is a default property. This property can be null.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $body = null;
+    public ItemBody|\stdClass|null $body = null;
 
     /** Unique ID of the conversation. Read-only. */
     public ?string $conversationId = null;
@@ -61,7 +61,7 @@ class Post
      * Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property.
      * @var Recipient|\stdClass|null
      */
-    public mixed $sender = null;
+    public Recipient|\stdClass|null $sender = null;
 
     /** 
      * Read-only. Nullable. Supports $expand.
@@ -79,7 +79,7 @@ class Post
      * Read-only. Supports $expand.
      * @var Post|\stdClass|null
      */
-    public mixed $inReplyTo = null;
+    public Post|\stdClass|null $inReplyTo = null;
 
     /** 
      * The collection of multi-value extended properties defined for the post. Read-only. Nullable.

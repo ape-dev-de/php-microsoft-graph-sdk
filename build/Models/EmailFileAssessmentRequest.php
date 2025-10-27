@@ -22,13 +22,13 @@ class EmailFileAssessmentRequest
      * The content type of threat assessment. Possible values are: mail, url, file.
      * @var ThreatAssessmentContentType|\stdClass|null
      */
-    public mixed $contentType = null;
+    public ThreatAssessmentContentType|\stdClass|null $contentType = null;
 
     /** 
      * The threat assessment request creator.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,13 +40,13 @@ class EmailFileAssessmentRequest
      * The source of the threat assessment request. Possible values are: administrator.
      * @var ThreatAssessmentRequestSource|\stdClass|null
      */
-    public mixed $requestSource = null;
+    public ThreatAssessmentRequestSource|\stdClass|null $requestSource = null;
 
     /** 
      * The assessment process status. Possible values are: pending, completed.
      * @var ThreatAssessmentStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ThreatAssessmentStatus|\stdClass|null $status = null;
 
     /** 
      * A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
@@ -61,7 +61,7 @@ class EmailFileAssessmentRequest
      * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
      * @var MailDestinationRoutingReason|\stdClass|null
      */
-    public mixed $destinationRoutingReason = null;
+    public MailDestinationRoutingReason|\stdClass|null $destinationRoutingReason = null;
 
     /** The mail recipient whose policies are used to assess the mail. */
     public ?string $recipientEmail = null;

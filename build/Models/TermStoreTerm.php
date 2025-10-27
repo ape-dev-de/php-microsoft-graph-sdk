@@ -55,7 +55,7 @@ class TermStoreTerm
      * The [set] in which the term is created.
      * @var TermStoreSet|\stdClass|null
      */
-    public mixed $set = null;
+    public TermStoreSet|\stdClass|null $set = null;
 
 
     /**

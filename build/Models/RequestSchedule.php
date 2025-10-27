@@ -16,13 +16,13 @@ class RequestSchedule
      * When the eligible or active assignment expires.
      * @var ExpirationPattern|\stdClass|null
      */
-    public mixed $expiration = null;
+    public ExpirationPattern|\stdClass|null $expiration = null;
 
     /** 
      * The frequency of the  eligible or active assignment. This property is currently unsupported in PIM.
      * @var PatternedRecurrence|\stdClass|null
      */
-    public mixed $recurrence = null;
+    public PatternedRecurrence|\stdClass|null $recurrence = null;
 
     /** When the  eligible or active assignment becomes active. */
     public ?\DateTimeInterface $startDateTime = null;

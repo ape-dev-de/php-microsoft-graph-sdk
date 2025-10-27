@@ -22,7 +22,7 @@ class CustomExtensionStageSetting
      * Indicates the custom workflow extension that will be executed at this stage. Nullable. Supports $expand.
      * @var CustomCalloutExtension|\stdClass|null
      */
-    public mixed $customExtension = null;
+    public CustomCalloutExtension|\stdClass|null $customExtension = null;
 
 
     /**

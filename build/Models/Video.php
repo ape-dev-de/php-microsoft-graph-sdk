@@ -33,8 +33,11 @@ class Video
     /** 'Four character code' name of the video format. */
     public ?string $fourCC = null;
 
-    /** Frame rate of the video. */
-    public ?string $frameRate = null;
+    /** 
+     * Frame rate of the video.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $frameRate = null;
 
     /** Height of the video, in pixels. */
     public ?float $height = null;

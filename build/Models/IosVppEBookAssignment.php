@@ -22,7 +22,7 @@ class IosVppEBookAssignment
      * The assignment target for eBook.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

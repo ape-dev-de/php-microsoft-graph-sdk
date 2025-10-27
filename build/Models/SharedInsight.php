@@ -19,19 +19,19 @@ class SharedInsight
      * Details about the shared item. Read only.
      * @var SharingDetail|\stdClass|null
      */
-    public mixed $lastShared = null;
+    public SharingDetail|\stdClass|null $lastShared = null;
 
     /** 
      * Reference properties of the shared document, such as the url and type of the document. Read-only
      * @var ResourceReference|\stdClass|null
      */
-    public mixed $resourceReference = null;
+    public ResourceReference|\stdClass|null $resourceReference = null;
 
     /** 
      * Properties that you can use to visualize the document in your experience. Read-only
      * @var ResourceVisualization|\stdClass|null
      */
-    public mixed $resourceVisualization = null;
+    public ResourceVisualization|\stdClass|null $resourceVisualization = null;
 
     /** 
      * 
@@ -43,13 +43,13 @@ class SharedInsight
      * 
      * @var Entity|\stdClass|null
      */
-    public mixed $lastSharedMethod = null;
+    public Entity|\stdClass|null $lastSharedMethod = null;
 
     /** 
      * Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
      * @var Entity|\stdClass|null
      */
-    public mixed $resource = null;
+    public Entity|\stdClass|null $resource = null;
 
 
     /**

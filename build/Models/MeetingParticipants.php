@@ -22,7 +22,7 @@ class MeetingParticipants
      * Information about the meeting organizer.
      * @var MeetingParticipantInfo|\stdClass|null
      */
-    public mixed $organizer = null;
+    public MeetingParticipantInfo|\stdClass|null $organizer = null;
 
 
     /**

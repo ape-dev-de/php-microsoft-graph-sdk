@@ -28,7 +28,7 @@ class PrintConnector
      * The physical and/or organizational location of the connector.
      * @var PrinterLocation|\stdClass|null
      */
-    public mixed $location = null;
+    public PrinterLocation|\stdClass|null $location = null;
 
     /** The connector machine's operating system version. */
     public ?string $operatingSystem = null;

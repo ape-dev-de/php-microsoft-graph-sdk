@@ -19,7 +19,7 @@ class ExternalUsersSelfServiceSignUpEventsFlow
      * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
     /** The description of the events policy. */
     public ?string $description = null;
@@ -31,37 +31,37 @@ class ExternalUsersSelfServiceSignUpEventsFlow
      * The configuration for what to invoke when attributes are ready to be collected from the user.
      * @var OnAttributeCollectionHandler|\stdClass|null
      */
-    public mixed $onAttributeCollection = null;
+    public OnAttributeCollectionHandler|\stdClass|null $onAttributeCollection = null;
 
     /** 
      * The configuration for what to invoke when attribution collection starts.
      * @var OnAttributeCollectionStartHandler|\stdClass|null
      */
-    public mixed $onAttributeCollectionStart = null;
+    public OnAttributeCollectionStartHandler|\stdClass|null $onAttributeCollectionStart = null;
 
     /** 
      * The configuration for what to invoke when attributes are submitted at the end of attribution collection.
      * @var OnAttributeCollectionSubmitHandler|\stdClass|null
      */
-    public mixed $onAttributeCollectionSubmit = null;
+    public OnAttributeCollectionSubmitHandler|\stdClass|null $onAttributeCollectionSubmit = null;
 
     /** 
      * Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
      * @var OnAuthenticationMethodLoadStartHandler|\stdClass|null
      */
-    public mixed $onAuthenticationMethodLoadStart = null;
+    public OnAuthenticationMethodLoadStartHandler|\stdClass|null $onAuthenticationMethodLoadStart = null;
 
     /** 
      * Required. The configuration for what to invoke when an authentication flow is ready to be initiated.
      * @var OnInteractiveAuthFlowStartHandler|\stdClass|null
      */
-    public mixed $onInteractiveAuthFlowStart = null;
+    public OnInteractiveAuthFlowStartHandler|\stdClass|null $onInteractiveAuthFlowStart = null;
 
     /** 
      * The configuration for what to invoke during user creation.
      * @var OnUserCreateStartHandler|\stdClass|null
      */
-    public mixed $onUserCreateStart = null;
+    public OnUserCreateStartHandler|\stdClass|null $onUserCreateStart = null;
 
 
     /**

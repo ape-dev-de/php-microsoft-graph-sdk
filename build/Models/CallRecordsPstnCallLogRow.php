@@ -19,7 +19,7 @@ class CallRecordsPstnCallLogRow
      * The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator can provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.
      * @var CallRecordsPstnCallDurationSource|\stdClass|null
      */
-    public mixed $callDurationSource = null;
+    public CallRecordsPstnCallDurationSource|\stdClass|null $callDurationSource = null;
 
     /** Number dialed in E.164 format. */
     public ?string $calleeNumber = null;

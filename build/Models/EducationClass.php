@@ -22,13 +22,13 @@ class EducationClass
      * 
      * @var EducationCourse|\stdClass|null
      */
-    public mixed $course = null;
+    public EducationCourse|\stdClass|null $course = null;
 
     /** 
      * Entity who created the class
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Description of the class. */
     public ?string $description = null;
@@ -46,7 +46,7 @@ class EducationClass
      * How this class was created. Possible values are: sis, manual.
      * @var EducationExternalSource|\stdClass|null
      */
-    public mixed $externalSource = null;
+    public EducationExternalSource|\stdClass|null $externalSource = null;
 
     /** The name of the external source this resource was generated from. */
     public ?string $externalSourceDetail = null;
@@ -61,7 +61,7 @@ class EducationClass
      * Term for this class.
      * @var EducationTerm|\stdClass|null
      */
-    public mixed $term = null;
+    public EducationTerm|\stdClass|null $term = null;
 
     /** 
      * All categories associated with this class. Nullable.
@@ -73,7 +73,7 @@ class EducationClass
      * Specifies class-level defaults respected by new assignments created in the class.
      * @var EducationAssignmentDefaults|\stdClass|null
      */
-    public mixed $assignmentDefaults = null;
+    public EducationAssignmentDefaults|\stdClass|null $assignmentDefaults = null;
 
     /** 
      * All assignments associated with this class. Nullable.
@@ -85,13 +85,13 @@ class EducationClass
      * Specifies class-level assignments settings.
      * @var EducationAssignmentSettings|\stdClass|null
      */
-    public mixed $assignmentSettings = null;
+    public EducationAssignmentSettings|\stdClass|null $assignmentSettings = null;
 
     /** 
      * The underlying Microsoft 365 group object.
      * @var Group|\stdClass|null
      */
-    public mixed $group = null;
+    public Group|\stdClass|null $group = null;
 
     /** 
      * All users in the class. Nullable.

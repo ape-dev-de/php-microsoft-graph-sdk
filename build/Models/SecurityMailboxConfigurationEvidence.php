@@ -49,7 +49,7 @@ class SecurityMailboxConfigurationEvidence
      * 
      * @var SecurityMailboxConfigurationType|\stdClass|null
      */
-    public mixed $configurationType = null;
+    public SecurityMailboxConfigurationType|\stdClass|null $configurationType = null;
 
     /**  */
     public ?string $displayName = null;

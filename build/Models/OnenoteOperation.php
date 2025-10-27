@@ -25,13 +25,13 @@ class OnenoteOperation
      * The current status of the operation: notStarted, running, completed, failed
      * @var OperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public OperationStatus|\stdClass|null $status = null;
 
     /** 
      * The error returned by the operation.
      * @var OnenoteOperationError|\stdClass|null
      */
-    public mixed $error = null;
+    public OnenoteOperationError|\stdClass|null $error = null;
 
     /** The operation percent complete if the operation is still in running status. */
     public ?string $percentComplete = null;

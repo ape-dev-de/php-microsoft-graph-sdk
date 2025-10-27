@@ -19,25 +19,25 @@ class UsedInsight
      * Information about when the item was last viewed or modified by the user. Read-only.
      * @var UsageDetails|\stdClass|null
      */
-    public mixed $lastUsed = null;
+    public UsageDetails|\stdClass|null $lastUsed = null;
 
     /** 
      * Reference properties of the used document, such as the URL and type of the document. Read-only
      * @var ResourceReference|\stdClass|null
      */
-    public mixed $resourceReference = null;
+    public ResourceReference|\stdClass|null $resourceReference = null;
 
     /** 
      * Properties that you can use to visualize the document in your experience. Read-only
      * @var ResourceVisualization|\stdClass|null
      */
-    public mixed $resourceVisualization = null;
+    public ResourceVisualization|\stdClass|null $resourceVisualization = null;
 
     /** 
      * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
      * @var Entity|\stdClass|null
      */
-    public mixed $resource = null;
+    public Entity|\stdClass|null $resource = null;
 
 
     /**

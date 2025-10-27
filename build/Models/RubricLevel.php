@@ -16,7 +16,7 @@ class RubricLevel
      * The description of this rubric level.
      * @var EducationItemBody|\stdClass|null
      */
-    public mixed $description = null;
+    public EducationItemBody|\stdClass|null $description = null;
 
     /** The name of this rubric level. */
     public ?string $displayName = null;
@@ -25,7 +25,7 @@ class RubricLevel
      * Null if this is a no-points rubric; educationAssignmentPointsGradeType if it's a points rubric.
      * @var EducationAssignmentGradeType|\stdClass|null
      */
-    public mixed $grading = null;
+    public EducationAssignmentGradeType|\stdClass|null $grading = null;
 
     /** The ID of this resource. */
     public ?string $levelId = null;

@@ -28,7 +28,7 @@ class EngagementAsyncOperation
      * The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @var LongRunningOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public LongRunningOperationStatus|\stdClass|null $status = null;
 
     /** Details about the status of the operation. */
     public ?string $statusDetail = null;
@@ -37,7 +37,7 @@ class EngagementAsyncOperation
      * The type of the long-running operation. The possible values are: createCommunity, unknownFutureValue.
      * @var EngagementAsyncOperationType|\stdClass|null
      */
-    public mixed $operationType = null;
+    public EngagementAsyncOperationType|\stdClass|null $operationType = null;
 
     /** The ID of the object created or modified as a result of this async operation. */
     public ?string $resourceId = null;

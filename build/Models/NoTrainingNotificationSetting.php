@@ -16,25 +16,25 @@ class NoTrainingNotificationSetting
      * Notification preference. Possible values are: unknown, microsoft, custom, unknownFutureValue.
      * @var EndUserNotificationPreference|\stdClass|null
      */
-    public mixed $notificationPreference = null;
+    public EndUserNotificationPreference|\stdClass|null $notificationPreference = null;
 
     /** 
      * Positive reinforcement detail.
      * @var PositiveReinforcementNotification|\stdClass|null
      */
-    public mixed $positiveReinforcement = null;
+    public PositiveReinforcementNotification|\stdClass|null $positiveReinforcement = null;
 
     /** 
      * End user notification type. Possible values are: unknown, noTraining, trainingSelected, noNotification, unknownFutureValue.
      * @var EndUserNotificationSettingType|\stdClass|null
      */
-    public mixed $settingType = null;
+    public EndUserNotificationSettingType|\stdClass|null $settingType = null;
 
     /** 
      * The notification for the user who is part of the simulation.
      * @var SimulationNotification|\stdClass|null
      */
-    public mixed $simulationNotification = null;
+    public SimulationNotification|\stdClass|null $simulationNotification = null;
 
 
     /**

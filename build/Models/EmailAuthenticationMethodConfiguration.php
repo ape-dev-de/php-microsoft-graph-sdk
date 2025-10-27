@@ -25,13 +25,13 @@ class EmailAuthenticationMethodConfiguration
      * The state of the policy. Possible values are: enabled, disabled.
      * @var AuthenticationMethodState|\stdClass|null
      */
-    public mixed $state = null;
+    public AuthenticationMethodState|\stdClass|null $state = null;
 
     /** 
      * Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who didn't use public preview have email OTP enabled beginning in October 2021.
      * @var ExternalEmailOtpState|\stdClass|null
      */
-    public mixed $allowExternalIdToUseEmailOtp = null;
+    public ExternalEmailOtpState|\stdClass|null $allowExternalIdToUseEmailOtp = null;
 
     /** 
      * A collection of groups that are enabled to use the authentication method.

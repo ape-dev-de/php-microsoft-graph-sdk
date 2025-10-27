@@ -27,8 +27,11 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance
     /** The OS version installed on the device. Supports: $select, $OrderBy. Read-only. */
     public ?string $osVersion = null;
 
-    /** The application health score of the OS version. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
-    public ?string $osVersionAppHealthScore = null;
+    /** 
+     * The application health score of the OS version. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $osVersionAppHealthScore = null;
 
 
     /**

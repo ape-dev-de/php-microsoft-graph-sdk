@@ -16,7 +16,7 @@ class CallParticipantInfo
      * Identity of the call participant.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $participant = null;
+    public IdentitySet|\stdClass|null $participant = null;
 
 
     /**

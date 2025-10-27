@@ -52,7 +52,7 @@ class Windows10GeneralConfiguration
      * Device Configuration devices status overview
      * @var DeviceConfigurationDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceConfigurationDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * Device configuration installation status by user.
@@ -64,7 +64,7 @@ class Windows10GeneralConfiguration
      * Device Configuration users status overview
      * @var DeviceConfigurationUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceConfigurationUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     public ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null;
@@ -133,7 +133,7 @@ class Windows10GeneralConfiguration
      * Gets or sets Defender’s actions to take on detected Malware per threat level.
      * @var DefenderDetectedMalwareActions|\stdClass|null
      */
-    public mixed $defenderDetectedMalwareActions = null;
+    public DefenderDetectedMalwareActions|\stdClass|null $defenderDetectedMalwareActions = null;
 
     /** 
      * File extensions to exclude from scans and real time protection.
@@ -298,7 +298,7 @@ class Windows10GeneralConfiguration
      * Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
      * @var EdgeSearchEngineBase|\stdClass|null
      */
-    public mixed $edgeSearchEngine = null;
+    public EdgeSearchEngineBase|\stdClass|null $edgeSearchEngine = null;
 
     /** Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. */
     public ?bool $edgeSendIntranetTrafficToInternetExplorer = null;
@@ -379,7 +379,7 @@ class Windows10GeneralConfiguration
      * Specifies manual proxy server settings.
      * @var Windows10NetworkProxyServer|\stdClass|null
      */
-    public mixed $networkProxyServer = null;
+    public Windows10NetworkProxyServer|\stdClass|null $networkProxyServer = null;
 
     /** Indicates whether or not to Block the user from using near field communication. */
     public ?bool $nfcBlocked = null;

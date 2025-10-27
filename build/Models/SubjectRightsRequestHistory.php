@@ -16,7 +16,7 @@ class SubjectRightsRequestHistory
      * Identity of the user who changed the  subject rights request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $changedBy = null;
+    public IdentitySet|\stdClass|null $changedBy = null;
 
     /** Data and time when the entity was changed. */
     public ?\DateTimeInterface $eventDateTime = null;
@@ -25,13 +25,13 @@ class SubjectRightsRequestHistory
      * The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue, approval. Use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: approval.
      * @var SubjectRightsRequestStage|\stdClass|null
      */
-    public mixed $stage = null;
+    public SubjectRightsRequestStage|\stdClass|null $stage = null;
 
     /** 
      * The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
      * @var SubjectRightsRequestStageStatus|\stdClass|null
      */
-    public mixed $stageStatus = null;
+    public SubjectRightsRequestStageStatus|\stdClass|null $stageStatus = null;
 
     /** Type of history. */
     public ?string $type = null;

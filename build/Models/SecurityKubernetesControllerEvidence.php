@@ -46,7 +46,7 @@ class SecurityKubernetesControllerEvidence
      * The labels for the Kubernetes pod.
      * @var SecurityDictionary|\stdClass|null
      */
-    public mixed $labels = null;
+    public SecurityDictionary|\stdClass|null $labels = null;
 
     /** The controller name. */
     public ?string $name = null;
@@ -55,7 +55,7 @@ class SecurityKubernetesControllerEvidence
      * The service account namespace.
      * @var SecurityKubernetesNamespaceEvidence|\stdClass|null
      */
-    public mixed $namespace = null;
+    public SecurityKubernetesNamespaceEvidence|\stdClass|null $namespace = null;
 
     /** The controller type. */
     public ?string $type = null;

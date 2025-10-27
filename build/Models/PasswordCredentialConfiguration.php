@@ -22,7 +22,7 @@ class PasswordCredentialConfiguration
      * The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime, customPasswordAddition, and unknownFutureValue. Each value of restrictionType can be used only once per policy.
      * @var AppCredentialRestrictionType|\stdClass|null
      */
-    public mixed $restrictionType = null;
+    public AppCredentialRestrictionType|\stdClass|null $restrictionType = null;
 
     /**  */
     public ?AppManagementRestrictionState $state = null;

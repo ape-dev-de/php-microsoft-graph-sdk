@@ -52,13 +52,13 @@ class SecurityTeamsMessageEvidence
      * The delivery action of this Teams message. Possible values are: unknown, deliveredAsSpam, delivered, blocked, replaced, unknownFutureValue.
      * @var SecurityTeamsMessageDeliveryAction|\stdClass|null
      */
-    public mixed $deliveryAction = null;
+    public SecurityTeamsMessageDeliveryAction|\stdClass|null $deliveryAction = null;
 
     /** 
      * The delivery location of this Teams message. Possible values are: unknown, teams, quarantine, failed, unknownFutureValue.
      * @var SecurityTeamsDeliveryLocation|\stdClass|null
      */
-    public mixed $deliveryLocation = null;
+    public SecurityTeamsDeliveryLocation|\stdClass|null $deliveryLocation = null;
 
     /** 
      * The list of file entities that are attached to this Teams message.
@@ -82,7 +82,7 @@ class SecurityTeamsMessageEvidence
      * The direction of the Teams message. The possible values are: unknown, inbound, outbound, intraorg, unknownFutureValue.
      * @var SecurityAntispamTeamsDirection|\stdClass|null
      */
-    public mixed $messageDirection = null;
+    public SecurityAntispamTeamsDirection|\stdClass|null $messageDirection = null;
 
     /** Message identifier unique within the thread. */
     public ?string $messageId = null;

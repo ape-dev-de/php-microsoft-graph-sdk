@@ -16,7 +16,7 @@ class TeamDescriptionUpdatedEventMessageDetail
      * Initiator of the event.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
     /** The updated description for the team. */
     public ?string $teamDescription = null;

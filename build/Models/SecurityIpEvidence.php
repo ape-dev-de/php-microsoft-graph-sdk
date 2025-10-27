@@ -52,13 +52,13 @@ class SecurityIpEvidence
      * 
      * @var SecurityGeoLocation|\stdClass|null
      */
-    public mixed $location = null;
+    public SecurityGeoLocation|\stdClass|null $location = null;
 
     /** 
      * 
      * @var SecurityStream|\stdClass|null
      */
-    public mixed $stream = null;
+    public SecurityStream|\stdClass|null $stream = null;
 
 
     /**

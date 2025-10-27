@@ -31,25 +31,25 @@ class WorkbookChartAxis
      * Represents the formatting of a chart object, which includes line and font formatting. Read-only.
      * @var WorkbookChartAxisFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartAxisFormat|\stdClass|null $format = null;
 
     /** 
      * Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.
      * @var WorkbookChartGridlines|\stdClass|null
      */
-    public mixed $majorGridlines = null;
+    public WorkbookChartGridlines|\stdClass|null $majorGridlines = null;
 
     /** 
      * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
      * @var WorkbookChartGridlines|\stdClass|null
      */
-    public mixed $minorGridlines = null;
+    public WorkbookChartGridlines|\stdClass|null $minorGridlines = null;
 
     /** 
      * Represents the axis title. Read-only.
      * @var WorkbookChartAxisTitle|\stdClass|null
      */
-    public mixed $title = null;
+    public WorkbookChartAxisTitle|\stdClass|null $title = null;
 
 
     /**

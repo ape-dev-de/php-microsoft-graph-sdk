@@ -28,7 +28,7 @@ class WorkingHours
      * The time zone to which the working hours apply.
      * @var TimeZoneBase|\stdClass|null
      */
-    public mixed $timeZone = null;
+    public TimeZoneBase|\stdClass|null $timeZone = null;
 
 
     /**

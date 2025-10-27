@@ -16,7 +16,7 @@ class AttackSimulationSimulationUserCoverage
      * User in an attack simulation and training campaign.
      * @var AttackSimulationUser|\stdClass|null
      */
-    public mixed $attackSimulationUser = null;
+    public AttackSimulationUser|\stdClass|null $attackSimulationUser = null;
 
     /** Number of link clicks in the received payloads by the user in attack simulation and training campaigns. */
     public ?float $clickCount = null;

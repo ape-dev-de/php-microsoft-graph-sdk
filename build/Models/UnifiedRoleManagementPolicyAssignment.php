@@ -31,7 +31,7 @@ class UnifiedRoleManagementPolicyAssignment
      * The policy that's associated with a policy assignment. Supports $expand and a nested $expand of the rules and effectiveRules relationships for the policy.
      * @var UnifiedRoleManagementPolicy|\stdClass|null
      */
-    public mixed $policy = null;
+    public UnifiedRoleManagementPolicy|\stdClass|null $policy = null;
 
 
     /**

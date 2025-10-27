@@ -19,13 +19,13 @@ class ServiceHealthIssuePost
      * The content of the service issue post. The supported value for the contentType property is html.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $description = null;
+    public ItemBody|\stdClass|null $description = null;
 
     /** 
      * The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
      * @var PostType|\stdClass|null
      */
-    public mixed $postType = null;
+    public PostType|\stdClass|null $postType = null;
 
 
     /**

@@ -46,7 +46,7 @@ class WorkbookWorksheet
      * The sheet protection object for a worksheet. Read-only.
      * @var WorkbookWorksheetProtection|\stdClass|null
      */
-    public mixed $protection = null;
+    public WorkbookWorksheetProtection|\stdClass|null $protection = null;
 
     /** 
      * The list of tables that are part of the worksheet. Read-only.

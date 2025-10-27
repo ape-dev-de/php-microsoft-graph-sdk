@@ -22,13 +22,13 @@ class AccessPackageResourceRoleScope
      * 
      * @var AccessPackageResourceRole|\stdClass|null
      */
-    public mixed $role = null;
+    public AccessPackageResourceRole|\stdClass|null $role = null;
 
     /** 
      * 
      * @var AccessPackageResourceScope|\stdClass|null
      */
-    public mixed $scope = null;
+    public AccessPackageResourceScope|\stdClass|null $scope = null;
 
 
     /**

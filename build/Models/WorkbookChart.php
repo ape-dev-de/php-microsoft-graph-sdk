@@ -15,44 +15,56 @@ class WorkbookChart
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
-    /** Represents the height, in points, of the chart object. */
-    public ?string $height = null;
+    /** 
+     * Represents the height, in points, of the chart object.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $height = null;
 
-    /** The distance, in points, from the left side of the chart to the worksheet origin. */
-    public ?string $left = null;
+    /** 
+     * The distance, in points, from the left side of the chart to the worksheet origin.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $left = null;
 
     /** Represents the name of a chart object. */
     public ?string $name = null;
 
-    /** Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart). */
-    public ?string $top = null;
+    /** 
+     * Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $top = null;
 
-    /** Represents the width, in points, of the chart object. */
-    public ?string $width = null;
+    /** 
+     * Represents the width, in points, of the chart object.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $width = null;
 
     /** 
      * Represents chart axes. Read-only.
      * @var WorkbookChartAxes|\stdClass|null
      */
-    public mixed $axes = null;
+    public WorkbookChartAxes|\stdClass|null $axes = null;
 
     /** 
      * Represents the data labels on the chart. Read-only.
      * @var WorkbookChartDataLabels|\stdClass|null
      */
-    public mixed $dataLabels = null;
+    public WorkbookChartDataLabels|\stdClass|null $dataLabels = null;
 
     /** 
      * Encapsulates the format properties for the chart area. Read-only.
      * @var WorkbookChartAreaFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartAreaFormat|\stdClass|null $format = null;
 
     /** 
      * Represents the legend for the chart. Read-only.
      * @var WorkbookChartLegend|\stdClass|null
      */
-    public mixed $legend = null;
+    public WorkbookChartLegend|\stdClass|null $legend = null;
 
     /** 
      * Represents either a single series or collection of series in the chart. Read-only.
@@ -64,13 +76,13 @@ class WorkbookChart
      * Represents the title of the specified chart, including the text, visibility, position and formatting of the title. Read-only.
      * @var WorkbookChartTitle|\stdClass|null
      */
-    public mixed $title = null;
+    public WorkbookChartTitle|\stdClass|null $title = null;
 
     /** 
      * The worksheet containing the current chart. Read-only.
      * @var WorkbookWorksheet|\stdClass|null
      */
-    public mixed $worksheet = null;
+    public WorkbookWorksheet|\stdClass|null $worksheet = null;
 
 
     /**

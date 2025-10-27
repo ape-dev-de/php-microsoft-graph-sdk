@@ -16,7 +16,7 @@ class SynchronizationJobSubject
      * Principals that you would like to provision.
      * @var SynchronizationLinkedObjects|\stdClass|null
      */
-    public mixed $links = null;
+    public SynchronizationLinkedObjects|\stdClass|null $links = null;
 
     /** The identifier of an object to which a synchronizationJob is to be applied. Can be one of the following: An onPremisesDistinguishedName for synchronization from Active Directory to Azure AD.The user ID for synchronization from Microsoft Entra ID to a third-party.The Worker ID of the Workday worker for synchronization from Workday to either Active Directory or Microsoft Entra ID. */
     public ?string $objectId = null;

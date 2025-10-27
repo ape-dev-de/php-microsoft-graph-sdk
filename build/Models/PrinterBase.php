@@ -19,13 +19,13 @@ class PrinterBase
      * The capabilities of the printer/printerShare.
      * @var PrinterCapabilities|\stdClass|null
      */
-    public mixed $capabilities = null;
+    public PrinterCapabilities|\stdClass|null $capabilities = null;
 
     /** 
      * The default print settings of printer/printerShare.
      * @var PrinterDefaults|\stdClass|null
      */
-    public mixed $defaults = null;
+    public PrinterDefaults|\stdClass|null $defaults = null;
 
     /** The name of the printer/printerShare. */
     public ?string $displayName = null;
@@ -37,7 +37,7 @@ class PrinterBase
      * The physical and/or organizational location of the printer/printerShare.
      * @var PrinterLocation|\stdClass|null
      */
-    public mixed $location = null;
+    public PrinterLocation|\stdClass|null $location = null;
 
     /** The manufacturer of the printer/printerShare. */
     public ?string $manufacturer = null;

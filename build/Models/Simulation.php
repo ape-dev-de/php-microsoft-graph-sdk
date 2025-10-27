@@ -19,13 +19,13 @@ class Simulation
      * The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue, oAuthConsentGrant. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: oAuthConsentGrant. For more information on the types of social engineering attack techniques, see simulations.
      * @var SimulationAttackTechnique|\stdClass|null
      */
-    public mixed $attackTechnique = null;
+    public SimulationAttackTechnique|\stdClass|null $attackTechnique = null;
 
     /** 
      * Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.
      * @var SimulationAttackType|\stdClass|null
      */
-    public mixed $attackType = null;
+    public SimulationAttackType|\stdClass|null $attackType = null;
 
     /** Unique identifier for the attack simulation automation. */
     public ?string $automationId = null;
@@ -37,7 +37,7 @@ class Simulation
      * Identity of the user who created the attack simulation and training campaign.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public EmailIdentity|\stdClass|null $createdBy = null;
 
     /** Date and time of creation of the attack simulation and training campaign. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -55,19 +55,19 @@ class Simulation
      * Details about the end user notification setting.
      * @var EndUserNotificationSetting|\stdClass|null
      */
-    public mixed $endUserNotificationSetting = null;
+    public EndUserNotificationSetting|\stdClass|null $endUserNotificationSetting = null;
 
     /** 
      * Users excluded from the simulation.
      * @var AccountTargetContent|\stdClass|null
      */
-    public mixed $excludedAccountTarget = null;
+    public AccountTargetContent|\stdClass|null $excludedAccountTarget = null;
 
     /** 
      * Users targeted in the simulation.
      * @var AccountTargetContent|\stdClass|null
      */
-    public mixed $includedAccountTarget = null;
+    public AccountTargetContent|\stdClass|null $includedAccountTarget = null;
 
     /** Flag that represents if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby. */
     public ?bool $isAutomated = null;
@@ -76,7 +76,7 @@ class Simulation
      * Identity of the user who most recently modified the attack simulation and training campaign.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public EmailIdentity|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time of the most recent modification of the attack simulation and training campaign. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -88,49 +88,49 @@ class Simulation
      * OAuth app details for the OAuth technique.
      * @var OAuthConsentAppDetail|\stdClass|null
      */
-    public mixed $oAuthConsentAppDetail = null;
+    public OAuthConsentAppDetail|\stdClass|null $oAuthConsentAppDetail = null;
 
     /** 
      * Method of delivery of the phishing payload used in the attack simulation and training campaign. Possible values are: unknown, sms, email, teams, unknownFutureValue.
      * @var PayloadDeliveryPlatform|\stdClass|null
      */
-    public mixed $payloadDeliveryPlatform = null;
+    public PayloadDeliveryPlatform|\stdClass|null $payloadDeliveryPlatform = null;
 
     /** 
      * Report of the attack simulation and training campaign.
      * @var SimulationReport|\stdClass|null
      */
-    public mixed $report = null;
+    public SimulationReport|\stdClass|null $report = null;
 
     /** 
      * Status of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, draft, running, scheduled, succeeded, failed, cancelled, excluded, unknownFutureValue.
      * @var SimulationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SimulationStatus|\stdClass|null $status = null;
 
     /** 
      * Details about the training settings for a simulation.
      * @var TrainingSetting|\stdClass|null
      */
-    public mixed $trainingSetting = null;
+    public TrainingSetting|\stdClass|null $trainingSetting = null;
 
     /** 
      * The landing page associated with a simulation during its creation.
      * @var LandingPage|\stdClass|null
      */
-    public mixed $landingPage = null;
+    public LandingPage|\stdClass|null $landingPage = null;
 
     /** 
      * The login page associated with a simulation during its creation.
      * @var LoginPage|\stdClass|null
      */
-    public mixed $loginPage = null;
+    public LoginPage|\stdClass|null $loginPage = null;
 
     /** 
      * The payload associated with a simulation during its creation.
      * @var Payload|\stdClass|null
      */
-    public mixed $payload = null;
+    public Payload|\stdClass|null $payload = null;
 
 
     /**

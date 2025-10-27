@@ -43,31 +43,31 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration
      * Android restrictions based on platform, platform operating system version, and device ownership
      * @var DeviceEnrollmentPlatformRestriction|\stdClass|null
      */
-    public mixed $androidRestriction = null;
+    public DeviceEnrollmentPlatformRestriction|\stdClass|null $androidRestriction = null;
 
     /** 
      * Ios restrictions based on platform, platform operating system version, and device ownership
      * @var DeviceEnrollmentPlatformRestriction|\stdClass|null
      */
-    public mixed $iosRestriction = null;
+    public DeviceEnrollmentPlatformRestriction|\stdClass|null $iosRestriction = null;
 
     /** 
      * Mac restrictions based on platform, platform operating system version, and device ownership
      * @var DeviceEnrollmentPlatformRestriction|\stdClass|null
      */
-    public mixed $macOSRestriction = null;
+    public DeviceEnrollmentPlatformRestriction|\stdClass|null $macOSRestriction = null;
 
     /** 
      * Windows mobile restrictions based on platform, platform operating system version, and device ownership
      * @var DeviceEnrollmentPlatformRestriction|\stdClass|null
      */
-    public mixed $windowsMobileRestriction = null;
+    public DeviceEnrollmentPlatformRestriction|\stdClass|null $windowsMobileRestriction = null;
 
     /** 
      * Windows restrictions based on platform, platform operating system version, and device ownership
      * @var DeviceEnrollmentPlatformRestriction|\stdClass|null
      */
-    public mixed $windowsRestriction = null;
+    public DeviceEnrollmentPlatformRestriction|\stdClass|null $windowsRestriction = null;
 
 
     /**

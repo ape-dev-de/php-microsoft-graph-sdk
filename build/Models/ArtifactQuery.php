@@ -16,7 +16,7 @@ class ArtifactQuery
      * The type of artifact to search. The possible values are: message, unknownFutureValue.
      * @var RestorableArtifact|\stdClass|null
      */
-    public mixed $artifactType = null;
+    public RestorableArtifact|\stdClass|null $artifactType = null;
 
     /** Specifies criteria to retrieve artifacts. */
     public ?string $queryExpression = null;

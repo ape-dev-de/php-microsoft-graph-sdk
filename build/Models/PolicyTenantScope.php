@@ -34,7 +34,7 @@ class PolicyTenantScope
      * Specifies the users and groups included in or excluded from this tenant-level policy scope.
      * @var PolicyBinding|\stdClass|null
      */
-    public mixed $policyScope = null;
+    public PolicyBinding|\stdClass|null $policyScope = null;
 
 
     /**

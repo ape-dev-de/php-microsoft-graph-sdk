@@ -16,7 +16,7 @@ class OAuthConsentAppDetail
      * App scope. Possible values are: unknown, readCalendar, readContact, readMail, readAllChat, readAllFile, readAndWriteMail, sendMail, unknownFutureValue.
      * @var OAuthAppScope|\stdClass|null
      */
-    public mixed $appScope = null;
+    public OAuthAppScope|\stdClass|null $appScope = null;
 
     /** App display logo. */
     public ?string $displayLogo = null;

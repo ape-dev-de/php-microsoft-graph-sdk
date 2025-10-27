@@ -25,7 +25,7 @@ class AvailabilityItem
      * The status of the staff member. Possible values are: available, busy, slotsAvailable, outOfOffice, unknownFutureValue.
      * @var BookingsAvailabilityStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public BookingsAvailabilityStatus|\stdClass|null $status = null;
 
 
     /**

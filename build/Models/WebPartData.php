@@ -25,7 +25,7 @@ class WebPartData
      * Contains collections of data that can be processed by server side services like search index and link fixup.
      * @var ServerProcessedContent|\stdClass|null
      */
-    public mixed $serverProcessedContent = null;
+    public ServerProcessedContent|\stdClass|null $serverProcessedContent = null;
 
     /** Title of the web part. */
     public ?string $title = null;

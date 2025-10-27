@@ -19,19 +19,19 @@ class Payload
      * The branch of a payload. Possible values are: unknown, other, americanExpress, capitalOne, dhl, docuSign, dropbox, facebook, firstAmerican, microsoft, netflix, scotiabank, sendGrid, stewartTitle, tesco, wellsFargo, syrinxCloud, adobe, teams, zoom, unknownFutureValue.
      * @var PayloadBrand|\stdClass|null
      */
-    public mixed $brand = null;
+    public PayloadBrand|\stdClass|null $brand = null;
 
     /** 
      * The complexity of a payload. Possible values are: unknown, low, medium, high, unknownFutureValue.
      * @var PayloadComplexity|\stdClass|null
      */
-    public mixed $complexity = null;
+    public PayloadComplexity|\stdClass|null $complexity = null;
 
     /** 
      * Identity of the user who created the attack simulation and training campaign payload.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public EmailIdentity|\stdClass|null $createdBy = null;
 
     /** Date and time when the attack simulation and training campaign payload. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -43,7 +43,7 @@ class Payload
      * Additional details about the payload.
      * @var PayloadDetail|\stdClass|null
      */
-    public mixed $detail = null;
+    public PayloadDetail|\stdClass|null $detail = null;
 
     /** Display name of the attack simulation and training campaign payload. Supports $filter and $orderby. */
     public ?string $displayName = null;
@@ -52,7 +52,7 @@ class Payload
      * Industry of a payload. Possible values are: unknown, other, banking, businessServices, consumerServices, education, energy, construction, consulting, financialServices, government, hospitality, insurance, legal, courierServices, IT, healthcare, manufacturing, retail, telecom, realEstate, unknownFutureValue.
      * @var PayloadIndustry|\stdClass|null
      */
-    public mixed $industry = null;
+    public PayloadIndustry|\stdClass|null $industry = null;
 
     /** Indicates whether the attack simulation and training campaign payload was created from an automation flow. Supports $filter and $orderby. */
     public ?bool $isAutomated = null;
@@ -70,7 +70,7 @@ class Payload
      * Identity of the user who most recently modified the attack simulation and training campaign payload.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public EmailIdentity|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time when the attack simulation and training campaign payload was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -85,16 +85,19 @@ class Payload
      * The payload delivery platform for a simulation. Possible values are: unknown, sms, email, teams, unknownFutureValue.
      * @var PayloadDeliveryPlatform|\stdClass|null
      */
-    public mixed $platform = null;
+    public PayloadDeliveryPlatform|\stdClass|null $platform = null;
 
-    /** Predicted probability for a payload to phish a targeted user. */
-    public ?string $predictedCompromiseRate = null;
+    /** 
+     * Predicted probability for a payload to phish a targeted user.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $predictedCompromiseRate = null;
 
     /** 
      * Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.
      * @var SimulationAttackType|\stdClass|null
      */
-    public mixed $simulationAttackType = null;
+    public SimulationAttackType|\stdClass|null $simulationAttackType = null;
 
     /**  */
     public ?SimulationContentSource $source = null;
@@ -103,19 +106,19 @@ class Payload
      * Simulation content status. Supports $filter and $orderby. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue.
      * @var SimulationContentStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SimulationContentStatus|\stdClass|null $status = null;
 
     /** 
      * The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue, oAuthConsentGrant. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: oAuthConsentGrant. For more information on the types of social engineering attack techniques, see simulations.
      * @var SimulationAttackTechnique|\stdClass|null
      */
-    public mixed $technique = null;
+    public SimulationAttackTechnique|\stdClass|null $technique = null;
 
     /** 
      * The theme of a payload. Possible values are: unknown, other, accountActivation, accountVerification, billing, cleanUpMail, controversial, documentReceived, expense, fax, financeReport, incomingMessages, invoice, itemReceived, loginAlert, mailReceived, password, payment, payroll, personalizedOffer, quarantine, remoteWork, reviewMessage, securityUpdate, serviceSuspended, signatureRequired, upgradeMailboxStorage, verifyMailbox, voicemail, advertisement, employeeEngagement, unknownFutureValue.
      * @var PayloadTheme|\stdClass|null
      */
-    public mixed $theme = null;
+    public PayloadTheme|\stdClass|null $theme = null;
 
 
     /**

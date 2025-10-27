@@ -22,7 +22,7 @@ class EducationAssignmentResource
      * Resource object that has been associated with this assignment.
      * @var EducationResource|\stdClass|null
      */
-    public mixed $resource = null;
+    public EducationResource|\stdClass|null $resource = null;
 
 
     /**

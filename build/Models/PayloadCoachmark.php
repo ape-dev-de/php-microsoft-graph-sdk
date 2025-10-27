@@ -16,7 +16,7 @@ class PayloadCoachmark
      * The coachmark location.
      * @var CoachmarkLocation|\stdClass|null
      */
-    public mixed $coachmarkLocation = null;
+    public CoachmarkLocation|\stdClass|null $coachmarkLocation = null;
 
     /** The description about the coachmark. */
     public ?string $description = null;

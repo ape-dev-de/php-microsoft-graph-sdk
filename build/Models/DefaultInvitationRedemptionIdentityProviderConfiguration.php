@@ -16,7 +16,7 @@ class DefaultInvitationRedemptionIdentityProviderConfiguration
      * The fallback identity provider to be used in case no primary identity provider can be used for guest invitation redemption. Possible values are: defaultConfiguredIdp, emailOneTimePasscode, or microsoftAccount.
      * @var B2bIdentityProvidersType|\stdClass|null
      */
-    public mixed $fallbackIdentityProvider = null;
+    public B2bIdentityProvidersType|\stdClass|null $fallbackIdentityProvider = null;
 
     /** 
      * Collection of identity providers in priority order of preference to be used for guest invitation redemption. Possible values are: azureActiveDirectory, externalFederation, or socialIdentityProviders.

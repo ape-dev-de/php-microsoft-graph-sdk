@@ -18,8 +18,11 @@ class MeetingTimeSuggestion
      */
     public array $attendeeAvailability = [];
 
-    /** A percentage that represents the likelhood of all the attendees attending. */
-    public ?string $confidence = null;
+    /** 
+     * A percentage that represents the likelhood of all the attendees attending.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $confidence = null;
 
     /** 
      * An array that specifies the name and geographic location of each meeting location for this meeting suggestion.
@@ -31,7 +34,7 @@ class MeetingTimeSuggestion
      * A time period suggested for the meeting.
      * @var TimeSlot|\stdClass|null
      */
-    public mixed $meetingTimeSlot = null;
+    public TimeSlot|\stdClass|null $meetingTimeSlot = null;
 
     /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence. */
     public ?float $order = null;
@@ -40,7 +43,7 @@ class MeetingTimeSuggestion
      * Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @var FreeBusyStatus|\stdClass|null
      */
-    public mixed $organizerAvailability = null;
+    public FreeBusyStatus|\stdClass|null $organizerAvailability = null;
 
     /** Reason for suggesting the meeting time. */
     public ?string $suggestionReason = null;

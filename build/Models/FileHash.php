@@ -16,7 +16,7 @@ class FileHash
      * File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
      * @var FileHashType|\stdClass|null
      */
-    public mixed $hashType = null;
+    public FileHashType|\stdClass|null $hashType = null;
 
     /** Value of the file hash. */
     public ?string $hashValue = null;

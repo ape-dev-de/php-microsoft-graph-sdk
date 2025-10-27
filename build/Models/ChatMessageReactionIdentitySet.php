@@ -16,19 +16,19 @@ class ChatMessageReactionIdentitySet
      * Optional. The application associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $application = null;
+    public Identity|\stdClass|null $application = null;
 
     /** 
      * Optional. The device associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $device = null;
+    public Identity|\stdClass|null $device = null;
 
     /** 
      * Optional. The user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $user = null;
+    public Identity|\stdClass|null $user = null;
 
 
     /**

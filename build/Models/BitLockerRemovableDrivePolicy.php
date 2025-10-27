@@ -19,7 +19,7 @@ class BitLockerRemovableDrivePolicy
      * Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
      * @var BitLockerEncryptionMethod|\stdClass|null
      */
-    public mixed $encryptionMethod = null;
+    public BitLockerEncryptionMethod|\stdClass|null $encryptionMethod = null;
 
     /** Indicates whether to block write access to devices configured in another organization.  If requireEncryptionForWriteAccess is false, this value does not affect. */
     public ?bool $requireEncryptionForWriteAccess = null;

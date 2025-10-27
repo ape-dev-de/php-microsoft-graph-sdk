@@ -19,13 +19,13 @@ class EducationAssignment
      * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment shouldn't be assigned to new students.
      * @var EducationAddedStudentAction|\stdClass|null
      */
-    public mixed $addedStudentAction = null;
+    public EducationAddedStudentAction|\stdClass|null $addedStudentAction = null;
 
     /** 
      * Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: studentsOnly. The default value is none.
      * @var EducationAddToCalendarOptions|\stdClass|null
      */
-    public mixed $addToCalendarAction = null;
+    public EducationAddToCalendarOptions|\stdClass|null $addToCalendarAction = null;
 
     /** Identifies whether students can submit after the due date. If this property isn't specified during create, it defaults to true. */
     public ?bool $allowLateSubmissions = null;
@@ -43,7 +43,7 @@ class EducationAssignment
      * Which users, or whole class should receive a submission object once the assignment is published.
      * @var EducationAssignmentRecipient|\stdClass|null
      */
-    public mixed $assignTo = null;
+    public EducationAssignmentRecipient|\stdClass|null $assignTo = null;
 
     /** Class to which this assignment belongs. */
     public ?string $classId = null;
@@ -55,7 +55,7 @@ class EducationAssignment
      * Who created the assignment.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Moment when the assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -73,19 +73,19 @@ class EducationAssignment
      * How the assignment will be graded.
      * @var EducationAssignmentGradeType|\stdClass|null
      */
-    public mixed $grading = null;
+    public EducationAssignmentGradeType|\stdClass|null $grading = null;
 
     /** 
      * Instructions for the assignment. The instructions and the display name tell the student what to do.
      * @var EducationItemBody|\stdClass|null
      */
-    public mixed $instructions = null;
+    public EducationItemBody|\stdClass|null $instructions = null;
 
     /** 
      * Who last modified the assignment.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time on which the assignment was modified. A student submission doesn't modify the assignment; only teachers can update assignments. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -103,7 +103,7 @@ class EducationAssignment
      * Status of the assignment.  You can't PATCH this value. Possible values are: draft, scheduled, published, assigned, unknownFutureValue, inactive. Use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
      * @var EducationAssignmentStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public EducationAssignmentStatus|\stdClass|null $status = null;
 
     /** The deep link URL for the given assignment. */
     public ?string $webUrl = null;
@@ -118,7 +118,7 @@ class EducationAssignment
      * When set, enables users to weight assignments differently when computing a class average grade.
      * @var EducationGradingCategory|\stdClass|null
      */
-    public mixed $gradingCategory = null;
+    public EducationGradingCategory|\stdClass|null $gradingCategory = null;
 
     /** 
      * Learning objects that are associated with this assignment. Only teachers can modify this list. Nullable.
@@ -130,7 +130,7 @@ class EducationAssignment
      * When set, the grading rubric attached to this assignment.
      * @var EducationRubric|\stdClass|null
      */
-    public mixed $rubric = null;
+    public EducationRubric|\stdClass|null $rubric = null;
 
     /** 
      * Once published, there's a submission object for each student representing their work and grade. Read-only. Nullable.

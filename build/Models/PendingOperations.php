@@ -16,7 +16,7 @@ class PendingOperations
      * A property that indicates that an operation that might update the binary content of a file is pending completion.
      * @var PendingContentUpdate|\stdClass|null
      */
-    public mixed $pendingContentUpdate = null;
+    public PendingContentUpdate|\stdClass|null $pendingContentUpdate = null;
 
 
     /**

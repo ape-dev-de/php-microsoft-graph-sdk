@@ -19,13 +19,13 @@ class VirtualEventTownhall
      * The identity information for the creator of the virtual event. Inherited from virtualEvent.
      * @var CommunicationsIdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public CommunicationsIdentitySet|\stdClass|null $createdBy = null;
 
     /** 
      * A description of the virtual event.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $description = null;
+    public ItemBody|\stdClass|null $description = null;
 
     /** The display name of the virtual event. */
     public ?string $displayName = null;
@@ -34,7 +34,7 @@ class VirtualEventTownhall
      * The end time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $endDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $endDateTime = null;
 
     /** 
      * The external information of a virtual event. Returned only for event organizers or coorganizers; otherwise, null.
@@ -46,19 +46,19 @@ class VirtualEventTownhall
      * The virtual event settings.
      * @var VirtualEventSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public VirtualEventSettings|\stdClass|null $settings = null;
 
     /** 
      * Start time of the virtual event. The timeZone property can be set to any of the time zones currently supported by Windows. For details on how to get all available time zones using PowerShell, see Get-TimeZone.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $startDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $startDateTime = null;
 
     /** 
      * The status of the virtual event. The possible values are: draft, published, canceled, and unknownFutureValue.
      * @var VirtualEventStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public VirtualEventStatus|\stdClass|null $status = null;
 
     /** 
      * The virtual event presenters.
@@ -76,7 +76,7 @@ class VirtualEventTownhall
      * The audience to whom the town hall is visible. Possible values are: everyone, organization, and unknownFutureValue.
      * @var MeetingAudience|\stdClass|null
      */
-    public mixed $audience = null;
+    public MeetingAudience|\stdClass|null $audience = null;
 
     /** 
      * Identity information of the coorganizers of the town hall.

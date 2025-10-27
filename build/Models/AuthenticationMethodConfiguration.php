@@ -25,7 +25,7 @@ class AuthenticationMethodConfiguration
      * The state of the policy. Possible values are: enabled, disabled.
      * @var AuthenticationMethodState|\stdClass|null
      */
-    public mixed $state = null;
+    public AuthenticationMethodState|\stdClass|null $state = null;
 
 
     /**

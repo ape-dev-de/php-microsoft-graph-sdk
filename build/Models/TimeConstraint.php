@@ -16,7 +16,7 @@ class TimeConstraint
      * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
      * @var ActivityDomain|\stdClass|null
      */
-    public mixed $activityDomain = null;
+    public ActivityDomain|\stdClass|null $activityDomain = null;
 
     /** 
      * 

@@ -61,7 +61,7 @@ class Directory
      * The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant.
      * @var PublicKeyInfrastructureRoot|\stdClass|null
      */
-    public mixed $publicKeyInfrastructure = null;
+    public PublicKeyInfrastructureRoot|\stdClass|null $publicKeyInfrastructure = null;
 
     /** 
      * List of commercial subscriptions that an organization acquired.

@@ -37,13 +37,13 @@ class Channel
      * The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
      * @var ChannelMembershipType|\stdClass|null
      */
-    public mixed $membershipType = null;
+    public ChannelMembershipType|\stdClass|null $membershipType = null;
 
     /** 
      * Contains summary information about the channel, including number of owners, members, guests, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.
      * @var ChannelSummary|\stdClass|null
      */
-    public mixed $summary = null;
+    public ChannelSummary|\stdClass|null $summary = null;
 
     /** The ID of the Microsoft Entra tenant. */
     public ?string $tenantId = null;
@@ -61,7 +61,7 @@ class Channel
      * Metadata for the location where the channel's files are stored.
      * @var DriveItem|\stdClass|null
      */
-    public mixed $filesFolder = null;
+    public DriveItem|\stdClass|null $filesFolder = null;
 
     /** 
      * A collection of membership records associated with the channel.

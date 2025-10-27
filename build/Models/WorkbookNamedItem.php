@@ -37,7 +37,7 @@ class WorkbookNamedItem
      * Returns the worksheet to which the named item is scoped. Available only if the item is scoped to the worksheet. Read-only.
      * @var WorkbookWorksheet|\stdClass|null
      */
-    public mixed $worksheet = null;
+    public WorkbookWorksheet|\stdClass|null $worksheet = null;
 
 
     /**

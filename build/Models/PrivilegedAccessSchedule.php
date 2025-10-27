@@ -28,7 +28,7 @@ class PrivilegedAccessSchedule
      * Represents the period of the access assignment or eligibility. The scheduleInfo can represent a single occurrence or multiple recurring instances. Required.
      * @var RequestSchedule|\stdClass|null
      */
-    public mixed $scheduleInfo = null;
+    public RequestSchedule|\stdClass|null $scheduleInfo = null;
 
     /** The status of the access assignment or eligibility request. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. Optional. */
     public ?string $status = null;

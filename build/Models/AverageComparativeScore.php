@@ -12,8 +12,11 @@ class AverageComparativeScore
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** Average score within specified basis. */
-    public ?string $averageScore = null;
+    /** 
+     * Average score within specified basis.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageScore = null;
 
     /** Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes. */
     public ?string $basis = null;

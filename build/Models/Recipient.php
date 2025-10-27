@@ -16,7 +16,7 @@ class Recipient
      * The recipient's email address.
      * @var EmailAddress|\stdClass|null
      */
-    public mixed $emailAddress = null;
+    public EmailAddress|\stdClass|null $emailAddress = null;
 
 
     /**

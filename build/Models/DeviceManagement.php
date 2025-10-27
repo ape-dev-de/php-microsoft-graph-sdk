@@ -19,7 +19,7 @@ class DeviceManagement
      * Device protection overview.
      * @var DeviceProtectionOverview|\stdClass|null
      */
-    public mixed $deviceProtectionOverview = null;
+    public DeviceProtectionOverview|\stdClass|null $deviceProtectionOverview = null;
 
     /** Intune Account Id for given tenant */
     public ?string $intuneAccountId = null;
@@ -28,13 +28,13 @@ class DeviceManagement
      * intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
      * @var IntuneBrand|\stdClass|null
      */
-    public mixed $intuneBrand = null;
+    public IntuneBrand|\stdClass|null $intuneBrand = null;
 
     /** 
      * Account level settings.
      * @var DeviceManagementSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public DeviceManagementSettings|\stdClass|null $settings = null;
 
     /**  */
     public ?DeviceManagementSubscriptionState $subscriptionState = null;
@@ -43,19 +43,19 @@ class DeviceManagement
      * User experience analytics device settings
      * @var UserExperienceAnalyticsSettings|\stdClass|null
      */
-    public mixed $userExperienceAnalyticsSettings = null;
+    public UserExperienceAnalyticsSettings|\stdClass|null $userExperienceAnalyticsSettings = null;
 
     /** 
      * Malware overview for windows devices.
      * @var WindowsMalwareOverview|\stdClass|null
      */
-    public mixed $windowsMalwareOverview = null;
+    public WindowsMalwareOverview|\stdClass|null $windowsMalwareOverview = null;
 
     /** 
      * Apple push notification certificate.
      * @var ApplePushNotificationCertificate|\stdClass|null
      */
-    public mixed $applePushNotificationCertificate = null;
+    public ApplePushNotificationCertificate|\stdClass|null $applePushNotificationCertificate = null;
 
     /** 
      * The Audit Events
@@ -73,7 +73,7 @@ class DeviceManagement
      * The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
      * @var OnPremisesConditionalAccessSettings|\stdClass|null
      */
-    public mixed $conditionalAccessSettings = null;
+    public OnPremisesConditionalAccessSettings|\stdClass|null $conditionalAccessSettings = null;
 
     /** 
      * The list of detected apps associated with a device.
@@ -97,7 +97,7 @@ class DeviceManagement
      * The device compliance state summary for this account.
      * @var DeviceCompliancePolicyDeviceStateSummary|\stdClass|null
      */
-    public mixed $deviceCompliancePolicyDeviceStateSummary = null;
+    public DeviceCompliancePolicyDeviceStateSummary|\stdClass|null $deviceCompliancePolicyDeviceStateSummary = null;
 
     /** 
      * The summary states of compliance policy settings for this account.
@@ -109,7 +109,7 @@ class DeviceManagement
      * The device configuration device state summary for this account.
      * @var DeviceConfigurationDeviceStateSummary|\stdClass|null
      */
-    public mixed $deviceConfigurationDeviceStateSummaries = null;
+    public DeviceConfigurationDeviceStateSummary|\stdClass|null $deviceConfigurationDeviceStateSummaries = null;
 
     /** 
      * The device configurations.
@@ -151,7 +151,7 @@ class DeviceManagement
      * Device overview
      * @var ManagedDeviceOverview|\stdClass|null
      */
-    public mixed $managedDeviceOverview = null;
+    public ManagedDeviceOverview|\stdClass|null $managedDeviceOverview = null;
 
     /** 
      * The list of managed devices.
@@ -187,7 +187,7 @@ class DeviceManagement
      * Reports singleton
      * @var DeviceManagementReports|\stdClass|null
      */
-    public mixed $reports = null;
+    public DeviceManagementReports|\stdClass|null $reports = null;
 
     /** 
      * The Resource Operations.
@@ -211,7 +211,7 @@ class DeviceManagement
      * The software update status summary.
      * @var SoftwareUpdateStatusSummary|\stdClass|null
      */
-    public mixed $softwareUpdateStatusSummary = null;
+    public SoftwareUpdateStatusSummary|\stdClass|null $softwareUpdateStatusSummary = null;
 
     /** 
      * The telecom expense management partners.
@@ -283,7 +283,7 @@ class DeviceManagement
      * User experience analytics appHealth overview
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $userExperienceAnalyticsAppHealthOverview = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $userExperienceAnalyticsAppHealthOverview = null;
 
     /** 
      * User experience analytics baselines
@@ -343,7 +343,7 @@ class DeviceManagement
      * User experience analytics overview
      * @var UserExperienceAnalyticsOverview|\stdClass|null
      */
-    public mixed $userExperienceAnalyticsOverview = null;
+    public UserExperienceAnalyticsOverview|\stdClass|null $userExperienceAnalyticsOverview = null;
 
     /** 
      * User experience analytics device Startup Score History
@@ -355,7 +355,7 @@ class DeviceManagement
      * User experience analytics work from anywhere hardware readiness metrics.
      * @var UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|\stdClass|null
      */
-    public mixed $userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = null;
+    public UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|\stdClass|null $userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = null;
 
     /** 
      * User experience analytics work from anywhere metrics.
@@ -373,7 +373,7 @@ class DeviceManagement
      * Virtual endpoint
      * @var VirtualEndpoint|\stdClass|null
      */
-    public mixed $virtualEndpoint = null;
+    public VirtualEndpoint|\stdClass|null $virtualEndpoint = null;
 
     /** 
      * The Windows autopilot device identities contained collection.

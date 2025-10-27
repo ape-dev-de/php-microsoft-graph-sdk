@@ -16,7 +16,7 @@ class RetentionLabelSettings
      * Describes the item behavior during retention period. Possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue. Read-only.
      * @var SecurityBehaviorDuringRetentionPeriod|\stdClass|null
      */
-    public mixed $behaviorDuringRetentionPeriod = null;
+    public SecurityBehaviorDuringRetentionPeriod|\stdClass|null $behaviorDuringRetentionPeriod = null;
 
     /** Specifies whether updates to document content are allowed. Read-only. */
     public ?bool $isContentUpdateAllowed = null;

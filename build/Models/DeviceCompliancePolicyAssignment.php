@@ -19,7 +19,7 @@ class DeviceCompliancePolicyAssignment
      * Target for the compliance policy assignment.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

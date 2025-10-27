@@ -37,7 +37,7 @@ class BrowserSharedCookieHistory
      * Specifies how the cookies are shared between Microsoft Edge and Internet Explorer. The possible values are: microsoftEdge, internetExplorer11, both, unknownFutureValue.
      * @var BrowserSharedCookieSourceEnvironment|\stdClass|null
      */
-    public mixed $sourceEnvironment = null;
+    public BrowserSharedCookieSourceEnvironment|\stdClass|null $sourceEnvironment = null;
 
 
     /**

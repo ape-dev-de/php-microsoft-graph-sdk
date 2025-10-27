@@ -37,7 +37,7 @@ class IdentityUserFlowAttributeAssignment
      * The user attribute that you want to add to your user flow.
      * @var IdentityUserFlowAttribute|\stdClass|null
      */
-    public mixed $userAttribute = null;
+    public IdentityUserFlowAttribute|\stdClass|null $userAttribute = null;
 
 
     /**

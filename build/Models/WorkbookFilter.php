@@ -19,7 +19,7 @@ class WorkbookFilter
      * The currently applied filter on the given column. Read-only.
      * @var WorkbookFilterCriteria|\stdClass|null
      */
-    public mixed $criteria = null;
+    public WorkbookFilterCriteria|\stdClass|null $criteria = null;
 
 
     /**

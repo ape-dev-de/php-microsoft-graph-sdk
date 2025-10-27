@@ -22,7 +22,7 @@ class ProvisionedIdentity
      * Details of the identity.
      * @var DetailsInfo|\stdClass|null
      */
-    public mixed $details = null;
+    public DetailsInfo|\stdClass|null $details = null;
 
     /** Type of identity that has been provisioned, such as 'user' or 'group'. Supports $filter (eq, contains). */
     public ?string $identityType = null;

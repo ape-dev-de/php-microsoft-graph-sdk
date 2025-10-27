@@ -19,7 +19,7 @@ class BookingQuestionAnswer
      * The expected answer type. The possible values are: text, radioButton, unknownFutureValue.
      * @var AnswerInputType|\stdClass|null
      */
-    public mixed $answerInputType = null;
+    public AnswerInputType|\stdClass|null $answerInputType = null;
 
     /** 
      * In case the answerInputType is radioButton, this will consists of a list of possible answer values.

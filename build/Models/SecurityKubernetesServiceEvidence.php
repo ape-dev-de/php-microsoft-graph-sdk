@@ -46,7 +46,7 @@ class SecurityKubernetesServiceEvidence
      * The service cluster IP.
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $clusterIP = null;
+    public SecurityIpEvidence|\stdClass|null $clusterIP = null;
 
     /** 
      * The service external IPs.
@@ -58,7 +58,7 @@ class SecurityKubernetesServiceEvidence
      * The service labels.
      * @var SecurityDictionary|\stdClass|null
      */
-    public mixed $labels = null;
+    public SecurityDictionary|\stdClass|null $labels = null;
 
     /** The service name. */
     public ?string $name = null;
@@ -67,13 +67,13 @@ class SecurityKubernetesServiceEvidence
      * The service namespace.
      * @var SecurityKubernetesNamespaceEvidence|\stdClass|null
      */
-    public mixed $namespace = null;
+    public SecurityKubernetesNamespaceEvidence|\stdClass|null $namespace = null;
 
     /** 
      * The service selector.
      * @var SecurityDictionary|\stdClass|null
      */
-    public mixed $selector = null;
+    public SecurityDictionary|\stdClass|null $selector = null;
 
     /** 
      * The list of service ports.

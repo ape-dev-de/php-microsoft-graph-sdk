@@ -19,7 +19,7 @@ class TodoTask
      * The task body that typically contains information about the task.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $body = null;
+    public ItemBody|\stdClass|null $body = null;
 
     /** The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     public ?\DateTimeInterface $bodyLastModifiedDateTime = null;
@@ -34,7 +34,7 @@ class TodoTask
      * The date and time in the specified time zone that the task was finished.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $completedDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $completedDateTime = null;
 
     /** The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -43,7 +43,7 @@ class TodoTask
      * The date and time in the specified time zone that the task is to be finished.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $dueDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $dueDateTime = null;
 
     /** Indicates whether the task has attachments. */
     public ?bool $hasAttachments = null;
@@ -61,19 +61,19 @@ class TodoTask
      * The recurrence pattern for the task.
      * @var PatternedRecurrence|\stdClass|null
      */
-    public mixed $recurrence = null;
+    public PatternedRecurrence|\stdClass|null $recurrence = null;
 
     /** 
      * The date and time in the specified time zone for a reminder alert of the task to occur.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $reminderDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $reminderDateTime = null;
 
     /** 
      * The date and time in the specified time zone at which the task is scheduled to start.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $startDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $startDateTime = null;
 
     /**  */
     public ?TaskStatus $status = null;

@@ -25,7 +25,7 @@ class CanvasLayout
      * Vertical section on the SharePoint page.
      * @var VerticalSection|\stdClass|null
      */
-    public mixed $verticalSection = null;
+    public VerticalSection|\stdClass|null $verticalSection = null;
 
 
     /**

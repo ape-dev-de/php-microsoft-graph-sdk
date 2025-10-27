@@ -70,19 +70,19 @@ class WorkbookRange
      * Returns a format object, encapsulating the range's font, fill, borders, alignment, and other properties. Read-only.
      * @var WorkbookRangeFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookRangeFormat|\stdClass|null $format = null;
 
     /** 
      * The worksheet containing the current range. Read-only.
      * @var WorkbookRangeSort|\stdClass|null
      */
-    public mixed $sort = null;
+    public WorkbookRangeSort|\stdClass|null $sort = null;
 
     /** 
      * The worksheet containing the current range. Read-only.
      * @var WorkbookWorksheet|\stdClass|null
      */
-    public mixed $worksheet = null;
+    public WorkbookWorksheet|\stdClass|null $worksheet = null;
 
 
     /**

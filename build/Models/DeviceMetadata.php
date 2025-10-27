@@ -22,7 +22,7 @@ class DeviceMetadata
      * Details about the operating system platform and version.
      * @var OperatingSystemSpecifications|\stdClass|null
      */
-    public mixed $operatingSystemSpecifications = null;
+    public OperatingSystemSpecifications|\stdClass|null $operatingSystemSpecifications = null;
 
 
     /**

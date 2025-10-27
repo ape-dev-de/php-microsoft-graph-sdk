@@ -16,7 +16,7 @@ class AttributeDefinitionMetadataEntry
      * Possible values are: BaseAttributeName, ComplexObjectDefinition, IsContainer, IsCustomerDefined, IsDomainQualified, LinkPropertyNames, LinkTypeName, MaximumLength, ReferencedProperty.
      * @var AttributeDefinitionMetadata|\stdClass|null
      */
-    public mixed $key = null;
+    public AttributeDefinitionMetadata|\stdClass|null $key = null;
 
     /** Value of the metadata property. */
     public ?string $value = null;

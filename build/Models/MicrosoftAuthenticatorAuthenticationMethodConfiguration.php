@@ -25,13 +25,13 @@ class MicrosoftAuthenticatorAuthenticationMethodConfiguration
      * The state of the policy. Possible values are: enabled, disabled.
      * @var AuthenticationMethodState|\stdClass|null
      */
-    public mixed $state = null;
+    public AuthenticationMethodState|\stdClass|null $state = null;
 
     /** 
      * A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.
      * @var MicrosoftAuthenticatorFeatureSettings|\stdClass|null
      */
-    public mixed $featureSettings = null;
+    public MicrosoftAuthenticatorFeatureSettings|\stdClass|null $featureSettings = null;
 
     /**  */
     public ?bool $isSoftwareOathEnabled = null;

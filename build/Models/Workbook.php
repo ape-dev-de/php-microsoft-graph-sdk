@@ -19,7 +19,7 @@ class Workbook
      * 
      * @var WorkbookApplication|\stdClass|null
      */
-    public mixed $application = null;
+    public WorkbookApplication|\stdClass|null $application = null;
 
     /** 
      * Represents a collection of comments in a workbook.
@@ -31,7 +31,7 @@ class Workbook
      * 
      * @var WorkbookFunctions|\stdClass|null
      */
-    public mixed $functions = null;
+    public WorkbookFunctions|\stdClass|null $functions = null;
 
     /** 
      * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.

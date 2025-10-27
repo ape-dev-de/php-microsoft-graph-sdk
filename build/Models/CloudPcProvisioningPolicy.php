@@ -22,7 +22,7 @@ class CloudPcProvisioningPolicy
      * Indicates the Windows Autopatch settings for Cloud PCs using this provisioning policy. The settings take effect when the tenant enrolls in Autopatch and the managedType of the microsoftManagedDesktop property is set as starterManaged. Supports $select.
      * @var CloudPcProvisioningPolicyAutopatch|\stdClass|null
      */
-    public mixed $autopatch = null;
+    public CloudPcProvisioningPolicyAutopatch|\stdClass|null $autopatch = null;
 
     /** The display name of the Cloud PC group that the Cloud PCs reside in. Read-only. */
     public ?string $cloudPcGroupDisplayName = null;
@@ -64,19 +64,19 @@ class CloudPcProvisioningPolicy
      * The specific settings to microsoftManagedDesktop that enables Microsoft Managed Desktop customers to get device managed experience for Cloud PC. To enable microsoftManagedDesktop to provide more value, an admin needs to specify certain settings in it. Supports $filter, $select, and $orderBy.
      * @var MicrosoftManagedDesktop|\stdClass|null
      */
-    public mixed $microsoftManagedDesktop = null;
+    public MicrosoftManagedDesktop|\stdClass|null $microsoftManagedDesktop = null;
 
     /** 
      * Specifies the type of license used when provisioning Cloud PCs using this policy. By default, the license type is dedicated if the provisioningType isn't specified when you create the cloudPcProvisioningPolicy. You can't change this property after the cloudPcProvisioningPolicy was created. Possible values are: dedicated, shared, unknownFutureValue.
      * @var CloudPcProvisioningType|\stdClass|null
      */
-    public mixed $provisioningType = null;
+    public CloudPcProvisioningType|\stdClass|null $provisioningType = null;
 
     /** 
      * Indicates a specific Windows setting to configure during the creation of Cloud PCs for this provisioning policy. Supports $select.
      * @var CloudPcWindowsSetting|\stdClass|null
      */
-    public mixed $windowsSetting = null;
+    public CloudPcWindowsSetting|\stdClass|null $windowsSetting = null;
 
     /** 
      * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have provisioning policy assigned. Returned only on $expand. For an example about how to get the assignments relationship, see Get cloudPcProvisioningPolicy.

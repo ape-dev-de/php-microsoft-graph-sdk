@@ -19,7 +19,7 @@ class SharingInvitation
      * Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $invitedBy = null;
+    public IdentitySet|\stdClass|null $invitedBy = null;
 
     /**  */
     public ?string $redeemedBy = null;

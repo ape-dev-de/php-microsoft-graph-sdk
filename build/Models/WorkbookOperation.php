@@ -19,7 +19,7 @@ class WorkbookOperation
      * The error returned by the operation.
      * @var WorkbookOperationError|\stdClass|null
      */
-    public mixed $error = null;
+    public WorkbookOperationError|\stdClass|null $error = null;
 
     /** The resource URI for the result. */
     public ?string $resourceLocation = null;

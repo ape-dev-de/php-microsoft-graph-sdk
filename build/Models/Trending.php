@@ -22,22 +22,25 @@ class Trending
      * Reference properties of the trending document, such as the url and type of the document.
      * @var ResourceReference|\stdClass|null
      */
-    public mixed $resourceReference = null;
+    public ResourceReference|\stdClass|null $resourceReference = null;
 
     /** 
      * Properties that you can use to visualize the document in your experience.
      * @var ResourceVisualization|\stdClass|null
      */
-    public mixed $resourceVisualization = null;
+    public ResourceVisualization|\stdClass|null $resourceVisualization = null;
 
-    /** Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value. */
-    public ?string $weight = null;
+    /** 
+     * Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $weight = null;
 
     /** 
      * Used for navigating to the trending document.
      * @var Entity|\stdClass|null
      */
-    public mixed $resource = null;
+    public Entity|\stdClass|null $resource = null;
 
 
     /**

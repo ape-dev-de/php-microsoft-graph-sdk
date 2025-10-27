@@ -37,7 +37,7 @@ class SecurityHostPort
      * The general protocol used to scan the port. The possible values are: tcp, udp, unknownFutureValue.
      * @var SecurityHostPortProtocol|\stdClass|null
      */
-    public mixed $protocol = null;
+    public SecurityHostPortProtocol|\stdClass|null $protocol = null;
 
     /** 
      * The hostPortComponents retrieved from scanning the port.
@@ -49,7 +49,7 @@ class SecurityHostPort
      * The status of the port. The possible values are: open, filtered, closed, unknownFutureValue.
      * @var SecurityHostPortStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityHostPortStatus|\stdClass|null $status = null;
 
     /** The total amount of times that Microsoft Defender Threat Intelligence has observed the hostPort in all its scans. */
     public ?float $timesObserved = null;
@@ -61,7 +61,7 @@ class SecurityHostPort
      * The most recent sslCertificate used to communicate on the port.
      * @var SecuritySslCertificate|\stdClass|null
      */
-    public mixed $mostRecentSslCertificate = null;
+    public SecuritySslCertificate|\stdClass|null $mostRecentSslCertificate = null;
 
 
     /**

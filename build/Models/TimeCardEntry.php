@@ -22,13 +22,13 @@ class TimeCardEntry
      * The clock-out event of the timeCard.
      * @var TimeCardEvent|\stdClass|null
      */
-    public mixed $clockInEvent = null;
+    public TimeCardEvent|\stdClass|null $clockInEvent = null;
 
     /** 
      * The list of breaks associated with the timeCard.
      * @var TimeCardEvent|\stdClass|null
      */
-    public mixed $clockOutEvent = null;
+    public TimeCardEvent|\stdClass|null $clockOutEvent = null;
 
 
     /**

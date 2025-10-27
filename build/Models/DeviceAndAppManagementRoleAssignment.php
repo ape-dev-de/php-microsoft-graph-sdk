@@ -31,7 +31,7 @@ class DeviceAndAppManagementRoleAssignment
      * Role definition this assignment is part of.
      * @var RoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public RoleDefinition|\stdClass|null $roleDefinition = null;
 
     /** 
      * The list of ids of role member security groups. These are IDs from Azure Active Directory.

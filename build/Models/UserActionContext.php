@@ -16,7 +16,7 @@ class UserActionContext
      * Represents the user action that the authenticating identity is performing. The possible values are: registerSecurityInformation, registerOrJoinDevices, unknownFutureValue.
      * @var UserAction|\stdClass|null
      */
-    public mixed $userAction = null;
+    public UserAction|\stdClass|null $userAction = null;
 
 
     /**

@@ -16,25 +16,25 @@ class IdentityGovernanceCustomTaskExtensionCalloutData
      * 
      * @var User|\stdClass|null
      */
-    public mixed $subject = null;
+    public User|\stdClass|null $subject = null;
 
     /** 
      * 
      * @var IdentityGovernanceTask|\stdClass|null
      */
-    public mixed $task = null;
+    public IdentityGovernanceTask|\stdClass|null $task = null;
 
     /** 
      * 
      * @var IdentityGovernanceTaskProcessingResult|\stdClass|null
      */
-    public mixed $taskProcessingresult = null;
+    public IdentityGovernanceTaskProcessingResult|\stdClass|null $taskProcessingresult = null;
 
     /** 
      * 
      * @var IdentityGovernanceWorkflow|\stdClass|null
      */
-    public mixed $workflow = null;
+    public IdentityGovernanceWorkflow|\stdClass|null $workflow = null;
 
 
     /**

@@ -19,7 +19,7 @@ class AccessPackageAnswer
      * 
      * @var AccessPackageQuestion|\stdClass|null
      */
-    public mixed $answeredQuestion = null;
+    public AccessPackageQuestion|\stdClass|null $answeredQuestion = null;
 
 
     /**

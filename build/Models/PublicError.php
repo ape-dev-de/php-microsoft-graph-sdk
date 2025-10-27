@@ -25,7 +25,7 @@ class PublicError
      * Details of the inner error.
      * @var PublicInnerError|\stdClass|null
      */
-    public mixed $innerError = null;
+    public PublicInnerError|\stdClass|null $innerError = null;
 
     /** A non-localized message for the developer. */
     public ?string $message = null;

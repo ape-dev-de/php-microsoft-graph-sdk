@@ -61,7 +61,7 @@ class SecurityCloudApplicationEvidence
      * 
      * @var SecurityStream|\stdClass|null
      */
-    public mixed $stream = null;
+    public SecurityStream|\stdClass|null $stream = null;
 
 
     /**

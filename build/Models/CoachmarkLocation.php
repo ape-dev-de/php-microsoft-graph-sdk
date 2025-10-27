@@ -22,7 +22,7 @@ class CoachmarkLocation
      * Type of coachmark location. The possible values are: unknown, fromEmail, subject, externalTag, displayName, messageBody, unknownFutureValue.
      * @var CoachmarkLocationType|\stdClass|null
      */
-    public mixed $type = null;
+    public CoachmarkLocationType|\stdClass|null $type = null;
 
 
     /**

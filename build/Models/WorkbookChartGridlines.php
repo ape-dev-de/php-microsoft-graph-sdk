@@ -22,7 +22,7 @@ class WorkbookChartGridlines
      * Represents the formatting of chart gridlines. Read-only.
      * @var WorkbookChartGridlinesFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartGridlinesFormat|\stdClass|null $format = null;
 
 
     /**

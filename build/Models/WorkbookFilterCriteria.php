@@ -31,7 +31,7 @@ class WorkbookFilterCriteria
      * An icon applied to a cell via conditional formatting.
      * @var WorkbookIcon|\stdClass|null
      */
-    public mixed $icon = null;
+    public WorkbookIcon|\stdClass|null $icon = null;
 
     /** An operator in a cell; for example, =, >, <, <=, or <>. */
     public ?string $operator = null;

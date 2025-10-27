@@ -19,13 +19,13 @@ class EducationAssignmentDefaults
      * Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen.
      * @var EducationAddedStudentAction|\stdClass|null
      */
-    public mixed $addedStudentAction = null;
+    public EducationAddedStudentAction|\stdClass|null $addedStudentAction = null;
 
     /** 
      * Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: studentsOnly. The default value is none.
      * @var EducationAddToCalendarOptions|\stdClass|null
      */
-    public mixed $addToCalendarAction = null;
+    public EducationAddToCalendarOptions|\stdClass|null $addToCalendarAction = null;
 
     /** Class-level default value for due time field. Default value is 23:59:00. */
     public ?string $dueTime = null;

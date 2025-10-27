@@ -19,13 +19,13 @@ class BookingBusiness
      * The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $address = null;
+    public PhysicalAddress|\stdClass|null $address = null;
 
     /** 
      * Settings for the published booking page.
      * @var BookingPageSettings|\stdClass|null
      */
-    public mixed $bookingPageSettings = null;
+    public BookingPageSettings|\stdClass|null $bookingPageSettings = null;
 
     /** 
      * The hours of operation for the business.
@@ -67,7 +67,7 @@ class BookingBusiness
      * Specifies how bookings can be created for this business.
      * @var BookingSchedulingPolicy|\stdClass|null
      */
-    public mixed $schedulingPolicy = null;
+    public BookingSchedulingPolicy|\stdClass|null $schedulingPolicy = null;
 
     /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page. */
     public ?string $webSiteUrl = null;

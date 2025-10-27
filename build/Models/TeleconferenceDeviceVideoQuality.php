@@ -15,8 +15,11 @@ class TeleconferenceDeviceVideoQuality
     /** The average inbound stream network jitter. */
     public ?string $averageInboundJitter = null;
 
-    /** The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    public ?string $averageInboundPacketLossRateInPercentage = null;
+    /** 
+     * The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageInboundPacketLossRateInPercentage = null;
 
     /** The average inbound stream network round trip delay. */
     public ?string $averageInboundRoundTripDelay = null;
@@ -24,8 +27,11 @@ class TeleconferenceDeviceVideoQuality
     /** The average outbound stream network jitter. */
     public ?string $averageOutboundJitter = null;
 
-    /** The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    public ?string $averageOutboundPacketLossRateInPercentage = null;
+    /** 
+     * The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageOutboundPacketLossRateInPercentage = null;
 
     /** The average outbound stream network round trip delay. */
     public ?string $averageOutboundRoundTripDelay = null;
@@ -45,8 +51,11 @@ class TeleconferenceDeviceVideoQuality
     /** The maximum inbound stream network jitter. */
     public ?string $maximumInboundJitter = null;
 
-    /** The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    public ?string $maximumInboundPacketLossRateInPercentage = null;
+    /** 
+     * The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $maximumInboundPacketLossRateInPercentage = null;
 
     /** The maximum inbound stream network round trip delay. */
     public ?string $maximumInboundRoundTripDelay = null;
@@ -54,8 +63,11 @@ class TeleconferenceDeviceVideoQuality
     /** The maximum outbound stream network jitter. */
     public ?string $maximumOutboundJitter = null;
 
-    /** The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    public ?string $maximumOutboundPacketLossRateInPercentage = null;
+    /** 
+     * The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $maximumOutboundPacketLossRateInPercentage = null;
 
     /** The maximum outbound stream network round trip delay. */
     public ?string $maximumOutboundRoundTripDelay = null;
@@ -75,17 +87,29 @@ class TeleconferenceDeviceVideoQuality
     /** The remote media port. */
     public ?float $remotePort = null;
 
-    /** The average inbound stream video bit rate per second. */
-    public ?string $averageInboundBitRate = null;
+    /** 
+     * The average inbound stream video bit rate per second.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageInboundBitRate = null;
 
-    /** The average inbound stream video frame rate per second. */
-    public ?string $averageInboundFrameRate = null;
+    /** 
+     * The average inbound stream video frame rate per second.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageInboundFrameRate = null;
 
-    /** The average outbound stream video bit rate per second. */
-    public ?string $averageOutboundBitRate = null;
+    /** 
+     * The average outbound stream video bit rate per second.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageOutboundBitRate = null;
 
-    /** The average outbound stream video frame rate per second. */
-    public ?string $averageOutboundFrameRate = null;
+    /** 
+     * The average outbound stream video frame rate per second.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageOutboundFrameRate = null;
 
 
     /**

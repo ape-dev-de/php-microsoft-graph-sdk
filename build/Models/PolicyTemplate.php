@@ -19,13 +19,13 @@ class PolicyTemplate
      * Defines an optional cross-tenant access policy template with user synchronization settings for a multitenant organization.
      * @var MultiTenantOrganizationIdentitySyncPolicyTemplate|\stdClass|null
      */
-    public mixed $multiTenantOrganizationIdentitySynchronization = null;
+    public MultiTenantOrganizationIdentitySyncPolicyTemplate|\stdClass|null $multiTenantOrganizationIdentitySynchronization = null;
 
     /** 
      * Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @var MultiTenantOrganizationPartnerConfigurationTemplate|\stdClass|null
      */
-    public mixed $multiTenantOrganizationPartnerConfiguration = null;
+    public MultiTenantOrganizationPartnerConfigurationTemplate|\stdClass|null $multiTenantOrganizationPartnerConfiguration = null;
 
 
     /**

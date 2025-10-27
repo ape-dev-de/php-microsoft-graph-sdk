@@ -52,7 +52,7 @@ class SecurityIntelligenceProfile
      * Formatted information featuring a description of the distinctive tactics, techniques, and procedures (TTP) of the group, followed by a list of all known custom, commodity, and publicly available implants used by the group.
      * @var SecurityFormattedContent|\stdClass|null
      */
-    public mixed $tradecraft = null;
+    public SecurityFormattedContent|\stdClass|null $tradecraft = null;
 
     /** 
      * Includes an assemblage of high-fidelity network indicators of compromise.

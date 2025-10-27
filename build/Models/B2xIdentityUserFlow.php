@@ -18,14 +18,17 @@ class B2xIdentityUserFlow
     /**  */
     public ?UserFlowType $userFlowType = null;
 
-    /**  */
-    public ?string $userFlowTypeVersion = null;
+    /** 
+     * 
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $userFlowTypeVersion = null;
 
     /** 
      * Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
      * @var UserFlowApiConnectorConfiguration|\stdClass|null
      */
-    public mixed $apiConnectorConfiguration = null;
+    public UserFlowApiConnectorConfiguration|\stdClass|null $apiConnectorConfiguration = null;
 
     /** 
      * The identity providers included in the user flow.

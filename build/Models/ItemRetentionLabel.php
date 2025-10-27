@@ -22,7 +22,7 @@ class ItemRetentionLabel
      * Identity of the user who applied the label. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $labelAppliedBy = null;
+    public IdentitySet|\stdClass|null $labelAppliedBy = null;
 
     /** The date and time when the label was applied on the item. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public ?\DateTimeInterface $labelAppliedDateTime = null;
@@ -34,7 +34,7 @@ class ItemRetentionLabel
      * The retention settings enforced on the item. Read-write.
      * @var RetentionLabelSettings|\stdClass|null
      */
-    public mixed $retentionSettings = null;
+    public RetentionLabelSettings|\stdClass|null $retentionSettings = null;
 
 
     /**

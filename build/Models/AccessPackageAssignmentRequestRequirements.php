@@ -37,7 +37,7 @@ class AccessPackageAssignmentRequestRequirements
      * Schedule restrictions enforced, if any.
      * @var EntitlementManagementSchedule|\stdClass|null
      */
-    public mixed $schedule = null;
+    public EntitlementManagementSchedule|\stdClass|null $schedule = null;
 
     /** 
      * 

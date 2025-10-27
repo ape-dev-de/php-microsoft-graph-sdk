@@ -25,7 +25,7 @@ class SecurityDataSourceContainer
      * The hold status of the dataSourceContainer. The possible values are: notApplied, applied, applying, removing, partial
      * @var SecurityDataSourceHoldStatus|\stdClass|null
      */
-    public mixed $holdStatus = null;
+    public SecurityDataSourceHoldStatus|\stdClass|null $holdStatus = null;
 
     /** Last modified date and time of the dataSourceContainer. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,7 +37,7 @@ class SecurityDataSourceContainer
      * Latest status of the dataSourceContainer. Possible values are: Active, Released.
      * @var SecurityDataSourceContainerStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityDataSourceContainerStatus|\stdClass|null $status = null;
 
 
     /**

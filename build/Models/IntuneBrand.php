@@ -28,7 +28,7 @@ class IntuneBrand
      * Logo image displayed in Company Portal apps which have a dark background behind the logo.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $darkBackgroundLogo = null;
+    public MimeContent|\stdClass|null $darkBackgroundLogo = null;
 
     /** Company/organization name that is displayed to end users. */
     public ?string $displayName = null;
@@ -37,7 +37,7 @@ class IntuneBrand
      * Logo image displayed in Company Portal apps which have a light background behind the logo.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $lightBackgroundLogo = null;
+    public MimeContent|\stdClass|null $lightBackgroundLogo = null;
 
     /** Display name of the company/organization’s IT helpdesk site. */
     public ?string $onlineSupportSiteName = null;
@@ -61,7 +61,7 @@ class IntuneBrand
      * Primary theme color used in the Company Portal applications and web portal.
      * @var RgbColor|\stdClass|null
      */
-    public mixed $themeColor = null;
+    public RgbColor|\stdClass|null $themeColor = null;
 
 
     /**

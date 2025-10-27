@@ -12,29 +12,50 @@ class DeviceGeoLocation
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** Altitude, given in meters above sea level */
-    public ?string $altitude = null;
+    /** 
+     * Altitude, given in meters above sea level
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $altitude = null;
 
-    /** Heading in degrees from true north */
-    public ?string $heading = null;
+    /** 
+     * Heading in degrees from true north
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $heading = null;
 
-    /** Accuracy of longitude and latitude in meters */
-    public ?string $horizontalAccuracy = null;
+    /** 
+     * Accuracy of longitude and latitude in meters
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $horizontalAccuracy = null;
 
     /** Time at which location was recorded, relative to UTC */
     public ?\DateTimeInterface $lastCollectedDateTime = null;
 
-    /** Latitude coordinate of the device's location */
-    public ?string $latitude = null;
+    /** 
+     * Latitude coordinate of the device's location
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $latitude = null;
 
-    /** Longitude coordinate of the device's location */
-    public ?string $longitude = null;
+    /** 
+     * Longitude coordinate of the device's location
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $longitude = null;
 
-    /** Speed the device is traveling in meters per second */
-    public ?string $speed = null;
+    /** 
+     * Speed the device is traveling in meters per second
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $speed = null;
 
-    /** Accuracy of altitude in meters */
-    public ?string $verticalAccuracy = null;
+    /** 
+     * Accuracy of altitude in meters
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $verticalAccuracy = null;
 
 
     /**

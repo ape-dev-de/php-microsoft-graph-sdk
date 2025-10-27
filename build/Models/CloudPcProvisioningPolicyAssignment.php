@@ -19,7 +19,7 @@ class CloudPcProvisioningPolicyAssignment
      * The assignment target for the provisioning policy. Currently, the only target supported for this policy is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
      * @var CloudPcManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public CloudPcManagementAssignmentTarget|\stdClass|null $target = null;
 
     /** 
      * The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. Read-only. Supports$expand.

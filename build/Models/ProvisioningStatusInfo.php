@@ -16,13 +16,13 @@ class ProvisioningStatusInfo
      * If status isn't success/ skipped details for the error are contained in this.
      * @var ProvisioningErrorInfo|\stdClass|null
      */
-    public mixed $errorInformation = null;
+    public ProvisioningErrorInfo|\stdClass|null $errorInformation = null;
 
     /** 
      * Possible values are: success, warning, failure, skipped, unknownFutureValue.
      * @var ProvisioningResult|\stdClass|null
      */
-    public mixed $status = null;
+    public ProvisioningResult|\stdClass|null $status = null;
 
 
     /**

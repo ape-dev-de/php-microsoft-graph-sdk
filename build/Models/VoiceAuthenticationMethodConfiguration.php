@@ -25,7 +25,7 @@ class VoiceAuthenticationMethodConfiguration
      * The state of the policy. Possible values are: enabled, disabled.
      * @var AuthenticationMethodState|\stdClass|null
      */
-    public mixed $state = null;
+    public AuthenticationMethodState|\stdClass|null $state = null;
 
     /** true if users can register office phones, otherwise, false. */
     public ?bool $isOfficePhoneAllowed = null;

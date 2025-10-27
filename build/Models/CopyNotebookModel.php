@@ -22,7 +22,7 @@ class CopyNotebookModel
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdByIdentity = null;
+    public IdentitySet|\stdClass|null $createdByIdentity = null;
 
     /**  */
     public ?\DateTimeInterface $createdTime = null;
@@ -40,7 +40,7 @@ class CopyNotebookModel
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedByIdentity = null;
+    public IdentitySet|\stdClass|null $lastModifiedByIdentity = null;
 
     /**  */
     public ?\DateTimeInterface $lastModifiedTime = null;
@@ -49,7 +49,7 @@ class CopyNotebookModel
      * 
      * @var NotebookLinks|\stdClass|null
      */
-    public mixed $links = null;
+    public NotebookLinks|\stdClass|null $links = null;
 
     /**  */
     public ?string $name = null;
@@ -67,7 +67,7 @@ class CopyNotebookModel
      * 
      * @var OnenoteUserRole|\stdClass|null
      */
-    public mixed $userRole = null;
+    public OnenoteUserRole|\stdClass|null $userRole = null;
 
 
     /**

@@ -19,7 +19,7 @@ class DeviceConfigurationAssignment
      * The assignment target for the device configuration.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

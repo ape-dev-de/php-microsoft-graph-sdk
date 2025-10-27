@@ -25,7 +25,7 @@ class AccessReviewInstanceDecisionItemAzureRoleResource
      * Details of the scope this role is associated with.
      * @var AccessReviewInstanceDecisionItemResource|\stdClass|null
      */
-    public mixed $scope = null;
+    public AccessReviewInstanceDecisionItemResource|\stdClass|null $scope = null;
 
 
     /**

@@ -46,13 +46,13 @@ class SecurityFileEvidence
      * The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @var SecurityDetectionStatus|\stdClass|null
      */
-    public mixed $detectionStatus = null;
+    public SecurityDetectionStatus|\stdClass|null $detectionStatus = null;
 
     /** 
      * The file details.
      * @var SecurityFileDetails|\stdClass|null
      */
-    public mixed $fileDetails = null;
+    public SecurityFileDetails|\stdClass|null $fileDetails = null;
 
     /** A unique identifier assigned to a device by Microsoft Defender for Endpoint. */
     public ?string $mdeDeviceId = null;

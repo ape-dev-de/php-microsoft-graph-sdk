@@ -19,7 +19,7 @@ class IncomingContext
      * The identity that the call is happening on behalf of.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $onBehalfOf = null;
+    public IdentitySet|\stdClass|null $onBehalfOf = null;
 
     /** The ID of the participant that triggered the incoming call. Read-only. */
     public ?string $sourceParticipantId = null;
@@ -28,7 +28,7 @@ class IncomingContext
      * The identity that transferred the call.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $transferor = null;
+    public IdentitySet|\stdClass|null $transferor = null;
 
 
     /**

@@ -16,7 +16,7 @@ class SharingLink
      * The app the link is associated with.
      * @var Identity|\stdClass|null
      */
-    public mixed $application = null;
+    public Identity|\stdClass|null $application = null;
 
     /** If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint. */
     public ?bool $preventsDownload = null;

@@ -19,13 +19,13 @@ class CustomCalloutExtension
      * Configuration for securing the API call to the logic app. For example, using OAuth client credentials flow.
      * @var CustomExtensionAuthenticationConfiguration|\stdClass|null
      */
-    public mixed $authenticationConfiguration = null;
+    public CustomExtensionAuthenticationConfiguration|\stdClass|null $authenticationConfiguration = null;
 
     /** 
      * HTTP connection settings that define how long Microsoft Entra ID can wait for a connection to a logic app, how many times you can retry a timed-out connection and the exception scenarios when retries are allowed.
      * @var CustomExtensionClientConfiguration|\stdClass|null
      */
-    public mixed $clientConfiguration = null;
+    public CustomExtensionClientConfiguration|\stdClass|null $clientConfiguration = null;
 
     /** Description for the customCalloutExtension object. */
     public ?string $description = null;
@@ -37,7 +37,7 @@ class CustomCalloutExtension
      * The type and details for configuring the endpoint to call the logic app's workflow.
      * @var CustomExtensionEndpointConfiguration|\stdClass|null
      */
-    public mixed $endpointConfiguration = null;
+    public CustomExtensionEndpointConfiguration|\stdClass|null $endpointConfiguration = null;
 
 
     /**

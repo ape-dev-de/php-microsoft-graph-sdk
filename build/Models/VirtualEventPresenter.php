@@ -22,13 +22,13 @@ class VirtualEventPresenter
      * Identity information of the presenter. The supported identities are: communicationsGuestIdentity and communicationsUserIdentity.
      * @var Identity|\stdClass|null
      */
-    public mixed $identity = null;
+    public Identity|\stdClass|null $identity = null;
 
     /** 
      * Other details about the presenter. This property returns null when the virtual event type is virtualEventTownhall.
      * @var VirtualEventPresenterDetails|\stdClass|null
      */
-    public mixed $presenterDetails = null;
+    public VirtualEventPresenterDetails|\stdClass|null $presenterDetails = null;
 
 
     /**

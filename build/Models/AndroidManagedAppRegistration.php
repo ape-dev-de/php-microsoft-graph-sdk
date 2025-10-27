@@ -19,7 +19,7 @@ class AndroidManagedAppRegistration
      * The app package Identifier
      * @var MobileAppIdentifier|\stdClass|null
      */
-    public mixed $appIdentifier = null;
+    public MobileAppIdentifier|\stdClass|null $appIdentifier = null;
 
     /** App version */
     public ?string $applicationVersion = null;

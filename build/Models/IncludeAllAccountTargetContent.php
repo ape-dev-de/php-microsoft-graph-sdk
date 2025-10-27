@@ -16,7 +16,7 @@ class IncludeAllAccountTargetContent
      * The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue.
      * @var AccountTargetContentType|\stdClass|null
      */
-    public mixed $type = null;
+    public AccountTargetContentType|\stdClass|null $type = null;
 
 
     /**

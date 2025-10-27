@@ -46,7 +46,7 @@ class SecurityBlobEvidence
      * The container which the blob belongs to.
      * @var SecurityBlobContainerEvidence|\stdClass|null
      */
-    public mixed $blobContainer = null;
+    public SecurityBlobContainerEvidence|\stdClass|null $blobContainer = null;
 
     /** The Etag associated with this blob. */
     public ?string $etag = null;

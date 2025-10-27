@@ -34,7 +34,7 @@ class ItemAttachment
      * The attached message or event. Navigation property.
      * @var OutlookItem|\stdClass|null
      */
-    public mixed $item = null;
+    public OutlookItem|\stdClass|null $item = null;
 
 
     /**

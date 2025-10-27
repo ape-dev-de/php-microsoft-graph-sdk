@@ -22,13 +22,13 @@ class RecentNotebook
      * Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
      * @var RecentNotebookLinks|\stdClass|null
      */
-    public mixed $links = null;
+    public RecentNotebookLinks|\stdClass|null $links = null;
 
     /** 
      * The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive.
      * @var OnenoteSourceService|\stdClass|null
      */
-    public mixed $sourceService = null;
+    public OnenoteSourceService|\stdClass|null $sourceService = null;
 
 
     /**

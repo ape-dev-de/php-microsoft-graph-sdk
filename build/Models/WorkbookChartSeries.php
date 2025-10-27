@@ -22,7 +22,7 @@ class WorkbookChartSeries
      * The formatting of a chart series, which includes fill and line formatting. Read-only.
      * @var WorkbookChartSeriesFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartSeriesFormat|\stdClass|null $format = null;
 
     /** 
      * A collection of all points in the series. Read-only.

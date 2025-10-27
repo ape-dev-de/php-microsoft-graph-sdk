@@ -19,7 +19,7 @@ class SubjectRightsRequest
      * Identity that the request is assigned to.
      * @var Identity|\stdClass|null
      */
-    public mixed $assignedTo = null;
+    public Identity|\stdClass|null $assignedTo = null;
 
     /** The date and time when the request was closed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $closedDateTime = null;
@@ -31,7 +31,7 @@ class SubjectRightsRequest
      * Identity information for the entity that created the request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time when the request was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,13 +40,13 @@ class SubjectRightsRequest
      * Information about the data subject.
      * @var DataSubject|\stdClass|null
      */
-    public mixed $dataSubject = null;
+    public DataSubject|\stdClass|null $dataSubject = null;
 
     /** 
      * The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.
      * @var DataSubjectType|\stdClass|null
      */
-    public mixed $dataSubjectType = null;
+    public DataSubjectType|\stdClass|null $dataSubjectType = null;
 
     /** Description for the request. */
     public ?string $description = null;
@@ -73,7 +73,7 @@ class SubjectRightsRequest
      * Insight about the request.
      * @var SubjectRightsRequestDetail|\stdClass|null
      */
-    public mixed $insight = null;
+    public SubjectRightsRequestDetail|\stdClass|null $insight = null;
 
     /** The date and time when the request is internally due. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $internalDueDateTime = null;
@@ -82,7 +82,7 @@ class SubjectRightsRequest
      * Identity information for the entity that last modified the request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time when the request was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -91,7 +91,7 @@ class SubjectRightsRequest
      * The mailbox locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @var SubjectRightsRequestMailboxLocation|\stdClass|null
      */
-    public mixed $mailboxLocations = null;
+    public SubjectRightsRequestMailboxLocation|\stdClass|null $mailboxLocations = null;
 
     /** Pause the request after estimate has finished. By default, the data estimate runs and then pauses, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path. */
     public ?bool $pauseAfterEstimate = null;
@@ -106,7 +106,7 @@ class SubjectRightsRequest
      * The SharePoint and OneDrive site locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      * @var SubjectRightsRequestSiteLocation|\stdClass|null
      */
-    public mixed $siteLocations = null;
+    public SubjectRightsRequestSiteLocation|\stdClass|null $siteLocations = null;
 
     /** 
      * Information about the different stages for the request.
@@ -118,13 +118,13 @@ class SubjectRightsRequest
      * The status of the request. Possible values are: active, closed, unknownFutureValue.
      * @var SubjectRightsRequestStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SubjectRightsRequestStatus|\stdClass|null $status = null;
 
     /** 
      * The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
      * @var SubjectRightsRequestType|\stdClass|null
      */
-    public mixed $type = null;
+    public SubjectRightsRequestType|\stdClass|null $type = null;
 
     /** 
      * Collection of users who can approve the request. Currently only supported for requests of type delete.
@@ -148,7 +148,7 @@ class SubjectRightsRequest
      * Information about the Microsoft Teams team that was created for the request.
      * @var Team|\stdClass|null
      */
-    public mixed $team = null;
+    public Team|\stdClass|null $team = null;
 
 
     /**

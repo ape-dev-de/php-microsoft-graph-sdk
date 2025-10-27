@@ -27,8 +27,11 @@ class WorkbookRangeFont
     /** The font name. For example, 'Calibri'. */
     public ?string $name = null;
 
-    /** The font size. */
-    public ?string $size = null;
+    /** 
+     * The font size.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $size = null;
 
     /** The type of underlining applied to the font. The possible values are: None, Single, Double, SingleAccountant, DoubleAccountant. */
     public ?string $underline = null;

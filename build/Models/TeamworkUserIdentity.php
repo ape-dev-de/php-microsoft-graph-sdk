@@ -22,7 +22,7 @@ class TeamworkUserIdentity
      * Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
      * @var TeamworkUserIdentityType|\stdClass|null
      */
-    public mixed $userIdentityType = null;
+    public TeamworkUserIdentityType|\stdClass|null $userIdentityType = null;
 
 
     /**

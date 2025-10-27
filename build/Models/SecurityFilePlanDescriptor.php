@@ -19,61 +19,61 @@ class SecurityFilePlanDescriptor
      * Represents the file plan descriptor of type authority applied to a particular retention label.
      * @var SecurityFilePlanAuthority|\stdClass|null
      */
-    public mixed $authority = null;
+    public SecurityFilePlanAuthority|\stdClass|null $authority = null;
 
     /** 
      * 
      * @var SecurityFilePlanAppliedCategory|\stdClass|null
      */
-    public mixed $category = null;
+    public SecurityFilePlanAppliedCategory|\stdClass|null $category = null;
 
     /** 
      * Represents the file plan descriptor of type citation applied to a particular retention label.
      * @var SecurityFilePlanCitation|\stdClass|null
      */
-    public mixed $citation = null;
+    public SecurityFilePlanCitation|\stdClass|null $citation = null;
 
     /** 
      * Represents the file plan descriptor of type department applied to a particular retention label.
      * @var SecurityFilePlanDepartment|\stdClass|null
      */
-    public mixed $department = null;
+    public SecurityFilePlanDepartment|\stdClass|null $department = null;
 
     /** 
      * Represents the file plan descriptor of type filePlanReference applied to a particular retention label.
      * @var SecurityFilePlanReference|\stdClass|null
      */
-    public mixed $filePlanReference = null;
+    public SecurityFilePlanReference|\stdClass|null $filePlanReference = null;
 
     /** 
      * Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
      * @var SecurityAuthorityTemplate|\stdClass|null
      */
-    public mixed $authorityTemplate = null;
+    public SecurityAuthorityTemplate|\stdClass|null $authorityTemplate = null;
 
     /** 
      * Specifies a group of similar types of content in a particular department.
      * @var SecurityCategoryTemplate|\stdClass|null
      */
-    public mixed $categoryTemplate = null;
+    public SecurityCategoryTemplate|\stdClass|null $categoryTemplate = null;
 
     /** 
      * The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
      * @var SecurityCitationTemplate|\stdClass|null
      */
-    public mixed $citationTemplate = null;
+    public SecurityCitationTemplate|\stdClass|null $citationTemplate = null;
 
     /** 
      * Specifies the  department or business unit of an organization to which a label belongs.
      * @var SecurityDepartmentTemplate|\stdClass|null
      */
-    public mixed $departmentTemplate = null;
+    public SecurityDepartmentTemplate|\stdClass|null $departmentTemplate = null;
 
     /** 
      * Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
      * @var SecurityFilePlanReferenceTemplate|\stdClass|null
      */
-    public mixed $filePlanReferenceTemplate = null;
+    public SecurityFilePlanReferenceTemplate|\stdClass|null $filePlanReferenceTemplate = null;
 
 
     /**

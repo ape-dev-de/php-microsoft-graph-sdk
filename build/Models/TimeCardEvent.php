@@ -22,7 +22,7 @@ class TimeCardEvent
      * Notes about the timeCardEvent.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $notes = null;
+    public ItemBody|\stdClass|null $notes = null;
 
 
     /**

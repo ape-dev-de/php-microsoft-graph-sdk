@@ -22,7 +22,7 @@ class ExpirationPattern
      * The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
      * @var ExpirationPatternType|\stdClass|null
      */
-    public mixed $type = null;
+    public ExpirationPatternType|\stdClass|null $type = null;
 
 
     /**

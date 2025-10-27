@@ -52,7 +52,7 @@ class Windows10EndpointProtectionConfiguration
      * Device Configuration devices status overview
      * @var DeviceConfigurationDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceConfigurationDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * Device configuration installation status by user.
@@ -64,7 +64,7 @@ class Windows10EndpointProtectionConfiguration
      * Device Configuration users status overview
      * @var DeviceConfigurationUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceConfigurationUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.) */
     public ?bool $applicationGuardAllowPersistence = null;
@@ -112,7 +112,7 @@ class Windows10EndpointProtectionConfiguration
      * BitLocker Removable Drive Policy.
      * @var BitLockerRemovableDrivePolicy|\stdClass|null
      */
-    public mixed $bitLockerRemovableDrivePolicy = null;
+    public BitLockerRemovableDrivePolicy|\stdClass|null $bitLockerRemovableDrivePolicy = null;
 
     /** 
      * List of folder paths to be added to the list of protected folders
@@ -175,19 +175,19 @@ class Windows10EndpointProtectionConfiguration
      * Configures the firewall profile settings for domain networks
      * @var WindowsFirewallNetworkProfile|\stdClass|null
      */
-    public mixed $firewallProfileDomain = null;
+    public WindowsFirewallNetworkProfile|\stdClass|null $firewallProfileDomain = null;
 
     /** 
      * Configures the firewall profile settings for private networks
      * @var WindowsFirewallNetworkProfile|\stdClass|null
      */
-    public mixed $firewallProfilePrivate = null;
+    public WindowsFirewallNetworkProfile|\stdClass|null $firewallProfilePrivate = null;
 
     /** 
      * Configures the firewall profile settings for public networks
      * @var WindowsFirewallNetworkProfile|\stdClass|null
      */
-    public mixed $firewallProfilePublic = null;
+    public WindowsFirewallNetworkProfile|\stdClass|null $firewallProfilePublic = null;
 
     /** Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files. */
     public ?bool $smartScreenBlockOverrideForFiles = null;

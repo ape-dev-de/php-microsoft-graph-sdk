@@ -16,13 +16,13 @@ class OnlineMeetingRestricted
      * Specifies the reason shared content from this participant is disabled. Possible values are: watermarkProtection, unknownFutureValue.
      * @var OnlineMeetingContentSharingDisabledReason|\stdClass|null
      */
-    public mixed $contentSharingDisabled = null;
+    public OnlineMeetingContentSharingDisabledReason|\stdClass|null $contentSharingDisabled = null;
 
     /** 
      * Specifies the reason video from this participant is disabled. Possible values are: watermarkProtection, unknownFutureValue.
      * @var OnlineMeetingVideoDisabledReason|\stdClass|null
      */
-    public mixed $videoDisabled = null;
+    public OnlineMeetingVideoDisabledReason|\stdClass|null $videoDisabled = null;
 
 
     /**

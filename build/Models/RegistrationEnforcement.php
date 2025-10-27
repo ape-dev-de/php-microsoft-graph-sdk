@@ -16,7 +16,7 @@ class RegistrationEnforcement
      * Run campaigns to remind users to set up targeted authentication methods.
      * @var AuthenticationMethodsRegistrationCampaign|\stdClass|null
      */
-    public mixed $authenticationMethodsRegistrationCampaign = null;
+    public AuthenticationMethodsRegistrationCampaign|\stdClass|null $authenticationMethodsRegistrationCampaign = null;
 
 
     /**

@@ -25,13 +25,13 @@ class ExternalConnectorsExternalItem
      * A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
      * @var ExternalConnectorsExternalItemContent|\stdClass|null
      */
-    public mixed $content = null;
+    public ExternalConnectorsExternalItemContent|\stdClass|null $content = null;
 
     /** 
      * A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
      * @var ExternalConnectorsProperties|\stdClass|null
      */
-    public mixed $properties = null;
+    public ExternalConnectorsProperties|\stdClass|null $properties = null;
 
     /** 
      * Returns a list of activities performed on the item. Write-only.

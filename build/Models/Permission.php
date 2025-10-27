@@ -22,7 +22,7 @@ class Permission
      * For user type permissions, the details of the users and applications for this permission. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $grantedTo = null;
+    public IdentitySet|\stdClass|null $grantedTo = null;
 
     /** 
      * For type permissions, the details of the users to whom permission was granted. Read-only.
@@ -40,7 +40,7 @@ class Permission
      * For user type permissions, the details of the users and applications for this permission. Read-only.
      * @var SharePointIdentitySet|\stdClass|null
      */
-    public mixed $grantedToV2 = null;
+    public SharePointIdentitySet|\stdClass|null $grantedToV2 = null;
 
     /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.. */
     public ?bool $hasPassword = null;
@@ -49,19 +49,19 @@ class Permission
      * Provides a reference to the ancestor of the current permission, if it's inherited from an ancestor. Read-only.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $inheritedFrom = null;
+    public ItemReference|\stdClass|null $inheritedFrom = null;
 
     /** 
      * Details of any associated sharing invitation for this permission. Read-only.
      * @var SharingInvitation|\stdClass|null
      */
-    public mixed $invitation = null;
+    public SharingInvitation|\stdClass|null $invitation = null;
 
     /** 
      * Provides the link details of the current permission, if it's a link type permission. Read-only.
      * @var SharingLink|\stdClass|null
      */
-    public mixed $link = null;
+    public SharingLink|\stdClass|null $link = null;
 
     /** 
      * The type of permission, for example, read. See below for the full list of roles. Read-only.

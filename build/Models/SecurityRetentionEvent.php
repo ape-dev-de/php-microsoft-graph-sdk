@@ -19,7 +19,7 @@ class SecurityRetentionEvent
      * The user who created the retentionEvent.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date time when the retentionEvent was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -46,7 +46,7 @@ class SecurityRetentionEvent
      * Status of event propogation to the scoped locations after the event has been created.
      * @var SecurityRetentionEventStatus|\stdClass|null
      */
-    public mixed $eventStatus = null;
+    public SecurityRetentionEventStatus|\stdClass|null $eventStatus = null;
 
     /** Optional time when the event should be triggered. */
     public ?\DateTimeInterface $eventTriggerDateTime = null;
@@ -55,7 +55,7 @@ class SecurityRetentionEvent
      * The user who last modified the retentionEvent.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The latest date time when the retentionEvent was modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -67,7 +67,7 @@ class SecurityRetentionEvent
      * Specifies the event that will start the retention period for labels that use this event type when an event is created.
      * @var SecurityRetentionEventType|\stdClass|null
      */
-    public mixed $retentionEventType = null;
+    public SecurityRetentionEventType|\stdClass|null $retentionEventType = null;
 
 
     /**

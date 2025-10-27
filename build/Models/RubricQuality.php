@@ -22,7 +22,7 @@ class RubricQuality
      * The description of this rubric quality.
      * @var EducationItemBody|\stdClass|null
      */
-    public mixed $description = null;
+    public EducationItemBody|\stdClass|null $description = null;
 
     /** The name of this rubric quality. */
     public ?string $displayName = null;
@@ -30,8 +30,11 @@ class RubricQuality
     /** The ID of this resource. */
     public ?string $qualityId = null;
 
-    /** If present, a numerical weight for this quality.  Weights must add up to 100. */
-    public ?string $weight = null;
+    /** 
+     * If present, a numerical weight for this quality.  Weights must add up to 100.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $weight = null;
 
 
     /**

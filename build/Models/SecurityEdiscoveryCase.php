@@ -28,7 +28,7 @@ class SecurityEdiscoveryCase
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /**  */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,13 +37,13 @@ class SecurityEdiscoveryCase
      * 
      * @var SecurityCaseStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityCaseStatus|\stdClass|null $status = null;
 
     /** 
      * The user who closed the case.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $closedBy = null;
+    public IdentitySet|\stdClass|null $closedBy = null;
 
     /** The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $closedDateTime = null;
@@ -85,7 +85,7 @@ class SecurityEdiscoveryCase
      * Returns a list of eDIscoverySettings objects in the case.
      * @var SecurityEdiscoveryCaseSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public SecurityEdiscoveryCaseSettings|\stdClass|null $settings = null;
 
     /** 
      * Returns a list of ediscoveryReviewTag objects associated to this case.

@@ -22,13 +22,13 @@ class MobileAppAssignment
      * The settings for target assignment defined by the admin.
      * @var MobileAppAssignmentSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public MobileAppAssignmentSettings|\stdClass|null $settings = null;
 
     /** 
      * The target group assignment defined by the admin.
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

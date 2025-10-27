@@ -22,7 +22,7 @@ class WorkbookChartPoint
      * The format properties of the chart point. Read-only.
      * @var WorkbookChartPointFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartPointFormat|\stdClass|null $format = null;
 
 
     /**

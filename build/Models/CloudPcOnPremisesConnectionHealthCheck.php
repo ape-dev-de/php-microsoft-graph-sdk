@@ -28,7 +28,7 @@ class CloudPcOnPremisesConnectionHealthCheck
      * The type of error that occurred during this health check. Possible values are: endpointConnectivityCheckCloudPcUrlNotAllowListed, endpointConnectivityCheckWVDUrlNotAllowListed, etc. (The all possible values can refer to cloudPcOnPremisesConnectionHealthCheckErrorType) Read-Only.
      * @var CloudPcOnPremisesConnectionHealthCheckErrorType|\stdClass|null
      */
-    public mixed $errorType = null;
+    public CloudPcOnPremisesConnectionHealthCheckErrorType|\stdClass|null $errorType = null;
 
     /** The recommended action to fix the corresponding error. For example, The Active Directory domain join check failed because the password of the domain join user has expired. Read-Only. */
     public ?string $recommendedAction = null;

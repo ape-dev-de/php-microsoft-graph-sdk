@@ -37,7 +37,7 @@ class ImportedWindowsAutopilotDeviceIdentity
      * Current state of the imported device.
      * @var ImportedWindowsAutopilotDeviceIdentityState|\stdClass|null
      */
-    public mixed $state = null;
+    public ImportedWindowsAutopilotDeviceIdentityState|\stdClass|null $state = null;
 
 
     /**

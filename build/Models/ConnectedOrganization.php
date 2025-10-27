@@ -37,7 +37,7 @@ class ConnectedOrganization
      * The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.
      * @var ConnectedOrganizationState|\stdClass|null
      */
-    public mixed $state = null;
+    public ConnectedOrganizationState|\stdClass|null $state = null;
 
     /** 
      * 

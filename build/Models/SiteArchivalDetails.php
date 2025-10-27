@@ -16,7 +16,7 @@ class SiteArchivalDetails
      * Represents the current archive status of the site collection. Returned only on $select. The possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue.
      * @var SiteArchiveStatus|\stdClass|null
      */
-    public mixed $archiveStatus = null;
+    public SiteArchiveStatus|\stdClass|null $archiveStatus = null;
 
 
     /**

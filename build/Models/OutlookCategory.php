@@ -19,7 +19,7 @@ class OutlookCategory
      * A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. For more details, see the following note.
      * @var CategoryColor|\stdClass|null
      */
-    public mixed $color = null;
+    public CategoryColor|\stdClass|null $color = null;
 
     /** A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only. */
     public ?string $displayName = null;

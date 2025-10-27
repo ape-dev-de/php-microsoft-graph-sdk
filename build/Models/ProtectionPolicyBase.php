@@ -19,7 +19,7 @@ class ProtectionPolicyBase
      * The identity of person who created the policy.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The time of creation of the policy. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -31,7 +31,7 @@ class ProtectionPolicyBase
      * The identity of the person who last modified the policy.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The timestamp of the last modification of the policy. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class ProtectionPolicyBase
      * The aggregated status of the protection units associated with the policy. The possible values are: inactive, activeWithErrors, updating, active, unknownFutureValue.
      * @var ProtectionPolicyStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ProtectionPolicyStatus|\stdClass|null $status = null;
 
 
     /**

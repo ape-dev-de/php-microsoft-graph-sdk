@@ -22,13 +22,13 @@ class X509CertificateAuthenticationModeConfiguration
      * The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.
      * @var X509CertificateAuthenticationMode|\stdClass|null
      */
-    public mixed $x509CertificateAuthenticationDefaultMode = null;
+    public X509CertificateAuthenticationMode|\stdClass|null $x509CertificateAuthenticationDefaultMode = null;
 
     /** 
      * 
      * @var X509CertificateAffinityLevel|\stdClass|null
      */
-    public mixed $x509CertificateDefaultRequiredAffinityLevel = null;
+    public X509CertificateAffinityLevel|\stdClass|null $x509CertificateDefaultRequiredAffinityLevel = null;
 
 
     /**

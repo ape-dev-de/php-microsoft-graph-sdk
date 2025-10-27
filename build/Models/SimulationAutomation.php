@@ -19,7 +19,7 @@ class SimulationAutomation
      * Identity of the user who created the attack simulation automation.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public EmailIdentity|\stdClass|null $createdBy = null;
 
     /** Date and time when the attack simulation automation was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class SimulationAutomation
      * Identity of the user who most recently modified the attack simulation automation.
      * @var EmailIdentity|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public EmailIdentity|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time when the attack simulation automation was most recently modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -49,7 +49,7 @@ class SimulationAutomation
      * Status of the attack simulation automation. Supports $filter and $orderby. The possible values are: unknown, draft, notRunning, running, completed, unknownFutureValue.
      * @var SimulationAutomationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SimulationAutomationStatus|\stdClass|null $status = null;
 
     /** 
      * A collection of simulation automation runs.

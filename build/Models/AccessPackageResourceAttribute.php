@@ -16,7 +16,7 @@ class AccessPackageResourceAttribute
      * Information about how to set the attribute, currently a accessPackageUserDirectoryAttributeStore type.
      * @var AccessPackageResourceAttributeDestination|\stdClass|null
      */
-    public mixed $destination = null;
+    public AccessPackageResourceAttributeDestination|\stdClass|null $destination = null;
 
     /**  */
     public ?bool $isEditable = null;
@@ -31,7 +31,7 @@ class AccessPackageResourceAttribute
      * Information about how to populate the attribute value when an accessPackageAssignmentRequest is being fulfilled, currently a accessPackageResourceAttributeQuestion type.
      * @var AccessPackageResourceAttributeSource|\stdClass|null
      */
-    public mixed $source = null;
+    public AccessPackageResourceAttributeSource|\stdClass|null $source = null;
 
 
     /**

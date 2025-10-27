@@ -19,13 +19,13 @@ class AccessPackageAssignmentPolicy
      * Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.
      * @var AllowedTargetScope|\stdClass|null
      */
-    public mixed $allowedTargetScope = null;
+    public AllowedTargetScope|\stdClass|null $allowedTargetScope = null;
 
     /** 
      * This property is only present for an auto assignment policy; if absent, this is a request-based policy.
      * @var AccessPackageAutomaticRequestSettings|\stdClass|null
      */
-    public mixed $automaticRequestSettings = null;
+    public AccessPackageAutomaticRequestSettings|\stdClass|null $automaticRequestSettings = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,7 +40,7 @@ class AccessPackageAssignmentPolicy
      * The expiration date for assignments created in this policy.
      * @var ExpirationPattern|\stdClass|null
      */
-    public mixed $expiration = null;
+    public ExpirationPattern|\stdClass|null $expiration = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $modifiedDateTime = null;
@@ -49,25 +49,25 @@ class AccessPackageAssignmentPolicy
      * 
      * @var AccessPackageNotificationSettings|\stdClass|null
      */
-    public mixed $notificationSettings = null;
+    public AccessPackageNotificationSettings|\stdClass|null $notificationSettings = null;
 
     /** 
      * Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
      * @var AccessPackageAssignmentApprovalSettings|\stdClass|null
      */
-    public mixed $requestApprovalSettings = null;
+    public AccessPackageAssignmentApprovalSettings|\stdClass|null $requestApprovalSettings = null;
 
     /** 
      * Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.
      * @var AccessPackageAssignmentRequestorSettings|\stdClass|null
      */
-    public mixed $requestorSettings = null;
+    public AccessPackageAssignmentRequestorSettings|\stdClass|null $requestorSettings = null;
 
     /** 
      * Settings for access reviews of assignments through this policy.
      * @var AccessPackageAssignmentReviewSettings|\stdClass|null
      */
-    public mixed $reviewSettings = null;
+    public AccessPackageAssignmentReviewSettings|\stdClass|null $reviewSettings = null;
 
     /** 
      * The principals that can be assigned access from an access package through this policy.
@@ -79,13 +79,13 @@ class AccessPackageAssignmentPolicy
      * Access package containing this policy. Read-only.  Supports $expand.
      * @var AccessPackage|\stdClass|null
      */
-    public mixed $accessPackage = null;
+    public AccessPackage|\stdClass|null $accessPackage = null;
 
     /** 
      * Catalog of the access package containing this policy. Read-only.
      * @var AccessPackageCatalog|\stdClass|null
      */
-    public mixed $catalog = null;
+    public AccessPackageCatalog|\stdClass|null $catalog = null;
 
     /** 
      * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.

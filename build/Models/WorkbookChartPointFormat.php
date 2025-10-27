@@ -19,7 +19,7 @@ class WorkbookChartPointFormat
      * Represents the fill format of a chart, which includes background formatting information. Read-only.
      * @var WorkbookChartFill|\stdClass|null
      */
-    public mixed $fill = null;
+    public WorkbookChartFill|\stdClass|null $fill = null;
 
 
     /**

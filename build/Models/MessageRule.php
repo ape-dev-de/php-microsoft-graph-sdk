@@ -19,13 +19,13 @@ class MessageRule
      * Actions to be taken on a message when the corresponding conditions are fulfilled.
      * @var MessageRuleActions|\stdClass|null
      */
-    public mixed $actions = null;
+    public MessageRuleActions|\stdClass|null $actions = null;
 
     /** 
      * Conditions that when fulfilled trigger the corresponding actions for that rule.
      * @var MessageRulePredicates|\stdClass|null
      */
-    public mixed $conditions = null;
+    public MessageRulePredicates|\stdClass|null $conditions = null;
 
     /** The display name of the rule. */
     public ?string $displayName = null;
@@ -34,7 +34,7 @@ class MessageRule
      * Exception conditions for the rule.
      * @var MessageRulePredicates|\stdClass|null
      */
-    public mixed $exceptions = null;
+    public MessageRulePredicates|\stdClass|null $exceptions = null;
 
     /** Indicates whether the rule is in an error condition. Read-only. */
     public ?bool $hasError = null;

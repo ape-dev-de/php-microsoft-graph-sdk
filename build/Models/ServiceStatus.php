@@ -16,13 +16,13 @@ class ServiceStatus
      * The type of consumer. The possible values are: unknown, firstparty, thirdparty, unknownFutureValue.
      * @var BackupServiceConsumer|\stdClass|null
      */
-    public mixed $backupServiceConsumer = null;
+    public BackupServiceConsumer|\stdClass|null $backupServiceConsumer = null;
 
     /** 
      * The reason the service is disabled. The possible values are: none, controllerServiceAppDeleted, invalidBillingProfile, userRequested, unknownFutureValue.
      * @var DisableReason|\stdClass|null
      */
-    public mixed $disableReason = null;
+    public DisableReason|\stdClass|null $disableReason = null;
 
     /** The expiration time of the grace period. */
     public ?\DateTimeInterface $gracePeriodDateTime = null;
@@ -31,7 +31,7 @@ class ServiceStatus
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Timestamp of the last modification of the entity. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -43,7 +43,7 @@ class ServiceStatus
      * Status of the service. This value indicates what capabilities can be used. The possible values are: disabled, enabled, protectionChangeLocked, restoreLocked, unknownFutureValue.
      * @var BackupServiceStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public BackupServiceStatus|\stdClass|null $status = null;
 
 
     /**

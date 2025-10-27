@@ -19,7 +19,7 @@ class SynchronizationRule
      * 
      * @var ContainerFilter|\stdClass|null
      */
-    public mixed $containerFilter = null;
+    public ContainerFilter|\stdClass|null $containerFilter = null;
 
     /** true if the synchronization rule can be customized; false if this rule is read-only and shouldn't be changed. */
     public ?bool $editable = null;
@@ -28,7 +28,7 @@ class SynchronizationRule
      * 
      * @var GroupFilter|\stdClass|null
      */
-    public mixed $groupFilter = null;
+    public GroupFilter|\stdClass|null $groupFilter = null;
 
     /** 
      * Additional extension properties. Unless instructed explicitly by the support team, metadata values shouldn't be changed.

@@ -22,7 +22,7 @@ class Fido2KeyRestrictions
      * Enforcement type. Possible values are: allow, block.
      * @var Fido2RestrictionEnforcementType|\stdClass|null
      */
-    public mixed $enforcementType = null;
+    public Fido2RestrictionEnforcementType|\stdClass|null $enforcementType = null;
 
     /** Determines if the configured key enforcement is enabled. */
     public ?bool $isEnforced = null;

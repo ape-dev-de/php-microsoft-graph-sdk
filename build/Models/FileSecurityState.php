@@ -16,7 +16,7 @@ class FileSecurityState
      * Complex type containing file hashes (cryptographic and location-sensitive).
      * @var FileHash|\stdClass|null
      */
-    public mixed $fileHash = null;
+    public FileHash|\stdClass|null $fileHash = null;
 
     /** File name (without path). */
     public ?string $name = null;

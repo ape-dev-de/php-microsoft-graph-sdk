@@ -19,7 +19,7 @@ class PrintJobConfiguration
      * The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.
      * @var PrintColorMode|\stdClass|null
      */
-    public mixed $colorMode = null;
+    public PrintColorMode|\stdClass|null $colorMode = null;
 
     /** The number of copies that should be printed. Read-only. */
     public ?float $copies = null;
@@ -31,13 +31,13 @@ class PrintJobConfiguration
      * The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.
      * @var PrintDuplexMode|\stdClass|null
      */
-    public mixed $duplexMode = null;
+    public PrintDuplexMode|\stdClass|null $duplexMode = null;
 
     /** 
      * The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.
      * @var PrinterFeedOrientation|\stdClass|null
      */
-    public mixed $feedOrientation = null;
+    public PrinterFeedOrientation|\stdClass|null $feedOrientation = null;
 
     /** 
      * Finishing processes to use when printing.
@@ -55,7 +55,7 @@ class PrintJobConfiguration
      * The margin settings to use when printing.
      * @var PrintMargin|\stdClass|null
      */
-    public mixed $margin = null;
+    public PrintMargin|\stdClass|null $margin = null;
 
     /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic. */
     public ?string $mediaSize = null;
@@ -67,13 +67,13 @@ class PrintJobConfiguration
      * The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
      * @var PrintMultipageLayout|\stdClass|null
      */
-    public mixed $multipageLayout = null;
+    public PrintMultipageLayout|\stdClass|null $multipageLayout = null;
 
     /** 
      * The orientation setting the printer should use when printing the job. Valid values are described in the following table.
      * @var PrintOrientation|\stdClass|null
      */
-    public mixed $orientation = null;
+    public PrintOrientation|\stdClass|null $orientation = null;
 
     /** The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
     public ?string $outputBin = null;
@@ -91,13 +91,13 @@ class PrintJobConfiguration
      * The print quality to use when printing the job. Valid values are described in the table below. Read-only.
      * @var PrintQuality|\stdClass|null
      */
-    public mixed $quality = null;
+    public PrintQuality|\stdClass|null $quality = null;
 
     /** 
      * Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
      * @var PrintScaling|\stdClass|null
      */
-    public mixed $scaling = null;
+    public PrintScaling|\stdClass|null $scaling = null;
 
 
     /**

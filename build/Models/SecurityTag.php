@@ -19,7 +19,7 @@ class SecurityTag
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /**  */
     public ?string $description = null;

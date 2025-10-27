@@ -28,7 +28,7 @@ class TenantAppManagementPolicy
      * Restrictions that apply as default to all application objects in the tenant.
      * @var AppManagementApplicationConfiguration|\stdClass|null
      */
-    public mixed $applicationRestrictions = null;
+    public AppManagementApplicationConfiguration|\stdClass|null $applicationRestrictions = null;
 
     /** Denotes whether the policy is enabled. Default value is false. */
     public ?bool $isEnabled = null;
@@ -37,7 +37,7 @@ class TenantAppManagementPolicy
      * Restrictions that apply as default to all service principal objects in the tenant.
      * @var AppManagementServicePrincipalConfiguration|\stdClass|null
      */
-    public mixed $servicePrincipalRestrictions = null;
+    public AppManagementServicePrincipalConfiguration|\stdClass|null $servicePrincipalRestrictions = null;
 
 
     /**

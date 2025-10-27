@@ -43,7 +43,7 @@ class WorkbookChartDataLabels
      * Represents the format of chart data labels, which includes fill and font formatting. Read-only.
      * @var WorkbookChartDataLabelFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartDataLabelFormat|\stdClass|null $format = null;
 
 
     /**

@@ -16,7 +16,7 @@ class CallRecordsServiceEndpoint
      * User-agent reported by this endpoint.
      * @var CallRecordsUserAgent|\stdClass|null
      */
-    public mixed $userAgent = null;
+    public CallRecordsUserAgent|\stdClass|null $userAgent = null;
 
 
     /**

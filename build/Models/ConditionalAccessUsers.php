@@ -22,7 +22,7 @@ class ConditionalAccessUsers
      * Internal guests or external users excluded from the policy scope. Optionally populated.
      * @var ConditionalAccessGuestsOrExternalUsers|\stdClass|null
      */
-    public mixed $excludeGuestsOrExternalUsers = null;
+    public ConditionalAccessGuestsOrExternalUsers|\stdClass|null $excludeGuestsOrExternalUsers = null;
 
     /** 
      * Role IDs excluded from scope of policy.
@@ -46,7 +46,7 @@ class ConditionalAccessUsers
      * Internal guests or external users included in the policy scope. Optionally populated.
      * @var ConditionalAccessGuestsOrExternalUsers|\stdClass|null
      */
-    public mixed $includeGuestsOrExternalUsers = null;
+    public ConditionalAccessGuestsOrExternalUsers|\stdClass|null $includeGuestsOrExternalUsers = null;
 
     /** 
      * Role IDs in scope of policy unless explicitly excluded.

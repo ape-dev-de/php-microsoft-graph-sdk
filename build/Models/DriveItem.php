@@ -19,7 +19,7 @@ class DriveItem
      * Identity of the user, device, or application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class DriveItem
      * Identity of the user, device, and application that last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class DriveItem
      * Parent information, if the item has a parent. Read-write.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
     public ?string $webUrl = null;
@@ -55,25 +55,25 @@ class DriveItem
      * Identity of the user who created the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $createdByUser = null;
+    public User|\stdClass|null $createdByUser = null;
 
     /** 
      * Identity of the user who last modified the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedByUser = null;
+    public User|\stdClass|null $lastModifiedByUser = null;
 
     /** 
      * Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.
      * @var Audio|\stdClass|null
      */
-    public mixed $audio = null;
+    public Audio|\stdClass|null $audio = null;
 
     /** 
      * Bundle metadata, if the item is a bundle. Read-only.
      * @var Bundle|\stdClass|null
      */
-    public mixed $bundle = null;
+    public Bundle|\stdClass|null $bundle = null;
 
     /** The content stream, if the item represents a file. */
     public ?string $content = null;
@@ -85,97 +85,97 @@ class DriveItem
      * Information about the deleted state of the item. Read-only.
      * @var Deleted|\stdClass|null
      */
-    public mixed $deleted = null;
+    public Deleted|\stdClass|null $deleted = null;
 
     /** 
      * File metadata, if the item is a file. Read-only.
      * @var File|\stdClass|null
      */
-    public mixed $file = null;
+    public File|\stdClass|null $file = null;
 
     /** 
      * File system information on client. Read-write.
      * @var FileSystemInfo|\stdClass|null
      */
-    public mixed $fileSystemInfo = null;
+    public FileSystemInfo|\stdClass|null $fileSystemInfo = null;
 
     /** 
      * Folder metadata, if the item is a folder. Read-only.
      * @var Folder|\stdClass|null
      */
-    public mixed $folder = null;
+    public Folder|\stdClass|null $folder = null;
 
     /** 
      * Image metadata, if the item is an image. Read-only.
      * @var Image|\stdClass|null
      */
-    public mixed $image = null;
+    public Image|\stdClass|null $image = null;
 
     /** 
      * Location metadata, if the item has location data. Read-only.
      * @var GeoCoordinates|\stdClass|null
      */
-    public mixed $location = null;
+    public GeoCoordinates|\stdClass|null $location = null;
 
     /** 
      * Malware metadata, if the item was detected to contain malware. Read-only.
      * @var Malware|\stdClass|null
      */
-    public mixed $malware = null;
+    public Malware|\stdClass|null $malware = null;
 
     /** 
      * If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @var Package|\stdClass|null
      */
-    public mixed $package = null;
+    public Package|\stdClass|null $package = null;
 
     /** 
      * If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @var PendingOperations|\stdClass|null
      */
-    public mixed $pendingOperations = null;
+    public PendingOperations|\stdClass|null $pendingOperations = null;
 
     /** 
      * Photo metadata, if the item is a photo. Read-only.
      * @var Photo|\stdClass|null
      */
-    public mixed $photo = null;
+    public Photo|\stdClass|null $photo = null;
 
     /** 
      * Provides information about the published or checked-out state of an item, in locations that support such actions. This property isn't returned by default. Read-only.
      * @var PublicationFacet|\stdClass|null
      */
-    public mixed $publication = null;
+    public PublicationFacet|\stdClass|null $publication = null;
 
     /** 
      * Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.
      * @var RemoteItem|\stdClass|null
      */
-    public mixed $remoteItem = null;
+    public RemoteItem|\stdClass|null $remoteItem = null;
 
     /** 
      * If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.
      * @var Root|\stdClass|null
      */
-    public mixed $root = null;
+    public Root|\stdClass|null $root = null;
 
     /** 
      * Search metadata, if the item is from a search result. Read-only.
      * @var SearchResult|\stdClass|null
      */
-    public mixed $searchResult = null;
+    public SearchResult|\stdClass|null $searchResult = null;
 
     /** 
      * Indicates that the item was shared with others and provides information about the shared state of the item. Read-only.
      * @var Shared|\stdClass|null
      */
-    public mixed $shared = null;
+    public Shared|\stdClass|null $shared = null;
 
     /** 
      * Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @var SharepointIds|\stdClass|null
      */
-    public mixed $sharepointIds = null;
+    public SharepointIds|\stdClass|null $sharepointIds = null;
 
     /** Size of the item in bytes. Read-only. */
     public ?float $size = null;
@@ -184,13 +184,13 @@ class DriveItem
      * If the current item is also available as a special folder, this facet is returned. Read-only.
      * @var SpecialFolder|\stdClass|null
      */
-    public mixed $specialFolder = null;
+    public SpecialFolder|\stdClass|null $specialFolder = null;
 
     /** 
      * Video metadata, if the item is a video. Read-only.
      * @var Video|\stdClass|null
      */
-    public mixed $video = null;
+    public Video|\stdClass|null $video = null;
 
     /** WebDAV compatible URL for the item. */
     public ?string $webDavUrl = null;
@@ -199,7 +199,7 @@ class DriveItem
      * Analytics about the view activities that took place on this item.
      * @var ItemAnalytics|\stdClass|null
      */
-    public mixed $analytics = null;
+    public ItemAnalytics|\stdClass|null $analytics = null;
 
     /** 
      * Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
@@ -211,7 +211,7 @@ class DriveItem
      * For drives in SharePoint, the associated document library list item. Read-only. Nullable.
      * @var ListItem|\stdClass|null
      */
-    public mixed $listItem = null;
+    public ListItem|\stdClass|null $listItem = null;
 
     /** 
      * The set of permissions for the item. Read-only. Nullable.
@@ -223,7 +223,7 @@ class DriveItem
      * Information about retention label and settings enforced on the driveItem. Read-write.
      * @var ItemRetentionLabel|\stdClass|null
      */
-    public mixed $retentionLabel = null;
+    public ItemRetentionLabel|\stdClass|null $retentionLabel = null;
 
     /** 
      * The set of subscriptions on the item. Only supported on the root of a drive.
@@ -247,7 +247,7 @@ class DriveItem
      * For files that are Excel spreadsheets, access to the workbook API to work with the spreadsheet's contents. Nullable.
      * @var Workbook|\stdClass|null
      */
-    public mixed $workbook = null;
+    public Workbook|\stdClass|null $workbook = null;
 
 
     /**

@@ -22,7 +22,7 @@ class SignInLocation
      * Provides the latitude, longitude and altitude where the sign-in originated.
      * @var GeoCoordinates|\stdClass|null
      */
-    public mixed $geoCoordinates = null;
+    public GeoCoordinates|\stdClass|null $geoCoordinates = null;
 
     /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
     public ?string $state = null;

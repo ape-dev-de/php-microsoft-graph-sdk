@@ -16,7 +16,7 @@ class VirtualEventPresenterDetails
      * Bio of the presenter.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $bio = null;
+    public ItemBody|\stdClass|null $bio = null;
 
     /** The presenter's company name. */
     public ?string $company = null;

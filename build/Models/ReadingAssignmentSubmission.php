@@ -15,8 +15,11 @@ class ReadingAssignmentSubmission
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
-    /** Accuracy score of the reading progress. */
-    public ?string $accuracyScore = null;
+    /** 
+     * Accuracy score of the reading progress.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $accuracyScore = null;
 
     /** Indicates whether the submission is an attempt by the student or a miscue edit done by the educator. The possible values are Attempt and EditMiscue. */
     public ?string $action = null;
@@ -51,8 +54,11 @@ class ReadingAssignmentSubmission
     /** Number of short words missed during the reading session. */
     public ?float $missedShorts = null;
 
-    /** Score that reflects the student's use of intonation and expression. Lower scores indicate more monotone reading. */
-    public ?string $monotoneScore = null;
+    /** 
+     * Score that reflects the student's use of intonation and expression. Lower scores indicate more monotone reading.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $monotoneScore = null;
 
     /** Omissions of the reading progress. */
     public ?float $omissions = null;
@@ -78,8 +84,11 @@ class ReadingAssignmentSubmission
     /** Words count of the reading progress. */
     public ?float $wordCount = null;
 
-    /** Words per minute of the reading progress. */
-    public ?string $wordsPerMinute = null;
+    /** 
+     * Words per minute of the reading progress.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $wordsPerMinute = null;
 
 
     /**

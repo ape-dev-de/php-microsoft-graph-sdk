@@ -33,8 +33,11 @@ class DeviceLogCollectionResponse
     /** The DateTime of the request. */
     public ?\DateTimeInterface $requestedDateTimeUTC = null;
 
-    /** The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
-    public ?string $sizeInKB = null;
+    /** 
+     * The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $sizeInKB = null;
 
     /**  */
     public ?AppLogUploadState $status = null;

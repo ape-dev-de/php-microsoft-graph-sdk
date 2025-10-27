@@ -19,13 +19,13 @@ class SimulationNotification
      * 
      * @var EndUserNotification|\stdClass|null
      */
-    public mixed $endUserNotification = null;
+    public EndUserNotification|\stdClass|null $endUserNotification = null;
 
     /** 
      * Target user type. Possible values are: unknown, clicked, compromised, allUsers, unknownFutureValue.
      * @var TargettedUserType|\stdClass|null
      */
-    public mixed $targettedUserType = null;
+    public TargettedUserType|\stdClass|null $targettedUserType = null;
 
 
     /**

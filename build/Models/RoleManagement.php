@@ -16,13 +16,13 @@ class RoleManagement
      * 
      * @var RbacApplication|\stdClass|null
      */
-    public mixed $directory = null;
+    public RbacApplication|\stdClass|null $directory = null;
 
     /** 
      * Container for roles and assignments for entitlement management resources.
      * @var RbacApplication|\stdClass|null
      */
-    public mixed $entitlementManagement = null;
+    public RbacApplication|\stdClass|null $entitlementManagement = null;
 
 
     /**

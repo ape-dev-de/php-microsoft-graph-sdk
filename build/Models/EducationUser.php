@@ -40,7 +40,7 @@ class EducationUser
      * The entity who created the user.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The name for the department in which the user works. Supports $filter. */
     public ?string $department = null;
@@ -52,7 +52,7 @@ class EducationUser
      * Where this user was created from. Possible values are: sis, manual.
      * @var EducationExternalSource|\stdClass|null
      */
-    public mixed $externalSource = null;
+    public EducationExternalSource|\stdClass|null $externalSource = null;
 
     /** The name of the external source this resource was generated from. */
     public ?string $externalSourceDetail = null;
@@ -67,7 +67,7 @@ class EducationUser
      * The mail address of the user.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $mailingAddress = null;
+    public PhysicalAddress|\stdClass|null $mailingAddress = null;
 
     /** The mail alias for the user. This property must be specified when a user is created. Supports $filter. */
     public ?string $mailNickname = null;
@@ -85,7 +85,7 @@ class EducationUser
      * Additional information used to associate the Microsoft Entra user with its Active Directory counterpart.
      * @var EducationOnPremisesInfo|\stdClass|null
      */
-    public mixed $onPremisesInfo = null;
+    public EducationOnPremisesInfo|\stdClass|null $onPremisesInfo = null;
 
     /** Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two can be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. */
     public ?string $passwordPolicies = null;
@@ -94,7 +94,7 @@ class EducationUser
      * Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required.
      * @var PasswordProfile|\stdClass|null
      */
-    public mixed $passwordProfile = null;
+    public PasswordProfile|\stdClass|null $passwordProfile = null;
 
     /** The preferred language for the user that should follow the ISO 639-1 code, for example, en-US. */
     public ?string $preferredLanguage = null;
@@ -121,7 +121,7 @@ class EducationUser
      * The address where the user lives.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $residenceAddress = null;
+    public PhysicalAddress|\stdClass|null $residenceAddress = null;
 
     /** True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. */
     public ?bool $showInAddressList = null;
@@ -130,7 +130,7 @@ class EducationUser
      * If the primary role is student, this block will contain student specific data.
      * @var EducationStudent|\stdClass|null
      */
-    public mixed $student = null;
+    public EducationStudent|\stdClass|null $student = null;
 
     /** The user's surname (family name or last name). Supports $filter. */
     public ?string $surname = null;
@@ -139,7 +139,7 @@ class EducationUser
      * If the primary role is teacher, this block will contain teacher specific data.
      * @var EducationTeacher|\stdClass|null
      */
-    public mixed $teacher = null;
+    public EducationTeacher|\stdClass|null $teacher = null;
 
     /** A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: US, JP, and GB. Not nullable. Supports $filter. */
     public ?string $usageLocation = null;
@@ -184,7 +184,7 @@ class EducationUser
      * The directory user that corresponds to this user.
      * @var User|\stdClass|null
      */
-    public mixed $user = null;
+    public User|\stdClass|null $user = null;
 
 
     /**

@@ -37,7 +37,7 @@ class CallTranscript
      * The identity information of the organizer of the onlineMeeting related to this transcript. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $meetingOrganizer = null;
+    public IdentitySet|\stdClass|null $meetingOrganizer = null;
 
     /** The time-aligned metadata of the utterances in the transcript. Read-only. */
     public ?string $metadataContent = null;

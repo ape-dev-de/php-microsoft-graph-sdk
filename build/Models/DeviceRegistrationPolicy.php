@@ -19,13 +19,13 @@ class DeviceRegistrationPolicy
      * 
      * @var AzureADJoinPolicy|\stdClass|null
      */
-    public mixed $azureADJoin = null;
+    public AzureADJoinPolicy|\stdClass|null $azureADJoin = null;
 
     /** 
      * 
      * @var AzureADRegistrationPolicy|\stdClass|null
      */
-    public mixed $azureADRegistration = null;
+    public AzureADRegistrationPolicy|\stdClass|null $azureADRegistration = null;
 
     /**  */
     public ?string $description = null;
@@ -37,7 +37,7 @@ class DeviceRegistrationPolicy
      * 
      * @var LocalAdminPasswordSettings|\stdClass|null
      */
-    public mixed $localAdminPassword = null;
+    public LocalAdminPasswordSettings|\stdClass|null $localAdminPassword = null;
 
     /**  */
     public ?MultiFactorAuthConfiguration $multiFactorAuthConfiguration = null;

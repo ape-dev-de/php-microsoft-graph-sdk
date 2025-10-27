@@ -55,7 +55,7 @@ class AccessReviewScheduleSettings
      * Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
      * @var PatternedRecurrence|\stdClass|null
      */
-    public mixed $recurrence = null;
+    public PatternedRecurrence|\stdClass|null $recurrence = null;
 
     /** Indicates whether reminders are enabled or disabled. Default value is false. */
     public ?bool $reminderNotificationsEnabled = null;

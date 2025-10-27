@@ -19,7 +19,7 @@ class LobbyBypassSettings
      * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
      * @var LobbyBypassScope|\stdClass|null
      */
-    public mixed $scope = null;
+    public LobbyBypassScope|\stdClass|null $scope = null;
 
 
     /**

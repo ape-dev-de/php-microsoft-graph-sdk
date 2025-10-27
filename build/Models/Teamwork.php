@@ -37,7 +37,7 @@ class Teamwork
      * Represents tenant-wide settings for all Teams apps in the tenant.
      * @var TeamsAppSettings|\stdClass|null
      */
-    public mixed $teamsAppSettings = null;
+    public TeamsAppSettings|\stdClass|null $teamsAppSettings = null;
 
     /** 
      * 

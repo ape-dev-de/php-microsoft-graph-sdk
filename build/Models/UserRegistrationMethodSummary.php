@@ -25,13 +25,13 @@ class UserRegistrationMethodSummary
      * The role type of the user. Possible values are: all, privilegedAdmin, admin, user, unknownFutureValue.
      * @var IncludedUserRoles|\stdClass|null
      */
-    public mixed $userRoles = null;
+    public IncludedUserRoles|\stdClass|null $userRoles = null;
 
     /** 
      * User type. Possible values are: all, member, guest, unknownFutureValue.
      * @var IncludedUserTypes|\stdClass|null
      */
-    public mixed $userTypes = null;
+    public IncludedUserTypes|\stdClass|null $userTypes = null;
 
 
     /**

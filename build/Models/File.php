@@ -16,7 +16,7 @@ class File
      * Hashes of the file's binary content, if available. Read-only.
      * @var Hashes|\stdClass|null
      */
-    public mixed $hashes = null;
+    public Hashes|\stdClass|null $hashes = null;
 
     /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
     public ?string $mimeType = null;

@@ -19,7 +19,7 @@ class StandardTimeZoneOffset
      * Represents the day of the week when the transition from daylight saving time to standard time.
      * @var DayOfWeek|\stdClass|null
      */
-    public mixed $dayOfWeek = null;
+    public DayOfWeek|\stdClass|null $dayOfWeek = null;
 
     /** Represents the month of the year when the transition from daylight saving time to standard time occurs. */
     public ?float $month = null;

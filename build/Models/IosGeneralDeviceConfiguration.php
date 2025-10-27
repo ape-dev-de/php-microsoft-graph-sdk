@@ -52,7 +52,7 @@ class IosGeneralDeviceConfiguration
      * Device Configuration devices status overview
      * @var DeviceConfigurationDeviceOverview|\stdClass|null
      */
-    public mixed $deviceStatusOverview = null;
+    public DeviceConfigurationDeviceOverview|\stdClass|null $deviceStatusOverview = null;
 
     /** 
      * Device configuration installation status by user.
@@ -64,7 +64,7 @@ class IosGeneralDeviceConfiguration
      * Device Configuration users status overview
      * @var DeviceConfigurationUserOverview|\stdClass|null
      */
-    public mixed $userStatusOverview = null;
+    public DeviceConfigurationUserOverview|\stdClass|null $userStatusOverview = null;
 
     /** Indicates whether or not to allow account modification when the device is in supervised mode. */
     public ?bool $accountBlockModification = null;
@@ -346,55 +346,55 @@ class IosGeneralDeviceConfiguration
      * Media content rating settings for Australia
      * @var MediaContentRatingAustralia|\stdClass|null
      */
-    public mixed $mediaContentRatingAustralia = null;
+    public MediaContentRatingAustralia|\stdClass|null $mediaContentRatingAustralia = null;
 
     /** 
      * Media content rating settings for Canada
      * @var MediaContentRatingCanada|\stdClass|null
      */
-    public mixed $mediaContentRatingCanada = null;
+    public MediaContentRatingCanada|\stdClass|null $mediaContentRatingCanada = null;
 
     /** 
      * Media content rating settings for France
      * @var MediaContentRatingFrance|\stdClass|null
      */
-    public mixed $mediaContentRatingFrance = null;
+    public MediaContentRatingFrance|\stdClass|null $mediaContentRatingFrance = null;
 
     /** 
      * Media content rating settings for Germany
      * @var MediaContentRatingGermany|\stdClass|null
      */
-    public mixed $mediaContentRatingGermany = null;
+    public MediaContentRatingGermany|\stdClass|null $mediaContentRatingGermany = null;
 
     /** 
      * Media content rating settings for Ireland
      * @var MediaContentRatingIreland|\stdClass|null
      */
-    public mixed $mediaContentRatingIreland = null;
+    public MediaContentRatingIreland|\stdClass|null $mediaContentRatingIreland = null;
 
     /** 
      * Media content rating settings for Japan
      * @var MediaContentRatingJapan|\stdClass|null
      */
-    public mixed $mediaContentRatingJapan = null;
+    public MediaContentRatingJapan|\stdClass|null $mediaContentRatingJapan = null;
 
     /** 
      * Media content rating settings for New Zealand
      * @var MediaContentRatingNewZealand|\stdClass|null
      */
-    public mixed $mediaContentRatingNewZealand = null;
+    public MediaContentRatingNewZealand|\stdClass|null $mediaContentRatingNewZealand = null;
 
     /** 
      * Media content rating settings for United Kingdom
      * @var MediaContentRatingUnitedKingdom|\stdClass|null
      */
-    public mixed $mediaContentRatingUnitedKingdom = null;
+    public MediaContentRatingUnitedKingdom|\stdClass|null $mediaContentRatingUnitedKingdom = null;
 
     /** 
      * Media content rating settings for United States
      * @var MediaContentRatingUnitedStates|\stdClass|null
      */
-    public mixed $mediaContentRatingUnitedStates = null;
+    public MediaContentRatingUnitedStates|\stdClass|null $mediaContentRatingUnitedStates = null;
 
     /** Indicates whether or not to block the user from using the Messages app on the supervised device. */
     public ?bool $messagesBlocked = null;

@@ -19,13 +19,13 @@ class ExternalConnectorsConnectionOperation
      * If status is failed, provides more information about the error that caused the failure.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** 
      * Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
      * @var ExternalConnectorsConnectionOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ExternalConnectorsConnectionOperationStatus|\stdClass|null $status = null;
 
 
     /**

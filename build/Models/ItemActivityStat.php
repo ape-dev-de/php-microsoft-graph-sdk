@@ -19,25 +19,25 @@ class ItemActivityStat
      * Statistics about the access actions in this interval. Read-only.
      * @var ItemActionStat|\stdClass|null
      */
-    public mixed $access = null;
+    public ItemActionStat|\stdClass|null $access = null;
 
     /** 
      * Statistics about the create actions in this interval. Read-only.
      * @var ItemActionStat|\stdClass|null
      */
-    public mixed $create = null;
+    public ItemActionStat|\stdClass|null $create = null;
 
     /** 
      * Statistics about the delete actions in this interval. Read-only.
      * @var ItemActionStat|\stdClass|null
      */
-    public mixed $delete = null;
+    public ItemActionStat|\stdClass|null $delete = null;
 
     /** 
      * Statistics about the edit actions in this interval. Read-only.
      * @var ItemActionStat|\stdClass|null
      */
-    public mixed $edit = null;
+    public ItemActionStat|\stdClass|null $edit = null;
 
     /** When the interval ends. Read-only. */
     public ?\DateTimeInterface $endDateTime = null;
@@ -46,7 +46,7 @@ class ItemActivityStat
      * Indicates that the statistics in this interval are based on incomplete data. Read-only.
      * @var IncompleteData|\stdClass|null
      */
-    public mixed $incompleteData = null;
+    public IncompleteData|\stdClass|null $incompleteData = null;
 
     /** Indicates whether the item is 'trending.' Read-only. */
     public ?bool $isTrending = null;
@@ -55,7 +55,7 @@ class ItemActivityStat
      * Statistics about the move actions in this interval. Read-only.
      * @var ItemActionStat|\stdClass|null
      */
-    public mixed $move = null;
+    public ItemActionStat|\stdClass|null $move = null;
 
     /** When the interval starts. Read-only. */
     public ?\DateTimeInterface $startDateTime = null;

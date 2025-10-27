@@ -16,7 +16,7 @@ class MediaSource
      * Enumeration value that indicates the media content category.
      * @var MediaSourceContentCategory|\stdClass|null
      */
-    public mixed $contentCategory = null;
+    public MediaSourceContentCategory|\stdClass|null $contentCategory = null;
 
 
     /**

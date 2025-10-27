@@ -16,7 +16,7 @@ class PublicationFacet
      * The user who checked out the file.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $checkedOutBy = null;
+    public IdentitySet|\stdClass|null $checkedOutBy = null;
 
     /** The state of publication for this document. Either published or checkout. Read-only. */
     public ?string $level = null;

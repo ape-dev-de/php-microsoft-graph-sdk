@@ -22,7 +22,7 @@ class PlannerTask
      * The categories to which the task has been applied. See applied Categories for possible values.
      * @var PlannerAppliedCategories|\stdClass|null
      */
-    public mixed $appliedCategories = null;
+    public PlannerAppliedCategories|\stdClass|null $appliedCategories = null;
 
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
     public ?string $assigneePriority = null;
@@ -31,7 +31,7 @@ class PlannerTask
      * The set of assignees the task is assigned to.
      * @var PlannerAssignments|\stdClass|null
      */
-    public mixed $assignments = null;
+    public PlannerAssignments|\stdClass|null $assignments = null;
 
     /** Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It's 28 characters long and case-sensitive. Format validation is done on the service. */
     public ?string $bucketId = null;
@@ -43,7 +43,7 @@ class PlannerTask
      * Identity of the user that completed the task.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $completedBy = null;
+    public IdentitySet|\stdClass|null $completedBy = null;
 
     /** Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $completedDateTime = null;
@@ -55,7 +55,7 @@ class PlannerTask
      * Identity of the user that created the task.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -79,7 +79,7 @@ class PlannerTask
      * This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.
      * @var PlannerPreviewType|\stdClass|null
      */
-    public mixed $previewType = null;
+    public PlannerPreviewType|\stdClass|null $previewType = null;
 
     /** Priority of the task. The valid range of values is between 0 and 10, with the increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2, 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Additionally, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'. */
     public ?float $priority = null;
@@ -97,25 +97,25 @@ class PlannerTask
      * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
      * @var PlannerAssignedToTaskBoardTaskFormat|\stdClass|null
      */
-    public mixed $assignedToTaskBoardFormat = null;
+    public PlannerAssignedToTaskBoardTaskFormat|\stdClass|null $assignedToTaskBoardFormat = null;
 
     /** 
      * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
      * @var PlannerBucketTaskBoardTaskFormat|\stdClass|null
      */
-    public mixed $bucketTaskBoardFormat = null;
+    public PlannerBucketTaskBoardTaskFormat|\stdClass|null $bucketTaskBoardFormat = null;
 
     /** 
      * Read-only. Nullable. More details about the task.
      * @var PlannerTaskDetails|\stdClass|null
      */
-    public mixed $details = null;
+    public PlannerTaskDetails|\stdClass|null $details = null;
 
     /** 
      * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @var PlannerProgressTaskBoardTaskFormat|\stdClass|null
      */
-    public mixed $progressTaskBoardFormat = null;
+    public PlannerProgressTaskBoardTaskFormat|\stdClass|null $progressTaskBoardFormat = null;
 
 
     /**

@@ -19,7 +19,7 @@ class SensitivityLabel
      * 
      * @var LabelActionSource|\stdClass|null
      */
-    public mixed $actionSource = null;
+    public LabelActionSource|\stdClass|null $actionSource = null;
 
     /**  */
     public ?string $autoTooltip = null;
@@ -55,7 +55,7 @@ class SensitivityLabel
      * 
      * @var UsageRightsIncluded|\stdClass|null
      */
-    public mixed $rights = null;
+    public UsageRightsIncluded|\stdClass|null $rights = null;
 
     /** 
      * 

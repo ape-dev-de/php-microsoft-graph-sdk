@@ -16,7 +16,7 @@ class AttackSimulationRepeatOffender
      * The user in an attack simulation and training campaign.
      * @var AttackSimulationUser|\stdClass|null
      */
-    public mixed $attackSimulationUser = null;
+    public AttackSimulationUser|\stdClass|null $attackSimulationUser = null;
 
     /** Number of repeat offences of the user in attack simulation and training campaigns. */
     public ?float $repeatOffenceCount = null;

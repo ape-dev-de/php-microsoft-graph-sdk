@@ -19,7 +19,7 @@ class SecurityRetentionEventType
      * The user who created the retentionEventType.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date time when the retentionEventType was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class SecurityRetentionEventType
      * The user who last modified the retentionEventType.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The latest date time when the retentionEventType was modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

@@ -25,7 +25,7 @@ class Call
      * Contains the optional features for the call.
      * @var CallOptions|\stdClass|null
      */
-    public mixed $callOptions = null;
+    public CallOptions|\stdClass|null $callOptions = null;
 
     /** 
      * The routing information on how the call was retargeted. Read-only.
@@ -37,37 +37,37 @@ class Call
      * The chat information. Required information for joining a meeting.
      * @var ChatInfo|\stdClass|null
      */
-    public mixed $chatInfo = null;
+    public ChatInfo|\stdClass|null $chatInfo = null;
 
     /** 
      * The direction of the call. The possible values are incoming or outgoing. Read-only.
      * @var CallDirection|\stdClass|null
      */
-    public mixed $direction = null;
+    public CallDirection|\stdClass|null $direction = null;
 
     /** 
      * Call context associated with an incoming call.
      * @var IncomingContext|\stdClass|null
      */
-    public mixed $incomingContext = null;
+    public IncomingContext|\stdClass|null $incomingContext = null;
 
     /** 
      * The media configuration. Required.
      * @var MediaConfig|\stdClass|null
      */
-    public mixed $mediaConfig = null;
+    public MediaConfig|\stdClass|null $mediaConfig = null;
 
     /** 
      * Read-only. The call media state.
      * @var CallMediaState|\stdClass|null
      */
-    public mixed $mediaState = null;
+    public CallMediaState|\stdClass|null $mediaState = null;
 
     /** 
      * The meeting information. Required information for meeting scenarios.
      * @var MeetingInfo|\stdClass|null
      */
-    public mixed $meetingInfo = null;
+    public MeetingInfo|\stdClass|null $meetingInfo = null;
 
     /**  */
     public ?string $myParticipantId = null;
@@ -82,19 +82,19 @@ class Call
      * The result information. For example, the result can hold termination reason. Read-only.
      * @var ResultInfo|\stdClass|null
      */
-    public mixed $resultInfo = null;
+    public ResultInfo|\stdClass|null $resultInfo = null;
 
     /** 
      * The originator of the call.
      * @var ParticipantInfo|\stdClass|null
      */
-    public mixed $source = null;
+    public ParticipantInfo|\stdClass|null $source = null;
 
     /** 
      * The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
      * @var CallState|\stdClass|null
      */
-    public mixed $state = null;
+    public CallState|\stdClass|null $state = null;
 
     /** The subject of the conversation. */
     public ?string $subject = null;
@@ -112,13 +112,13 @@ class Call
      * 
      * @var ToneInfo|\stdClass|null
      */
-    public mixed $toneInfo = null;
+    public ToneInfo|\stdClass|null $toneInfo = null;
 
     /** 
      * The transcription information for the call. Read-only.
      * @var CallTranscriptionInfo|\stdClass|null
      */
-    public mixed $transcription = null;
+    public CallTranscriptionInfo|\stdClass|null $transcription = null;
 
     /** 
      * 

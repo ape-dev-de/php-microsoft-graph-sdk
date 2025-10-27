@@ -43,7 +43,7 @@ class Event
      * The body of the message associated with the event. It can be in HTML or text format.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $body = null;
+    public ItemBody|\stdClass|null $body = null;
 
     /** The preview of the message associated with the event. It's in text format. */
     public ?string $bodyPreview = null;
@@ -58,7 +58,7 @@ class Event
      * The date, time, and time zone that the event ends. By default, the end time is in UTC.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $end = null;
+    public DateTimeTimeZone|\stdClass|null $end = null;
 
     /** Set to true if the event has attachments. */
     public ?bool $hasAttachments = null;
@@ -73,7 +73,7 @@ class Event
      * The importance of the event. The possible values are: low, normal, high.
      * @var Importance|\stdClass|null
      */
-    public mixed $importance = null;
+    public Importance|\stdClass|null $importance = null;
 
     /** Set to true if the event lasts all day. If true, regardless of whether it's a single-day or multi-day event, start, and endtime must be set to midnight and be in the same time zone. */
     public ?bool $isAllDay = null;
@@ -97,7 +97,7 @@ class Event
      * The location of the event.
      * @var Location|\stdClass|null
      */
-    public mixed $location = null;
+    public Location|\stdClass|null $location = null;
 
     /** 
      * The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection are removed and replaced by the new location value.
@@ -109,13 +109,13 @@ class Event
      * Details for an attendee to join the meeting online. The default is null. Read-only. After you set the isOnlineMeeting and onlineMeetingProvider properties to enable a meeting online, Microsoft Graph initializes onlineMeeting. When set, the meeting remains available online, and you can't change the isOnlineMeeting, onlineMeetingProvider, and onlneMeeting properties again.
      * @var OnlineMeetingInfo|\stdClass|null
      */
-    public mixed $onlineMeeting = null;
+    public OnlineMeetingInfo|\stdClass|null $onlineMeeting = null;
 
     /** 
      * Represents the online meeting service provider. By default, onlineMeetingProvider is unknown. The possible values are unknown, teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.  After you set onlineMeetingProvider, Microsoft Graph initializes onlineMeeting. Subsequently, you can't change onlineMeetingProvider again, and the meeting remains available online.
      * @var OnlineMeetingProviderType|\stdClass|null
      */
-    public mixed $onlineMeetingProvider = null;
+    public OnlineMeetingProviderType|\stdClass|null $onlineMeetingProvider = null;
 
     /** A URL for an online meeting. The property is set only when an organizer specifies in Outlook that an event is an online meeting such as Skype. Read-only.To access the URL to join an online meeting, use joinUrl which is exposed via the onlineMeeting property of the event. The onlineMeetingUrl property will be deprecated in the future. */
     public ?string $onlineMeetingUrl = null;
@@ -124,7 +124,7 @@ class Event
      * The organizer of the event.
      * @var Recipient|\stdClass|null
      */
-    public mixed $organizer = null;
+    public Recipient|\stdClass|null $organizer = null;
 
     /** The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook. */
     public ?string $originalEndTimeZone = null;
@@ -139,7 +139,7 @@ class Event
      * The recurrence pattern for the event.
      * @var PatternedRecurrence|\stdClass|null
      */
-    public mixed $recurrence = null;
+    public PatternedRecurrence|\stdClass|null $recurrence = null;
 
     /** The number of minutes before the event start time that the reminder alert occurs. */
     public ?float $reminderMinutesBeforeStart = null;
@@ -151,13 +151,13 @@ class Event
      * Indicates the type of response sent in response to an event message.
      * @var ResponseStatus|\stdClass|null
      */
-    public mixed $responseStatus = null;
+    public ResponseStatus|\stdClass|null $responseStatus = null;
 
     /** 
      * Possible values are: normal, personal, private, and confidential.
      * @var Sensitivity|\stdClass|null
      */
-    public mixed $sensitivity = null;
+    public Sensitivity|\stdClass|null $sensitivity = null;
 
     /** The ID for the recurring series master item, if this event is part of a recurring series. */
     public ?string $seriesMasterId = null;
@@ -166,13 +166,13 @@ class Event
      * The status to show. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @var FreeBusyStatus|\stdClass|null
      */
-    public mixed $showAs = null;
+    public FreeBusyStatus|\stdClass|null $showAs = null;
 
     /** 
      * The start date, time, and time zone of the event. By default, the start time is in UTC.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $start = null;
+    public DateTimeTimeZone|\stdClass|null $start = null;
 
     /** The text of the event's subject line. */
     public ?string $subject = null;
@@ -184,7 +184,7 @@ class Event
      * The event type. Possible values are: singleInstance, occurrence, exception, seriesMaster. Read-only
      * @var EventType|\stdClass|null
      */
-    public mixed $type = null;
+    public EventType|\stdClass|null $type = null;
 
     /** The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can't be accessed from within an iFrame. */
     public ?string $webLink = null;
@@ -199,7 +199,7 @@ class Event
      * The calendar that contains the event. Navigation property. Read-only.
      * @var Calendar|\stdClass|null
      */
-    public mixed $calendar = null;
+    public Calendar|\stdClass|null $calendar = null;
 
     /** 
      * Contains the id property values of the event instances that are exceptions in a recurring series.Exceptions can differ from other occurrences in a recurring series, such as the subject, start or end times, or attendees. Exceptions don't include canceled occurrences.Returned only on $select and $expand in a GET operation that specifies the ID (seriesMasterId property value) of a series master event.

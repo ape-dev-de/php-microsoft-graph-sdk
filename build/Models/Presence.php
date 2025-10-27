@@ -25,7 +25,7 @@ class Presence
      * The out of office settings for a user.
      * @var OutOfOfficeSettings|\stdClass|null
      */
-    public mixed $outOfOfficeSettings = null;
+    public OutOfOfficeSettings|\stdClass|null $outOfOfficeSettings = null;
 
     /** The lexicographically sortable String stamp that represents the version of a presence object. */
     public ?string $sequenceNumber = null;
@@ -34,7 +34,7 @@ class Presence
      * The presence status message of a user.
      * @var PresenceStatusMessage|\stdClass|null
      */
-    public mixed $statusMessage = null;
+    public PresenceStatusMessage|\stdClass|null $statusMessage = null;
 
 
     /**

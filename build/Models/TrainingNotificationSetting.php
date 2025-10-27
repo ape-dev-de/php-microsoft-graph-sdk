@@ -16,31 +16,31 @@ class TrainingNotificationSetting
      * Notification preference. Possible values are: unknown, microsoft, custom, unknownFutureValue.
      * @var EndUserNotificationPreference|\stdClass|null
      */
-    public mixed $notificationPreference = null;
+    public EndUserNotificationPreference|\stdClass|null $notificationPreference = null;
 
     /** 
      * Positive reinforcement detail.
      * @var PositiveReinforcementNotification|\stdClass|null
      */
-    public mixed $positiveReinforcement = null;
+    public PositiveReinforcementNotification|\stdClass|null $positiveReinforcement = null;
 
     /** 
      * End user notification type. Possible values are: unknown, noTraining, trainingSelected, noNotification, unknownFutureValue.
      * @var EndUserNotificationSettingType|\stdClass|null
      */
-    public mixed $settingType = null;
+    public EndUserNotificationSettingType|\stdClass|null $settingType = null;
 
     /** 
      * Training assignment details.
      * @var BaseEndUserNotification|\stdClass|null
      */
-    public mixed $trainingAssignment = null;
+    public BaseEndUserNotification|\stdClass|null $trainingAssignment = null;
 
     /** 
      * Training reminder details.
      * @var TrainingReminderNotification|\stdClass|null
      */
-    public mixed $trainingReminder = null;
+    public TrainingReminderNotification|\stdClass|null $trainingReminder = null;
 
 
     /**

@@ -19,13 +19,13 @@ class TeamsAppDefinition
      * Authorization requirements specified in the Teams app manifest.
      * @var TeamsAppAuthorization|\stdClass|null
      */
-    public mixed $authorization = null;
+    public TeamsAppAuthorization|\stdClass|null $authorization = null;
 
     /** 
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Verbose description of the application. */
     public ?string $description = null;
@@ -40,7 +40,7 @@ class TeamsAppDefinition
      * The published status of a specific version of a Teams app. Possible values are:submitted—The specific version of the Teams app was submitted and is under review.published—The request to publish the specific version of the Teams app was approved by the admin and the app is published.rejected—The admin rejected the request to publish the specific version of the Teams app.
      * @var TeamsAppPublishingState|\stdClass|null
      */
-    public mixed $publishingState = null;
+    public TeamsAppPublishingState|\stdClass|null $publishingState = null;
 
     /** Short description of the application. */
     public ?string $shortDescription = null;
@@ -55,7 +55,7 @@ class TeamsAppDefinition
      * The details of the bot specified in the Teams app manifest.
      * @var TeamworkBot|\stdClass|null
      */
-    public mixed $bot = null;
+    public TeamworkBot|\stdClass|null $bot = null;
 
 
     /**

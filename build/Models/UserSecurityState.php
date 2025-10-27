@@ -25,7 +25,7 @@ class UserSecurityState
      * For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
      * @var EmailRole|\stdClass|null
      */
-    public mixed $emailRole = null;
+    public EmailRole|\stdClass|null $emailRole = null;
 
     /** Indicates whether the user logged on through a VPN. */
     public ?bool $isVpn = null;
@@ -46,7 +46,7 @@ class UserSecurityState
      * Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
      * @var LogonType|\stdClass|null
      */
-    public mixed $logonType = null;
+    public LogonType|\stdClass|null $logonType = null;
 
     /** Active Directory (on-premises) Security Identifier (SID) of the user. */
     public ?string $onPremisesSecurityIdentifier = null;
@@ -58,7 +58,7 @@ class UserSecurityState
      * User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
      * @var UserAccountSecurityType|\stdClass|null
      */
-    public mixed $userAccountType = null;
+    public UserAccountSecurityType|\stdClass|null $userAccountType = null;
 
     /** User sign-in name - internet format: (user account name)@(user account DNS domain name). */
     public ?string $userPrincipalName = null;

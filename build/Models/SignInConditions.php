@@ -16,13 +16,13 @@ class SignInConditions
      * Type of authentication flow. The possible value is: deviceCodeFlow or authenticationTransfer. Default value is none.
      * @var AuthenticationFlow|\stdClass|null
      */
-    public mixed $authenticationFlow = null;
+    public AuthenticationFlow|\stdClass|null $authenticationFlow = null;
 
     /** 
      * Client application type. The possible value is: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other, unknownFutureValue. Default value is all.
      * @var ConditionalAccessClientApp|\stdClass|null
      */
-    public mixed $clientAppType = null;
+    public ConditionalAccessClientApp|\stdClass|null $clientAppType = null;
 
     /** Country from where the identity is authenticating. */
     public ?string $country = null;
@@ -31,19 +31,19 @@ class SignInConditions
      * Information about the device used for the sign-in.
      * @var DeviceInfo|\stdClass|null
      */
-    public mixed $deviceInfo = null;
+    public DeviceInfo|\stdClass|null $deviceInfo = null;
 
     /** 
      * Device platform. The possible value is: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux. Default value is all.
      * @var ConditionalAccessDevicePlatform|\stdClass|null
      */
-    public mixed $devicePlatform = null;
+    public ConditionalAccessDevicePlatform|\stdClass|null $devicePlatform = null;
 
     /** 
      * Insider risk associated with the authenticating user. The possible value is: none, minor, moderate, elevated, unknownFutureValue. Default value is none.
      * @var InsiderRiskLevel|\stdClass|null
      */
-    public mixed $insiderRiskLevel = null;
+    public InsiderRiskLevel|\stdClass|null $insiderRiskLevel = null;
 
     /** Ip address of the authenticating identity. */
     public ?string $ipAddress = null;
@@ -52,19 +52,19 @@ class SignInConditions
      * Risk associated with the service principal. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none.
      * @var RiskLevel|\stdClass|null
      */
-    public mixed $servicePrincipalRiskLevel = null;
+    public RiskLevel|\stdClass|null $servicePrincipalRiskLevel = null;
 
     /** 
      * Sign-in risk associated with the user. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none.
      * @var RiskLevel|\stdClass|null
      */
-    public mixed $signInRiskLevel = null;
+    public RiskLevel|\stdClass|null $signInRiskLevel = null;
 
     /** 
      * The authenticating user's risk level. The possible value is: low, medium, high, hidden, none, unknownFutureValue. Default value is none.
      * @var RiskLevel|\stdClass|null
      */
-    public mixed $userRiskLevel = null;
+    public RiskLevel|\stdClass|null $userRiskLevel = null;
 
 
     /**

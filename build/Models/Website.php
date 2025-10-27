@@ -22,7 +22,7 @@ class Website
      * The possible values are: other, home, work, blog, profile.
      * @var WebsiteType|\stdClass|null
      */
-    public mixed $type = null;
+    public WebsiteType|\stdClass|null $type = null;
 
 
     /**

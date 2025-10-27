@@ -46,7 +46,7 @@ class SynchronizationTaskExecution
      * If an error was encountered, contains a synchronizationError object with details.
      * @var SynchronizationError|\stdClass|null
      */
-    public mixed $error = null;
+    public SynchronizationError|\stdClass|null $error = null;
 
     /**  */
     public ?SynchronizationTaskExecutionResult $state = null;

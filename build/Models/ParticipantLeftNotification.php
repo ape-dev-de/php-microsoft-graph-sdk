@@ -22,7 +22,7 @@ class ParticipantLeftNotification
      * 
      * @var Call|\stdClass|null
      */
-    public mixed $call = null;
+    public Call|\stdClass|null $call = null;
 
 
     /**

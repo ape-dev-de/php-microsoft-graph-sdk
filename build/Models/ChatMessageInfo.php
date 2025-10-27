@@ -19,7 +19,7 @@ class ChatMessageInfo
      * Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object doesn't return @mentions and attachments.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $body = null;
+    public ItemBody|\stdClass|null $body = null;
 
     /** Date time object representing the time at which message was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,13 +28,13 @@ class ChatMessageInfo
      * Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property is set to systemEventMessage.
      * @var EventMessageDetail|\stdClass|null
      */
-    public mixed $eventDetail = null;
+    public EventMessageDetail|\stdClass|null $eventDetail = null;
 
     /** 
      * Information about the sender of the message.
      * @var ChatMessageFromIdentitySet|\stdClass|null
      */
-    public mixed $from = null;
+    public ChatMessageFromIdentitySet|\stdClass|null $from = null;
 
     /** If set to true, the original message has been deleted. */
     public ?bool $isDeleted = null;

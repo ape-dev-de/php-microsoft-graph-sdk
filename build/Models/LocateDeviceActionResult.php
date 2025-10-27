@@ -28,7 +28,7 @@ class LocateDeviceActionResult
      * device location
      * @var DeviceGeoLocation|\stdClass|null
      */
-    public mixed $deviceLocation = null;
+    public DeviceGeoLocation|\stdClass|null $deviceLocation = null;
 
 
     /**

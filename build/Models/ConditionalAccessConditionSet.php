@@ -16,19 +16,19 @@ class ConditionalAccessConditionSet
      * Applications and user actions included in and excluded from the policy. Required.
      * @var ConditionalAccessApplications|\stdClass|null
      */
-    public mixed $applications = null;
+    public ConditionalAccessApplications|\stdClass|null $applications = null;
 
     /** 
      * Authentication flows included in the policy scope.
      * @var ConditionalAccessAuthenticationFlows|\stdClass|null
      */
-    public mixed $authenticationFlows = null;
+    public ConditionalAccessAuthenticationFlows|\stdClass|null $authenticationFlows = null;
 
     /** 
      * Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.
      * @var ConditionalAccessClientApplications|\stdClass|null
      */
-    public mixed $clientApplications = null;
+    public ConditionalAccessClientApplications|\stdClass|null $clientApplications = null;
 
     /** 
      * Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.
@@ -40,25 +40,25 @@ class ConditionalAccessConditionSet
      * Devices in the policy.
      * @var ConditionalAccessDevices|\stdClass|null
      */
-    public mixed $devices = null;
+    public ConditionalAccessDevices|\stdClass|null $devices = null;
 
     /** 
      * Insider risk levels included in the policy. The possible values are: minor, moderate, elevated, unknownFutureValue.
      * @var ConditionalAccessInsiderRiskLevels|\stdClass|null
      */
-    public mixed $insiderRiskLevels = null;
+    public ConditionalAccessInsiderRiskLevels|\stdClass|null $insiderRiskLevels = null;
 
     /** 
      * Locations included in and excluded from the policy.
      * @var ConditionalAccessLocations|\stdClass|null
      */
-    public mixed $locations = null;
+    public ConditionalAccessLocations|\stdClass|null $locations = null;
 
     /** 
      * Platforms included in and excluded from the policy.
      * @var ConditionalAccessPlatforms|\stdClass|null
      */
-    public mixed $platforms = null;
+    public ConditionalAccessPlatforms|\stdClass|null $platforms = null;
 
     /** 
      * Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.
@@ -82,7 +82,7 @@ class ConditionalAccessConditionSet
      * Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @var ConditionalAccessUsers|\stdClass|null
      */
-    public mixed $users = null;
+    public ConditionalAccessUsers|\stdClass|null $users = null;
 
 
     /**

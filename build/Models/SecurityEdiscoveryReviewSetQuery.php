@@ -22,7 +22,7 @@ class SecurityEdiscoveryReviewSetQuery
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /**  */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -37,7 +37,7 @@ class SecurityEdiscoveryReviewSetQuery
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /**  */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

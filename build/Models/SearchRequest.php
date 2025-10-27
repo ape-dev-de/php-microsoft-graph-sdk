@@ -61,7 +61,7 @@ class SearchRequest
      * Query alteration options formatted in a JSON blob that contains two optional flags related to spelling correction. Optional.
      * @var SearchAlterationOptions|\stdClass|null
      */
-    public mixed $queryAlterationOptions = null;
+    public SearchAlterationOptions|\stdClass|null $queryAlterationOptions = null;
 
     /** The geographic location for the search. Required for searches that use application permissions. For details, see Get the region value. */
     public ?string $region = null;
@@ -70,13 +70,13 @@ class SearchRequest
      * Provides the search result template options to render search results from connectors.
      * @var ResultTemplateOption|\stdClass|null
      */
-    public mixed $resultTemplateOptions = null;
+    public ResultTemplateOption|\stdClass|null $resultTemplateOptions = null;
 
     /** 
      * Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
      * @var SharePointOneDriveOptions|\stdClass|null
      */
-    public mixed $sharePointOneDriveOptions = null;
+    public SharePointOneDriveOptions|\stdClass|null $sharePointOneDriveOptions = null;
 
     /** The size of the page to be retrieved. The maximum value is 500. Optional. */
     public ?float $size = null;

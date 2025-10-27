@@ -34,7 +34,7 @@ class AppliedConditionalAccessPolicy
      * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (policy isn't applied because policy conditions weren't met), notEnabled (This is due to the policy in a disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
      * @var AppliedConditionalAccessPolicyResult|\stdClass|null
      */
-    public mixed $result = null;
+    public AppliedConditionalAccessPolicyResult|\stdClass|null $result = null;
 
 
     /**

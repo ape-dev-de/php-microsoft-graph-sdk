@@ -16,13 +16,13 @@ class OnAttributeCollectionStartCustomExtensionHandler
      * Configuration regarding properties of the custom extension that are can be overwritten per event listener.
      * @var CustomExtensionOverwriteConfiguration|\stdClass|null
      */
-    public mixed $configuration = null;
+    public CustomExtensionOverwriteConfiguration|\stdClass|null $configuration = null;
 
     /** 
      * 
      * @var OnAttributeCollectionStartCustomExtension|\stdClass|null
      */
-    public mixed $customExtension = null;
+    public OnAttributeCollectionStartCustomExtension|\stdClass|null $customExtension = null;
 
 
     /**

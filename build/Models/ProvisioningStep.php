@@ -19,7 +19,7 @@ class ProvisioningStep
      * Details of what occurred during the step.
      * @var DetailsInfo|\stdClass|null
      */
-    public mixed $details = null;
+    public DetailsInfo|\stdClass|null $details = null;
 
     /** Name of the step. */
     public ?string $name = null;
@@ -28,13 +28,13 @@ class ProvisioningStep
      * Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
      * @var ProvisioningStepType|\stdClass|null
      */
-    public mixed $provisioningStepType = null;
+    public ProvisioningStepType|\stdClass|null $provisioningStepType = null;
 
     /** 
      * Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
      * @var ProvisioningResult|\stdClass|null
      */
-    public mixed $status = null;
+    public ProvisioningResult|\stdClass|null $status = null;
 
 
     /**

@@ -22,7 +22,7 @@ class TeamsApp
      * The method of distribution for the app. Read-only.
      * @var TeamsAppDistributionMethod|\stdClass|null
      */
-    public mixed $distributionMethod = null;
+    public TeamsAppDistributionMethod|\stdClass|null $distributionMethod = null;
 
     /** The ID of the catalog provided by the app developer in the Microsoft Teams zip app package. */
     public ?string $externalId = null;

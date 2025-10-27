@@ -19,7 +19,7 @@ class WorkbookOperationError
      * 
      * @var WorkbookOperationError|\stdClass|null
      */
-    public mixed $innerError = null;
+    public WorkbookOperationError|\stdClass|null $innerError = null;
 
     /** The error message. */
     public ?string $message = null;

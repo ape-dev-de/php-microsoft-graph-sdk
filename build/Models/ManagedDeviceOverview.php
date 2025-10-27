@@ -19,13 +19,13 @@ class ManagedDeviceOverview
      * Distribution of Exchange Access State in Intune
      * @var DeviceExchangeAccessStateSummary|\stdClass|null
      */
-    public mixed $deviceExchangeAccessStateSummary = null;
+    public DeviceExchangeAccessStateSummary|\stdClass|null $deviceExchangeAccessStateSummary = null;
 
     /** 
      * Device operating system summary.
      * @var DeviceOperatingSystemSummary|\stdClass|null
      */
-    public mixed $deviceOperatingSystemSummary = null;
+    public DeviceOperatingSystemSummary|\stdClass|null $deviceOperatingSystemSummary = null;
 
     /** The number of devices enrolled in both MDM and EAS */
     public ?float $dualEnrolledDeviceCount = null;

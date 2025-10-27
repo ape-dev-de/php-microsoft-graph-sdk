@@ -16,7 +16,7 @@ class TimeClockSettings
      * The approved location of the timeClock.
      * @var GeoCoordinates|\stdClass|null
      */
-    public mixed $approvedLocation = null;
+    public GeoCoordinates|\stdClass|null $approvedLocation = null;
 
 
     /**

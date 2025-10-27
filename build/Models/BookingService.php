@@ -34,10 +34,13 @@ class BookingService
      * The default physical location for the service.
      * @var Location|\stdClass|null
      */
-    public mixed $defaultLocation = null;
+    public Location|\stdClass|null $defaultLocation = null;
 
-    /** The default monetary price for the service. */
-    public ?string $defaultPrice = null;
+    /** 
+     * The default monetary price for the service.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $defaultPrice = null;
 
     /**  */
     public ?BookingPriceType $defaultPriceType = null;
@@ -88,7 +91,7 @@ class BookingService
      * The set of policies that determine how appointments for this type of service should be created and managed.
      * @var BookingSchedulingPolicy|\stdClass|null
      */
-    public mixed $schedulingPolicy = null;
+    public BookingSchedulingPolicy|\stdClass|null $schedulingPolicy = null;
 
     /** True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false. */
     public ?bool $smsNotificationsEnabled = null;

@@ -31,7 +31,7 @@ class InternalDomainFederation
      * Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue.
      * @var AuthenticationProtocol|\stdClass|null
      */
-    public mixed $preferredAuthenticationProtocol = null;
+    public AuthenticationProtocol|\stdClass|null $preferredAuthenticationProtocol = null;
 
     /** Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Microsoft Entra ID updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Microsoft Entra ID monitors the metadata daily and will update the federation settings for the domain when a new certificate is available. */
     public ?string $signingCertificate = null;
@@ -43,7 +43,7 @@ class InternalDomainFederation
      * Determines whether Microsoft Entra ID accepts the MFA performed by the federated IdP when a federated user accesses an application that is governed by a conditional access policy that requires MFA. The possible values are: acceptIfMfaDoneByFederatedIdp, enforceMfaByFederatedIdp, rejectMfaByFederatedIdp, unknownFutureValue. For more information, see federatedIdpMfaBehavior values.
      * @var FederatedIdpMfaBehavior|\stdClass|null
      */
-    public mixed $federatedIdpMfaBehavior = null;
+    public FederatedIdpMfaBehavior|\stdClass|null $federatedIdpMfaBehavior = null;
 
     /** If true, when SAML authentication requests are sent to the federated SAML IdP, Microsoft Entra ID will sign those requests using the OrgID signing key. If false (default), the SAML authentication requests sent to the federated IdP aren't signed. */
     public ?bool $isSignedAuthenticationRequestRequired = null;
@@ -58,13 +58,13 @@ class InternalDomainFederation
      * Sets the preferred behavior for the sign-in prompt. The possible values are: translateToFreshPasswordAuthentication, nativeSupport, disabled, unknownFutureValue.
      * @var PromptLoginBehavior|\stdClass|null
      */
-    public mixed $promptLoginBehavior = null;
+    public PromptLoginBehavior|\stdClass|null $promptLoginBehavior = null;
 
     /** 
      * Provides status and timestamp of the last update of the signing certificate.
      * @var SigningCertificateUpdateStatus|\stdClass|null
      */
-    public mixed $signingCertificateUpdateStatus = null;
+    public SigningCertificateUpdateStatus|\stdClass|null $signingCertificateUpdateStatus = null;
 
     /** URI that clients are redirected to when they sign out of Microsoft Entra services. Corresponds to the LogOffUri property of the Set-EntraDomainFederationSettings PowerShell cmdlet. */
     public ?string $signOutUri = null;

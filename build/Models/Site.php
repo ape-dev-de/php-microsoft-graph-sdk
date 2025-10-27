@@ -19,7 +19,7 @@ class Site
      * Identity of the user, device, or application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class Site
      * Identity of the user, device, and application that last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class Site
      * Parent information, if the item has a parent. Read-write.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
     public ?string $webUrl = null;
@@ -55,13 +55,13 @@ class Site
      * Identity of the user who created the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $createdByUser = null;
+    public User|\stdClass|null $createdByUser = null;
 
     /** 
      * Identity of the user who last modified the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedByUser = null;
+    public User|\stdClass|null $lastModifiedByUser = null;
 
     /** The full title for the site. Read-only. */
     public ?string $displayName = null;
@@ -70,7 +70,7 @@ class Site
      * 
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** Identifies whether the site is personal or not. Read-only. */
     public ?bool $isPersonalSite = null;
@@ -79,25 +79,25 @@ class Site
      * If present, provides the root site in the site collection. Read-only.
      * @var Root|\stdClass|null
      */
-    public mixed $root = null;
+    public Root|\stdClass|null $root = null;
 
     /** 
      * Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @var SharepointIds|\stdClass|null
      */
-    public mixed $sharepointIds = null;
+    public SharepointIds|\stdClass|null $sharepointIds = null;
 
     /** 
      * Provides details about the site's site collection. Available only on the root site. Read-only.
      * @var SiteCollection|\stdClass|null
      */
-    public mixed $siteCollection = null;
+    public SiteCollection|\stdClass|null $siteCollection = null;
 
     /** 
      * Analytics about the view activities that took place on this site.
      * @var ItemAnalytics|\stdClass|null
      */
-    public mixed $analytics = null;
+    public ItemAnalytics|\stdClass|null $analytics = null;
 
     /** 
      * The collection of column definitions reusable across lists under this site.
@@ -115,7 +115,7 @@ class Site
      * The default drive (document library) for this site.
      * @var Drive|\stdClass|null
      */
-    public mixed $drive = null;
+    public Drive|\stdClass|null $drive = null;
 
     /** 
      * The collection of drives (document libraries) under this site.
@@ -145,7 +145,7 @@ class Site
      * Calls the OneNote service for notebook related operations.
      * @var Onenote|\stdClass|null
      */
-    public mixed $onenote = null;
+    public Onenote|\stdClass|null $onenote = null;
 
     /** 
      * The collection of long-running operations on the site.
@@ -175,7 +175,7 @@ class Site
      * The default termStore under this site.
      * @var TermStoreStore|\stdClass|null
      */
-    public mixed $termStore = null;
+    public TermStoreStore|\stdClass|null $termStore = null;
 
     /** 
      * The collection of termStores under this site.

@@ -25,7 +25,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration
      * The state of the policy. Possible values are: enabled, disabled.
      * @var AuthenticationMethodState|\stdClass|null
      */
-    public mixed $state = null;
+    public AuthenticationMethodState|\stdClass|null $state = null;
 
     /** Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters. */
     public ?float $defaultLength = null;

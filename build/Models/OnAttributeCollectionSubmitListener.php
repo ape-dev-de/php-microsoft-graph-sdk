@@ -22,13 +22,13 @@ class OnAttributeCollectionSubmitListener
      * The conditions on which this authenticationEventListener should trigger.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
     /** 
      * Configuration for what to invoke if the event resolves to this listener.
      * @var OnAttributeCollectionSubmitHandler|\stdClass|null
      */
-    public mixed $handler = null;
+    public OnAttributeCollectionSubmitHandler|\stdClass|null $handler = null;
 
 
     /**

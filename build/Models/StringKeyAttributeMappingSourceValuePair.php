@@ -19,7 +19,7 @@ class StringKeyAttributeMappingSourceValuePair
      * The value of the parameter.
      * @var AttributeMappingSource|\stdClass|null
      */
-    public mixed $value = null;
+    public AttributeMappingSource|\stdClass|null $value = null;
 
 
     /**

@@ -22,13 +22,13 @@ class TermColumn
      * 
      * @var TermStoreTerm|\stdClass|null
      */
-    public mixed $parentTerm = null;
+    public TermStoreTerm|\stdClass|null $parentTerm = null;
 
     /** 
      * 
      * @var TermStoreSet|\stdClass|null
      */
-    public mixed $termSet = null;
+    public TermStoreSet|\stdClass|null $termSet = null;
 
 
     /**

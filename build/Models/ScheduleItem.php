@@ -16,7 +16,7 @@ class ScheduleItem
      * The date, time, and time zone that the corresponding event ends.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $end = null;
+    public DateTimeTimeZone|\stdClass|null $end = null;
 
     /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
     public ?bool $isPrivate = null;
@@ -28,13 +28,13 @@ class ScheduleItem
      * The date, time, and time zone that the corresponding event starts.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $start = null;
+    public DateTimeTimeZone|\stdClass|null $start = null;
 
     /** 
      * The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @var FreeBusyStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public FreeBusyStatus|\stdClass|null $status = null;
 
     /** The corresponding event's subject line. Optional. */
     public ?string $subject = null;

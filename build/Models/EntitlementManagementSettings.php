@@ -22,7 +22,7 @@ class EntitlementManagementSettings
      * Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.
      * @var AccessPackageExternalUserLifecycleAction|\stdClass|null
      */
-    public mixed $externalUserLifecycleAction = null;
+    public AccessPackageExternalUserLifecycleAction|\stdClass|null $externalUserLifecycleAction = null;
 
 
     /**

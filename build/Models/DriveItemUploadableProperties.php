@@ -19,7 +19,7 @@ class DriveItemUploadableProperties
      * Information about the drive item source. Read-write. Only on OneDrive for Business and SharePoint.
      * @var DriveItemSource|\stdClass|null
      */
-    public mixed $driveItemSource = null;
+    public DriveItemSource|\stdClass|null $driveItemSource = null;
 
     /** Provides an expected file size to perform a quota check before uploading. Only on OneDrive Personal. */
     public ?float $fileSize = null;
@@ -28,13 +28,13 @@ class DriveItemUploadableProperties
      * File system information on client. Read-write.
      * @var FileSystemInfo|\stdClass|null
      */
-    public mixed $fileSystemInfo = null;
+    public FileSystemInfo|\stdClass|null $fileSystemInfo = null;
 
     /** 
      * Media source information. Read-write. Only on OneDrive for Business and SharePoint.
      * @var MediaSource|\stdClass|null
      */
-    public mixed $mediaSource = null;
+    public MediaSource|\stdClass|null $mediaSource = null;
 
     /** The name of the item (filename and extension). Read-write. */
     public ?string $name = null;

@@ -25,7 +25,7 @@ class TeamsAsyncOperation
      * Any error that causes the async operation to fail.
      * @var OperationError|\stdClass|null
      */
-    public mixed $error = null;
+    public OperationError|\stdClass|null $error = null;
 
     /** Time when the async operation was last updated. */
     public ?\DateTimeInterface $lastActionDateTime = null;

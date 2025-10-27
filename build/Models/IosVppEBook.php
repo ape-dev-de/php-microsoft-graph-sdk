@@ -31,7 +31,7 @@ class IosVppEBook
      * Book cover.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $largeCover = null;
+    public MimeContent|\stdClass|null $largeCover = null;
 
     /** The date and time when the eBook was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -61,7 +61,7 @@ class IosVppEBook
      * Mobile App Install Summary.
      * @var EBookInstallSummary|\stdClass|null
      */
-    public mixed $installSummary = null;
+    public EBookInstallSummary|\stdClass|null $installSummary = null;
 
     /** 
      * The list of installation states for this eBook.

@@ -15,8 +15,11 @@ class RecommendedAction
     /** Web URL to the recommended action. */
     public ?string $actionWebUrl = null;
 
-    /** Potential improvement in the tenant security score from the recommended action. */
-    public ?string $potentialScoreImpact = null;
+    /** 
+     * Potential improvement in the tenant security score from the recommended action.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $potentialScoreImpact = null;
 
     /** Title of the recommended action. */
     public ?string $title = null;

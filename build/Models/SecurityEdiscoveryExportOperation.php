@@ -19,7 +19,7 @@ class SecurityEdiscoveryExportOperation
      * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult.
      * @var SecurityCaseAction|\stdClass|null
      */
-    public mixed $action = null;
+    public SecurityCaseAction|\stdClass|null $action = null;
 
     /** The date and time the operation was completed. */
     public ?\DateTimeInterface $completedDateTime = null;
@@ -28,7 +28,7 @@ class SecurityEdiscoveryExportOperation
      * The user that created the operation.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time the operation was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,13 +40,13 @@ class SecurityEdiscoveryExportOperation
      * Contains success and failure-specific result information.
      * @var ResultInfo|\stdClass|null
      */
-    public mixed $resultInfo = null;
+    public ResultInfo|\stdClass|null $resultInfo = null;
 
     /** 
      * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
      * @var SecurityCaseOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityCaseOperationStatus|\stdClass|null $status = null;
 
     /** The description provided for the export. */
     public ?string $description = null;
@@ -61,13 +61,13 @@ class SecurityEdiscoveryExportOperation
      * The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, tags, unknownFutureValue, splitSource, includeFolderAndPath, friendlyName, condensePaths. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: splitSource, includeFolderAndPath, friendlyName, condensePaths.
      * @var SecurityExportOptions|\stdClass|null
      */
-    public mixed $exportOptions = null;
+    public SecurityExportOptions|\stdClass|null $exportOptions = null;
 
     /** 
      * The options that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory (deprecated), pst, unknownFutureValue, msg. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: msg. The directory member is deprecated. It remains in v1.0 for backward compatibility. Going forward, use either pst or msg.
      * @var SecurityExportFileStructure|\stdClass|null
      */
-    public mixed $exportStructure = null;
+    public SecurityExportFileStructure|\stdClass|null $exportStructure = null;
 
     /** The name provided for the export. */
     public ?string $outputName = null;
@@ -76,13 +76,13 @@ class SecurityEdiscoveryExportOperation
      * Review set from where documents are exported.
      * @var SecurityEdiscoveryReviewSet|\stdClass|null
      */
-    public mixed $reviewSet = null;
+    public SecurityEdiscoveryReviewSet|\stdClass|null $reviewSet = null;
 
     /** 
      * The review set query that is used to filter the documents for export.
      * @var SecurityEdiscoveryReviewSetQuery|\stdClass|null
      */
-    public mixed $reviewSetQuery = null;
+    public SecurityEdiscoveryReviewSetQuery|\stdClass|null $reviewSetQuery = null;
 
 
     /**

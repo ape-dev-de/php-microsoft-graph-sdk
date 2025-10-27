@@ -21,8 +21,11 @@ class OmaSettingFloatingPoint
     /** OMA. */
     public ?string $omaUri = null;
 
-    /** Value. */
-    public ?string $value = null;
+    /** 
+     * Value.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $value = null;
 
 
     /**

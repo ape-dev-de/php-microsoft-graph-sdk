@@ -19,13 +19,13 @@ class InferenceClassificationOverride
      * Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
      * @var InferenceClassificationType|\stdClass|null
      */
-    public mixed $classifyAs = null;
+    public InferenceClassificationType|\stdClass|null $classifyAs = null;
 
     /** 
      * The email address information of the sender for whom the override is created.
      * @var EmailAddress|\stdClass|null
      */
-    public mixed $senderEmailAddress = null;
+    public EmailAddress|\stdClass|null $senderEmailAddress = null;
 
 
     /**

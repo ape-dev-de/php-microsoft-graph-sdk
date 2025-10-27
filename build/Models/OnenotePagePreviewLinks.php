@@ -16,7 +16,7 @@ class OnenotePagePreviewLinks
      * 
      * @var ExternalLink|\stdClass|null
      */
-    public mixed $previewImageUrl = null;
+    public ExternalLink|\stdClass|null $previewImageUrl = null;
 
 
     /**

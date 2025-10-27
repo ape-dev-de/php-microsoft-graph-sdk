@@ -19,7 +19,7 @@ class ClassifcationErrorBase
      * Contains more specific, potentially internal error details.
      * @var ClassificationInnerError|\stdClass|null
      */
-    public mixed $innerError = null;
+    public ClassificationInnerError|\stdClass|null $innerError = null;
 
     /** A human-readable representation of the error. */
     public ?string $message = null;

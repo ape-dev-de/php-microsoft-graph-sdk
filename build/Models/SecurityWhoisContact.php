@@ -16,7 +16,7 @@ class SecurityWhoisContact
      * The physical address of the entity.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $address = null;
+    public PhysicalAddress|\stdClass|null $address = null;
 
     /** The email of this WHOIS contact. */
     public ?string $email = null;

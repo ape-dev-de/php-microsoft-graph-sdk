@@ -16,7 +16,7 @@ class MicrosoftTrainingAssignmentMapping
      * Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue.
      * @var TrainingSettingType|\stdClass|null
      */
-    public mixed $settingType = null;
+    public TrainingSettingType|\stdClass|null $settingType = null;
 
     /** 
      * A user collection that specifies to whom the training should be assigned. Possible values are: none, allUsers, clickedPayload, compromised, reportedPhish, readButNotClicked, didNothing, unknownFutureValue.
@@ -28,7 +28,7 @@ class MicrosoftTrainingAssignmentMapping
      * 
      * @var Training|\stdClass|null
      */
-    public mixed $training = null;
+    public Training|\stdClass|null $training = null;
 
 
     /**

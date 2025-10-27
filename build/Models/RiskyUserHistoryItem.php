@@ -25,7 +25,7 @@ class RiskyUserHistoryItem
      * The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.
      * @var RiskDetail|\stdClass|null
      */
-    public mixed $riskDetail = null;
+    public RiskDetail|\stdClass|null $riskDetail = null;
 
     /** The date and time that the risky user was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $riskLastUpdatedDateTime = null;
@@ -34,13 +34,13 @@ class RiskyUserHistoryItem
      * Level of the detected risky user. Possible values are: low, medium, high, hidden, none, unknownFutureValue.
      * @var RiskLevel|\stdClass|null
      */
-    public mixed $riskLevel = null;
+    public RiskLevel|\stdClass|null $riskLevel = null;
 
     /** 
      * State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
      * @var RiskState|\stdClass|null
      */
-    public mixed $riskState = null;
+    public RiskState|\stdClass|null $riskState = null;
 
     /** Risky user display name. */
     public ?string $userDisplayName = null;
@@ -58,7 +58,7 @@ class RiskyUserHistoryItem
      * The activity related to user risk level change.
      * @var RiskUserActivity|\stdClass|null
      */
-    public mixed $activity = null;
+    public RiskUserActivity|\stdClass|null $activity = null;
 
     /** The ID of actor that does the operation. */
     public ?string $initiatedBy = null;

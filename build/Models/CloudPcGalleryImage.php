@@ -43,7 +43,7 @@ class CloudPcGalleryImage
      * The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. The default value is supported. Read-only.
      * @var CloudPcGalleryImageStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public CloudPcGalleryImageStatus|\stdClass|null $status = null;
 
 
     /**

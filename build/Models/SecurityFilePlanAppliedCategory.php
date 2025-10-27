@@ -19,7 +19,7 @@ class SecurityFilePlanAppliedCategory
      * Represents the file plan descriptor for a subcategory under a specific category, which has been assigned to a particular retention label.
      * @var SecurityFilePlanSubcategory|\stdClass|null
      */
-    public mixed $subcategory = null;
+    public SecurityFilePlanSubcategory|\stdClass|null $subcategory = null;
 
 
     /**

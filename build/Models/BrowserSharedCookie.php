@@ -43,7 +43,7 @@ class BrowserSharedCookie
      * The user who last modified the cookie.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time when the cookie was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

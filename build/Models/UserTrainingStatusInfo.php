@@ -25,7 +25,7 @@ class UserTrainingStatusInfo
      * The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
      * @var TrainingStatus|\stdClass|null
      */
-    public mixed $trainingStatus = null;
+    public TrainingStatus|\stdClass|null $trainingStatus = null;
 
 
     /**

@@ -25,7 +25,7 @@ class PolicyRoot
      * The policy by which consent requests are created and managed for the entire tenant.
      * @var AdminConsentRequestPolicy|\stdClass|null
      */
-    public mixed $adminConsentRequestPolicy = null;
+    public AdminConsentRequestPolicy|\stdClass|null $adminConsentRequestPolicy = null;
 
     /** 
      * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
@@ -37,13 +37,13 @@ class PolicyRoot
      * The policy configuration of the self-service sign-up experience of external users.
      * @var AuthenticationFlowsPolicy|\stdClass|null
      */
-    public mixed $authenticationFlowsPolicy = null;
+    public AuthenticationFlowsPolicy|\stdClass|null $authenticationFlowsPolicy = null;
 
     /** 
      * The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Microsoft Entra ID.
      * @var AuthenticationMethodsPolicy|\stdClass|null
      */
-    public mixed $authenticationMethodsPolicy = null;
+    public AuthenticationMethodsPolicy|\stdClass|null $authenticationMethodsPolicy = null;
 
     /** 
      * The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
@@ -55,7 +55,7 @@ class PolicyRoot
      * The policy that controls Microsoft Entra authorization settings.
      * @var AuthorizationPolicy|\stdClass|null
      */
-    public mixed $authorizationPolicy = null;
+    public AuthorizationPolicy|\stdClass|null $authorizationPolicy = null;
 
     /** 
      * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
@@ -73,19 +73,19 @@ class PolicyRoot
      * The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.
      * @var CrossTenantAccessPolicy|\stdClass|null
      */
-    public mixed $crossTenantAccessPolicy = null;
+    public CrossTenantAccessPolicy|\stdClass|null $crossTenantAccessPolicy = null;
 
     /** 
      * The tenant-wide policy that enforces app management restrictions for all applications and service principals.
      * @var TenantAppManagementPolicy|\stdClass|null
      */
-    public mixed $defaultAppManagementPolicy = null;
+    public TenantAppManagementPolicy|\stdClass|null $defaultAppManagementPolicy = null;
 
     /** 
      * 
      * @var DeviceRegistrationPolicy|\stdClass|null
      */
-    public mixed $deviceRegistrationPolicy = null;
+    public DeviceRegistrationPolicy|\stdClass|null $deviceRegistrationPolicy = null;
 
     /** 
      * The feature rollout policy associated with a directory object.
@@ -103,7 +103,7 @@ class PolicyRoot
      * The policy that represents the security defaults that protect against common attacks.
      * @var IdentitySecurityDefaultsEnforcementPolicy|\stdClass|null
      */
-    public mixed $identitySecurityDefaultsEnforcementPolicy = null;
+    public IdentitySecurityDefaultsEnforcementPolicy|\stdClass|null $identitySecurityDefaultsEnforcementPolicy = null;
 
     /** 
      * The policy that specifies the conditions under which consent can be granted.

@@ -22,7 +22,7 @@ class ProtectedApplicationMetadata
      * The client (application) ID of the Microsoft Entra application. Required.
      * @var PolicyLocation|\stdClass|null
      */
-    public mixed $applicationLocation = null;
+    public PolicyLocation|\stdClass|null $applicationLocation = null;
 
 
     /**

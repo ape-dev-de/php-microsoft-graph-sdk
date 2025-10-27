@@ -16,7 +16,7 @@ class MeetingPolicyUpdatedEventMessageDetail
      * Initiator of the event.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
     /** Represents whether the meeting chat is enabled or not. */
     public ?bool $meetingChatEnabled = null;

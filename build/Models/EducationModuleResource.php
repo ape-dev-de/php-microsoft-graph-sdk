@@ -19,7 +19,7 @@ class EducationModuleResource
      * Resource object that is with this module.
      * @var EducationResource|\stdClass|null
      */
-    public mixed $resource = null;
+    public EducationResource|\stdClass|null $resource = null;
 
 
     /**

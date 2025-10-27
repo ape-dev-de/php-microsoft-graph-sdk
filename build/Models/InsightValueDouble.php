@@ -12,8 +12,11 @@ class InsightValueDouble
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** The double value of the user experience analytics insight. */
-    public ?string $value = null;
+    /** 
+     * The double value of the user experience analytics insight.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $value = null;
 
 
     /**

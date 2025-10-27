@@ -25,7 +25,7 @@ class AuthenticationFlowsPolicy
      * Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
      * @var SelfServiceSignUpAuthenticationFlowConfiguration|\stdClass|null
      */
-    public mixed $selfServiceSignUp = null;
+    public SelfServiceSignUpAuthenticationFlowConfiguration|\stdClass|null $selfServiceSignUp = null;
 
 
     /**

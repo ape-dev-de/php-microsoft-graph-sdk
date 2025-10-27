@@ -25,7 +25,7 @@ class CallRecordingEventMessageDetail
      * Status of the call recording. Possible values are: success, failure, initial, chunkFinished, unknownFutureValue.
      * @var CallRecordingStatus|\stdClass|null
      */
-    public mixed $callRecordingStatus = null;
+    public CallRecordingStatus|\stdClass|null $callRecordingStatus = null;
 
     /** Call recording URL. */
     public ?string $callRecordingUrl = null;
@@ -34,13 +34,13 @@ class CallRecordingEventMessageDetail
      * Initiator of the event.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
     /** 
      * Organizer of the meeting.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $meetingOrganizer = null;
+    public IdentitySet|\stdClass|null $meetingOrganizer = null;
 
 
     /**

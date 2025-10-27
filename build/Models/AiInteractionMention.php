@@ -16,7 +16,7 @@ class AiInteractionMention
      * 
      * @var AiInteractionMentionedIdentitySet|\stdClass|null
      */
-    public mixed $mentioned = null;
+    public AiInteractionMentionedIdentitySet|\stdClass|null $mentioned = null;
 
     /**  */
     public ?float $mentionId = null;

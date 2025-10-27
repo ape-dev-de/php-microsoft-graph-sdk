@@ -19,7 +19,7 @@ class MailboxProtectionRule
      * The identity of person who created the rule.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The time of creation of the rule. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class MailboxProtectionRule
      * Contains error details if an operation on a rule fails.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /**  */
     public ?bool $isAutoApplyEnabled = null;
@@ -37,7 +37,7 @@ class MailboxProtectionRule
      * The identity of the person who last modified the rule.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Timestamp of the last modification made to the rule. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class MailboxProtectionRule
      * The status of the protection rule. The possible values are: draft, active, completed, completedWithErrors, unknownFutureValue. The draft member is currently unsupported.
      * @var ProtectionRuleStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ProtectionRuleStatus|\stdClass|null $status = null;
 
     /** Contains a mailbox expression. For examples, see mailboxExpression examples. */
     public ?string $mailboxExpression = null;

@@ -34,7 +34,7 @@ class NetworkConnection
      * Network connection direction. Possible values are: unknown, inbound, outbound.
      * @var ConnectionDirection|\stdClass|null
      */
-    public mixed $direction = null;
+    public ConnectionDirection|\stdClass|null $direction = null;
 
     /** Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $domainRegisteredDateTime = null;
@@ -58,7 +58,7 @@ class NetworkConnection
      * Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
      * @var SecurityNetworkProtocol|\stdClass|null
      */
-    public mixed $protocol = null;
+    public SecurityNetworkProtocol|\stdClass|null $protocol = null;
 
     /** Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage. */
     public ?string $riskScore = null;
@@ -76,7 +76,7 @@ class NetworkConnection
      * Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed.
      * @var ConnectionStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ConnectionStatus|\stdClass|null $status = null;
 
     /** Parameters (suffix) of the destination URL. */
     public ?string $urlParameters = null;

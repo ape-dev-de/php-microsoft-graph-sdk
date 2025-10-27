@@ -25,7 +25,7 @@ class VirtualEventRegistrationPredefinedQuestion
      * Label of the predefined registration question. It accepts a single line of text: street, city, state, postalCode, countryOrRegion, industry, jobTitle, organization, and unknownFutureValue.
      * @var VirtualEventRegistrationPredefinedQuestionLabel|\stdClass|null
      */
-    public mixed $label = null;
+    public VirtualEventRegistrationPredefinedQuestionLabel|\stdClass|null $label = null;
 
 
     /**

@@ -19,13 +19,13 @@ class WorkbookChartSeriesFormat
      * Represents the fill format of a chart series, which includes background formatting information. Read-only.
      * @var WorkbookChartFill|\stdClass|null
      */
-    public mixed $fill = null;
+    public WorkbookChartFill|\stdClass|null $fill = null;
 
     /** 
      * Represents line formatting. Read-only.
      * @var WorkbookChartLineFormat|\stdClass|null
      */
-    public mixed $line = null;
+    public WorkbookChartLineFormat|\stdClass|null $line = null;
 
 
     /**

@@ -31,7 +31,7 @@ class RoleAssignment
      * Role definition this assignment is part of.
      * @var RoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public RoleDefinition|\stdClass|null $roleDefinition = null;
 
 
     /**

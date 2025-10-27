@@ -37,7 +37,7 @@ class MacOSLobApp
      * The large icon, to be displayed in the app details and used for upload of the icon.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $largeIcon = null;
+    public MimeContent|\stdClass|null $largeIcon = null;
 
     /** The date and time the app was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -115,7 +115,7 @@ class MacOSLobApp
      * ComplexType macOSMinimumOperatingSystem that indicates the minimum operating system applicable for the application.
      * @var MacOSMinimumOperatingSystem|\stdClass|null
      */
-    public mixed $minimumSupportedOperatingSystem = null;
+    public MacOSMinimumOperatingSystem|\stdClass|null $minimumSupportedOperatingSystem = null;
 
     /** The version number of the package. This should match the package CFBundleVersion in the packageinfo file. */
     public ?string $versionNumber = null;

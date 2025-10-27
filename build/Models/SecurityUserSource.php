@@ -19,7 +19,7 @@ class SecurityUserSource
      * The user who created the dataSource.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time the dataSource was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -31,7 +31,7 @@ class SecurityUserSource
      * The hold status of the dataSource.The possible values are: notApplied, applied, applying, removing, partial
      * @var SecurityDataSourceHoldStatus|\stdClass|null
      */
-    public mixed $holdStatus = null;
+    public SecurityDataSourceHoldStatus|\stdClass|null $holdStatus = null;
 
     /** Email address of the user's mailbox. */
     public ?string $email = null;
@@ -40,7 +40,7 @@ class SecurityUserSource
      * Specifies which sources are included in this group. Possible values are: mailbox, site.
      * @var SecuritySourceType|\stdClass|null
      */
-    public mixed $includedSources = null;
+    public SecuritySourceType|\stdClass|null $includedSources = null;
 
     /** The URL of the user's OneDrive for Business site. Read-only. */
     public ?string $siteWebUrl = null;

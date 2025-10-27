@@ -18,17 +18,29 @@ class Photo
     /** Camera model. Read-only. */
     public ?string $cameraModel = null;
 
-    /** The denominator for the exposure time fraction from the camera. Read-only. */
-    public ?string $exposureDenominator = null;
+    /** 
+     * The denominator for the exposure time fraction from the camera. Read-only.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $exposureDenominator = null;
 
-    /** The numerator for the exposure time fraction from the camera. Read-only. */
-    public ?string $exposureNumerator = null;
+    /** 
+     * The numerator for the exposure time fraction from the camera. Read-only.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $exposureNumerator = null;
 
-    /** The F-stop value from the camera. Read-only. */
-    public ?string $fNumber = null;
+    /** 
+     * The F-stop value from the camera. Read-only.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $fNumber = null;
 
-    /** The focal length from the camera. Read-only. */
-    public ?string $focalLength = null;
+    /** 
+     * The focal length from the camera. Read-only.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $focalLength = null;
 
     /** The ISO value from the camera. Read-only. */
     public ?float $iso = null;

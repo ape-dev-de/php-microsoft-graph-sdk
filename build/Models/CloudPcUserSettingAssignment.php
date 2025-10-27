@@ -22,7 +22,7 @@ class CloudPcUserSettingAssignment
      * The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
      * @var CloudPcManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public CloudPcManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

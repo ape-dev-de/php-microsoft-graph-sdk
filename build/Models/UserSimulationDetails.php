@@ -40,7 +40,7 @@ class UserSimulationDetails
      * User in an attack simulation and training campaign.
      * @var AttackSimulationUser|\stdClass|null
      */
-    public mixed $simulationUser = null;
+    public AttackSimulationUser|\stdClass|null $simulationUser = null;
 
     /** 
      * List of training events of a user in the attack simulation and training campaign.

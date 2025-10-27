@@ -19,7 +19,7 @@ class TimeCard
      * Identity of the creator of the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class TimeCard
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -43,37 +43,37 @@ class TimeCard
      * The clock-in event of the timeCard.
      * @var TimeCardEvent|\stdClass|null
      */
-    public mixed $clockInEvent = null;
+    public TimeCardEvent|\stdClass|null $clockInEvent = null;
 
     /** 
      * The clock-out event of the timeCard.
      * @var TimeCardEvent|\stdClass|null
      */
-    public mixed $clockOutEvent = null;
+    public TimeCardEvent|\stdClass|null $clockOutEvent = null;
 
     /** 
      * Indicates whether this timeCard entry is confirmed. Possible values are: none, user, manager, unknownFutureValue.
      * @var ConfirmedBy|\stdClass|null
      */
-    public mixed $confirmedBy = null;
+    public ConfirmedBy|\stdClass|null $confirmedBy = null;
 
     /** 
      * Notes about the timeCard.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $notes = null;
+    public ItemBody|\stdClass|null $notes = null;
 
     /** 
      * The original timeCardEntry of the timeCard before it was edited.
      * @var TimeCardEntry|\stdClass|null
      */
-    public mixed $originalEntry = null;
+    public TimeCardEntry|\stdClass|null $originalEntry = null;
 
     /** 
      * The current state of the timeCard during its life cycle. The possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
      * @var TimeCardState|\stdClass|null
      */
-    public mixed $state = null;
+    public TimeCardState|\stdClass|null $state = null;
 
     /** User ID to which the timeCard belongs. */
     public ?string $userId = null;

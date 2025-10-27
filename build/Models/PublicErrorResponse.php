@@ -16,7 +16,7 @@ class PublicErrorResponse
      * 
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
 
     /**

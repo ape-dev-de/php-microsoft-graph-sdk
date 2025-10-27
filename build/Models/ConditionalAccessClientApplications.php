@@ -28,7 +28,7 @@ class ConditionalAccessClientApplications
      * Filter that defines the dynamic-servicePrincipal-syntax rule to include/exclude service principals. A filter can use custom security attributes to include/exclude service principals.
      * @var ConditionalAccessFilter|\stdClass|null
      */
-    public mixed $servicePrincipalFilter = null;
+    public ConditionalAccessFilter|\stdClass|null $servicePrincipalFilter = null;
 
 
     /**

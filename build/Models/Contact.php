@@ -40,7 +40,7 @@ class Contact
      * The contact's business address.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $businessAddress = null;
+    public PhysicalAddress|\stdClass|null $businessAddress = null;
 
     /** The business home page of the contact. */
     public ?string $businessHomePage = null;
@@ -85,7 +85,7 @@ class Contact
      * The contact's home address.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $homeAddress = null;
+    public PhysicalAddress|\stdClass|null $homeAddress = null;
 
     /** 
      * The contact's home phone numbers.
@@ -124,7 +124,7 @@ class Contact
      * Other addresses for the contact.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $otherAddress = null;
+    public PhysicalAddress|\stdClass|null $otherAddress = null;
 
     /** The ID of the contact's parent folder. */
     public ?string $parentFolderId = null;
@@ -169,7 +169,7 @@ class Contact
      * Optional contact picture. You can get or set a photo for a contact.
      * @var ProfilePhoto|\stdClass|null
      */
-    public mixed $photo = null;
+    public ProfilePhoto|\stdClass|null $photo = null;
 
     /** 
      * The collection of single-value extended properties defined for the contact. Read-only. Nullable.

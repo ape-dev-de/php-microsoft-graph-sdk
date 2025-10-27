@@ -31,7 +31,7 @@ class Schedule
      * The status of the schedule provisioning. The possible values are notStarted, running, completed, failed.
      * @var OperationStatus|\stdClass|null
      */
-    public mixed $provisionStatus = null;
+    public OperationStatus|\stdClass|null $provisionStatus = null;
 
     /** Additional information about why schedule provisioning failed. */
     public ?string $provisionStatusCode = null;
@@ -40,7 +40,7 @@ class Schedule
      * Indicates the start day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
      * @var DayOfWeek|\stdClass|null
      */
-    public mixed $startDayOfWeek = null;
+    public DayOfWeek|\stdClass|null $startDayOfWeek = null;
 
     /** Indicates whether swap shifts requests are enabled for the schedule. */
     public ?bool $swapShiftsRequestsEnabled = null;
@@ -52,7 +52,7 @@ class Schedule
      * The time clock location settings for this schedule.
      * @var TimeClockSettings|\stdClass|null
      */
-    public mixed $timeClockSettings = null;
+    public TimeClockSettings|\stdClass|null $timeClockSettings = null;
 
     /** Indicates whether time off requests are enabled for the schedule. */
     public ?bool $timeOffRequestsEnabled = null;

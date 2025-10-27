@@ -37,7 +37,7 @@ class CallRecording
      * The identity information of the organizer of the onlineMeeting related to this recording. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $meetingOrganizer = null;
+    public IdentitySet|\stdClass|null $meetingOrganizer = null;
 
     /** The URL that can be used to access the content of the recording. Read-only. */
     public ?string $recordingContentUrl = null;

@@ -25,7 +25,7 @@ class VirtualEventRegistration
      * The external information for a virtual event registration.
      * @var VirtualEventExternalRegistrationInformation|\stdClass|null
      */
-    public mixed $externalRegistrationInformation = null;
+    public VirtualEventExternalRegistrationInformation|\stdClass|null $externalRegistrationInformation = null;
 
     /** First name of the registrant. */
     public ?string $firstName = null;
@@ -52,7 +52,7 @@ class VirtualEventRegistration
      * Registration status of the registrant. Read-only. Possible values are registered, canceled, waitlisted, pendingApproval, rejectedByOrganizer, and unknownFutureValue.
      * @var VirtualEventAttendeeRegistrationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public VirtualEventAttendeeRegistrationStatus|\stdClass|null $status = null;
 
     /** The registrant's ID in Microsoft Entra ID. Only appears when the registrant is registered in Microsoft Entra ID. */
     public ?string $userId = null;

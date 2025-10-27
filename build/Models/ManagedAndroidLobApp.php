@@ -37,7 +37,7 @@ class ManagedAndroidLobApp
      * The large icon, to be displayed in the app details and used for upload of the icon.
      * @var MimeContent|\stdClass|null
      */
-    public mixed $largeIcon = null;
+    public MimeContent|\stdClass|null $largeIcon = null;
 
     /** The date and time the app was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -94,7 +94,7 @@ class ManagedAndroidLobApp
      * The value for the minimum applicable operating system.
      * @var AndroidMinimumOperatingSystem|\stdClass|null
      */
-    public mixed $minimumSupportedOperatingSystem = null;
+    public AndroidMinimumOperatingSystem|\stdClass|null $minimumSupportedOperatingSystem = null;
 
     /** The package identifier. */
     public ?string $packageId = null;

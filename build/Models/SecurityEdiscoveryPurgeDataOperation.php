@@ -19,7 +19,7 @@ class SecurityEdiscoveryPurgeDataOperation
      * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult.
      * @var SecurityCaseAction|\stdClass|null
      */
-    public mixed $action = null;
+    public SecurityCaseAction|\stdClass|null $action = null;
 
     /** The date and time the operation was completed. */
     public ?\DateTimeInterface $completedDateTime = null;
@@ -28,7 +28,7 @@ class SecurityEdiscoveryPurgeDataOperation
      * The user that created the operation.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time the operation was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,13 +40,13 @@ class SecurityEdiscoveryPurgeDataOperation
      * Contains success and failure-specific result information.
      * @var ResultInfo|\stdClass|null
      */
-    public mixed $resultInfo = null;
+    public ResultInfo|\stdClass|null $resultInfo = null;
 
     /** 
      * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
      * @var SecurityCaseOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityCaseOperationStatus|\stdClass|null $status = null;
 
 
     /**

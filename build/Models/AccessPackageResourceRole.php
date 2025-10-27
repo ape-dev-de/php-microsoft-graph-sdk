@@ -31,7 +31,7 @@ class AccessPackageResourceRole
      * 
      * @var AccessPackageResource|\stdClass|null
      */
-    public mixed $resource = null;
+    public AccessPackageResource|\stdClass|null $resource = null;
 
 
     /**

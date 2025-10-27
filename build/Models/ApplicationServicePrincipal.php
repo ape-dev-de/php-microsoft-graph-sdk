@@ -16,13 +16,13 @@ class ApplicationServicePrincipal
      * 
      * @var Application|\stdClass|null
      */
-    public mixed $application = null;
+    public Application|\stdClass|null $application = null;
 
     /** 
      * 
      * @var ServicePrincipal|\stdClass|null
      */
-    public mixed $servicePrincipal = null;
+    public ServicePrincipal|\stdClass|null $servicePrincipal = null;
 
 
     /**

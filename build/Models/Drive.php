@@ -19,7 +19,7 @@ class Drive
      * Identity of the user, device, or application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class Drive
      * Identity of the user, device, and application that last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class Drive
      * Parent information, if the item has a parent. Read-write.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
     public ?string $webUrl = null;
@@ -55,13 +55,13 @@ class Drive
      * Identity of the user who created the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $createdByUser = null;
+    public User|\stdClass|null $createdByUser = null;
 
     /** 
      * Identity of the user who last modified the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedByUser = null;
+    public User|\stdClass|null $lastModifiedByUser = null;
 
     /** Describes the type of drive represented by this resource. OneDrive personal drives return personal. OneDrive for Business returns business. SharePoint document libraries return documentLibrary. Read-only. */
     public ?string $driveType = null;
@@ -70,25 +70,25 @@ class Drive
      * Optional. The user account that owns the drive. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $owner = null;
+    public IdentitySet|\stdClass|null $owner = null;
 
     /** 
      * Optional. Information about the drive's storage space quota. Read-only.
      * @var Quota|\stdClass|null
      */
-    public mixed $quota = null;
+    public Quota|\stdClass|null $quota = null;
 
     /** 
      * 
      * @var SharepointIds|\stdClass|null
      */
-    public mixed $sharePointIds = null;
+    public SharepointIds|\stdClass|null $sharePointIds = null;
 
     /** 
      * If present, indicates that it's a system-managed drive. Read-only.
      * @var SystemFacet|\stdClass|null
      */
-    public mixed $system = null;
+    public SystemFacet|\stdClass|null $system = null;
 
     /** 
      * Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.
@@ -112,13 +112,13 @@ class Drive
      * For drives in SharePoint, the underlying document library list. Read-only. Nullable.
      * @var ListModel|\stdClass|null
      */
-    public mixed $list = null;
+    public ListModel|\stdClass|null $list = null;
 
     /** 
      * The root folder of the drive. Read-only.
      * @var DriveItem|\stdClass|null
      */
-    public mixed $root = null;
+    public DriveItem|\stdClass|null $root = null;
 
     /** 
      * Collection of common folders available in OneDrive. Read-only. Nullable.

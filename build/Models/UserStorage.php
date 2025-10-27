@@ -19,7 +19,7 @@ class UserStorage
      * 
      * @var UnifiedStorageQuota|\stdClass|null
      */
-    public mixed $quota = null;
+    public UnifiedStorageQuota|\stdClass|null $quota = null;
 
 
     /**

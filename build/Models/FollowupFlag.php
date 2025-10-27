@@ -16,25 +16,25 @@ class FollowupFlag
      * The date and time that the follow-up was finished.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $completedDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $completedDateTime = null;
 
     /** 
      * The date and time that the follow-up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you get a 400 Bad Request response.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $dueDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $dueDateTime = null;
 
     /** 
      * The status for follow-up for an item. Possible values are notFlagged, complete, and flagged.
      * @var FollowupFlagStatus|\stdClass|null
      */
-    public mixed $flagStatus = null;
+    public FollowupFlagStatus|\stdClass|null $flagStatus = null;
 
     /** 
      * The date and time that the follow-up is to begin.
      * @var DateTimeTimeZone|\stdClass|null
      */
-    public mixed $startDateTime = null;
+    public DateTimeTimeZone|\stdClass|null $startDateTime = null;
 
 
     /**

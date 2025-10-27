@@ -16,7 +16,7 @@ class ConditionalAccessGuestsOrExternalUsers
      * The tenant IDs of the selected types of external users. Either all B2B tenant or a collection of tenant IDs. External tenants can be specified only when the property guestOrExternalUserTypes isn't null or an empty String.
      * @var ConditionalAccessExternalTenants|\stdClass|null
      */
-    public mixed $externalTenants = null;
+    public ConditionalAccessExternalTenants|\stdClass|null $externalTenants = null;
 
     /**  */
     public ?ConditionalAccessGuestOrExternalUserTypes $guestOrExternalUserTypes = null;

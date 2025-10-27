@@ -19,7 +19,7 @@ class Edge
      * A container for Internet Explorer mode resources.
      * @var InternetExplorerMode|\stdClass|null
      */
-    public mixed $internetExplorerMode = null;
+    public InternetExplorerMode|\stdClass|null $internetExplorerMode = null;
 
 
     /**

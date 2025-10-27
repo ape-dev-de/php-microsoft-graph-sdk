@@ -34,13 +34,13 @@ class MultiTenantOrganizationMember
      * Role of the tenant in the multitenant organization. The possible values are: owner, member (default), unknownFutureValue. Tenants with the owner role can manage the multitenant organization but tenants with the member role can only participate in a multitenant organization. There can be multiple tenants with the owner role in a multitenant organization.
      * @var MultiTenantOrganizationMemberRole|\stdClass|null
      */
-    public mixed $role = null;
+    public MultiTenantOrganizationMemberRole|\stdClass|null $role = null;
 
     /** 
      * State of the tenant in the multitenant organization. The possible values are: pending, active, removed, unknownFutureValue. Tenants in the pending state must join the multitenant organization to participate in the multitenant organization. Tenants in the active state can participate in the multitenant organization. Tenants in the removed state are in the process of being removed from the multitenant organization. Read-only.
      * @var MultiTenantOrganizationMemberState|\stdClass|null
      */
-    public mixed $state = null;
+    public MultiTenantOrganizationMemberState|\stdClass|null $state = null;
 
     /** Tenant ID of the Microsoft Entra tenant added to the multitenant organization. Set at the time tenant is added.Supports $filter. Key. */
     public ?string $tenantId = null;
@@ -49,7 +49,7 @@ class MultiTenantOrganizationMember
      * Details of the processing status for a tenant in a multitenant organization. Read-only. Nullable.
      * @var MultiTenantOrganizationMemberTransitionDetails|\stdClass|null
      */
-    public mixed $transitionDetails = null;
+    public MultiTenantOrganizationMemberTransitionDetails|\stdClass|null $transitionDetails = null;
 
 
     /**

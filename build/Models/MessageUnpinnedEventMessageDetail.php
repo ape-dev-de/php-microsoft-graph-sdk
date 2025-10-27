@@ -19,7 +19,7 @@ class MessageUnpinnedEventMessageDetail
      * Initiator of the event.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
 
     /**

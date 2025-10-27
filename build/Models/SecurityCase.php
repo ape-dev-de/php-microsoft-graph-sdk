@@ -28,7 +28,7 @@ class SecurityCase
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /**  */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,7 +37,7 @@ class SecurityCase
      * 
      * @var SecurityCaseStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityCaseStatus|\stdClass|null $status = null;
 
 
     /**

@@ -19,13 +19,13 @@ class ConditionalAccessPolicyDetail
      * Represents grant controls that must be fulfilled for the policy.
      * @var ConditionalAccessGrantControls|\stdClass|null
      */
-    public mixed $grantControls = null;
+    public ConditionalAccessGrantControls|\stdClass|null $grantControls = null;
 
     /** 
      * Represents a complex type of session controls that is enforced after sign-in.
      * @var ConditionalAccessSessionControls|\stdClass|null
      */
-    public mixed $sessionControls = null;
+    public ConditionalAccessSessionControls|\stdClass|null $sessionControls = null;
 
 
     /**

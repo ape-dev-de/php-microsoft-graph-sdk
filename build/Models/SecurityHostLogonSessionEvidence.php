@@ -46,7 +46,7 @@ class SecurityHostLogonSessionEvidence
      * 
      * @var SecurityUserEvidence|\stdClass|null
      */
-    public mixed $account = null;
+    public SecurityUserEvidence|\stdClass|null $account = null;
 
     /**  */
     public ?\DateTimeInterface $endUtcDateTime = null;
@@ -55,7 +55,7 @@ class SecurityHostLogonSessionEvidence
      * 
      * @var SecurityDeviceEvidence|\stdClass|null
      */
-    public mixed $host = null;
+    public SecurityDeviceEvidence|\stdClass|null $host = null;
 
     /**  */
     public ?string $sessionId = null;

@@ -16,7 +16,7 @@ class InformationProtection
      * 
      * @var Bitlocker|\stdClass|null
      */
-    public mixed $bitlocker = null;
+    public Bitlocker|\stdClass|null $bitlocker = null;
 
     /** 
      * 

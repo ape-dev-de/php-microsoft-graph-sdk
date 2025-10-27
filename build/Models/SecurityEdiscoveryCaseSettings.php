@@ -22,25 +22,25 @@ class SecurityEdiscoveryCaseSettings
      * The OCR (Optical Character Recognition) settings for the case.
      * @var SecurityOcrSettings|\stdClass|null
      */
-    public mixed $ocr = null;
+    public SecurityOcrSettings|\stdClass|null $ocr = null;
 
     /** 
      * The redundancy (near duplicate and email threading) detection settings for the case.
      * @var SecurityRedundancyDetectionSettings|\stdClass|null
      */
-    public mixed $redundancyDetection = null;
+    public SecurityRedundancyDetectionSettings|\stdClass|null $redundancyDetection = null;
 
     /** 
      * The settings of the review set for the case. Possible values are: none, disableGrouping, unknownFutureValue.
      * @var SecurityReviewSetSettings|\stdClass|null
      */
-    public mixed $reviewSetSettings = null;
+    public SecurityReviewSetSettings|\stdClass|null $reviewSetSettings = null;
 
     /** 
      * The Topic Modeling (Themes) settings for the case.
      * @var SecurityTopicModelingSettings|\stdClass|null
      */
-    public mixed $topicModeling = null;
+    public SecurityTopicModelingSettings|\stdClass|null $topicModeling = null;
 
 
     /**

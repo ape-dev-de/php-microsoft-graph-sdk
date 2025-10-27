@@ -16,13 +16,13 @@ class AttendeeBase
      * The recipient's email address.
      * @var EmailAddress|\stdClass|null
      */
-    public mixed $emailAddress = null;
+    public EmailAddress|\stdClass|null $emailAddress = null;
 
     /** 
      * The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
      * @var AttendeeType|\stdClass|null
      */
-    public mixed $type = null;
+    public AttendeeType|\stdClass|null $type = null;
 
 
     /**

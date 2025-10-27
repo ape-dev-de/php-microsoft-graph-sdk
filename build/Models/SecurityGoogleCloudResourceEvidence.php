@@ -52,7 +52,7 @@ class SecurityGoogleCloudResourceEvidence
      * The type of location. Possible values are: unknown, regional, zonal, global, unknownFutureValue.
      * @var SecurityGoogleCloudLocationType|\stdClass|null
      */
-    public mixed $locationType = null;
+    public SecurityGoogleCloudLocationType|\stdClass|null $locationType = null;
 
     /** The Google project ID as defined by the user. */
     public ?string $projectId = null;

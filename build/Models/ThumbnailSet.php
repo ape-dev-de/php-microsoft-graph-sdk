@@ -19,25 +19,25 @@ class ThumbnailSet
      * A 1920x1920 scaled thumbnail.
      * @var Thumbnail|\stdClass|null
      */
-    public mixed $large = null;
+    public Thumbnail|\stdClass|null $large = null;
 
     /** 
      * A 176x176 scaled thumbnail.
      * @var Thumbnail|\stdClass|null
      */
-    public mixed $medium = null;
+    public Thumbnail|\stdClass|null $medium = null;
 
     /** 
      * A 48x48 cropped thumbnail.
      * @var Thumbnail|\stdClass|null
      */
-    public mixed $small = null;
+    public Thumbnail|\stdClass|null $small = null;
 
     /** 
      * A custom thumbnail image or the original image used to generate other thumbnails.
      * @var Thumbnail|\stdClass|null
      */
-    public mixed $source = null;
+    public Thumbnail|\stdClass|null $source = null;
 
 
     /**

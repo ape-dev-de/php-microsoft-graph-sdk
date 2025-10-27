@@ -28,7 +28,7 @@ class RichLongRunningOperation
      * The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @var LongRunningOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public LongRunningOperationStatus|\stdClass|null $status = null;
 
     /** Details about the status of the operation. */
     public ?string $statusDetail = null;
@@ -37,7 +37,7 @@ class RichLongRunningOperation
      * Error that caused the operation to fail.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** A value between 0 and 100 that indicates the progress of the operation. */
     public ?float $percentageComplete = null;

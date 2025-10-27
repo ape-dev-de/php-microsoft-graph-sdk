@@ -16,7 +16,7 @@ class RubricCriterion
      * The description of this criterion.
      * @var EducationItemBody|\stdClass|null
      */
-    public mixed $description = null;
+    public EducationItemBody|\stdClass|null $description = null;
 
 
     /**

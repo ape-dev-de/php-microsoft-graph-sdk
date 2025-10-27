@@ -22,7 +22,7 @@ class TeamworkOnlineMeetingInfo
      * The organizer of the meeting.
      * @var TeamworkUserIdentity|\stdClass|null
      */
-    public mixed $organizer = null;
+    public TeamworkUserIdentity|\stdClass|null $organizer = null;
 
 
     /**

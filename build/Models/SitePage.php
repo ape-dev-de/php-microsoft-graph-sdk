@@ -19,7 +19,7 @@ class SitePage
      * Identity of the user, device, or application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class SitePage
      * Identity of the user, device, and application that last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class SitePage
      * Parent information, if the item has a parent. Read-write.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
     public ?string $webUrl = null;
@@ -55,25 +55,25 @@ class SitePage
      * Identity of the user who created the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $createdByUser = null;
+    public User|\stdClass|null $createdByUser = null;
 
     /** 
      * Identity of the user who last modified the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedByUser = null;
+    public User|\stdClass|null $lastModifiedByUser = null;
 
     /** 
      * The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
      * @var PageLayoutType|\stdClass|null
      */
-    public mixed $pageLayout = null;
+    public PageLayoutType|\stdClass|null $pageLayout = null;
 
     /** 
      * The publishing status and the MM.mm version of the page.
      * @var PublicationFacet|\stdClass|null
      */
-    public mixed $publishingState = null;
+    public PublicationFacet|\stdClass|null $publishingState = null;
 
     /** Title of the sitePage. */
     public ?string $title = null;
@@ -82,13 +82,13 @@ class SitePage
      * Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue.
      * @var PagePromotionType|\stdClass|null
      */
-    public mixed $promotionKind = null;
+    public PagePromotionType|\stdClass|null $promotionKind = null;
 
     /** 
      * Reactions information for the page.
      * @var ReactionsFacet|\stdClass|null
      */
-    public mixed $reactions = null;
+    public ReactionsFacet|\stdClass|null $reactions = null;
 
     /** Determines whether or not to show comments at the bottom of the page. */
     public ?bool $showComments = null;
@@ -103,13 +103,13 @@ class SitePage
      * Title area on the SharePoint page.
      * @var TitleArea|\stdClass|null
      */
-    public mixed $titleArea = null;
+    public TitleArea|\stdClass|null $titleArea = null;
 
     /** 
      * Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
      * @var CanvasLayout|\stdClass|null
      */
-    public mixed $canvasLayout = null;
+    public CanvasLayout|\stdClass|null $canvasLayout = null;
 
     /** 
      * Collection of webparts on the SharePoint page.

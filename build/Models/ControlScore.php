@@ -21,8 +21,11 @@ class ControlScore
     /** Description of the control. */
     public ?string $description = null;
 
-    /** Tenant achieved score for the control (it varies day by day depending on tenant operations on the control). */
-    public ?string $score = null;
+    /** 
+     * Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $score = null;
 
 
     /**

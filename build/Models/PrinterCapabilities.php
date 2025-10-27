@@ -37,7 +37,7 @@ class PrinterCapabilities
      * The range of copies per job supported by the printer.
      * @var IntegerRange|\stdClass|null
      */
-    public mixed $copiesPerJob = null;
+    public IntegerRange|\stdClass|null $copiesPerJob = null;
 
     /** 
      * The list of print resolutions in DPI that are supported by the printer.

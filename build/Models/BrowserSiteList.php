@@ -25,7 +25,7 @@ class BrowserSiteList
      * The user who last modified the site list.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time when the site list was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -34,7 +34,7 @@ class BrowserSiteList
      * The user who published the site list.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $publishedBy = null;
+    public IdentitySet|\stdClass|null $publishedBy = null;
 
     /** The date and time when the site list was published. */
     public ?\DateTimeInterface $publishedDateTime = null;

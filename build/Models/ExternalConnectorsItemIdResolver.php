@@ -22,7 +22,7 @@ class ExternalConnectorsItemIdResolver
      * Configurations to match and resolve URL.
      * @var ExternalConnectorsUrlMatchInfo|\stdClass|null
      */
-    public mixed $urlMatchInfo = null;
+    public ExternalConnectorsUrlMatchInfo|\stdClass|null $urlMatchInfo = null;
 
 
     /**

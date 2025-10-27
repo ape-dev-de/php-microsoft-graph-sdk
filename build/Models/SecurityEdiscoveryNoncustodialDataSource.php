@@ -25,7 +25,7 @@ class SecurityEdiscoveryNoncustodialDataSource
      * The hold status of the dataSourceContainer. The possible values are: notApplied, applied, applying, removing, partial
      * @var SecurityDataSourceHoldStatus|\stdClass|null
      */
-    public mixed $holdStatus = null;
+    public SecurityDataSourceHoldStatus|\stdClass|null $holdStatus = null;
 
     /** Last modified date and time of the dataSourceContainer. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -37,19 +37,19 @@ class SecurityEdiscoveryNoncustodialDataSource
      * Latest status of the dataSourceContainer. Possible values are: Active, Released.
      * @var SecurityDataSourceContainerStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityDataSourceContainerStatus|\stdClass|null $status = null;
 
     /** 
      * User source or SharePoint site data source as noncustodial data source.
      * @var SecurityDataSource|\stdClass|null
      */
-    public mixed $dataSource = null;
+    public SecurityDataSource|\stdClass|null $dataSource = null;
 
     /** 
      * Operation entity that represents the latest indexing for the noncustodial data source.
      * @var SecurityEdiscoveryIndexOperation|\stdClass|null
      */
-    public mixed $lastIndexOperation = null;
+    public SecurityEdiscoveryIndexOperation|\stdClass|null $lastIndexOperation = null;
 
 
     /**

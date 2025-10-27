@@ -46,7 +46,7 @@ class SecurityCloudLogonSessionEvidence
      * The account associated with the sign-in session.
      * @var SecurityUserEvidence|\stdClass|null
      */
-    public mixed $account = null;
+    public SecurityUserEvidence|\stdClass|null $account = null;
 
     /** The browser that is used for the sign-in, if known. */
     public ?string $browser = null;

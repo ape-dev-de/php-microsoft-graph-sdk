@@ -19,7 +19,7 @@ class DriveItemVersion
      * Identity of the user which last modified the version. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the version was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -28,7 +28,7 @@ class DriveItemVersion
      * Indicates the publication status of this particular version. Read-only.
      * @var PublicationFacet|\stdClass|null
      */
-    public mixed $publication = null;
+    public PublicationFacet|\stdClass|null $publication = null;
 
     /** The content stream for this version of the item. */
     public ?string $content = null;

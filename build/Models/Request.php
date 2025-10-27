@@ -25,7 +25,7 @@ class Request
      * The principal that created the request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The request creation date time. */
     public ?\DateTimeInterface $createdDateTime = null;

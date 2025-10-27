@@ -19,7 +19,7 @@ class Folder
      * A collection of properties defining the recommended view for the folder.
      * @var FolderView|\stdClass|null
      */
-    public mixed $view = null;
+    public FolderView|\stdClass|null $view = null;
 
 
     /**

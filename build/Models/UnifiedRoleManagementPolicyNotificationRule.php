@@ -19,7 +19,7 @@ class UnifiedRoleManagementPolicyNotificationRule
      * Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
      * @var UnifiedRoleManagementPolicyRuleTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public UnifiedRoleManagementPolicyRuleTarget|\stdClass|null $target = null;
 
     /** Indicates whether a default recipient will receive the notification email. */
     public ?bool $isDefaultRecipientsEnabled = null;

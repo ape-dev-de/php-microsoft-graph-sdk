@@ -28,7 +28,7 @@ class SecurityKubernetesServicePort
      * The protocol name. Possible values are: udp, tcp, sctp, unknownFutureValue.
      * @var SecurityContainerPortProtocol|\stdClass|null
      */
-    public mixed $protocol = null;
+    public SecurityContainerPortProtocol|\stdClass|null $protocol = null;
 
     /** The name or number of the port to access on the pods targeted by the service. The port number must be in the range 1 to 65535. The name must be an IANASVCNAME. */
     public ?string $targetPort = null;

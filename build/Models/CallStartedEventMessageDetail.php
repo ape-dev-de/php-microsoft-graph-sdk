@@ -16,7 +16,7 @@ class CallStartedEventMessageDetail
      * Represents the call event type. Possible values are: call, meeting, screenShare, unknownFutureValue.
      * @var TeamworkCallEventType|\stdClass|null
      */
-    public mixed $callEventType = null;
+    public TeamworkCallEventType|\stdClass|null $callEventType = null;
 
     /** Unique identifier of the call. */
     public ?string $callId = null;
@@ -25,7 +25,7 @@ class CallStartedEventMessageDetail
      * Initiator of the event.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
 
     /**

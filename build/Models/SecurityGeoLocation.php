@@ -18,11 +18,17 @@ class SecurityGeoLocation
     /**  */
     public ?string $countryName = null;
 
-    /**  */
-    public ?string $latitude = null;
+    /** 
+     * 
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $latitude = null;
 
-    /**  */
-    public ?string $longitude = null;
+    /** 
+     * 
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $longitude = null;
 
     /**  */
     public ?string $state = null;

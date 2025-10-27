@@ -19,7 +19,7 @@ class ItemAnalytics
      * 
      * @var ItemActivityStat|\stdClass|null
      */
-    public mixed $allTime = null;
+    public ItemActivityStat|\stdClass|null $allTime = null;
 
     /** 
      * 
@@ -31,7 +31,7 @@ class ItemAnalytics
      * 
      * @var ItemActivityStat|\stdClass|null
      */
-    public mixed $lastSevenDays = null;
+    public ItemActivityStat|\stdClass|null $lastSevenDays = null;
 
 
     /**

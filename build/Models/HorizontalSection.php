@@ -19,13 +19,13 @@ class HorizontalSection
      * Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
      * @var SectionEmphasisType|\stdClass|null
      */
-    public mixed $emphasis = null;
+    public SectionEmphasisType|\stdClass|null $emphasis = null;
 
     /** 
      * Layout type of the section. The possible values are: none, oneColumn, twoColumns, threeColumns, oneThirdLeftColumn, oneThirdRightColumn, fullWidth, unknownFutureValue.
      * @var HorizontalSectionLayoutType|\stdClass|null
      */
-    public mixed $layout = null;
+    public HorizontalSectionLayoutType|\stdClass|null $layout = null;
 
     /** 
      * The set of vertical columns in this section.

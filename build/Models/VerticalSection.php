@@ -19,7 +19,7 @@ class VerticalSection
      * Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
      * @var SectionEmphasisType|\stdClass|null
      */
-    public mixed $emphasis = null;
+    public SectionEmphasisType|\stdClass|null $emphasis = null;
 
     /** 
      * The set of web parts in this section.

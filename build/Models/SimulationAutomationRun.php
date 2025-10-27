@@ -28,7 +28,7 @@ class SimulationAutomationRun
      * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
      * @var SimulationAutomationRunStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SimulationAutomationRunStatus|\stdClass|null $status = null;
 
 
     /**

@@ -19,7 +19,7 @@ class DriveRestoreArtifactsBulkAdditionRequest
      * The identity of the person who created the bulk request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The time when the bulk request was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class DriveRestoreArtifactsBulkAdditionRequest
      * Indicates the restoration destination. The possible values are: new, inPlace, unknownFutureValue.
      * @var DestinationType|\stdClass|null
      */
-    public mixed $destinationType = null;
+    public DestinationType|\stdClass|null $destinationType = null;
 
     /** Name of the addition request. */
     public ?string $displayName = null;
@@ -37,13 +37,13 @@ class DriveRestoreArtifactsBulkAdditionRequest
      * Error details are populated for resource resolution failures.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** 
      * Identity of the person who last modified this entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Timestamp when this entity was last modified. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -52,7 +52,7 @@ class DriveRestoreArtifactsBulkAdditionRequest
      * The start and end date and time of the protection period.
      * @var TimePeriod|\stdClass|null
      */
-    public mixed $protectionTimePeriod = null;
+    public TimePeriod|\stdClass|null $protectionTimePeriod = null;
 
     /** 
      * Indicates which protection units to restore. This property isn't implemented yet. Future value; don't use.
@@ -64,7 +64,7 @@ class DriveRestoreArtifactsBulkAdditionRequest
      * Indicates which restore point to return. The possible values are: oldest, latest, unknownFutureValue.
      * @var RestorePointPreference|\stdClass|null
      */
-    public mixed $restorePointPreference = null;
+    public RestorePointPreference|\stdClass|null $restorePointPreference = null;
 
     /**  */
     public ?RestoreArtifactsBulkRequestStatus $status = null;
@@ -73,7 +73,7 @@ class DriveRestoreArtifactsBulkAdditionRequest
      * The type of the restore point. The possible values are: none, fastRestore, unknownFutureValue.
      * @var RestorePointTags|\stdClass|null
      */
-    public mixed $tags = null;
+    public RestorePointTags|\stdClass|null $tags = null;
 
     /** 
      * The list of directory object IDs that are added to the corresponding OneDrive for work or school restore session in a bulk operation.

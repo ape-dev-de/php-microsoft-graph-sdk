@@ -19,7 +19,7 @@ class ServicePrincipalRiskDetection
      * Indicates the activity type the detected risk is linked to.  The possible values are: signin, servicePrincipal. Use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal.
      * @var ActivityType|\stdClass|null
      */
-    public mixed $activity = null;
+    public ActivityType|\stdClass|null $activity = null;
 
     /** Date and time when the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $activityDateTime = null;
@@ -40,7 +40,7 @@ class ServicePrincipalRiskDetection
      * Timing of the detected risk , whether real-time or offline. The possible values are: notDefined, realtime, nearRealtime, offline, unknownFutureValue.
      * @var RiskDetectionTimingType|\stdClass|null
      */
-    public mixed $detectionTimingType = null;
+    public RiskDetectionTimingType|\stdClass|null $detectionTimingType = null;
 
     /** Provides the IP address of the client from where the risk occurred. */
     public ?string $ipAddress = null;
@@ -58,7 +58,7 @@ class ServicePrincipalRiskDetection
      * Location from where the sign-in was initiated.
      * @var SignInLocation|\stdClass|null
      */
-    public mixed $location = null;
+    public SignInLocation|\stdClass|null $location = null;
 
     /** Request identifier of the sign-in activity associated with the risk detection. This property is null if the risk detection is not associated with a sign-in activity. Supports $filter (eq). */
     public ?string $requestId = null;
@@ -67,7 +67,7 @@ class ServicePrincipalRiskDetection
      * Details of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: none, hidden, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
      * @var RiskDetail|\stdClass|null
      */
-    public mixed $riskDetail = null;
+    public RiskDetail|\stdClass|null $riskDetail = null;
 
     /** The type of risk event detected. The possible values are: investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, anomalousServicePrincipalActivity, maliciousApplication, suspiciousApplication. */
     public ?string $riskEventType = null;
@@ -76,13 +76,13 @@ class ServicePrincipalRiskDetection
      * Level of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: low, medium, high, hidden, none.
      * @var RiskLevel|\stdClass|null
      */
-    public mixed $riskLevel = null;
+    public RiskLevel|\stdClass|null $riskLevel = null;
 
     /** 
      * The state of a detected risky service principal or sign-in activity. The possible values are: none, dismissed, atRisk, confirmedCompromised.
      * @var RiskState|\stdClass|null
      */
-    public mixed $riskState = null;
+    public RiskState|\stdClass|null $riskState = null;
 
     /** The display name for the service principal. */
     public ?string $servicePrincipalDisplayName = null;
@@ -97,7 +97,7 @@ class ServicePrincipalRiskDetection
      * Indicates the type of token issuer for the detected sign-in risk. The possible values are: AzureAD.
      * @var TokenIssuerType|\stdClass|null
      */
-    public mixed $tokenIssuerType = null;
+    public TokenIssuerType|\stdClass|null $tokenIssuerType = null;
 
 
     /**

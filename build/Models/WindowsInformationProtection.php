@@ -37,7 +37,7 @@ class WindowsInformationProtection
      * Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)
      * @var WindowsInformationProtectionDataRecoveryCertificate|\stdClass|null
      */
-    public mixed $dataRecoveryCertificate = null;
+    public WindowsInformationProtectionDataRecoveryCertificate|\stdClass|null $dataRecoveryCertificate = null;
 
     /**  */
     public ?WindowsInformationProtectionEnforcementLevel $enforcementLevel = null;

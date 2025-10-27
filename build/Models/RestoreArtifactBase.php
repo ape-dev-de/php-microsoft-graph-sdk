@@ -22,13 +22,13 @@ class RestoreArtifactBase
      * Indicates the restoration destination. The possible values are: new, inPlace, unknownFutureValue.
      * @var DestinationType|\stdClass|null
      */
-    public mixed $destinationType = null;
+    public DestinationType|\stdClass|null $destinationType = null;
 
     /** 
      * Contains error details if the restore session fails or completes with an error.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** The time when restoration of restore artifact is started. */
     public ?\DateTimeInterface $startDateTime = null;
@@ -37,13 +37,13 @@ class RestoreArtifactBase
      * The individual restoration status of the restore artifact. The possible values are: added, scheduling, scheduled, inProgress, succeeded, failed, unknownFutureValue.
      * @var ArtifactRestoreStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ArtifactRestoreStatus|\stdClass|null $status = null;
 
     /** 
      * Represents the date and time when an artifact is protected by a protectionPolicy and can be restored.
      * @var RestorePoint|\stdClass|null
      */
-    public mixed $restorePoint = null;
+    public RestorePoint|\stdClass|null $restorePoint = null;
 
 
     /**

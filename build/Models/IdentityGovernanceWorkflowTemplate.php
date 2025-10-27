@@ -28,7 +28,7 @@ class IdentityGovernanceWorkflowTemplate
      * Conditions describing when to execute the workflow and the criteria to identify in-scope subject set.
      * @var IdentityGovernanceWorkflowExecutionConditions|\stdClass|null
      */
-    public mixed $executionConditions = null;
+    public IdentityGovernanceWorkflowExecutionConditions|\stdClass|null $executionConditions = null;
 
     /** 
      * Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.

@@ -16,67 +16,67 @@ class CommunicationsIdentitySet
      * Optional. The application associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $application = null;
+    public Identity|\stdClass|null $application = null;
 
     /** 
      * Optional. The device associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $device = null;
+    public Identity|\stdClass|null $device = null;
 
     /** 
      * Optional. The user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $user = null;
+    public Identity|\stdClass|null $user = null;
 
     /** 
      * The application instance associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $applicationInstance = null;
+    public Identity|\stdClass|null $applicationInstance = null;
 
     /** 
      * An identity the participant would like to present itself as to the other participants in the call.
      * @var Identity|\stdClass|null
      */
-    public mixed $assertedIdentity = null;
+    public Identity|\stdClass|null $assertedIdentity = null;
 
     /** 
      * The Azure Communication Services user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $azureCommunicationServicesUser = null;
+    public Identity|\stdClass|null $azureCommunicationServicesUser = null;
 
     /** 
      * The encrypted user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $encrypted = null;
+    public Identity|\stdClass|null $encrypted = null;
 
     /** 
      * Type of endpoint that the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone, unknownFutureValue.
      * @var EndpointType|\stdClass|null
      */
-    public mixed $endpointType = null;
+    public EndpointType|\stdClass|null $endpointType = null;
 
     /** 
      * The guest user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $guest = null;
+    public Identity|\stdClass|null $guest = null;
 
     /** 
      * The Skype for Business on-premises user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $onPremises = null;
+    public Identity|\stdClass|null $onPremises = null;
 
     /** 
      * The phone user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $phone = null;
+    public Identity|\stdClass|null $phone = null;
 
 
     /**

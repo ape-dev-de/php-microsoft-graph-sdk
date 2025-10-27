@@ -40,7 +40,7 @@ class SynchronizationTemplate
      * Default synchronization schema for the jobs based on this template.
      * @var SynchronizationSchema|\stdClass|null
      */
-    public mixed $schema = null;
+    public SynchronizationSchema|\stdClass|null $schema = null;
 
 
     /**

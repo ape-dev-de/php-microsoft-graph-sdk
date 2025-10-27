@@ -19,7 +19,7 @@ class RestorePointSearchResult
      * 
      * @var RestorePoint|\stdClass|null
      */
-    public mixed $restorePoint = null;
+    public RestorePoint|\stdClass|null $restorePoint = null;
 
 
     /**

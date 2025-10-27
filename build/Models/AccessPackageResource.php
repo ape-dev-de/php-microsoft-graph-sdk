@@ -43,7 +43,7 @@ class AccessPackageResource
      * Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
      * @var AccessPackageResourceEnvironment|\stdClass|null
      */
-    public mixed $environment = null;
+    public AccessPackageResourceEnvironment|\stdClass|null $environment = null;
 
     /** 
      * Read-only. Nullable. Supports $expand.

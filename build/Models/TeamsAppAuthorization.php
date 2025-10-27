@@ -19,7 +19,7 @@ class TeamsAppAuthorization
      * Set of permissions required by the teamsApp.
      * @var TeamsAppPermissionSet|\stdClass|null
      */
-    public mixed $requiredPermissionSet = null;
+    public TeamsAppPermissionSet|\stdClass|null $requiredPermissionSet = null;
 
 
     /**

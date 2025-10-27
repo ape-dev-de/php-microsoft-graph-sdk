@@ -34,7 +34,7 @@ class CallRecordsCallRecord
      * The organizing party's identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $organizer = null;
+    public IdentitySet|\stdClass|null $organizer = null;
 
     /** 
      * List of distinct identities involved in the call. Limited to 130 entries. The participants property is deprecated and will stop returning data on June 30, 2026. Going forward, use the participants_v2 relationship.
@@ -55,7 +55,7 @@ class CallRecordsCallRecord
      * Identity of the organizer of the call. This relationship is expanded by default in callRecord methods.
      * @var CallRecordsOrganizer|\stdClass|null
      */
-    public mixed $organizer_v2 = null;
+    public CallRecordsOrganizer|\stdClass|null $organizer_v2 = null;
 
     /** 
      * List of distinct participants in the call.

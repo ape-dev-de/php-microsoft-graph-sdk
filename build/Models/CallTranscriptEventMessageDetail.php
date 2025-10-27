@@ -22,7 +22,7 @@ class CallTranscriptEventMessageDetail
      * The organizer of the meeting.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $meetingOrganizer = null;
+    public IdentitySet|\stdClass|null $meetingOrganizer = null;
 
 
     /**

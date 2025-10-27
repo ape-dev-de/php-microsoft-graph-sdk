@@ -19,7 +19,7 @@ class PrivilegedAccessRoot
      * A group that's governed through Privileged Identity Management (PIM).
      * @var PrivilegedAccessGroup|\stdClass|null
      */
-    public mixed $group = null;
+    public PrivilegedAccessGroup|\stdClass|null $group = null;
 
 
     /**

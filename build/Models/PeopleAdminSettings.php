@@ -19,7 +19,7 @@ class PeopleAdminSettings
      * Represents administrator settings that manage the support for item insights in an organization.
      * @var InsightsSettings|\stdClass|null
      */
-    public mixed $itemInsights = null;
+    public InsightsSettings|\stdClass|null $itemInsights = null;
 
     /** 
      * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card.
@@ -31,7 +31,7 @@ class PeopleAdminSettings
      * Represents administrator settings that manage the support of pronouns in an organization.
      * @var PronounsSettings|\stdClass|null
      */
-    public mixed $pronouns = null;
+    public PronounsSettings|\stdClass|null $pronouns = null;
 
 
     /**

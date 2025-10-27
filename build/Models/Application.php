@@ -28,7 +28,7 @@ class Application
      * Specifies settings for an application that implements a web API.
      * @var ApiApplication|\stdClass|null
      */
-    public mixed $api = null;
+    public ApiApplication|\stdClass|null $api = null;
 
     /** The unique identifier for the application that is assigned to an application by Microsoft Entra ID. Not nullable. Read-only. Alternate key. Supports $filter (eq). */
     public ?string $appId = null;
@@ -46,13 +46,13 @@ class Application
      * 
      * @var AuthenticationBehaviors|\stdClass|null
      */
-    public mixed $authenticationBehaviors = null;
+    public AuthenticationBehaviors|\stdClass|null $authenticationBehaviors = null;
 
     /** 
      * Specifies the certification status of the application.
      * @var Certification|\stdClass|null
      */
-    public mixed $certification = null;
+    public Certification|\stdClass|null $certification = null;
 
     /** The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderby. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -82,7 +82,7 @@ class Application
      * Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @var InformationalUrl|\stdClass|null
      */
-    public mixed $info = null;
+    public InformationalUrl|\stdClass|null $info = null;
 
     /** Specifies whether this application supports device authentication without a user. The default is false. */
     public ?bool $isDeviceOnlyAuthSupported = null;
@@ -103,7 +103,7 @@ class Application
      * Specifies whether the Native Authentication APIs are enabled for the application. The possible values are: none and all. Default is none. For more information, see Native Authentication.
      * @var NativeAuthenticationApisEnabled|\stdClass|null
      */
-    public mixed $nativeAuthenticationApisEnabled = null;
+    public NativeAuthenticationApisEnabled|\stdClass|null $nativeAuthenticationApisEnabled = null;
 
     /** Notes relevant for the management of the application. */
     public ?string $notes = null;
@@ -115,13 +115,13 @@ class Application
      * Application developers can configure optional claims in their Microsoft Entra applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app.
      * @var OptionalClaims|\stdClass|null
      */
-    public mixed $optionalClaims = null;
+    public OptionalClaims|\stdClass|null $optionalClaims = null;
 
     /** 
      * Specifies parental control settings for an application.
      * @var ParentalControlSettings|\stdClass|null
      */
-    public mixed $parentalControlSettings = null;
+    public ParentalControlSettings|\stdClass|null $parentalControlSettings = null;
 
     /** 
      * The collection of password credentials associated with the application. Not nullable.
@@ -133,7 +133,7 @@ class Application
      * Specifies settings for installed clients such as desktop or mobile devices.
      * @var PublicClientApplication|\stdClass|null
      */
-    public mixed $publicClient = null;
+    public PublicClientApplication|\stdClass|null $publicClient = null;
 
     /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
     public ?string $publisherDomain = null;
@@ -142,7 +142,7 @@ class Application
      * Specifies whether this application requires Microsoft Entra ID to verify the signed authentication requests.
      * @var RequestSignatureVerification|\stdClass|null
      */
-    public mixed $requestSignatureVerification = null;
+    public RequestSignatureVerification|\stdClass|null $requestSignatureVerification = null;
 
     /** 
      * Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).
@@ -160,7 +160,7 @@ class Application
      * Specifies whether sensitive properties of a multitenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
      * @var ServicePrincipalLockConfiguration|\stdClass|null
      */
-    public mixed $servicePrincipalLockConfiguration = null;
+    public ServicePrincipalLockConfiguration|\stdClass|null $servicePrincipalLockConfiguration = null;
 
     /** Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg (default), AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount, and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. The value for this property has implications on other app object properties. As a result, if you change this property, you might need to change other properties first. For more information, see Validation differences for signInAudience.Supports $filter (eq, ne, not). */
     public ?string $signInAudience = null;
@@ -169,7 +169,7 @@ class Application
      * Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens.
      * @var SpaApplication|\stdClass|null
      */
-    public mixed $spa = null;
+    public SpaApplication|\stdClass|null $spa = null;
 
     /** 
      * Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.
@@ -187,13 +187,13 @@ class Application
      * Specifies the verified publisher of the application. For more information about how publisher verification helps support application security, trustworthiness, and compliance, see Publisher verification.
      * @var VerifiedPublisher|\stdClass|null
      */
-    public mixed $verifiedPublisher = null;
+    public VerifiedPublisher|\stdClass|null $verifiedPublisher = null;
 
     /** 
      * Specifies settings for a web application.
      * @var WebApplication|\stdClass|null
      */
-    public mixed $web = null;
+    public WebApplication|\stdClass|null $web = null;
 
     /** 
      * The appManagementPolicy applied to this application.
@@ -205,7 +205,7 @@ class Application
      * Supports $filter (/$count eq 0, /$count ne 0). Read-only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $createdOnBehalfOf = null;
+    public DirectoryObject|\stdClass|null $createdOnBehalfOf = null;
 
     /** 
      * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
@@ -235,7 +235,7 @@ class Application
      * Represents the capability for Microsoft Entra identity synchronization through the Microsoft Graph API.
      * @var Synchronization|\stdClass|null
      */
-    public mixed $synchronization = null;
+    public Synchronization|\stdClass|null $synchronization = null;
 
     /** 
      * 

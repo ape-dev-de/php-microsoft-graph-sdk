@@ -19,7 +19,7 @@ class AdminMicrosoft365Apps
      * A container for tenant-level settings for Microsoft 365 applications.
      * @var M365AppsInstallationOptions|\stdClass|null
      */
-    public mixed $installationOptions = null;
+    public M365AppsInstallationOptions|\stdClass|null $installationOptions = null;
 
 
     /**

@@ -52,7 +52,7 @@ class SecurityKubernetesPodEvidence
      * The pod controller.
      * @var SecurityKubernetesControllerEvidence|\stdClass|null
      */
-    public mixed $controller = null;
+    public SecurityKubernetesControllerEvidence|\stdClass|null $controller = null;
 
     /** 
      * The list of pod ephemeral containers.
@@ -70,7 +70,7 @@ class SecurityKubernetesPodEvidence
      * The pod labels.
      * @var SecurityDictionary|\stdClass|null
      */
-    public mixed $labels = null;
+    public SecurityDictionary|\stdClass|null $labels = null;
 
     /** The pod name. */
     public ?string $name = null;
@@ -79,19 +79,19 @@ class SecurityKubernetesPodEvidence
      * The pod namespace.
      * @var SecurityKubernetesNamespaceEvidence|\stdClass|null
      */
-    public mixed $namespace = null;
+    public SecurityKubernetesNamespaceEvidence|\stdClass|null $namespace = null;
 
     /** 
      * The pod IP.
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $podIp = null;
+    public SecurityIpEvidence|\stdClass|null $podIp = null;
 
     /** 
      * The pod service account.
      * @var SecurityKubernetesServiceAccountEvidence|\stdClass|null
      */
-    public mixed $serviceAccount = null;
+    public SecurityKubernetesServiceAccountEvidence|\stdClass|null $serviceAccount = null;
 
 
     /**

@@ -19,7 +19,7 @@ class PlannerTaskDetails
      * The collection of checklist items on the task.
      * @var PlannerChecklistItems|\stdClass|null
      */
-    public mixed $checklist = null;
+    public PlannerChecklistItems|\stdClass|null $checklist = null;
 
     /** Description of the task. */
     public ?string $description = null;
@@ -28,13 +28,13 @@ class PlannerTaskDetails
      * This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
      * @var PlannerPreviewType|\stdClass|null
      */
-    public mixed $previewType = null;
+    public PlannerPreviewType|\stdClass|null $previewType = null;
 
     /** 
      * The collection of references on the task.
      * @var PlannerExternalReferences|\stdClass|null
      */
-    public mixed $references = null;
+    public PlannerExternalReferences|\stdClass|null $references = null;
 
 
     /**

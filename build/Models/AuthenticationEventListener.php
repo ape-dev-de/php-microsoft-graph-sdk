@@ -22,7 +22,7 @@ class AuthenticationEventListener
      * The conditions on which this authenticationEventListener should trigger.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
 
     /**

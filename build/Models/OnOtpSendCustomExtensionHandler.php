@@ -16,13 +16,13 @@ class OnOtpSendCustomExtensionHandler
      * Configuration regarding properties of the custom extension that are can be overwritten for the onEmailOtpSendListener event listener.
      * @var CustomExtensionOverwriteConfiguration|\stdClass|null
      */
-    public mixed $configuration = null;
+    public CustomExtensionOverwriteConfiguration|\stdClass|null $configuration = null;
 
     /** 
      * 
      * @var OnOtpSendCustomExtension|\stdClass|null
      */
-    public mixed $customExtension = null;
+    public OnOtpSendCustomExtension|\stdClass|null $customExtension = null;
 
 
     /**

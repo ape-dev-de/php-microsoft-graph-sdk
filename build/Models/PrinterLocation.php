@@ -30,11 +30,17 @@ class PrinterLocation
     /** The description of the floor that the printer is located on. */
     public ?string $floorDescription = null;
 
-    /** The latitude that the printer is located at. */
-    public ?string $latitude = null;
+    /** 
+     * The latitude that the printer is located at.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $latitude = null;
 
-    /** The longitude that the printer is located at. */
-    public ?string $longitude = null;
+    /** 
+     * The longitude that the printer is located at.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $longitude = null;
 
     /** 
      * The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.

@@ -25,7 +25,7 @@ class UserConsentRequest
      * The principal that created the request.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The request creation date time. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -43,7 +43,7 @@ class UserConsentRequest
      * Approval decisions associated with a request.
      * @var Approval|\stdClass|null
      */
-    public mixed $approval = null;
+    public Approval|\stdClass|null $approval = null;
 
 
     /**

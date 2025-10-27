@@ -19,7 +19,7 @@ class OnPremisesAccidentalDeletionPrevention
      * The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage, unknownFutureValue.
      * @var OnPremisesDirectorySynchronizationDeletionPreventionType|\stdClass|null
      */
-    public mixed $synchronizationPreventionType = null;
+    public OnPremisesDirectorySynchronizationDeletionPreventionType|\stdClass|null $synchronizationPreventionType = null;
 
 
     /**

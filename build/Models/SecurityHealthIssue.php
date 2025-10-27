@@ -40,7 +40,7 @@ class SecurityHealthIssue
      * The type of the health issue. The possible values are: sensor, global, unknownFutureValue. For a list of all health issues and their identifiers, see Microsoft Defender for Identity health issues.
      * @var SecurityHealthIssueType|\stdClass|null
      */
-    public mixed $healthIssueType = null;
+    public SecurityHealthIssueType|\stdClass|null $healthIssueType = null;
 
     /** The type identifier of the health issue. For a list of all health issues and their identifiers, see Microsoft Defender for Identity health issues. */
     public ?string $issueTypeId = null;
@@ -70,13 +70,13 @@ class SecurityHealthIssue
      * The severity of the health issue. The possible values are: low, medium, high, unknownFutureValue.
      * @var SecurityHealthIssueSeverity|\stdClass|null
      */
-    public mixed $severity = null;
+    public SecurityHealthIssueSeverity|\stdClass|null $severity = null;
 
     /** 
      * The status of the health issue. The possible values are: open, closed, suppressed, unknownFutureValue.
      * @var SecurityHealthIssueStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityHealthIssueStatus|\stdClass|null $status = null;
 
 
     /**

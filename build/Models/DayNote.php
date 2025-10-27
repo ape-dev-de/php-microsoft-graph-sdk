@@ -19,7 +19,7 @@ class DayNote
      * Identity of the creator of the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,7 +28,7 @@ class DayNote
      * Identity of the person who last modified the entity.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -40,13 +40,13 @@ class DayNote
      * The draft version of this day note that is viewable by managers. Only contentType text is supported.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $draftDayNote = null;
+    public ItemBody|\stdClass|null $draftDayNote = null;
 
     /** 
      * The shared version of this day note that is viewable by both employees and managers. Only contentType text is supported.
      * @var ItemBody|\stdClass|null
      */
-    public mixed $sharedDayNote = null;
+    public ItemBody|\stdClass|null $sharedDayNote = null;
 
 
     /**

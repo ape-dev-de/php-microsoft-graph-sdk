@@ -16,7 +16,7 @@ class AttachmentInfo
      * The type of the attachment. The possible values are: file, item, reference. Required.
      * @var AttachmentType|\stdClass|null
      */
-    public mixed $attachmentType = null;
+    public AttachmentType|\stdClass|null $attachmentType = null;
 
     /** The nature of the data in the attachment. Optional. */
     public ?string $contentType = null;

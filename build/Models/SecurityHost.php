@@ -73,7 +73,7 @@ class SecurityHost
      * Represents a calculated reputation of this host.
      * @var SecurityHostReputation|\stdClass|null
      */
-    public mixed $reputation = null;
+    public SecurityHostReputation|\stdClass|null $reputation = null;
 
     /** 
      * The hostSslCertificates that are associated with this host.
@@ -97,7 +97,7 @@ class SecurityHost
      * The most recent whoisRecord for this host.
      * @var SecurityWhoisRecord|\stdClass|null
      */
-    public mixed $whois = null;
+    public SecurityWhoisRecord|\stdClass|null $whois = null;
 
 
     /**

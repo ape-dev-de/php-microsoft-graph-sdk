@@ -43,7 +43,7 @@ class User
      * 
      * @var AuthorizationInfo|\stdClass|null
      */
-    public mixed $authorizationInfo = null;
+    public AuthorizationInfo|\stdClass|null $authorizationInfo = null;
 
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z. Returned only on $select. */
     public ?\DateTimeInterface $birthday = null;
@@ -76,7 +76,7 @@ class User
      * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role.
      * @var CustomSecurityAttributeValue|\stdClass|null
      */
-    public mixed $customSecurityAttributes = null;
+    public CustomSecurityAttributeValue|\stdClass|null $customSecurityAttributes = null;
 
     /** The name of the department in which the user works. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, and eq on null values). */
     public ?string $department = null;
@@ -100,7 +100,7 @@ class User
      * Represents organization data (for example, division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
      * @var EmployeeOrgData|\stdClass|null
      */
-    public mixed $employeeOrgData = null;
+    public EmployeeOrgData|\stdClass|null $employeeOrgData = null;
 
     /** Captures enterprise worker type. For example, Employee, Contractor, Consultant, or Vendor. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith). */
     public ?string $employeeType = null;
@@ -166,7 +166,7 @@ class User
      * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.
      * @var MailboxSettings|\stdClass|null
      */
-    public mixed $mailboxSettings = null;
+    public MailboxSettings|\stdClass|null $mailboxSettings = null;
 
     /** The mail alias for the user. This property must be specified when a user is created. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     public ?string $mailNickname = null;
@@ -190,7 +190,7 @@ class User
      * Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. Each attribute can store up to 1024 characters. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during the creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Returned only on $select. Supports $filter (eq, ne, not, in).
      * @var OnPremisesExtensionAttributes|\stdClass|null
      */
-    public mixed $onPremisesExtensionAttributes = null;
+    public OnPremisesExtensionAttributes|\stdClass|null $onPremisesExtensionAttributes = null;
 
     /** This property is used to associate an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. NOTE: The $ and _ characters can't be used when specifying this property. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in). */
     public ?string $onPremisesImmutableId = null;
@@ -229,7 +229,7 @@ class User
      * Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values). To update this property:  User-PasswordProfile.ReadWrite.All is the least privileged permission to update this property.  In delegated scenarios, the User Administrator Microsoft Entra role is the least privileged admin role supported to update this property for nonadmin users. Privileged Authentication Administrator is the least privileged role that's allowed to update this property for all administrators in the tenant. In general, the signed-in user must have a higher privileged administrator role as indicated in Who can reset passwords.  In app-only scenarios, the calling app must be assigned a supported permission and at least the User Administrator Microsoft Entra role.
      * @var PasswordProfile|\stdClass|null
      */
-    public mixed $passwordProfile = null;
+    public PasswordProfile|\stdClass|null $passwordProfile = null;
 
     /** 
      * A list for the user to enumerate their past projects. Returned only on $select.
@@ -253,7 +253,7 @@ class User
      * 
      * @var UserPrint|\stdClass|null
      */
-    public mixed $print = null;
+    public UserPrint|\stdClass|null $print = null;
 
     /** 
      * The plans that are provisioned for the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le).
@@ -295,7 +295,7 @@ class User
      * Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note: Details for this property require a Microsoft Entra ID P1 or P2 license and the AuditLog.Read.All permission.This property isn't returned for a user who never signed in or last signed in before April 2020.
      * @var SignInActivity|\stdClass|null
      */
-    public mixed $signInActivity = null;
+    public SignInActivity|\stdClass|null $signInActivity = null;
 
     /** Any refresh tokens or session tokens (session cookies) issued before this time are invalid. Applications get an error when using an invalid refresh or session token to acquire a delegated access token (to access APIs such as Microsoft Graph). If this happens, the application needs to acquire a new refresh token by requesting the authorized endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select. */
     public ?\DateTimeInterface $signInSessionsValidFromDateTime = null;
@@ -346,13 +346,13 @@ class User
      * The authentication methods that are supported for the user.
      * @var Authentication|\stdClass|null
      */
-    public mixed $authentication = null;
+    public Authentication|\stdClass|null $authentication = null;
 
     /** 
      * The user's primary calendar. Read-only.
      * @var Calendar|\stdClass|null
      */
-    public mixed $calendar = null;
+    public Calendar|\stdClass|null $calendar = null;
 
     /** 
      * The user's calendar groups. Read-only. Nullable.
@@ -382,7 +382,7 @@ class User
      * 
      * @var CloudClipboardRoot|\stdClass|null
      */
-    public mixed $cloudClipboard = null;
+    public CloudClipboardRoot|\stdClass|null $cloudClipboard = null;
 
     /** 
      * The user's contacts folders. Read-only. Nullable.
@@ -406,7 +406,7 @@ class User
      * The data security and governance settings for the user. Read-only. Nullable.
      * @var UserDataSecurityAndGovernance|\stdClass|null
      */
-    public mixed $dataSecurityAndGovernance = null;
+    public UserDataSecurityAndGovernance|\stdClass|null $dataSecurityAndGovernance = null;
 
     /** 
      * The list of troubleshooting events for this user.
@@ -424,7 +424,7 @@ class User
      * The user's OneDrive. Read-only.
      * @var Drive|\stdClass|null
      */
-    public mixed $drive = null;
+    public Drive|\stdClass|null $drive = null;
 
     /** 
      * A collection of drives available for this user. Read-only.
@@ -436,7 +436,7 @@ class User
      * 
      * @var EmployeeExperienceUser|\stdClass|null
      */
-    public mixed $employeeExperience = null;
+    public EmployeeExperienceUser|\stdClass|null $employeeExperience = null;
 
     /** 
      * The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
@@ -460,13 +460,13 @@ class User
      * Relevance classification of the user's messages based on explicit designations that override inferred relevance or importance.
      * @var InferenceClassification|\stdClass|null
      */
-    public mixed $inferenceClassification = null;
+    public InferenceClassification|\stdClass|null $inferenceClassification = null;
 
     /** 
      * Represents relationships between a user and items such as OneDrive for work or school documents, calculated using advanced analytics and machine learning techniques. Read-only. Nullable.
      * @var ItemInsights|\stdClass|null
      */
-    public mixed $insights = null;
+    public ItemInsights|\stdClass|null $insights = null;
 
     /** 
      * 
@@ -502,7 +502,7 @@ class User
      * The user or contact that is this user's manager. Read-only. Supports $expand.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $manager = null;
+    public DirectoryObject|\stdClass|null $manager = null;
 
     /** 
      * The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
@@ -526,7 +526,7 @@ class User
      * 
      * @var Onenote|\stdClass|null
      */
-    public mixed $onenote = null;
+    public Onenote|\stdClass|null $onenote = null;
 
     /** 
      * Information about a meeting, including the URL used to join a meeting, the attendees list, and the description.
@@ -538,7 +538,7 @@ class User
      * 
      * @var OutlookUser|\stdClass|null
      */
-    public mixed $outlook = null;
+    public OutlookUser|\stdClass|null $outlook = null;
 
     /** 
      * Devices the user owns. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
@@ -568,7 +568,7 @@ class User
      * The user's profile photo. Read-only.
      * @var ProfilePhoto|\stdClass|null
      */
-    public mixed $photo = null;
+    public ProfilePhoto|\stdClass|null $photo = null;
 
     /** 
      * The collection of the user's profile photos in different sizes. Read-only.
@@ -580,13 +580,13 @@ class User
      * Entry-point to the Planner resource that might exist for a user. Read-only.
      * @var PlannerUser|\stdClass|null
      */
-    public mixed $planner = null;
+    public PlannerUser|\stdClass|null $planner = null;
 
     /** 
      * 
      * @var Presence|\stdClass|null
      */
-    public mixed $presence = null;
+    public Presence|\stdClass|null $presence = null;
 
     /** 
      * Devices that are registered for the user. Read-only. Nullable. Supports $expand and returns up to 100 objects.
@@ -604,13 +604,13 @@ class User
      * 
      * @var UserSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public UserSettings|\stdClass|null $settings = null;
 
     /** 
      * The identifier that relates the user to the working time schedule triggers. Read-Only. Nullable
      * @var UserSolutionRoot|\stdClass|null
      */
-    public mixed $solutions = null;
+    public UserSolutionRoot|\stdClass|null $solutions = null;
 
     /** 
      * The users and groups responsible for this guest's privileges in the tenant and keeping the guest's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
@@ -622,13 +622,13 @@ class User
      * A container for Microsoft Teams features available for the user. Read-only. Nullable.
      * @var UserTeamwork|\stdClass|null
      */
-    public mixed $teamwork = null;
+    public UserTeamwork|\stdClass|null $teamwork = null;
 
     /** 
      * Represents the To Do services available to a user.
      * @var Todo|\stdClass|null
      */
-    public mixed $todo = null;
+    public Todo|\stdClass|null $todo = null;
 
     /** 
      * The groups, including nested groups, and directory roles that a user is a member of. Nullable.

@@ -19,7 +19,7 @@ class RemoteItem
      * Identity of the user, device, and application which created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -28,31 +28,31 @@ class RemoteItem
      * Indicates that the remote item is a file. Read-only.
      * @var File|\stdClass|null
      */
-    public mixed $file = null;
+    public File|\stdClass|null $file = null;
 
     /** 
      * Information about the remote item from the local file system. Read-only.
      * @var FileSystemInfo|\stdClass|null
      */
-    public mixed $fileSystemInfo = null;
+    public FileSystemInfo|\stdClass|null $fileSystemInfo = null;
 
     /** 
      * Indicates that the remote item is a folder. Read-only.
      * @var Folder|\stdClass|null
      */
-    public mixed $folder = null;
+    public Folder|\stdClass|null $folder = null;
 
     /** 
      * Image metadata, if the item is an image. Read-only.
      * @var Image|\stdClass|null
      */
-    public mixed $image = null;
+    public Image|\stdClass|null $image = null;
 
     /** 
      * Identity of the user, device, and application which last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -64,25 +64,25 @@ class RemoteItem
      * If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @var Package|\stdClass|null
      */
-    public mixed $package = null;
+    public Package|\stdClass|null $package = null;
 
     /** 
      * Properties of the parent of the remote item. Read-only.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** 
      * Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
      * @var Shared|\stdClass|null
      */
-    public mixed $shared = null;
+    public Shared|\stdClass|null $shared = null;
 
     /** 
      * Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.
      * @var SharepointIds|\stdClass|null
      */
-    public mixed $sharepointIds = null;
+    public SharepointIds|\stdClass|null $sharepointIds = null;
 
     /** Size of the remote item. Read-only. */
     public ?float $size = null;
@@ -91,13 +91,13 @@ class RemoteItem
      * If the current item is also available as a special folder, this facet is returned. Read-only.
      * @var SpecialFolder|\stdClass|null
      */
-    public mixed $specialFolder = null;
+    public SpecialFolder|\stdClass|null $specialFolder = null;
 
     /** 
      * Video metadata, if the item is a video. Read-only.
      * @var Video|\stdClass|null
      */
-    public mixed $video = null;
+    public Video|\stdClass|null $video = null;
 
     /** DAV compatible URL for the item. */
     public ?string $webDavUrl = null;

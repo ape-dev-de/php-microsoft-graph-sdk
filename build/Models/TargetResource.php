@@ -22,7 +22,7 @@ class TargetResource
      * When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue
      * @var GroupType|\stdClass|null
      */
-    public mixed $groupType = null;
+    public GroupType|\stdClass|null $groupType = null;
 
     /** 
      * Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type.

@@ -22,7 +22,7 @@ class SendDtmfTonesOperation
      * The result information. Read-only.
      * @var ResultInfo|\stdClass|null
      */
-    public mixed $resultInfo = null;
+    public ResultInfo|\stdClass|null $resultInfo = null;
 
     /**  */
     public ?OperationStatus $status = null;
@@ -31,7 +31,7 @@ class SendDtmfTonesOperation
      * The results of the action. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled, unknownfutureValue.
      * @var SendDtmfCompletionReason|\stdClass|null
      */
-    public mixed $completionReason = null;
+    public SendDtmfCompletionReason|\stdClass|null $completionReason = null;
 
 
     /**

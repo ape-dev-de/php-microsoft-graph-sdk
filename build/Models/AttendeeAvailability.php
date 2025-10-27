@@ -16,13 +16,13 @@ class AttendeeAvailability
      * The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.
      * @var AttendeeBase|\stdClass|null
      */
-    public mixed $attendee = null;
+    public AttendeeBase|\stdClass|null $attendee = null;
 
     /** 
      * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @var FreeBusyStatus|\stdClass|null
      */
-    public mixed $availability = null;
+    public FreeBusyStatus|\stdClass|null $availability = null;
 
 
     /**

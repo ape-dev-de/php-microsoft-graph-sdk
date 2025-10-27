@@ -46,13 +46,13 @@ class SecurityKubernetesNamespaceEvidence
      * The namespace cluster.
      * @var SecurityKubernetesClusterEvidence|\stdClass|null
      */
-    public mixed $cluster = null;
+    public SecurityKubernetesClusterEvidence|\stdClass|null $cluster = null;
 
     /** 
      * The labels for the Kubernetes pod.
      * @var SecurityDictionary|\stdClass|null
      */
-    public mixed $labels = null;
+    public SecurityDictionary|\stdClass|null $labels = null;
 
     /** The namespace name. */
     public ?string $name = null;

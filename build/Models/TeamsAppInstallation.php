@@ -19,19 +19,19 @@ class TeamsAppInstallation
      * The set of resource-specific permissions consented to while installing or upgrading the teamsApp.
      * @var TeamsAppPermissionSet|\stdClass|null
      */
-    public mixed $consentedPermissionSet = null;
+    public TeamsAppPermissionSet|\stdClass|null $consentedPermissionSet = null;
 
     /** 
      * The app that is installed.
      * @var TeamsApp|\stdClass|null
      */
-    public mixed $teamsApp = null;
+    public TeamsApp|\stdClass|null $teamsApp = null;
 
     /** 
      * The details of this version of the app.
      * @var TeamsAppDefinition|\stdClass|null
      */
-    public mixed $teamsAppDefinition = null;
+    public TeamsAppDefinition|\stdClass|null $teamsAppDefinition = null;
 
 
     /**

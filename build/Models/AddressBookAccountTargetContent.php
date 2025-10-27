@@ -16,7 +16,7 @@ class AddressBookAccountTargetContent
      * The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue.
      * @var AccountTargetContentType|\stdClass|null
      */
-    public mixed $type = null;
+    public AccountTargetContentType|\stdClass|null $type = null;
 
     /** 
      * List of user emails targeted for an attack simulation training campaign.

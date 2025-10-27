@@ -12,20 +12,35 @@ class OutlookGeoCoordinates
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters. */
-    public ?string $accuracy = null;
+    /** 
+     * The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $accuracy = null;
 
-    /** The altitude of the location. */
-    public ?string $altitude = null;
+    /** 
+     * The altitude of the location.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $altitude = null;
 
-    /** The accuracy of the altitude. */
-    public ?string $altitudeAccuracy = null;
+    /** 
+     * The accuracy of the altitude.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $altitudeAccuracy = null;
 
-    /** The latitude of the location. */
-    public ?string $latitude = null;
+    /** 
+     * The latitude of the location.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $latitude = null;
 
-    /** The longitude of the location. */
-    public ?string $longitude = null;
+    /** 
+     * The longitude of the location.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $longitude = null;
 
 
     /**

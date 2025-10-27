@@ -16,7 +16,7 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp
      * The type of user to create. Maps to userType property of user object. The possible values are: member, guest, unknownFutureValue.
      * @var UserType|\stdClass|null
      */
-    public mixed $userTypeToCreate = null;
+    public UserType|\stdClass|null $userTypeToCreate = null;
 
 
     /**

@@ -22,25 +22,25 @@ class AccessPackageResourceRequest
      * The type of the request. Use adminAdd to add a resource, if the caller is an administrator or resource owner, adminUpdate to update a resource, or adminRemove to remove a resource.
      * @var AccessPackageRequestType|\stdClass|null
      */
-    public mixed $requestType = null;
+    public AccessPackageRequestType|\stdClass|null $requestType = null;
 
     /** 
      * The outcome of whether the service was able to add the resource to the catalog. The value is delivered if the resource was added or removed, and deliveryFailed if it couldn't be added or removed. Read-only.
      * @var AccessPackageRequestState|\stdClass|null
      */
-    public mixed $state = null;
+    public AccessPackageRequestState|\stdClass|null $state = null;
 
     /** 
      * 
      * @var AccessPackageCatalog|\stdClass|null
      */
-    public mixed $catalog = null;
+    public AccessPackageCatalog|\stdClass|null $catalog = null;
 
     /** 
      * 
      * @var AccessPackageResource|\stdClass|null
      */
-    public mixed $resource = null;
+    public AccessPackageResource|\stdClass|null $resource = null;
 
 
     /**

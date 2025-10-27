@@ -15,11 +15,17 @@ class UserExperienceAnalyticsDevicePerformance
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
-    /** Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999 */
-    public ?string $averageBlueScreens = null;
+    /** 
+     * Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageBlueScreens = null;
 
-    /** Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999 */
-    public ?string $averageRestarts = null;
+    /** 
+     * Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $averageRestarts = null;
 
     /** Number of Blue Screens in the last 30 days. Valid values 0 to 9999999 */
     public ?float $blueScreenCount = null;
@@ -60,8 +66,11 @@ class UserExperienceAnalyticsDevicePerformance
     /** The user experience analytics device model. */
     public ?string $model = null;
 
-    /** The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
-    public ?string $modelStartupPerformanceScore = null;
+    /** 
+     * The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $modelStartupPerformanceScore = null;
 
     /** The user experience analytics device Operating System version. */
     public ?string $operatingSystemVersion = null;
@@ -72,8 +81,11 @@ class UserExperienceAnalyticsDevicePerformance
     /** Number of Restarts in the last 30 days. Valid values 0 to 9999999 */
     public ?float $restartCount = null;
 
-    /** The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
-    public ?string $startupPerformanceScore = null;
+    /** 
+     * The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $startupPerformanceScore = null;
 
 
     /**

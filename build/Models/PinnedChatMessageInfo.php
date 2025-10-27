@@ -19,7 +19,7 @@ class PinnedChatMessageInfo
      * Represents details about the chat message that is pinned.
      * @var ChatMessage|\stdClass|null
      */
-    public mixed $message = null;
+    public ChatMessage|\stdClass|null $message = null;
 
 
     /**

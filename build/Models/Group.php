@@ -82,7 +82,7 @@ class Group
      * Indicates the status of the group license assignment to all group members. The default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.
      * @var LicenseProcessingState|\stdClass|null
      */
-    public mixed $licenseProcessingState = null;
+    public LicenseProcessingState|\stdClass|null $licenseProcessingState = null;
 
     /** The SMTP address for the group, for example, 'serviceadmins@contoso.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     public ?string $mail = null;
@@ -178,7 +178,7 @@ class Group
      * The group's calendar. Read-only.
      * @var Calendar|\stdClass|null
      */
-    public mixed $calendar = null;
+    public Calendar|\stdClass|null $calendar = null;
 
     /** 
      * The calendar view for the calendar. Read-only.
@@ -196,13 +196,13 @@ class Group
      * The user (or application) that created the group. NOTE: This property isn't set if the user is an administrator. Read-only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $createdOnBehalfOf = null;
+    public DirectoryObject|\stdClass|null $createdOnBehalfOf = null;
 
     /** 
      * The group's default drive. Read-only.
      * @var Drive|\stdClass|null
      */
-    public mixed $drive = null;
+    public Drive|\stdClass|null $drive = null;
 
     /** 
      * The group's drives. Read-only.
@@ -250,7 +250,7 @@ class Group
      * 
      * @var Onenote|\stdClass|null
      */
-    public mixed $onenote = null;
+    public Onenote|\stdClass|null $onenote = null;
 
     /** 
      * The owners of the group who can be users or service principals. Limited to 100 owners. Nullable. If this property isn't specified when creating a Microsoft 365 group the calling user (admin or non-admin) is automatically assigned as the group owner. A non-admin user can't explicitly add themselves to this collection when they're creating the group. For more information, see the related known issue. For security groups, the admin user isn't automatically added to this collection. For more information, see the related known issue. Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
@@ -268,7 +268,7 @@ class Group
      * The group's profile photo
      * @var ProfilePhoto|\stdClass|null
      */
-    public mixed $photo = null;
+    public ProfilePhoto|\stdClass|null $photo = null;
 
     /** 
      * The profile photos owned by the group. Read-only. Nullable.
@@ -280,7 +280,7 @@ class Group
      * Entry-point to Planner resource that might exist for a Unified Group.
      * @var PlannerGroup|\stdClass|null
      */
-    public mixed $planner = null;
+    public PlannerGroup|\stdClass|null $planner = null;
 
     /** 
      * The list of users or groups not allowed to create posts or calendar events in this group. Nullable
@@ -304,7 +304,7 @@ class Group
      * The team associated with this group.
      * @var Team|\stdClass|null
      */
-    public mixed $team = null;
+    public Team|\stdClass|null $team = null;
 
     /** 
      * The group's conversation threads. Nullable.

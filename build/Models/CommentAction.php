@@ -19,7 +19,7 @@ class CommentAction
      * The identity of the user who started the comment thread.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $parentAuthor = null;
+    public IdentitySet|\stdClass|null $parentAuthor = null;
 
     /** 
      * The identities of the users participating in this comment thread.

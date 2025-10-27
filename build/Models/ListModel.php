@@ -19,7 +19,7 @@ class ListModel
      * Identity of the user, device, or application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Date and time of item creation. Read-only. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -34,7 +34,7 @@ class ListModel
      * Identity of the user, device, and application that last modified the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the item was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class ListModel
      * Parent information, if the item has a parent. Read-write.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $parentReference = null;
+    public ItemReference|\stdClass|null $parentReference = null;
 
     /** URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only. */
     public ?string $webUrl = null;
@@ -55,13 +55,13 @@ class ListModel
      * Identity of the user who created the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $createdByUser = null;
+    public User|\stdClass|null $createdByUser = null;
 
     /** 
      * Identity of the user who last modified the item. Read-only.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedByUser = null;
+    public User|\stdClass|null $lastModifiedByUser = null;
 
     /** The displayable title of the list. */
     public ?string $displayName = null;
@@ -70,19 +70,19 @@ class ListModel
      * Contains more details about the list.
      * @var ListInfo|\stdClass|null
      */
-    public mixed $list = null;
+    public ListInfo|\stdClass|null $list = null;
 
     /** 
      * Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @var SharepointIds|\stdClass|null
      */
-    public mixed $sharepointIds = null;
+    public SharepointIds|\stdClass|null $sharepointIds = null;
 
     /** 
      * If present, indicates that the list is system-managed. Read-only.
      * @var SystemFacet|\stdClass|null
      */
-    public mixed $system = null;
+    public SystemFacet|\stdClass|null $system = null;
 
     /** 
      * The collection of field definitions for this list.
@@ -100,7 +100,7 @@ class ListModel
      * Allows access to the list as a drive resource with driveItems. Only present on document libraries.
      * @var Drive|\stdClass|null
      */
-    public mixed $drive = null;
+    public Drive|\stdClass|null $drive = null;
 
     /** 
      * All items contained in the list.

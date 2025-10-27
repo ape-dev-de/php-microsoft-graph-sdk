@@ -19,7 +19,7 @@ class SecurityEdiscoverySearchExportOperation
      * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult.
      * @var SecurityCaseAction|\stdClass|null
      */
-    public mixed $action = null;
+    public SecurityCaseAction|\stdClass|null $action = null;
 
     /** The date and time the operation was completed. */
     public ?\DateTimeInterface $completedDateTime = null;
@@ -28,7 +28,7 @@ class SecurityEdiscoverySearchExportOperation
      * The user that created the operation.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The date and time the operation was created. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -40,25 +40,25 @@ class SecurityEdiscoverySearchExportOperation
      * Contains success and failure-specific result information.
      * @var ResultInfo|\stdClass|null
      */
-    public mixed $resultInfo = null;
+    public ResultInfo|\stdClass|null $resultInfo = null;
 
     /** 
      * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
      * @var SecurityCaseOperationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityCaseOperationStatus|\stdClass|null $status = null;
 
     /** 
      * The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue, htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, includeReport.
      * @var SecurityAdditionalOptions|\stdClass|null
      */
-    public mixed $additionalOptions = null;
+    public SecurityAdditionalOptions|\stdClass|null $additionalOptions = null;
 
     /** 
      * The versions of cloud attachments to include in messages. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
      * @var SecurityCloudAttachmentVersion|\stdClass|null
      */
-    public mixed $cloudAttachmentVersion = null;
+    public SecurityCloudAttachmentVersion|\stdClass|null $cloudAttachmentVersion = null;
 
     /** The description of the export by the user. */
     public ?string $description = null;
@@ -70,13 +70,13 @@ class SecurityEdiscoverySearchExportOperation
      * The versions of files in SharePoint to include. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
      * @var SecurityDocumentVersion|\stdClass|null
      */
-    public mixed $documentVersion = null;
+    public SecurityDocumentVersion|\stdClass|null $documentVersion = null;
 
     /** 
      * Items to be included in the export. The possible values are: searchHits, partiallyIndexed, unknownFutureValue.
      * @var SecurityExportCriteria|\stdClass|null
      */
-    public mixed $exportCriteria = null;
+    public SecurityExportCriteria|\stdClass|null $exportCriteria = null;
 
     /** 
      * Contains the properties for an export file metadata, including downloadUrl, fileName, and size.
@@ -88,13 +88,13 @@ class SecurityEdiscoverySearchExportOperation
      * Format of the emails of the export. The possible values are: pst, msg, eml (deprecated), unknownFutureValue. The eml member is deprecated. It remains in v1.0 for backward compatibility. Going forward, use either pst or msg.
      * @var SecurityExportFormat|\stdClass|null
      */
-    public mixed $exportFormat = null;
+    public SecurityExportFormat|\stdClass|null $exportFormat = null;
 
     /** 
      * Location scope for partially indexed items. You can choose to include partially indexed items only in responsive locations with search hits or in all targeted locations. The possible values are: responsiveLocations, nonresponsiveLocations, unknownFutureValue.
      * @var SecurityExportLocation|\stdClass|null
      */
-    public mixed $exportLocation = null;
+    public SecurityExportLocation|\stdClass|null $exportLocation = null;
 
     /** Indicates whether to export single items. */
     public ?bool $exportSingleItems = null;
@@ -103,7 +103,7 @@ class SecurityEdiscoverySearchExportOperation
      * The eDiscovery searches under each case.
      * @var SecurityEdiscoverySearch|\stdClass|null
      */
-    public mixed $search = null;
+    public SecurityEdiscoverySearch|\stdClass|null $search = null;
 
 
     /**

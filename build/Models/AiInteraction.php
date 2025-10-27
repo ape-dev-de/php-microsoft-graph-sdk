@@ -28,7 +28,7 @@ class AiInteraction
      * 
      * @var ItemBody|\stdClass|null
      */
-    public mixed $body = null;
+    public ItemBody|\stdClass|null $body = null;
 
     /** 
      * 

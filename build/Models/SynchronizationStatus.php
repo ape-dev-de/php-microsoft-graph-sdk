@@ -25,19 +25,19 @@ class SynchronizationStatus
      * Details of the last execution of the job.
      * @var SynchronizationTaskExecution|\stdClass|null
      */
-    public mixed $lastExecution = null;
+    public SynchronizationTaskExecution|\stdClass|null $lastExecution = null;
 
     /** 
      * Details of the last execution of this job, which didn't have any errors.
      * @var SynchronizationTaskExecution|\stdClass|null
      */
-    public mixed $lastSuccessfulExecution = null;
+    public SynchronizationTaskExecution|\stdClass|null $lastSuccessfulExecution = null;
 
     /** 
      * Details of the last execution of the job, which exported objects into the target directory.
      * @var SynchronizationTaskExecution|\stdClass|null
      */
-    public mixed $lastSuccessfulExecutionWithExports = null;
+    public SynchronizationTaskExecution|\stdClass|null $lastSuccessfulExecutionWithExports = null;
 
     /** 
      * Details of the progress of a job toward completion.
@@ -49,7 +49,7 @@ class SynchronizationStatus
      * If job is in quarantine, quarantine details.
      * @var SynchronizationQuarantine|\stdClass|null
      */
-    public mixed $quarantine = null;
+    public SynchronizationQuarantine|\stdClass|null $quarantine = null;
 
     /** The time when steady state (no more changes to the process) was first achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $steadyStateFirstAchievedTime = null;

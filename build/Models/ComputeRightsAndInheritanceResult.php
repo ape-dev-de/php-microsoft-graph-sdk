@@ -22,7 +22,7 @@ class ComputeRightsAndInheritanceResult
      * 
      * @var SensitivityLabel|\stdClass|null
      */
-    public mixed $inheritedLabel = null;
+    public SensitivityLabel|\stdClass|null $inheritedLabel = null;
 
     /** 
      * 

@@ -82,7 +82,7 @@ class SecuritySasTokenEvidence
      * 
      * @var SecurityAzureResourceEvidence|\stdClass|null
      */
-    public mixed $storageResource = null;
+    public SecurityAzureResourceEvidence|\stdClass|null $storageResource = null;
 
 
     /**

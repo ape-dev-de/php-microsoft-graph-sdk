@@ -16,7 +16,7 @@ class AccessPackageAssignmentReviewSettings
      * The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.
      * @var AccessReviewExpirationBehavior|\stdClass|null
      */
-    public mixed $expirationBehavior = null;
+    public AccessReviewExpirationBehavior|\stdClass|null $expirationBehavior = null;
 
     /** 
      * This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond.
@@ -46,7 +46,7 @@ class AccessPackageAssignmentReviewSettings
      * When the first review should start and how often it should recur.
      * @var EntitlementManagementSchedule|\stdClass|null
      */
-    public mixed $schedule = null;
+    public EntitlementManagementSchedule|\stdClass|null $schedule = null;
 
 
     /**

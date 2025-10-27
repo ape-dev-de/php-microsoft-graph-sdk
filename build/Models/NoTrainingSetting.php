@@ -16,7 +16,7 @@ class NoTrainingSetting
      * Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue.
      * @var TrainingSettingType|\stdClass|null
      */
-    public mixed $settingType = null;
+    public TrainingSettingType|\stdClass|null $settingType = null;
 
 
     /**

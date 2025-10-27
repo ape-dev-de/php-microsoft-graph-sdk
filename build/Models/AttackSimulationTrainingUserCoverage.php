@@ -16,7 +16,7 @@ class AttackSimulationTrainingUserCoverage
      * User in an attack simulation and training campaign.
      * @var AttackSimulationUser|\stdClass|null
      */
-    public mixed $attackSimulationUser = null;
+    public AttackSimulationUser|\stdClass|null $attackSimulationUser = null;
 
     /** 
      * List of assigned trainings and their statuses for the user.

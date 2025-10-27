@@ -16,19 +16,19 @@ class CrossTenantAccessPolicyTenantRestrictions
      * The list of applications targeted with your cross-tenant access policy.
      * @var CrossTenantAccessPolicyTargetConfiguration|\stdClass|null
      */
-    public mixed $applications = null;
+    public CrossTenantAccessPolicyTargetConfiguration|\stdClass|null $applications = null;
 
     /** 
      * The list of users and groups targeted with your cross-tenant access policy.
      * @var CrossTenantAccessPolicyTargetConfiguration|\stdClass|null
      */
-    public mixed $usersAndGroups = null;
+    public CrossTenantAccessPolicyTargetConfiguration|\stdClass|null $usersAndGroups = null;
 
     /** 
      * Defines the rule for filtering devices and whether devices that satisfy the rule should be allowed or blocked. This property isn't supported on the server side yet.
      * @var DevicesFilter|\stdClass|null
      */
-    public mixed $devices = null;
+    public DevicesFilter|\stdClass|null $devices = null;
 
 
     /**

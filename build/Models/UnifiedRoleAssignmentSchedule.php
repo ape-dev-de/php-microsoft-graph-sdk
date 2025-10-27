@@ -43,25 +43,25 @@ class UnifiedRoleAssignmentSchedule
      * Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable.
      * @var AppScope|\stdClass|null
      */
-    public mixed $appScope = null;
+    public AppScope|\stdClass|null $appScope = null;
 
     /** 
      * The directory object that is the scope of the role eligibility or assignment. Read-only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $directoryScope = null;
+    public DirectoryObject|\stdClass|null $directoryScope = null;
 
     /** 
      * The principal that's getting a role assignment or that's eligible for a role through the request.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
     /** 
      * Detailed information for the roleDefinition object that is referenced through the roleDefinitionId property.
      * @var UnifiedRoleDefinition|\stdClass|null
      */
-    public mixed $roleDefinition = null;
+    public UnifiedRoleDefinition|\stdClass|null $roleDefinition = null;
 
     /** The type of the assignment that can either be Assigned or Activated. Supports $filter (eq, ne). */
     public ?string $assignmentType = null;
@@ -73,13 +73,13 @@ class UnifiedRoleAssignmentSchedule
      * The period of the role assignment. It can represent a single occurrence or multiple recurrences.
      * @var RequestSchedule|\stdClass|null
      */
-    public mixed $scheduleInfo = null;
+    public RequestSchedule|\stdClass|null $scheduleInfo = null;
 
     /** 
      * If the request is from an eligible administrator to activate a role, this parameter shows the related eligible assignment for that activation. Otherwise, it's null. Supports $expand.
      * @var UnifiedRoleEligibilitySchedule|\stdClass|null
      */
-    public mixed $activatedUsing = null;
+    public UnifiedRoleEligibilitySchedule|\stdClass|null $activatedUsing = null;
 
 
     /**

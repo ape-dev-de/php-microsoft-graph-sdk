@@ -16,7 +16,7 @@ class ProcessConversationMetadata
      * Represents the actual content, either as text (textContent) or binary data (binaryContent). Optional if metadata alone is sufficient for policy evaluation. Do not use for contentActivities.
      * @var ContentBase|\stdClass|null
      */
-    public mixed $content = null;
+    public ContentBase|\stdClass|null $content = null;
 
     /** An identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation). */
     public ?string $correlationId = null;

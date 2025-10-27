@@ -52,7 +52,7 @@ class Domain
      * Status of asynchronous operations scheduled for the domain.
      * @var DomainState|\stdClass|null
      */
-    public mixed $state = null;
+    public DomainState|\stdClass|null $state = null;
 
     /** 
      * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values that you can add or remove using the API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
@@ -76,7 +76,7 @@ class Domain
      * Root domain of a subdomain. Read-only, Nullable. Supports $expand.
      * @var Domain|\stdClass|null
      */
-    public mixed $rootDomain = null;
+    public Domain|\stdClass|null $rootDomain = null;
 
     /** 
      * DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Doesn't support $expand.

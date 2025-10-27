@@ -16,13 +16,13 @@ class ConditionalAccessSessionControls
      * Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.
      * @var ApplicationEnforcedRestrictionsSessionControl|\stdClass|null
      */
-    public mixed $applicationEnforcedRestrictions = null;
+    public ApplicationEnforcedRestrictionsSessionControl|\stdClass|null $applicationEnforcedRestrictions = null;
 
     /** 
      * Session control to apply cloud app security.
      * @var CloudAppSecuritySessionControl|\stdClass|null
      */
-    public mixed $cloudAppSecurity = null;
+    public CloudAppSecuritySessionControl|\stdClass|null $cloudAppSecurity = null;
 
     /** Session control that determines whether it is acceptable for Microsoft Entra ID to extend existing sessions based on information collected prior to an outage or not. */
     public ?bool $disableResilienceDefaults = null;
@@ -31,19 +31,19 @@ class ConditionalAccessSessionControls
      * Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.
      * @var PersistentBrowserSessionControl|\stdClass|null
      */
-    public mixed $persistentBrowser = null;
+    public PersistentBrowserSessionControl|\stdClass|null $persistentBrowser = null;
 
     /** 
      * 
      * @var SecureSignInSessionControl|\stdClass|null
      */
-    public mixed $secureSignInSession = null;
+    public SecureSignInSessionControl|\stdClass|null $secureSignInSession = null;
 
     /** 
      * Session control to enforce signin frequency.
      * @var SignInFrequencySessionControl|\stdClass|null
      */
-    public mixed $signInFrequency = null;
+    public SignInFrequencySessionControl|\stdClass|null $signInFrequency = null;
 
 
     /**

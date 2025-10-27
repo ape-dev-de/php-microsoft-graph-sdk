@@ -22,7 +22,7 @@ class ProvisioningSystem
      * Details of the system.
      * @var DetailsInfo|\stdClass|null
      */
-    public mixed $details = null;
+    public DetailsInfo|\stdClass|null $details = null;
 
 
     /**

@@ -16,7 +16,7 @@ class TeamJoiningEnabledEventMessageDetail
      * Initiator of the event.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $initiator = null;
+    public IdentitySet|\stdClass|null $initiator = null;
 
     /** Unique identifier of the team. */
     public ?string $teamId = null;

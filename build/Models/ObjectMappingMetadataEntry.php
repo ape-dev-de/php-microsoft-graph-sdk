@@ -16,7 +16,7 @@ class ObjectMappingMetadataEntry
      * Possible values are: EscrowBehavior, DisableMonitoringForChanges, OriginalJoiningProperty, Disposition, IsCustomerDefined, ExcludeFromReporting, Unsynchronized.
      * @var ObjectMappingMetadata|\stdClass|null
      */
-    public mixed $key = null;
+    public ObjectMappingMetadata|\stdClass|null $key = null;
 
     /** Value of the metadata property. */
     public ?string $value = null;

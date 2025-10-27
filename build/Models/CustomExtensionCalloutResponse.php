@@ -16,7 +16,7 @@ class CustomExtensionCalloutResponse
      * Contains the data the external system provides to the custom extension endpoint.
      * @var CustomExtensionData|\stdClass|null
      */
-    public mixed $data = null;
+    public CustomExtensionData|\stdClass|null $data = null;
 
     /** Identifies the external system or event context related to the response. */
     public ?string $source = null;

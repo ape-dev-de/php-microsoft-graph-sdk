@@ -16,31 +16,31 @@ class AiInteractionMentionedIdentitySet
      * Optional. The application associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $application = null;
+    public Identity|\stdClass|null $application = null;
 
     /** 
      * Optional. The device associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $device = null;
+    public Identity|\stdClass|null $device = null;
 
     /** 
      * Optional. The user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $user = null;
+    public Identity|\stdClass|null $user = null;
 
     /** 
      * 
      * @var TeamworkConversationIdentity|\stdClass|null
      */
-    public mixed $conversation = null;
+    public TeamworkConversationIdentity|\stdClass|null $conversation = null;
 
     /** 
      * 
      * @var TeamworkTagIdentity|\stdClass|null
      */
-    public mixed $tag = null;
+    public TeamworkTagIdentity|\stdClass|null $tag = null;
 
 
     /**

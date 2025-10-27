@@ -31,7 +31,7 @@ class DelegatedAdminAccessAssignment
      * The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
      * @var DelegatedAdminAccessAssignmentStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public DelegatedAdminAccessAssignmentStatus|\stdClass|null $status = null;
 
 
     /**

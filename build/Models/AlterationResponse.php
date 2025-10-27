@@ -19,13 +19,13 @@ class AlterationResponse
      * Defines the details of the alteration information for the spelling correction.
      * @var SearchAlteration|\stdClass|null
      */
-    public mixed $queryAlteration = null;
+    public SearchAlteration|\stdClass|null $queryAlteration = null;
 
     /** 
      * Defines the type of the spelling correction. Possible values are: suggestion, modification.
      * @var SearchAlterationType|\stdClass|null
      */
-    public mixed $queryAlterationType = null;
+    public SearchAlterationType|\stdClass|null $queryAlterationType = null;
 
 
     /**

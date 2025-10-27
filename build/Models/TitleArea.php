@@ -25,13 +25,13 @@ class TitleArea
      * Enumeration value that indicates the layout of the title area. The possible values are: imageAndTitle, plain, colorBlock, overlap, unknownFutureValue.
      * @var TitleAreaLayoutType|\stdClass|null
      */
-    public mixed $layout = null;
+    public TitleAreaLayoutType|\stdClass|null $layout = null;
 
     /** 
      * Contains collections of data that can be processed by server side services like search index and link fixup.
      * @var ServerProcessedContent|\stdClass|null
      */
-    public mixed $serverProcessedContent = null;
+    public ServerProcessedContent|\stdClass|null $serverProcessedContent = null;
 
     /** Indicates whether the author should be shown in title area. */
     public ?bool $showAuthor = null;
@@ -49,7 +49,7 @@ class TitleArea
      * Enumeration value that indicates the text alignment of the title area. The possible values are: left, center, unknownFutureValue.
      * @var TitleAreaTextAlignmentType|\stdClass|null
      */
-    public mixed $textAlignment = null;
+    public TitleAreaTextAlignmentType|\stdClass|null $textAlignment = null;
 
 
     /**

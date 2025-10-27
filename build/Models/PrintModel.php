@@ -16,7 +16,7 @@ class PrintModel
      * Tenant-wide settings for the Universal Print service.
      * @var PrintSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public PrintSettings|\stdClass|null $settings = null;
 
     /** 
      * The list of available print connectors.

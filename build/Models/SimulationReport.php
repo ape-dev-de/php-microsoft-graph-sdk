@@ -16,7 +16,7 @@ class SimulationReport
      * Overview of an attack simulation and training campaign.
      * @var SimulationReportOverview|\stdClass|null
      */
-    public mixed $overview = null;
+    public SimulationReportOverview|\stdClass|null $overview = null;
 
     /** 
      * The tenant users and their online actions in an attack simulation and training campaign.

@@ -70,7 +70,7 @@ class ServiceUpdateMessage
      * Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions.
      * @var ServiceUpdateMessageViewpoint|\stdClass|null
      */
-    public mixed $viewPoint = null;
+    public ServiceUpdateMessageViewpoint|\stdClass|null $viewPoint = null;
 
     /** 
      * A collection of serviceAnnouncementAttachments.

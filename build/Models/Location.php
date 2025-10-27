@@ -16,13 +16,13 @@ class Location
      * The street address of the location.
      * @var PhysicalAddress|\stdClass|null
      */
-    public mixed $address = null;
+    public PhysicalAddress|\stdClass|null $address = null;
 
     /** 
      * The geographic coordinates and elevation of the location.
      * @var OutlookGeoCoordinates|\stdClass|null
      */
-    public mixed $coordinates = null;
+    public OutlookGeoCoordinates|\stdClass|null $coordinates = null;
 
     /** The name associated with the location. */
     public ?string $displayName = null;
@@ -34,7 +34,7 @@ class Location
      * The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @var LocationType|\stdClass|null
      */
-    public mixed $locationType = null;
+    public LocationType|\stdClass|null $locationType = null;
 
     /** Optional URI representing the location. */
     public ?string $locationUri = null;
@@ -46,7 +46,7 @@ class Location
      * For internal use only.
      * @var LocationUniqueIdType|\stdClass|null
      */
-    public mixed $uniqueIdType = null;
+    public LocationUniqueIdType|\stdClass|null $uniqueIdType = null;
 
 
     /**

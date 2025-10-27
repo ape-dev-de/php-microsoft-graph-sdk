@@ -19,7 +19,7 @@ class SecurityCategoryTemplate
      * Represents the user who created the filePlanDescriptorTemplate column.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** Represents the date and time in which the filePlanDescriptorTemplate is created. */
     public ?\DateTimeInterface $createdDateTime = null;

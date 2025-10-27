@@ -28,7 +28,7 @@ class CustomExtensionCalloutInstance
      * The status of the request to the custom extension. The possible values are: calloutSent, callbackReceived, calloutFailed, callbackTimedOut, waitingForCallback, unknownFutureValue.
      * @var CustomExtensionCalloutInstanceStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public CustomExtensionCalloutInstanceStatus|\stdClass|null $status = null;
 
 
     /**

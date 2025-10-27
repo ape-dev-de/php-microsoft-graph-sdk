@@ -16,13 +16,13 @@ class OnAttributeCollectionSubmitCustomExtensionHandler
      * Configuration regarding properties of the custom extension that can be overwritten per event listener.
      * @var CustomExtensionOverwriteConfiguration|\stdClass|null
      */
-    public mixed $configuration = null;
+    public CustomExtensionOverwriteConfiguration|\stdClass|null $configuration = null;
 
     /** 
      * 
      * @var OnAttributeCollectionSubmitCustomExtension|\stdClass|null
      */
-    public mixed $customExtension = null;
+    public OnAttributeCollectionSubmitCustomExtension|\stdClass|null $customExtension = null;
 
 
     /**

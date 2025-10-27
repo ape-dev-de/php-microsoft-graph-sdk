@@ -16,25 +16,25 @@ class Attendee
      * The recipient's email address.
      * @var EmailAddress|\stdClass|null
      */
-    public mixed $emailAddress = null;
+    public EmailAddress|\stdClass|null $emailAddress = null;
 
     /** 
      * The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
      * @var AttendeeType|\stdClass|null
      */
-    public mixed $type = null;
+    public AttendeeType|\stdClass|null $type = null;
 
     /** 
      * An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property isn't included in a response of a GET event.
      * @var TimeSlot|\stdClass|null
      */
-    public mixed $proposedNewTime = null;
+    public TimeSlot|\stdClass|null $proposedNewTime = null;
 
     /** 
      * The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
      * @var ResponseStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public ResponseStatus|\stdClass|null $status = null;
 
 
     /**

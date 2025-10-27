@@ -16,13 +16,13 @@ class SecurityRetentionEventStatus
      * The error if the status isn't successful.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** 
      * The status of the distribution. The possible values are: pending, error, success, notAvaliable.
      * @var SecurityEventStatusType|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityEventStatusType|\stdClass|null $status = null;
 
 
     /**

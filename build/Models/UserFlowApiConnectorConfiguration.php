@@ -16,13 +16,13 @@ class UserFlowApiConnectorConfiguration
      * 
      * @var IdentityApiConnector|\stdClass|null
      */
-    public mixed $postAttributeCollection = null;
+    public IdentityApiConnector|\stdClass|null $postAttributeCollection = null;
 
     /** 
      * 
      * @var IdentityApiConnector|\stdClass|null
      */
-    public mixed $postFederationSignup = null;
+    public IdentityApiConnector|\stdClass|null $postFederationSignup = null;
 
 
     /**

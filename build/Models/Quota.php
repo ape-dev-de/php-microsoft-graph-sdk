@@ -25,7 +25,7 @@ class Quota
      * Information about the drive's storage quota plans. Only in Personal OneDrive.
      * @var StoragePlanInformation|\stdClass|null
      */
-    public mixed $storagePlanInformation = null;
+    public StoragePlanInformation|\stdClass|null $storagePlanInformation = null;
 
     /** Total allowed storage space, in bytes. Read-only. */
     public ?float $total = null;

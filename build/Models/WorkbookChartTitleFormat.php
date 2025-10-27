@@ -19,13 +19,13 @@ class WorkbookChartTitleFormat
      * Represents the fill format of an object, which includes background formatting information. Read-only.
      * @var WorkbookChartFill|\stdClass|null
      */
-    public mixed $fill = null;
+    public WorkbookChartFill|\stdClass|null $fill = null;
 
     /** 
      * Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.
      * @var WorkbookChartFont|\stdClass|null
      */
-    public mixed $font = null;
+    public WorkbookChartFont|\stdClass|null $font = null;
 
 
     /**

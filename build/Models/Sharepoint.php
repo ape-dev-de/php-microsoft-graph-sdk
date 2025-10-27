@@ -19,7 +19,7 @@ class Sharepoint
      * 
      * @var SharepointSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public SharepointSettings|\stdClass|null $settings = null;
 
 
     /**

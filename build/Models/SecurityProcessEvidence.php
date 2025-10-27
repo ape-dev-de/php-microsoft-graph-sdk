@@ -46,13 +46,13 @@ class SecurityProcessEvidence
      * The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @var SecurityDetectionStatus|\stdClass|null
      */
-    public mixed $detectionStatus = null;
+    public SecurityDetectionStatus|\stdClass|null $detectionStatus = null;
 
     /** 
      * Image file details.
      * @var SecurityFileDetails|\stdClass|null
      */
-    public mixed $imageFile = null;
+    public SecurityFileDetails|\stdClass|null $imageFile = null;
 
     /** A unique identifier assigned to a device by Microsoft Defender for Endpoint. */
     public ?string $mdeDeviceId = null;
@@ -67,7 +67,7 @@ class SecurityProcessEvidence
      * Parent process image file details.
      * @var SecurityFileDetails|\stdClass|null
      */
-    public mixed $parentProcessImageFile = null;
+    public SecurityFileDetails|\stdClass|null $parentProcessImageFile = null;
 
     /** Command line used to create the new process. */
     public ?string $processCommandLine = null;
@@ -82,7 +82,7 @@ class SecurityProcessEvidence
      * User details of the user that ran the process.
      * @var SecurityUserAccount|\stdClass|null
      */
-    public mixed $userAccount = null;
+    public SecurityUserAccount|\stdClass|null $userAccount = null;
 
 
     /**

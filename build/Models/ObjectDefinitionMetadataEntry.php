@@ -16,7 +16,7 @@ class ObjectDefinitionMetadataEntry
      * Possible values are: PropertyNameAccountEnabled, PropertyNameSoftDeleted, IsSoftDeletionSupported, IsSynchronizeAllSupported, ConnectorDataStorageRequired, Extensions, LinkTypeName.
      * @var ObjectDefinitionMetadata|\stdClass|null
      */
-    public mixed $key = null;
+    public ObjectDefinitionMetadata|\stdClass|null $key = null;
 
     /** Value of the metadata property. */
     public ?string $value = null;

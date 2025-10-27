@@ -19,13 +19,13 @@ class TrainingReminderNotification
      * 
      * @var EndUserNotification|\stdClass|null
      */
-    public mixed $endUserNotification = null;
+    public EndUserNotification|\stdClass|null $endUserNotification = null;
 
     /** 
      * Configurable frequency for the reminder email introduced during simulation creation. Possible values are: unknown, weekly, biWeekly, unknownFutureValue.
      * @var NotificationDeliveryFrequency|\stdClass|null
      */
-    public mixed $deliveryFrequency = null;
+    public NotificationDeliveryFrequency|\stdClass|null $deliveryFrequency = null;
 
 
     /**

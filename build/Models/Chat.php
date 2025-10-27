@@ -31,7 +31,7 @@ class Chat
      * Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
      * @var TeamworkOnlineMeetingInfo|\stdClass|null
      */
-    public mixed $onlineMeetingInfo = null;
+    public TeamworkOnlineMeetingInfo|\stdClass|null $onlineMeetingInfo = null;
 
     /** The identifier of the tenant in which the chat was created. Read-only. */
     public ?string $tenantId = null;
@@ -43,7 +43,7 @@ class Chat
      * Represents caller-specific information about the chat, such as the last message read date and time. This property is populated only when the request is made in a delegated context.
      * @var ChatViewpoint|\stdClass|null
      */
-    public mixed $viewpoint = null;
+    public ChatViewpoint|\stdClass|null $viewpoint = null;
 
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
     public ?string $webUrl = null;
@@ -58,7 +58,7 @@ class Chat
      * Preview of the last message sent in the chat. Null if no messages were sent in the chat. Currently, only the list chats operation supports this property.
      * @var ChatMessageInfo|\stdClass|null
      */
-    public mixed $lastMessagePreview = null;
+    public ChatMessageInfo|\stdClass|null $lastMessagePreview = null;
 
     /** 
      * A collection of all the members in the chat. Nullable.

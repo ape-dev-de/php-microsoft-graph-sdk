@@ -36,8 +36,11 @@ class SecureScore
     /** When the report was created. */
     public ?\DateTimeInterface $createdDateTime = null;
 
-    /** Tenant current attained score on specified date. */
-    public ?string $currentScore = null;
+    /** 
+     * Tenant current attained score on specified date.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $currentScore = null;
 
     /** 
      * Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).
@@ -48,14 +51,17 @@ class SecureScore
     /** Licensed user count of the given tenant. */
     public ?float $licensedUserCount = null;
 
-    /** Tenant maximum possible score on specified date. */
-    public ?string $maxScore = null;
+    /** 
+     * Tenant maximum possible score on specified date.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $maxScore = null;
 
     /** 
      * Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
      * @var SecurityVendorInformation|\stdClass|null
      */
-    public mixed $vendorInformation = null;
+    public SecurityVendorInformation|\stdClass|null $vendorInformation = null;
 
 
     /**

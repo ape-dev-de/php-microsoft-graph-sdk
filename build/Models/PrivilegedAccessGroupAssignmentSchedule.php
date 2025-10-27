@@ -28,7 +28,7 @@ class PrivilegedAccessGroupAssignmentSchedule
      * Represents the period of the access assignment or eligibility. The scheduleInfo can represent a single occurrence or multiple recurring instances. Required.
      * @var RequestSchedule|\stdClass|null
      */
-    public mixed $scheduleInfo = null;
+    public RequestSchedule|\stdClass|null $scheduleInfo = null;
 
     /** The status of the access assignment or eligibility request. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. Optional. */
     public ?string $status = null;
@@ -37,13 +37,13 @@ class PrivilegedAccessGroupAssignmentSchedule
      * The identifier of the membership or ownership assignment to the group that is governed through PIM. Required. The possible values are: owner, member, unknownFutureValue. Supports $filter (eq).
      * @var PrivilegedAccessGroupRelationships|\stdClass|null
      */
-    public mixed $accessId = null;
+    public PrivilegedAccessGroupRelationships|\stdClass|null $accessId = null;
 
     /** 
      * Indicates whether the membership or ownership assignment for the principal is granted through activation or direct assignment. Required. The possible values are: assigned, activated, unknownFutureValue. Supports $filter (eq).
      * @var PrivilegedAccessGroupAssignmentType|\stdClass|null
      */
-    public mixed $assignmentType = null;
+    public PrivilegedAccessGroupAssignmentType|\stdClass|null $assignmentType = null;
 
     /** The identifier of the group representing the scope of the membership or ownership assignment through PIM for Groups. Required. Supports $filter (eq). */
     public ?string $groupId = null;
@@ -52,7 +52,7 @@ class PrivilegedAccessGroupAssignmentSchedule
      * Indicates whether the assignment is derived from a direct group assignment or through a transitive assignment. The possible values are: direct, group, unknownFutureValue. Supports $filter (eq).
      * @var PrivilegedAccessGroupMemberType|\stdClass|null
      */
-    public mixed $memberType = null;
+    public PrivilegedAccessGroupMemberType|\stdClass|null $memberType = null;
 
     /** The identifier of the principal whose membership or ownership assignment is granted through PIM for Groups. Required. Supports $filter (eq). */
     public ?string $principalId = null;
@@ -61,19 +61,19 @@ class PrivilegedAccessGroupAssignmentSchedule
      * When the request activates an ownership or membership assignment in PIM for Groups, this object represents the eligibility relationship. Otherwise, it's null. Supports $expand.
      * @var PrivilegedAccessGroupEligibilitySchedule|\stdClass|null
      */
-    public mixed $activatedUsing = null;
+    public PrivilegedAccessGroupEligibilitySchedule|\stdClass|null $activatedUsing = null;
 
     /** 
      * References the group that is the scope of the membership or ownership assignment through PIM for Groups. Supports $expand and $select nested in $expand for select properties like id, displayName, and mail.
      * @var Group|\stdClass|null
      */
-    public mixed $group = null;
+    public Group|\stdClass|null $group = null;
 
     /** 
      * References the principal that's in the scope of this membership or ownership assignment request to the group that's governed through PIM. Supports $expand and $select nested in $expand for id only.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $principal = null;
+    public DirectoryObject|\stdClass|null $principal = null;
 
 
     /**

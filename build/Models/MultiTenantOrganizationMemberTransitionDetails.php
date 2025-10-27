@@ -16,13 +16,13 @@ class MultiTenantOrganizationMemberTransitionDetails
      * Role of the tenant in the multitenant organization. The possible values are: owner, member, unknownFutureValue.
      * @var MultiTenantOrganizationMemberRole|\stdClass|null
      */
-    public mixed $desiredRole = null;
+    public MultiTenantOrganizationMemberRole|\stdClass|null $desiredRole = null;
 
     /** 
      * State of the tenant in the multitenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @var MultiTenantOrganizationMemberState|\stdClass|null
      */
-    public mixed $desiredState = null;
+    public MultiTenantOrganizationMemberState|\stdClass|null $desiredState = null;
 
     /** Details that explain the processing status if any. Read-only. */
     public ?string $details = null;
@@ -31,7 +31,7 @@ class MultiTenantOrganizationMemberTransitionDetails
      * Processing state of the asynchronous job. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only.
      * @var MultiTenantOrganizationMemberProcessingStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public MultiTenantOrganizationMemberProcessingStatus|\stdClass|null $status = null;
 
 
     /**

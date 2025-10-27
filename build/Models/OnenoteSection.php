@@ -25,7 +25,7 @@ class OnenoteSection
      * Identity of the user, device, and application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The name of the notebook. */
     public ?string $displayName = null;
@@ -34,7 +34,7 @@ class OnenoteSection
      * Identity of the user, device, and application that created the item. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class OnenoteSection
      * Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web.
      * @var SectionLinks|\stdClass|null
      */
-    public mixed $links = null;
+    public SectionLinks|\stdClass|null $links = null;
 
     /** The pages endpoint where you can get details for all the pages in the section. Read-only. */
     public ?string $pagesUrl = null;
@@ -61,13 +61,13 @@ class OnenoteSection
      * The notebook that contains the section.  Read-only.
      * @var Notebook|\stdClass|null
      */
-    public mixed $parentNotebook = null;
+    public Notebook|\stdClass|null $parentNotebook = null;
 
     /** 
      * The section group that contains the section.  Read-only.
      * @var SectionGroup|\stdClass|null
      */
-    public mixed $parentSectionGroup = null;
+    public SectionGroup|\stdClass|null $parentSectionGroup = null;
 
 
     /**

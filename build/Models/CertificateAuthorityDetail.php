@@ -25,7 +25,7 @@ class CertificateAuthorityDetail
      * The type of certificate authority. The possible values are: root, intermediate, unknownFutureValue. Supports $filter (eq).
      * @var CertificateAuthorityType|\stdClass|null
      */
-    public mixed $certificateAuthorityType = null;
+    public CertificateAuthorityType|\stdClass|null $certificateAuthorityType = null;
 
     /** The URL to check if the certificate is revoked. */
     public ?string $certificateRevocationListUrl = null;

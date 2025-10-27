@@ -19,7 +19,7 @@ class ItemBody
      * The type of the content. Possible values are text and html.
      * @var BodyType|\stdClass|null
      */
-    public mixed $contentType = null;
+    public BodyType|\stdClass|null $contentType = null;
 
 
     /**

@@ -19,7 +19,7 @@ class EnrollmentConfigurationAssignment
      * Represents an assignment to managed devices in the tenant
      * @var DeviceAndAppManagementAssignmentTarget|\stdClass|null
      */
-    public mixed $target = null;
+    public DeviceAndAppManagementAssignmentTarget|\stdClass|null $target = null;
 
 
     /**

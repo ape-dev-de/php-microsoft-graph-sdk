@@ -46,7 +46,7 @@ class SecurityKubernetesClusterEvidence
      * The cloud identifier of the cluster. Can be either an amazonResourceEvidence, azureResourceEvidence, or googleCloudResourceEvidence object.
      * @var SecurityAlertEvidence|\stdClass|null
      */
-    public mixed $cloudResource = null;
+    public SecurityAlertEvidence|\stdClass|null $cloudResource = null;
 
     /** The distribution type of the cluster. */
     public ?string $distribution = null;
@@ -58,7 +58,7 @@ class SecurityKubernetesClusterEvidence
      * The platform the cluster runs on. Possible values are: unknown, aks, eks, gke, arc, unknownFutureValue.
      * @var SecurityKubernetesPlatform|\stdClass|null
      */
-    public mixed $platform = null;
+    public SecurityKubernetesPlatform|\stdClass|null $platform = null;
 
     /** The kubernetes version of the cluster. */
     public ?string $version = null;

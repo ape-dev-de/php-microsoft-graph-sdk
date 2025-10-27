@@ -22,13 +22,13 @@ class OnEmailOtpSendListener
      * The conditions on which this authenticationEventListener should trigger.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
     /** 
      * Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages.
      * @var OnOtpSendHandler|\stdClass|null
      */
-    public mixed $handler = null;
+    public OnOtpSendHandler|\stdClass|null $handler = null;
 
 
     /**

@@ -19,7 +19,7 @@ class ItemActivity
      * An item was accessed.
      * @var AccessAction|\stdClass|null
      */
-    public mixed $access = null;
+    public AccessAction|\stdClass|null $access = null;
 
     /** Details about when the activity took place. Read-only. */
     public ?\DateTimeInterface $activityDateTime = null;
@@ -28,13 +28,13 @@ class ItemActivity
      * Identity of who performed the action. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $actor = null;
+    public IdentitySet|\stdClass|null $actor = null;
 
     /** 
      * Exposes the driveItem that was the target of this activity.
      * @var DriveItem|\stdClass|null
      */
-    public mixed $driveItem = null;
+    public DriveItem|\stdClass|null $driveItem = null;
 
 
     /**

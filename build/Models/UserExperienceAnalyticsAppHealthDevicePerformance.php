@@ -24,8 +24,11 @@ class UserExperienceAnalyticsAppHealthDevicePerformance
     /** The number of distinct application crashes for the device. Valid values 0 to 2147483647. Supports: $select, $OrderBy. Read-only. Valid values -2147483648 to 2147483647 */
     public ?float $crashedAppCount = null;
 
-    /** The application health score of the device. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
-    public ?string $deviceAppHealthScore = null;
+    /** 
+     * The application health score of the device. Valid values 0 to 100. Supports: $filter, $select, $OrderBy. Read-only. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $deviceAppHealthScore = null;
 
     /** The name of the device. Supports: $select, $OrderBy. Read-only. */
     public ?string $deviceDisplayName = null;

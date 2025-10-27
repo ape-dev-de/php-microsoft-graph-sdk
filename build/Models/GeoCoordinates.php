@@ -12,14 +12,23 @@ class GeoCoordinates
     /** @var array<string, mixed> Raw data from API response */
     private array $rawData = [];
 
-    /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only. */
-    public ?string $altitude = null;
+    /** 
+     * Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $altitude = null;
 
-    /** Optional. The latitude, in decimal, for the item. Read-only. */
-    public ?string $latitude = null;
+    /** 
+     * Optional. The latitude, in decimal, for the item. Read-only.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $latitude = null;
 
-    /** Optional. The longitude, in decimal, for the item. Read-only. */
-    public ?string $longitude = null;
+    /** 
+     * Optional. The longitude, in decimal, for the item. Read-only.
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $longitude = null;
 
 
     /**

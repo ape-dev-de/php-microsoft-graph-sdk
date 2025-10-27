@@ -34,7 +34,7 @@ class AccessReviewInstance
      * Created based on scope and instanceEnumerationScope at the accessReviewScheduleDefinition level. Defines the scope of users reviewed in a group. Supports $select and $filter (contains only). Read-only.
      * @var AccessReviewScope|\stdClass|null
      */
-    public mixed $scope = null;
+    public AccessReviewScope|\stdClass|null $scope = null;
 
     /** DateTime when review instance is scheduled to start. May be in the future. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $select. Read-only. */
     public ?\DateTimeInterface $startDateTime = null;

@@ -16,7 +16,7 @@ class ParseExpressionResponse
      * Error details, if expression evaluation resulted in an error.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** 
      * A collection of values produced by the evaluation of the expression.
@@ -31,7 +31,7 @@ class ParseExpressionResponse
      * An attributeMappingSource object representing the parsed expression.
      * @var AttributeMappingSource|\stdClass|null
      */
-    public mixed $parsedExpression = null;
+    public AttributeMappingSource|\stdClass|null $parsedExpression = null;
 
     /** true if the expression was parsed successfully. */
     public ?bool $parsingSucceeded = null;

@@ -16,37 +16,37 @@ class SharePointIdentitySet
      * Optional. The application associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $application = null;
+    public Identity|\stdClass|null $application = null;
 
     /** 
      * Optional. The device associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $device = null;
+    public Identity|\stdClass|null $device = null;
 
     /** 
      * Optional. The user associated with this action.
      * @var Identity|\stdClass|null
      */
-    public mixed $user = null;
+    public Identity|\stdClass|null $user = null;
 
     /** 
      * The group associated with this action. Optional.
      * @var Identity|\stdClass|null
      */
-    public mixed $group = null;
+    public Identity|\stdClass|null $group = null;
 
     /** 
      * The SharePoint group associated with this action. Optional.
      * @var SharePointIdentity|\stdClass|null
      */
-    public mixed $siteGroup = null;
+    public SharePointIdentity|\stdClass|null $siteGroup = null;
 
     /** 
      * The SharePoint user associated with this action. Optional.
      * @var SharePointIdentity|\stdClass|null
      */
-    public mixed $siteUser = null;
+    public SharePointIdentity|\stdClass|null $siteUser = null;
 
 
     /**

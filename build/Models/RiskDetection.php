@@ -19,7 +19,7 @@ class RiskDetection
      * Indicates the activity type the detected risk is linked to. Possible values are: signin, user, unknownFutureValue.
      * @var ActivityType|\stdClass|null
      */
-    public mixed $activity = null;
+    public ActivityType|\stdClass|null $activity = null;
 
     /** Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is look like this: 2014-01-01T00:00:00Z */
     public ?\DateTimeInterface $activityDateTime = null;
@@ -37,7 +37,7 @@ class RiskDetection
      * Timing of the detected risk (real-time/offline). Possible values are: notDefined, realtime, nearRealtime, offline, unknownFutureValue.
      * @var RiskDetectionTimingType|\stdClass|null
      */
-    public mixed $detectionTimingType = null;
+    public RiskDetectionTimingType|\stdClass|null $detectionTimingType = null;
 
     /** Provides the IP address of the client from where the risk occurred. */
     public ?string $ipAddress = null;
@@ -49,7 +49,7 @@ class RiskDetection
      * Location of the sign-in.
      * @var SignInLocation|\stdClass|null
      */
-    public mixed $location = null;
+    public SignInLocation|\stdClass|null $location = null;
 
     /** Request ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in. */
     public ?string $requestId = null;
@@ -58,7 +58,7 @@ class RiskDetection
      * Details of the detected risk. The possible values are: none, adminGeneratedTemporaryPassword, userChangedPasswordOnPremises, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, m365DAdminDismissedDetection. Use the Prefer: include - unknown -enum-members request header to get the following value(s) in this evolvable enum: m365DAdminDismissedDetection.
      * @var RiskDetail|\stdClass|null
      */
-    public mixed $riskDetail = null;
+    public RiskDetail|\stdClass|null $riskDetail = null;
 
     /** The type of risk event detected. The possible values are adminConfirmedUserCompromised, anomalousToken, anomalousUserActivity, anonymizedIPAddress, generic, impossibleTravel, investigationsThreatIntelligence, suspiciousSendingPatterns, leakedCredentials, maliciousIPAddress,malwareInfectedIPAddress, mcasSuspiciousInboxManipulationRules, newCountry, passwordSpray,riskyIPAddress, suspiciousAPITraffic, suspiciousBrowser,suspiciousInboxForwarding, suspiciousIPAddress, tokenIssuerAnomaly, unfamiliarFeatures, unlikelyTravel. If the risk detection is a premium detection, will show generic. For more information about each value, see Risk types and detection. */
     public ?string $riskEventType = null;
@@ -67,13 +67,13 @@ class RiskDetection
      * Level of the detected risk. Possible values are: low, medium, high, hidden, none, unknownFutureValue.
      * @var RiskLevel|\stdClass|null
      */
-    public mixed $riskLevel = null;
+    public RiskLevel|\stdClass|null $riskLevel = null;
 
     /** 
      * The state of a detected risky user or sign-in. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
      * @var RiskState|\stdClass|null
      */
-    public mixed $riskState = null;
+    public RiskState|\stdClass|null $riskState = null;
 
     /** Source of the risk detection. For example, activeDirectory. */
     public ?string $source = null;
@@ -82,7 +82,7 @@ class RiskDetection
      * Indicates the type of token issuer for the detected sign-in risk. Possible values are: AzureAD, ADFederationServices, UnknownFutureValue.
      * @var TokenIssuerType|\stdClass|null
      */
-    public mixed $tokenIssuerType = null;
+    public TokenIssuerType|\stdClass|null $tokenIssuerType = null;
 
     /** The user principal name (UPN) of the user. */
     public ?string $userDisplayName = null;

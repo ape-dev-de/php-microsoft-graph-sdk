@@ -22,7 +22,7 @@ class SecurityEventPropagationResult
      * Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success, unknownFutureValue.
      * @var SecurityEventPropagationStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public SecurityEventPropagationStatus|\stdClass|null $status = null;
 
     /** Additional information about the status of the event creation request. */
     public ?string $statusInformation = null;

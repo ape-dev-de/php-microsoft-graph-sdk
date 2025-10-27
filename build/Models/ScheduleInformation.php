@@ -19,7 +19,7 @@ class ScheduleInformation
      * Error information from attempting to get the availability of the user, distribution list, or resource.
      * @var FreeBusyError|\stdClass|null
      */
-    public mixed $error = null;
+    public FreeBusyError|\stdClass|null $error = null;
 
     /** An SMTP address of the user, distribution list, or resource, identifying an instance of scheduleInformation. */
     public ?string $scheduleId = null;
@@ -34,7 +34,7 @@ class ScheduleInformation
      * The days of the week and hours in a specific time zone that the user works. These are set as part of the user's mailboxSettings.
      * @var WorkingHours|\stdClass|null
      */
-    public mixed $workingHours = null;
+    public WorkingHours|\stdClass|null $workingHours = null;
 
 
     /**

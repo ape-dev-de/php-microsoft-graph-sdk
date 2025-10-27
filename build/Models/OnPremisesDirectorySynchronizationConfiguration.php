@@ -16,7 +16,7 @@ class OnPremisesDirectorySynchronizationConfiguration
      * Contains the accidental deletion prevention configuration for a tenant.
      * @var OnPremisesAccidentalDeletionPrevention|\stdClass|null
      */
-    public mixed $accidentalDeletionPrevention = null;
+    public OnPremisesAccidentalDeletionPrevention|\stdClass|null $accidentalDeletionPrevention = null;
 
 
     /**

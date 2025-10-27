@@ -42,8 +42,11 @@ class RelyingPartyDetailedSummary
     /** Uniquely identifies the Active Directory forest. Supports $orderby, $filter (eq). */
     public ?string $serviceId = null;
 
-    /** Calculated as Number of successful / (Number of successful + Number of failed sign ins) or successfulSignInCount / totalSignInCount on AD FS in the period specified. Supports $orderby, $filter (eq). */
-    public ?string $signInSuccessRate = null;
+    /** 
+     * Calculated as Number of successful / (Number of successful + Number of failed sign ins) or successfulSignInCount / totalSignInCount on AD FS in the period specified. Supports $orderby, $filter (eq).
+     * @var float|string|ReferenceNumeric|null
+     */
+    public float|string|ReferenceNumeric|null $signInSuccessRate = null;
 
     /** Number of successful sign ins on AD FS. Supports $orderby, $filter (eq). */
     public ?float $successfulSignInCount = null;

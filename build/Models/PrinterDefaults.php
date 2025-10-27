@@ -16,7 +16,7 @@ class PrinterDefaults
      * The default color mode to use when printing the document. Valid values are described in the following table.
      * @var PrintColorMode|\stdClass|null
      */
-    public mixed $colorMode = null;
+    public PrintColorMode|\stdClass|null $colorMode = null;
 
     /** The default content (MIME) type to use when processing documents. */
     public ?string $contentType = null;
@@ -31,7 +31,7 @@ class PrinterDefaults
      * The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.
      * @var PrintDuplexMode|\stdClass|null
      */
-    public mixed $duplexMode = null;
+    public PrintDuplexMode|\stdClass|null $duplexMode = null;
 
     /** 
      * The default set of finishings to apply to print jobs. Valid values are described in the following table.
@@ -58,13 +58,13 @@ class PrinterDefaults
      * The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
      * @var PrintMultipageLayout|\stdClass|null
      */
-    public mixed $multipageLayout = null;
+    public PrintMultipageLayout|\stdClass|null $multipageLayout = null;
 
     /** 
      * The default orientation to use when printing the document. Valid values are described in the following table.
      * @var PrintOrientation|\stdClass|null
      */
-    public mixed $orientation = null;
+    public PrintOrientation|\stdClass|null $orientation = null;
 
     /** The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
     public ?string $outputBin = null;
@@ -76,13 +76,13 @@ class PrinterDefaults
      * The default quality to use when printing the document. Valid values are described in the following table.
      * @var PrintQuality|\stdClass|null
      */
-    public mixed $quality = null;
+    public PrintQuality|\stdClass|null $quality = null;
 
     /** 
      * Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.
      * @var PrintScaling|\stdClass|null
      */
-    public mixed $scaling = null;
+    public PrintScaling|\stdClass|null $scaling = null;
 
 
     /**

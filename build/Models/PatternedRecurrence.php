@@ -16,13 +16,13 @@ class PatternedRecurrence
      * The frequency of an event.  For access reviews: Do not specify this property for a one-time access review.  Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
      * @var RecurrencePattern|\stdClass|null
      */
-    public mixed $pattern = null;
+    public RecurrencePattern|\stdClass|null $pattern = null;
 
     /** 
      * The duration of an event.
      * @var RecurrenceRange|\stdClass|null
      */
-    public mixed $range = null;
+    public RecurrenceRange|\stdClass|null $range = null;
 
 
     /**

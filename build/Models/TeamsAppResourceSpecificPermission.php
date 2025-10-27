@@ -16,7 +16,7 @@ class TeamsAppResourceSpecificPermission
      * The type of resource-specific permission.
      * @var TeamsAppResourceSpecificPermissionType|\stdClass|null
      */
-    public mixed $permissionType = null;
+    public TeamsAppResourceSpecificPermissionType|\stdClass|null $permissionType = null;
 
     /** The name of the resource-specific permission. */
     public ?string $permissionValue = null;

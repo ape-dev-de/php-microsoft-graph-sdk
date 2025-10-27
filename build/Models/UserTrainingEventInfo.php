@@ -19,25 +19,25 @@ class UserTrainingEventInfo
      * Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
      * @var TrainingStatus|\stdClass|null
      */
-    public mixed $latestTrainingStatus = null;
+    public TrainingStatus|\stdClass|null $latestTrainingStatus = null;
 
     /** 
      * Event details of the training when it was assigned to the user.
      * @var UserTrainingContentEventInfo|\stdClass|null
      */
-    public mixed $trainingAssignedProperties = null;
+    public UserTrainingContentEventInfo|\stdClass|null $trainingAssignedProperties = null;
 
     /** 
      * Event details of the training when it was completed by the user.
      * @var UserTrainingContentEventInfo|\stdClass|null
      */
-    public mixed $trainingCompletedProperties = null;
+    public UserTrainingContentEventInfo|\stdClass|null $trainingCompletedProperties = null;
 
     /** 
      * Event details of the training when it was updated/in-progress by the user.
      * @var UserTrainingContentEventInfo|\stdClass|null
      */
-    public mixed $trainingUpdatedProperties = null;
+    public UserTrainingContentEventInfo|\stdClass|null $trainingUpdatedProperties = null;
 
 
     /**

@@ -19,13 +19,13 @@ class WorkbookChartLegendFormat
      * Represents the fill format of an object, which includes background formating information. Read-only.
      * @var WorkbookChartFill|\stdClass|null
      */
-    public mixed $fill = null;
+    public WorkbookChartFill|\stdClass|null $fill = null;
 
     /** 
      * Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only.
      * @var WorkbookChartFont|\stdClass|null
      */
-    public mixed $font = null;
+    public WorkbookChartFont|\stdClass|null $font = null;
 
 
     /**

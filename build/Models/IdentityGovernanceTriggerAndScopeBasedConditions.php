@@ -16,13 +16,13 @@ class IdentityGovernanceTriggerAndScopeBasedConditions
      * Defines who the workflow runs for.
      * @var SubjectSet|\stdClass|null
      */
-    public mixed $scope = null;
+    public SubjectSet|\stdClass|null $scope = null;
 
     /** 
      * What triggers a workflow to run.
      * @var IdentityGovernanceWorkflowExecutionTrigger|\stdClass|null
      */
-    public mixed $trigger = null;
+    public IdentityGovernanceWorkflowExecutionTrigger|\stdClass|null $trigger = null;
 
 
     /**

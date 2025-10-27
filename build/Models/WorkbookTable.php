@@ -61,13 +61,13 @@ class WorkbookTable
      * The sorting for the table. Read-only.
      * @var WorkbookTableSort|\stdClass|null
      */
-    public mixed $sort = null;
+    public WorkbookTableSort|\stdClass|null $sort = null;
 
     /** 
      * The worksheet containing the current table. Read-only.
      * @var WorkbookWorksheet|\stdClass|null
      */
-    public mixed $worksheet = null;
+    public WorkbookWorksheet|\stdClass|null $worksheet = null;
 
 
     /**

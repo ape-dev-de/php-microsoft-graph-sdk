@@ -481,6 +481,49 @@ function mapPropertyType(array $propDef): string
         }
     }
     
+    // Handle oneOf - create union type from all options
+    if (isset($propDef['oneOf']) && is_array($propDef['oneOf'])) {
+        $types = [];
+        foreach ($propDef['oneOf'] as $option) {
+            // Handle $ref
+            if (isset($option['$ref'])) {
+                $className = resolveSchemaReference($option['$ref']);
+                if ($className) {
+                    $types[] = $className;
+                }
+            }
+            // Handle primitive types
+            elseif (isset($option['type'])) {
+                $optionType = $option['type'];
+                $format = $option['format'] ?? null;
+                
+                if ($optionType === 'number') {
+                    $types[] = 'float';
+                } elseif ($optionType === 'integer') {
+                    $types[] = 'int';
+                } elseif ($optionType === 'boolean') {
+                    $types[] = 'bool';
+                } elseif ($optionType === 'string') {
+                    if ($format === 'date-time' || $format === 'date') {
+                        $types[] = '\DateTimeInterface';
+                    } else {
+                        $types[] = 'string';
+                    }
+                } elseif ($optionType === 'object') {
+                    $types[] = 'array';
+                } elseif ($optionType === 'array') {
+                    $types[] = 'array';
+                }
+            }
+        }
+        
+        if (!empty($types)) {
+            $types = array_unique($types);
+            return implode('|', $types);
+        }
+        return 'mixed';
+    }
+    
     // Handle anyOf - prefer the $ref type if present, otherwise use object
     if (isset($propDef['anyOf']) && is_array($propDef['anyOf'])) {
         foreach ($propDef['anyOf'] as $option) {

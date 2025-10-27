@@ -31,25 +31,25 @@ class Security
      * 
      * @var AttackSimulationRoot|\stdClass|null
      */
-    public mixed $attackSimulation = null;
+    public AttackSimulationRoot|\stdClass|null $attackSimulation = null;
 
     /** 
      * 
      * @var SecurityCasesRoot|\stdClass|null
      */
-    public mixed $cases = null;
+    public SecurityCasesRoot|\stdClass|null $cases = null;
 
     /** 
      * 
      * @var TenantDataSecurityAndGovernance|\stdClass|null
      */
-    public mixed $dataSecurityAndGovernance = null;
+    public TenantDataSecurityAndGovernance|\stdClass|null $dataSecurityAndGovernance = null;
 
     /** 
      * A container for security identities APIs.
      * @var SecurityIdentityContainer|\stdClass|null
      */
-    public mixed $identities = null;
+    public SecurityIdentityContainer|\stdClass|null $identities = null;
 
     /** 
      * A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack.
@@ -61,7 +61,7 @@ class Security
      * 
      * @var SecurityLabelsRoot|\stdClass|null
      */
-    public mixed $labels = null;
+    public SecurityLabelsRoot|\stdClass|null $labels = null;
 
     /** 
      * 
@@ -85,19 +85,19 @@ class Security
      * 
      * @var SecurityThreatIntelligence|\stdClass|null
      */
-    public mixed $threatIntelligence = null;
+    public SecurityThreatIntelligence|\stdClass|null $threatIntelligence = null;
 
     /** 
      * 
      * @var SecurityTriggersRoot|\stdClass|null
      */
-    public mixed $triggers = null;
+    public SecurityTriggersRoot|\stdClass|null $triggers = null;
 
     /** 
      * 
      * @var SecurityTriggerTypesRoot|\stdClass|null
      */
-    public mixed $triggerTypes = null;
+    public SecurityTriggerTypesRoot|\stdClass|null $triggerTypes = null;
 
 
     /**

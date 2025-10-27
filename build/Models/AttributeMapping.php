@@ -31,7 +31,7 @@ class AttributeMapping
      * Defines how a value should be extracted (or transformed) from the source object.
      * @var AttributeMappingSource|\stdClass|null
      */
-    public mixed $source = null;
+    public AttributeMappingSource|\stdClass|null $source = null;
 
     /** Name of the attribute on the target object. */
     public ?string $targetAttributeName = null;

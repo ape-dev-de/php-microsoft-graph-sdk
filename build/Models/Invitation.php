@@ -25,7 +25,7 @@ class Invitation
      * Contains configuration for the message being sent to the invited user, including customizing message text, language, and cc recipient list.
      * @var InvitedUserMessageInfo|\stdClass|null
      */
-    public mixed $invitedUserMessageInfo = null;
+    public InvitedUserMessageInfo|\stdClass|null $invitedUserMessageInfo = null;
 
     /** The userType of the user being invited. By default, this is Guest. You can invite as Member if you're a company administrator. */
     public ?string $invitedUserType = null;
@@ -49,7 +49,7 @@ class Invitation
      * The user created as part of the invitation creation. Read-only. The id property is required in the request body to reset a redemption status.
      * @var User|\stdClass|null
      */
-    public mixed $invitedUser = null;
+    public User|\stdClass|null $invitedUser = null;
 
     /** 
      * The users or groups who are sponsors of the invited user. Sponsors are users and groups that are responsible for guest users' privileges in the tenant and for keeping the guest users' information and access up to date.

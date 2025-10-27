@@ -25,13 +25,13 @@ class WindowsHelloForBusinessAuthenticationMethod
      * Key strength of this Windows Hello for Business key. Possible values are: normal, weak, unknown.
      * @var AuthenticationMethodKeyStrength|\stdClass|null
      */
-    public mixed $keyStrength = null;
+    public AuthenticationMethodKeyStrength|\stdClass|null $keyStrength = null;
 
     /** 
      * The registered device on which this Windows Hello for Business key resides. Supports $expand. When you get a user's Windows Hello for Business registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/windowsHelloForBusinessMethods/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device.
      * @var Device|\stdClass|null
      */
-    public mixed $device = null;
+    public Device|\stdClass|null $device = null;
 
 
     /**

@@ -16,7 +16,7 @@ class ExpressionInputObject
      * Definition of the test object.
      * @var ObjectDefinition|\stdClass|null
      */
-    public mixed $definition = null;
+    public ObjectDefinition|\stdClass|null $definition = null;
 
     /** 
      * Property values of the test object.

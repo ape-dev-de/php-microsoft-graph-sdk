@@ -22,7 +22,7 @@ class CallRecordsUserFeedback
      * The set of feedback tokens provided by the user of this endpoint for the session. This is a set of Boolean properties. The property names should not be relied upon since they may change depending on what tokens are offered to the user.
      * @var CallRecordsFeedbackTokenSet|\stdClass|null
      */
-    public mixed $tokens = null;
+    public CallRecordsFeedbackTokenSet|\stdClass|null $tokens = null;
 
 
     /**

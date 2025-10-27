@@ -46,7 +46,7 @@ class WindowsAutopilotDeploymentProfile
      * The Windows Autopilot Deployment Profile settings used by the device for the out-of-box experience. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
      * @var OutOfBoxExperienceSetting|\stdClass|null
      */
-    public mixed $outOfBoxExperienceSetting = null;
+    public OutOfBoxExperienceSetting|\stdClass|null $outOfBoxExperienceSetting = null;
 
     /** Indicates whether the user is allowed to use Windows Autopilot for pre-provisioned deployment mode during Out of Box experience (OOBE). When TRUE, indicates that Windows Autopilot for pre-provisioned deployment mode for OOBE is allowed to be used. When false, Windows Autopilot for pre-provisioned deployment mode for OOBE is not allowed. The default is FALSE. */
     public ?bool $preprovisioningAllowed = null;

@@ -22,7 +22,7 @@ class SecurityEdiscoverySearch
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /**  */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -37,7 +37,7 @@ class SecurityEdiscoverySearch
      * 
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /**  */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,7 +46,7 @@ class SecurityEdiscoverySearch
      * When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
      * @var SecurityDataSourceScopes|\stdClass|null
      */
-    public mixed $dataSourceScopes = null;
+    public SecurityDataSourceScopes|\stdClass|null $dataSourceScopes = null;
 
     /** 
      * Adds an additional source to the eDiscovery search.
@@ -58,7 +58,7 @@ class SecurityEdiscoverySearch
      * Adds the results of the eDiscovery search to the specified reviewSet.
      * @var SecurityEdiscoveryAddToReviewSetOperation|\stdClass|null
      */
-    public mixed $addToReviewSetOperation = null;
+    public SecurityEdiscoveryAddToReviewSetOperation|\stdClass|null $addToReviewSetOperation = null;
 
     /** 
      * Custodian sources that are included in the eDiscovery search.
@@ -70,7 +70,7 @@ class SecurityEdiscoverySearch
      * The last estimate operation associated with the eDiscovery search.
      * @var SecurityEdiscoveryEstimateOperation|\stdClass|null
      */
-    public mixed $lastEstimateStatisticsOperation = null;
+    public SecurityEdiscoveryEstimateOperation|\stdClass|null $lastEstimateStatisticsOperation = null;
 
     /** 
      * noncustodialDataSource sources that are included in the eDiscovery search

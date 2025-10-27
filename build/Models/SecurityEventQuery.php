@@ -19,7 +19,7 @@ class SecurityEventQuery
      * Represents the type of query associated with an event. 'files' for SPO and ODB and 'messages' for EXO.The possible values are: files, messages, unknownFutureValue.
      * @var SecurityQueryType|\stdClass|null
      */
-    public mixed $queryType = null;
+    public SecurityQueryType|\stdClass|null $queryType = null;
 
 
     /**

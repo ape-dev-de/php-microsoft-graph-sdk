@@ -19,7 +19,7 @@ class ParticipantInfo
      * The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
      * @var EndpointType|\stdClass|null
      */
-    public mixed $endpointType = null;
+    public EndpointType|\stdClass|null $endpointType = null;
 
     /**  */
     public ?IdentitySet $identity = null;

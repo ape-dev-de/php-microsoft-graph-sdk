@@ -22,13 +22,13 @@ class OnUserCreateStartListener
      * The conditions on which this authenticationEventListener should trigger.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
     /** 
      * Required. Configuration for what to invoke if the event resolves to this listener. This lets us define potential handler configurations per-event.
      * @var OnUserCreateStartHandler|\stdClass|null
      */
-    public mixed $handler = null;
+    public OnUserCreateStartHandler|\stdClass|null $handler = null;
 
 
     /**

@@ -34,13 +34,13 @@ class Team
      * Settings to configure use of Giphy, memes, and stickers in the team.
      * @var TeamFunSettings|\stdClass|null
      */
-    public mixed $funSettings = null;
+    public TeamFunSettings|\stdClass|null $funSettings = null;
 
     /** 
      * Settings to configure whether guests can create, update, or delete channels in the team.
      * @var TeamGuestSettings|\stdClass|null
      */
-    public mixed $guestSettings = null;
+    public TeamGuestSettings|\stdClass|null $guestSettings = null;
 
     /** A unique ID for the team that was used in a few places such as the audit log/Office 365 Management Activity API. */
     public ?string $internalId = null;
@@ -52,25 +52,25 @@ class Team
      * Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team.
      * @var TeamMemberSettings|\stdClass|null
      */
-    public mixed $memberSettings = null;
+    public TeamMemberSettings|\stdClass|null $memberSettings = null;
 
     /** 
      * Settings to configure messaging and mentions in the team.
      * @var TeamMessagingSettings|\stdClass|null
      */
-    public mixed $messagingSettings = null;
+    public TeamMessagingSettings|\stdClass|null $messagingSettings = null;
 
     /** 
      * Optional. Indicates whether the team is intended for a particular use case. Each team specialization has access to unique behaviors and experiences targeted to its use case.
      * @var TeamSpecialization|\stdClass|null
      */
-    public mixed $specialization = null;
+    public TeamSpecialization|\stdClass|null $specialization = null;
 
     /** 
      * Contains summary information about the team, including number of owners, members, and guests.
      * @var TeamSummary|\stdClass|null
      */
-    public mixed $summary = null;
+    public TeamSummary|\stdClass|null $summary = null;
 
     /** The ID of the Microsoft Entra tenant. */
     public ?string $tenantId = null;
@@ -79,7 +79,7 @@ class Team
      * The visibility of the group and team. Defaults to Public.
      * @var TeamVisibilityType|\stdClass|null
      */
-    public mixed $visibility = null;
+    public TeamVisibilityType|\stdClass|null $visibility = null;
 
     /** A hyperlink that goes to the team in the Microsoft Teams client. You get this URL when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed. */
     public ?string $webUrl = null;
@@ -100,7 +100,7 @@ class Team
      * 
      * @var Group|\stdClass|null
      */
-    public mixed $group = null;
+    public Group|\stdClass|null $group = null;
 
     /** 
      * List of channels shared with the team.
@@ -136,19 +136,19 @@ class Team
      * The profile photo for the team.
      * @var ProfilePhoto|\stdClass|null
      */
-    public mixed $photo = null;
+    public ProfilePhoto|\stdClass|null $photo = null;
 
     /** 
      * The general channel for the team.
      * @var Channel|\stdClass|null
      */
-    public mixed $primaryChannel = null;
+    public Channel|\stdClass|null $primaryChannel = null;
 
     /** 
      * The schedule of shifts for this team.
      * @var Schedule|\stdClass|null
      */
-    public mixed $schedule = null;
+    public Schedule|\stdClass|null $schedule = null;
 
     /** 
      * The tags associated with the team.
@@ -160,7 +160,7 @@ class Team
      * The template this team was created from. See available templates.
      * @var TeamsTemplate|\stdClass|null
      */
-    public mixed $template = null;
+    public TeamsTemplate|\stdClass|null $template = null;
 
 
     /**

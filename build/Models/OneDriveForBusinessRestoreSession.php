@@ -22,7 +22,7 @@ class OneDriveForBusinessRestoreSession
      * The identity of person who created the restore session.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The time of creation of the restore session. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -31,13 +31,13 @@ class OneDriveForBusinessRestoreSession
      * Contains error details if the restore session fails or completes with an error.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** 
      * Identity of the person who last modified the restore session.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Timestamp of the last modification of the restore session. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -46,19 +46,19 @@ class OneDriveForBusinessRestoreSession
      * Indicates whether the restore session was created normally or by a bulk job.
      * @var RestoreJobType|\stdClass|null
      */
-    public mixed $restoreJobType = null;
+    public RestoreJobType|\stdClass|null $restoreJobType = null;
 
     /** 
      * The number of metadata artifacts that belong to this restore session.
      * @var RestoreSessionArtifactCount|\stdClass|null
      */
-    public mixed $restoreSessionArtifactCount = null;
+    public RestoreSessionArtifactCount|\stdClass|null $restoreSessionArtifactCount = null;
 
     /** 
      * Status of the restore session. The value is an aggregated status of the restored artifacts. The possible values are: draft, activating, active, completedWithError, completed, unknownFutureValue, failed. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: failed.
      * @var RestoreSessionStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public RestoreSessionStatus|\stdClass|null $status = null;
 
     /** 
      * A collection of restore points and destination details that can be used to restore a OneDrive for work or school drive.

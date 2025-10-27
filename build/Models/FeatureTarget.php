@@ -19,7 +19,7 @@ class FeatureTarget
      * The kind of entity that's targeted. The possible values are: group, administrativeUnit, role, unknownFutureValue.
      * @var FeatureTargetType|\stdClass|null
      */
-    public mixed $targetType = null;
+    public FeatureTargetType|\stdClass|null $targetType = null;
 
 
     /**

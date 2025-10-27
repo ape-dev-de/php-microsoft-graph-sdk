@@ -28,7 +28,7 @@ class WorkbookChartLegend
      * Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.
      * @var WorkbookChartLegendFormat|\stdClass|null
      */
-    public mixed $format = null;
+    public WorkbookChartLegendFormat|\stdClass|null $format = null;
 
 
     /**

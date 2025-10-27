@@ -25,13 +25,13 @@ class ChangeNotification
      * (Preview) Encrypted content attached with the change notification. Only provided if encryptionCertificate and includeResourceData were defined during the subscription request and if the resource supports it. Optional.
      * @var ChangeNotificationEncryptedContent|\stdClass|null
      */
-    public mixed $encryptedContent = null;
+    public ChangeNotificationEncryptedContent|\stdClass|null $encryptedContent = null;
 
     /** 
      * The type of lifecycle notification if the current notification is a lifecycle notification. Optional. Supported values are missed, subscriptionRemoved, reauthorizationRequired. Optional.
      * @var LifecycleEventType|\stdClass|null
      */
-    public mixed $lifecycleEvent = null;
+    public LifecycleEventType|\stdClass|null $lifecycleEvent = null;
 
     /** The URI of the resource that emitted the change notification relative to https://graph.microsoft.com. Required. */
     public ?string $resource = null;
@@ -40,7 +40,7 @@ class ChangeNotification
      * The content of this property depends on the type of resource being subscribed to. Optional.
      * @var ResourceData|\stdClass|null
      */
-    public mixed $resourceData = null;
+    public ResourceData|\stdClass|null $resourceData = null;
 
     /** The expiration time for the subscription. Required. */
     public ?\DateTimeInterface $subscriptionExpirationDateTime = null;

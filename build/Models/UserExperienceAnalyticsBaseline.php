@@ -28,43 +28,43 @@ class UserExperienceAnalyticsBaseline
      * The scores and insights for the application health metrics.
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $appHealthMetrics = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $appHealthMetrics = null;
 
     /** 
      * The scores and insights for the battery health metrics.
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $batteryHealthMetrics = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $batteryHealthMetrics = null;
 
     /** 
      * The scores and insights for the best practices metrics.
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $bestPracticesMetrics = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $bestPracticesMetrics = null;
 
     /** 
      * The scores and insights for the device boot performance metrics.
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $deviceBootPerformanceMetrics = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $deviceBootPerformanceMetrics = null;
 
     /** 
      * The scores and insights for the reboot analytics metrics.
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $rebootAnalyticsMetrics = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $rebootAnalyticsMetrics = null;
 
     /** 
      * The scores and insights for the resource performance metrics.
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $resourcePerformanceMetrics = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $resourcePerformanceMetrics = null;
 
     /** 
      * The scores and insights for the work from anywhere metrics.
      * @var UserExperienceAnalyticsCategory|\stdClass|null
      */
-    public mixed $workFromAnywhereMetrics = null;
+    public UserExperienceAnalyticsCategory|\stdClass|null $workFromAnywhereMetrics = null;
 
 
     /**

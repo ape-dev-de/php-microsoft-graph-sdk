@@ -19,7 +19,7 @@ class MailboxProtectionUnitsBulkAdditionJob
      * The identity of person who created the job.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $createdBy = null;
+    public IdentitySet|\stdClass|null $createdBy = null;
 
     /** The time of creation of the job. */
     public ?\DateTimeInterface $createdDateTime = null;
@@ -31,13 +31,13 @@ class MailboxProtectionUnitsBulkAdditionJob
      * Error details containing resource resolution failures, if any.
      * @var PublicError|\stdClass|null
      */
-    public mixed $error = null;
+    public PublicError|\stdClass|null $error = null;
 
     /** 
      * The identity of the person who last modified the job.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Timestamp of the last modification made to the job. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;

@@ -19,7 +19,7 @@ class ListItemVersion
      * Identity of the user which last modified the version. Read-only.
      * @var IdentitySet|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public IdentitySet|\stdClass|null $lastModifiedBy = null;
 
     /** Date and time the version was last modified. Read-only. */
     public ?\DateTimeInterface $lastModifiedDateTime = null;
@@ -28,13 +28,13 @@ class ListItemVersion
      * Indicates the publication status of this particular version. Read-only.
      * @var PublicationFacet|\stdClass|null
      */
-    public mixed $publication = null;
+    public PublicationFacet|\stdClass|null $publication = null;
 
     /** 
      * A collection of the fields and values for this version of the list item.
      * @var FieldValueSet|\stdClass|null
      */
-    public mixed $fields = null;
+    public FieldValueSet|\stdClass|null $fields = null;
 
 
     /**

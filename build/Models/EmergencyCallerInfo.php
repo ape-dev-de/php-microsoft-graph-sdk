@@ -19,7 +19,7 @@ class EmergencyCallerInfo
      * 
      * @var Location|\stdClass|null
      */
-    public mixed $location = null;
+    public Location|\stdClass|null $location = null;
 
     /**  */
     public ?string $phoneNumber = null;

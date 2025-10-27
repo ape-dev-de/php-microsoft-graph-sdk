@@ -28,7 +28,7 @@ class DelegatedAdminRelationshipRequest
      * The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
      * @var DelegatedAdminRelationshipRequestStatus|\stdClass|null
      */
-    public mixed $status = null;
+    public DelegatedAdminRelationshipRequestStatus|\stdClass|null $status = null;
 
 
     /**

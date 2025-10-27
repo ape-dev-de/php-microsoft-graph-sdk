@@ -16,7 +16,7 @@ class ShiftAvailability
      * Specifies the pattern for recurrence
      * @var PatternedRecurrence|\stdClass|null
      */
-    public mixed $recurrence = null;
+    public PatternedRecurrence|\stdClass|null $recurrence = null;
 
     /** 
      * The time slot(s) preferred by the user.

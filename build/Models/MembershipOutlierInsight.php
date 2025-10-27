@@ -34,19 +34,19 @@ class MembershipOutlierInsight
      * Navigation link to the container directory object. For example, to a group.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $container = null;
+    public DirectoryObject|\stdClass|null $container = null;
 
     /** 
      * Navigation link to a member object who modified the record. For example, to a user.
      * @var User|\stdClass|null
      */
-    public mixed $lastModifiedBy = null;
+    public User|\stdClass|null $lastModifiedBy = null;
 
     /** 
      * Navigation link to a member object. For example, to a user.
      * @var DirectoryObject|\stdClass|null
      */
-    public mixed $member = null;
+    public DirectoryObject|\stdClass|null $member = null;
 
 
     /**

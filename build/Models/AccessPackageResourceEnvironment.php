@@ -19,7 +19,7 @@ class AccessPackageResourceEnvironment
      * Connection information of an environment used to connect to a resource.
      * @var ConnectionInfo|\stdClass|null
      */
-    public mixed $connectionInfo = null;
+    public ConnectionInfo|\stdClass|null $connectionInfo = null;
 
     /** The date and time that this object was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;

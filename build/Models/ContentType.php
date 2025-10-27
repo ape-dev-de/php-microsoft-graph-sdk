@@ -28,13 +28,13 @@ class ContentType
      * Document Set metadata.
      * @var DocumentSet|\stdClass|null
      */
-    public mixed $documentSet = null;
+    public DocumentSet|\stdClass|null $documentSet = null;
 
     /** 
      * Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.
      * @var DocumentSetContent|\stdClass|null
      */
-    public mixed $documentTemplate = null;
+    public DocumentSetContent|\stdClass|null $documentTemplate = null;
 
     /** The name of the group this content type belongs to. Helps organize related content types. */
     public ?string $group = null;
@@ -46,7 +46,7 @@ class ContentType
      * If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
      * @var ItemReference|\stdClass|null
      */
-    public mixed $inheritedFrom = null;
+    public ItemReference|\stdClass|null $inheritedFrom = null;
 
     /** Specifies if a content type is a built-in content type. */
     public ?bool $isBuiltIn = null;
@@ -58,7 +58,7 @@ class ContentType
      * Specifies the order in which the content type appears in the selection UI.
      * @var ContentTypeOrder|\stdClass|null
      */
-    public mixed $order = null;
+    public ContentTypeOrder|\stdClass|null $order = null;
 
     /** The unique identifier of the content type. */
     public ?string $parentId = null;
@@ -76,7 +76,7 @@ class ContentType
      * Parent contentType from which this content type is derived.
      * @var ContentType|\stdClass|null
      */
-    public mixed $base = null;
+    public ContentType|\stdClass|null $base = null;
 
     /** 
      * The collection of content types that are ancestors of this content type.

@@ -40,7 +40,7 @@ class OnenotePage
      * Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only.
      * @var PageLinks|\stdClass|null
      */
-    public mixed $links = null;
+    public PageLinks|\stdClass|null $links = null;
 
     /** The order of the page within its parent section. Read-only. */
     public ?float $order = null;
@@ -58,13 +58,13 @@ class OnenotePage
      * The notebook that contains the page.  Read-only.
      * @var Notebook|\stdClass|null
      */
-    public mixed $parentNotebook = null;
+    public Notebook|\stdClass|null $parentNotebook = null;
 
     /** 
      * The section that contains the page. Read-only.
      * @var OnenoteSection|\stdClass|null
      */
-    public mixed $parentSection = null;
+    public OnenoteSection|\stdClass|null $parentSection = null;
 
 
     /**

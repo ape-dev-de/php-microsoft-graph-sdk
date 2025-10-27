@@ -22,7 +22,7 @@ class MultiTenantOrganizationIdentitySyncPolicyTemplate
      * Defines whether users can be synchronized from the partner tenant.
      * @var CrossTenantUserSyncInbound|\stdClass|null
      */
-    public mixed $userSyncInbound = null;
+    public CrossTenantUserSyncInbound|\stdClass|null $userSyncInbound = null;
 
 
     /**

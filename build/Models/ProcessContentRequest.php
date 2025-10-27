@@ -31,7 +31,7 @@ class ProcessContentRequest
      * Metadata about the protected application making the request. Required.
      * @var ProtectedApplicationMetadata|\stdClass|null
      */
-    public mixed $protectedAppMetadata = null;
+    public ProtectedApplicationMetadata|\stdClass|null $protectedAppMetadata = null;
 
 
     /**

@@ -19,7 +19,7 @@ class CrossTenantAccessPolicyTarget
      * The type of resource that you want to target. The possible values are: user, group, application, unknownFutureValue.
      * @var CrossTenantAccessPolicyTargetType|\stdClass|null
      */
-    public mixed $targetType = null;
+    public CrossTenantAccessPolicyTargetType|\stdClass|null $targetType = null;
 
 
     /**

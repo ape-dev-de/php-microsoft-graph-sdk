@@ -61,7 +61,7 @@ class UserRegistrationDetails
      * The method the user selected as the default second-factor for performing multifactor authentication. Possible values are: push, oath, voiceMobile, voiceAlternateMobile, voiceOffice, sms, none, unknownFutureValue. This property is used as preferred MFA method when isSystemPreferredAuthenticationMethodEnabled is false. Supports $filter (any with eq).
      * @var UserDefaultAuthenticationMethod|\stdClass|null
      */
-    public mixed $userPreferredMethodForSecondaryAuthentication = null;
+    public UserDefaultAuthenticationMethod|\stdClass|null $userPreferredMethodForSecondaryAuthentication = null;
 
     /** The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderby. */
     public ?string $userPrincipalName = null;
@@ -70,7 +70,7 @@ class UserRegistrationDetails
      * Identifies whether the user is a member or guest in the tenant. The possible values are: member, guest, unknownFutureValue.
      * @var SignInUserType|\stdClass|null
      */
-    public mixed $userType = null;
+    public SignInUserType|\stdClass|null $userType = null;
 
 
     /**

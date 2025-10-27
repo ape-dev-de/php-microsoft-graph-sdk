@@ -19,7 +19,7 @@ class PersistentBrowserSessionControl
      * Possible values are: always, never.
      * @var PersistentBrowserSessionMode|\stdClass|null
      */
-    public mixed $mode = null;
+    public PersistentBrowserSessionMode|\stdClass|null $mode = null;
 
 
     /**

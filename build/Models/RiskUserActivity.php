@@ -16,7 +16,7 @@ class RiskUserActivity
      * Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. For more information about each value, see Risk types and detection.
      * @var RiskDetail|\stdClass|null
      */
-    public mixed $detail = null;
+    public RiskDetail|\stdClass|null $detail = null;
 
     /** 
      * The type of risk event detected.

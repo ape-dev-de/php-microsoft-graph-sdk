@@ -16,7 +16,7 @@ class CrossTenantAccessPolicyTargetConfiguration
      * Defines whether access is allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.
      * @var CrossTenantAccessPolicyTargetConfigurationAccessType|\stdClass|null
      */
-    public mixed $accessType = null;
+    public CrossTenantAccessPolicyTargetConfigurationAccessType|\stdClass|null $accessType = null;
 
     /** 
      * Specifies whether to target users, groups, or applications with this rule.

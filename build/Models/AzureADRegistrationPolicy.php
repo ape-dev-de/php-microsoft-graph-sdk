@@ -16,7 +16,7 @@ class AzureADRegistrationPolicy
      * 
      * @var DeviceRegistrationMembership|\stdClass|null
      */
-    public mixed $allowedToRegister = null;
+    public DeviceRegistrationMembership|\stdClass|null $allowedToRegister = null;
 
     /**  */
     public ?bool $isAdminConfigurable = null;

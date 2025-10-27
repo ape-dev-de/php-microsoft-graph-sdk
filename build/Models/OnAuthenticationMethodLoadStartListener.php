@@ -22,13 +22,13 @@ class OnAuthenticationMethodLoadStartListener
      * The conditions on which this authenticationEventListener should trigger.
      * @var AuthenticationConditions|\stdClass|null
      */
-    public mixed $conditions = null;
+    public AuthenticationConditions|\stdClass|null $conditions = null;
 
     /** 
      * Required. Configuration for what to invoke if the event resolves to this listener. This property lets us define potential handler configurations per-event.
      * @var OnAuthenticationMethodLoadStartHandler|\stdClass|null
      */
-    public mixed $handler = null;
+    public OnAuthenticationMethodLoadStartHandler|\stdClass|null $handler = null;
 
 
     /**

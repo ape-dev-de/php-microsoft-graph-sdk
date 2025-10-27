@@ -22,7 +22,7 @@ class EducationSubmissionResource
      * Resource object.
      * @var EducationResource|\stdClass|null
      */
-    public mixed $resource = null;
+    public EducationResource|\stdClass|null $resource = null;
 
 
     /**

@@ -46,7 +46,7 @@ class SecurityNetworkConnectionEvidence
      * 
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $destinationAddress = null;
+    public SecurityIpEvidence|\stdClass|null $destinationAddress = null;
 
     /**  */
     public ?float $destinationPort = null;
@@ -55,13 +55,13 @@ class SecurityNetworkConnectionEvidence
      * 
      * @var SecurityProtocolType|\stdClass|null
      */
-    public mixed $protocol = null;
+    public SecurityProtocolType|\stdClass|null $protocol = null;
 
     /** 
      * 
      * @var SecurityIpEvidence|\stdClass|null
      */
-    public mixed $sourceAddress = null;
+    public SecurityIpEvidence|\stdClass|null $sourceAddress = null;
 
     /**  */
     public ?float $sourcePort = null;

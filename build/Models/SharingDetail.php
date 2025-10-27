@@ -16,7 +16,7 @@ class SharingDetail
      * The user who shared the document.
      * @var InsightIdentity|\stdClass|null
      */
-    public mixed $sharedBy = null;
+    public InsightIdentity|\stdClass|null $sharedBy = null;
 
     /** The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public ?\DateTimeInterface $sharedDateTime = null;
@@ -25,7 +25,7 @@ class SharingDetail
      * Reference properties of the document, such as the URL and type of the document. Read-only
      * @var ResourceReference|\stdClass|null
      */
-    public mixed $sharingReference = null;
+    public ResourceReference|\stdClass|null $sharingReference = null;
 
     /** The subject with which the document was shared. */
     public ?string $sharingSubject = null;

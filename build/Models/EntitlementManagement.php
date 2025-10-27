@@ -85,7 +85,7 @@ class EntitlementManagement
      * The settings that control the behavior of Microsoft Entra entitlement management.
      * @var EntitlementManagementSettings|\stdClass|null
      */
-    public mixed $settings = null;
+    public EntitlementManagementSettings|\stdClass|null $settings = null;
 
 
     /**
