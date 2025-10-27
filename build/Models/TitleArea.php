@@ -69,7 +69,7 @@ class TitleArea
             $this->imageWebUrl = $data['imageWebUrl'];
         }
         if (isset($data['layout'])) {
-            $this->layout = is_array($data['layout']) ? new TitleAreaLayoutType($data['layout']) : $data['layout'];
+            $this->layout = is_string($data['layout']) ? TitleAreaLayoutType::tryFrom($data['layout']) : $data['layout'];
         }
         if (isset($data['serverProcessedContent'])) {
             $this->serverProcessedContent = is_array($data['serverProcessedContent']) ? new ServerProcessedContent($data['serverProcessedContent']) : $data['serverProcessedContent'];
@@ -87,7 +87,7 @@ class TitleArea
             $this->textAboveTitle = $data['textAboveTitle'];
         }
         if (isset($data['textAlignment'])) {
-            $this->textAlignment = is_array($data['textAlignment']) ? new TitleAreaTextAlignmentType($data['textAlignment']) : $data['textAlignment'];
+            $this->textAlignment = is_string($data['textAlignment']) ? TitleAreaTextAlignmentType::tryFrom($data['textAlignment']) : $data['textAlignment'];
         }
     }
 

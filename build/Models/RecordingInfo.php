@@ -33,7 +33,7 @@ class RecordingInfo
             $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
         if (isset($data['recordingStatus'])) {
-            $this->recordingStatus = is_array($data['recordingStatus']) ? new RecordingStatus($data['recordingStatus']) : $data['recordingStatus'];
+            $this->recordingStatus = is_string($data['recordingStatus']) ? RecordingStatus::tryFrom($data['recordingStatus']) : $data['recordingStatus'];
         }
     }
 

@@ -5,29 +5,17 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * TeamworkUserIdentityType
+ * TeamworkUserIdentityType - Enum
  */
-class TeamworkUserIdentityType
+enum TeamworkUserIdentityType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case AADUSER = 'aadUser';
+    case ONPREMISEAADUSER = 'onPremiseAadUser';
+    case ANONYMOUSGUEST = 'anonymousGuest';
+    case FEDERATEDUSER = 'federatedUser';
+    case PERSONALMICROSOFTACCOUNTUSER = 'personalMicrosoftAccountUser';
+    case SKYPEUSER = 'skypeUser';
+    case PHONEUSER = 'phoneUser';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case EMAILUSER = 'emailUser';
 }

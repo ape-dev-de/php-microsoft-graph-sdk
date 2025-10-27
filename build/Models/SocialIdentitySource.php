@@ -30,7 +30,7 @@ class SocialIdentitySource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['socialIdentitySourceType'])) {
-            $this->socialIdentitySourceType = is_array($data['socialIdentitySourceType']) ? new SocialIdentitySourceType($data['socialIdentitySourceType']) : $data['socialIdentitySourceType'];
+            $this->socialIdentitySourceType = is_string($data['socialIdentitySourceType']) ? SocialIdentitySourceType::tryFrom($data['socialIdentitySourceType']) : $data['socialIdentitySourceType'];
         }
     }
 

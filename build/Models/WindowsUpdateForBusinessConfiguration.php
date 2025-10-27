@@ -228,13 +228,13 @@ class WindowsUpdateForBusinessConfiguration
             $this->allowWindows11Upgrade = is_bool($data['allowWindows11Upgrade']) ? $data['allowWindows11Upgrade'] : (bool)$data['allowWindows11Upgrade'];
         }
         if (isset($data['automaticUpdateMode'])) {
-            $this->automaticUpdateMode = is_array($data['automaticUpdateMode']) ? new AutomaticUpdateMode($data['automaticUpdateMode']) : $data['automaticUpdateMode'];
+            $this->automaticUpdateMode = is_string($data['automaticUpdateMode']) ? AutomaticUpdateMode::tryFrom($data['automaticUpdateMode']) : $data['automaticUpdateMode'];
         }
         if (isset($data['autoRestartNotificationDismissal'])) {
-            $this->autoRestartNotificationDismissal = is_array($data['autoRestartNotificationDismissal']) ? new AutoRestartNotificationDismissalMethod($data['autoRestartNotificationDismissal']) : $data['autoRestartNotificationDismissal'];
+            $this->autoRestartNotificationDismissal = is_string($data['autoRestartNotificationDismissal']) ? AutoRestartNotificationDismissalMethod::tryFrom($data['autoRestartNotificationDismissal']) : $data['autoRestartNotificationDismissal'];
         }
         if (isset($data['businessReadyUpdatesOnly'])) {
-            $this->businessReadyUpdatesOnly = is_array($data['businessReadyUpdatesOnly']) ? new WindowsUpdateType($data['businessReadyUpdatesOnly']) : $data['businessReadyUpdatesOnly'];
+            $this->businessReadyUpdatesOnly = is_string($data['businessReadyUpdatesOnly']) ? WindowsUpdateType::tryFrom($data['businessReadyUpdatesOnly']) : $data['businessReadyUpdatesOnly'];
         }
         if (isset($data['deadlineForFeatureUpdatesInDays'])) {
             $this->deadlineForFeatureUpdatesInDays = is_numeric($data['deadlineForFeatureUpdatesInDays']) ? (float)$data['deadlineForFeatureUpdatesInDays'] : $data['deadlineForFeatureUpdatesInDays'];
@@ -246,7 +246,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->deadlineGracePeriodInDays = is_numeric($data['deadlineGracePeriodInDays']) ? (float)$data['deadlineGracePeriodInDays'] : $data['deadlineGracePeriodInDays'];
         }
         if (isset($data['deliveryOptimizationMode'])) {
-            $this->deliveryOptimizationMode = is_array($data['deliveryOptimizationMode']) ? new WindowsDeliveryOptimizationMode($data['deliveryOptimizationMode']) : $data['deliveryOptimizationMode'];
+            $this->deliveryOptimizationMode = is_string($data['deliveryOptimizationMode']) ? WindowsDeliveryOptimizationMode::tryFrom($data['deliveryOptimizationMode']) : $data['deliveryOptimizationMode'];
         }
         if (isset($data['driversExcluded'])) {
             $this->driversExcluded = is_bool($data['driversExcluded']) ? $data['driversExcluded'] : (bool)$data['driversExcluded'];
@@ -291,7 +291,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->postponeRebootUntilAfterDeadline = is_bool($data['postponeRebootUntilAfterDeadline']) ? $data['postponeRebootUntilAfterDeadline'] : (bool)$data['postponeRebootUntilAfterDeadline'];
         }
         if (isset($data['prereleaseFeatures'])) {
-            $this->prereleaseFeatures = is_array($data['prereleaseFeatures']) ? new PrereleaseFeatures($data['prereleaseFeatures']) : $data['prereleaseFeatures'];
+            $this->prereleaseFeatures = is_string($data['prereleaseFeatures']) ? PrereleaseFeatures::tryFrom($data['prereleaseFeatures']) : $data['prereleaseFeatures'];
         }
         if (isset($data['qualityUpdatesDeferralPeriodInDays'])) {
             $this->qualityUpdatesDeferralPeriodInDays = is_numeric($data['qualityUpdatesDeferralPeriodInDays']) ? (float)$data['qualityUpdatesDeferralPeriodInDays'] : $data['qualityUpdatesDeferralPeriodInDays'];
@@ -321,16 +321,16 @@ class WindowsUpdateForBusinessConfiguration
             $this->skipChecksBeforeRestart = is_bool($data['skipChecksBeforeRestart']) ? $data['skipChecksBeforeRestart'] : (bool)$data['skipChecksBeforeRestart'];
         }
         if (isset($data['updateNotificationLevel'])) {
-            $this->updateNotificationLevel = is_array($data['updateNotificationLevel']) ? new WindowsUpdateNotificationDisplayOption($data['updateNotificationLevel']) : $data['updateNotificationLevel'];
+            $this->updateNotificationLevel = is_string($data['updateNotificationLevel']) ? WindowsUpdateNotificationDisplayOption::tryFrom($data['updateNotificationLevel']) : $data['updateNotificationLevel'];
         }
         if (isset($data['updateWeeks'])) {
-            $this->updateWeeks = is_array($data['updateWeeks']) ? new WindowsUpdateForBusinessUpdateWeeks($data['updateWeeks']) : $data['updateWeeks'];
+            $this->updateWeeks = is_string($data['updateWeeks']) ? WindowsUpdateForBusinessUpdateWeeks::tryFrom($data['updateWeeks']) : $data['updateWeeks'];
         }
         if (isset($data['userPauseAccess'])) {
-            $this->userPauseAccess = is_array($data['userPauseAccess']) ? new Enablement($data['userPauseAccess']) : $data['userPauseAccess'];
+            $this->userPauseAccess = is_string($data['userPauseAccess']) ? Enablement::tryFrom($data['userPauseAccess']) : $data['userPauseAccess'];
         }
         if (isset($data['userWindowsUpdateScanAccess'])) {
-            $this->userWindowsUpdateScanAccess = is_array($data['userWindowsUpdateScanAccess']) ? new Enablement($data['userWindowsUpdateScanAccess']) : $data['userWindowsUpdateScanAccess'];
+            $this->userWindowsUpdateScanAccess = is_string($data['userWindowsUpdateScanAccess']) ? Enablement::tryFrom($data['userWindowsUpdateScanAccess']) : $data['userWindowsUpdateScanAccess'];
         }
     }
 

@@ -141,7 +141,7 @@ class SignIn
             $this->clientAppUsed = $data['clientAppUsed'];
         }
         if (isset($data['conditionalAccessStatus'])) {
-            $this->conditionalAccessStatus = is_array($data['conditionalAccessStatus']) ? new ConditionalAccessStatus($data['conditionalAccessStatus']) : $data['conditionalAccessStatus'];
+            $this->conditionalAccessStatus = is_string($data['conditionalAccessStatus']) ? ConditionalAccessStatus::tryFrom($data['conditionalAccessStatus']) : $data['conditionalAccessStatus'];
         }
         if (isset($data['correlationId'])) {
             $this->correlationId = $data['correlationId'];
@@ -168,7 +168,7 @@ class SignIn
             $this->resourceId = $data['resourceId'];
         }
         if (isset($data['riskDetail'])) {
-            $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];
+            $this->riskDetail = is_string($data['riskDetail']) ? RiskDetail::tryFrom($data['riskDetail']) : $data['riskDetail'];
         }
         if (isset($data['riskEventTypes'])) {
             $this->riskEventTypes = $data['riskEventTypes'];
@@ -177,13 +177,13 @@ class SignIn
             $this->riskEventTypes_v2 = $data['riskEventTypes_v2'];
         }
         if (isset($data['riskLevelAggregated'])) {
-            $this->riskLevelAggregated = is_array($data['riskLevelAggregated']) ? new RiskLevel($data['riskLevelAggregated']) : $data['riskLevelAggregated'];
+            $this->riskLevelAggregated = is_string($data['riskLevelAggregated']) ? RiskLevel::tryFrom($data['riskLevelAggregated']) : $data['riskLevelAggregated'];
         }
         if (isset($data['riskLevelDuringSignIn'])) {
-            $this->riskLevelDuringSignIn = is_array($data['riskLevelDuringSignIn']) ? new RiskLevel($data['riskLevelDuringSignIn']) : $data['riskLevelDuringSignIn'];
+            $this->riskLevelDuringSignIn = is_string($data['riskLevelDuringSignIn']) ? RiskLevel::tryFrom($data['riskLevelDuringSignIn']) : $data['riskLevelDuringSignIn'];
         }
         if (isset($data['riskState'])) {
-            $this->riskState = is_array($data['riskState']) ? new RiskState($data['riskState']) : $data['riskState'];
+            $this->riskState = is_string($data['riskState']) ? RiskState::tryFrom($data['riskState']) : $data['riskState'];
         }
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new SignInStatus($data['status']) : $data['status'];

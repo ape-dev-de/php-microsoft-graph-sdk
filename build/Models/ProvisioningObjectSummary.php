@@ -126,7 +126,7 @@ class ProvisioningObjectSummary
             $this->modifiedProperties = $data['modifiedProperties'];
         }
         if (isset($data['provisioningAction'])) {
-            $this->provisioningAction = is_array($data['provisioningAction']) ? new ProvisioningAction($data['provisioningAction']) : $data['provisioningAction'];
+            $this->provisioningAction = is_string($data['provisioningAction']) ? ProvisioningAction::tryFrom($data['provisioningAction']) : $data['provisioningAction'];
         }
         if (isset($data['provisioningStatusInfo'])) {
             $this->provisioningStatusInfo = is_array($data['provisioningStatusInfo']) ? new ProvisioningStatusInfo($data['provisioningStatusInfo']) : $data['provisioningStatusInfo'];

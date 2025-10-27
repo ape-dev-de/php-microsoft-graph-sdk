@@ -90,7 +90,7 @@ class BrowserSiteList
             $this->revision = $data['revision'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new BrowserSiteListStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? BrowserSiteListStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['sharedCookies'])) {
             $this->sharedCookies = $data['sharedCookies'];

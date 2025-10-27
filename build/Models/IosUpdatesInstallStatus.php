@@ -5,29 +5,26 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * IosUpdatesInstallStatus
+ * IosUpdatesInstallStatus - Enum
  */
-class IosUpdatesInstallStatus
+enum IosUpdatesInstallStatus: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case DEVICEOSHIGHERTHANDESIREDOSVERSION = 'deviceOsHigherThanDesiredOsVersion';
+    case SHAREDDEVICEUSERLOGGEDINERROR = 'sharedDeviceUserLoggedInError';
+    case NOTSUPPORTEDOPERATION = 'notSupportedOperation';
+    case INSTALLFAILED = 'installFailed';
+    case INSTALLPHONECALLINPROGRESS = 'installPhoneCallInProgress';
+    case INSTALLINSUFFICIENTPOWER = 'installInsufficientPower';
+    case INSTALLINSUFFICIENTSPACE = 'installInsufficientSpace';
+    case INSTALLING = 'installing';
+    case DOWNLOADINSUFFICIENTNETWORK = 'downloadInsufficientNetwork';
+    case DOWNLOADINSUFFICIENTPOWER = 'downloadInsufficientPower';
+    case DOWNLOADINSUFFICIENTSPACE = 'downloadInsufficientSpace';
+    case DOWNLOADREQUIRESCOMPUTER = 'downloadRequiresComputer';
+    case DOWNLOADFAILED = 'downloadFailed';
+    case DOWNLOADING = 'downloading';
+    case SUCCESS = 'success';
+    case AVAILABLE = 'available';
+    case IDLE = 'idle';
+    case UNKNOWN = 'unknown';
 }

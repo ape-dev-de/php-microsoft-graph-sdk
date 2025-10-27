@@ -5,29 +5,15 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Win32LobAppRegistryRuleOperationType
+ * Win32LobAppRegistryRuleOperationType - Enum
+ * A list of possible operations for rules used to make determinations about an application based on registry keys or values. Unless noted, the values can be used with either detection or requirement rules.
  */
-class Win32LobAppRegistryRuleOperationType
+enum Win32LobAppRegistryRuleOperationType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NOTCONFIGURED = 'notConfigured';
+    case EXISTS = 'exists';
+    case DOESNOTEXIST = 'doesNotExist';
+    case STRING = 'string';
+    case INTEGER = 'integer';
+    case VERSION = 'version';
 }

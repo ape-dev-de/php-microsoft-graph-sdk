@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * RatingUnitedKingdomMoviesType
+ * RatingUnitedKingdomMoviesType - Enum
+ * Movies rating labels in United Kingdom
  */
-class RatingUnitedKingdomMoviesType
+enum RatingUnitedKingdomMoviesType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ALLALLOWED = 'allAllowed';
+    case ALLBLOCKED = 'allBlocked';
+    case GENERAL = 'general';
+    case UNIVERSALCHILDREN = 'universalChildren';
+    case PARENTALGUIDANCE = 'parentalGuidance';
+    case AGESABOVE12VIDEO = 'agesAbove12Video';
+    case AGESABOVE12CINEMA = 'agesAbove12Cinema';
+    case AGESABOVE15 = 'agesAbove15';
+    case ADULTS = 'adults';
 }

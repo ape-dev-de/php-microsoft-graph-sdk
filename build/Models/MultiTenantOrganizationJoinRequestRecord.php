@@ -51,10 +51,10 @@ class MultiTenantOrganizationJoinRequestRecord
             $this->addedByTenantId = $data['addedByTenantId'];
         }
         if (isset($data['memberState'])) {
-            $this->memberState = is_array($data['memberState']) ? new MultiTenantOrganizationMemberState($data['memberState']) : $data['memberState'];
+            $this->memberState = is_string($data['memberState']) ? MultiTenantOrganizationMemberState::tryFrom($data['memberState']) : $data['memberState'];
         }
         if (isset($data['role'])) {
-            $this->role = is_array($data['role']) ? new MultiTenantOrganizationMemberRole($data['role']) : $data['role'];
+            $this->role = is_string($data['role']) ? MultiTenantOrganizationMemberRole::tryFrom($data['role']) : $data['role'];
         }
         if (isset($data['transitionDetails'])) {
             $this->transitionDetails = is_array($data['transitionDetails']) ? new MultiTenantOrganizationJoinRequestTransitionDetails($data['transitionDetails']) : $data['transitionDetails'];

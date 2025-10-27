@@ -42,7 +42,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload
             $this->createdDateTimeUtc = is_string($data['createdDateTimeUtc']) ? new \DateTimeImmutable($data['createdDateTimeUtc']) : $data['createdDateTimeUtc'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ImportedWindowsAutopilotDeviceIdentityUploadStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ImportedWindowsAutopilotDeviceIdentityUploadStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['deviceIdentities'])) {
             $this->deviceIdentities = $data['deviceIdentities'];

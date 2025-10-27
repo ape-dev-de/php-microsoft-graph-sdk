@@ -30,7 +30,7 @@ class AppLogCollectionDownloadDetails
     {
         $this->rawData = $data;
         if (isset($data['appLogDecryptionAlgorithm'])) {
-            $this->appLogDecryptionAlgorithm = is_array($data['appLogDecryptionAlgorithm']) ? new AppLogDecryptionAlgorithm($data['appLogDecryptionAlgorithm']) : $data['appLogDecryptionAlgorithm'];
+            $this->appLogDecryptionAlgorithm = is_string($data['appLogDecryptionAlgorithm']) ? AppLogDecryptionAlgorithm::tryFrom($data['appLogDecryptionAlgorithm']) : $data['appLogDecryptionAlgorithm'];
         }
         if (isset($data['decryptionKey'])) {
             $this->decryptionKey = $data['decryptionKey'];

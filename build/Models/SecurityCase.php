@@ -66,7 +66,7 @@ class SecurityCase
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityCaseStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityCaseStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

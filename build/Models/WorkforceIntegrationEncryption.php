@@ -30,7 +30,7 @@ class WorkforceIntegrationEncryption
     {
         $this->rawData = $data;
         if (isset($data['protocol'])) {
-            $this->protocol = is_array($data['protocol']) ? new WorkforceIntegrationEncryptionProtocol($data['protocol']) : $data['protocol'];
+            $this->protocol = is_string($data['protocol']) ? WorkforceIntegrationEncryptionProtocol::tryFrom($data['protocol']) : $data['protocol'];
         }
         if (isset($data['secret'])) {
             $this->secret = $data['secret'];

@@ -45,7 +45,7 @@ class AudioRoutingGroup
             $this->receivers = $data['receivers'];
         }
         if (isset($data['routingMode'])) {
-            $this->routingMode = is_array($data['routingMode']) ? new RoutingMode($data['routingMode']) : $data['routingMode'];
+            $this->routingMode = is_string($data['routingMode']) ? RoutingMode::tryFrom($data['routingMode']) : $data['routingMode'];
         }
         if (isset($data['sources'])) {
             $this->sources = $data['sources'];

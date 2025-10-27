@@ -66,7 +66,7 @@ class SamlOrWsFedExternalDomainFederation
             $this->passiveSignInUri = $data['passiveSignInUri'];
         }
         if (isset($data['preferredAuthenticationProtocol'])) {
-            $this->preferredAuthenticationProtocol = is_array($data['preferredAuthenticationProtocol']) ? new AuthenticationProtocol($data['preferredAuthenticationProtocol']) : $data['preferredAuthenticationProtocol'];
+            $this->preferredAuthenticationProtocol = is_string($data['preferredAuthenticationProtocol']) ? AuthenticationProtocol::tryFrom($data['preferredAuthenticationProtocol']) : $data['preferredAuthenticationProtocol'];
         }
         if (isset($data['signingCertificate'])) {
             $this->signingCertificate = $data['signingCertificate'];

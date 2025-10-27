@@ -33,7 +33,7 @@ class SharedPCAccountManagerPolicy
     {
         $this->rawData = $data;
         if (isset($data['accountDeletionPolicy'])) {
-            $this->accountDeletionPolicy = is_array($data['accountDeletionPolicy']) ? new SharedPCAccountDeletionPolicyType($data['accountDeletionPolicy']) : $data['accountDeletionPolicy'];
+            $this->accountDeletionPolicy = is_string($data['accountDeletionPolicy']) ? SharedPCAccountDeletionPolicyType::tryFrom($data['accountDeletionPolicy']) : $data['accountDeletionPolicy'];
         }
         if (isset($data['cacheAccountsAboveDiskFreePercentage'])) {
             $this->cacheAccountsAboveDiskFreePercentage = is_numeric($data['cacheAccountsAboveDiskFreePercentage']) ? (float)$data['cacheAccountsAboveDiskFreePercentage'] : $data['cacheAccountsAboveDiskFreePercentage'];

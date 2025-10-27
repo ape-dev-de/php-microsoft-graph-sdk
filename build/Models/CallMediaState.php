@@ -27,7 +27,7 @@ class CallMediaState
     {
         $this->rawData = $data;
         if (isset($data['audio'])) {
-            $this->audio = is_array($data['audio']) ? new MediaState($data['audio']) : $data['audio'];
+            $this->audio = is_string($data['audio']) ? MediaState::tryFrom($data['audio']) : $data['audio'];
         }
     }
 

@@ -33,10 +33,10 @@ class OnlineMeetingRestricted
     {
         $this->rawData = $data;
         if (isset($data['contentSharingDisabled'])) {
-            $this->contentSharingDisabled = is_array($data['contentSharingDisabled']) ? new OnlineMeetingContentSharingDisabledReason($data['contentSharingDisabled']) : $data['contentSharingDisabled'];
+            $this->contentSharingDisabled = is_string($data['contentSharingDisabled']) ? OnlineMeetingContentSharingDisabledReason::tryFrom($data['contentSharingDisabled']) : $data['contentSharingDisabled'];
         }
         if (isset($data['videoDisabled'])) {
-            $this->videoDisabled = is_array($data['videoDisabled']) ? new OnlineMeetingVideoDisabledReason($data['videoDisabled']) : $data['videoDisabled'];
+            $this->videoDisabled = is_string($data['videoDisabled']) ? OnlineMeetingVideoDisabledReason::tryFrom($data['videoDisabled']) : $data['videoDisabled'];
         }
     }
 

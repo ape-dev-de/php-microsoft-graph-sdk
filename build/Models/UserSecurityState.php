@@ -81,7 +81,7 @@ class UserSecurityState
             $this->domainName = $data['domainName'];
         }
         if (isset($data['emailRole'])) {
-            $this->emailRole = is_array($data['emailRole']) ? new EmailRole($data['emailRole']) : $data['emailRole'];
+            $this->emailRole = is_string($data['emailRole']) ? EmailRole::tryFrom($data['emailRole']) : $data['emailRole'];
         }
         if (isset($data['isVpn'])) {
             $this->isVpn = is_bool($data['isVpn']) ? $data['isVpn'] : (bool)$data['isVpn'];
@@ -99,7 +99,7 @@ class UserSecurityState
             $this->logonLocation = $data['logonLocation'];
         }
         if (isset($data['logonType'])) {
-            $this->logonType = is_array($data['logonType']) ? new LogonType($data['logonType']) : $data['logonType'];
+            $this->logonType = is_string($data['logonType']) ? LogonType::tryFrom($data['logonType']) : $data['logonType'];
         }
         if (isset($data['onPremisesSecurityIdentifier'])) {
             $this->onPremisesSecurityIdentifier = $data['onPremisesSecurityIdentifier'];
@@ -108,7 +108,7 @@ class UserSecurityState
             $this->riskScore = $data['riskScore'];
         }
         if (isset($data['userAccountType'])) {
-            $this->userAccountType = is_array($data['userAccountType']) ? new UserAccountSecurityType($data['userAccountType']) : $data['userAccountType'];
+            $this->userAccountType = is_string($data['userAccountType']) ? UserAccountSecurityType::tryFrom($data['userAccountType']) : $data['userAccountType'];
         }
         if (isset($data['userPrincipalName'])) {
             $this->userPrincipalName = $data['userPrincipalName'];

@@ -30,7 +30,7 @@ class BookingWorkHours
     {
         $this->rawData = $data;
         if (isset($data['day'])) {
-            $this->day = is_array($data['day']) ? new DayOfWeek($data['day']) : $data['day'];
+            $this->day = is_string($data['day']) ? DayOfWeek::tryFrom($data['day']) : $data['day'];
         }
         if (isset($data['timeSlots'])) {
             $this->timeSlots = $data['timeSlots'];

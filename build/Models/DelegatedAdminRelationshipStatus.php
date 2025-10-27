@@ -5,29 +5,19 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DelegatedAdminRelationshipStatus
+ * DelegatedAdminRelationshipStatus - Enum
  */
-class DelegatedAdminRelationshipStatus
+enum DelegatedAdminRelationshipStatus: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ACTIVATING = 'activating';
+    case ACTIVE = 'active';
+    case APPROVALPENDING = 'approvalPending';
+    case APPROVED = 'approved';
+    case CREATED = 'created';
+    case EXPIRED = 'expired';
+    case EXPIRING = 'expiring';
+    case TERMINATED = 'terminated';
+    case TERMINATING = 'terminating';
+    case TERMINATIONREQUESTED = 'terminationRequested';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

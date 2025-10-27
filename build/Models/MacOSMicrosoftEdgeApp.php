@@ -120,7 +120,7 @@ class MacOSMicrosoftEdgeApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
+            $this->publishingState = is_string($data['publishingState']) ? MobileAppPublishingState::tryFrom($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -129,7 +129,7 @@ class MacOSMicrosoftEdgeApp
             $this->categories = $data['categories'];
         }
         if (isset($data['channel'])) {
-            $this->channel = is_array($data['channel']) ? new MicrosoftEdgeChannel($data['channel']) : $data['channel'];
+            $this->channel = is_string($data['channel']) ? MicrosoftEdgeChannel::tryFrom($data['channel']) : $data['channel'];
         }
     }
 

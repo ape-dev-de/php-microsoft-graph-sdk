@@ -321,7 +321,7 @@ class Application
             $this->logo = $data['logo'];
         }
         if (isset($data['nativeAuthenticationApisEnabled'])) {
-            $this->nativeAuthenticationApisEnabled = is_array($data['nativeAuthenticationApisEnabled']) ? new NativeAuthenticationApisEnabled($data['nativeAuthenticationApisEnabled']) : $data['nativeAuthenticationApisEnabled'];
+            $this->nativeAuthenticationApisEnabled = is_string($data['nativeAuthenticationApisEnabled']) ? NativeAuthenticationApisEnabled::tryFrom($data['nativeAuthenticationApisEnabled']) : $data['nativeAuthenticationApisEnabled'];
         }
         if (isset($data['notes'])) {
             $this->notes = $data['notes'];

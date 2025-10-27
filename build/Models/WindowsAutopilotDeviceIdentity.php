@@ -84,7 +84,7 @@ class WindowsAutopilotDeviceIdentity
             $this->displayName = $data['displayName'];
         }
         if (isset($data['enrollmentState'])) {
-            $this->enrollmentState = is_array($data['enrollmentState']) ? new EnrollmentState($data['enrollmentState']) : $data['enrollmentState'];
+            $this->enrollmentState = is_string($data['enrollmentState']) ? EnrollmentState::tryFrom($data['enrollmentState']) : $data['enrollmentState'];
         }
         if (isset($data['groupTag'])) {
             $this->groupTag = $data['groupTag'];

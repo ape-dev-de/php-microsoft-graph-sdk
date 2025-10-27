@@ -144,10 +144,10 @@ class Simulation
             $this->id = $data['id'];
         }
         if (isset($data['attackTechnique'])) {
-            $this->attackTechnique = is_array($data['attackTechnique']) ? new SimulationAttackTechnique($data['attackTechnique']) : $data['attackTechnique'];
+            $this->attackTechnique = is_string($data['attackTechnique']) ? SimulationAttackTechnique::tryFrom($data['attackTechnique']) : $data['attackTechnique'];
         }
         if (isset($data['attackType'])) {
-            $this->attackType = is_array($data['attackType']) ? new SimulationAttackType($data['attackType']) : $data['attackType'];
+            $this->attackType = is_string($data['attackType']) ? SimulationAttackType::tryFrom($data['attackType']) : $data['attackType'];
         }
         if (isset($data['automationId'])) {
             $this->automationId = $data['automationId'];
@@ -195,13 +195,13 @@ class Simulation
             $this->oAuthConsentAppDetail = is_array($data['oAuthConsentAppDetail']) ? new OAuthConsentAppDetail($data['oAuthConsentAppDetail']) : $data['oAuthConsentAppDetail'];
         }
         if (isset($data['payloadDeliveryPlatform'])) {
-            $this->payloadDeliveryPlatform = is_array($data['payloadDeliveryPlatform']) ? new PayloadDeliveryPlatform($data['payloadDeliveryPlatform']) : $data['payloadDeliveryPlatform'];
+            $this->payloadDeliveryPlatform = is_string($data['payloadDeliveryPlatform']) ? PayloadDeliveryPlatform::tryFrom($data['payloadDeliveryPlatform']) : $data['payloadDeliveryPlatform'];
         }
         if (isset($data['report'])) {
             $this->report = is_array($data['report']) ? new SimulationReport($data['report']) : $data['report'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SimulationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SimulationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['trainingSetting'])) {
             $this->trainingSetting = is_array($data['trainingSetting']) ? new TrainingSetting($data['trainingSetting']) : $data['trainingSetting'];

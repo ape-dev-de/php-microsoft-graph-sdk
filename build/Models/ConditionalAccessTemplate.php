@@ -48,7 +48,7 @@ class ConditionalAccessTemplate
             $this->name = $data['name'];
         }
         if (isset($data['scenarios'])) {
-            $this->scenarios = is_array($data['scenarios']) ? new TemplateScenarios($data['scenarios']) : $data['scenarios'];
+            $this->scenarios = is_string($data['scenarios']) ? TemplateScenarios::tryFrom($data['scenarios']) : $data['scenarios'];
         }
     }
 

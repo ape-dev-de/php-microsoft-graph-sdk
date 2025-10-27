@@ -78,7 +78,7 @@ class ConnectedOrganization
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new ConnectedOrganizationState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? ConnectedOrganizationState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['externalSponsors'])) {
             $this->externalSponsors = $data['externalSponsors'];

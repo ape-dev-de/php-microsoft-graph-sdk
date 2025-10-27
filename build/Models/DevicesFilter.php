@@ -30,7 +30,7 @@ class DevicesFilter
     {
         $this->rawData = $data;
         if (isset($data['mode'])) {
-            $this->mode = is_array($data['mode']) ? new CrossTenantAccessPolicyTargetConfigurationAccessType($data['mode']) : $data['mode'];
+            $this->mode = is_string($data['mode']) ? CrossTenantAccessPolicyTargetConfigurationAccessType::tryFrom($data['mode']) : $data['mode'];
         }
         if (isset($data['rule'])) {
             $this->rule = $data['rule'];

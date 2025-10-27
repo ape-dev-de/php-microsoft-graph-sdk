@@ -39,7 +39,7 @@ class OutOfBoxExperienceSetting
     {
         $this->rawData = $data;
         if (isset($data['deviceUsageType'])) {
-            $this->deviceUsageType = is_array($data['deviceUsageType']) ? new WindowsDeviceUsageType($data['deviceUsageType']) : $data['deviceUsageType'];
+            $this->deviceUsageType = is_string($data['deviceUsageType']) ? WindowsDeviceUsageType::tryFrom($data['deviceUsageType']) : $data['deviceUsageType'];
         }
         if (isset($data['escapeLinkHidden'])) {
             $this->escapeLinkHidden = is_bool($data['escapeLinkHidden']) ? $data['escapeLinkHidden'] : (bool)$data['escapeLinkHidden'];
@@ -54,7 +54,7 @@ class OutOfBoxExperienceSetting
             $this->privacySettingsHidden = is_bool($data['privacySettingsHidden']) ? $data['privacySettingsHidden'] : (bool)$data['privacySettingsHidden'];
         }
         if (isset($data['userType'])) {
-            $this->userType = is_array($data['userType']) ? new WindowsUserType($data['userType']) : $data['userType'];
+            $this->userType = is_string($data['userType']) ? WindowsUserType::tryFrom($data['userType']) : $data['userType'];
         }
     }
 

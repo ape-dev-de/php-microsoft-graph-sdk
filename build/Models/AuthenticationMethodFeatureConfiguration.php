@@ -45,7 +45,7 @@ class AuthenticationMethodFeatureConfiguration
             $this->includeTarget = is_array($data['includeTarget']) ? new FeatureTarget($data['includeTarget']) : $data['includeTarget'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AdvancedConfigState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AdvancedConfigState::tryFrom($data['state']) : $data['state'];
         }
     }
 

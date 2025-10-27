@@ -5,29 +5,12 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Win32LobAppNotification
+ * Win32LobAppNotification - Enum
+ * Contains value for notification status.
  */
-class Win32LobAppNotification
+enum Win32LobAppNotification: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case SHOWALL = 'showAll';
+    case SHOWREBOOT = 'showReboot';
+    case HIDEALL = 'hideAll';
 }

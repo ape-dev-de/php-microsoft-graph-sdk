@@ -45,7 +45,7 @@ class VirtualEventPresenterInfo
             $this->identity = is_array($data['identity']) ? new IdentitySet($data['identity']) : $data['identity'];
         }
         if (isset($data['role'])) {
-            $this->role = is_array($data['role']) ? new OnlineMeetingRole($data['role']) : $data['role'];
+            $this->role = is_string($data['role']) ? OnlineMeetingRole::tryFrom($data['role']) : $data['role'];
         }
         if (isset($data['upn'])) {
             $this->upn = $data['upn'];

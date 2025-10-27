@@ -45,7 +45,7 @@ class LabelContentRight
             $this->format = $data['format'];
         }
         if (isset($data['rights'])) {
-            $this->rights = is_array($data['rights']) ? new UsageRights($data['rights']) : $data['rights'];
+            $this->rights = is_string($data['rights']) ? UsageRights::tryFrom($data['rights']) : $data['rights'];
         }
         if (isset($data['label'])) {
             $this->label = is_array($data['label']) ? new SensitivityLabel($data['label']) : $data['label'];

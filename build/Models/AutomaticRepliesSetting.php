@@ -51,7 +51,7 @@ class AutomaticRepliesSetting
     {
         $this->rawData = $data;
         if (isset($data['externalAudience'])) {
-            $this->externalAudience = is_array($data['externalAudience']) ? new ExternalAudienceScope($data['externalAudience']) : $data['externalAudience'];
+            $this->externalAudience = is_string($data['externalAudience']) ? ExternalAudienceScope::tryFrom($data['externalAudience']) : $data['externalAudience'];
         }
         if (isset($data['externalReplyMessage'])) {
             $this->externalReplyMessage = $data['externalReplyMessage'];
@@ -66,7 +66,7 @@ class AutomaticRepliesSetting
             $this->scheduledStartDateTime = is_array($data['scheduledStartDateTime']) ? new DateTimeTimeZone($data['scheduledStartDateTime']) : $data['scheduledStartDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new AutomaticRepliesStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? AutomaticRepliesStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

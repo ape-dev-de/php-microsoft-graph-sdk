@@ -75,7 +75,7 @@ class IdentityGovernanceTaskReport
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['processingStatus'])) {
-            $this->processingStatus = is_array($data['processingStatus']) ? new IdentityGovernanceLifecycleWorkflowProcessingStatus($data['processingStatus']) : $data['processingStatus'];
+            $this->processingStatus = is_string($data['processingStatus']) ? IdentityGovernanceLifecycleWorkflowProcessingStatus::tryFrom($data['processingStatus']) : $data['processingStatus'];
         }
         if (isset($data['runId'])) {
             $this->runId = $data['runId'];

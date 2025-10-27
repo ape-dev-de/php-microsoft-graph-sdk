@@ -84,7 +84,7 @@ class MobileAppContentFile
             $this->sizeEncrypted = is_numeric($data['sizeEncrypted']) ? (float)$data['sizeEncrypted'] : $data['sizeEncrypted'];
         }
         if (isset($data['uploadState'])) {
-            $this->uploadState = is_array($data['uploadState']) ? new MobileAppContentFileUploadState($data['uploadState']) : $data['uploadState'];
+            $this->uploadState = is_string($data['uploadState']) ? MobileAppContentFileUploadState::tryFrom($data['uploadState']) : $data['uploadState'];
         }
     }
 

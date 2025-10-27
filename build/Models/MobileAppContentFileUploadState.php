@@ -5,29 +5,25 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * MobileAppContentFileUploadState
+ * MobileAppContentFileUploadState - Enum
+ * Contains properties for upload request states.
  */
-class MobileAppContentFileUploadState
+enum MobileAppContentFileUploadState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case SUCCESS = 'success';
+    case TRANSIENTERROR = 'transientError';
+    case ERROR = 'error';
+    case UNKNOWN = 'unknown';
+    case AZURESTORAGEURIREQUESTSUCCESS = 'azureStorageUriRequestSuccess';
+    case AZURESTORAGEURIREQUESTPENDING = 'azureStorageUriRequestPending';
+    case AZURESTORAGEURIREQUESTFAILED = 'azureStorageUriRequestFailed';
+    case AZURESTORAGEURIREQUESTTIMEDOUT = 'azureStorageUriRequestTimedOut';
+    case AZURESTORAGEURIRENEWALSUCCESS = 'azureStorageUriRenewalSuccess';
+    case AZURESTORAGEURIRENEWALPENDING = 'azureStorageUriRenewalPending';
+    case AZURESTORAGEURIRENEWALFAILED = 'azureStorageUriRenewalFailed';
+    case AZURESTORAGEURIRENEWALTIMEDOUT = 'azureStorageUriRenewalTimedOut';
+    case COMMITFILESUCCESS = 'commitFileSuccess';
+    case COMMITFILEPENDING = 'commitFilePending';
+    case COMMITFILEFAILED = 'commitFileFailed';
+    case COMMITFILETIMEDOUT = 'commitFileTimedOut';
 }

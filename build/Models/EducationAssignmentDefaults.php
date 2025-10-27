@@ -45,10 +45,10 @@ class EducationAssignmentDefaults
             $this->id = $data['id'];
         }
         if (isset($data['addedStudentAction'])) {
-            $this->addedStudentAction = is_array($data['addedStudentAction']) ? new EducationAddedStudentAction($data['addedStudentAction']) : $data['addedStudentAction'];
+            $this->addedStudentAction = is_string($data['addedStudentAction']) ? EducationAddedStudentAction::tryFrom($data['addedStudentAction']) : $data['addedStudentAction'];
         }
         if (isset($data['addToCalendarAction'])) {
-            $this->addToCalendarAction = is_array($data['addToCalendarAction']) ? new EducationAddToCalendarOptions($data['addToCalendarAction']) : $data['addToCalendarAction'];
+            $this->addToCalendarAction = is_string($data['addToCalendarAction']) ? EducationAddToCalendarOptions::tryFrom($data['addToCalendarAction']) : $data['addToCalendarAction'];
         }
         if (isset($data['dueTime'])) {
             $this->dueTime = $data['dueTime'];

@@ -54,7 +54,7 @@ class PlannerTaskDetails
             $this->description = $data['description'];
         }
         if (isset($data['previewType'])) {
-            $this->previewType = is_array($data['previewType']) ? new PlannerPreviewType($data['previewType']) : $data['previewType'];
+            $this->previewType = is_string($data['previewType']) ? PlannerPreviewType::tryFrom($data['previewType']) : $data['previewType'];
         }
         if (isset($data['references'])) {
             $this->references = is_array($data['references']) ? new PlannerExternalReferences($data['references']) : $data['references'];

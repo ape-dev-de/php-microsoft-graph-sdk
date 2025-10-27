@@ -108,13 +108,13 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->assignments = $data['assignments'];
         }
         if (isset($data['enhancedBiometricsState'])) {
-            $this->enhancedBiometricsState = is_array($data['enhancedBiometricsState']) ? new Enablement($data['enhancedBiometricsState']) : $data['enhancedBiometricsState'];
+            $this->enhancedBiometricsState = is_string($data['enhancedBiometricsState']) ? Enablement::tryFrom($data['enhancedBiometricsState']) : $data['enhancedBiometricsState'];
         }
         if (isset($data['pinExpirationInDays'])) {
             $this->pinExpirationInDays = is_numeric($data['pinExpirationInDays']) ? (float)$data['pinExpirationInDays'] : $data['pinExpirationInDays'];
         }
         if (isset($data['pinLowercaseCharactersUsage'])) {
-            $this->pinLowercaseCharactersUsage = is_array($data['pinLowercaseCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinLowercaseCharactersUsage']) : $data['pinLowercaseCharactersUsage'];
+            $this->pinLowercaseCharactersUsage = is_string($data['pinLowercaseCharactersUsage']) ? WindowsHelloForBusinessPinUsage::tryFrom($data['pinLowercaseCharactersUsage']) : $data['pinLowercaseCharactersUsage'];
         }
         if (isset($data['pinMaximumLength'])) {
             $this->pinMaximumLength = is_numeric($data['pinMaximumLength']) ? (float)$data['pinMaximumLength'] : $data['pinMaximumLength'];
@@ -126,10 +126,10 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->pinPreviousBlockCount = is_numeric($data['pinPreviousBlockCount']) ? (float)$data['pinPreviousBlockCount'] : $data['pinPreviousBlockCount'];
         }
         if (isset($data['pinSpecialCharactersUsage'])) {
-            $this->pinSpecialCharactersUsage = is_array($data['pinSpecialCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinSpecialCharactersUsage']) : $data['pinSpecialCharactersUsage'];
+            $this->pinSpecialCharactersUsage = is_string($data['pinSpecialCharactersUsage']) ? WindowsHelloForBusinessPinUsage::tryFrom($data['pinSpecialCharactersUsage']) : $data['pinSpecialCharactersUsage'];
         }
         if (isset($data['pinUppercaseCharactersUsage'])) {
-            $this->pinUppercaseCharactersUsage = is_array($data['pinUppercaseCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinUppercaseCharactersUsage']) : $data['pinUppercaseCharactersUsage'];
+            $this->pinUppercaseCharactersUsage = is_string($data['pinUppercaseCharactersUsage']) ? WindowsHelloForBusinessPinUsage::tryFrom($data['pinUppercaseCharactersUsage']) : $data['pinUppercaseCharactersUsage'];
         }
         if (isset($data['remotePassportEnabled'])) {
             $this->remotePassportEnabled = is_bool($data['remotePassportEnabled']) ? $data['remotePassportEnabled'] : (bool)$data['remotePassportEnabled'];
@@ -138,7 +138,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->securityDeviceRequired = is_bool($data['securityDeviceRequired']) ? $data['securityDeviceRequired'] : (bool)$data['securityDeviceRequired'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new Enablement($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? Enablement::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['unlockWithBiometricsEnabled'])) {
             $this->unlockWithBiometricsEnabled = is_bool($data['unlockWithBiometricsEnabled']) ? $data['unlockWithBiometricsEnabled'] : (bool)$data['unlockWithBiometricsEnabled'];

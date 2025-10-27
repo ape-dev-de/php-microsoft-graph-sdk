@@ -84,19 +84,19 @@ class PrivilegedAccessGroupAssignmentScheduleInstance
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['accessId'])) {
-            $this->accessId = is_array($data['accessId']) ? new PrivilegedAccessGroupRelationships($data['accessId']) : $data['accessId'];
+            $this->accessId = is_string($data['accessId']) ? PrivilegedAccessGroupRelationships::tryFrom($data['accessId']) : $data['accessId'];
         }
         if (isset($data['assignmentScheduleId'])) {
             $this->assignmentScheduleId = $data['assignmentScheduleId'];
         }
         if (isset($data['assignmentType'])) {
-            $this->assignmentType = is_array($data['assignmentType']) ? new PrivilegedAccessGroupAssignmentType($data['assignmentType']) : $data['assignmentType'];
+            $this->assignmentType = is_string($data['assignmentType']) ? PrivilegedAccessGroupAssignmentType::tryFrom($data['assignmentType']) : $data['assignmentType'];
         }
         if (isset($data['groupId'])) {
             $this->groupId = $data['groupId'];
         }
         if (isset($data['memberType'])) {
-            $this->memberType = is_array($data['memberType']) ? new PrivilegedAccessGroupMemberType($data['memberType']) : $data['memberType'];
+            $this->memberType = is_string($data['memberType']) ? PrivilegedAccessGroupMemberType::tryFrom($data['memberType']) : $data['memberType'];
         }
         if (isset($data['principalId'])) {
             $this->principalId = $data['principalId'];

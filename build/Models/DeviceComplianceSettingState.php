@@ -78,7 +78,7 @@ class DeviceComplianceSettingState
             $this->settingName = $data['settingName'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new ComplianceStatus($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? ComplianceStatus::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['userEmail'])) {
             $this->userEmail = $data['userEmail'];

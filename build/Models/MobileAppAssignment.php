@@ -42,7 +42,7 @@ class MobileAppAssignment
             $this->id = $data['id'];
         }
         if (isset($data['intent'])) {
-            $this->intent = is_array($data['intent']) ? new InstallIntent($data['intent']) : $data['intent'];
+            $this->intent = is_string($data['intent']) ? InstallIntent::tryFrom($data['intent']) : $data['intent'];
         }
         if (isset($data['settings'])) {
             $this->settings = is_array($data['settings']) ? new MobileAppAssignmentSettings($data['settings']) : $data['settings'];

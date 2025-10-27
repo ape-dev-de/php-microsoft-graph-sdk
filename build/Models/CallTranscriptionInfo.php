@@ -30,7 +30,7 @@ class CallTranscriptionInfo
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new CallTranscriptionState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? CallTranscriptionState::tryFrom($data['state']) : $data['state'];
         }
     }
 

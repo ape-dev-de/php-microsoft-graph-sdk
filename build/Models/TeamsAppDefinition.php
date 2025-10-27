@@ -84,7 +84,7 @@ class TeamsAppDefinition
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = is_array($data['publishingState']) ? new TeamsAppPublishingState($data['publishingState']) : $data['publishingState'];
+            $this->publishingState = is_string($data['publishingState']) ? TeamsAppPublishingState::tryFrom($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['shortDescription'])) {
             $this->shortDescription = $data['shortDescription'];

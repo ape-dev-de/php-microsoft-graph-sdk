@@ -42,7 +42,7 @@ class DeviceComplianceActionItem
             $this->id = $data['id'];
         }
         if (isset($data['actionType'])) {
-            $this->actionType = is_array($data['actionType']) ? new DeviceComplianceActionType($data['actionType']) : $data['actionType'];
+            $this->actionType = is_string($data['actionType']) ? DeviceComplianceActionType::tryFrom($data['actionType']) : $data['actionType'];
         }
         if (isset($data['gracePeriodHours'])) {
             $this->gracePeriodHours = is_numeric($data['gracePeriodHours']) ? (float)$data['gracePeriodHours'] : $data['gracePeriodHours'];

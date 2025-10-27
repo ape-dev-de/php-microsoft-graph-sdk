@@ -30,7 +30,7 @@ class AttributeDefinitionMetadataEntry
     {
         $this->rawData = $data;
         if (isset($data['key'])) {
-            $this->key = is_array($data['key']) ? new AttributeDefinitionMetadata($data['key']) : $data['key'];
+            $this->key = is_string($data['key']) ? AttributeDefinitionMetadata::tryFrom($data['key']) : $data['key'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

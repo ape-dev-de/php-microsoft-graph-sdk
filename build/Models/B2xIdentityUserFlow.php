@@ -66,7 +66,7 @@ class B2xIdentityUserFlow
             $this->id = $data['id'];
         }
         if (isset($data['userFlowType'])) {
-            $this->userFlowType = is_array($data['userFlowType']) ? new UserFlowType($data['userFlowType']) : $data['userFlowType'];
+            $this->userFlowType = is_string($data['userFlowType']) ? UserFlowType::tryFrom($data['userFlowType']) : $data['userFlowType'];
         }
         if (isset($data['userFlowTypeVersion'])) {
             $this->userFlowTypeVersion = is_numeric($data['userFlowTypeVersion']) ? (float)$data['userFlowTypeVersion'] : $data['userFlowTypeVersion'];

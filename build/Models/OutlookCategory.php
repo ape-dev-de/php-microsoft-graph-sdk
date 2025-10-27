@@ -36,7 +36,7 @@ class OutlookCategory
             $this->id = $data['id'];
         }
         if (isset($data['color'])) {
-            $this->color = is_array($data['color']) ? new CategoryColor($data['color']) : $data['color'];
+            $this->color = is_string($data['color']) ? CategoryColor::tryFrom($data['color']) : $data['color'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

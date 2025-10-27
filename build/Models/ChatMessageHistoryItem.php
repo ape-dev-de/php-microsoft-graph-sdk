@@ -33,7 +33,7 @@ class ChatMessageHistoryItem
     {
         $this->rawData = $data;
         if (isset($data['actions'])) {
-            $this->actions = is_array($data['actions']) ? new ChatMessageActions($data['actions']) : $data['actions'];
+            $this->actions = is_string($data['actions']) ? ChatMessageActions::tryFrom($data['actions']) : $data['actions'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];

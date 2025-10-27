@@ -27,7 +27,7 @@ class IdentityGovernanceCustomTaskExtensionCallbackData
     {
         $this->rawData = $data;
         if (isset($data['operationStatus'])) {
-            $this->operationStatus = is_array($data['operationStatus']) ? new IdentityGovernanceCustomTaskExtensionOperationStatus($data['operationStatus']) : $data['operationStatus'];
+            $this->operationStatus = is_string($data['operationStatus']) ? IdentityGovernanceCustomTaskExtensionOperationStatus::tryFrom($data['operationStatus']) : $data['operationStatus'];
         }
     }
 

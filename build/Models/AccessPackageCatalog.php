@@ -84,7 +84,7 @@ class AccessPackageCatalog
             $this->id = $data['id'];
         }
         if (isset($data['catalogType'])) {
-            $this->catalogType = is_array($data['catalogType']) ? new AccessPackageCatalogType($data['catalogType']) : $data['catalogType'];
+            $this->catalogType = is_string($data['catalogType']) ? AccessPackageCatalogType::tryFrom($data['catalogType']) : $data['catalogType'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -102,7 +102,7 @@ class AccessPackageCatalog
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AccessPackageCatalogState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AccessPackageCatalogState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['accessPackages'])) {
             $this->accessPackages = $data['accessPackages'];

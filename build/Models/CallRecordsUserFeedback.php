@@ -33,7 +33,7 @@ class CallRecordsUserFeedback
     {
         $this->rawData = $data;
         if (isset($data['rating'])) {
-            $this->rating = is_array($data['rating']) ? new CallRecordsUserFeedbackRating($data['rating']) : $data['rating'];
+            $this->rating = is_string($data['rating']) ? CallRecordsUserFeedbackRating::tryFrom($data['rating']) : $data['rating'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];

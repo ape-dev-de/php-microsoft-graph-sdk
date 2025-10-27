@@ -51,10 +51,10 @@ class AttributeMapping
             $this->exportMissingReferences = is_bool($data['exportMissingReferences']) ? $data['exportMissingReferences'] : (bool)$data['exportMissingReferences'];
         }
         if (isset($data['flowBehavior'])) {
-            $this->flowBehavior = is_array($data['flowBehavior']) ? new AttributeFlowBehavior($data['flowBehavior']) : $data['flowBehavior'];
+            $this->flowBehavior = is_string($data['flowBehavior']) ? AttributeFlowBehavior::tryFrom($data['flowBehavior']) : $data['flowBehavior'];
         }
         if (isset($data['flowType'])) {
-            $this->flowType = is_array($data['flowType']) ? new AttributeFlowType($data['flowType']) : $data['flowType'];
+            $this->flowType = is_string($data['flowType']) ? AttributeFlowType::tryFrom($data['flowType']) : $data['flowType'];
         }
         if (isset($data['matchingPriority'])) {
             $this->matchingPriority = is_numeric($data['matchingPriority']) ? (float)$data['matchingPriority'] : $data['matchingPriority'];

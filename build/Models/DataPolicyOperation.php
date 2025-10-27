@@ -57,7 +57,7 @@ class DataPolicyOperation
             $this->progress = is_numeric($data['progress']) ? (float)$data['progress'] : $data['progress'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new DataPolicyOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? DataPolicyOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['storageLocation'])) {
             $this->storageLocation = $data['storageLocation'];

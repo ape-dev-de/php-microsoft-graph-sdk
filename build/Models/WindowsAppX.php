@@ -153,7 +153,7 @@ class WindowsAppX
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
+            $this->publishingState = is_string($data['publishingState']) ? MobileAppPublishingState::tryFrom($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -174,7 +174,7 @@ class WindowsAppX
             $this->contentVersions = $data['contentVersions'];
         }
         if (isset($data['applicableArchitectures'])) {
-            $this->applicableArchitectures = is_array($data['applicableArchitectures']) ? new WindowsArchitecture($data['applicableArchitectures']) : $data['applicableArchitectures'];
+            $this->applicableArchitectures = is_string($data['applicableArchitectures']) ? WindowsArchitecture::tryFrom($data['applicableArchitectures']) : $data['applicableArchitectures'];
         }
         if (isset($data['identityName'])) {
             $this->identityName = $data['identityName'];

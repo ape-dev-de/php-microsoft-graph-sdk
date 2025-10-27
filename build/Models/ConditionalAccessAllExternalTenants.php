@@ -27,7 +27,7 @@ class ConditionalAccessAllExternalTenants
     {
         $this->rawData = $data;
         if (isset($data['membershipKind'])) {
-            $this->membershipKind = is_array($data['membershipKind']) ? new ConditionalAccessExternalTenantsMembershipKind($data['membershipKind']) : $data['membershipKind'];
+            $this->membershipKind = is_string($data['membershipKind']) ? ConditionalAccessExternalTenantsMembershipKind::tryFrom($data['membershipKind']) : $data['membershipKind'];
         }
     }
 

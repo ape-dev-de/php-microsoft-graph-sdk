@@ -180,7 +180,7 @@ class Windows81CompliancePolicy
             $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? RequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['storageRequireEncryption'])) {
             $this->storageRequireEncryption = is_bool($data['storageRequireEncryption']) ? $data['storageRequireEncryption'] : (bool)$data['storageRequireEncryption'];

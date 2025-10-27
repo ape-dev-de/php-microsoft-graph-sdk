@@ -54,7 +54,7 @@ class VirtualEventRegistrationCustomQuestion
             $this->answerChoices = $data['answerChoices'];
         }
         if (isset($data['answerInputType'])) {
-            $this->answerInputType = is_array($data['answerInputType']) ? new VirtualEventRegistrationQuestionAnswerInputType($data['answerInputType']) : $data['answerInputType'];
+            $this->answerInputType = is_string($data['answerInputType']) ? VirtualEventRegistrationQuestionAnswerInputType::tryFrom($data['answerInputType']) : $data['answerInputType'];
         }
     }
 

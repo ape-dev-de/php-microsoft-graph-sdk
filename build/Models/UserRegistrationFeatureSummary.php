@@ -48,10 +48,10 @@ class UserRegistrationFeatureSummary
             $this->userRegistrationFeatureCounts = $data['userRegistrationFeatureCounts'];
         }
         if (isset($data['userRoles'])) {
-            $this->userRoles = is_array($data['userRoles']) ? new IncludedUserRoles($data['userRoles']) : $data['userRoles'];
+            $this->userRoles = is_string($data['userRoles']) ? IncludedUserRoles::tryFrom($data['userRoles']) : $data['userRoles'];
         }
         if (isset($data['userTypes'])) {
-            $this->userTypes = is_array($data['userTypes']) ? new IncludedUserTypes($data['userTypes']) : $data['userTypes'];
+            $this->userTypes = is_string($data['userTypes']) ? IncludedUserTypes::tryFrom($data['userTypes']) : $data['userTypes'];
         }
     }
 

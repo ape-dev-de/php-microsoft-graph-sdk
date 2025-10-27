@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * UserExperienceAnalyticsSummarizedBy
+ * UserExperienceAnalyticsSummarizedBy - Enum
+ * Indicates type of summarization. Possible values are: None, Model, AllRegressions, ModelRegression, ManufacturerRegression, OperatingSystemVersionRegression.
  */
-class UserExperienceAnalyticsSummarizedBy
+enum UserExperienceAnalyticsSummarizedBy: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case MODEL = 'model';
+    case ALLREGRESSIONS = 'allRegressions';
+    case MODELREGRESSION = 'modelRegression';
+    case MANUFACTURERREGRESSION = 'manufacturerRegression';
+    case OPERATINGSYSTEMVERSIONREGRESSION = 'operatingSystemVersionRegression';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

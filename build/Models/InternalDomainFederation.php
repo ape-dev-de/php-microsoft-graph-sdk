@@ -93,7 +93,7 @@ class InternalDomainFederation
             $this->passiveSignInUri = $data['passiveSignInUri'];
         }
         if (isset($data['preferredAuthenticationProtocol'])) {
-            $this->preferredAuthenticationProtocol = is_array($data['preferredAuthenticationProtocol']) ? new AuthenticationProtocol($data['preferredAuthenticationProtocol']) : $data['preferredAuthenticationProtocol'];
+            $this->preferredAuthenticationProtocol = is_string($data['preferredAuthenticationProtocol']) ? AuthenticationProtocol::tryFrom($data['preferredAuthenticationProtocol']) : $data['preferredAuthenticationProtocol'];
         }
         if (isset($data['signingCertificate'])) {
             $this->signingCertificate = $data['signingCertificate'];
@@ -102,7 +102,7 @@ class InternalDomainFederation
             $this->activeSignInUri = $data['activeSignInUri'];
         }
         if (isset($data['federatedIdpMfaBehavior'])) {
-            $this->federatedIdpMfaBehavior = is_array($data['federatedIdpMfaBehavior']) ? new FederatedIdpMfaBehavior($data['federatedIdpMfaBehavior']) : $data['federatedIdpMfaBehavior'];
+            $this->federatedIdpMfaBehavior = is_string($data['federatedIdpMfaBehavior']) ? FederatedIdpMfaBehavior::tryFrom($data['federatedIdpMfaBehavior']) : $data['federatedIdpMfaBehavior'];
         }
         if (isset($data['isSignedAuthenticationRequestRequired'])) {
             $this->isSignedAuthenticationRequestRequired = is_bool($data['isSignedAuthenticationRequestRequired']) ? $data['isSignedAuthenticationRequestRequired'] : (bool)$data['isSignedAuthenticationRequestRequired'];
@@ -114,7 +114,7 @@ class InternalDomainFederation
             $this->passwordResetUri = $data['passwordResetUri'];
         }
         if (isset($data['promptLoginBehavior'])) {
-            $this->promptLoginBehavior = is_array($data['promptLoginBehavior']) ? new PromptLoginBehavior($data['promptLoginBehavior']) : $data['promptLoginBehavior'];
+            $this->promptLoginBehavior = is_string($data['promptLoginBehavior']) ? PromptLoginBehavior::tryFrom($data['promptLoginBehavior']) : $data['promptLoginBehavior'];
         }
         if (isset($data['signingCertificateUpdateStatus'])) {
             $this->signingCertificateUpdateStatus = is_array($data['signingCertificateUpdateStatus']) ? new SigningCertificateUpdateStatus($data['signingCertificateUpdateStatus']) : $data['signingCertificateUpdateStatus'];

@@ -171,7 +171,7 @@ class SecurityAlert
             $this->category = $data['category'];
         }
         if (isset($data['classification'])) {
-            $this->classification = is_array($data['classification']) ? new SecurityAlertClassification($data['classification']) : $data['classification'];
+            $this->classification = is_string($data['classification']) ? SecurityAlertClassification::tryFrom($data['classification']) : $data['classification'];
         }
         if (isset($data['comments'])) {
             $this->comments = $data['comments'];
@@ -186,13 +186,13 @@ class SecurityAlert
             $this->description = $data['description'];
         }
         if (isset($data['detectionSource'])) {
-            $this->detectionSource = is_array($data['detectionSource']) ? new SecurityDetectionSource($data['detectionSource']) : $data['detectionSource'];
+            $this->detectionSource = is_string($data['detectionSource']) ? SecurityDetectionSource::tryFrom($data['detectionSource']) : $data['detectionSource'];
         }
         if (isset($data['detectorId'])) {
             $this->detectorId = $data['detectorId'];
         }
         if (isset($data['determination'])) {
-            $this->determination = is_array($data['determination']) ? new SecurityAlertDetermination($data['determination']) : $data['determination'];
+            $this->determination = is_string($data['determination']) ? SecurityAlertDetermination::tryFrom($data['determination']) : $data['determination'];
         }
         if (isset($data['evidence'])) {
             $this->evidence = $data['evidence'];
@@ -228,13 +228,13 @@ class SecurityAlert
             $this->resolvedDateTime = is_string($data['resolvedDateTime']) ? new \DateTimeImmutable($data['resolvedDateTime']) : $data['resolvedDateTime'];
         }
         if (isset($data['serviceSource'])) {
-            $this->serviceSource = is_array($data['serviceSource']) ? new SecurityServiceSource($data['serviceSource']) : $data['serviceSource'];
+            $this->serviceSource = is_string($data['serviceSource']) ? SecurityServiceSource::tryFrom($data['serviceSource']) : $data['serviceSource'];
         }
         if (isset($data['severity'])) {
-            $this->severity = is_array($data['severity']) ? new SecurityAlertSeverity($data['severity']) : $data['severity'];
+            $this->severity = is_string($data['severity']) ? SecurityAlertSeverity::tryFrom($data['severity']) : $data['severity'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityAlertStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityAlertStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['systemTags'])) {
             $this->systemTags = $data['systemTags'];

@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * InstallIntent
+ * InstallIntent - Enum
+ * Possible values for the install intent chosen by the admin.
  */
-class InstallIntent
+enum InstallIntent: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case AVAILABLE = 'available';
+    case REQUIRED = 'required';
+    case UNINSTALL = 'uninstall';
+    case AVAILABLEWITHOUTENROLLMENT = 'availableWithoutEnrollment';
 }

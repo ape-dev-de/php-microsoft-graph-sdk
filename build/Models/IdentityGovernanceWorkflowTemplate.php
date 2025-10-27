@@ -48,7 +48,7 @@ class IdentityGovernanceWorkflowTemplate
             $this->id = $data['id'];
         }
         if (isset($data['category'])) {
-            $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['category']) : $data['category'];
+            $this->category = is_string($data['category']) ? IdentityGovernanceLifecycleWorkflowCategory::tryFrom($data['category']) : $data['category'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];

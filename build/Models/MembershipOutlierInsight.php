@@ -69,10 +69,10 @@ class MembershipOutlierInsight
             $this->memberId = $data['memberId'];
         }
         if (isset($data['outlierContainerType'])) {
-            $this->outlierContainerType = is_array($data['outlierContainerType']) ? new OutlierContainerType($data['outlierContainerType']) : $data['outlierContainerType'];
+            $this->outlierContainerType = is_string($data['outlierContainerType']) ? OutlierContainerType::tryFrom($data['outlierContainerType']) : $data['outlierContainerType'];
         }
         if (isset($data['outlierMemberType'])) {
-            $this->outlierMemberType = is_array($data['outlierMemberType']) ? new OutlierMemberType($data['outlierMemberType']) : $data['outlierMemberType'];
+            $this->outlierMemberType = is_string($data['outlierMemberType']) ? OutlierMemberType::tryFrom($data['outlierMemberType']) : $data['outlierMemberType'];
         }
         if (isset($data['container'])) {
             $this->container = is_array($data['container']) ? new DirectoryObject($data['container']) : $data['container'];

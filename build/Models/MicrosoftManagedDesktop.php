@@ -30,7 +30,7 @@ class MicrosoftManagedDesktop
     {
         $this->rawData = $data;
         if (isset($data['managedType'])) {
-            $this->managedType = is_array($data['managedType']) ? new MicrosoftManagedDesktopType($data['managedType']) : $data['managedType'];
+            $this->managedType = is_string($data['managedType']) ? MicrosoftManagedDesktopType::tryFrom($data['managedType']) : $data['managedType'];
         }
         if (isset($data['profile'])) {
             $this->profile = $data['profile'];

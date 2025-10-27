@@ -54,7 +54,7 @@ class BookingPageSettings
     {
         $this->rawData = $data;
         if (isset($data['accessControl'])) {
-            $this->accessControl = is_array($data['accessControl']) ? new BookingPageAccessControl($data['accessControl']) : $data['accessControl'];
+            $this->accessControl = is_string($data['accessControl']) ? BookingPageAccessControl::tryFrom($data['accessControl']) : $data['accessControl'];
         }
         if (isset($data['bookingPageColorCode'])) {
             $this->bookingPageColorCode = $data['bookingPageColorCode'];

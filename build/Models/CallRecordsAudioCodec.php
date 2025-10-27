@@ -5,29 +5,31 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CallRecordsAudioCodec
+ * CallRecordsAudioCodec - Enum
  */
-class CallRecordsAudioCodec
+enum CallRecordsAudioCodec: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case INVALID = 'invalid';
+    case CN = 'cn';
+    case PCMA = 'pcma';
+    case PCMU = 'pcmu';
+    case AMRWIDE = 'amrWide';
+    case G722 = 'g722';
+    case G7221 = 'g7221';
+    case G7221C = 'g7221c';
+    case G729 = 'g729';
+    case MULTICHANNELAUDIO = 'multiChannelAudio';
+    case MUCHV2 = 'muchv2';
+    case OPUS = 'opus';
+    case SATIN = 'satin';
+    case SATINFULLBAND = 'satinFullband';
+    case RTAUDIO8 = 'rtAudio8';
+    case RTAUDIO16 = 'rtAudio16';
+    case SILK = 'silk';
+    case SILKNARROW = 'silkNarrow';
+    case SILKWIDE = 'silkWide';
+    case SIREN = 'siren';
+    case XMSRTA = 'xmsRta';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

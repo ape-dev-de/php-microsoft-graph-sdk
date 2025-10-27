@@ -45,7 +45,7 @@ class RemoteAssistancePartner
             $this->lastConnectionDateTime = is_string($data['lastConnectionDateTime']) ? new \DateTimeImmutable($data['lastConnectionDateTime']) : $data['lastConnectionDateTime'];
         }
         if (isset($data['onboardingStatus'])) {
-            $this->onboardingStatus = is_array($data['onboardingStatus']) ? new RemoteAssistanceOnboardingStatus($data['onboardingStatus']) : $data['onboardingStatus'];
+            $this->onboardingStatus = is_string($data['onboardingStatus']) ? RemoteAssistanceOnboardingStatus::tryFrom($data['onboardingStatus']) : $data['onboardingStatus'];
         }
         if (isset($data['onboardingUrl'])) {
             $this->onboardingUrl = $data['onboardingUrl'];

@@ -72,7 +72,7 @@ class RelyingPartyDetailedSummary
             $this->failedSignInCount = is_numeric($data['failedSignInCount']) ? (float)$data['failedSignInCount'] : $data['failedSignInCount'];
         }
         if (isset($data['migrationStatus'])) {
-            $this->migrationStatus = is_array($data['migrationStatus']) ? new MigrationStatus($data['migrationStatus']) : $data['migrationStatus'];
+            $this->migrationStatus = is_string($data['migrationStatus']) ? MigrationStatus::tryFrom($data['migrationStatus']) : $data['migrationStatus'];
         }
         if (isset($data['migrationValidationDetails'])) {
             $this->migrationValidationDetails = $data['migrationValidationDetails'];

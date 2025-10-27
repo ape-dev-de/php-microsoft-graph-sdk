@@ -87,13 +87,13 @@ class WhatIfAnalysisResult
             $this->sessionControls = is_array($data['sessionControls']) ? new ConditionalAccessSessionControls($data['sessionControls']) : $data['sessionControls'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new ConditionalAccessPolicyState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? ConditionalAccessPolicyState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['templateId'])) {
             $this->templateId = $data['templateId'];
         }
         if (isset($data['analysisReasons'])) {
-            $this->analysisReasons = is_array($data['analysisReasons']) ? new WhatIfAnalysisReasons($data['analysisReasons']) : $data['analysisReasons'];
+            $this->analysisReasons = is_string($data['analysisReasons']) ? WhatIfAnalysisReasons::tryFrom($data['analysisReasons']) : $data['analysisReasons'];
         }
         if (isset($data['policyApplies'])) {
             $this->policyApplies = is_bool($data['policyApplies']) ? $data['policyApplies'] : (bool)$data['policyApplies'];

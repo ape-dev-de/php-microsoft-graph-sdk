@@ -5,29 +5,23 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * SecurityAdditionalOptions
+ * SecurityAdditionalOptions - Enum
  */
-class SecurityAdditionalOptions
+enum SecurityAdditionalOptions: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case TEAMSANDYAMMERCONVERSATIONS = 'teamsAndYammerConversations';
+    case CLOUDATTACHMENTS = 'cloudAttachments';
+    case ALLDOCUMENTVERSIONS = 'allDocumentVersions';
+    case SUBFOLDERCONTENTS = 'subfolderContents';
+    case LISTATTACHMENTS = 'listAttachments';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case HTMLTRANSCRIPTS = 'htmlTranscripts';
+    case ADVANCEDINDEXING = 'advancedIndexing';
+    case ALLITEMSINFOLDER = 'allItemsInFolder';
+    case INCLUDEFOLDERANDPATH = 'includeFolderAndPath';
+    case CONDENSEPATHS = 'condensePaths';
+    case FRIENDLYNAME = 'friendlyName';
+    case SPLITSOURCE = 'splitSource';
+    case INCLUDEREPORT = 'includeReport';
 }

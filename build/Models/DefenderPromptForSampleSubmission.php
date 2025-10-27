@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DefenderPromptForSampleSubmission
+ * DefenderPromptForSampleSubmission - Enum
+ * Possible values for prompting user for samples submission.
  */
-class DefenderPromptForSampleSubmission
+enum DefenderPromptForSampleSubmission: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case USERDEFINED = 'userDefined';
+    case ALWAYSPROMPT = 'alwaysPrompt';
+    case PROMPTBEFORESENDINGPERSONALDATA = 'promptBeforeSendingPersonalData';
+    case NEVERSENDDATA = 'neverSendData';
+    case SENDALLDATAWITHOUTPROMPTING = 'sendAllDataWithoutPrompting';
 }

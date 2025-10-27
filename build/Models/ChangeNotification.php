@@ -63,7 +63,7 @@ class ChangeNotification
             $this->id = $data['id'];
         }
         if (isset($data['changeType'])) {
-            $this->changeType = is_array($data['changeType']) ? new ChangeType($data['changeType']) : $data['changeType'];
+            $this->changeType = is_string($data['changeType']) ? ChangeType::tryFrom($data['changeType']) : $data['changeType'];
         }
         if (isset($data['clientState'])) {
             $this->clientState = $data['clientState'];
@@ -72,7 +72,7 @@ class ChangeNotification
             $this->encryptedContent = is_array($data['encryptedContent']) ? new ChangeNotificationEncryptedContent($data['encryptedContent']) : $data['encryptedContent'];
         }
         if (isset($data['lifecycleEvent'])) {
-            $this->lifecycleEvent = is_array($data['lifecycleEvent']) ? new LifecycleEventType($data['lifecycleEvent']) : $data['lifecycleEvent'];
+            $this->lifecycleEvent = is_string($data['lifecycleEvent']) ? LifecycleEventType::tryFrom($data['lifecycleEvent']) : $data['lifecycleEvent'];
         }
         if (isset($data['resource'])) {
             $this->resource = $data['resource'];

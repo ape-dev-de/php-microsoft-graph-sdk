@@ -105,7 +105,7 @@ class UserExperienceAnalyticsDeviceStartupHistory
             $this->responsiveDesktopTimeInMs = is_numeric($data['responsiveDesktopTimeInMs']) ? (float)$data['responsiveDesktopTimeInMs'] : $data['responsiveDesktopTimeInMs'];
         }
         if (isset($data['restartCategory'])) {
-            $this->restartCategory = is_array($data['restartCategory']) ? new UserExperienceAnalyticsOperatingSystemRestartCategory($data['restartCategory']) : $data['restartCategory'];
+            $this->restartCategory = is_string($data['restartCategory']) ? UserExperienceAnalyticsOperatingSystemRestartCategory::tryFrom($data['restartCategory']) : $data['restartCategory'];
         }
         if (isset($data['restartFaultBucket'])) {
             $this->restartFaultBucket = $data['restartFaultBucket'];

@@ -5,29 +5,17 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DeviceRegistrationState
+ * DeviceRegistrationState - Enum
+ * Device registration status.
  */
-class DeviceRegistrationState
+enum DeviceRegistrationState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NOTREGISTERED = 'notRegistered';
+    case REGISTERED = 'registered';
+    case REVOKED = 'revoked';
+    case KEYCONFLICT = 'keyConflict';
+    case APPROVALPENDING = 'approvalPending';
+    case CERTIFICATERESET = 'certificateReset';
+    case NOTREGISTEREDPENDINGENROLLMENT = 'notRegisteredPendingEnrollment';
+    case UNKNOWN = 'unknown';
 }

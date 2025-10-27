@@ -42,16 +42,16 @@ class MultiTenantOrganizationMemberTransitionDetails
     {
         $this->rawData = $data;
         if (isset($data['desiredRole'])) {
-            $this->desiredRole = is_array($data['desiredRole']) ? new MultiTenantOrganizationMemberRole($data['desiredRole']) : $data['desiredRole'];
+            $this->desiredRole = is_string($data['desiredRole']) ? MultiTenantOrganizationMemberRole::tryFrom($data['desiredRole']) : $data['desiredRole'];
         }
         if (isset($data['desiredState'])) {
-            $this->desiredState = is_array($data['desiredState']) ? new MultiTenantOrganizationMemberState($data['desiredState']) : $data['desiredState'];
+            $this->desiredState = is_string($data['desiredState']) ? MultiTenantOrganizationMemberState::tryFrom($data['desiredState']) : $data['desiredState'];
         }
         if (isset($data['details'])) {
             $this->details = $data['details'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new MultiTenantOrganizationMemberProcessingStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? MultiTenantOrganizationMemberProcessingStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

@@ -42,10 +42,10 @@ class X509CertificateAuthenticationModeConfiguration
             $this->rules = $data['rules'];
         }
         if (isset($data['x509CertificateAuthenticationDefaultMode'])) {
-            $this->x509CertificateAuthenticationDefaultMode = is_array($data['x509CertificateAuthenticationDefaultMode']) ? new X509CertificateAuthenticationMode($data['x509CertificateAuthenticationDefaultMode']) : $data['x509CertificateAuthenticationDefaultMode'];
+            $this->x509CertificateAuthenticationDefaultMode = is_string($data['x509CertificateAuthenticationDefaultMode']) ? X509CertificateAuthenticationMode::tryFrom($data['x509CertificateAuthenticationDefaultMode']) : $data['x509CertificateAuthenticationDefaultMode'];
         }
         if (isset($data['x509CertificateDefaultRequiredAffinityLevel'])) {
-            $this->x509CertificateDefaultRequiredAffinityLevel = is_array($data['x509CertificateDefaultRequiredAffinityLevel']) ? new X509CertificateAffinityLevel($data['x509CertificateDefaultRequiredAffinityLevel']) : $data['x509CertificateDefaultRequiredAffinityLevel'];
+            $this->x509CertificateDefaultRequiredAffinityLevel = is_string($data['x509CertificateDefaultRequiredAffinityLevel']) ? X509CertificateAffinityLevel::tryFrom($data['x509CertificateDefaultRequiredAffinityLevel']) : $data['x509CertificateDefaultRequiredAffinityLevel'];
         }
     }
 

@@ -90,7 +90,7 @@ class PrivilegedAccessScheduleRequest
             $this->status = $data['status'];
         }
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new ScheduleRequestActions($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? ScheduleRequestActions::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['isValidationOnly'])) {
             $this->isValidationOnly = is_bool($data['isValidationOnly']) ? $data['isValidationOnly'] : (bool)$data['isValidationOnly'];

@@ -45,7 +45,7 @@ class WindowsSetting
             $this->payloadType = $data['payloadType'];
         }
         if (isset($data['settingType'])) {
-            $this->settingType = is_array($data['settingType']) ? new WindowsSettingType($data['settingType']) : $data['settingType'];
+            $this->settingType = is_string($data['settingType']) ? WindowsSettingType::tryFrom($data['settingType']) : $data['settingType'];
         }
         if (isset($data['windowsDeviceId'])) {
             $this->windowsDeviceId = $data['windowsDeviceId'];

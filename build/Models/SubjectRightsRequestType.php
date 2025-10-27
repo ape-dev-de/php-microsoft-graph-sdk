@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * SubjectRightsRequestType
+ * SubjectRightsRequestType - Enum
  */
-class SubjectRightsRequestType
+enum SubjectRightsRequestType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case EXPORT = 'export';
+    case DELETE = 'delete';
+    case ACCESS = 'access';
+    case TAGFORACTION = 'tagForAction';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

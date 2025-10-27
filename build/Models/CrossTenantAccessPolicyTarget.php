@@ -33,7 +33,7 @@ class CrossTenantAccessPolicyTarget
             $this->target = $data['target'];
         }
         if (isset($data['targetType'])) {
-            $this->targetType = is_array($data['targetType']) ? new CrossTenantAccessPolicyTargetType($data['targetType']) : $data['targetType'];
+            $this->targetType = is_string($data['targetType']) ? CrossTenantAccessPolicyTargetType::tryFrom($data['targetType']) : $data['targetType'];
         }
     }
 

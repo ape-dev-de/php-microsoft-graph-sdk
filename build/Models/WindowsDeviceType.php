@@ -5,29 +5,15 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * WindowsDeviceType
+ * WindowsDeviceType - Enum
+ * Contains properties for Windows device type. Multiple values can be selected. Default value is `none`.
  */
-class WindowsDeviceType
+enum WindowsDeviceType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case DESKTOP = 'desktop';
+    case MOBILE = 'mobile';
+    case HOLOGRAPHIC = 'holographic';
+    case TEAM = 'team';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

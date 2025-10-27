@@ -5,29 +5,20 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DlpAction
+ * DlpAction - Enum
  */
-class DlpAction
+enum DlpAction: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NOTIFYUSER = 'notifyUser';
+    case BLOCKACCESS = 'blockAccess';
+    case DEVICERESTRICTION = 'deviceRestriction';
+    case BROWSERRESTRICTION = 'browserRestriction';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case RESTRICTACCESS = 'restrictAccess';
+    case GENERATEALERT = 'generateAlert';
+    case GENERATEINCIDENTREPORTACTION = 'generateIncidentReportAction';
+    case SPBLOCKANONYMOUSACCESS = 'sPBlockAnonymousAccess';
+    case SPRUNTIMEACCESSCONTROL = 'sPRuntimeAccessControl';
+    case SPSHARINGNOTIFYUSER = 'sPSharingNotifyUser';
+    case SPSHARINGGENERATEINCIDENTREPORT = 'sPSharingGenerateIncidentReport';
 }

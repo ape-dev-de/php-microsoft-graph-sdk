@@ -102,13 +102,13 @@ class OneDriveForBusinessRestoreSession
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['restoreJobType'])) {
-            $this->restoreJobType = is_array($data['restoreJobType']) ? new RestoreJobType($data['restoreJobType']) : $data['restoreJobType'];
+            $this->restoreJobType = is_string($data['restoreJobType']) ? RestoreJobType::tryFrom($data['restoreJobType']) : $data['restoreJobType'];
         }
         if (isset($data['restoreSessionArtifactCount'])) {
             $this->restoreSessionArtifactCount = is_array($data['restoreSessionArtifactCount']) ? new RestoreSessionArtifactCount($data['restoreSessionArtifactCount']) : $data['restoreSessionArtifactCount'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new RestoreSessionStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? RestoreSessionStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['driveRestoreArtifacts'])) {
             $this->driveRestoreArtifacts = $data['driveRestoreArtifacts'];

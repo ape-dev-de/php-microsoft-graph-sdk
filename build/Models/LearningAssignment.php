@@ -90,7 +90,7 @@ class LearningAssignment
             $this->learningProviderId = $data['learningProviderId'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new CourseStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? CourseStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['assignedDateTime'])) {
             $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
@@ -99,7 +99,7 @@ class LearningAssignment
             $this->assignerUserId = $data['assignerUserId'];
         }
         if (isset($data['assignmentType'])) {
-            $this->assignmentType = is_array($data['assignmentType']) ? new AssignmentType($data['assignmentType']) : $data['assignmentType'];
+            $this->assignmentType = is_string($data['assignmentType']) ? AssignmentType::tryFrom($data['assignmentType']) : $data['assignmentType'];
         }
         if (isset($data['dueDateTime'])) {
             $this->dueDateTime = is_array($data['dueDateTime']) ? new DateTimeTimeZone($data['dueDateTime']) : $data['dueDateTime'];

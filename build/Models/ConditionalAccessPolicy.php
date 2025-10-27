@@ -81,7 +81,7 @@ class ConditionalAccessPolicy
             $this->sessionControls = is_array($data['sessionControls']) ? new ConditionalAccessSessionControls($data['sessionControls']) : $data['sessionControls'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new ConditionalAccessPolicyState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? ConditionalAccessPolicyState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['templateId'])) {
             $this->templateId = $data['templateId'];

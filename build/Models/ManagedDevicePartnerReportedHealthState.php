@@ -5,29 +5,19 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * ManagedDevicePartnerReportedHealthState
+ * ManagedDevicePartnerReportedHealthState - Enum
+ * Available health states for the Device Health API
  */
-class ManagedDevicePartnerReportedHealthState
+enum ManagedDevicePartnerReportedHealthState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case ACTIVATED = 'activated';
+    case DEACTIVATED = 'deactivated';
+    case SECURED = 'secured';
+    case LOWSEVERITY = 'lowSeverity';
+    case MEDIUMSEVERITY = 'mediumSeverity';
+    case HIGHSEVERITY = 'highSeverity';
+    case UNRESPONSIVE = 'unresponsive';
+    case COMPROMISED = 'compromised';
+    case MISCONFIGURED = 'misconfigured';
 }

@@ -123,10 +123,10 @@ class Calendar
             $this->changeKey = $data['changeKey'];
         }
         if (isset($data['color'])) {
-            $this->color = is_array($data['color']) ? new CalendarColor($data['color']) : $data['color'];
+            $this->color = is_string($data['color']) ? CalendarColor::tryFrom($data['color']) : $data['color'];
         }
         if (isset($data['defaultOnlineMeetingProvider'])) {
-            $this->defaultOnlineMeetingProvider = is_array($data['defaultOnlineMeetingProvider']) ? new OnlineMeetingProviderType($data['defaultOnlineMeetingProvider']) : $data['defaultOnlineMeetingProvider'];
+            $this->defaultOnlineMeetingProvider = is_string($data['defaultOnlineMeetingProvider']) ? OnlineMeetingProviderType::tryFrom($data['defaultOnlineMeetingProvider']) : $data['defaultOnlineMeetingProvider'];
         }
         if (isset($data['hexColor'])) {
             $this->hexColor = $data['hexColor'];

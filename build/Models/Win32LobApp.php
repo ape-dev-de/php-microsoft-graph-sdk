@@ -189,7 +189,7 @@ class Win32LobApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
+            $this->publishingState = is_string($data['publishingState']) ? MobileAppPublishingState::tryFrom($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -210,10 +210,10 @@ class Win32LobApp
             $this->contentVersions = $data['contentVersions'];
         }
         if (isset($data['allowedArchitectures'])) {
-            $this->allowedArchitectures = is_array($data['allowedArchitectures']) ? new WindowsArchitecture($data['allowedArchitectures']) : $data['allowedArchitectures'];
+            $this->allowedArchitectures = is_string($data['allowedArchitectures']) ? WindowsArchitecture::tryFrom($data['allowedArchitectures']) : $data['allowedArchitectures'];
         }
         if (isset($data['applicableArchitectures'])) {
-            $this->applicableArchitectures = is_array($data['applicableArchitectures']) ? new WindowsArchitecture($data['applicableArchitectures']) : $data['applicableArchitectures'];
+            $this->applicableArchitectures = is_string($data['applicableArchitectures']) ? WindowsArchitecture::tryFrom($data['applicableArchitectures']) : $data['applicableArchitectures'];
         }
         if (isset($data['installCommandLine'])) {
             $this->installCommandLine = $data['installCommandLine'];

@@ -36,7 +36,7 @@ class IosVppEBookAssignment
             $this->id = $data['id'];
         }
         if (isset($data['installIntent'])) {
-            $this->installIntent = is_array($data['installIntent']) ? new InstallIntent($data['installIntent']) : $data['installIntent'];
+            $this->installIntent = is_string($data['installIntent']) ? InstallIntent::tryFrom($data['installIntent']) : $data['installIntent'];
         }
         if (isset($data['target'])) {
             $this->target = is_array($data['target']) ? new DeviceAndAppManagementAssignmentTarget($data['target']) : $data['target'];

@@ -5,29 +5,21 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * ScheduleEntityTheme
+ * ScheduleEntityTheme - Enum
  */
-class ScheduleEntityTheme
+enum ScheduleEntityTheme: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case WHITE = 'white';
+    case BLUE = 'blue';
+    case GREEN = 'green';
+    case PURPLE = 'purple';
+    case PINK = 'pink';
+    case YELLOW = 'yellow';
+    case GRAY = 'gray';
+    case DARKBLUE = 'darkBlue';
+    case DARKGREEN = 'darkGreen';
+    case DARKPURPLE = 'darkPurple';
+    case DARKPINK = 'darkPink';
+    case DARKYELLOW = 'darkYellow';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

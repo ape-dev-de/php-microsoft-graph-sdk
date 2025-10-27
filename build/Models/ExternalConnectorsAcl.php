@@ -30,10 +30,10 @@ class ExternalConnectorsAcl
     {
         $this->rawData = $data;
         if (isset($data['accessType'])) {
-            $this->accessType = is_array($data['accessType']) ? new ExternalConnectorsAccessType($data['accessType']) : $data['accessType'];
+            $this->accessType = is_string($data['accessType']) ? ExternalConnectorsAccessType::tryFrom($data['accessType']) : $data['accessType'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new ExternalConnectorsAclType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? ExternalConnectorsAclType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

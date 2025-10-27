@@ -105,13 +105,13 @@ class FileStorageContainer
             $this->displayName = $data['displayName'];
         }
         if (isset($data['lockState'])) {
-            $this->lockState = is_array($data['lockState']) ? new SiteLockState($data['lockState']) : $data['lockState'];
+            $this->lockState = is_string($data['lockState']) ? SiteLockState::tryFrom($data['lockState']) : $data['lockState'];
         }
         if (isset($data['settings'])) {
             $this->settings = is_array($data['settings']) ? new FileStorageContainerSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new FileStorageContainerStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? FileStorageContainerStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['viewpoint'])) {
             $this->viewpoint = is_array($data['viewpoint']) ? new FileStorageContainerViewpoint($data['viewpoint']) : $data['viewpoint'];

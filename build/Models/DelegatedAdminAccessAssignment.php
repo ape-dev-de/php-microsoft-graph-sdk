@@ -57,7 +57,7 @@ class DelegatedAdminAccessAssignment
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new DelegatedAdminAccessAssignmentStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? DelegatedAdminAccessAssignmentStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

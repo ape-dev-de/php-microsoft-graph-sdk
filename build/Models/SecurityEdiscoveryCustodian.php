@@ -87,7 +87,7 @@ class SecurityEdiscoveryCustodian
             $this->displayName = $data['displayName'];
         }
         if (isset($data['holdStatus'])) {
-            $this->holdStatus = is_array($data['holdStatus']) ? new SecurityDataSourceHoldStatus($data['holdStatus']) : $data['holdStatus'];
+            $this->holdStatus = is_string($data['holdStatus']) ? SecurityDataSourceHoldStatus::tryFrom($data['holdStatus']) : $data['holdStatus'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -96,7 +96,7 @@ class SecurityEdiscoveryCustodian
             $this->releasedDateTime = is_string($data['releasedDateTime']) ? new \DateTimeImmutable($data['releasedDateTime']) : $data['releasedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityDataSourceContainerStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityDataSourceContainerStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['acknowledgedDateTime'])) {
             $this->acknowledgedDateTime = is_string($data['acknowledgedDateTime']) ? new \DateTimeImmutable($data['acknowledgedDateTime']) : $data['acknowledgedDateTime'];

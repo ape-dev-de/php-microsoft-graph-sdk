@@ -42,7 +42,7 @@ class TrainingReminderNotification
             $this->endUserNotification = is_array($data['endUserNotification']) ? new EndUserNotification($data['endUserNotification']) : $data['endUserNotification'];
         }
         if (isset($data['deliveryFrequency'])) {
-            $this->deliveryFrequency = is_array($data['deliveryFrequency']) ? new NotificationDeliveryFrequency($data['deliveryFrequency']) : $data['deliveryFrequency'];
+            $this->deliveryFrequency = is_string($data['deliveryFrequency']) ? NotificationDeliveryFrequency::tryFrom($data['deliveryFrequency']) : $data['deliveryFrequency'];
         }
     }
 

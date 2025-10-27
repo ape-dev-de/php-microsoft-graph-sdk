@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * TrainingAssignedTo
+ * TrainingAssignedTo - Enum
  */
-class TrainingAssignedTo
+enum TrainingAssignedTo: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case ALLUSERS = 'allUsers';
+    case CLICKEDPAYLOAD = 'clickedPayload';
+    case COMPROMISED = 'compromised';
+    case REPORTEDPHISH = 'reportedPhish';
+    case READBUTNOTCLICKED = 'readButNotClicked';
+    case DIDNOTHING = 'didNothing';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

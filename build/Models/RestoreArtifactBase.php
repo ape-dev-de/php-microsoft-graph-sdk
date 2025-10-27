@@ -60,7 +60,7 @@ class RestoreArtifactBase
             $this->completionDateTime = is_string($data['completionDateTime']) ? new \DateTimeImmutable($data['completionDateTime']) : $data['completionDateTime'];
         }
         if (isset($data['destinationType'])) {
-            $this->destinationType = is_array($data['destinationType']) ? new DestinationType($data['destinationType']) : $data['destinationType'];
+            $this->destinationType = is_string($data['destinationType']) ? DestinationType::tryFrom($data['destinationType']) : $data['destinationType'];
         }
         if (isset($data['error'])) {
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
@@ -69,7 +69,7 @@ class RestoreArtifactBase
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ArtifactRestoreStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ArtifactRestoreStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['restorePoint'])) {
             $this->restorePoint = is_array($data['restorePoint']) ? new RestorePoint($data['restorePoint']) : $data['restorePoint'];

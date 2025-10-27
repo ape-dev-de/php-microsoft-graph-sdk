@@ -78,19 +78,19 @@ class VppToken
             $this->lastSyncDateTime = is_string($data['lastSyncDateTime']) ? new \DateTimeImmutable($data['lastSyncDateTime']) : $data['lastSyncDateTime'];
         }
         if (isset($data['lastSyncStatus'])) {
-            $this->lastSyncStatus = is_array($data['lastSyncStatus']) ? new VppTokenSyncStatus($data['lastSyncStatus']) : $data['lastSyncStatus'];
+            $this->lastSyncStatus = is_string($data['lastSyncStatus']) ? VppTokenSyncStatus::tryFrom($data['lastSyncStatus']) : $data['lastSyncStatus'];
         }
         if (isset($data['organizationName'])) {
             $this->organizationName = $data['organizationName'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new VppTokenState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? VppTokenState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['token'])) {
             $this->token = $data['token'];
         }
         if (isset($data['vppTokenAccountType'])) {
-            $this->vppTokenAccountType = is_array($data['vppTokenAccountType']) ? new VppTokenAccountType($data['vppTokenAccountType']) : $data['vppTokenAccountType'];
+            $this->vppTokenAccountType = is_string($data['vppTokenAccountType']) ? VppTokenAccountType::tryFrom($data['vppTokenAccountType']) : $data['vppTokenAccountType'];
         }
     }
 

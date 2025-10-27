@@ -108,10 +108,10 @@ class SecurityRetentionLabel
             $this->id = $data['id'];
         }
         if (isset($data['actionAfterRetentionPeriod'])) {
-            $this->actionAfterRetentionPeriod = is_array($data['actionAfterRetentionPeriod']) ? new SecurityActionAfterRetentionPeriod($data['actionAfterRetentionPeriod']) : $data['actionAfterRetentionPeriod'];
+            $this->actionAfterRetentionPeriod = is_string($data['actionAfterRetentionPeriod']) ? SecurityActionAfterRetentionPeriod::tryFrom($data['actionAfterRetentionPeriod']) : $data['actionAfterRetentionPeriod'];
         }
         if (isset($data['behaviorDuringRetentionPeriod'])) {
-            $this->behaviorDuringRetentionPeriod = is_array($data['behaviorDuringRetentionPeriod']) ? new SecurityBehaviorDuringRetentionPeriod($data['behaviorDuringRetentionPeriod']) : $data['behaviorDuringRetentionPeriod'];
+            $this->behaviorDuringRetentionPeriod = is_string($data['behaviorDuringRetentionPeriod']) ? SecurityBehaviorDuringRetentionPeriod::tryFrom($data['behaviorDuringRetentionPeriod']) : $data['behaviorDuringRetentionPeriod'];
         }
         if (isset($data['createdBy'])) {
             $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
@@ -120,7 +120,7 @@ class SecurityRetentionLabel
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['defaultRecordBehavior'])) {
-            $this->defaultRecordBehavior = is_array($data['defaultRecordBehavior']) ? new SecurityDefaultRecordBehavior($data['defaultRecordBehavior']) : $data['defaultRecordBehavior'];
+            $this->defaultRecordBehavior = is_string($data['defaultRecordBehavior']) ? SecurityDefaultRecordBehavior::tryFrom($data['defaultRecordBehavior']) : $data['defaultRecordBehavior'];
         }
         if (isset($data['descriptionForAdmins'])) {
             $this->descriptionForAdmins = $data['descriptionForAdmins'];
@@ -147,7 +147,7 @@ class SecurityRetentionLabel
             $this->retentionDuration = is_array($data['retentionDuration']) ? new SecurityRetentionDuration($data['retentionDuration']) : $data['retentionDuration'];
         }
         if (isset($data['retentionTrigger'])) {
-            $this->retentionTrigger = is_array($data['retentionTrigger']) ? new SecurityRetentionTrigger($data['retentionTrigger']) : $data['retentionTrigger'];
+            $this->retentionTrigger = is_string($data['retentionTrigger']) ? SecurityRetentionTrigger::tryFrom($data['retentionTrigger']) : $data['retentionTrigger'];
         }
         if (isset($data['descriptors'])) {
             $this->descriptors = is_array($data['descriptors']) ? new SecurityFilePlanDescriptor($data['descriptors']) : $data['descriptors'];

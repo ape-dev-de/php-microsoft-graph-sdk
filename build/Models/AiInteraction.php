@@ -108,7 +108,7 @@ class AiInteraction
             $this->from = is_array($data['from']) ? new IdentitySet($data['from']) : $data['from'];
         }
         if (isset($data['interactionType'])) {
-            $this->interactionType = is_array($data['interactionType']) ? new AiInteractionType($data['interactionType']) : $data['interactionType'];
+            $this->interactionType = is_string($data['interactionType']) ? AiInteractionType::tryFrom($data['interactionType']) : $data['interactionType'];
         }
         if (isset($data['links'])) {
             $this->links = $data['links'];

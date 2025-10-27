@@ -39,7 +39,7 @@ class WindowsInformationProtectionAppLearningSummary
             $this->applicationName = $data['applicationName'];
         }
         if (isset($data['applicationType'])) {
-            $this->applicationType = is_array($data['applicationType']) ? new ApplicationType($data['applicationType']) : $data['applicationType'];
+            $this->applicationType = is_string($data['applicationType']) ? ApplicationType::tryFrom($data['applicationType']) : $data['applicationType'];
         }
         if (isset($data['deviceCount'])) {
             $this->deviceCount = is_numeric($data['deviceCount']) ? (float)$data['deviceCount'] : $data['deviceCount'];

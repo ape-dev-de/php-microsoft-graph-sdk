@@ -306,7 +306,7 @@ class AndroidGeneralDeviceConfiguration
             $this->cellularBlockWiFiTethering = is_bool($data['cellularBlockWiFiTethering']) ? $data['cellularBlockWiFiTethering'] : (bool)$data['cellularBlockWiFiTethering'];
         }
         if (isset($data['compliantAppListType'])) {
-            $this->compliantAppListType = is_array($data['compliantAppListType']) ? new AppListType($data['compliantAppListType']) : $data['compliantAppListType'];
+            $this->compliantAppListType = is_string($data['compliantAppListType']) ? AppListType::tryFrom($data['compliantAppListType']) : $data['compliantAppListType'];
         }
         if (isset($data['compliantAppsList'])) {
             $this->compliantAppsList = $data['compliantAppsList'];
@@ -363,7 +363,7 @@ class AndroidGeneralDeviceConfiguration
             $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new AndroidRequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? AndroidRequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
             $this->passwordSignInFailureCountBeforeFactoryReset = is_numeric($data['passwordSignInFailureCountBeforeFactoryReset']) ? (float)$data['passwordSignInFailureCountBeforeFactoryReset'] : $data['passwordSignInFailureCountBeforeFactoryReset'];
@@ -408,7 +408,7 @@ class AndroidGeneralDeviceConfiguration
             $this->webBrowserBlockPopups = is_bool($data['webBrowserBlockPopups']) ? $data['webBrowserBlockPopups'] : (bool)$data['webBrowserBlockPopups'];
         }
         if (isset($data['webBrowserCookieSettings'])) {
-            $this->webBrowserCookieSettings = is_array($data['webBrowserCookieSettings']) ? new WebBrowserCookieSettings($data['webBrowserCookieSettings']) : $data['webBrowserCookieSettings'];
+            $this->webBrowserCookieSettings = is_string($data['webBrowserCookieSettings']) ? WebBrowserCookieSettings::tryFrom($data['webBrowserCookieSettings']) : $data['webBrowserCookieSettings'];
         }
         if (isset($data['wiFiBlocked'])) {
             $this->wiFiBlocked = is_bool($data['wiFiBlocked']) ? $data['wiFiBlocked'] : (bool)$data['wiFiBlocked'];

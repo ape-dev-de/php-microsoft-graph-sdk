@@ -5,29 +5,22 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * SecurityServiceSource
+ * SecurityServiceSource - Enum
  */
-class SecurityServiceSource
+enum SecurityServiceSource: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case MICROSOFTDEFENDERFORENDPOINT = 'microsoftDefenderForEndpoint';
+    case MICROSOFTDEFENDERFORIDENTITY = 'microsoftDefenderForIdentity';
+    case MICROSOFTDEFENDERFORCLOUDAPPS = 'microsoftDefenderForCloudApps';
+    case MICROSOFTDEFENDERFOROFFICE365 = 'microsoftDefenderForOffice365';
+    case MICROSOFT365DEFENDER = 'microsoft365Defender';
+    case AZUREADIDENTITYPROTECTION = 'azureAdIdentityProtection';
+    case MICROSOFTAPPGOVERNANCE = 'microsoftAppGovernance';
+    case DATALOSSPREVENTION = 'dataLossPrevention';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case MICROSOFTDEFENDERFORCLOUD = 'microsoftDefenderForCloud';
+    case MICROSOFTSENTINEL = 'microsoftSentinel';
+    case MICROSOFTINSIDERRISKMANAGEMENT = 'microsoftInsiderRiskManagement';
+    case MICROSOFTTHREATINTELLIGENCE = 'microsoftThreatIntelligence';
 }

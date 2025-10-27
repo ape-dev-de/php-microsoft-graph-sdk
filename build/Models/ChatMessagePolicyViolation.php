@@ -48,7 +48,7 @@ class ChatMessagePolicyViolation
     {
         $this->rawData = $data;
         if (isset($data['dlpAction'])) {
-            $this->dlpAction = is_array($data['dlpAction']) ? new ChatMessagePolicyViolationDlpActionTypes($data['dlpAction']) : $data['dlpAction'];
+            $this->dlpAction = is_string($data['dlpAction']) ? ChatMessagePolicyViolationDlpActionTypes::tryFrom($data['dlpAction']) : $data['dlpAction'];
         }
         if (isset($data['justificationText'])) {
             $this->justificationText = $data['justificationText'];
@@ -57,10 +57,10 @@ class ChatMessagePolicyViolation
             $this->policyTip = is_array($data['policyTip']) ? new ChatMessagePolicyViolationPolicyTip($data['policyTip']) : $data['policyTip'];
         }
         if (isset($data['userAction'])) {
-            $this->userAction = is_array($data['userAction']) ? new ChatMessagePolicyViolationUserActionTypes($data['userAction']) : $data['userAction'];
+            $this->userAction = is_string($data['userAction']) ? ChatMessagePolicyViolationUserActionTypes::tryFrom($data['userAction']) : $data['userAction'];
         }
         if (isset($data['verdictDetails'])) {
-            $this->verdictDetails = is_array($data['verdictDetails']) ? new ChatMessagePolicyViolationVerdictDetailsTypes($data['verdictDetails']) : $data['verdictDetails'];
+            $this->verdictDetails = is_string($data['verdictDetails']) ? ChatMessagePolicyViolationVerdictDetailsTypes::tryFrom($data['verdictDetails']) : $data['verdictDetails'];
         }
     }
 

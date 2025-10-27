@@ -5,29 +5,21 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Windows10EditionType
+ * Windows10EditionType - Enum
+ * Windows 10 Edition type.
  */
-class Windows10EditionType
+enum Windows10EditionType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case WINDOWS10ENTERPRISE = 'windows10Enterprise';
+    case WINDOWS10ENTERPRISEN = 'windows10EnterpriseN';
+    case WINDOWS10EDUCATION = 'windows10Education';
+    case WINDOWS10EDUCATIONN = 'windows10EducationN';
+    case WINDOWS10MOBILEENTERPRISE = 'windows10MobileEnterprise';
+    case WINDOWS10HOLOGRAPHICENTERPRISE = 'windows10HolographicEnterprise';
+    case WINDOWS10PROFESSIONAL = 'windows10Professional';
+    case WINDOWS10PROFESSIONALN = 'windows10ProfessionalN';
+    case WINDOWS10PROFESSIONALEDUCATION = 'windows10ProfessionalEducation';
+    case WINDOWS10PROFESSIONALEDUCATIONN = 'windows10ProfessionalEducationN';
+    case WINDOWS10PROFESSIONALWORKSTATION = 'windows10ProfessionalWorkstation';
+    case WINDOWS10PROFESSIONALWORKSTATIONN = 'windows10ProfessionalWorkstationN';
 }

@@ -75,7 +75,7 @@ class SecurityGitHubOrganizationEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
+            $this->remediationStatus = is_string($data['remediationStatus']) ? SecurityEvidenceRemediationStatus::tryFrom($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -87,7 +87,7 @@ class SecurityGitHubOrganizationEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
+            $this->verdict = is_string($data['verdict']) ? SecurityEvidenceVerdict::tryFrom($data['verdict']) : $data['verdict'];
         }
         if (isset($data['company'])) {
             $this->company = $data['company'];

@@ -216,7 +216,7 @@ class WindowsInformationProtectionPolicy
             $this->dataRecoveryCertificate = is_array($data['dataRecoveryCertificate']) ? new WindowsInformationProtectionDataRecoveryCertificate($data['dataRecoveryCertificate']) : $data['dataRecoveryCertificate'];
         }
         if (isset($data['enforcementLevel'])) {
-            $this->enforcementLevel = is_array($data['enforcementLevel']) ? new WindowsInformationProtectionEnforcementLevel($data['enforcementLevel']) : $data['enforcementLevel'];
+            $this->enforcementLevel = is_string($data['enforcementLevel']) ? WindowsInformationProtectionEnforcementLevel::tryFrom($data['enforcementLevel']) : $data['enforcementLevel'];
         }
         if (isset($data['enterpriseDomain'])) {
             $this->enterpriseDomain = $data['enterpriseDomain'];
@@ -303,16 +303,16 @@ class WindowsInformationProtectionPolicy
             $this->pinExpirationDays = is_numeric($data['pinExpirationDays']) ? (float)$data['pinExpirationDays'] : $data['pinExpirationDays'];
         }
         if (isset($data['pinLowercaseLetters'])) {
-            $this->pinLowercaseLetters = is_array($data['pinLowercaseLetters']) ? new WindowsInformationProtectionPinCharacterRequirements($data['pinLowercaseLetters']) : $data['pinLowercaseLetters'];
+            $this->pinLowercaseLetters = is_string($data['pinLowercaseLetters']) ? WindowsInformationProtectionPinCharacterRequirements::tryFrom($data['pinLowercaseLetters']) : $data['pinLowercaseLetters'];
         }
         if (isset($data['pinMinimumLength'])) {
             $this->pinMinimumLength = is_numeric($data['pinMinimumLength']) ? (float)$data['pinMinimumLength'] : $data['pinMinimumLength'];
         }
         if (isset($data['pinSpecialCharacters'])) {
-            $this->pinSpecialCharacters = is_array($data['pinSpecialCharacters']) ? new WindowsInformationProtectionPinCharacterRequirements($data['pinSpecialCharacters']) : $data['pinSpecialCharacters'];
+            $this->pinSpecialCharacters = is_string($data['pinSpecialCharacters']) ? WindowsInformationProtectionPinCharacterRequirements::tryFrom($data['pinSpecialCharacters']) : $data['pinSpecialCharacters'];
         }
         if (isset($data['pinUppercaseLetters'])) {
-            $this->pinUppercaseLetters = is_array($data['pinUppercaseLetters']) ? new WindowsInformationProtectionPinCharacterRequirements($data['pinUppercaseLetters']) : $data['pinUppercaseLetters'];
+            $this->pinUppercaseLetters = is_string($data['pinUppercaseLetters']) ? WindowsInformationProtectionPinCharacterRequirements::tryFrom($data['pinUppercaseLetters']) : $data['pinUppercaseLetters'];
         }
         if (isset($data['revokeOnMdmHandoffDisabled'])) {
             $this->revokeOnMdmHandoffDisabled = is_bool($data['revokeOnMdmHandoffDisabled']) ? $data['revokeOnMdmHandoffDisabled'] : (bool)$data['revokeOnMdmHandoffDisabled'];

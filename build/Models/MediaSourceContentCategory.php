@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * MediaSourceContentCategory
+ * MediaSourceContentCategory - Enum
  */
-class MediaSourceContentCategory
+enum MediaSourceContentCategory: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case MEETING = 'meeting';
+    case LIVESTREAM = 'liveStream';
+    case PRESENTATION = 'presentation';
+    case SCREENRECORDING = 'screenRecording';
+    case STORY = 'story';
+    case PROFILE = 'profile';
+    case CHAT = 'chat';
+    case NOTE = 'note';
+    case COMMENT = 'comment';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

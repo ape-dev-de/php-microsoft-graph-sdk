@@ -231,7 +231,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->passwordPreviousPasswordBlockCount = is_numeric($data['passwordPreviousPasswordBlockCount']) ? (float)$data['passwordPreviousPasswordBlockCount'] : $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new AndroidWorkProfileRequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? AndroidWorkProfileRequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
             $this->passwordSignInFailureCountBeforeFactoryReset = is_numeric($data['passwordSignInFailureCountBeforeFactoryReset']) ? (float)$data['passwordSignInFailureCountBeforeFactoryReset'] : $data['passwordSignInFailureCountBeforeFactoryReset'];
@@ -264,10 +264,10 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->workProfileBluetoothEnableContactSharing = is_bool($data['workProfileBluetoothEnableContactSharing']) ? $data['workProfileBluetoothEnableContactSharing'] : (bool)$data['workProfileBluetoothEnableContactSharing'];
         }
         if (isset($data['workProfileDataSharingType'])) {
-            $this->workProfileDataSharingType = is_array($data['workProfileDataSharingType']) ? new AndroidWorkProfileCrossProfileDataSharingType($data['workProfileDataSharingType']) : $data['workProfileDataSharingType'];
+            $this->workProfileDataSharingType = is_string($data['workProfileDataSharingType']) ? AndroidWorkProfileCrossProfileDataSharingType::tryFrom($data['workProfileDataSharingType']) : $data['workProfileDataSharingType'];
         }
         if (isset($data['workProfileDefaultAppPermissionPolicy'])) {
-            $this->workProfileDefaultAppPermissionPolicy = is_array($data['workProfileDefaultAppPermissionPolicy']) ? new AndroidWorkProfileDefaultAppPermissionPolicyType($data['workProfileDefaultAppPermissionPolicy']) : $data['workProfileDefaultAppPermissionPolicy'];
+            $this->workProfileDefaultAppPermissionPolicy = is_string($data['workProfileDefaultAppPermissionPolicy']) ? AndroidWorkProfileDefaultAppPermissionPolicyType::tryFrom($data['workProfileDefaultAppPermissionPolicy']) : $data['workProfileDefaultAppPermissionPolicy'];
         }
         if (isset($data['workProfilePasswordBlockFingerprintUnlock'])) {
             $this->workProfilePasswordBlockFingerprintUnlock = is_bool($data['workProfilePasswordBlockFingerprintUnlock']) ? $data['workProfilePasswordBlockFingerprintUnlock'] : (bool)$data['workProfilePasswordBlockFingerprintUnlock'];
@@ -306,7 +306,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->workProfilePasswordPreviousPasswordBlockCount = is_numeric($data['workProfilePasswordPreviousPasswordBlockCount']) ? (float)$data['workProfilePasswordPreviousPasswordBlockCount'] : $data['workProfilePasswordPreviousPasswordBlockCount'];
         }
         if (isset($data['workProfilePasswordRequiredType'])) {
-            $this->workProfilePasswordRequiredType = is_array($data['workProfilePasswordRequiredType']) ? new AndroidWorkProfileRequiredPasswordType($data['workProfilePasswordRequiredType']) : $data['workProfilePasswordRequiredType'];
+            $this->workProfilePasswordRequiredType = is_string($data['workProfilePasswordRequiredType']) ? AndroidWorkProfileRequiredPasswordType::tryFrom($data['workProfilePasswordRequiredType']) : $data['workProfilePasswordRequiredType'];
         }
         if (isset($data['workProfilePasswordSignInFailureCountBeforeFactoryReset'])) {
             $this->workProfilePasswordSignInFailureCountBeforeFactoryReset = is_numeric($data['workProfilePasswordSignInFailureCountBeforeFactoryReset']) ? (float)$data['workProfilePasswordSignInFailureCountBeforeFactoryReset'] : $data['workProfilePasswordSignInFailureCountBeforeFactoryReset'];

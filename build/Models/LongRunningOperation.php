@@ -54,7 +54,7 @@ class LongRunningOperation
             $this->resourceLocation = $data['resourceLocation'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? LongRunningOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['statusDetail'])) {
             $this->statusDetail = $data['statusDetail'];

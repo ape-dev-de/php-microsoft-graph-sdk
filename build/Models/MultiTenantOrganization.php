@@ -63,7 +63,7 @@ class MultiTenantOrganization
             $this->displayName = $data['displayName'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new MultiTenantOrganizationState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? MultiTenantOrganizationState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['joinRequest'])) {
             $this->joinRequest = is_array($data['joinRequest']) ? new MultiTenantOrganizationJoinRequestRecord($data['joinRequest']) : $data['joinRequest'];

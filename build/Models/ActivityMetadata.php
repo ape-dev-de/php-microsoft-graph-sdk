@@ -24,7 +24,7 @@ class ActivityMetadata
     {
         $this->rawData = $data;
         if (isset($data['activity'])) {
-            $this->activity = is_array($data['activity']) ? new UserActivityType($data['activity']) : $data['activity'];
+            $this->activity = is_string($data['activity']) ? UserActivityType::tryFrom($data['activity']) : $data['activity'];
         }
     }
 

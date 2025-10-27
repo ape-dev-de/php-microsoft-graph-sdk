@@ -81,7 +81,7 @@ class MailboxProtectionRule
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ProtectionRuleStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ProtectionRuleStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['mailboxExpression'])) {
             $this->mailboxExpression = $data['mailboxExpression'];

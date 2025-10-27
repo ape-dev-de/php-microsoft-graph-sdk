@@ -72,7 +72,7 @@ class MailboxSettings
             $this->dateFormat = $data['dateFormat'];
         }
         if (isset($data['delegateMeetingMessageDeliveryOptions'])) {
-            $this->delegateMeetingMessageDeliveryOptions = is_array($data['delegateMeetingMessageDeliveryOptions']) ? new DelegateMeetingMessageDeliveryOptions($data['delegateMeetingMessageDeliveryOptions']) : $data['delegateMeetingMessageDeliveryOptions'];
+            $this->delegateMeetingMessageDeliveryOptions = is_string($data['delegateMeetingMessageDeliveryOptions']) ? DelegateMeetingMessageDeliveryOptions::tryFrom($data['delegateMeetingMessageDeliveryOptions']) : $data['delegateMeetingMessageDeliveryOptions'];
         }
         if (isset($data['language'])) {
             $this->language = is_array($data['language']) ? new LocaleInfo($data['language']) : $data['language'];
@@ -84,7 +84,7 @@ class MailboxSettings
             $this->timeZone = $data['timeZone'];
         }
         if (isset($data['userPurpose'])) {
-            $this->userPurpose = is_array($data['userPurpose']) ? new UserPurpose($data['userPurpose']) : $data['userPurpose'];
+            $this->userPurpose = is_string($data['userPurpose']) ? UserPurpose::tryFrom($data['userPurpose']) : $data['userPurpose'];
         }
         if (isset($data['workingHours'])) {
             $this->workingHours = is_array($data['workingHours']) ? new WorkingHours($data['workingHours']) : $data['workingHours'];

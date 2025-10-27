@@ -42,7 +42,7 @@ class ServiceHealth
             $this->service = $data['service'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ServiceHealthStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ServiceHealthStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['issues'])) {
             $this->issues = $data['issues'];

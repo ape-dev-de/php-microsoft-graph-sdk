@@ -48,7 +48,7 @@ class RecentNotebook
             $this->links = is_array($data['links']) ? new RecentNotebookLinks($data['links']) : $data['links'];
         }
         if (isset($data['sourceService'])) {
-            $this->sourceService = is_array($data['sourceService']) ? new OnenoteSourceService($data['sourceService']) : $data['sourceService'];
+            $this->sourceService = is_string($data['sourceService']) ? OnenoteSourceService::tryFrom($data['sourceService']) : $data['sourceService'];
         }
     }
 

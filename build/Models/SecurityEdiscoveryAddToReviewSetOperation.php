@@ -102,7 +102,7 @@ class SecurityEdiscoveryAddToReviewSetOperation
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new SecurityCaseAction($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? SecurityCaseAction::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
@@ -120,19 +120,19 @@ class SecurityEdiscoveryAddToReviewSetOperation
             $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityCaseOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['additionalDataOptions'])) {
-            $this->additionalDataOptions = is_array($data['additionalDataOptions']) ? new SecurityAdditionalDataOptions($data['additionalDataOptions']) : $data['additionalDataOptions'];
+            $this->additionalDataOptions = is_string($data['additionalDataOptions']) ? SecurityAdditionalDataOptions::tryFrom($data['additionalDataOptions']) : $data['additionalDataOptions'];
         }
         if (isset($data['cloudAttachmentVersion'])) {
-            $this->cloudAttachmentVersion = is_array($data['cloudAttachmentVersion']) ? new SecurityCloudAttachmentVersion($data['cloudAttachmentVersion']) : $data['cloudAttachmentVersion'];
+            $this->cloudAttachmentVersion = is_string($data['cloudAttachmentVersion']) ? SecurityCloudAttachmentVersion::tryFrom($data['cloudAttachmentVersion']) : $data['cloudAttachmentVersion'];
         }
         if (isset($data['documentVersion'])) {
-            $this->documentVersion = is_array($data['documentVersion']) ? new SecurityDocumentVersion($data['documentVersion']) : $data['documentVersion'];
+            $this->documentVersion = is_string($data['documentVersion']) ? SecurityDocumentVersion::tryFrom($data['documentVersion']) : $data['documentVersion'];
         }
         if (isset($data['itemsToInclude'])) {
-            $this->itemsToInclude = is_array($data['itemsToInclude']) ? new SecurityItemsToInclude($data['itemsToInclude']) : $data['itemsToInclude'];
+            $this->itemsToInclude = is_string($data['itemsToInclude']) ? SecurityItemsToInclude::tryFrom($data['itemsToInclude']) : $data['itemsToInclude'];
         }
         if (isset($data['reportFileMetadata'])) {
             $this->reportFileMetadata = $data['reportFileMetadata'];

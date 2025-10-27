@@ -111,7 +111,7 @@ class TimeCard
             $this->clockOutEvent = is_array($data['clockOutEvent']) ? new TimeCardEvent($data['clockOutEvent']) : $data['clockOutEvent'];
         }
         if (isset($data['confirmedBy'])) {
-            $this->confirmedBy = is_array($data['confirmedBy']) ? new ConfirmedBy($data['confirmedBy']) : $data['confirmedBy'];
+            $this->confirmedBy = is_string($data['confirmedBy']) ? ConfirmedBy::tryFrom($data['confirmedBy']) : $data['confirmedBy'];
         }
         if (isset($data['notes'])) {
             $this->notes = is_array($data['notes']) ? new ItemBody($data['notes']) : $data['notes'];
@@ -120,7 +120,7 @@ class TimeCard
             $this->originalEntry = is_array($data['originalEntry']) ? new TimeCardEntry($data['originalEntry']) : $data['originalEntry'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new TimeCardState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? TimeCardState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

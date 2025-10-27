@@ -48,7 +48,7 @@ class TeamsApp
             $this->displayName = $data['displayName'];
         }
         if (isset($data['distributionMethod'])) {
-            $this->distributionMethod = is_array($data['distributionMethod']) ? new TeamsAppDistributionMethod($data['distributionMethod']) : $data['distributionMethod'];
+            $this->distributionMethod = is_string($data['distributionMethod']) ? TeamsAppDistributionMethod::tryFrom($data['distributionMethod']) : $data['distributionMethod'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];

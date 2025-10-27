@@ -270,10 +270,10 @@ class EventMessage
             $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? Importance::tryFrom($data['importance']) : $data['importance'];
         }
         if (isset($data['inferenceClassification'])) {
-            $this->inferenceClassification = is_array($data['inferenceClassification']) ? new InferenceClassificationType($data['inferenceClassification']) : $data['inferenceClassification'];
+            $this->inferenceClassification = is_string($data['inferenceClassification']) ? InferenceClassificationType::tryFrom($data['inferenceClassification']) : $data['inferenceClassification'];
         }
         if (isset($data['internetMessageHeaders'])) {
             $this->internetMessageHeaders = $data['internetMessageHeaders'];
@@ -348,7 +348,7 @@ class EventMessage
             $this->location = is_array($data['location']) ? new Location($data['location']) : $data['location'];
         }
         if (isset($data['meetingMessageType'])) {
-            $this->meetingMessageType = is_array($data['meetingMessageType']) ? new MeetingMessageType($data['meetingMessageType']) : $data['meetingMessageType'];
+            $this->meetingMessageType = is_string($data['meetingMessageType']) ? MeetingMessageType::tryFrom($data['meetingMessageType']) : $data['meetingMessageType'];
         }
         if (isset($data['recurrence'])) {
             $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
@@ -357,7 +357,7 @@ class EventMessage
             $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new EventType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? EventType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['event'])) {
             $this->event = is_array($data['event']) ? new Event($data['event']) : $data['event'];

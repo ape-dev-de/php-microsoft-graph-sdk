@@ -30,7 +30,7 @@ class BookingsAvailability
     {
         $this->rawData = $data;
         if (isset($data['availabilityType'])) {
-            $this->availabilityType = is_array($data['availabilityType']) ? new BookingsServiceAvailabilityType($data['availabilityType']) : $data['availabilityType'];
+            $this->availabilityType = is_string($data['availabilityType']) ? BookingsServiceAvailabilityType::tryFrom($data['availabilityType']) : $data['availabilityType'];
         }
         if (isset($data['businessHours'])) {
             $this->businessHours = $data['businessHours'];

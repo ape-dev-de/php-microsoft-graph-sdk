@@ -30,7 +30,7 @@ class FileHash
     {
         $this->rawData = $data;
         if (isset($data['hashType'])) {
-            $this->hashType = is_array($data['hashType']) ? new FileHashType($data['hashType']) : $data['hashType'];
+            $this->hashType = is_string($data['hashType']) ? FileHashType::tryFrom($data['hashType']) : $data['hashType'];
         }
         if (isset($data['hashValue'])) {
             $this->hashValue = $data['hashValue'];

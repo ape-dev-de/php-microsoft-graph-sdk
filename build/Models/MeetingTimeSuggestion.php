@@ -72,7 +72,7 @@ class MeetingTimeSuggestion
             $this->order = is_numeric($data['order']) ? (float)$data['order'] : $data['order'];
         }
         if (isset($data['organizerAvailability'])) {
-            $this->organizerAvailability = is_array($data['organizerAvailability']) ? new FreeBusyStatus($data['organizerAvailability']) : $data['organizerAvailability'];
+            $this->organizerAvailability = is_string($data['organizerAvailability']) ? FreeBusyStatus::tryFrom($data['organizerAvailability']) : $data['organizerAvailability'];
         }
         if (isset($data['suggestionReason'])) {
             $this->suggestionReason = $data['suggestionReason'];

@@ -210,16 +210,16 @@ class OnlineMeeting
             $this->allowCopyingAndSharingMeetingContent = is_bool($data['allowCopyingAndSharingMeetingContent']) ? $data['allowCopyingAndSharingMeetingContent'] : (bool)$data['allowCopyingAndSharingMeetingContent'];
         }
         if (isset($data['allowedLobbyAdmitters'])) {
-            $this->allowedLobbyAdmitters = is_array($data['allowedLobbyAdmitters']) ? new AllowedLobbyAdmitterRoles($data['allowedLobbyAdmitters']) : $data['allowedLobbyAdmitters'];
+            $this->allowedLobbyAdmitters = is_string($data['allowedLobbyAdmitters']) ? AllowedLobbyAdmitterRoles::tryFrom($data['allowedLobbyAdmitters']) : $data['allowedLobbyAdmitters'];
         }
         if (isset($data['allowedPresenters'])) {
-            $this->allowedPresenters = is_array($data['allowedPresenters']) ? new OnlineMeetingPresenters($data['allowedPresenters']) : $data['allowedPresenters'];
+            $this->allowedPresenters = is_string($data['allowedPresenters']) ? OnlineMeetingPresenters::tryFrom($data['allowedPresenters']) : $data['allowedPresenters'];
         }
         if (isset($data['allowLiveShare'])) {
-            $this->allowLiveShare = is_array($data['allowLiveShare']) ? new MeetingLiveShareOptions($data['allowLiveShare']) : $data['allowLiveShare'];
+            $this->allowLiveShare = is_string($data['allowLiveShare']) ? MeetingLiveShareOptions::tryFrom($data['allowLiveShare']) : $data['allowLiveShare'];
         }
         if (isset($data['allowMeetingChat'])) {
-            $this->allowMeetingChat = is_array($data['allowMeetingChat']) ? new MeetingChatMode($data['allowMeetingChat']) : $data['allowMeetingChat'];
+            $this->allowMeetingChat = is_string($data['allowMeetingChat']) ? MeetingChatMode::tryFrom($data['allowMeetingChat']) : $data['allowMeetingChat'];
         }
         if (isset($data['allowParticipantsToChangeName'])) {
             $this->allowParticipantsToChangeName = is_bool($data['allowParticipantsToChangeName']) ? $data['allowParticipantsToChangeName'] : (bool)$data['allowParticipantsToChangeName'];
@@ -270,7 +270,7 @@ class OnlineMeeting
             $this->recordAutomatically = is_bool($data['recordAutomatically']) ? $data['recordAutomatically'] : (bool)$data['recordAutomatically'];
         }
         if (isset($data['shareMeetingChatHistoryDefault'])) {
-            $this->shareMeetingChatHistoryDefault = is_array($data['shareMeetingChatHistoryDefault']) ? new MeetingChatHistoryDefaultMode($data['shareMeetingChatHistoryDefault']) : $data['shareMeetingChatHistoryDefault'];
+            $this->shareMeetingChatHistoryDefault = is_string($data['shareMeetingChatHistoryDefault']) ? MeetingChatHistoryDefaultMode::tryFrom($data['shareMeetingChatHistoryDefault']) : $data['shareMeetingChatHistoryDefault'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

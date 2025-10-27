@@ -27,7 +27,7 @@ class SharePointOneDriveOptions
     {
         $this->rawData = $data;
         if (isset($data['includeContent'])) {
-            $this->includeContent = is_array($data['includeContent']) ? new SearchContent($data['includeContent']) : $data['includeContent'];
+            $this->includeContent = is_string($data['includeContent']) ? SearchContent::tryFrom($data['includeContent']) : $data['includeContent'];
         }
     }
 

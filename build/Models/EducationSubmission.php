@@ -153,7 +153,7 @@ class EducationSubmission
             $this->returnedDateTime = is_string($data['returnedDateTime']) ? new \DateTimeImmutable($data['returnedDateTime']) : $data['returnedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new EducationSubmissionStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? EducationSubmissionStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['submittedBy'])) {
             $this->submittedBy = is_array($data['submittedBy']) ? new IdentitySet($data['submittedBy']) : $data['submittedBy'];

@@ -30,7 +30,7 @@ class CloudPcRestorePointSetting
     {
         $this->rawData = $data;
         if (isset($data['frequencyType'])) {
-            $this->frequencyType = is_array($data['frequencyType']) ? new CloudPcRestorePointFrequencyType($data['frequencyType']) : $data['frequencyType'];
+            $this->frequencyType = is_string($data['frequencyType']) ? CloudPcRestorePointFrequencyType::tryFrom($data['frequencyType']) : $data['frequencyType'];
         }
         if (isset($data['userRestoreEnabled'])) {
             $this->userRestoreEnabled = is_bool($data['userRestoreEnabled']) ? $data['userRestoreEnabled'] : (bool)$data['userRestoreEnabled'];

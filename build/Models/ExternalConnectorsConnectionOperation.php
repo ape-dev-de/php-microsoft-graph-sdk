@@ -42,7 +42,7 @@ class ExternalConnectorsConnectionOperation
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ExternalConnectorsConnectionOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ExternalConnectorsConnectionOperationStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

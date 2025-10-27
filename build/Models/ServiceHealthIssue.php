@@ -90,7 +90,7 @@ class ServiceHealthIssue
             $this->title = $data['title'];
         }
         if (isset($data['classification'])) {
-            $this->classification = is_array($data['classification']) ? new ServiceHealthClassificationType($data['classification']) : $data['classification'];
+            $this->classification = is_string($data['classification']) ? ServiceHealthClassificationType::tryFrom($data['classification']) : $data['classification'];
         }
         if (isset($data['feature'])) {
             $this->feature = $data['feature'];
@@ -105,7 +105,7 @@ class ServiceHealthIssue
             $this->isResolved = is_bool($data['isResolved']) ? $data['isResolved'] : (bool)$data['isResolved'];
         }
         if (isset($data['origin'])) {
-            $this->origin = is_array($data['origin']) ? new ServiceHealthOrigin($data['origin']) : $data['origin'];
+            $this->origin = is_string($data['origin']) ? ServiceHealthOrigin::tryFrom($data['origin']) : $data['origin'];
         }
         if (isset($data['posts'])) {
             $this->posts = $data['posts'];
@@ -114,7 +114,7 @@ class ServiceHealthIssue
             $this->service = $data['service'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ServiceHealthStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ServiceHealthStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

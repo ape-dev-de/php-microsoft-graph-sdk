@@ -39,7 +39,7 @@ class SecurityHostReputation
             $this->id = $data['id'];
         }
         if (isset($data['classification'])) {
-            $this->classification = is_array($data['classification']) ? new SecurityHostReputationClassification($data['classification']) : $data['classification'];
+            $this->classification = is_string($data['classification']) ? SecurityHostReputationClassification::tryFrom($data['classification']) : $data['classification'];
         }
         if (isset($data['rules'])) {
             $this->rules = $data['rules'];

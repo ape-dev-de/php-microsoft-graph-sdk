@@ -27,7 +27,7 @@ class ExternalConnectorsExternalItemContent
     {
         $this->rawData = $data;
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new ExternalConnectorsExternalItemContentType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? ExternalConnectorsExternalItemContentType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

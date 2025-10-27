@@ -66,7 +66,7 @@ class AttackSimulationOperation
             $this->resourceLocation = $data['resourceLocation'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? LongRunningOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['statusDetail'])) {
             $this->statusDetail = $data['statusDetail'];
@@ -78,7 +78,7 @@ class AttackSimulationOperation
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new AttackSimulationOperationType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? AttackSimulationOperationType::tryFrom($data['type']) : $data['type'];
         }
     }
 

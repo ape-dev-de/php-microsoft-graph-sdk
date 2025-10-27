@@ -33,7 +33,7 @@ class SecurityFormattedContent
             $this->content = $data['content'];
         }
         if (isset($data['format'])) {
-            $this->format = is_array($data['format']) ? new SecurityContentFormat($data['format']) : $data['format'];
+            $this->format = is_string($data['format']) ? SecurityContentFormat::tryFrom($data['format']) : $data['format'];
         }
     }
 

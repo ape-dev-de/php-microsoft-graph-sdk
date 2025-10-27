@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CallRecordsWifiRadioType
+ * CallRecordsWifiRadioType - Enum
  */
-class CallRecordsWifiRadioType
+enum CallRecordsWifiRadioType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case WIFI80211A = 'wifi80211a';
+    case WIFI80211B = 'wifi80211b';
+    case WIFI80211G = 'wifi80211g';
+    case WIFI80211N = 'wifi80211n';
+    case WIFI80211AC = 'wifi80211ac';
+    case WIFI80211AX = 'wifi80211ax';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

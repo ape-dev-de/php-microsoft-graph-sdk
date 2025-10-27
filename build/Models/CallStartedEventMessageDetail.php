@@ -36,7 +36,7 @@ class CallStartedEventMessageDetail
     {
         $this->rawData = $data;
         if (isset($data['callEventType'])) {
-            $this->callEventType = is_array($data['callEventType']) ? new TeamworkCallEventType($data['callEventType']) : $data['callEventType'];
+            $this->callEventType = is_string($data['callEventType']) ? TeamworkCallEventType::tryFrom($data['callEventType']) : $data['callEventType'];
         }
         if (isset($data['callId'])) {
             $this->callId = $data['callId'];

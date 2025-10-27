@@ -99,7 +99,7 @@ class SecurityKubernetesServiceEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
+            $this->remediationStatus = is_string($data['remediationStatus']) ? SecurityEvidenceRemediationStatus::tryFrom($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -111,7 +111,7 @@ class SecurityKubernetesServiceEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
+            $this->verdict = is_string($data['verdict']) ? SecurityEvidenceVerdict::tryFrom($data['verdict']) : $data['verdict'];
         }
         if (isset($data['clusterIP'])) {
             $this->clusterIP = is_array($data['clusterIP']) ? new SecurityIpEvidence($data['clusterIP']) : $data['clusterIP'];
@@ -135,7 +135,7 @@ class SecurityKubernetesServiceEvidence
             $this->servicePorts = $data['servicePorts'];
         }
         if (isset($data['serviceType'])) {
-            $this->serviceType = is_array($data['serviceType']) ? new SecurityKubernetesServiceType($data['serviceType']) : $data['serviceType'];
+            $this->serviceType = is_string($data['serviceType']) ? SecurityKubernetesServiceType::tryFrom($data['serviceType']) : $data['serviceType'];
         }
     }
 

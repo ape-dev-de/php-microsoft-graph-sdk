@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * EdgeCookiePolicy
+ * EdgeCookiePolicy - Enum
+ * Possible values to specify which cookies are allowed in Microsoft Edge.
  */
-class EdgeCookiePolicy
+enum EdgeCookiePolicy: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case USERDEFINED = 'userDefined';
+    case ALLOW = 'allow';
+    case BLOCKTHIRDPARTY = 'blockThirdParty';
+    case BLOCKALL = 'blockAll';
 }

@@ -57,7 +57,7 @@ class SecuritySiteSource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['holdStatus'])) {
-            $this->holdStatus = is_array($data['holdStatus']) ? new SecurityDataSourceHoldStatus($data['holdStatus']) : $data['holdStatus'];
+            $this->holdStatus = is_string($data['holdStatus']) ? SecurityDataSourceHoldStatus::tryFrom($data['holdStatus']) : $data['holdStatus'];
         }
         if (isset($data['site'])) {
             $this->site = is_array($data['site']) ? new Site($data['site']) : $data['site'];

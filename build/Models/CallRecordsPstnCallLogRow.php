@@ -96,7 +96,7 @@ class CallRecordsPstnCallLogRow
             $this->id = $data['id'];
         }
         if (isset($data['callDurationSource'])) {
-            $this->callDurationSource = is_array($data['callDurationSource']) ? new CallRecordsPstnCallDurationSource($data['callDurationSource']) : $data['callDurationSource'];
+            $this->callDurationSource = is_string($data['callDurationSource']) ? CallRecordsPstnCallDurationSource::tryFrom($data['callDurationSource']) : $data['callDurationSource'];
         }
         if (isset($data['calleeNumber'])) {
             $this->calleeNumber = $data['calleeNumber'];

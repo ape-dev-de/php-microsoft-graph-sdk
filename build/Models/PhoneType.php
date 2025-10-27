@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * PhoneType
+ * PhoneType - Enum
  */
-class PhoneType
+enum PhoneType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case HOME = 'home';
+    case BUSINESS = 'business';
+    case MOBILE = 'mobile';
+    case OTHER = 'other';
+    case ASSISTANT = 'assistant';
+    case HOMEFAX = 'homeFax';
+    case BUSINESSFAX = 'businessFax';
+    case OTHERFAX = 'otherFax';
+    case PAGER = 'pager';
+    case RADIO = 'radio';
 }

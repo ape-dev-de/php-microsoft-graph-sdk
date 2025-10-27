@@ -99,7 +99,7 @@ class SecurityProcessEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
+            $this->remediationStatus = is_string($data['remediationStatus']) ? SecurityEvidenceRemediationStatus::tryFrom($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -111,10 +111,10 @@ class SecurityProcessEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
+            $this->verdict = is_string($data['verdict']) ? SecurityEvidenceVerdict::tryFrom($data['verdict']) : $data['verdict'];
         }
         if (isset($data['detectionStatus'])) {
-            $this->detectionStatus = is_array($data['detectionStatus']) ? new SecurityDetectionStatus($data['detectionStatus']) : $data['detectionStatus'];
+            $this->detectionStatus = is_string($data['detectionStatus']) ? SecurityDetectionStatus::tryFrom($data['detectionStatus']) : $data['detectionStatus'];
         }
         if (isset($data['imageFile'])) {
             $this->imageFile = is_array($data['imageFile']) ? new SecurityFileDetails($data['imageFile']) : $data['imageFile'];

@@ -69,7 +69,7 @@ class ServiceApp
             $this->registrationDateTime = is_string($data['registrationDateTime']) ? new \DateTimeImmutable($data['registrationDateTime']) : $data['registrationDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ServiceAppStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ServiceAppStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

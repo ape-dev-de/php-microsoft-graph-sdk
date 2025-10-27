@@ -144,7 +144,7 @@ class TodoTask
             $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? Importance::tryFrom($data['importance']) : $data['importance'];
         }
         if (isset($data['isReminderOn'])) {
             $this->isReminderOn = is_bool($data['isReminderOn']) ? $data['isReminderOn'] : (bool)$data['isReminderOn'];
@@ -162,7 +162,7 @@ class TodoTask
             $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new TaskStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? TaskStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];

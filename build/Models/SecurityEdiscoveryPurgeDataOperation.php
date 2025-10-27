@@ -60,7 +60,7 @@ class SecurityEdiscoveryPurgeDataOperation
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new SecurityCaseAction($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? SecurityCaseAction::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
@@ -78,7 +78,7 @@ class SecurityEdiscoveryPurgeDataOperation
             $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityCaseOperationStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

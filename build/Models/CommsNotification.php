@@ -27,7 +27,7 @@ class CommsNotification
     {
         $this->rawData = $data;
         if (isset($data['changeType'])) {
-            $this->changeType = is_array($data['changeType']) ? new ChangeType($data['changeType']) : $data['changeType'];
+            $this->changeType = is_string($data['changeType']) ? ChangeType::tryFrom($data['changeType']) : $data['changeType'];
         }
         if (isset($data['resourceUrl'])) {
             $this->resourceUrl = $data['resourceUrl'];

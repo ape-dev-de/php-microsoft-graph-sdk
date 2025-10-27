@@ -132,7 +132,7 @@ class MicrosoftStoreForBusinessApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
+            $this->publishingState = is_string($data['publishingState']) ? MobileAppPublishingState::tryFrom($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -141,7 +141,7 @@ class MicrosoftStoreForBusinessApp
             $this->categories = $data['categories'];
         }
         if (isset($data['licenseType'])) {
-            $this->licenseType = is_array($data['licenseType']) ? new MicrosoftStoreForBusinessLicenseType($data['licenseType']) : $data['licenseType'];
+            $this->licenseType = is_string($data['licenseType']) ? MicrosoftStoreForBusinessLicenseType::tryFrom($data['licenseType']) : $data['licenseType'];
         }
         if (isset($data['packageIdentityName'])) {
             $this->packageIdentityName = $data['packageIdentityName'];

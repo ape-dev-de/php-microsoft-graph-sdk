@@ -66,10 +66,10 @@ class TeamsAsyncOperation
             $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = is_array($data['operationType']) ? new TeamsAsyncOperationType($data['operationType']) : $data['operationType'];
+            $this->operationType = is_string($data['operationType']) ? TeamsAsyncOperationType::tryFrom($data['operationType']) : $data['operationType'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new TeamsAsyncOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? TeamsAsyncOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['targetResourceId'])) {
             $this->targetResourceId = $data['targetResourceId'];

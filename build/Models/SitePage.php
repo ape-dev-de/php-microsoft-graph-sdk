@@ -162,7 +162,7 @@ class SitePage
             $this->lastModifiedByUser = is_array($data['lastModifiedByUser']) ? new User($data['lastModifiedByUser']) : $data['lastModifiedByUser'];
         }
         if (isset($data['pageLayout'])) {
-            $this->pageLayout = is_array($data['pageLayout']) ? new PageLayoutType($data['pageLayout']) : $data['pageLayout'];
+            $this->pageLayout = is_string($data['pageLayout']) ? PageLayoutType::tryFrom($data['pageLayout']) : $data['pageLayout'];
         }
         if (isset($data['publishingState'])) {
             $this->publishingState = is_array($data['publishingState']) ? new PublicationFacet($data['publishingState']) : $data['publishingState'];
@@ -171,7 +171,7 @@ class SitePage
             $this->title = $data['title'];
         }
         if (isset($data['promotionKind'])) {
-            $this->promotionKind = is_array($data['promotionKind']) ? new PagePromotionType($data['promotionKind']) : $data['promotionKind'];
+            $this->promotionKind = is_string($data['promotionKind']) ? PagePromotionType::tryFrom($data['promotionKind']) : $data['promotionKind'];
         }
         if (isset($data['reactions'])) {
             $this->reactions = is_array($data['reactions']) ? new ReactionsFacet($data['reactions']) : $data['reactions'];

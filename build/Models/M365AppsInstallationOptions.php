@@ -42,7 +42,7 @@ class M365AppsInstallationOptions
             $this->appsForWindows = is_array($data['appsForWindows']) ? new AppsInstallationOptionsForWindows($data['appsForWindows']) : $data['appsForWindows'];
         }
         if (isset($data['updateChannel'])) {
-            $this->updateChannel = is_array($data['updateChannel']) ? new AppsUpdateChannelType($data['updateChannel']) : $data['updateChannel'];
+            $this->updateChannel = is_string($data['updateChannel']) ? AppsUpdateChannelType::tryFrom($data['updateChannel']) : $data['updateChannel'];
         }
     }
 

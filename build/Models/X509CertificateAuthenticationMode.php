@@ -5,29 +5,11 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * X509CertificateAuthenticationMode
+ * X509CertificateAuthenticationMode - Enum
  */
-class X509CertificateAuthenticationMode
+enum X509CertificateAuthenticationMode: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case X509CERTIFICATESINGLEFACTOR = 'x509CertificateSingleFactor';
+    case X509CERTIFICATEMULTIFACTOR = 'x509CertificateMultiFactor';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

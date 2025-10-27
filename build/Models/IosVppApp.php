@@ -153,7 +153,7 @@ class IosVppApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
+            $this->publishingState = is_string($data['publishingState']) ? MobileAppPublishingState::tryFrom($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -183,7 +183,7 @@ class IosVppApp
             $this->usedLicenseCount = is_numeric($data['usedLicenseCount']) ? (float)$data['usedLicenseCount'] : $data['usedLicenseCount'];
         }
         if (isset($data['vppTokenAccountType'])) {
-            $this->vppTokenAccountType = is_array($data['vppTokenAccountType']) ? new VppTokenAccountType($data['vppTokenAccountType']) : $data['vppTokenAccountType'];
+            $this->vppTokenAccountType = is_string($data['vppTokenAccountType']) ? VppTokenAccountType::tryFrom($data['vppTokenAccountType']) : $data['vppTokenAccountType'];
         }
         if (isset($data['vppTokenAppleId'])) {
             $this->vppTokenAppleId = $data['vppTokenAppleId'];

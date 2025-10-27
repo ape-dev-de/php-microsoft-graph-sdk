@@ -60,7 +60,7 @@ class CloudPcOnPremisesConnectionHealthCheck
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['errorType'])) {
-            $this->errorType = is_array($data['errorType']) ? new CloudPcOnPremisesConnectionHealthCheckErrorType($data['errorType']) : $data['errorType'];
+            $this->errorType = is_string($data['errorType']) ? CloudPcOnPremisesConnectionHealthCheckErrorType::tryFrom($data['errorType']) : $data['errorType'];
         }
         if (isset($data['recommendedAction'])) {
             $this->recommendedAction = $data['recommendedAction'];
@@ -69,7 +69,7 @@ class CloudPcOnPremisesConnectionHealthCheck
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new CloudPcOnPremisesConnectionStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? CloudPcOnPremisesConnectionStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

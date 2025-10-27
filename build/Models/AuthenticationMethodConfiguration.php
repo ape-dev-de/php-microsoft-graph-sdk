@@ -42,7 +42,7 @@ class AuthenticationMethodConfiguration
             $this->excludeTargets = $data['excludeTargets'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AuthenticationMethodState::tryFrom($data['state']) : $data['state'];
         }
     }
 

@@ -69,7 +69,7 @@ class Location
             $this->locationEmailAddress = $data['locationEmailAddress'];
         }
         if (isset($data['locationType'])) {
-            $this->locationType = is_array($data['locationType']) ? new LocationType($data['locationType']) : $data['locationType'];
+            $this->locationType = is_string($data['locationType']) ? LocationType::tryFrom($data['locationType']) : $data['locationType'];
         }
         if (isset($data['locationUri'])) {
             $this->locationUri = $data['locationUri'];
@@ -78,7 +78,7 @@ class Location
             $this->uniqueId = $data['uniqueId'];
         }
         if (isset($data['uniqueIdType'])) {
-            $this->uniqueIdType = is_array($data['uniqueIdType']) ? new LocationUniqueIdType($data['uniqueIdType']) : $data['uniqueIdType'];
+            $this->uniqueIdType = is_string($data['uniqueIdType']) ? LocationUniqueIdType::tryFrom($data['uniqueIdType']) : $data['uniqueIdType'];
         }
     }
 

@@ -93,7 +93,7 @@ class EducationModule
             $this->resourcesFolderUrl = $data['resourcesFolderUrl'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new EducationModuleStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? EducationModuleStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['resources'])) {
             $this->resources = $data['resources'];

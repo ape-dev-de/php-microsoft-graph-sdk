@@ -63,7 +63,7 @@ class CalendarPermission
             $this->isRemovable = is_bool($data['isRemovable']) ? $data['isRemovable'] : (bool)$data['isRemovable'];
         }
         if (isset($data['role'])) {
-            $this->role = is_array($data['role']) ? new CalendarRoleType($data['role']) : $data['role'];
+            $this->role = is_string($data['role']) ? CalendarRoleType::tryFrom($data['role']) : $data['role'];
         }
     }
 

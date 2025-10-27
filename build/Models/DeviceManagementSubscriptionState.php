@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DeviceManagementSubscriptionState
+ * DeviceManagementSubscriptionState - Enum
+ * Tenant mobile device management subscription state.
  */
-class DeviceManagementSubscriptionState
+enum DeviceManagementSubscriptionState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case PENDING = 'pending';
+    case ACTIVE = 'active';
+    case WARNING = 'warning';
+    case DISABLED = 'disabled';
+    case DELETED = 'deleted';
+    case BLOCKED = 'blocked';
+    case LOCKEDOUT = 'lockedOut';
 }

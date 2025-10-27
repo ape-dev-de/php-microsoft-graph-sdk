@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * BrowserSiteCompatibilityMode
+ * BrowserSiteCompatibilityMode - Enum
  */
-class BrowserSiteCompatibilityMode
+enum BrowserSiteCompatibilityMode: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case DEFAULT = 'default';
+    case INTERNETEXPLORER8ENTERPRISE = 'internetExplorer8Enterprise';
+    case INTERNETEXPLORER7ENTERPRISE = 'internetExplorer7Enterprise';
+    case INTERNETEXPLORER11 = 'internetExplorer11';
+    case INTERNETEXPLORER10 = 'internetExplorer10';
+    case INTERNETEXPLORER9 = 'internetExplorer9';
+    case INTERNETEXPLORER8 = 'internetExplorer8';
+    case INTERNETEXPLORER7 = 'internetExplorer7';
+    case INTERNETEXPLORER5 = 'internetExplorer5';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

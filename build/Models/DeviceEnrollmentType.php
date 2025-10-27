@@ -5,29 +5,23 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DeviceEnrollmentType
+ * DeviceEnrollmentType - Enum
+ * Possible ways of adding a mobile device to management.
  */
-class DeviceEnrollmentType
+enum DeviceEnrollmentType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case USERENROLLMENT = 'userEnrollment';
+    case DEVICEENROLLMENTMANAGER = 'deviceEnrollmentManager';
+    case APPLEBULKWITHUSER = 'appleBulkWithUser';
+    case APPLEBULKWITHOUTUSER = 'appleBulkWithoutUser';
+    case WINDOWSAZUREADJOIN = 'windowsAzureADJoin';
+    case WINDOWSBULKUSERLESS = 'windowsBulkUserless';
+    case WINDOWSAUTOENROLLMENT = 'windowsAutoEnrollment';
+    case WINDOWSBULKAZUREDOMAINJOIN = 'windowsBulkAzureDomainJoin';
+    case WINDOWSCOMANAGEMENT = 'windowsCoManagement';
+    case WINDOWSAZUREADJOINUSINGDEVICEAUTH = 'windowsAzureADJoinUsingDeviceAuth';
+    case APPLEUSERENROLLMENT = 'appleUserEnrollment';
+    case APPLEUSERENROLLMENTWITHSERVICEACCOUNT = 'appleUserEnrollmentWithServiceAccount';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

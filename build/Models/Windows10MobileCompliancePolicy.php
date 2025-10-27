@@ -204,7 +204,7 @@ class Windows10MobileCompliancePolicy
             $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? RequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordRequireToUnlockFromIdle'])) {
             $this->passwordRequireToUnlockFromIdle = is_bool($data['passwordRequireToUnlockFromIdle']) ? $data['passwordRequireToUnlockFromIdle'] : (bool)$data['passwordRequireToUnlockFromIdle'];

@@ -30,7 +30,7 @@ class SynchronizationMetadataEntry
     {
         $this->rawData = $data;
         if (isset($data['key'])) {
-            $this->key = is_array($data['key']) ? new SynchronizationMetadata($data['key']) : $data['key'];
+            $this->key = is_string($data['key']) ? SynchronizationMetadata::tryFrom($data['key']) : $data['key'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

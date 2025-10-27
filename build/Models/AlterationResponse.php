@@ -42,7 +42,7 @@ class AlterationResponse
             $this->queryAlteration = is_array($data['queryAlteration']) ? new SearchAlteration($data['queryAlteration']) : $data['queryAlteration'];
         }
         if (isset($data['queryAlterationType'])) {
-            $this->queryAlterationType = is_array($data['queryAlterationType']) ? new SearchAlterationType($data['queryAlterationType']) : $data['queryAlterationType'];
+            $this->queryAlterationType = is_string($data['queryAlterationType']) ? SearchAlterationType::tryFrom($data['queryAlterationType']) : $data['queryAlterationType'];
         }
     }
 

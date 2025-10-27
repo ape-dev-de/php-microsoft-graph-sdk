@@ -45,7 +45,7 @@ class DaylightTimeZoneOffset
             $this->dayOccurrence = is_numeric($data['dayOccurrence']) ? (float)$data['dayOccurrence'] : $data['dayOccurrence'];
         }
         if (isset($data['dayOfWeek'])) {
-            $this->dayOfWeek = is_array($data['dayOfWeek']) ? new DayOfWeek($data['dayOfWeek']) : $data['dayOfWeek'];
+            $this->dayOfWeek = is_string($data['dayOfWeek']) ? DayOfWeek::tryFrom($data['dayOfWeek']) : $data['dayOfWeek'];
         }
         if (isset($data['month'])) {
             $this->month = is_numeric($data['month']) ? (float)$data['month'] : $data['month'];

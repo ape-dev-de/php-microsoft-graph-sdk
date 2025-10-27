@@ -60,7 +60,7 @@ class Community
             $this->groupId = $data['groupId'];
         }
         if (isset($data['privacy'])) {
-            $this->privacy = is_array($data['privacy']) ? new CommunityPrivacy($data['privacy']) : $data['privacy'];
+            $this->privacy = is_string($data['privacy']) ? CommunityPrivacy::tryFrom($data['privacy']) : $data['privacy'];
         }
         if (isset($data['group'])) {
             $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];

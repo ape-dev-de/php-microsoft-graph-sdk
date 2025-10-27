@@ -5,29 +5,26 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * RiskDetail
+ * RiskDetail - Enum
  */
-class RiskDetail
+enum RiskDetail: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case ADMINGENERATEDTEMPORARYPASSWORD = 'adminGeneratedTemporaryPassword';
+    case USERPERFORMEDSECUREDPASSWORDCHANGE = 'userPerformedSecuredPasswordChange';
+    case USERPERFORMEDSECUREDPASSWORDRESET = 'userPerformedSecuredPasswordReset';
+    case ADMINCONFIRMEDSIGNINSAFE = 'adminConfirmedSigninSafe';
+    case AICONFIRMEDSIGNINSAFE = 'aiConfirmedSigninSafe';
+    case USERPASSEDMFADRIVENBYRISKBASEDPOLICY = 'userPassedMFADrivenByRiskBasedPolicy';
+    case ADMINDISMISSEDALLRISKFORUSER = 'adminDismissedAllRiskForUser';
+    case ADMINCONFIRMEDSIGNINCOMPROMISED = 'adminConfirmedSigninCompromised';
+    case HIDDEN = 'hidden';
+    case ADMINCONFIRMEDUSERCOMPROMISED = 'adminConfirmedUserCompromised';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case M365DADMINDISMISSEDDETECTION = 'm365DAdminDismissedDetection';
+    case ADMINCONFIRMEDSERVICEPRINCIPALCOMPROMISED = 'adminConfirmedServicePrincipalCompromised';
+    case ADMINDISMISSEDALLRISKFORSERVICEPRINCIPAL = 'adminDismissedAllRiskForServicePrincipal';
+    case USERCHANGEDPASSWORDONPREMISES = 'userChangedPasswordOnPremises';
+    case ADMINDISMISSEDRISKFORSIGNIN = 'adminDismissedRiskForSignIn';
+    case ADMINCONFIRMEDACCOUNTSAFE = 'adminConfirmedAccountSafe';
 }

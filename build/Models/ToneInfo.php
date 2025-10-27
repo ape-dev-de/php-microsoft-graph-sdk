@@ -30,7 +30,7 @@ class ToneInfo
             $this->sequenceId = is_numeric($data['sequenceId']) ? (float)$data['sequenceId'] : $data['sequenceId'];
         }
         if (isset($data['tone'])) {
-            $this->tone = is_array($data['tone']) ? new Tone($data['tone']) : $data['tone'];
+            $this->tone = is_string($data['tone']) ? Tone::tryFrom($data['tone']) : $data['tone'];
         }
     }
 

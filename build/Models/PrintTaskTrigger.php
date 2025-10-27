@@ -33,7 +33,7 @@ class PrintTaskTrigger
             $this->id = $data['id'];
         }
         if (isset($data['event'])) {
-            $this->event = is_array($data['event']) ? new PrintEvent($data['event']) : $data['event'];
+            $this->event = is_string($data['event']) ? PrintEvent::tryFrom($data['event']) : $data['event'];
         }
         if (isset($data['definition'])) {
             $this->definition = is_array($data['definition']) ? new PrintTaskDefinition($data['definition']) : $data['definition'];

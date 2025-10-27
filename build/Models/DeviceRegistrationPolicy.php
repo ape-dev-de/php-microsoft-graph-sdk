@@ -72,7 +72,7 @@ class DeviceRegistrationPolicy
             $this->localAdminPassword = is_array($data['localAdminPassword']) ? new LocalAdminPasswordSettings($data['localAdminPassword']) : $data['localAdminPassword'];
         }
         if (isset($data['multiFactorAuthConfiguration'])) {
-            $this->multiFactorAuthConfiguration = is_array($data['multiFactorAuthConfiguration']) ? new MultiFactorAuthConfiguration($data['multiFactorAuthConfiguration']) : $data['multiFactorAuthConfiguration'];
+            $this->multiFactorAuthConfiguration = is_string($data['multiFactorAuthConfiguration']) ? MultiFactorAuthConfiguration::tryFrom($data['multiFactorAuthConfiguration']) : $data['multiFactorAuthConfiguration'];
         }
         if (isset($data['userDeviceQuota'])) {
             $this->userDeviceQuota = is_numeric($data['userDeviceQuota']) ? (float)$data['userDeviceQuota'] : $data['userDeviceQuota'];

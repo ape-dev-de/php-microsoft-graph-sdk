@@ -75,7 +75,7 @@ class ActivityHistoryItem
             $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new Status($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? Status::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['userTimezone'])) {
             $this->userTimezone = $data['userTimezone'];

@@ -57,7 +57,7 @@ class AccessPackageAssignmentReviewSettings
     {
         $this->rawData = $data;
         if (isset($data['expirationBehavior'])) {
-            $this->expirationBehavior = is_array($data['expirationBehavior']) ? new AccessReviewExpirationBehavior($data['expirationBehavior']) : $data['expirationBehavior'];
+            $this->expirationBehavior = is_string($data['expirationBehavior']) ? AccessReviewExpirationBehavior::tryFrom($data['expirationBehavior']) : $data['expirationBehavior'];
         }
         if (isset($data['fallbackReviewers'])) {
             $this->fallbackReviewers = $data['fallbackReviewers'];

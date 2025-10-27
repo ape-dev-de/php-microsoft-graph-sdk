@@ -27,7 +27,7 @@ class UserRegistrationFeatureCount
     {
         $this->rawData = $data;
         if (isset($data['feature'])) {
-            $this->feature = is_array($data['feature']) ? new AuthenticationMethodFeature($data['feature']) : $data['feature'];
+            $this->feature = is_string($data['feature']) ? AuthenticationMethodFeature::tryFrom($data['feature']) : $data['feature'];
         }
         if (isset($data['userCount'])) {
             $this->userCount = is_numeric($data['userCount']) ? (float)$data['userCount'] : $data['userCount'];

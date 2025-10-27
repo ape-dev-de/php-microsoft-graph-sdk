@@ -30,7 +30,7 @@ class ExcludeTarget
             $this->id = $data['id'];
         }
         if (isset($data['targetType'])) {
-            $this->targetType = is_array($data['targetType']) ? new AuthenticationMethodTargetType($data['targetType']) : $data['targetType'];
+            $this->targetType = is_string($data['targetType']) ? AuthenticationMethodTargetType::tryFrom($data['targetType']) : $data['targetType'];
         }
     }
 

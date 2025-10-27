@@ -168,7 +168,7 @@ class MessageRulePredicates
             $this->headerContains = $data['headerContains'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? Importance::tryFrom($data['importance']) : $data['importance'];
         }
         if (isset($data['isApprovalRequest'])) {
             $this->isApprovalRequest = is_bool($data['isApprovalRequest']) ? $data['isApprovalRequest'] : (bool)$data['isApprovalRequest'];
@@ -204,7 +204,7 @@ class MessageRulePredicates
             $this->isVoicemail = is_bool($data['isVoicemail']) ? $data['isVoicemail'] : (bool)$data['isVoicemail'];
         }
         if (isset($data['messageActionFlag'])) {
-            $this->messageActionFlag = is_array($data['messageActionFlag']) ? new MessageActionFlag($data['messageActionFlag']) : $data['messageActionFlag'];
+            $this->messageActionFlag = is_string($data['messageActionFlag']) ? MessageActionFlag::tryFrom($data['messageActionFlag']) : $data['messageActionFlag'];
         }
         if (isset($data['notSentToMe'])) {
             $this->notSentToMe = is_bool($data['notSentToMe']) ? $data['notSentToMe'] : (bool)$data['notSentToMe'];
@@ -216,7 +216,7 @@ class MessageRulePredicates
             $this->senderContains = $data['senderContains'];
         }
         if (isset($data['sensitivity'])) {
-            $this->sensitivity = is_array($data['sensitivity']) ? new Sensitivity($data['sensitivity']) : $data['sensitivity'];
+            $this->sensitivity = is_string($data['sensitivity']) ? Sensitivity::tryFrom($data['sensitivity']) : $data['sensitivity'];
         }
         if (isset($data['sentCcMe'])) {
             $this->sentCcMe = is_bool($data['sentCcMe']) ? $data['sentCcMe'] : (bool)$data['sentCcMe'];

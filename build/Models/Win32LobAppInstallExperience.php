@@ -27,10 +27,10 @@ class Win32LobAppInstallExperience
     {
         $this->rawData = $data;
         if (isset($data['deviceRestartBehavior'])) {
-            $this->deviceRestartBehavior = is_array($data['deviceRestartBehavior']) ? new Win32LobAppRestartBehavior($data['deviceRestartBehavior']) : $data['deviceRestartBehavior'];
+            $this->deviceRestartBehavior = is_string($data['deviceRestartBehavior']) ? Win32LobAppRestartBehavior::tryFrom($data['deviceRestartBehavior']) : $data['deviceRestartBehavior'];
         }
         if (isset($data['runAsAccount'])) {
-            $this->runAsAccount = is_array($data['runAsAccount']) ? new RunAsAccountType($data['runAsAccount']) : $data['runAsAccount'];
+            $this->runAsAccount = is_string($data['runAsAccount']) ? RunAsAccountType::tryFrom($data['runAsAccount']) : $data['runAsAccount'];
         }
     }
 

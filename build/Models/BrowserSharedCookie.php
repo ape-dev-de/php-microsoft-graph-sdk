@@ -99,10 +99,10 @@ class BrowserSharedCookie
             $this->path = $data['path'];
         }
         if (isset($data['sourceEnvironment'])) {
-            $this->sourceEnvironment = is_array($data['sourceEnvironment']) ? new BrowserSharedCookieSourceEnvironment($data['sourceEnvironment']) : $data['sourceEnvironment'];
+            $this->sourceEnvironment = is_string($data['sourceEnvironment']) ? BrowserSharedCookieSourceEnvironment::tryFrom($data['sourceEnvironment']) : $data['sourceEnvironment'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new BrowserSharedCookieStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? BrowserSharedCookieStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

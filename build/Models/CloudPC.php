@@ -102,7 +102,7 @@ class CloudPC
             $this->provisioningPolicyName = $data['provisioningPolicyName'];
         }
         if (isset($data['provisioningType'])) {
-            $this->provisioningType = is_array($data['provisioningType']) ? new CloudPcProvisioningType($data['provisioningType']) : $data['provisioningType'];
+            $this->provisioningType = is_string($data['provisioningType']) ? CloudPcProvisioningType::tryFrom($data['provisioningType']) : $data['provisioningType'];
         }
         if (isset($data['servicePlanId'])) {
             $this->servicePlanId = $data['servicePlanId'];

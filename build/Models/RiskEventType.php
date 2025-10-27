@@ -5,29 +5,23 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * RiskEventType
+ * RiskEventType - Enum
  */
-class RiskEventType
+enum RiskEventType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNLIKELYTRAVEL = 'unlikelyTravel';
+    case ANONYMIZEDIPADDRESS = 'anonymizedIPAddress';
+    case MALICIOUSIPADDRESS = 'maliciousIPAddress';
+    case UNFAMILIARFEATURES = 'unfamiliarFeatures';
+    case MALWAREINFECTEDIPADDRESS = 'malwareInfectedIPAddress';
+    case SUSPICIOUSIPADDRESS = 'suspiciousIPAddress';
+    case LEAKEDCREDENTIALS = 'leakedCredentials';
+    case INVESTIGATIONSTHREATINTELLIGENCE = 'investigationsThreatIntelligence';
+    case GENERIC = 'generic';
+    case ADMINCONFIRMEDUSERCOMPROMISED = 'adminConfirmedUserCompromised';
+    case MCASIMPOSSIBLETRAVEL = 'mcasImpossibleTravel';
+    case MCASSUSPICIOUSINBOXMANIPULATIONRULES = 'mcasSuspiciousInboxManipulationRules';
+    case INVESTIGATIONSTHREATINTELLIGENCESIGNINLINKED = 'investigationsThreatIntelligenceSigninLinked';
+    case MALICIOUSIPADDRESSVALIDCREDENTIALSBLOCKEDIP = 'maliciousIPAddressValidCredentialsBlockedIP';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

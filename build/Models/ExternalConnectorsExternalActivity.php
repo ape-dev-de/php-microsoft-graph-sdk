@@ -42,7 +42,7 @@ class ExternalConnectorsExternalActivity
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new ExternalConnectorsExternalActivityType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? ExternalConnectorsExternalActivityType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['performedBy'])) {
             $this->performedBy = is_array($data['performedBy']) ? new ExternalConnectorsIdentity($data['performedBy']) : $data['performedBy'];

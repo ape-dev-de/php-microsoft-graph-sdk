@@ -237,10 +237,10 @@ class CalendarSharingMessage
             $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? Importance::tryFrom($data['importance']) : $data['importance'];
         }
         if (isset($data['inferenceClassification'])) {
-            $this->inferenceClassification = is_array($data['inferenceClassification']) ? new InferenceClassificationType($data['inferenceClassification']) : $data['inferenceClassification'];
+            $this->inferenceClassification = is_string($data['inferenceClassification']) ? InferenceClassificationType::tryFrom($data['inferenceClassification']) : $data['inferenceClassification'];
         }
         if (isset($data['internetMessageHeaders'])) {
             $this->internetMessageHeaders = $data['internetMessageHeaders'];

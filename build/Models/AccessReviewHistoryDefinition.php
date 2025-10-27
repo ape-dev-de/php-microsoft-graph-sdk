@@ -96,7 +96,7 @@ class AccessReviewHistoryDefinition
             $this->scopes = $data['scopes'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new AccessReviewHistoryStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? AccessReviewHistoryStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['instances'])) {
             $this->instances = $data['instances'];

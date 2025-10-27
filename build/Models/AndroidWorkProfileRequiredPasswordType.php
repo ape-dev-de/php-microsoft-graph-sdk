@@ -5,29 +5,17 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * AndroidWorkProfileRequiredPasswordType
+ * AndroidWorkProfileRequiredPasswordType - Enum
+ * Android Work Profile required password type.
  */
-class AndroidWorkProfileRequiredPasswordType
+enum AndroidWorkProfileRequiredPasswordType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case DEVICEDEFAULT = 'deviceDefault';
+    case LOWSECURITYBIOMETRIC = 'lowSecurityBiometric';
+    case REQUIRED = 'required';
+    case ATLEASTNUMERIC = 'atLeastNumeric';
+    case NUMERICCOMPLEX = 'numericComplex';
+    case ATLEASTALPHABETIC = 'atLeastAlphabetic';
+    case ATLEASTALPHANUMERIC = 'atLeastAlphanumeric';
+    case ALPHANUMERICWITHSYMBOLS = 'alphanumericWithSymbols';
 }

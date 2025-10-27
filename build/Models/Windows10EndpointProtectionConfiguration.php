@@ -255,10 +255,10 @@ class Windows10EndpointProtectionConfiguration
             $this->applicationGuardAllowPrintToXPS = is_bool($data['applicationGuardAllowPrintToXPS']) ? $data['applicationGuardAllowPrintToXPS'] : (bool)$data['applicationGuardAllowPrintToXPS'];
         }
         if (isset($data['applicationGuardBlockClipboardSharing'])) {
-            $this->applicationGuardBlockClipboardSharing = is_array($data['applicationGuardBlockClipboardSharing']) ? new ApplicationGuardBlockClipboardSharingType($data['applicationGuardBlockClipboardSharing']) : $data['applicationGuardBlockClipboardSharing'];
+            $this->applicationGuardBlockClipboardSharing = is_string($data['applicationGuardBlockClipboardSharing']) ? ApplicationGuardBlockClipboardSharingType::tryFrom($data['applicationGuardBlockClipboardSharing']) : $data['applicationGuardBlockClipboardSharing'];
         }
         if (isset($data['applicationGuardBlockFileTransfer'])) {
-            $this->applicationGuardBlockFileTransfer = is_array($data['applicationGuardBlockFileTransfer']) ? new ApplicationGuardBlockFileTransferType($data['applicationGuardBlockFileTransfer']) : $data['applicationGuardBlockFileTransfer'];
+            $this->applicationGuardBlockFileTransfer = is_string($data['applicationGuardBlockFileTransfer']) ? ApplicationGuardBlockFileTransferType::tryFrom($data['applicationGuardBlockFileTransfer']) : $data['applicationGuardBlockFileTransfer'];
         }
         if (isset($data['applicationGuardBlockNonEnterpriseContent'])) {
             $this->applicationGuardBlockNonEnterpriseContent = is_bool($data['applicationGuardBlockNonEnterpriseContent']) ? $data['applicationGuardBlockNonEnterpriseContent'] : (bool)$data['applicationGuardBlockNonEnterpriseContent'];
@@ -270,7 +270,7 @@ class Windows10EndpointProtectionConfiguration
             $this->applicationGuardForceAuditing = is_bool($data['applicationGuardForceAuditing']) ? $data['applicationGuardForceAuditing'] : (bool)$data['applicationGuardForceAuditing'];
         }
         if (isset($data['appLockerApplicationControl'])) {
-            $this->appLockerApplicationControl = is_array($data['appLockerApplicationControl']) ? new AppLockerApplicationControlType($data['appLockerApplicationControl']) : $data['appLockerApplicationControl'];
+            $this->appLockerApplicationControl = is_string($data['appLockerApplicationControl']) ? AppLockerApplicationControlType::tryFrom($data['appLockerApplicationControl']) : $data['appLockerApplicationControl'];
         }
         if (isset($data['bitLockerDisableWarningForOtherDiskEncryption'])) {
             $this->bitLockerDisableWarningForOtherDiskEncryption = is_bool($data['bitLockerDisableWarningForOtherDiskEncryption']) ? $data['bitLockerDisableWarningForOtherDiskEncryption'] : (bool)$data['bitLockerDisableWarningForOtherDiskEncryption'];
@@ -306,7 +306,7 @@ class Windows10EndpointProtectionConfiguration
             $this->firewallBlockStatefulFTP = is_bool($data['firewallBlockStatefulFTP']) ? $data['firewallBlockStatefulFTP'] : (bool)$data['firewallBlockStatefulFTP'];
         }
         if (isset($data['firewallCertificateRevocationListCheckMethod'])) {
-            $this->firewallCertificateRevocationListCheckMethod = is_array($data['firewallCertificateRevocationListCheckMethod']) ? new FirewallCertificateRevocationListCheckMethodType($data['firewallCertificateRevocationListCheckMethod']) : $data['firewallCertificateRevocationListCheckMethod'];
+            $this->firewallCertificateRevocationListCheckMethod = is_string($data['firewallCertificateRevocationListCheckMethod']) ? FirewallCertificateRevocationListCheckMethodType::tryFrom($data['firewallCertificateRevocationListCheckMethod']) : $data['firewallCertificateRevocationListCheckMethod'];
         }
         if (isset($data['firewallIdleTimeoutForSecurityAssociationInSeconds'])) {
             $this->firewallIdleTimeoutForSecurityAssociationInSeconds = is_numeric($data['firewallIdleTimeoutForSecurityAssociationInSeconds']) ? (float)$data['firewallIdleTimeoutForSecurityAssociationInSeconds'] : $data['firewallIdleTimeoutForSecurityAssociationInSeconds'];
@@ -327,10 +327,10 @@ class Windows10EndpointProtectionConfiguration
             $this->firewallMergeKeyingModuleSettings = is_bool($data['firewallMergeKeyingModuleSettings']) ? $data['firewallMergeKeyingModuleSettings'] : (bool)$data['firewallMergeKeyingModuleSettings'];
         }
         if (isset($data['firewallPacketQueueingMethod'])) {
-            $this->firewallPacketQueueingMethod = is_array($data['firewallPacketQueueingMethod']) ? new FirewallPacketQueueingMethodType($data['firewallPacketQueueingMethod']) : $data['firewallPacketQueueingMethod'];
+            $this->firewallPacketQueueingMethod = is_string($data['firewallPacketQueueingMethod']) ? FirewallPacketQueueingMethodType::tryFrom($data['firewallPacketQueueingMethod']) : $data['firewallPacketQueueingMethod'];
         }
         if (isset($data['firewallPreSharedKeyEncodingMethod'])) {
-            $this->firewallPreSharedKeyEncodingMethod = is_array($data['firewallPreSharedKeyEncodingMethod']) ? new FirewallPreSharedKeyEncodingMethodType($data['firewallPreSharedKeyEncodingMethod']) : $data['firewallPreSharedKeyEncodingMethod'];
+            $this->firewallPreSharedKeyEncodingMethod = is_string($data['firewallPreSharedKeyEncodingMethod']) ? FirewallPreSharedKeyEncodingMethodType::tryFrom($data['firewallPreSharedKeyEncodingMethod']) : $data['firewallPreSharedKeyEncodingMethod'];
         }
         if (isset($data['firewallProfileDomain'])) {
             $this->firewallProfileDomain = is_array($data['firewallProfileDomain']) ? new WindowsFirewallNetworkProfile($data['firewallProfileDomain']) : $data['firewallProfileDomain'];

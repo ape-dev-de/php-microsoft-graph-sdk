@@ -5,29 +5,17 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * SynchronizationMetadata
+ * SynchronizationMetadata - Enum
  */
-class SynchronizationMetadata
+enum SynchronizationMetadata: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case GALLERYAPPLICATIONIDENTIFIER = 'GalleryApplicationIdentifier';
+    case GALLERYAPPLICATIONKEY = 'GalleryApplicationKey';
+    case ISOAUTHENABLED = 'IsOAuthEnabled';
+    case ISSYNCHRONIZATIONAGENTASSIGNMENTREQUIRED = 'IsSynchronizationAgentAssignmentRequired';
+    case ISSYNCHRONIZATIONAGENTREQUIRED = 'IsSynchronizationAgentRequired';
+    case ISSYNCHRONIZATIONINPREVIEW = 'IsSynchronizationInPreview';
+    case OAUTHSETTINGS = 'OAuthSettings';
+    case SYNCHRONIZATIONLEARNMOREIBIZAFWLINK = 'SynchronizationLearnMoreIbizaFwLink';
+    case CONFIGURATIONFIELDS = 'ConfigurationFields';
 }

@@ -63,10 +63,10 @@ class SecurityUnifiedGroupSource
             $this->displayName = $data['displayName'];
         }
         if (isset($data['holdStatus'])) {
-            $this->holdStatus = is_array($data['holdStatus']) ? new SecurityDataSourceHoldStatus($data['holdStatus']) : $data['holdStatus'];
+            $this->holdStatus = is_string($data['holdStatus']) ? SecurityDataSourceHoldStatus::tryFrom($data['holdStatus']) : $data['holdStatus'];
         }
         if (isset($data['includedSources'])) {
-            $this->includedSources = is_array($data['includedSources']) ? new SecuritySourceType($data['includedSources']) : $data['includedSources'];
+            $this->includedSources = is_string($data['includedSources']) ? SecuritySourceType::tryFrom($data['includedSources']) : $data['includedSources'];
         }
         if (isset($data['group'])) {
             $this->group = is_array($data['group']) ? new Group($data['group']) : $data['group'];

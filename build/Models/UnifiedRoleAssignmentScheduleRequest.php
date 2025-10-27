@@ -141,7 +141,7 @@ class UnifiedRoleAssignmentScheduleRequest
             $this->status = $data['status'];
         }
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new UnifiedRoleScheduleRequestActions($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? UnifiedRoleScheduleRequestActions::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['appScopeId'])) {
             $this->appScopeId = $data['appScopeId'];

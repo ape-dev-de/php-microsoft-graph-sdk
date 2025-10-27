@@ -30,7 +30,7 @@ class SensitivityLabelAssignment
     {
         $this->rawData = $data;
         if (isset($data['assignmentMethod'])) {
-            $this->assignmentMethod = is_array($data['assignmentMethod']) ? new SensitivityLabelAssignmentMethod($data['assignmentMethod']) : $data['assignmentMethod'];
+            $this->assignmentMethod = is_string($data['assignmentMethod']) ? SensitivityLabelAssignmentMethod::tryFrom($data['assignmentMethod']) : $data['assignmentMethod'];
         }
         if (isset($data['sensitivityLabelId'])) {
             $this->sensitivityLabelId = $data['sensitivityLabelId'];

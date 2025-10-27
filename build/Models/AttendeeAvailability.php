@@ -36,7 +36,7 @@ class AttendeeAvailability
             $this->attendee = is_array($data['attendee']) ? new AttendeeBase($data['attendee']) : $data['attendee'];
         }
         if (isset($data['availability'])) {
-            $this->availability = is_array($data['availability']) ? new FreeBusyStatus($data['availability']) : $data['availability'];
+            $this->availability = is_string($data['availability']) ? FreeBusyStatus::tryFrom($data['availability']) : $data['availability'];
         }
     }
 

@@ -42,7 +42,7 @@ class AttributeMappingParameterSchema
             $this->required = is_bool($data['required']) ? $data['required'] : (bool)$data['required'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new AttributeType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? AttributeType::tryFrom($data['type']) : $data['type'];
         }
     }
 

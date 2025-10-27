@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * VppTokenState
+ * VppTokenState - Enum
+ * Possible states associated with an Apple Volume Purchase Program token.
  */
-class VppTokenState
+enum VppTokenState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case VALID = 'valid';
+    case EXPIRED = 'expired';
+    case INVALID = 'invalid';
+    case ASSIGNEDTOEXTERNALMDM = 'assignedToExternalMDM';
 }

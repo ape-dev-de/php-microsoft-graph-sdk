@@ -33,7 +33,7 @@ class RiskUserActivity
     {
         $this->rawData = $data;
         if (isset($data['detail'])) {
-            $this->detail = is_array($data['detail']) ? new RiskDetail($data['detail']) : $data['detail'];
+            $this->detail = is_string($data['detail']) ? RiskDetail::tryFrom($data['detail']) : $data['detail'];
         }
         if (isset($data['riskEventTypes'])) {
             $this->riskEventTypes = $data['riskEventTypes'];

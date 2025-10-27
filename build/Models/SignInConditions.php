@@ -78,7 +78,7 @@ class SignInConditions
             $this->authenticationFlow = is_array($data['authenticationFlow']) ? new AuthenticationFlow($data['authenticationFlow']) : $data['authenticationFlow'];
         }
         if (isset($data['clientAppType'])) {
-            $this->clientAppType = is_array($data['clientAppType']) ? new ConditionalAccessClientApp($data['clientAppType']) : $data['clientAppType'];
+            $this->clientAppType = is_string($data['clientAppType']) ? ConditionalAccessClientApp::tryFrom($data['clientAppType']) : $data['clientAppType'];
         }
         if (isset($data['country'])) {
             $this->country = $data['country'];
@@ -87,22 +87,22 @@ class SignInConditions
             $this->deviceInfo = is_array($data['deviceInfo']) ? new DeviceInfo($data['deviceInfo']) : $data['deviceInfo'];
         }
         if (isset($data['devicePlatform'])) {
-            $this->devicePlatform = is_array($data['devicePlatform']) ? new ConditionalAccessDevicePlatform($data['devicePlatform']) : $data['devicePlatform'];
+            $this->devicePlatform = is_string($data['devicePlatform']) ? ConditionalAccessDevicePlatform::tryFrom($data['devicePlatform']) : $data['devicePlatform'];
         }
         if (isset($data['insiderRiskLevel'])) {
-            $this->insiderRiskLevel = is_array($data['insiderRiskLevel']) ? new InsiderRiskLevel($data['insiderRiskLevel']) : $data['insiderRiskLevel'];
+            $this->insiderRiskLevel = is_string($data['insiderRiskLevel']) ? InsiderRiskLevel::tryFrom($data['insiderRiskLevel']) : $data['insiderRiskLevel'];
         }
         if (isset($data['ipAddress'])) {
             $this->ipAddress = $data['ipAddress'];
         }
         if (isset($data['servicePrincipalRiskLevel'])) {
-            $this->servicePrincipalRiskLevel = is_array($data['servicePrincipalRiskLevel']) ? new RiskLevel($data['servicePrincipalRiskLevel']) : $data['servicePrincipalRiskLevel'];
+            $this->servicePrincipalRiskLevel = is_string($data['servicePrincipalRiskLevel']) ? RiskLevel::tryFrom($data['servicePrincipalRiskLevel']) : $data['servicePrincipalRiskLevel'];
         }
         if (isset($data['signInRiskLevel'])) {
-            $this->signInRiskLevel = is_array($data['signInRiskLevel']) ? new RiskLevel($data['signInRiskLevel']) : $data['signInRiskLevel'];
+            $this->signInRiskLevel = is_string($data['signInRiskLevel']) ? RiskLevel::tryFrom($data['signInRiskLevel']) : $data['signInRiskLevel'];
         }
         if (isset($data['userRiskLevel'])) {
-            $this->userRiskLevel = is_array($data['userRiskLevel']) ? new RiskLevel($data['userRiskLevel']) : $data['userRiskLevel'];
+            $this->userRiskLevel = is_string($data['userRiskLevel']) ? RiskLevel::tryFrom($data['userRiskLevel']) : $data['userRiskLevel'];
         }
     }
 

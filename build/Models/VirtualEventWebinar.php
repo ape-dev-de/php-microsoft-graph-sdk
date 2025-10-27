@@ -129,7 +129,7 @@ class VirtualEventWebinar
             $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new VirtualEventStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? VirtualEventStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['presenters'])) {
             $this->presenters = $data['presenters'];
@@ -138,7 +138,7 @@ class VirtualEventWebinar
             $this->sessions = $data['sessions'];
         }
         if (isset($data['audience'])) {
-            $this->audience = is_array($data['audience']) ? new MeetingAudience($data['audience']) : $data['audience'];
+            $this->audience = is_string($data['audience']) ? MeetingAudience::tryFrom($data['audience']) : $data['audience'];
         }
         if (isset($data['coOrganizers'])) {
             $this->coOrganizers = $data['coOrganizers'];

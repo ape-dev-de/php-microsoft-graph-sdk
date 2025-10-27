@@ -48,7 +48,7 @@ class DirectoryDefinition
             $this->id = $data['id'];
         }
         if (isset($data['discoverabilities'])) {
-            $this->discoverabilities = is_array($data['discoverabilities']) ? new DirectoryDefinitionDiscoverabilities($data['discoverabilities']) : $data['discoverabilities'];
+            $this->discoverabilities = is_string($data['discoverabilities']) ? DirectoryDefinitionDiscoverabilities::tryFrom($data['discoverabilities']) : $data['discoverabilities'];
         }
         if (isset($data['discoveryDateTime'])) {
             $this->discoveryDateTime = is_string($data['discoveryDateTime']) ? new \DateTimeImmutable($data['discoveryDateTime']) : $data['discoveryDateTime'];

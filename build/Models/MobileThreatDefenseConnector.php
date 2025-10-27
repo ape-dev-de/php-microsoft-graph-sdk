@@ -102,7 +102,7 @@ class MobileThreatDefenseConnector
             $this->microsoftDefenderForEndpointAttachEnabled = is_bool($data['microsoftDefenderForEndpointAttachEnabled']) ? $data['microsoftDefenderForEndpointAttachEnabled'] : (bool)$data['microsoftDefenderForEndpointAttachEnabled'];
         }
         if (isset($data['partnerState'])) {
-            $this->partnerState = is_array($data['partnerState']) ? new MobileThreatPartnerTenantState($data['partnerState']) : $data['partnerState'];
+            $this->partnerState = is_string($data['partnerState']) ? MobileThreatPartnerTenantState::tryFrom($data['partnerState']) : $data['partnerState'];
         }
         if (isset($data['partnerUnresponsivenessThresholdInDays'])) {
             $this->partnerUnresponsivenessThresholdInDays = is_numeric($data['partnerUnresponsivenessThresholdInDays']) ? (float)$data['partnerUnresponsivenessThresholdInDays'] : $data['partnerUnresponsivenessThresholdInDays'];

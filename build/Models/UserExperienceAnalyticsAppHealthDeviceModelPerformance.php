@@ -57,7 +57,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance
             $this->deviceModel = $data['deviceModel'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
+            $this->healthStatus = is_string($data['healthStatus']) ? UserExperienceAnalyticsHealthState::tryFrom($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['meanTimeToFailureInMinutes'])) {
             $this->meanTimeToFailureInMinutes = is_numeric($data['meanTimeToFailureInMinutes']) ? (float)$data['meanTimeToFailureInMinutes'] : $data['meanTimeToFailureInMinutes'];

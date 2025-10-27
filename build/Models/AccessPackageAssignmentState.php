@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * AccessPackageAssignmentState
+ * AccessPackageAssignmentState - Enum
  */
-class AccessPackageAssignmentState
+enum AccessPackageAssignmentState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case DELIVERING = 'delivering';
+    case PARTIALLYDELIVERED = 'partiallyDelivered';
+    case DELIVERED = 'delivered';
+    case EXPIRED = 'expired';
+    case DELIVERYFAILED = 'deliveryFailed';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

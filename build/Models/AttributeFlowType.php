@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * AttributeFlowType
+ * AttributeFlowType - Enum
  */
-class AttributeFlowType
+enum AttributeFlowType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ALWAYS = 'Always';
+    case OBJECTADDONLY = 'ObjectAddOnly';
+    case MULTIVALUEADDONLY = 'MultiValueAddOnly';
+    case VALUEADDONLY = 'ValueAddOnly';
+    case ATTRIBUTEADDONLY = 'AttributeAddOnly';
 }

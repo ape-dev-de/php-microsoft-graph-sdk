@@ -45,7 +45,7 @@ class WorkbookOperation
             $this->resourceLocation = $data['resourceLocation'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new WorkbookOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? WorkbookOperationStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

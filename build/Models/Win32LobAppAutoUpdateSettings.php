@@ -24,7 +24,7 @@ class Win32LobAppAutoUpdateSettings
     {
         $this->rawData = $data;
         if (isset($data['autoUpdateSupersededAppsState'])) {
-            $this->autoUpdateSupersededAppsState = is_array($data['autoUpdateSupersededAppsState']) ? new Win32LobAutoUpdateSupersededAppsState($data['autoUpdateSupersededAppsState']) : $data['autoUpdateSupersededAppsState'];
+            $this->autoUpdateSupersededAppsState = is_string($data['autoUpdateSupersededAppsState']) ? Win32LobAutoUpdateSupersededAppsState::tryFrom($data['autoUpdateSupersededAppsState']) : $data['autoUpdateSupersededAppsState'];
         }
     }
 

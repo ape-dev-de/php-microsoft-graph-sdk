@@ -57,7 +57,7 @@ class AppliedConditionalAccessPolicy
             $this->enforcedSessionControls = $data['enforcedSessionControls'];
         }
         if (isset($data['result'])) {
-            $this->result = is_array($data['result']) ? new AppliedConditionalAccessPolicyResult($data['result']) : $data['result'];
+            $this->result = is_string($data['result']) ? AppliedConditionalAccessPolicyResult::tryFrom($data['result']) : $data['result'];
         }
     }
 

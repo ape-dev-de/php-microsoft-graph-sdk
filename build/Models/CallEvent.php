@@ -39,7 +39,7 @@ class CallEvent
             $this->id = $data['id'];
         }
         if (isset($data['callEventType'])) {
-            $this->callEventType = is_array($data['callEventType']) ? new CallEventType($data['callEventType']) : $data['callEventType'];
+            $this->callEventType = is_string($data['callEventType']) ? CallEventType::tryFrom($data['callEventType']) : $data['callEventType'];
         }
         if (isset($data['eventDateTime'])) {
             $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];

@@ -39,7 +39,7 @@ class TeamworkConversationIdentity
             $this->displayName = $data['displayName'];
         }
         if (isset($data['conversationIdentityType'])) {
-            $this->conversationIdentityType = is_array($data['conversationIdentityType']) ? new TeamworkConversationIdentityType($data['conversationIdentityType']) : $data['conversationIdentityType'];
+            $this->conversationIdentityType = is_string($data['conversationIdentityType']) ? TeamworkConversationIdentityType::tryFrom($data['conversationIdentityType']) : $data['conversationIdentityType'];
         }
     }
 

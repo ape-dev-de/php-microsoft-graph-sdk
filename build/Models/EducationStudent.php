@@ -48,7 +48,7 @@ class EducationStudent
             $this->externalId = $data['externalId'];
         }
         if (isset($data['gender'])) {
-            $this->gender = is_array($data['gender']) ? new EducationGender($data['gender']) : $data['gender'];
+            $this->gender = is_string($data['gender']) ? EducationGender::tryFrom($data['gender']) : $data['gender'];
         }
         if (isset($data['grade'])) {
             $this->grade = $data['grade'];

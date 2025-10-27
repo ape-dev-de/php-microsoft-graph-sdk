@@ -60,7 +60,7 @@ class ObjectMapping
             $this->enabled = is_bool($data['enabled']) ? $data['enabled'] : (bool)$data['enabled'];
         }
         if (isset($data['flowTypes'])) {
-            $this->flowTypes = is_array($data['flowTypes']) ? new ObjectFlowTypes($data['flowTypes']) : $data['flowTypes'];
+            $this->flowTypes = is_string($data['flowTypes']) ? ObjectFlowTypes::tryFrom($data['flowTypes']) : $data['flowTypes'];
         }
         if (isset($data['metadata'])) {
             $this->metadata = $data['metadata'];

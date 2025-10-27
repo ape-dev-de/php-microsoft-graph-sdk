@@ -180,7 +180,7 @@ class WindowsInformationProtection
             $this->dataRecoveryCertificate = is_array($data['dataRecoveryCertificate']) ? new WindowsInformationProtectionDataRecoveryCertificate($data['dataRecoveryCertificate']) : $data['dataRecoveryCertificate'];
         }
         if (isset($data['enforcementLevel'])) {
-            $this->enforcementLevel = is_array($data['enforcementLevel']) ? new WindowsInformationProtectionEnforcementLevel($data['enforcementLevel']) : $data['enforcementLevel'];
+            $this->enforcementLevel = is_string($data['enforcementLevel']) ? WindowsInformationProtectionEnforcementLevel::tryFrom($data['enforcementLevel']) : $data['enforcementLevel'];
         }
         if (isset($data['enterpriseDomain'])) {
             $this->enterpriseDomain = $data['enterpriseDomain'];

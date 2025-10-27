@@ -69,7 +69,7 @@ class AccessPackageSubject
             $this->principalName = $data['principalName'];
         }
         if (isset($data['subjectType'])) {
-            $this->subjectType = is_array($data['subjectType']) ? new AccessPackageSubjectType($data['subjectType']) : $data['subjectType'];
+            $this->subjectType = is_string($data['subjectType']) ? AccessPackageSubjectType::tryFrom($data['subjectType']) : $data['subjectType'];
         }
         if (isset($data['connectedOrganization'])) {
             $this->connectedOrganization = is_array($data['connectedOrganization']) ? new ConnectedOrganization($data['connectedOrganization']) : $data['connectedOrganization'];

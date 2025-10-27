@@ -171,7 +171,7 @@ class Call
             $this->chatInfo = is_array($data['chatInfo']) ? new ChatInfo($data['chatInfo']) : $data['chatInfo'];
         }
         if (isset($data['direction'])) {
-            $this->direction = is_array($data['direction']) ? new CallDirection($data['direction']) : $data['direction'];
+            $this->direction = is_string($data['direction']) ? CallDirection::tryFrom($data['direction']) : $data['direction'];
         }
         if (isset($data['incomingContext'])) {
             $this->incomingContext = is_array($data['incomingContext']) ? new IncomingContext($data['incomingContext']) : $data['incomingContext'];
@@ -198,7 +198,7 @@ class Call
             $this->source = is_array($data['source']) ? new ParticipantInfo($data['source']) : $data['source'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new CallState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? CallState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

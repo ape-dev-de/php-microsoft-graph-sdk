@@ -39,7 +39,7 @@ class ImportedWindowsAutopilotDeviceIdentityState
             $this->deviceErrorName = $data['deviceErrorName'];
         }
         if (isset($data['deviceImportStatus'])) {
-            $this->deviceImportStatus = is_array($data['deviceImportStatus']) ? new ImportedWindowsAutopilotDeviceIdentityImportStatus($data['deviceImportStatus']) : $data['deviceImportStatus'];
+            $this->deviceImportStatus = is_string($data['deviceImportStatus']) ? ImportedWindowsAutopilotDeviceIdentityImportStatus::tryFrom($data['deviceImportStatus']) : $data['deviceImportStatus'];
         }
         if (isset($data['deviceRegistrationId'])) {
             $this->deviceRegistrationId = $data['deviceRegistrationId'];

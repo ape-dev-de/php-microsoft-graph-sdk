@@ -30,7 +30,7 @@ class ResponseStatus
     {
         $this->rawData = $data;
         if (isset($data['response'])) {
-            $this->response = is_array($data['response']) ? new ResponseType($data['response']) : $data['response'];
+            $this->response = is_string($data['response']) ? ResponseType::tryFrom($data['response']) : $data['response'];
         }
         if (isset($data['time'])) {
             $this->time = is_string($data['time']) ? new \DateTimeImmutable($data['time']) : $data['time'];

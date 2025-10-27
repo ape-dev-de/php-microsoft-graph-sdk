@@ -93,7 +93,7 @@ class Training
             $this->id = $data['id'];
         }
         if (isset($data['availabilityStatus'])) {
-            $this->availabilityStatus = is_array($data['availabilityStatus']) ? new TrainingAvailabilityStatus($data['availabilityStatus']) : $data['availabilityStatus'];
+            $this->availabilityStatus = is_string($data['availabilityStatus']) ? TrainingAvailabilityStatus::tryFrom($data['availabilityStatus']) : $data['availabilityStatus'];
         }
         if (isset($data['createdBy'])) {
             $this->createdBy = is_array($data['createdBy']) ? new EmailIdentity($data['createdBy']) : $data['createdBy'];
@@ -120,7 +120,7 @@ class Training
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['source'])) {
-            $this->source = is_array($data['source']) ? new SimulationContentSource($data['source']) : $data['source'];
+            $this->source = is_string($data['source']) ? SimulationContentSource::tryFrom($data['source']) : $data['source'];
         }
         if (isset($data['supportedLocales'])) {
             $this->supportedLocales = $data['supportedLocales'];
@@ -129,7 +129,7 @@ class Training
             $this->tags = $data['tags'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new TrainingType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? TrainingType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['languageDetails'])) {
             $this->languageDetails = $data['languageDetails'];

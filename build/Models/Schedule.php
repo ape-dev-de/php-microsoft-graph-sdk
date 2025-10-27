@@ -156,13 +156,13 @@ class Schedule
             $this->openShiftsEnabled = is_bool($data['openShiftsEnabled']) ? $data['openShiftsEnabled'] : (bool)$data['openShiftsEnabled'];
         }
         if (isset($data['provisionStatus'])) {
-            $this->provisionStatus = is_array($data['provisionStatus']) ? new OperationStatus($data['provisionStatus']) : $data['provisionStatus'];
+            $this->provisionStatus = is_string($data['provisionStatus']) ? OperationStatus::tryFrom($data['provisionStatus']) : $data['provisionStatus'];
         }
         if (isset($data['provisionStatusCode'])) {
             $this->provisionStatusCode = $data['provisionStatusCode'];
         }
         if (isset($data['startDayOfWeek'])) {
-            $this->startDayOfWeek = is_array($data['startDayOfWeek']) ? new DayOfWeek($data['startDayOfWeek']) : $data['startDayOfWeek'];
+            $this->startDayOfWeek = is_string($data['startDayOfWeek']) ? DayOfWeek::tryFrom($data['startDayOfWeek']) : $data['startDayOfWeek'];
         }
         if (isset($data['swapShiftsRequestsEnabled'])) {
             $this->swapShiftsRequestsEnabled = is_bool($data['swapShiftsRequestsEnabled']) ? $data['swapShiftsRequestsEnabled'] : (bool)$data['swapShiftsRequestsEnabled'];

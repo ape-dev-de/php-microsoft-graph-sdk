@@ -219,7 +219,7 @@ class EducationUser
             $this->displayName = $data['displayName'];
         }
         if (isset($data['externalSource'])) {
-            $this->externalSource = is_array($data['externalSource']) ? new EducationExternalSource($data['externalSource']) : $data['externalSource'];
+            $this->externalSource = is_string($data['externalSource']) ? EducationExternalSource::tryFrom($data['externalSource']) : $data['externalSource'];
         }
         if (isset($data['externalSourceDetail'])) {
             $this->externalSourceDetail = $data['externalSourceDetail'];
@@ -258,7 +258,7 @@ class EducationUser
             $this->preferredLanguage = $data['preferredLanguage'];
         }
         if (isset($data['primaryRole'])) {
-            $this->primaryRole = is_array($data['primaryRole']) ? new EducationUserRole($data['primaryRole']) : $data['primaryRole'];
+            $this->primaryRole = is_string($data['primaryRole']) ? EducationUserRole::tryFrom($data['primaryRole']) : $data['primaryRole'];
         }
         if (isset($data['provisionedPlans'])) {
             $this->provisionedPlans = $data['provisionedPlans'];

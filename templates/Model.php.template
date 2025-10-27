@@ -102,6 +102,8 @@ foreach ($sortedProperties as $propName => $propDef):
         if (isset($data['<?= $propName ?>'])) {
 <?php if ($isDateTime): ?>
             $this-><?= $phpPropName ?> = is_string($data['<?= $propName ?>']) ? new \DateTimeImmutable($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
+<?php elseif ($propDef['isEnum'] ?? false): ?>
+            $this-><?= $phpPropName ?> = is_string($data['<?= $propName ?>']) ? <?= $cleanType ?>::tryFrom($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
 <?php elseif ($isComplexType): ?>
             $this-><?= $phpPropName ?> = is_array($data['<?= $propName ?>']) ? new <?= $cleanType ?>($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
 <?php elseif ($isFloat): ?>

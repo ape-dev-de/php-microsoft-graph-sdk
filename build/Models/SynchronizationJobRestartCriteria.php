@@ -27,7 +27,7 @@ class SynchronizationJobRestartCriteria
     {
         $this->rawData = $data;
         if (isset($data['resetScope'])) {
-            $this->resetScope = is_array($data['resetScope']) ? new SynchronizationJobRestartScope($data['resetScope']) : $data['resetScope'];
+            $this->resetScope = is_string($data['resetScope']) ? SynchronizationJobRestartScope::tryFrom($data['resetScope']) : $data['resetScope'];
         }
     }
 

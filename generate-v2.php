@@ -50,6 +50,11 @@ $output->writeln('<info>Parsing OpenAPI schemas...</info>');
 $schemas = parseSchemas($output);
 $output->writeln("<info>✓ Found " . count($schemas) . " schemas</info>");
 
+// Step 3.5: Build enum registry
+$output->writeln('<info>Building enum registry...</info>');
+$GLOBALS['enumRegistry'] = buildEnumRegistry($schemas);
+$output->writeln("<info>✓ Found " . count($GLOBALS['enumRegistry']) . " enums</info>");
+
 
 $output->writeln('<info>Analyzing and chunking API paths...</info>');
 $namespaceCount = analyzeAndChunkOpenApi($output);
@@ -1423,6 +1428,17 @@ function normalizeSchemaStructure(array $schemaData): array
 {
     $schema = ['properties' => []];
     
+    // Preserve enum and type for enum detection
+    if (isset($schemaData['enum'])) {
+        $schema['enum'] = $schemaData['enum'];
+    }
+    if (isset($schemaData['type'])) {
+        $schema['type'] = $schemaData['type'];
+    }
+    if (isset($schemaData['description'])) {
+        $schema['description'] = $schemaData['description'];
+    }
+    
     // Handle allOf (inheritance pattern)
     if (isset($schemaData['allOf']) && is_array($schemaData['allOf'])) {
         $schema['allOf'] = [];
@@ -1458,6 +1474,22 @@ function normalizeSchemaStructure(array $schemaData): array
 }
 
 /**
+ * Build a registry of enum schema names for quick lookup
+ */
+function buildEnumRegistry(array $schemas): array
+{
+    $enumRegistry = [];
+    foreach ($schemas as $schemaName => $schemaData) {
+        if (isset($schemaData['enum']) && is_array($schemaData['enum']) && ($schemaData['type'] ?? null) === 'string') {
+            $modelName = normalizeModelName($schemaName);
+            $escapedModelName = escapeReservedKeyword($modelName);
+            $enumRegistry[$escapedModelName] = true;
+        }
+    }
+    return $enumRegistry;
+}
+
+/**
  * Generate individual models from schemas
  * Uses exact schema names - no namespace organization needed
  */
@@ -1465,6 +1497,7 @@ function generateIndividualModels(array $schemas, $output): void
 {
     $modelsDir = BUILD_DIR . '/Models';
     $generated = 0;
+    $enumsGenerated = 0;
     
     foreach ($schemas as $schemaName => $schemaData) {
         $modelName = normalizeModelName($schemaName);
@@ -1473,6 +1506,15 @@ function generateIndividualModels(array $schemas, $output): void
         $escapedModelName = escapeReservedKeyword($modelName);
         $filePath = $modelsDir . "/{$escapedModelName}.php";
         if (file_exists($filePath)) {
+            continue;
+        }
+        
+        // Check if this is an enum (has 'enum' property with string type)
+        if (isset($schemaData['enum']) && is_array($schemaData['enum']) && ($schemaData['type'] ?? null) === 'string') {
+            $code = generateEnumCode($modelName, $schemaData['enum'], $schemaData['description'] ?? '');
+            file_put_contents($filePath, $code);
+            $enumsGenerated++;
+            $generated++;
             continue;
         }
         
@@ -1532,7 +1574,7 @@ function generateIndividualModels(array $schemas, $output): void
         }
     }
     
-    $output->writeln("<info>✓ Generated {$generated} individual models</info>");
+    $output->writeln("<info>✓ Generated {$generated} individual models ({$enumsGenerated} enums)</info>");
 }
 
 /**
@@ -1666,6 +1708,21 @@ function determineModelNamespace(string $schemaName): string
 }
 
 /**
+ * Generate enum code
+ */
+function generateEnumCode(string $enumName, array $enumValues, string $description = ''): string
+{
+    // Escape reserved keywords
+    $escapedEnumName = escapeReservedKeyword($enumName);
+    
+    return renderTemplate('Enum.php.template', [
+        'ENUM_NAME' => $escapedEnumName,
+        'ENUM_VALUES' => $enumValues,
+        'DESCRIPTION' => $description
+    ]);
+}
+
+/**
  * Generate model code
  */
 function generateModelCode(string $modelName, array $properties): string
@@ -1685,7 +1742,8 @@ function generateModelCode(string $modelName, array $properties): string
             'type' => mapPropertyType($propDef),
             'description' => $propDef['description'] ?? '',
             'items' => $propDef['items'] ?? null,
-            'itemType' => resolveArrayItemType($propDef) // Resolve the item type for arrays
+            'itemType' => resolveArrayItemType($propDef), // Resolve the item type for arrays
+            'isEnum' => isEnumType($propDef) // Check if this is an enum type
         ];
     }
     
@@ -1883,6 +1941,42 @@ function resolveArrayItemType(array $propDef): ?string
     }
     
     return 'mixed';
+}
+
+/**
+ * Check if a property definition references an enum type
+ */
+function isEnumType(array $propDef): bool
+{
+    $enumRegistry = $GLOBALS['enumRegistry'] ?? [];
+    
+    // Check direct $ref
+    if (isset($propDef['$ref'])) {
+        $className = resolveSchemaReference($propDef['$ref']);
+        if ($className) {
+            $escapedClassName = escapeReservedKeyword($className);
+            if (isset($enumRegistry[$escapedClassName])) {
+                return true;
+            }
+        }
+    }
+    
+    // Check anyOf for enum references
+    if (isset($propDef['anyOf']) && is_array($propDef['anyOf'])) {
+        foreach ($propDef['anyOf'] as $option) {
+            if (isset($option['$ref'])) {
+                $className = resolveSchemaReference($option['$ref']);
+                if ($className) {
+                    $escapedClassName = escapeReservedKeyword($className);
+                    if (isset($enumRegistry[$escapedClassName])) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    
+    return false;
 }
 
 // Duplicate functions removed - using versions defined earlier in the file

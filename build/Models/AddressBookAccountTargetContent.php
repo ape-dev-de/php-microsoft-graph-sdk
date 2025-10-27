@@ -33,7 +33,7 @@ class AddressBookAccountTargetContent
     {
         $this->rawData = $data;
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new AccountTargetContentType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? AccountTargetContentType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['accountTargetEmails'])) {
             $this->accountTargetEmails = $data['accountTargetEmails'];

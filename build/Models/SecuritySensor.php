@@ -63,7 +63,7 @@ class SecuritySensor
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['deploymentStatus'])) {
-            $this->deploymentStatus = is_array($data['deploymentStatus']) ? new SecurityDeploymentStatus($data['deploymentStatus']) : $data['deploymentStatus'];
+            $this->deploymentStatus = is_string($data['deploymentStatus']) ? SecurityDeploymentStatus::tryFrom($data['deploymentStatus']) : $data['deploymentStatus'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -72,13 +72,13 @@ class SecuritySensor
             $this->domainName = $data['domainName'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = is_array($data['healthStatus']) ? new SecuritySensorHealthStatus($data['healthStatus']) : $data['healthStatus'];
+            $this->healthStatus = is_string($data['healthStatus']) ? SecuritySensorHealthStatus::tryFrom($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['openHealthIssuesCount'])) {
             $this->openHealthIssuesCount = is_numeric($data['openHealthIssuesCount']) ? (float)$data['openHealthIssuesCount'] : $data['openHealthIssuesCount'];
         }
         if (isset($data['sensorType'])) {
-            $this->sensorType = is_array($data['sensorType']) ? new SecuritySensorType($data['sensorType']) : $data['sensorType'];
+            $this->sensorType = is_string($data['sensorType']) ? SecuritySensorType::tryFrom($data['sensorType']) : $data['sensorType'];
         }
         if (isset($data['settings'])) {
             $this->settings = is_array($data['settings']) ? new SecuritySensorSettings($data['settings']) : $data['settings'];

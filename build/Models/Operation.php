@@ -45,7 +45,7 @@ class Operation
             $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new OperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? OperationStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

@@ -60,7 +60,7 @@ class ScheduleItem
             $this->start = is_array($data['start']) ? new DateTimeTimeZone($data['start']) : $data['start'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new FreeBusyStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? FreeBusyStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

@@ -42,7 +42,7 @@ class SecurityEventPropagationResult
             $this->serviceName = $data['serviceName'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityEventPropagationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityEventPropagationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['statusInformation'])) {
             $this->statusInformation = $data['statusInformation'];

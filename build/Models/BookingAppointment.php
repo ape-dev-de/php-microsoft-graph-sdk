@@ -204,7 +204,7 @@ class BookingAppointment
             $this->price = is_numeric($data['price']) ? (float)$data['price'] : $data['price'];
         }
         if (isset($data['priceType'])) {
-            $this->priceType = is_array($data['priceType']) ? new BookingPriceType($data['priceType']) : $data['priceType'];
+            $this->priceType = is_string($data['priceType']) ? BookingPriceType::tryFrom($data['priceType']) : $data['priceType'];
         }
         if (isset($data['reminders'])) {
             $this->reminders = $data['reminders'];

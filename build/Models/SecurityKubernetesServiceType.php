@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * SecurityKubernetesServiceType
+ * SecurityKubernetesServiceType - Enum
  */
-class SecurityKubernetesServiceType
+enum SecurityKubernetesServiceType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case CLUSTERIP = 'clusterIP';
+    case EXTERNALNAME = 'externalName';
+    case NODEPORT = 'nodePort';
+    case LOADBALANCER = 'loadBalancer';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

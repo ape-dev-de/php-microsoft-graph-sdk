@@ -51,7 +51,7 @@ class TermStoreRelation
             $this->id = $data['id'];
         }
         if (isset($data['relationship'])) {
-            $this->relationship = is_array($data['relationship']) ? new TermStoreRelationType($data['relationship']) : $data['relationship'];
+            $this->relationship = is_string($data['relationship']) ? TermStoreRelationType::tryFrom($data['relationship']) : $data['relationship'];
         }
         if (isset($data['fromTerm'])) {
             $this->fromTerm = is_array($data['fromTerm']) ? new TermStoreTerm($data['fromTerm']) : $data['fromTerm'];

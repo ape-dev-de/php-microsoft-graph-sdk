@@ -30,7 +30,7 @@ class IdentityGovernanceTimeBasedAttributeTrigger
             $this->offsetInDays = is_numeric($data['offsetInDays']) ? (float)$data['offsetInDays'] : $data['offsetInDays'];
         }
         if (isset($data['timeBasedAttribute'])) {
-            $this->timeBasedAttribute = is_array($data['timeBasedAttribute']) ? new IdentityGovernanceWorkflowTriggerTimeBasedAttribute($data['timeBasedAttribute']) : $data['timeBasedAttribute'];
+            $this->timeBasedAttribute = is_string($data['timeBasedAttribute']) ? IdentityGovernanceWorkflowTriggerTimeBasedAttribute::tryFrom($data['timeBasedAttribute']) : $data['timeBasedAttribute'];
         }
     }
 

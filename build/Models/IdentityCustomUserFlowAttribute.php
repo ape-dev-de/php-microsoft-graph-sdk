@@ -39,7 +39,7 @@ class IdentityCustomUserFlowAttribute
             $this->id = $data['id'];
         }
         if (isset($data['dataType'])) {
-            $this->dataType = is_array($data['dataType']) ? new IdentityUserFlowAttributeDataType($data['dataType']) : $data['dataType'];
+            $this->dataType = is_string($data['dataType']) ? IdentityUserFlowAttributeDataType::tryFrom($data['dataType']) : $data['dataType'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -48,7 +48,7 @@ class IdentityCustomUserFlowAttribute
             $this->displayName = $data['displayName'];
         }
         if (isset($data['userFlowAttributeType'])) {
-            $this->userFlowAttributeType = is_array($data['userFlowAttributeType']) ? new IdentityUserFlowAttributeType($data['userFlowAttributeType']) : $data['userFlowAttributeType'];
+            $this->userFlowAttributeType = is_string($data['userFlowAttributeType']) ? IdentityUserFlowAttributeType::tryFrom($data['userFlowAttributeType']) : $data['userFlowAttributeType'];
         }
     }
 

@@ -96,7 +96,7 @@ class SecurityEdiscoveryExportOperation
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new SecurityCaseAction($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? SecurityCaseAction::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
@@ -114,7 +114,7 @@ class SecurityEdiscoveryExportOperation
             $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityCaseOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -123,10 +123,10 @@ class SecurityEdiscoveryExportOperation
             $this->exportFileMetadata = $data['exportFileMetadata'];
         }
         if (isset($data['exportOptions'])) {
-            $this->exportOptions = is_array($data['exportOptions']) ? new SecurityExportOptions($data['exportOptions']) : $data['exportOptions'];
+            $this->exportOptions = is_string($data['exportOptions']) ? SecurityExportOptions::tryFrom($data['exportOptions']) : $data['exportOptions'];
         }
         if (isset($data['exportStructure'])) {
-            $this->exportStructure = is_array($data['exportStructure']) ? new SecurityExportFileStructure($data['exportStructure']) : $data['exportStructure'];
+            $this->exportStructure = is_string($data['exportStructure']) ? SecurityExportFileStructure::tryFrom($data['exportStructure']) : $data['exportStructure'];
         }
         if (isset($data['outputName'])) {
             $this->outputName = $data['outputName'];

@@ -69,7 +69,7 @@ class IdentityGovernanceTopWorkflowsInsightsSummary
             $this->totalUsers = is_numeric($data['totalUsers']) ? (float)$data['totalUsers'] : $data['totalUsers'];
         }
         if (isset($data['workflowCategory'])) {
-            $this->workflowCategory = is_array($data['workflowCategory']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['workflowCategory']) : $data['workflowCategory'];
+            $this->workflowCategory = is_string($data['workflowCategory']) ? IdentityGovernanceLifecycleWorkflowCategory::tryFrom($data['workflowCategory']) : $data['workflowCategory'];
         }
         if (isset($data['workflowDisplayName'])) {
             $this->workflowDisplayName = $data['workflowDisplayName'];

@@ -48,13 +48,13 @@ class Win32LobAppAssignmentSettings
             $this->autoUpdateSettings = is_array($data['autoUpdateSettings']) ? new Win32LobAppAutoUpdateSettings($data['autoUpdateSettings']) : $data['autoUpdateSettings'];
         }
         if (isset($data['deliveryOptimizationPriority'])) {
-            $this->deliveryOptimizationPriority = is_array($data['deliveryOptimizationPriority']) ? new Win32LobAppDeliveryOptimizationPriority($data['deliveryOptimizationPriority']) : $data['deliveryOptimizationPriority'];
+            $this->deliveryOptimizationPriority = is_string($data['deliveryOptimizationPriority']) ? Win32LobAppDeliveryOptimizationPriority::tryFrom($data['deliveryOptimizationPriority']) : $data['deliveryOptimizationPriority'];
         }
         if (isset($data['installTimeSettings'])) {
             $this->installTimeSettings = is_array($data['installTimeSettings']) ? new MobileAppInstallTimeSettings($data['installTimeSettings']) : $data['installTimeSettings'];
         }
         if (isset($data['notifications'])) {
-            $this->notifications = is_array($data['notifications']) ? new Win32LobAppNotification($data['notifications']) : $data['notifications'];
+            $this->notifications = is_string($data['notifications']) ? Win32LobAppNotification::tryFrom($data['notifications']) : $data['notifications'];
         }
         if (isset($data['restartSettings'])) {
             $this->restartSettings = is_array($data['restartSettings']) ? new Win32LobAppRestartSettings($data['restartSettings']) : $data['restartSettings'];

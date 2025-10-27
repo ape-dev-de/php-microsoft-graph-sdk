@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DeviceComplianceActionType
+ * DeviceComplianceActionType - Enum
+ * Scheduled Action Type Enum
  */
-class DeviceComplianceActionType
+enum DeviceComplianceActionType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NOACTION = 'noAction';
+    case NOTIFICATION = 'notification';
+    case BLOCK = 'block';
+    case RETIRE = 'retire';
+    case WIPE = 'wipe';
+    case REMOVERESOURCEACCESSPROFILES = 'removeResourceAccessProfiles';
+    case PUSHNOTIFICATION = 'pushNotification';
 }

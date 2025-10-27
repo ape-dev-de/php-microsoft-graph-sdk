@@ -5,29 +5,19 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * UserExperienceAnalyticsOperatingSystemRestartCategory
+ * UserExperienceAnalyticsOperatingSystemRestartCategory - Enum
+ * Operating System restart category.
  */
-class UserExperienceAnalyticsOperatingSystemRestartCategory
+enum UserExperienceAnalyticsOperatingSystemRestartCategory: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case RESTARTWITHUPDATE = 'restartWithUpdate';
+    case RESTARTWITHOUTUPDATE = 'restartWithoutUpdate';
+    case BLUESCREEN = 'blueScreen';
+    case SHUTDOWNWITHUPDATE = 'shutdownWithUpdate';
+    case SHUTDOWNWITHOUTUPDATE = 'shutdownWithoutUpdate';
+    case LONGPOWERBUTTONPRESS = 'longPowerButtonPress';
+    case BOOTERROR = 'bootError';
+    case UPDATE = 'update';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

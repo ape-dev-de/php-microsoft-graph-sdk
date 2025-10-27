@@ -120,7 +120,7 @@ class CopyNotebookModel
             $this->self = $data['self'];
         }
         if (isset($data['userRole'])) {
-            $this->userRole = is_array($data['userRole']) ? new OnenoteUserRole($data['userRole']) : $data['userRole'];
+            $this->userRole = is_string($data['userRole']) ? OnenoteUserRole::tryFrom($data['userRole']) : $data['userRole'];
         }
     }
 

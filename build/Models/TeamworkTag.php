@@ -60,7 +60,7 @@ class TeamworkTag
             $this->memberCount = is_numeric($data['memberCount']) ? (float)$data['memberCount'] : $data['memberCount'];
         }
         if (isset($data['tagType'])) {
-            $this->tagType = is_array($data['tagType']) ? new TeamworkTagType($data['tagType']) : $data['tagType'];
+            $this->tagType = is_string($data['tagType']) ? TeamworkTagType::tryFrom($data['tagType']) : $data['tagType'];
         }
         if (isset($data['teamId'])) {
             $this->teamId = $data['teamId'];

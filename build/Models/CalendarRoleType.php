@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CalendarRoleType
+ * CalendarRoleType - Enum
  */
-class CalendarRoleType
+enum CalendarRoleType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case FREEBUSYREAD = 'freeBusyRead';
+    case LIMITEDREAD = 'limitedRead';
+    case READ = 'read';
+    case WRITE = 'write';
+    case DELEGATEWITHOUTPRIVATEEVENTACCESS = 'delegateWithoutPrivateEventAccess';
+    case DELEGATEWITHPRIVATEEVENTACCESS = 'delegateWithPrivateEventAccess';
+    case CUSTOM = 'custom';
 }

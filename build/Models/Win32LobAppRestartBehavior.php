@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Win32LobAppRestartBehavior
+ * Win32LobAppRestartBehavior - Enum
+ * Indicates the type of restart action.
  */
-class Win32LobAppRestartBehavior
+enum Win32LobAppRestartBehavior: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case BASEDONRETURNCODE = 'basedOnReturnCode';
+    case ALLOW = 'allow';
+    case SUPPRESS = 'suppress';
+    case FORCE = 'force';
 }

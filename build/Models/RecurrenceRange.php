@@ -51,7 +51,7 @@ class RecurrenceRange
             $this->startDate = is_string($data['startDate']) ? new \DateTimeImmutable($data['startDate']) : $data['startDate'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new RecurrenceRangeType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? RecurrenceRangeType::tryFrom($data['type']) : $data['type'];
         }
     }
 

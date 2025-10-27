@@ -5,29 +5,15 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * ObjectMappingMetadata
+ * ObjectMappingMetadata - Enum
  */
-class ObjectMappingMetadata
+enum ObjectMappingMetadata: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ESCROWBEHAVIOR = 'EscrowBehavior';
+    case DISABLEMONITORINGFORCHANGES = 'DisableMonitoringForChanges';
+    case ORIGINALJOININGPROPERTY = 'OriginalJoiningProperty';
+    case DISPOSITION = 'Disposition';
+    case ISCUSTOMERDEFINED = 'IsCustomerDefined';
+    case EXCLUDEFROMREPORTING = 'ExcludeFromReporting';
+    case UNSYNCHRONIZED = 'Unsynchronized';
 }

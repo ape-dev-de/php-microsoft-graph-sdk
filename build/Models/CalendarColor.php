@@ -5,29 +5,19 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CalendarColor
+ * CalendarColor - Enum
  */
-class CalendarColor
+enum CalendarColor: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case AUTO = 'auto';
+    case LIGHTBLUE = 'lightBlue';
+    case LIGHTGREEN = 'lightGreen';
+    case LIGHTORANGE = 'lightOrange';
+    case LIGHTGRAY = 'lightGray';
+    case LIGHTYELLOW = 'lightYellow';
+    case LIGHTTEAL = 'lightTeal';
+    case LIGHTPINK = 'lightPink';
+    case LIGHTBROWN = 'lightBrown';
+    case LIGHTRED = 'lightRed';
+    case MAXCOLOR = 'maxColor';
 }

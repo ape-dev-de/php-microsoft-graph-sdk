@@ -69,7 +69,7 @@ class AccessReviewHistoryInstance
             $this->runDateTime = is_string($data['runDateTime']) ? new \DateTimeImmutable($data['runDateTime']) : $data['runDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new AccessReviewHistoryStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? AccessReviewHistoryStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

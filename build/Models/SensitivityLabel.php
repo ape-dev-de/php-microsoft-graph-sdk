@@ -75,7 +75,7 @@ class SensitivityLabel
             $this->id = $data['id'];
         }
         if (isset($data['actionSource'])) {
-            $this->actionSource = is_array($data['actionSource']) ? new LabelActionSource($data['actionSource']) : $data['actionSource'];
+            $this->actionSource = is_string($data['actionSource']) ? LabelActionSource::tryFrom($data['actionSource']) : $data['actionSource'];
         }
         if (isset($data['autoTooltip'])) {
             $this->autoTooltip = $data['autoTooltip'];

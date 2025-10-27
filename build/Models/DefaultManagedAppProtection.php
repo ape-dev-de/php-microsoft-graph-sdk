@@ -189,13 +189,13 @@ class DefaultManagedAppProtection
             $this->allowedDataStorageLocations = $data['allowedDataStorageLocations'];
         }
         if (isset($data['allowedInboundDataTransferSources'])) {
-            $this->allowedInboundDataTransferSources = is_array($data['allowedInboundDataTransferSources']) ? new ManagedAppDataTransferLevel($data['allowedInboundDataTransferSources']) : $data['allowedInboundDataTransferSources'];
+            $this->allowedInboundDataTransferSources = is_string($data['allowedInboundDataTransferSources']) ? ManagedAppDataTransferLevel::tryFrom($data['allowedInboundDataTransferSources']) : $data['allowedInboundDataTransferSources'];
         }
         if (isset($data['allowedOutboundClipboardSharingLevel'])) {
-            $this->allowedOutboundClipboardSharingLevel = is_array($data['allowedOutboundClipboardSharingLevel']) ? new ManagedAppClipboardSharingLevel($data['allowedOutboundClipboardSharingLevel']) : $data['allowedOutboundClipboardSharingLevel'];
+            $this->allowedOutboundClipboardSharingLevel = is_string($data['allowedOutboundClipboardSharingLevel']) ? ManagedAppClipboardSharingLevel::tryFrom($data['allowedOutboundClipboardSharingLevel']) : $data['allowedOutboundClipboardSharingLevel'];
         }
         if (isset($data['allowedOutboundDataTransferDestinations'])) {
-            $this->allowedOutboundDataTransferDestinations = is_array($data['allowedOutboundDataTransferDestinations']) ? new ManagedAppDataTransferLevel($data['allowedOutboundDataTransferDestinations']) : $data['allowedOutboundDataTransferDestinations'];
+            $this->allowedOutboundDataTransferDestinations = is_string($data['allowedOutboundDataTransferDestinations']) ? ManagedAppDataTransferLevel::tryFrom($data['allowedOutboundDataTransferDestinations']) : $data['allowedOutboundDataTransferDestinations'];
         }
         if (isset($data['contactSyncBlocked'])) {
             $this->contactSyncBlocked = is_bool($data['contactSyncBlocked']) ? $data['contactSyncBlocked'] : (bool)$data['contactSyncBlocked'];
@@ -213,7 +213,7 @@ class DefaultManagedAppProtection
             $this->fingerprintBlocked = is_bool($data['fingerprintBlocked']) ? $data['fingerprintBlocked'] : (bool)$data['fingerprintBlocked'];
         }
         if (isset($data['managedBrowser'])) {
-            $this->managedBrowser = is_array($data['managedBrowser']) ? new ManagedBrowserType($data['managedBrowser']) : $data['managedBrowser'];
+            $this->managedBrowser = is_string($data['managedBrowser']) ? ManagedBrowserType::tryFrom($data['managedBrowser']) : $data['managedBrowser'];
         }
         if (isset($data['managedBrowserToOpenLinksRequired'])) {
             $this->managedBrowserToOpenLinksRequired = is_bool($data['managedBrowserToOpenLinksRequired']) ? $data['managedBrowserToOpenLinksRequired'] : (bool)$data['managedBrowserToOpenLinksRequired'];
@@ -252,7 +252,7 @@ class DefaultManagedAppProtection
             $this->periodOnlineBeforeAccessCheck = $data['periodOnlineBeforeAccessCheck'];
         }
         if (isset($data['pinCharacterSet'])) {
-            $this->pinCharacterSet = is_array($data['pinCharacterSet']) ? new ManagedAppPinCharacterSet($data['pinCharacterSet']) : $data['pinCharacterSet'];
+            $this->pinCharacterSet = is_string($data['pinCharacterSet']) ? ManagedAppPinCharacterSet::tryFrom($data['pinCharacterSet']) : $data['pinCharacterSet'];
         }
         if (isset($data['pinRequired'])) {
             $this->pinRequired = is_bool($data['pinRequired']) ? $data['pinRequired'] : (bool)$data['pinRequired'];
@@ -267,7 +267,7 @@ class DefaultManagedAppProtection
             $this->simplePinBlocked = is_bool($data['simplePinBlocked']) ? $data['simplePinBlocked'] : (bool)$data['simplePinBlocked'];
         }
         if (isset($data['appDataEncryptionType'])) {
-            $this->appDataEncryptionType = is_array($data['appDataEncryptionType']) ? new ManagedAppDataEncryptionType($data['appDataEncryptionType']) : $data['appDataEncryptionType'];
+            $this->appDataEncryptionType = is_string($data['appDataEncryptionType']) ? ManagedAppDataEncryptionType::tryFrom($data['appDataEncryptionType']) : $data['appDataEncryptionType'];
         }
         if (isset($data['customSettings'])) {
             $this->customSettings = $data['customSettings'];

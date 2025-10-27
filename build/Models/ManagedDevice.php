@@ -249,7 +249,7 @@ class ManagedDevice
             $this->complianceGracePeriodExpirationDateTime = is_string($data['complianceGracePeriodExpirationDateTime']) ? new \DateTimeImmutable($data['complianceGracePeriodExpirationDateTime']) : $data['complianceGracePeriodExpirationDateTime'];
         }
         if (isset($data['complianceState'])) {
-            $this->complianceState = is_array($data['complianceState']) ? new ComplianceState($data['complianceState']) : $data['complianceState'];
+            $this->complianceState = is_string($data['complianceState']) ? ComplianceState::tryFrom($data['complianceState']) : $data['complianceState'];
         }
         if (isset($data['configurationManagerClientEnabledFeatures'])) {
             $this->configurationManagerClientEnabledFeatures = is_array($data['configurationManagerClientEnabledFeatures']) ? new ConfigurationManagerClientEnabledFeatures($data['configurationManagerClientEnabledFeatures']) : $data['configurationManagerClientEnabledFeatures'];
@@ -261,7 +261,7 @@ class ManagedDevice
             $this->deviceCategoryDisplayName = $data['deviceCategoryDisplayName'];
         }
         if (isset($data['deviceEnrollmentType'])) {
-            $this->deviceEnrollmentType = is_array($data['deviceEnrollmentType']) ? new DeviceEnrollmentType($data['deviceEnrollmentType']) : $data['deviceEnrollmentType'];
+            $this->deviceEnrollmentType = is_string($data['deviceEnrollmentType']) ? DeviceEnrollmentType::tryFrom($data['deviceEnrollmentType']) : $data['deviceEnrollmentType'];
         }
         if (isset($data['deviceHealthAttestationState'])) {
             $this->deviceHealthAttestationState = is_array($data['deviceHealthAttestationState']) ? new DeviceHealthAttestationState($data['deviceHealthAttestationState']) : $data['deviceHealthAttestationState'];
@@ -270,7 +270,7 @@ class ManagedDevice
             $this->deviceName = $data['deviceName'];
         }
         if (isset($data['deviceRegistrationState'])) {
-            $this->deviceRegistrationState = is_array($data['deviceRegistrationState']) ? new DeviceRegistrationState($data['deviceRegistrationState']) : $data['deviceRegistrationState'];
+            $this->deviceRegistrationState = is_string($data['deviceRegistrationState']) ? DeviceRegistrationState::tryFrom($data['deviceRegistrationState']) : $data['deviceRegistrationState'];
         }
         if (isset($data['easActivated'])) {
             $this->easActivated = is_bool($data['easActivated']) ? $data['easActivated'] : (bool)$data['easActivated'];
@@ -294,10 +294,10 @@ class ManagedDevice
             $this->ethernetMacAddress = $data['ethernetMacAddress'];
         }
         if (isset($data['exchangeAccessState'])) {
-            $this->exchangeAccessState = is_array($data['exchangeAccessState']) ? new DeviceManagementExchangeAccessState($data['exchangeAccessState']) : $data['exchangeAccessState'];
+            $this->exchangeAccessState = is_string($data['exchangeAccessState']) ? DeviceManagementExchangeAccessState::tryFrom($data['exchangeAccessState']) : $data['exchangeAccessState'];
         }
         if (isset($data['exchangeAccessStateReason'])) {
-            $this->exchangeAccessStateReason = is_array($data['exchangeAccessStateReason']) ? new DeviceManagementExchangeAccessStateReason($data['exchangeAccessStateReason']) : $data['exchangeAccessStateReason'];
+            $this->exchangeAccessStateReason = is_string($data['exchangeAccessStateReason']) ? DeviceManagementExchangeAccessStateReason::tryFrom($data['exchangeAccessStateReason']) : $data['exchangeAccessStateReason'];
         }
         if (isset($data['exchangeLastSuccessfulSyncDateTime'])) {
             $this->exchangeLastSuccessfulSyncDateTime = is_string($data['exchangeLastSuccessfulSyncDateTime']) ? new \DateTimeImmutable($data['exchangeLastSuccessfulSyncDateTime']) : $data['exchangeLastSuccessfulSyncDateTime'];
@@ -327,10 +327,10 @@ class ManagedDevice
             $this->managedDeviceName = $data['managedDeviceName'];
         }
         if (isset($data['managedDeviceOwnerType'])) {
-            $this->managedDeviceOwnerType = is_array($data['managedDeviceOwnerType']) ? new ManagedDeviceOwnerType($data['managedDeviceOwnerType']) : $data['managedDeviceOwnerType'];
+            $this->managedDeviceOwnerType = is_string($data['managedDeviceOwnerType']) ? ManagedDeviceOwnerType::tryFrom($data['managedDeviceOwnerType']) : $data['managedDeviceOwnerType'];
         }
         if (isset($data['managementAgent'])) {
-            $this->managementAgent = is_array($data['managementAgent']) ? new ManagementAgentType($data['managementAgent']) : $data['managementAgent'];
+            $this->managementAgent = is_string($data['managementAgent']) ? ManagementAgentType::tryFrom($data['managementAgent']) : $data['managementAgent'];
         }
         if (isset($data['managementCertificateExpirationDate'])) {
             $this->managementCertificateExpirationDate = is_string($data['managementCertificateExpirationDate']) ? new \DateTimeImmutable($data['managementCertificateExpirationDate']) : $data['managementCertificateExpirationDate'];
@@ -354,7 +354,7 @@ class ManagedDevice
             $this->osVersion = $data['osVersion'];
         }
         if (isset($data['partnerReportedThreatState'])) {
-            $this->partnerReportedThreatState = is_array($data['partnerReportedThreatState']) ? new ManagedDevicePartnerReportedHealthState($data['partnerReportedThreatState']) : $data['partnerReportedThreatState'];
+            $this->partnerReportedThreatState = is_string($data['partnerReportedThreatState']) ? ManagedDevicePartnerReportedHealthState::tryFrom($data['partnerReportedThreatState']) : $data['partnerReportedThreatState'];
         }
         if (isset($data['phoneNumber'])) {
             $this->phoneNumber = $data['phoneNumber'];

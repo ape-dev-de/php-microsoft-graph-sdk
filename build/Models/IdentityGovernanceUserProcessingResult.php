@@ -69,7 +69,7 @@ class IdentityGovernanceUserProcessingResult
             $this->failedTasksCount = is_numeric($data['failedTasksCount']) ? (float)$data['failedTasksCount'] : $data['failedTasksCount'];
         }
         if (isset($data['processingStatus'])) {
-            $this->processingStatus = is_array($data['processingStatus']) ? new IdentityGovernanceLifecycleWorkflowProcessingStatus($data['processingStatus']) : $data['processingStatus'];
+            $this->processingStatus = is_string($data['processingStatus']) ? IdentityGovernanceLifecycleWorkflowProcessingStatus::tryFrom($data['processingStatus']) : $data['processingStatus'];
         }
         if (isset($data['scheduledDateTime'])) {
             $this->scheduledDateTime = is_string($data['scheduledDateTime']) ? new \DateTimeImmutable($data['scheduledDateTime']) : $data['scheduledDateTime'];
@@ -84,7 +84,7 @@ class IdentityGovernanceUserProcessingResult
             $this->totalUnprocessedTasksCount = is_numeric($data['totalUnprocessedTasksCount']) ? (float)$data['totalUnprocessedTasksCount'] : $data['totalUnprocessedTasksCount'];
         }
         if (isset($data['workflowExecutionType'])) {
-            $this->workflowExecutionType = is_array($data['workflowExecutionType']) ? new IdentityGovernanceWorkflowExecutionType($data['workflowExecutionType']) : $data['workflowExecutionType'];
+            $this->workflowExecutionType = is_string($data['workflowExecutionType']) ? IdentityGovernanceWorkflowExecutionType::tryFrom($data['workflowExecutionType']) : $data['workflowExecutionType'];
         }
         if (isset($data['workflowVersion'])) {
             $this->workflowVersion = is_numeric($data['workflowVersion']) ? (float)$data['workflowVersion'] : $data['workflowVersion'];

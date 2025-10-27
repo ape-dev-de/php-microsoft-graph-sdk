@@ -63,7 +63,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration
             $this->excludeTargets = $data['excludeTargets'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AuthenticationMethodState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['defaultLength'])) {
             $this->defaultLength = is_numeric($data['defaultLength']) ? (float)$data['defaultLength'] : $data['defaultLength'];

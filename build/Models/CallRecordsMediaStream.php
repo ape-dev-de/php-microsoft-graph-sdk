@@ -153,7 +153,7 @@ class CallRecordsMediaStream
     {
         $this->rawData = $data;
         if (isset($data['audioCodec'])) {
-            $this->audioCodec = is_array($data['audioCodec']) ? new CallRecordsAudioCodec($data['audioCodec']) : $data['audioCodec'];
+            $this->audioCodec = is_string($data['audioCodec']) ? CallRecordsAudioCodec::tryFrom($data['audioCodec']) : $data['audioCodec'];
         }
         if (isset($data['averageAudioDegradation'])) {
             $this->averageAudioDegradation = is_numeric($data['averageAudioDegradation']) ? (float)$data['averageAudioDegradation'] : $data['averageAudioDegradation'];
@@ -231,13 +231,13 @@ class CallRecordsMediaStream
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['streamDirection'])) {
-            $this->streamDirection = is_array($data['streamDirection']) ? new CallRecordsMediaStreamDirection($data['streamDirection']) : $data['streamDirection'];
+            $this->streamDirection = is_string($data['streamDirection']) ? CallRecordsMediaStreamDirection::tryFrom($data['streamDirection']) : $data['streamDirection'];
         }
         if (isset($data['streamId'])) {
             $this->streamId = $data['streamId'];
         }
         if (isset($data['videoCodec'])) {
-            $this->videoCodec = is_array($data['videoCodec']) ? new CallRecordsVideoCodec($data['videoCodec']) : $data['videoCodec'];
+            $this->videoCodec = is_string($data['videoCodec']) ? CallRecordsVideoCodec::tryFrom($data['videoCodec']) : $data['videoCodec'];
         }
         if (isset($data['wasMediaBypassed'])) {
             $this->wasMediaBypassed = is_bool($data['wasMediaBypassed']) ? $data['wasMediaBypassed'] : (bool)$data['wasMediaBypassed'];

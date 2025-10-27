@@ -5,29 +5,20 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CallRecordsVideoCodec
+ * CallRecordsVideoCodec - Enum
  */
-class CallRecordsVideoCodec
+enum CallRecordsVideoCodec: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case INVALID = 'invalid';
+    case AV1 = 'av1';
+    case H263 = 'h263';
+    case H264 = 'h264';
+    case H264S = 'h264s';
+    case H264UC = 'h264uc';
+    case H265 = 'h265';
+    case RTVC1 = 'rtvc1';
+    case RTVIDEO = 'rtVideo';
+    case XRTVC1 = 'xrtvc1';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

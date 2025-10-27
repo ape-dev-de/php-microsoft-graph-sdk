@@ -24,7 +24,7 @@ class EdgeSearchEngine
     {
         $this->rawData = $data;
         if (isset($data['edgeSearchEngineType'])) {
-            $this->edgeSearchEngineType = is_array($data['edgeSearchEngineType']) ? new EdgeSearchEngineType($data['edgeSearchEngineType']) : $data['edgeSearchEngineType'];
+            $this->edgeSearchEngineType = is_string($data['edgeSearchEngineType']) ? EdgeSearchEngineType::tryFrom($data['edgeSearchEngineType']) : $data['edgeSearchEngineType'];
         }
     }
 

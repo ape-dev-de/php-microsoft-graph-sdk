@@ -87,7 +87,7 @@ class MessageRuleActions
             $this->markAsRead = is_bool($data['markAsRead']) ? $data['markAsRead'] : (bool)$data['markAsRead'];
         }
         if (isset($data['markImportance'])) {
-            $this->markImportance = is_array($data['markImportance']) ? new Importance($data['markImportance']) : $data['markImportance'];
+            $this->markImportance = is_string($data['markImportance']) ? Importance::tryFrom($data['markImportance']) : $data['markImportance'];
         }
         if (isset($data['moveToFolder'])) {
             $this->moveToFolder = $data['moveToFolder'];

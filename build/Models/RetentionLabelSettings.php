@@ -42,7 +42,7 @@ class RetentionLabelSettings
     {
         $this->rawData = $data;
         if (isset($data['behaviorDuringRetentionPeriod'])) {
-            $this->behaviorDuringRetentionPeriod = is_array($data['behaviorDuringRetentionPeriod']) ? new SecurityBehaviorDuringRetentionPeriod($data['behaviorDuringRetentionPeriod']) : $data['behaviorDuringRetentionPeriod'];
+            $this->behaviorDuringRetentionPeriod = is_string($data['behaviorDuringRetentionPeriod']) ? SecurityBehaviorDuringRetentionPeriod::tryFrom($data['behaviorDuringRetentionPeriod']) : $data['behaviorDuringRetentionPeriod'];
         }
         if (isset($data['isContentUpdateAllowed'])) {
             $this->isContentUpdateAllowed = is_bool($data['isContentUpdateAllowed']) ? $data['isContentUpdateAllowed'] : (bool)$data['isContentUpdateAllowed'];

@@ -36,7 +36,7 @@ class BookingReminder
             $this->offset = $data['offset'];
         }
         if (isset($data['recipients'])) {
-            $this->recipients = is_array($data['recipients']) ? new BookingReminderRecipients($data['recipients']) : $data['recipients'];
+            $this->recipients = is_string($data['recipients']) ? BookingReminderRecipients::tryFrom($data['recipients']) : $data['recipients'];
         }
     }
 

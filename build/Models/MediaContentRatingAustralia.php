@@ -27,10 +27,10 @@ class MediaContentRatingAustralia
     {
         $this->rawData = $data;
         if (isset($data['movieRating'])) {
-            $this->movieRating = is_array($data['movieRating']) ? new RatingAustraliaMoviesType($data['movieRating']) : $data['movieRating'];
+            $this->movieRating = is_string($data['movieRating']) ? RatingAustraliaMoviesType::tryFrom($data['movieRating']) : $data['movieRating'];
         }
         if (isset($data['tvRating'])) {
-            $this->tvRating = is_array($data['tvRating']) ? new RatingAustraliaTelevisionType($data['tvRating']) : $data['tvRating'];
+            $this->tvRating = is_string($data['tvRating']) ? RatingAustraliaTelevisionType::tryFrom($data['tvRating']) : $data['tvRating'];
         }
     }
 

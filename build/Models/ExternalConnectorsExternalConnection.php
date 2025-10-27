@@ -102,7 +102,7 @@ class ExternalConnectorsExternalConnection
             $this->searchSettings = is_array($data['searchSettings']) ? new ExternalConnectorsSearchSettings($data['searchSettings']) : $data['searchSettings'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new ExternalConnectorsConnectionState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? ExternalConnectorsConnectionState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['groups'])) {
             $this->groups = $data['groups'];

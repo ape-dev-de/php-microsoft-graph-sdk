@@ -5,29 +5,21 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * BaseAuthenticationMethod
+ * BaseAuthenticationMethod - Enum
  */
-class BaseAuthenticationMethod
+enum BaseAuthenticationMethod: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case PASSWORD = 'password';
+    case VOICE = 'voice';
+    case HARDWAREOATH = 'hardwareOath';
+    case SOFTWAREOATH = 'softwareOath';
+    case SMS = 'sms';
+    case FIDO2 = 'fido2';
+    case WINDOWSHELLOFORBUSINESS = 'windowsHelloForBusiness';
+    case MICROSOFTAUTHENTICATOR = 'microsoftAuthenticator';
+    case TEMPORARYACCESSPASS = 'temporaryAccessPass';
+    case EMAIL = 'email';
+    case X509CERTIFICATE = 'x509Certificate';
+    case FEDERATION = 'federation';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

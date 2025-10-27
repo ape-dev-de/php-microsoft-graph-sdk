@@ -87,7 +87,7 @@ class MailboxProtectionUnit
             $this->policyId = $data['policyId'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ProtectionUnitStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ProtectionUnitStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['directoryObjectId'])) {
             $this->directoryObjectId = $data['directoryObjectId'];

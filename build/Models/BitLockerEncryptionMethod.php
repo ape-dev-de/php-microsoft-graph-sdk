@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * BitLockerEncryptionMethod
+ * BitLockerEncryptionMethod - Enum
+ * BitLockerEncryptionMethod types
  */
-class BitLockerEncryptionMethod
+enum BitLockerEncryptionMethod: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case AESCBC128 = 'aesCbc128';
+    case AESCBC256 = 'aesCbc256';
+    case XTSAES128 = 'xtsAes128';
+    case XTSAES256 = 'xtsAes256';
 }

@@ -30,7 +30,7 @@ class RequestSignatureVerification
     {
         $this->rawData = $data;
         if (isset($data['allowedWeakAlgorithms'])) {
-            $this->allowedWeakAlgorithms = is_array($data['allowedWeakAlgorithms']) ? new WeakAlgorithms($data['allowedWeakAlgorithms']) : $data['allowedWeakAlgorithms'];
+            $this->allowedWeakAlgorithms = is_string($data['allowedWeakAlgorithms']) ? WeakAlgorithms::tryFrom($data['allowedWeakAlgorithms']) : $data['allowedWeakAlgorithms'];
         }
         if (isset($data['isSignedRequestRequired'])) {
             $this->isSignedRequestRequired = is_bool($data['isSignedRequestRequired']) ? $data['isSignedRequestRequired'] : (bool)$data['isSignedRequestRequired'];

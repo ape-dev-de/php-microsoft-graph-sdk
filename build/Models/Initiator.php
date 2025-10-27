@@ -39,7 +39,7 @@ class Initiator
             $this->displayName = $data['displayName'];
         }
         if (isset($data['initiatorType'])) {
-            $this->initiatorType = is_array($data['initiatorType']) ? new InitiatorType($data['initiatorType']) : $data['initiatorType'];
+            $this->initiatorType = is_string($data['initiatorType']) ? InitiatorType::tryFrom($data['initiatorType']) : $data['initiatorType'];
         }
     }
 

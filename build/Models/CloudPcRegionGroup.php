@@ -5,29 +5,29 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CloudPcRegionGroup
+ * CloudPcRegionGroup - Enum
  */
-class CloudPcRegionGroup
+enum CloudPcRegionGroup: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case DEFAULT = 'default';
+    case AUSTRALIA = 'australia';
+    case CANADA = 'canada';
+    case USCENTRAL = 'usCentral';
+    case USEAST = 'usEast';
+    case USWEST = 'usWest';
+    case FRANCE = 'france';
+    case GERMANY = 'germany';
+    case EUROPEUNION = 'europeUnion';
+    case UNITEDKINGDOM = 'unitedKingdom';
+    case JAPAN = 'japan';
+    case ASIA = 'asia';
+    case INDIA = 'india';
+    case SOUTHAMERICA = 'southAmerica';
+    case EUAP = 'euap';
+    case USGOVERNMENT = 'usGovernment';
+    case USGOVERNMENTDOD = 'usGovernmentDOD';
+    case NORWAY = 'norway';
+    case SWITZERLAND = 'switzerland';
+    case SOUTHKOREA = 'southKorea';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

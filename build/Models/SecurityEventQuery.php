@@ -33,7 +33,7 @@ class SecurityEventQuery
             $this->query = $data['query'];
         }
         if (isset($data['queryType'])) {
-            $this->queryType = is_array($data['queryType']) ? new SecurityQueryType($data['queryType']) : $data['queryType'];
+            $this->queryType = is_string($data['queryType']) ? SecurityQueryType::tryFrom($data['queryType']) : $data['queryType'];
         }
     }
 

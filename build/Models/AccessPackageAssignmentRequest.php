@@ -102,13 +102,13 @@ class AccessPackageAssignmentRequest
             $this->justification = $data['justification'];
         }
         if (isset($data['requestType'])) {
-            $this->requestType = is_array($data['requestType']) ? new AccessPackageRequestType($data['requestType']) : $data['requestType'];
+            $this->requestType = is_string($data['requestType']) ? AccessPackageRequestType::tryFrom($data['requestType']) : $data['requestType'];
         }
         if (isset($data['schedule'])) {
             $this->schedule = is_array($data['schedule']) ? new EntitlementManagementSchedule($data['schedule']) : $data['schedule'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AccessPackageRequestState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AccessPackageRequestState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

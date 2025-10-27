@@ -75,7 +75,7 @@ class Process
             $this->fileHash = is_array($data['fileHash']) ? new FileHash($data['fileHash']) : $data['fileHash'];
         }
         if (isset($data['integrityLevel'])) {
-            $this->integrityLevel = is_array($data['integrityLevel']) ? new ProcessIntegrityLevel($data['integrityLevel']) : $data['integrityLevel'];
+            $this->integrityLevel = is_string($data['integrityLevel']) ? ProcessIntegrityLevel::tryFrom($data['integrityLevel']) : $data['integrityLevel'];
         }
         if (isset($data['isElevated'])) {
             $this->isElevated = is_bool($data['isElevated']) ? $data['isElevated'] : (bool)$data['isElevated'];

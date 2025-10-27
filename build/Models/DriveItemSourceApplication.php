@@ -5,29 +5,19 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DriveItemSourceApplication
+ * DriveItemSourceApplication - Enum
  */
-class DriveItemSourceApplication
+enum DriveItemSourceApplication: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case TEAMS = 'teams';
+    case YAMMER = 'yammer';
+    case SHAREPOINT = 'sharePoint';
+    case ONEDRIVE = 'oneDrive';
+    case STREAM = 'stream';
+    case POWERPOINT = 'powerPoint';
+    case OFFICE = 'office';
+    case LOKI = 'loki';
+    case LOOP = 'loop';
+    case OTHER = 'other';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

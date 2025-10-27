@@ -180,7 +180,7 @@ class SubjectRightsRequest
             $this->dataSubject = is_array($data['dataSubject']) ? new DataSubject($data['dataSubject']) : $data['dataSubject'];
         }
         if (isset($data['dataSubjectType'])) {
-            $this->dataSubjectType = is_array($data['dataSubjectType']) ? new DataSubjectType($data['dataSubjectType']) : $data['dataSubjectType'];
+            $this->dataSubjectType = is_string($data['dataSubjectType']) ? DataSubjectType::tryFrom($data['dataSubjectType']) : $data['dataSubjectType'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -228,10 +228,10 @@ class SubjectRightsRequest
             $this->stages = $data['stages'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SubjectRightsRequestStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SubjectRightsRequestStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new SubjectRightsRequestType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? SubjectRightsRequestType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['approvers'])) {
             $this->approvers = $data['approvers'];

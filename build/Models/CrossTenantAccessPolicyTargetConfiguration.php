@@ -33,7 +33,7 @@ class CrossTenantAccessPolicyTargetConfiguration
     {
         $this->rawData = $data;
         if (isset($data['accessType'])) {
-            $this->accessType = is_array($data['accessType']) ? new CrossTenantAccessPolicyTargetConfigurationAccessType($data['accessType']) : $data['accessType'];
+            $this->accessType = is_string($data['accessType']) ? CrossTenantAccessPolicyTargetConfigurationAccessType::tryFrom($data['accessType']) : $data['accessType'];
         }
         if (isset($data['targets'])) {
             $this->targets = $data['targets'];

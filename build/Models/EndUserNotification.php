@@ -99,13 +99,13 @@ class EndUserNotification
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['notificationType'])) {
-            $this->notificationType = is_array($data['notificationType']) ? new EndUserNotificationType($data['notificationType']) : $data['notificationType'];
+            $this->notificationType = is_string($data['notificationType']) ? EndUserNotificationType::tryFrom($data['notificationType']) : $data['notificationType'];
         }
         if (isset($data['source'])) {
-            $this->source = is_array($data['source']) ? new SimulationContentSource($data['source']) : $data['source'];
+            $this->source = is_string($data['source']) ? SimulationContentSource::tryFrom($data['source']) : $data['source'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SimulationContentStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SimulationContentStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['supportedLocales'])) {
             $this->supportedLocales = $data['supportedLocales'];

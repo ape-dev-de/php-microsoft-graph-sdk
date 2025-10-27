@@ -30,7 +30,7 @@ class PrintOperationStatus
             $this->description = $data['description'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new PrintOperationProcessingState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? PrintOperationProcessingState::tryFrom($data['state']) : $data['state'];
         }
     }
 

@@ -135,7 +135,7 @@ class BookingService
             $this->defaultPrice = is_numeric($data['defaultPrice']) ? (float)$data['defaultPrice'] : $data['defaultPrice'];
         }
         if (isset($data['defaultPriceType'])) {
-            $this->defaultPriceType = is_array($data['defaultPriceType']) ? new BookingPriceType($data['defaultPriceType']) : $data['defaultPriceType'];
+            $this->defaultPriceType = is_string($data['defaultPriceType']) ? BookingPriceType::tryFrom($data['defaultPriceType']) : $data['defaultPriceType'];
         }
         if (isset($data['defaultReminders'])) {
             $this->defaultReminders = $data['defaultReminders'];

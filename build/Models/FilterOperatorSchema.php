@@ -39,10 +39,10 @@ class FilterOperatorSchema
             $this->id = $data['id'];
         }
         if (isset($data['arity'])) {
-            $this->arity = is_array($data['arity']) ? new ScopeOperatorType($data['arity']) : $data['arity'];
+            $this->arity = is_string($data['arity']) ? ScopeOperatorType::tryFrom($data['arity']) : $data['arity'];
         }
         if (isset($data['multivaluedComparisonType'])) {
-            $this->multivaluedComparisonType = is_array($data['multivaluedComparisonType']) ? new ScopeOperatorMultiValuedComparisonType($data['multivaluedComparisonType']) : $data['multivaluedComparisonType'];
+            $this->multivaluedComparisonType = is_string($data['multivaluedComparisonType']) ? ScopeOperatorMultiValuedComparisonType::tryFrom($data['multivaluedComparisonType']) : $data['multivaluedComparisonType'];
         }
         if (isset($data['supportedAttributeTypes'])) {
             $this->supportedAttributeTypes = $data['supportedAttributeTypes'];

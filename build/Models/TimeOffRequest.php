@@ -96,7 +96,7 @@ class TimeOffRequest
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['assignedTo'])) {
-            $this->assignedTo = is_array($data['assignedTo']) ? new ScheduleChangeRequestActor($data['assignedTo']) : $data['assignedTo'];
+            $this->assignedTo = is_string($data['assignedTo']) ? ScheduleChangeRequestActor::tryFrom($data['assignedTo']) : $data['assignedTo'];
         }
         if (isset($data['managerActionDateTime'])) {
             $this->managerActionDateTime = is_string($data['managerActionDateTime']) ? new \DateTimeImmutable($data['managerActionDateTime']) : $data['managerActionDateTime'];
@@ -117,7 +117,7 @@ class TimeOffRequest
             $this->senderUserId = $data['senderUserId'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new ScheduleChangeState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? ScheduleChangeState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];

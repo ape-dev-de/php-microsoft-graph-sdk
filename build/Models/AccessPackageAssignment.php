@@ -78,7 +78,7 @@ class AccessPackageAssignment
             $this->schedule = is_array($data['schedule']) ? new EntitlementManagementSchedule($data['schedule']) : $data['schedule'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AccessPackageAssignmentState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AccessPackageAssignmentState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

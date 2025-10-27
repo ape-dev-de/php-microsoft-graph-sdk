@@ -93,7 +93,7 @@ class AgreementAcceptance
             $this->recordedDateTime = is_string($data['recordedDateTime']) ? new \DateTimeImmutable($data['recordedDateTime']) : $data['recordedDateTime'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AgreementAcceptanceState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AgreementAcceptanceState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['userDisplayName'])) {
             $this->userDisplayName = $data['userDisplayName'];

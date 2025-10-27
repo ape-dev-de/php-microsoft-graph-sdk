@@ -5,29 +5,22 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DevicePlatformType
+ * DevicePlatformType - Enum
+ * Supported platform types.
  */
-class DevicePlatformType
+enum DevicePlatformType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ANDROID = 'android';
+    case ANDROIDFORWORK = 'androidForWork';
+    case IOS = 'iOS';
+    case MACOS = 'macOS';
+    case WINDOWSPHONE81 = 'windowsPhone81';
+    case WINDOWS81ANDLATER = 'windows81AndLater';
+    case WINDOWS10ANDLATER = 'windows10AndLater';
+    case ANDROIDWORKPROFILE = 'androidWorkProfile';
+    case UNKNOWN = 'unknown';
+    case ANDROIDAOSP = 'androidAOSP';
+    case ANDROIDMOBILEAPPLICATIONMANAGEMENT = 'androidMobileApplicationManagement';
+    case IOSMOBILEAPPLICATIONMANAGEMENT = 'iOSMobileApplicationManagement';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

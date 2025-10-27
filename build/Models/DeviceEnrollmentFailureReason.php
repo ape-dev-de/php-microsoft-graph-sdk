@@ -5,29 +5,21 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DeviceEnrollmentFailureReason
+ * DeviceEnrollmentFailureReason - Enum
+ * Top level failure categories for enrollment.
  */
-class DeviceEnrollmentFailureReason
+enum DeviceEnrollmentFailureReason: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case AUTHENTICATION = 'authentication';
+    case AUTHORIZATION = 'authorization';
+    case ACCOUNTVALIDATION = 'accountValidation';
+    case USERVALIDATION = 'userValidation';
+    case DEVICENOTSUPPORTED = 'deviceNotSupported';
+    case INMAINTENANCE = 'inMaintenance';
+    case BADREQUEST = 'badRequest';
+    case FEATURENOTSUPPORTED = 'featureNotSupported';
+    case ENROLLMENTRESTRICTIONSENFORCED = 'enrollmentRestrictionsEnforced';
+    case CLIENTDISCONNECTED = 'clientDisconnected';
+    case USERABANDONMENT = 'userAbandonment';
 }

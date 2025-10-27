@@ -45,10 +45,10 @@ class PhoneAuthenticationMethod
             $this->phoneNumber = $data['phoneNumber'];
         }
         if (isset($data['phoneType'])) {
-            $this->phoneType = is_array($data['phoneType']) ? new AuthenticationPhoneType($data['phoneType']) : $data['phoneType'];
+            $this->phoneType = is_string($data['phoneType']) ? AuthenticationPhoneType::tryFrom($data['phoneType']) : $data['phoneType'];
         }
         if (isset($data['smsSignInState'])) {
-            $this->smsSignInState = is_array($data['smsSignInState']) ? new AuthenticationMethodSignInState($data['smsSignInState']) : $data['smsSignInState'];
+            $this->smsSignInState = is_string($data['smsSignInState']) ? AuthenticationMethodSignInState::tryFrom($data['smsSignInState']) : $data['smsSignInState'];
         }
     }
 

@@ -111,7 +111,7 @@ class AccessPackageAssignmentPolicy
             $this->id = $data['id'];
         }
         if (isset($data['allowedTargetScope'])) {
-            $this->allowedTargetScope = is_array($data['allowedTargetScope']) ? new AllowedTargetScope($data['allowedTargetScope']) : $data['allowedTargetScope'];
+            $this->allowedTargetScope = is_string($data['allowedTargetScope']) ? AllowedTargetScope::tryFrom($data['allowedTargetScope']) : $data['allowedTargetScope'];
         }
         if (isset($data['automaticRequestSettings'])) {
             $this->automaticRequestSettings = is_array($data['automaticRequestSettings']) ? new AccessPackageAutomaticRequestSettings($data['automaticRequestSettings']) : $data['automaticRequestSettings'];

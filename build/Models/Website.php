@@ -39,7 +39,7 @@ class Website
             $this->displayName = $data['displayName'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new WebsiteType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? WebsiteType::tryFrom($data['type']) : $data['type'];
         }
     }
 

@@ -5,29 +5,12 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * FirewallPreSharedKeyEncodingMethodType
+ * FirewallPreSharedKeyEncodingMethodType - Enum
+ * Possible values for firewallPreSharedKeyEncodingMethod
  */
-class FirewallPreSharedKeyEncodingMethodType
+enum FirewallPreSharedKeyEncodingMethodType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case DEVICEDEFAULT = 'deviceDefault';
+    case NONE = 'none';
+    case UTF8 = 'utF8';
 }

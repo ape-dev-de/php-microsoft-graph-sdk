@@ -105,7 +105,7 @@ class VirtualEvent
             $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new VirtualEventStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? VirtualEventStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['presenters'])) {
             $this->presenters = $data['presenters'];

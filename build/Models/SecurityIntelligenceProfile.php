@@ -84,7 +84,7 @@ class SecurityIntelligenceProfile
             $this->firstActiveDateTime = is_string($data['firstActiveDateTime']) ? new \DateTimeImmutable($data['firstActiveDateTime']) : $data['firstActiveDateTime'];
         }
         if (isset($data['kind'])) {
-            $this->kind = is_array($data['kind']) ? new SecurityIntelligenceProfileKind($data['kind']) : $data['kind'];
+            $this->kind = is_string($data['kind']) ? SecurityIntelligenceProfileKind::tryFrom($data['kind']) : $data['kind'];
         }
         if (isset($data['summary'])) {
             $this->summary = is_array($data['summary']) ? new SecurityFormattedContent($data['summary']) : $data['summary'];

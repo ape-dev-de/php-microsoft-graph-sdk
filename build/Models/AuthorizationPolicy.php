@@ -81,7 +81,7 @@ class AuthorizationPolicy
             $this->allowEmailVerifiedUsersToJoinOrganization = is_bool($data['allowEmailVerifiedUsersToJoinOrganization']) ? $data['allowEmailVerifiedUsersToJoinOrganization'] : (bool)$data['allowEmailVerifiedUsersToJoinOrganization'];
         }
         if (isset($data['allowInvitesFrom'])) {
-            $this->allowInvitesFrom = is_array($data['allowInvitesFrom']) ? new AllowInvitesFrom($data['allowInvitesFrom']) : $data['allowInvitesFrom'];
+            $this->allowInvitesFrom = is_string($data['allowInvitesFrom']) ? AllowInvitesFrom::tryFrom($data['allowInvitesFrom']) : $data['allowInvitesFrom'];
         }
         if (isset($data['allowUserConsentForRiskyApps'])) {
             $this->allowUserConsentForRiskyApps = is_bool($data['allowUserConsentForRiskyApps']) ? $data['allowUserConsentForRiskyApps'] : (bool)$data['allowUserConsentForRiskyApps'];

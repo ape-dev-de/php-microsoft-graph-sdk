@@ -60,10 +60,10 @@ class RecurrencePattern
             $this->daysOfWeek = $data['daysOfWeek'];
         }
         if (isset($data['firstDayOfWeek'])) {
-            $this->firstDayOfWeek = is_array($data['firstDayOfWeek']) ? new DayOfWeek($data['firstDayOfWeek']) : $data['firstDayOfWeek'];
+            $this->firstDayOfWeek = is_string($data['firstDayOfWeek']) ? DayOfWeek::tryFrom($data['firstDayOfWeek']) : $data['firstDayOfWeek'];
         }
         if (isset($data['index'])) {
-            $this->index = is_array($data['index']) ? new WeekIndex($data['index']) : $data['index'];
+            $this->index = is_string($data['index']) ? WeekIndex::tryFrom($data['index']) : $data['index'];
         }
         if (isset($data['interval'])) {
             $this->interval = is_numeric($data['interval']) ? (float)$data['interval'] : $data['interval'];
@@ -72,7 +72,7 @@ class RecurrencePattern
             $this->month = is_numeric($data['month']) ? (float)$data['month'] : $data['month'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new RecurrencePatternType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? RecurrencePatternType::tryFrom($data['type']) : $data['type'];
         }
     }
 

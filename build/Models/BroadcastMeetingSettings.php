@@ -45,7 +45,7 @@ class BroadcastMeetingSettings
     {
         $this->rawData = $data;
         if (isset($data['allowedAudience'])) {
-            $this->allowedAudience = is_array($data['allowedAudience']) ? new BroadcastMeetingAudience($data['allowedAudience']) : $data['allowedAudience'];
+            $this->allowedAudience = is_string($data['allowedAudience']) ? BroadcastMeetingAudience::tryFrom($data['allowedAudience']) : $data['allowedAudience'];
         }
         if (isset($data['captions'])) {
             $this->captions = is_array($data['captions']) ? new BroadcastMeetingCaptionSettings($data['captions']) : $data['captions'];

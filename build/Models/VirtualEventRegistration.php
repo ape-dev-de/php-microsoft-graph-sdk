@@ -102,7 +102,7 @@ class VirtualEventRegistration
             $this->registrationQuestionAnswers = $data['registrationQuestionAnswers'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new VirtualEventAttendeeRegistrationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? VirtualEventAttendeeRegistrationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];

@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CallRecordsWifiBand
+ * CallRecordsWifiBand - Enum
  */
-class CallRecordsWifiBand
+enum CallRecordsWifiBand: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case FREQUENCY24GHZ = 'frequency24GHz';
+    case FREQUENCY50GHZ = 'frequency50GHz';
+    case FREQUENCY60GHZ = 'frequency60GHz';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

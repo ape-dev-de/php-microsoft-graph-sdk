@@ -63,7 +63,7 @@ class IdentityUserFlowAttributeAssignment
             $this->userAttributeValues = $data['userAttributeValues'];
         }
         if (isset($data['userInputType'])) {
-            $this->userInputType = is_array($data['userInputType']) ? new IdentityUserFlowAttributeInputType($data['userInputType']) : $data['userInputType'];
+            $this->userInputType = is_string($data['userInputType']) ? IdentityUserFlowAttributeInputType::tryFrom($data['userInputType']) : $data['userInputType'];
         }
         if (isset($data['userAttribute'])) {
             $this->userAttribute = is_array($data['userAttribute']) ? new IdentityUserFlowAttribute($data['userAttribute']) : $data['userAttribute'];

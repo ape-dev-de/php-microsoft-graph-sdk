@@ -36,7 +36,7 @@ class CallRecordsServiceUserAgent
             $this->headerValue = $data['headerValue'];
         }
         if (isset($data['role'])) {
-            $this->role = is_array($data['role']) ? new CallRecordsServiceRole($data['role']) : $data['role'];
+            $this->role = is_string($data['role']) ? CallRecordsServiceRole::tryFrom($data['role']) : $data['role'];
         }
     }
 

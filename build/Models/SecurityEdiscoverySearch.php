@@ -111,7 +111,7 @@ class SecurityEdiscoverySearch
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['dataSourceScopes'])) {
-            $this->dataSourceScopes = is_array($data['dataSourceScopes']) ? new SecurityDataSourceScopes($data['dataSourceScopes']) : $data['dataSourceScopes'];
+            $this->dataSourceScopes = is_string($data['dataSourceScopes']) ? SecurityDataSourceScopes::tryFrom($data['dataSourceScopes']) : $data['dataSourceScopes'];
         }
         if (isset($data['additionalSources'])) {
             $this->additionalSources = $data['additionalSources'];

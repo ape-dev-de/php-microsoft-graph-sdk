@@ -117,7 +117,7 @@ class Channel
             $this->isFavoriteByDefault = is_bool($data['isFavoriteByDefault']) ? $data['isFavoriteByDefault'] : (bool)$data['isFavoriteByDefault'];
         }
         if (isset($data['membershipType'])) {
-            $this->membershipType = is_array($data['membershipType']) ? new ChannelMembershipType($data['membershipType']) : $data['membershipType'];
+            $this->membershipType = is_string($data['membershipType']) ? ChannelMembershipType::tryFrom($data['membershipType']) : $data['membershipType'];
         }
         if (isset($data['summary'])) {
             $this->summary = is_array($data['summary']) ? new ChannelSummary($data['summary']) : $data['summary'];

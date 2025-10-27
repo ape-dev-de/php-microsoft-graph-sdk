@@ -93,7 +93,7 @@ class SimulationAutomation
             $this->nextRunDateTime = is_string($data['nextRunDateTime']) ? new \DateTimeImmutable($data['nextRunDateTime']) : $data['nextRunDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SimulationAutomationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SimulationAutomationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['runs'])) {
             $this->runs = $data['runs'];

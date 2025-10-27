@@ -24,7 +24,7 @@ class IdentityGovernanceMembershipChangeTrigger
     {
         $this->rawData = $data;
         if (isset($data['changeType'])) {
-            $this->changeType = is_array($data['changeType']) ? new IdentityGovernanceMembershipChangeType($data['changeType']) : $data['changeType'];
+            $this->changeType = is_string($data['changeType']) ? IdentityGovernanceMembershipChangeType::tryFrom($data['changeType']) : $data['changeType'];
         }
     }
 

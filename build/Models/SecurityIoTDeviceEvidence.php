@@ -156,7 +156,7 @@ class SecurityIoTDeviceEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
+            $this->remediationStatus = is_string($data['remediationStatus']) ? SecurityEvidenceRemediationStatus::tryFrom($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -168,7 +168,7 @@ class SecurityIoTDeviceEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
+            $this->verdict = is_string($data['verdict']) ? SecurityEvidenceVerdict::tryFrom($data['verdict']) : $data['verdict'];
         }
         if (isset($data['deviceId'])) {
             $this->deviceId = $data['deviceId'];
@@ -186,7 +186,7 @@ class SecurityIoTDeviceEvidence
             $this->deviceType = $data['deviceType'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new SecurityIoTDeviceImportanceType($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? SecurityIoTDeviceImportanceType::tryFrom($data['importance']) : $data['importance'];
         }
         if (isset($data['ioTHub'])) {
             $this->ioTHub = is_array($data['ioTHub']) ? new SecurityAzureResourceEvidence($data['ioTHub']) : $data['ioTHub'];

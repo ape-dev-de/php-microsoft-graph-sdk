@@ -84,7 +84,7 @@ class MultiTenantOrganizationPartnerConfigurationTemplate
             $this->inboundTrust = is_array($data['inboundTrust']) ? new CrossTenantAccessPolicyInboundTrust($data['inboundTrust']) : $data['inboundTrust'];
         }
         if (isset($data['templateApplicationLevel'])) {
-            $this->templateApplicationLevel = is_array($data['templateApplicationLevel']) ? new TemplateApplicationLevel($data['templateApplicationLevel']) : $data['templateApplicationLevel'];
+            $this->templateApplicationLevel = is_string($data['templateApplicationLevel']) ? TemplateApplicationLevel::tryFrom($data['templateApplicationLevel']) : $data['templateApplicationLevel'];
         }
     }
 

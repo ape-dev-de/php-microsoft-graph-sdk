@@ -78,7 +78,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance
             $this->cloudProvisioningScore = is_numeric($data['cloudProvisioningScore']) ? (float)$data['cloudProvisioningScore'] : $data['cloudProvisioningScore'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
+            $this->healthStatus = is_string($data['healthStatus']) ? UserExperienceAnalyticsHealthState::tryFrom($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];

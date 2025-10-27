@@ -66,7 +66,7 @@ class AuthenticationAttributeCollectionInputConfiguration
             $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['inputType'])) {
-            $this->inputType = is_array($data['inputType']) ? new AuthenticationAttributeCollectionInputType($data['inputType']) : $data['inputType'];
+            $this->inputType = is_string($data['inputType']) ? AuthenticationAttributeCollectionInputType::tryFrom($data['inputType']) : $data['inputType'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];

@@ -117,7 +117,7 @@ class SecurityEdiscoverySearchExportOperation
             $this->id = $data['id'];
         }
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new SecurityCaseAction($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? SecurityCaseAction::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
@@ -135,13 +135,13 @@ class SecurityEdiscoverySearchExportOperation
             $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityCaseOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['additionalOptions'])) {
-            $this->additionalOptions = is_array($data['additionalOptions']) ? new SecurityAdditionalOptions($data['additionalOptions']) : $data['additionalOptions'];
+            $this->additionalOptions = is_string($data['additionalOptions']) ? SecurityAdditionalOptions::tryFrom($data['additionalOptions']) : $data['additionalOptions'];
         }
         if (isset($data['cloudAttachmentVersion'])) {
-            $this->cloudAttachmentVersion = is_array($data['cloudAttachmentVersion']) ? new SecurityCloudAttachmentVersion($data['cloudAttachmentVersion']) : $data['cloudAttachmentVersion'];
+            $this->cloudAttachmentVersion = is_string($data['cloudAttachmentVersion']) ? SecurityCloudAttachmentVersion::tryFrom($data['cloudAttachmentVersion']) : $data['cloudAttachmentVersion'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -150,19 +150,19 @@ class SecurityEdiscoverySearchExportOperation
             $this->displayName = $data['displayName'];
         }
         if (isset($data['documentVersion'])) {
-            $this->documentVersion = is_array($data['documentVersion']) ? new SecurityDocumentVersion($data['documentVersion']) : $data['documentVersion'];
+            $this->documentVersion = is_string($data['documentVersion']) ? SecurityDocumentVersion::tryFrom($data['documentVersion']) : $data['documentVersion'];
         }
         if (isset($data['exportCriteria'])) {
-            $this->exportCriteria = is_array($data['exportCriteria']) ? new SecurityExportCriteria($data['exportCriteria']) : $data['exportCriteria'];
+            $this->exportCriteria = is_string($data['exportCriteria']) ? SecurityExportCriteria::tryFrom($data['exportCriteria']) : $data['exportCriteria'];
         }
         if (isset($data['exportFileMetadata'])) {
             $this->exportFileMetadata = $data['exportFileMetadata'];
         }
         if (isset($data['exportFormat'])) {
-            $this->exportFormat = is_array($data['exportFormat']) ? new SecurityExportFormat($data['exportFormat']) : $data['exportFormat'];
+            $this->exportFormat = is_string($data['exportFormat']) ? SecurityExportFormat::tryFrom($data['exportFormat']) : $data['exportFormat'];
         }
         if (isset($data['exportLocation'])) {
-            $this->exportLocation = is_array($data['exportLocation']) ? new SecurityExportLocation($data['exportLocation']) : $data['exportLocation'];
+            $this->exportLocation = is_string($data['exportLocation']) ? SecurityExportLocation::tryFrom($data['exportLocation']) : $data['exportLocation'];
         }
         if (isset($data['exportSingleItems'])) {
             $this->exportSingleItems = is_bool($data['exportSingleItems']) ? $data['exportSingleItems'] : (bool)$data['exportSingleItems'];

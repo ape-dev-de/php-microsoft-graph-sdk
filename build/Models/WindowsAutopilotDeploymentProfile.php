@@ -84,7 +84,7 @@ class WindowsAutopilotDeploymentProfile
             $this->deviceNameTemplate = $data['deviceNameTemplate'];
         }
         if (isset($data['deviceType'])) {
-            $this->deviceType = is_array($data['deviceType']) ? new WindowsAutopilotDeviceType($data['deviceType']) : $data['deviceType'];
+            $this->deviceType = is_string($data['deviceType']) ? WindowsAutopilotDeviceType::tryFrom($data['deviceType']) : $data['deviceType'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

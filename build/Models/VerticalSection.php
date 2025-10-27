@@ -39,7 +39,7 @@ class VerticalSection
             $this->id = $data['id'];
         }
         if (isset($data['emphasis'])) {
-            $this->emphasis = is_array($data['emphasis']) ? new SectionEmphasisType($data['emphasis']) : $data['emphasis'];
+            $this->emphasis = is_string($data['emphasis']) ? SectionEmphasisType::tryFrom($data['emphasis']) : $data['emphasis'];
         }
         if (isset($data['webparts'])) {
             $this->webparts = $data['webparts'];

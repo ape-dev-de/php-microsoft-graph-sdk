@@ -5,29 +5,21 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * EntityType
+ * EntityType - Enum
  */
-class EntityType
+enum EntityType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case EVENT = 'event';
+    case MESSAGE = 'message';
+    case DRIVEITEM = 'driveItem';
+    case EXTERNALITEM = 'externalItem';
+    case SITE = 'site';
+    case LIST = 'list';
+    case LISTITEM = 'listItem';
+    case DRIVE = 'drive';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case CHATMESSAGE = 'chatMessage';
+    case PERSON = 'person';
+    case ACRONYM = 'acronym';
+    case BOOKMARK = 'bookmark';
 }

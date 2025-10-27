@@ -48,7 +48,7 @@ class IosNotificationSettings
     {
         $this->rawData = $data;
         if (isset($data['alertType'])) {
-            $this->alertType = is_array($data['alertType']) ? new IosNotificationAlertType($data['alertType']) : $data['alertType'];
+            $this->alertType = is_string($data['alertType']) ? IosNotificationAlertType::tryFrom($data['alertType']) : $data['alertType'];
         }
         if (isset($data['appName'])) {
             $this->appName = $data['appName'];

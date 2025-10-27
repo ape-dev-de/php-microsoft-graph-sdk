@@ -99,10 +99,10 @@ class LandingPage
             $this->locale = $data['locale'];
         }
         if (isset($data['source'])) {
-            $this->source = is_array($data['source']) ? new SimulationContentSource($data['source']) : $data['source'];
+            $this->source = is_string($data['source']) ? SimulationContentSource::tryFrom($data['source']) : $data['source'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SimulationContentStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SimulationContentStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['supportedLocales'])) {
             $this->supportedLocales = $data['supportedLocales'];

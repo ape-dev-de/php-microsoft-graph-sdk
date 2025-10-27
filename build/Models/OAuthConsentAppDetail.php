@@ -33,7 +33,7 @@ class OAuthConsentAppDetail
     {
         $this->rawData = $data;
         if (isset($data['appScope'])) {
-            $this->appScope = is_array($data['appScope']) ? new OAuthAppScope($data['appScope']) : $data['appScope'];
+            $this->appScope = is_string($data['appScope']) ? OAuthAppScope::tryFrom($data['appScope']) : $data['appScope'];
         }
         if (isset($data['displayLogo'])) {
             $this->displayLogo = $data['displayLogo'];

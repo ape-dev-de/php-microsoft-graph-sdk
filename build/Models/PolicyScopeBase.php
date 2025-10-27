@@ -39,10 +39,10 @@ class PolicyScopeBase
     {
         $this->rawData = $data;
         if (isset($data['activities'])) {
-            $this->activities = is_array($data['activities']) ? new UserActivityTypes($data['activities']) : $data['activities'];
+            $this->activities = is_string($data['activities']) ? UserActivityTypes::tryFrom($data['activities']) : $data['activities'];
         }
         if (isset($data['executionMode'])) {
-            $this->executionMode = is_array($data['executionMode']) ? new ExecutionMode($data['executionMode']) : $data['executionMode'];
+            $this->executionMode = is_string($data['executionMode']) ? ExecutionMode::tryFrom($data['executionMode']) : $data['executionMode'];
         }
         if (isset($data['locations'])) {
             $this->locations = $data['locations'];

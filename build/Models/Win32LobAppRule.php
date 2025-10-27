@@ -24,7 +24,7 @@ class Win32LobAppRule
     {
         $this->rawData = $data;
         if (isset($data['ruleType'])) {
-            $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
+            $this->ruleType = is_string($data['ruleType']) ? Win32LobAppRuleType::tryFrom($data['ruleType']) : $data['ruleType'];
         }
     }
 

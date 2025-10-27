@@ -123,7 +123,7 @@ class UserExperienceAnalyticsDevicePerformance
             $this->deviceName = $data['deviceName'];
         }
         if (isset($data['diskType'])) {
-            $this->diskType = is_array($data['diskType']) ? new DiskType($data['diskType']) : $data['diskType'];
+            $this->diskType = is_string($data['diskType']) ? DiskType::tryFrom($data['diskType']) : $data['diskType'];
         }
         if (isset($data['groupPolicyBootTimeInMs'])) {
             $this->groupPolicyBootTimeInMs = is_numeric($data['groupPolicyBootTimeInMs']) ? (float)$data['groupPolicyBootTimeInMs'] : $data['groupPolicyBootTimeInMs'];
@@ -132,7 +132,7 @@ class UserExperienceAnalyticsDevicePerformance
             $this->groupPolicyLoginTimeInMs = is_numeric($data['groupPolicyLoginTimeInMs']) ? (float)$data['groupPolicyLoginTimeInMs'] : $data['groupPolicyLoginTimeInMs'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
+            $this->healthStatus = is_string($data['healthStatus']) ? UserExperienceAnalyticsHealthState::tryFrom($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['loginScore'])) {
             $this->loginScore = is_numeric($data['loginScore']) ? (float)$data['loginScore'] : $data['loginScore'];

@@ -60,7 +60,7 @@ class RegistryKeyState
     {
         $this->rawData = $data;
         if (isset($data['hive'])) {
-            $this->hive = is_array($data['hive']) ? new RegistryHive($data['hive']) : $data['hive'];
+            $this->hive = is_string($data['hive']) ? RegistryHive::tryFrom($data['hive']) : $data['hive'];
         }
         if (isset($data['key'])) {
             $this->key = $data['key'];
@@ -75,7 +75,7 @@ class RegistryKeyState
             $this->oldValueName = $data['oldValueName'];
         }
         if (isset($data['operation'])) {
-            $this->operation = is_array($data['operation']) ? new RegistryOperation($data['operation']) : $data['operation'];
+            $this->operation = is_string($data['operation']) ? RegistryOperation::tryFrom($data['operation']) : $data['operation'];
         }
         if (isset($data['processId'])) {
             $this->processId = is_numeric($data['processId']) ? (float)$data['processId'] : $data['processId'];
@@ -87,7 +87,7 @@ class RegistryKeyState
             $this->valueName = $data['valueName'];
         }
         if (isset($data['valueType'])) {
-            $this->valueType = is_array($data['valueType']) ? new RegistryValueType($data['valueType']) : $data['valueType'];
+            $this->valueType = is_string($data['valueType']) ? RegistryValueType::tryFrom($data['valueType']) : $data['valueType'];
         }
     }
 

@@ -27,7 +27,7 @@ class MediaSource
     {
         $this->rawData = $data;
         if (isset($data['contentCategory'])) {
-            $this->contentCategory = is_array($data['contentCategory']) ? new MediaSourceContentCategory($data['contentCategory']) : $data['contentCategory'];
+            $this->contentCategory = is_string($data['contentCategory']) ? MediaSourceContentCategory::tryFrom($data['contentCategory']) : $data['contentCategory'];
         }
     }
 

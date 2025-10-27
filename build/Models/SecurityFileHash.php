@@ -27,7 +27,7 @@ class SecurityFileHash
     {
         $this->rawData = $data;
         if (isset($data['algorithm'])) {
-            $this->algorithm = is_array($data['algorithm']) ? new SecurityFileHashAlgorithm($data['algorithm']) : $data['algorithm'];
+            $this->algorithm = is_string($data['algorithm']) ? SecurityFileHashAlgorithm::tryFrom($data['algorithm']) : $data['algorithm'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

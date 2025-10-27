@@ -78,7 +78,7 @@ class UserExperienceAnalyticsModelScores
             $this->endpointAnalyticsScore = is_numeric($data['endpointAnalyticsScore']) ? (float)$data['endpointAnalyticsScore'] : $data['endpointAnalyticsScore'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
+            $this->healthStatus = is_string($data['healthStatus']) ? UserExperienceAnalyticsHealthState::tryFrom($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];

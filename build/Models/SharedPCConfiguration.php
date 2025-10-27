@@ -153,7 +153,7 @@ class SharedPCConfiguration
             $this->accountManagerPolicy = is_array($data['accountManagerPolicy']) ? new SharedPCAccountManagerPolicy($data['accountManagerPolicy']) : $data['accountManagerPolicy'];
         }
         if (isset($data['allowedAccounts'])) {
-            $this->allowedAccounts = is_array($data['allowedAccounts']) ? new SharedPCAllowedAccountType($data['allowedAccounts']) : $data['allowedAccounts'];
+            $this->allowedAccounts = is_string($data['allowedAccounts']) ? SharedPCAllowedAccountType::tryFrom($data['allowedAccounts']) : $data['allowedAccounts'];
         }
         if (isset($data['allowLocalStorage'])) {
             $this->allowLocalStorage = is_bool($data['allowLocalStorage']) ? $data['allowLocalStorage'] : (bool)$data['allowLocalStorage'];

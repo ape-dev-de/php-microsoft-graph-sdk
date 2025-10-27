@@ -39,7 +39,7 @@ class InferenceClassificationOverride
             $this->id = $data['id'];
         }
         if (isset($data['classifyAs'])) {
-            $this->classifyAs = is_array($data['classifyAs']) ? new InferenceClassificationType($data['classifyAs']) : $data['classifyAs'];
+            $this->classifyAs = is_string($data['classifyAs']) ? InferenceClassificationType::tryFrom($data['classifyAs']) : $data['classifyAs'];
         }
         if (isset($data['senderEmailAddress'])) {
             $this->senderEmailAddress = is_array($data['senderEmailAddress']) ? new EmailAddress($data['senderEmailAddress']) : $data['senderEmailAddress'];

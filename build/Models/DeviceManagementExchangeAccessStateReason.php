@@ -5,29 +5,25 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DeviceManagementExchangeAccessStateReason
+ * DeviceManagementExchangeAccessStateReason - Enum
+ * Device Exchange Access State Reason.
  */
-class DeviceManagementExchangeAccessStateReason
+enum DeviceManagementExchangeAccessStateReason: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case UNKNOWN = 'unknown';
+    case EXCHANGEGLOBALRULE = 'exchangeGlobalRule';
+    case EXCHANGEINDIVIDUALRULE = 'exchangeIndividualRule';
+    case EXCHANGEDEVICERULE = 'exchangeDeviceRule';
+    case EXCHANGEUPGRADE = 'exchangeUpgrade';
+    case EXCHANGEMAILBOXPOLICY = 'exchangeMailboxPolicy';
+    case OTHER = 'other';
+    case COMPLIANT = 'compliant';
+    case NOTCOMPLIANT = 'notCompliant';
+    case NOTENROLLED = 'notEnrolled';
+    case UNKNOWNLOCATION = 'unknownLocation';
+    case MFAREQUIRED = 'mfaRequired';
+    case AZUREADBLOCKDUETOACCESSPOLICY = 'azureADBlockDueToAccessPolicy';
+    case COMPROMISEDPASSWORD = 'compromisedPassword';
+    case DEVICENOTKNOWNWITHMANAGEDAPP = 'deviceNotKnownWithManagedApp';
 }

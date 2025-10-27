@@ -24,7 +24,7 @@ class RejectJoinResponse
     {
         $this->rawData = $data;
         if (isset($data['reason'])) {
-            $this->reason = is_array($data['reason']) ? new RejectReason($data['reason']) : $data['reason'];
+            $this->reason = is_string($data['reason']) ? RejectReason::tryFrom($data['reason']) : $data['reason'];
         }
     }
 

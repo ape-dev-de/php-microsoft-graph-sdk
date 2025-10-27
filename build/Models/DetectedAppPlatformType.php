@@ -5,29 +5,21 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DetectedAppPlatformType
+ * DetectedAppPlatformType - Enum
+ * Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0).
  */
-class DetectedAppPlatformType
+enum DetectedAppPlatformType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case WINDOWS = 'windows';
+    case WINDOWSMOBILE = 'windowsMobile';
+    case WINDOWSHOLOGRAPHIC = 'windowsHolographic';
+    case IOS = 'ios';
+    case MACOS = 'macOS';
+    case CHROMEOS = 'chromeOS';
+    case ANDROIDOSP = 'androidOSP';
+    case ANDROIDDEVICEADMINISTRATOR = 'androidDeviceAdministrator';
+    case ANDROIDWORKPROFILE = 'androidWorkProfile';
+    case ANDROIDDEDICATEDANDFULLYMANAGED = 'androidDedicatedAndFullyManaged';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

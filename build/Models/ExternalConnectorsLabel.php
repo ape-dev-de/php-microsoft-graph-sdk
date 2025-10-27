@@ -5,29 +5,19 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * ExternalConnectorsLabel
+ * ExternalConnectorsLabel - Enum
  */
-class ExternalConnectorsLabel
+enum ExternalConnectorsLabel: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case TITLE = 'title';
+    case URL = 'url';
+    case CREATEDBY = 'createdBy';
+    case LASTMODIFIEDBY = 'lastModifiedBy';
+    case AUTHORS = 'authors';
+    case CREATEDDATETIME = 'createdDateTime';
+    case LASTMODIFIEDDATETIME = 'lastModifiedDateTime';
+    case FILENAME = 'fileName';
+    case FILEEXTENSION = 'fileExtension';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case ICONURL = 'iconUrl';
 }

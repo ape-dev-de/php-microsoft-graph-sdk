@@ -57,7 +57,7 @@ class MicrosoftAuthenticatorAuthenticationMethodConfiguration
             $this->excludeTargets = $data['excludeTargets'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AuthenticationMethodState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['featureSettings'])) {
             $this->featureSettings = is_array($data['featureSettings']) ? new MicrosoftAuthenticatorFeatureSettings($data['featureSettings']) : $data['featureSettings'];

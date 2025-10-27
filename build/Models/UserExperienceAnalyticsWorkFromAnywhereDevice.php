@@ -177,7 +177,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->deviceName = $data['deviceName'];
         }
         if (isset($data['healthStatus'])) {
-            $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
+            $this->healthStatus = is_string($data['healthStatus']) ? UserExperienceAnalyticsHealthState::tryFrom($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['isCloudManagedGatewayEnabled'])) {
             $this->isCloudManagedGatewayEnabled = is_bool($data['isCloudManagedGatewayEnabled']) ? $data['isCloudManagedGatewayEnabled'] : (bool)$data['isCloudManagedGatewayEnabled'];
@@ -237,7 +237,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->tpmCheckFailed = is_bool($data['tpmCheckFailed']) ? $data['tpmCheckFailed'] : (bool)$data['tpmCheckFailed'];
         }
         if (isset($data['upgradeEligibility'])) {
-            $this->upgradeEligibility = is_array($data['upgradeEligibility']) ? new OperatingSystemUpgradeEligibility($data['upgradeEligibility']) : $data['upgradeEligibility'];
+            $this->upgradeEligibility = is_string($data['upgradeEligibility']) ? OperatingSystemUpgradeEligibility::tryFrom($data['upgradeEligibility']) : $data['upgradeEligibility'];
         }
         if (isset($data['windowsScore'])) {
             $this->windowsScore = is_numeric($data['windowsScore']) ? (float)$data['windowsScore'] : $data['windowsScore'];

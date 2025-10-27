@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * ActionState
+ * ActionState - Enum
+ * State of the action on the device
  */
-class ActionState
+enum ActionState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case PENDING = 'pending';
+    case CANCELED = 'canceled';
+    case ACTIVE = 'active';
+    case DONE = 'done';
+    case FAILED = 'failed';
+    case NOTSUPPORTED = 'notSupported';
 }

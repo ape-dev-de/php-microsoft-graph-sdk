@@ -51,7 +51,7 @@ class SynchronizationQuarantine
             $this->nextAttempt = is_string($data['nextAttempt']) ? new \DateTimeImmutable($data['nextAttempt']) : $data['nextAttempt'];
         }
         if (isset($data['reason'])) {
-            $this->reason = is_array($data['reason']) ? new QuarantineReason($data['reason']) : $data['reason'];
+            $this->reason = is_string($data['reason']) ? QuarantineReason::tryFrom($data['reason']) : $data['reason'];
         }
         if (isset($data['seriesBegan'])) {
             $this->seriesBegan = is_string($data['seriesBegan']) ? new \DateTimeImmutable($data['seriesBegan']) : $data['seriesBegan'];

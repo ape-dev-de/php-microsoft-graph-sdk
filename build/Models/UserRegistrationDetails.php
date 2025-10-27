@@ -120,13 +120,13 @@ class UserRegistrationDetails
             $this->userDisplayName = $data['userDisplayName'];
         }
         if (isset($data['userPreferredMethodForSecondaryAuthentication'])) {
-            $this->userPreferredMethodForSecondaryAuthentication = is_array($data['userPreferredMethodForSecondaryAuthentication']) ? new UserDefaultAuthenticationMethod($data['userPreferredMethodForSecondaryAuthentication']) : $data['userPreferredMethodForSecondaryAuthentication'];
+            $this->userPreferredMethodForSecondaryAuthentication = is_string($data['userPreferredMethodForSecondaryAuthentication']) ? UserDefaultAuthenticationMethod::tryFrom($data['userPreferredMethodForSecondaryAuthentication']) : $data['userPreferredMethodForSecondaryAuthentication'];
         }
         if (isset($data['userPrincipalName'])) {
             $this->userPrincipalName = $data['userPrincipalName'];
         }
         if (isset($data['userType'])) {
-            $this->userType = is_array($data['userType']) ? new SignInUserType($data['userType']) : $data['userType'];
+            $this->userType = is_string($data['userType']) ? SignInUserType::tryFrom($data['userType']) : $data['userType'];
         }
     }
 

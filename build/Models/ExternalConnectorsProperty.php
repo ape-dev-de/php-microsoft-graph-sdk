@@ -72,7 +72,7 @@ class ExternalConnectorsProperty
             $this->name = $data['name'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new ExternalConnectorsPropertyType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? ExternalConnectorsPropertyType::tryFrom($data['type']) : $data['type'];
         }
     }
 

@@ -48,7 +48,7 @@ class DeviceComplianceUserStatus
             $this->lastReportedDateTime = is_string($data['lastReportedDateTime']) ? new \DateTimeImmutable($data['lastReportedDateTime']) : $data['lastReportedDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ComplianceStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ComplianceStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['userDisplayName'])) {
             $this->userDisplayName = $data['userDisplayName'];

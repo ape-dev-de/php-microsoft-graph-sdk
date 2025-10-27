@@ -81,7 +81,7 @@ class CloudPcGalleryImage
             $this->startDate = is_string($data['startDate']) ? new \DateTimeImmutable($data['startDate']) : $data['startDate'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new CloudPcGalleryImageStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? CloudPcGalleryImageStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

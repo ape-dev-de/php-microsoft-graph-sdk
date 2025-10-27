@@ -48,7 +48,7 @@ class Attendee
             $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new AttendeeType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? AttendeeType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['proposedNewTime'])) {
             $this->proposedNewTime = is_array($data['proposedNewTime']) ? new TimeSlot($data['proposedNewTime']) : $data['proposedNewTime'];

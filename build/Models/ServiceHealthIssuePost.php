@@ -42,7 +42,7 @@ class ServiceHealthIssuePost
             $this->description = is_array($data['description']) ? new ItemBody($data['description']) : $data['description'];
         }
         if (isset($data['postType'])) {
-            $this->postType = is_array($data['postType']) ? new PostType($data['postType']) : $data['postType'];
+            $this->postType = is_string($data['postType']) ? PostType::tryFrom($data['postType']) : $data['postType'];
         }
     }
 

@@ -51,7 +51,7 @@ class Win32LobAppPowerShellScriptRule
     {
         $this->rawData = $data;
         if (isset($data['ruleType'])) {
-            $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
+            $this->ruleType = is_string($data['ruleType']) ? Win32LobAppRuleType::tryFrom($data['ruleType']) : $data['ruleType'];
         }
         if (isset($data['comparisonValue'])) {
             $this->comparisonValue = $data['comparisonValue'];
@@ -63,16 +63,16 @@ class Win32LobAppPowerShellScriptRule
             $this->enforceSignatureCheck = is_bool($data['enforceSignatureCheck']) ? $data['enforceSignatureCheck'] : (bool)$data['enforceSignatureCheck'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = is_array($data['operationType']) ? new Win32LobAppPowerShellScriptRuleOperationType($data['operationType']) : $data['operationType'];
+            $this->operationType = is_string($data['operationType']) ? Win32LobAppPowerShellScriptRuleOperationType::tryFrom($data['operationType']) : $data['operationType'];
         }
         if (isset($data['operator'])) {
-            $this->operator = is_array($data['operator']) ? new Win32LobAppRuleOperator($data['operator']) : $data['operator'];
+            $this->operator = is_string($data['operator']) ? Win32LobAppRuleOperator::tryFrom($data['operator']) : $data['operator'];
         }
         if (isset($data['runAs32Bit'])) {
             $this->runAs32Bit = is_bool($data['runAs32Bit']) ? $data['runAs32Bit'] : (bool)$data['runAs32Bit'];
         }
         if (isset($data['runAsAccount'])) {
-            $this->runAsAccount = is_array($data['runAsAccount']) ? new RunAsAccountType($data['runAsAccount']) : $data['runAsAccount'];
+            $this->runAsAccount = is_string($data['runAsAccount']) ? RunAsAccountType::tryFrom($data['runAsAccount']) : $data['runAsAccount'];
         }
         if (isset($data['scriptContent'])) {
             $this->scriptContent = $data['scriptContent'];

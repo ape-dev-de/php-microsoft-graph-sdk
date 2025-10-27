@@ -27,7 +27,7 @@ class UserActionContext
     {
         $this->rawData = $data;
         if (isset($data['userAction'])) {
-            $this->userAction = is_array($data['userAction']) ? new UserAction($data['userAction']) : $data['userAction'];
+            $this->userAction = is_string($data['userAction']) ? UserAction::tryFrom($data['userAction']) : $data['userAction'];
         }
     }
 

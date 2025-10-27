@@ -5,29 +5,17 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * SecurityAdditionalDataOptions
+ * SecurityAdditionalDataOptions - Enum
  */
-class SecurityAdditionalDataOptions
+enum SecurityAdditionalDataOptions: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ALLVERSIONS = 'allVersions';
+    case LINKEDFILES = 'linkedFiles';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case ADVANCEDINDEXING = 'advancedIndexing';
+    case LISTATTACHMENTS = 'listAttachments';
+    case HTMLTRANSCRIPTS = 'htmlTranscripts';
+    case MESSAGECONVERSATIONEXPANSION = 'messageConversationExpansion';
+    case LOCATIONSWITHOUTHITS = 'locationsWithoutHits';
+    case ALLITEMSINFOLDER = 'allItemsInFolder';
 }

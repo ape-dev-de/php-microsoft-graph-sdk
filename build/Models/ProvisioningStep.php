@@ -54,10 +54,10 @@ class ProvisioningStep
             $this->name = $data['name'];
         }
         if (isset($data['provisioningStepType'])) {
-            $this->provisioningStepType = is_array($data['provisioningStepType']) ? new ProvisioningStepType($data['provisioningStepType']) : $data['provisioningStepType'];
+            $this->provisioningStepType = is_string($data['provisioningStepType']) ? ProvisioningStepType::tryFrom($data['provisioningStepType']) : $data['provisioningStepType'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ProvisioningResult($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ProvisioningResult::tryFrom($data['status']) : $data['status'];
         }
     }
 

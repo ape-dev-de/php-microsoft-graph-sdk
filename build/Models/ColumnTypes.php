@@ -5,29 +5,27 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * ColumnTypes
+ * ColumnTypes - Enum
  */
-class ColumnTypes
+enum ColumnTypes: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NOTE = 'note';
+    case TEXT = 'text';
+    case CHOICE = 'choice';
+    case MULTICHOICE = 'multichoice';
+    case NUMBER = 'number';
+    case CURRENCY = 'currency';
+    case DATETIME = 'dateTime';
+    case LOOKUP = 'lookup';
+    case BOOLEAN = 'boolean';
+    case USER = 'user';
+    case URL = 'url';
+    case CALCULATED = 'calculated';
+    case LOCATION = 'location';
+    case GEOLOCATION = 'geolocation';
+    case TERM = 'term';
+    case MULTITERM = 'multiterm';
+    case THUMBNAIL = 'thumbnail';
+    case APPROVALSTATUS = 'approvalStatus';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

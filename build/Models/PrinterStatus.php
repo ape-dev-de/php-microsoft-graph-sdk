@@ -39,7 +39,7 @@ class PrinterStatus
             $this->details = $data['details'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new PrinterProcessingState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? PrinterProcessingState::tryFrom($data['state']) : $data['state'];
         }
     }
 

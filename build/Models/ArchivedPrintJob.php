@@ -81,7 +81,7 @@ class ArchivedPrintJob
             $this->printerName = $data['printerName'];
         }
         if (isset($data['processingState'])) {
-            $this->processingState = is_array($data['processingState']) ? new PrintJobProcessingState($data['processingState']) : $data['processingState'];
+            $this->processingState = is_string($data['processingState']) ? PrintJobProcessingState::tryFrom($data['processingState']) : $data['processingState'];
         }
     }
 

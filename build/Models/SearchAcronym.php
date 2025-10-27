@@ -69,7 +69,7 @@ class SearchAcronym
             $this->standsFor = $data['standsFor'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new SearchAnswerState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? SearchAnswerState::tryFrom($data['state']) : $data['state'];
         }
     }
 

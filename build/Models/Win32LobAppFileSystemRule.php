@@ -42,7 +42,7 @@ class Win32LobAppFileSystemRule
     {
         $this->rawData = $data;
         if (isset($data['ruleType'])) {
-            $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
+            $this->ruleType = is_string($data['ruleType']) ? Win32LobAppRuleType::tryFrom($data['ruleType']) : $data['ruleType'];
         }
         if (isset($data['check32BitOn64System'])) {
             $this->check32BitOn64System = is_bool($data['check32BitOn64System']) ? $data['check32BitOn64System'] : (bool)$data['check32BitOn64System'];
@@ -54,10 +54,10 @@ class Win32LobAppFileSystemRule
             $this->fileOrFolderName = $data['fileOrFolderName'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = is_array($data['operationType']) ? new Win32LobAppFileSystemOperationType($data['operationType']) : $data['operationType'];
+            $this->operationType = is_string($data['operationType']) ? Win32LobAppFileSystemOperationType::tryFrom($data['operationType']) : $data['operationType'];
         }
         if (isset($data['operator'])) {
-            $this->operator = is_array($data['operator']) ? new Win32LobAppRuleOperator($data['operator']) : $data['operator'];
+            $this->operator = is_string($data['operator']) ? Win32LobAppRuleOperator::tryFrom($data['operator']) : $data['operator'];
         }
         if (isset($data['path'])) {
             $this->path = $data['path'];

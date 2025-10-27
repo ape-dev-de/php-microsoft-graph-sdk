@@ -33,10 +33,10 @@ class RestrictAccessActionBase
     {
         $this->rawData = $data;
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new DlpAction($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? DlpAction::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['restrictionAction'])) {
-            $this->restrictionAction = is_array($data['restrictionAction']) ? new RestrictionAction($data['restrictionAction']) : $data['restrictionAction'];
+            $this->restrictionAction = is_string($data['restrictionAction']) ? RestrictionAction::tryFrom($data['restrictionAction']) : $data['restrictionAction'];
         }
     }
 

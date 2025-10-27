@@ -39,7 +39,7 @@ class MicrosoftTrainingAssignmentMapping
     {
         $this->rawData = $data;
         if (isset($data['settingType'])) {
-            $this->settingType = is_array($data['settingType']) ? new TrainingSettingType($data['settingType']) : $data['settingType'];
+            $this->settingType = is_string($data['settingType']) ? TrainingSettingType::tryFrom($data['settingType']) : $data['settingType'];
         }
         if (isset($data['assignedTo'])) {
             $this->assignedTo = $data['assignedTo'];

@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * CallState
+ * CallState - Enum
  */
-class CallState
+enum CallState: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case INCOMING = 'incoming';
+    case ESTABLISHING = 'establishing';
+    case ESTABLISHED = 'established';
+    case HOLD = 'hold';
+    case TRANSFERRING = 'transferring';
+    case TRANSFERACCEPTED = 'transferAccepted';
+    case REDIRECTING = 'redirecting';
+    case TERMINATING = 'terminating';
+    case TERMINATED = 'terminated';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

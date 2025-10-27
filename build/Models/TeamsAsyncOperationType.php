@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * TeamsAsyncOperationType
+ * TeamsAsyncOperationType - Enum
  */
-class TeamsAsyncOperationType
+enum TeamsAsyncOperationType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case INVALID = 'invalid';
+    case CLONETEAM = 'cloneTeam';
+    case ARCHIVETEAM = 'archiveTeam';
+    case UNARCHIVETEAM = 'unarchiveTeam';
+    case CREATETEAM = 'createTeam';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case TEAMIFYGROUP = 'teamifyGroup';
+    case CREATECHANNEL = 'createChannel';
+    case ARCHIVECHANNEL = 'archiveChannel';
+    case UNARCHIVECHANNEL = 'unarchiveChannel';
 }

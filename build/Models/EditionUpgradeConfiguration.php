@@ -126,13 +126,13 @@ class EditionUpgradeConfiguration
             $this->license = $data['license'];
         }
         if (isset($data['licenseType'])) {
-            $this->licenseType = is_array($data['licenseType']) ? new EditionUpgradeLicenseType($data['licenseType']) : $data['licenseType'];
+            $this->licenseType = is_string($data['licenseType']) ? EditionUpgradeLicenseType::tryFrom($data['licenseType']) : $data['licenseType'];
         }
         if (isset($data['productKey'])) {
             $this->productKey = $data['productKey'];
         }
         if (isset($data['targetEdition'])) {
-            $this->targetEdition = is_array($data['targetEdition']) ? new Windows10EditionType($data['targetEdition']) : $data['targetEdition'];
+            $this->targetEdition = is_string($data['targetEdition']) ? Windows10EditionType::tryFrom($data['targetEdition']) : $data['targetEdition'];
         }
     }
 

@@ -5,29 +5,11 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * DeviceLogCollectionTemplateType
+ * DeviceLogCollectionTemplateType - Enum
+ * Enum for the template type used for collecting logs
  */
-class DeviceLogCollectionTemplateType
+enum DeviceLogCollectionTemplateType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case PREDEFINED = 'predefined';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

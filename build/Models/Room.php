@@ -105,7 +105,7 @@ class Room
             $this->audioDeviceName = $data['audioDeviceName'];
         }
         if (isset($data['bookingType'])) {
-            $this->bookingType = is_array($data['bookingType']) ? new BookingType($data['bookingType']) : $data['bookingType'];
+            $this->bookingType = is_string($data['bookingType']) ? BookingType::tryFrom($data['bookingType']) : $data['bookingType'];
         }
         if (isset($data['building'])) {
             $this->building = $data['building'];

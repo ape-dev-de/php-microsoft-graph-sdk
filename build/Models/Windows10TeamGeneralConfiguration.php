@@ -195,7 +195,7 @@ class Windows10TeamGeneralConfiguration
             $this->miracastBlocked = is_bool($data['miracastBlocked']) ? $data['miracastBlocked'] : (bool)$data['miracastBlocked'];
         }
         if (isset($data['miracastChannel'])) {
-            $this->miracastChannel = is_array($data['miracastChannel']) ? new MiracastChannel($data['miracastChannel']) : $data['miracastChannel'];
+            $this->miracastChannel = is_string($data['miracastChannel']) ? MiracastChannel::tryFrom($data['miracastChannel']) : $data['miracastChannel'];
         }
         if (isset($data['miracastRequirePin'])) {
             $this->miracastRequirePin = is_bool($data['miracastRequirePin']) ? $data['miracastRequirePin'] : (bool)$data['miracastRequirePin'];
@@ -228,7 +228,7 @@ class Windows10TeamGeneralConfiguration
             $this->welcomeScreenBlockAutomaticWakeUp = is_bool($data['welcomeScreenBlockAutomaticWakeUp']) ? $data['welcomeScreenBlockAutomaticWakeUp'] : (bool)$data['welcomeScreenBlockAutomaticWakeUp'];
         }
         if (isset($data['welcomeScreenMeetingInformation'])) {
-            $this->welcomeScreenMeetingInformation = is_array($data['welcomeScreenMeetingInformation']) ? new WelcomeScreenMeetingInformation($data['welcomeScreenMeetingInformation']) : $data['welcomeScreenMeetingInformation'];
+            $this->welcomeScreenMeetingInformation = is_string($data['welcomeScreenMeetingInformation']) ? WelcomeScreenMeetingInformation::tryFrom($data['welcomeScreenMeetingInformation']) : $data['welcomeScreenMeetingInformation'];
         }
     }
 

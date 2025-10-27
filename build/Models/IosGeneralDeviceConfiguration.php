@@ -597,7 +597,7 @@ class IosGeneralDeviceConfiguration
             $this->appsVisibilityList = $data['appsVisibilityList'];
         }
         if (isset($data['appsVisibilityListType'])) {
-            $this->appsVisibilityListType = is_array($data['appsVisibilityListType']) ? new AppListType($data['appsVisibilityListType']) : $data['appsVisibilityListType'];
+            $this->appsVisibilityListType = is_string($data['appsVisibilityListType']) ? AppListType::tryFrom($data['appsVisibilityListType']) : $data['appsVisibilityListType'];
         }
         if (isset($data['bluetoothBlockModification'])) {
             $this->bluetoothBlockModification = is_bool($data['bluetoothBlockModification']) ? $data['bluetoothBlockModification'] : (bool)$data['bluetoothBlockModification'];
@@ -630,7 +630,7 @@ class IosGeneralDeviceConfiguration
             $this->classroomAppForceUnpromptedScreenObservation = is_bool($data['classroomAppForceUnpromptedScreenObservation']) ? $data['classroomAppForceUnpromptedScreenObservation'] : (bool)$data['classroomAppForceUnpromptedScreenObservation'];
         }
         if (isset($data['compliantAppListType'])) {
-            $this->compliantAppListType = is_array($data['compliantAppListType']) ? new AppListType($data['compliantAppListType']) : $data['compliantAppListType'];
+            $this->compliantAppListType = is_string($data['compliantAppListType']) ? AppListType::tryFrom($data['compliantAppListType']) : $data['compliantAppListType'];
         }
         if (isset($data['compliantAppsList'])) {
             $this->compliantAppsList = $data['compliantAppsList'];
@@ -813,7 +813,7 @@ class IosGeneralDeviceConfiguration
             $this->lockScreenBlockTodayView = is_bool($data['lockScreenBlockTodayView']) ? $data['lockScreenBlockTodayView'] : (bool)$data['lockScreenBlockTodayView'];
         }
         if (isset($data['mediaContentRatingApps'])) {
-            $this->mediaContentRatingApps = is_array($data['mediaContentRatingApps']) ? new RatingAppsType($data['mediaContentRatingApps']) : $data['mediaContentRatingApps'];
+            $this->mediaContentRatingApps = is_string($data['mediaContentRatingApps']) ? RatingAppsType::tryFrom($data['mediaContentRatingApps']) : $data['mediaContentRatingApps'];
         }
         if (isset($data['mediaContentRatingAustralia'])) {
             $this->mediaContentRatingAustralia = is_array($data['mediaContentRatingAustralia']) ? new MediaContentRatingAustralia($data['mediaContentRatingAustralia']) : $data['mediaContentRatingAustralia'];
@@ -885,7 +885,7 @@ class IosGeneralDeviceConfiguration
             $this->passcodeRequired = is_bool($data['passcodeRequired']) ? $data['passcodeRequired'] : (bool)$data['passcodeRequired'];
         }
         if (isset($data['passcodeRequiredType'])) {
-            $this->passcodeRequiredType = is_array($data['passcodeRequiredType']) ? new RequiredPasswordType($data['passcodeRequiredType']) : $data['passcodeRequiredType'];
+            $this->passcodeRequiredType = is_string($data['passcodeRequiredType']) ? RequiredPasswordType::tryFrom($data['passcodeRequiredType']) : $data['passcodeRequiredType'];
         }
         if (isset($data['passcodeSignInFailureCountBeforeWipe'])) {
             $this->passcodeSignInFailureCountBeforeWipe = is_numeric($data['passcodeSignInFailureCountBeforeWipe']) ? (float)$data['passcodeSignInFailureCountBeforeWipe'] : $data['passcodeSignInFailureCountBeforeWipe'];
@@ -906,7 +906,7 @@ class IosGeneralDeviceConfiguration
             $this->safariBlockPopups = is_bool($data['safariBlockPopups']) ? $data['safariBlockPopups'] : (bool)$data['safariBlockPopups'];
         }
         if (isset($data['safariCookieSettings'])) {
-            $this->safariCookieSettings = is_array($data['safariCookieSettings']) ? new WebBrowserCookieSettings($data['safariCookieSettings']) : $data['safariCookieSettings'];
+            $this->safariCookieSettings = is_string($data['safariCookieSettings']) ? WebBrowserCookieSettings::tryFrom($data['safariCookieSettings']) : $data['safariCookieSettings'];
         }
         if (isset($data['safariManagedDomains'])) {
             $this->safariManagedDomains = $data['safariManagedDomains'];

@@ -72,7 +72,7 @@ class SecurityEdiscoveryReviewTag
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['childSelectability'])) {
-            $this->childSelectability = is_array($data['childSelectability']) ? new SecurityChildSelectability($data['childSelectability']) : $data['childSelectability'];
+            $this->childSelectability = is_string($data['childSelectability']) ? SecurityChildSelectability::tryFrom($data['childSelectability']) : $data['childSelectability'];
         }
         if (isset($data['childTags'])) {
             $this->childTags = $data['childTags'];

@@ -141,7 +141,7 @@ class SearchBookmark
             $this->powerAppIds = $data['powerAppIds'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new SearchAnswerState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? SearchAnswerState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['targetedVariations'])) {
             $this->targetedVariations = $data['targetedVariations'];

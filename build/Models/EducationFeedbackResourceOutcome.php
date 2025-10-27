@@ -57,7 +57,7 @@ class EducationFeedbackResourceOutcome
             $this->feedbackResource = is_array($data['feedbackResource']) ? new EducationResource($data['feedbackResource']) : $data['feedbackResource'];
         }
         if (isset($data['resourceStatus'])) {
-            $this->resourceStatus = is_array($data['resourceStatus']) ? new EducationFeedbackResourceOutcomeStatus($data['resourceStatus']) : $data['resourceStatus'];
+            $this->resourceStatus = is_string($data['resourceStatus']) ? EducationFeedbackResourceOutcomeStatus::tryFrom($data['resourceStatus']) : $data['resourceStatus'];
         }
     }
 

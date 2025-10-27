@@ -99,7 +99,7 @@ class MailTips
             $this->maxMessageSize = is_numeric($data['maxMessageSize']) ? (float)$data['maxMessageSize'] : $data['maxMessageSize'];
         }
         if (isset($data['recipientScope'])) {
-            $this->recipientScope = is_array($data['recipientScope']) ? new RecipientScopeType($data['recipientScope']) : $data['recipientScope'];
+            $this->recipientScope = is_string($data['recipientScope']) ? RecipientScopeType::tryFrom($data['recipientScope']) : $data['recipientScope'];
         }
         if (isset($data['recipientSuggestions'])) {
             $this->recipientSuggestions = $data['recipientSuggestions'];

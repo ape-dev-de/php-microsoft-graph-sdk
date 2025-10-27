@@ -30,7 +30,7 @@ class DriveItemSource
     {
         $this->rawData = $data;
         if (isset($data['application'])) {
-            $this->application = is_array($data['application']) ? new DriveItemSourceApplication($data['application']) : $data['application'];
+            $this->application = is_string($data['application']) ? DriveItemSourceApplication::tryFrom($data['application']) : $data['application'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];

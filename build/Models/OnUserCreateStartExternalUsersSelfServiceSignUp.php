@@ -27,7 +27,7 @@ class OnUserCreateStartExternalUsersSelfServiceSignUp
     {
         $this->rawData = $data;
         if (isset($data['userTypeToCreate'])) {
-            $this->userTypeToCreate = is_array($data['userTypeToCreate']) ? new UserType($data['userTypeToCreate']) : $data['userTypeToCreate'];
+            $this->userTypeToCreate = is_string($data['userTypeToCreate']) ? UserType::tryFrom($data['userTypeToCreate']) : $data['userTypeToCreate'];
         }
     }
 

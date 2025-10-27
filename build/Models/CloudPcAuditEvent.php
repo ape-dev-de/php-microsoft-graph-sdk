@@ -69,10 +69,10 @@ class CloudPcAuditEvent
             $this->activityDateTime = is_string($data['activityDateTime']) ? new \DateTimeImmutable($data['activityDateTime']) : $data['activityDateTime'];
         }
         if (isset($data['activityOperationType'])) {
-            $this->activityOperationType = is_array($data['activityOperationType']) ? new CloudPcAuditActivityOperationType($data['activityOperationType']) : $data['activityOperationType'];
+            $this->activityOperationType = is_string($data['activityOperationType']) ? CloudPcAuditActivityOperationType::tryFrom($data['activityOperationType']) : $data['activityOperationType'];
         }
         if (isset($data['activityResult'])) {
-            $this->activityResult = is_array($data['activityResult']) ? new CloudPcAuditActivityResult($data['activityResult']) : $data['activityResult'];
+            $this->activityResult = is_string($data['activityResult']) ? CloudPcAuditActivityResult::tryFrom($data['activityResult']) : $data['activityResult'];
         }
         if (isset($data['activityType'])) {
             $this->activityType = $data['activityType'];
@@ -81,7 +81,7 @@ class CloudPcAuditEvent
             $this->actor = is_array($data['actor']) ? new CloudPcAuditActor($data['actor']) : $data['actor'];
         }
         if (isset($data['category'])) {
-            $this->category = is_array($data['category']) ? new CloudPcAuditCategory($data['category']) : $data['category'];
+            $this->category = is_string($data['category']) ? CloudPcAuditCategory::tryFrom($data['category']) : $data['category'];
         }
         if (isset($data['componentName'])) {
             $this->componentName = $data['componentName'];

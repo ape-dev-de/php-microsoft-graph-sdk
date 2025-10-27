@@ -93,7 +93,7 @@ class RestoreArtifactsBulkRequestBase
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['destinationType'])) {
-            $this->destinationType = is_array($data['destinationType']) ? new DestinationType($data['destinationType']) : $data['destinationType'];
+            $this->destinationType = is_string($data['destinationType']) ? DestinationType::tryFrom($data['destinationType']) : $data['destinationType'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -114,13 +114,13 @@ class RestoreArtifactsBulkRequestBase
             $this->protectionUnitIds = $data['protectionUnitIds'];
         }
         if (isset($data['restorePointPreference'])) {
-            $this->restorePointPreference = is_array($data['restorePointPreference']) ? new RestorePointPreference($data['restorePointPreference']) : $data['restorePointPreference'];
+            $this->restorePointPreference = is_string($data['restorePointPreference']) ? RestorePointPreference::tryFrom($data['restorePointPreference']) : $data['restorePointPreference'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new RestoreArtifactsBulkRequestStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? RestoreArtifactsBulkRequestStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['tags'])) {
-            $this->tags = is_array($data['tags']) ? new RestorePointTags($data['tags']) : $data['tags'];
+            $this->tags = is_string($data['tags']) ? RestorePointTags::tryFrom($data['tags']) : $data['tags'];
         }
     }
 

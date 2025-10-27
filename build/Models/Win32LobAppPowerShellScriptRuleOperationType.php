@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Win32LobAppPowerShellScriptRuleOperationType
+ * Win32LobAppPowerShellScriptRuleOperationType - Enum
+ * Contains all supported Powershell Script output detection type.
  */
-class Win32LobAppPowerShellScriptRuleOperationType
+enum Win32LobAppPowerShellScriptRuleOperationType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NOTCONFIGURED = 'notConfigured';
+    case STRING = 'string';
+    case DATETIME = 'dateTime';
+    case INTEGER = 'integer';
+    case FLOAT = 'float';
+    case VERSION = 'version';
+    case BOOLEAN = 'boolean';
 }

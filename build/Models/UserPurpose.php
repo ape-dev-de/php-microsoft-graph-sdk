@@ -5,29 +5,15 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * UserPurpose
+ * UserPurpose - Enum
  */
-class UserPurpose
+enum UserPurpose: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case USER = 'user';
+    case LINKED = 'linked';
+    case SHARED = 'shared';
+    case ROOM = 'room';
+    case EQUIPMENT = 'equipment';
+    case OTHERS = 'others';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

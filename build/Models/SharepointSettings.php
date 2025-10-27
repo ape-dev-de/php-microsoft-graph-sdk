@@ -156,7 +156,7 @@ class SharepointSettings
             $this->idleSessionSignOut = is_array($data['idleSessionSignOut']) ? new IdleSessionSignOut($data['idleSessionSignOut']) : $data['idleSessionSignOut'];
         }
         if (isset($data['imageTaggingOption'])) {
-            $this->imageTaggingOption = is_array($data['imageTaggingOption']) ? new ImageTaggingChoice($data['imageTaggingOption']) : $data['imageTaggingOption'];
+            $this->imageTaggingOption = is_string($data['imageTaggingOption']) ? ImageTaggingChoice::tryFrom($data['imageTaggingOption']) : $data['imageTaggingOption'];
         }
         if (isset($data['isCommentingOnSitePagesEnabled'])) {
             $this->isCommentingOnSitePagesEnabled = is_bool($data['isCommentingOnSitePagesEnabled']) ? $data['isCommentingOnSitePagesEnabled'] : (bool)$data['isCommentingOnSitePagesEnabled'];
@@ -213,10 +213,10 @@ class SharepointSettings
             $this->sharingBlockedDomainList = $data['sharingBlockedDomainList'];
         }
         if (isset($data['sharingCapability'])) {
-            $this->sharingCapability = is_array($data['sharingCapability']) ? new SharingCapabilities($data['sharingCapability']) : $data['sharingCapability'];
+            $this->sharingCapability = is_string($data['sharingCapability']) ? SharingCapabilities::tryFrom($data['sharingCapability']) : $data['sharingCapability'];
         }
         if (isset($data['sharingDomainRestrictionMode'])) {
-            $this->sharingDomainRestrictionMode = is_array($data['sharingDomainRestrictionMode']) ? new SharingDomainRestrictionMode($data['sharingDomainRestrictionMode']) : $data['sharingDomainRestrictionMode'];
+            $this->sharingDomainRestrictionMode = is_string($data['sharingDomainRestrictionMode']) ? SharingDomainRestrictionMode::tryFrom($data['sharingDomainRestrictionMode']) : $data['sharingDomainRestrictionMode'];
         }
         if (isset($data['siteCreationDefaultManagedPath'])) {
             $this->siteCreationDefaultManagedPath = $data['siteCreationDefaultManagedPath'];

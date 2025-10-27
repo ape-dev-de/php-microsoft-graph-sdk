@@ -39,7 +39,7 @@ class UserExperienceAnalyticsInsight
             $this->insightId = $data['insightId'];
         }
         if (isset($data['severity'])) {
-            $this->severity = is_array($data['severity']) ? new UserExperienceAnalyticsInsightSeverity($data['severity']) : $data['severity'];
+            $this->severity = is_string($data['severity']) ? UserExperienceAnalyticsInsightSeverity::tryFrom($data['severity']) : $data['severity'];
         }
         if (isset($data['userExperienceAnalyticsMetricId'])) {
             $this->userExperienceAnalyticsMetricId = $data['userExperienceAnalyticsMetricId'];

@@ -267,7 +267,7 @@ class ColumnDefinition
             $this->thumbnail = is_array($data['thumbnail']) ? new ThumbnailColumn($data['thumbnail']) : $data['thumbnail'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new ColumnTypes($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? ColumnTypes::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['validation'])) {
             $this->validation = is_array($data['validation']) ? new ColumnValidation($data['validation']) : $data['validation'];

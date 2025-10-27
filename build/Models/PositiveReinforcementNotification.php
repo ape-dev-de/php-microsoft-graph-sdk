@@ -42,7 +42,7 @@ class PositiveReinforcementNotification
             $this->endUserNotification = is_array($data['endUserNotification']) ? new EndUserNotification($data['endUserNotification']) : $data['endUserNotification'];
         }
         if (isset($data['deliveryPreference'])) {
-            $this->deliveryPreference = is_array($data['deliveryPreference']) ? new NotificationDeliveryPreference($data['deliveryPreference']) : $data['deliveryPreference'];
+            $this->deliveryPreference = is_string($data['deliveryPreference']) ? NotificationDeliveryPreference::tryFrom($data['deliveryPreference']) : $data['deliveryPreference'];
         }
     }
 

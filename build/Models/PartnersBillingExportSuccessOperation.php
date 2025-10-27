@@ -48,7 +48,7 @@ class PartnersBillingExportSuccessOperation
             $this->lastActionDateTime = is_string($data['lastActionDateTime']) ? new \DateTimeImmutable($data['lastActionDateTime']) : $data['lastActionDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? LongRunningOperationStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['resourceLocation'])) {
             $this->resourceLocation = is_array($data['resourceLocation']) ? new PartnersBillingManifest($data['resourceLocation']) : $data['resourceLocation'];

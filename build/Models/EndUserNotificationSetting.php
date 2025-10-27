@@ -39,13 +39,13 @@ class EndUserNotificationSetting
     {
         $this->rawData = $data;
         if (isset($data['notificationPreference'])) {
-            $this->notificationPreference = is_array($data['notificationPreference']) ? new EndUserNotificationPreference($data['notificationPreference']) : $data['notificationPreference'];
+            $this->notificationPreference = is_string($data['notificationPreference']) ? EndUserNotificationPreference::tryFrom($data['notificationPreference']) : $data['notificationPreference'];
         }
         if (isset($data['positiveReinforcement'])) {
             $this->positiveReinforcement = is_array($data['positiveReinforcement']) ? new PositiveReinforcementNotification($data['positiveReinforcement']) : $data['positiveReinforcement'];
         }
         if (isset($data['settingType'])) {
-            $this->settingType = is_array($data['settingType']) ? new EndUserNotificationSettingType($data['settingType']) : $data['settingType'];
+            $this->settingType = is_string($data['settingType']) ? EndUserNotificationSettingType::tryFrom($data['settingType']) : $data['settingType'];
         }
     }
 

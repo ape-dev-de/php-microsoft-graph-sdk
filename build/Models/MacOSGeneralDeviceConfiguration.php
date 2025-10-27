@@ -153,7 +153,7 @@ class MacOSGeneralDeviceConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['compliantAppListType'])) {
-            $this->compliantAppListType = is_array($data['compliantAppListType']) ? new AppListType($data['compliantAppListType']) : $data['compliantAppListType'];
+            $this->compliantAppListType = is_string($data['compliantAppListType']) ? AppListType::tryFrom($data['compliantAppListType']) : $data['compliantAppListType'];
         }
         if (isset($data['compliantAppsList'])) {
             $this->compliantAppsList = $data['compliantAppsList'];
@@ -186,7 +186,7 @@ class MacOSGeneralDeviceConfiguration
             $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? RequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
     }
 

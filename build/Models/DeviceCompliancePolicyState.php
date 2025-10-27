@@ -51,7 +51,7 @@ class DeviceCompliancePolicyState
             $this->displayName = $data['displayName'];
         }
         if (isset($data['platformType'])) {
-            $this->platformType = is_array($data['platformType']) ? new PolicyPlatformType($data['platformType']) : $data['platformType'];
+            $this->platformType = is_string($data['platformType']) ? PolicyPlatformType::tryFrom($data['platformType']) : $data['platformType'];
         }
         if (isset($data['settingCount'])) {
             $this->settingCount = is_numeric($data['settingCount']) ? (float)$data['settingCount'] : $data['settingCount'];
@@ -60,7 +60,7 @@ class DeviceCompliancePolicyState
             $this->settingStates = $data['settingStates'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new ComplianceStatus($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? ComplianceStatus::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['version'])) {
             $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];

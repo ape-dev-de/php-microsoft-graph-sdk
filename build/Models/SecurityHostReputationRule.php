@@ -42,7 +42,7 @@ class SecurityHostReputationRule
             $this->relatedDetailsUrl = $data['relatedDetailsUrl'];
         }
         if (isset($data['severity'])) {
-            $this->severity = is_array($data['severity']) ? new SecurityHostReputationRuleSeverity($data['severity']) : $data['severity'];
+            $this->severity = is_string($data['severity']) ? SecurityHostReputationRuleSeverity::tryFrom($data['severity']) : $data['severity'];
         }
     }
 

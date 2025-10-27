@@ -30,7 +30,7 @@ class TeamsAppResourceSpecificPermission
     {
         $this->rawData = $data;
         if (isset($data['permissionType'])) {
-            $this->permissionType = is_array($data['permissionType']) ? new TeamsAppResourceSpecificPermissionType($data['permissionType']) : $data['permissionType'];
+            $this->permissionType = is_string($data['permissionType']) ? TeamsAppResourceSpecificPermissionType::tryFrom($data['permissionType']) : $data['permissionType'];
         }
         if (isset($data['permissionValue'])) {
             $this->permissionValue = $data['permissionValue'];

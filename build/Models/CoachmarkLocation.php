@@ -39,7 +39,7 @@ class CoachmarkLocation
             $this->offset = is_numeric($data['offset']) ? (float)$data['offset'] : $data['offset'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new CoachmarkLocationType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? CoachmarkLocationType::tryFrom($data['type']) : $data['type'];
         }
     }
 

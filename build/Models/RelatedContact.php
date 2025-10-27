@@ -48,7 +48,7 @@ class RelatedContact
             $this->mobilePhone = $data['mobilePhone'];
         }
         if (isset($data['relationship'])) {
-            $this->relationship = is_array($data['relationship']) ? new ContactRelationship($data['relationship']) : $data['relationship'];
+            $this->relationship = is_string($data['relationship']) ? ContactRelationship::tryFrom($data['relationship']) : $data['relationship'];
         }
     }
 

@@ -39,7 +39,7 @@ class DelegatedPermissionClassification
             $this->id = $data['id'];
         }
         if (isset($data['classification'])) {
-            $this->classification = is_array($data['classification']) ? new PermissionClassificationType($data['classification']) : $data['classification'];
+            $this->classification = is_string($data['classification']) ? PermissionClassificationType::tryFrom($data['classification']) : $data['classification'];
         }
         if (isset($data['permissionId'])) {
             $this->permissionId = $data['permissionId'];

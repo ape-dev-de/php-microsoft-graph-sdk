@@ -75,7 +75,7 @@ class DeviceLogCollectionResponse
             $this->sizeInKB = is_numeric($data['sizeInKB']) ? (float)$data['sizeInKB'] : $data['sizeInKB'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new AppLogUploadState($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? AppLogUploadState::tryFrom($data['status']) : $data['status'];
         }
     }
 

@@ -24,7 +24,7 @@ class AirPrintSettings
     {
         $this->rawData = $data;
         if (isset($data['incompatiblePrinters'])) {
-            $this->incompatiblePrinters = is_array($data['incompatiblePrinters']) ? new IncompatiblePrinterSettings($data['incompatiblePrinters']) : $data['incompatiblePrinters'];
+            $this->incompatiblePrinters = is_string($data['incompatiblePrinters']) ? IncompatiblePrinterSettings::tryFrom($data['incompatiblePrinters']) : $data['incompatiblePrinters'];
         }
     }
 

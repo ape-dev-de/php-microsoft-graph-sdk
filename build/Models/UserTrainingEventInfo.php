@@ -51,7 +51,7 @@ class UserTrainingEventInfo
             $this->displayName = $data['displayName'];
         }
         if (isset($data['latestTrainingStatus'])) {
-            $this->latestTrainingStatus = is_array($data['latestTrainingStatus']) ? new TrainingStatus($data['latestTrainingStatus']) : $data['latestTrainingStatus'];
+            $this->latestTrainingStatus = is_string($data['latestTrainingStatus']) ? TrainingStatus::tryFrom($data['latestTrainingStatus']) : $data['latestTrainingStatus'];
         }
         if (isset($data['trainingAssignedProperties'])) {
             $this->trainingAssignedProperties = is_array($data['trainingAssignedProperties']) ? new UserTrainingContentEventInfo($data['trainingAssignedProperties']) : $data['trainingAssignedProperties'];

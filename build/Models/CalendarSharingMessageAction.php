@@ -39,13 +39,13 @@ class CalendarSharingMessageAction
     {
         $this->rawData = $data;
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new CalendarSharingAction($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? CalendarSharingAction::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['actionType'])) {
-            $this->actionType = is_array($data['actionType']) ? new CalendarSharingActionType($data['actionType']) : $data['actionType'];
+            $this->actionType = is_string($data['actionType']) ? CalendarSharingActionType::tryFrom($data['actionType']) : $data['actionType'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new CalendarSharingActionImportance($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? CalendarSharingActionImportance::tryFrom($data['importance']) : $data['importance'];
         }
     }
 

@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * TargetedManagedAppGroupType
+ * TargetedManagedAppGroupType - Enum
+ * Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
  */
-class TargetedManagedAppGroupType
+enum TargetedManagedAppGroupType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case SELECTEDPUBLICAPPS = 'selectedPublicApps';
+    case ALLCOREMICROSOFTAPPS = 'allCoreMicrosoftApps';
+    case ALLMICROSOFTAPPS = 'allMicrosoftApps';
+    case ALLAPPS = 'allApps';
 }

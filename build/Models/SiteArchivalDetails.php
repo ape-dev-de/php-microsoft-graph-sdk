@@ -27,7 +27,7 @@ class SiteArchivalDetails
     {
         $this->rawData = $data;
         if (isset($data['archiveStatus'])) {
-            $this->archiveStatus = is_array($data['archiveStatus']) ? new SiteArchiveStatus($data['archiveStatus']) : $data['archiveStatus'];
+            $this->archiveStatus = is_string($data['archiveStatus']) ? SiteArchiveStatus::tryFrom($data['archiveStatus']) : $data['archiveStatus'];
         }
     }
 

@@ -39,7 +39,7 @@ class LoginPageLayoutConfiguration
             $this->isHeaderShown = is_bool($data['isHeaderShown']) ? $data['isHeaderShown'] : (bool)$data['isHeaderShown'];
         }
         if (isset($data['layoutTemplateType'])) {
-            $this->layoutTemplateType = is_array($data['layoutTemplateType']) ? new LayoutTemplateType($data['layoutTemplateType']) : $data['layoutTemplateType'];
+            $this->layoutTemplateType = is_string($data['layoutTemplateType']) ? LayoutTemplateType::tryFrom($data['layoutTemplateType']) : $data['layoutTemplateType'];
         }
     }
 

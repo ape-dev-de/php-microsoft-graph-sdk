@@ -174,7 +174,7 @@ class MacOSCompliancePolicy
             $this->deviceThreatProtectionEnabled = is_bool($data['deviceThreatProtectionEnabled']) ? $data['deviceThreatProtectionEnabled'] : (bool)$data['deviceThreatProtectionEnabled'];
         }
         if (isset($data['deviceThreatProtectionRequiredSecurityLevel'])) {
-            $this->deviceThreatProtectionRequiredSecurityLevel = is_array($data['deviceThreatProtectionRequiredSecurityLevel']) ? new DeviceThreatProtectionLevel($data['deviceThreatProtectionRequiredSecurityLevel']) : $data['deviceThreatProtectionRequiredSecurityLevel'];
+            $this->deviceThreatProtectionRequiredSecurityLevel = is_string($data['deviceThreatProtectionRequiredSecurityLevel']) ? DeviceThreatProtectionLevel::tryFrom($data['deviceThreatProtectionRequiredSecurityLevel']) : $data['deviceThreatProtectionRequiredSecurityLevel'];
         }
         if (isset($data['firewallBlockAllIncoming'])) {
             $this->firewallBlockAllIncoming = is_bool($data['firewallBlockAllIncoming']) ? $data['firewallBlockAllIncoming'] : (bool)$data['firewallBlockAllIncoming'];
@@ -213,7 +213,7 @@ class MacOSCompliancePolicy
             $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? RequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['storageRequireEncryption'])) {
             $this->storageRequireEncryption = is_bool($data['storageRequireEncryption']) ? $data['storageRequireEncryption'] : (bool)$data['storageRequireEncryption'];

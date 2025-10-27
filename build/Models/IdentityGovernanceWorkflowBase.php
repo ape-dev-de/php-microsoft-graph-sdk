@@ -66,7 +66,7 @@ class IdentityGovernanceWorkflowBase
     {
         $this->rawData = $data;
         if (isset($data['category'])) {
-            $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['category']) : $data['category'];
+            $this->category = is_string($data['category']) ? IdentityGovernanceLifecycleWorkflowCategory::tryFrom($data['category']) : $data['category'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

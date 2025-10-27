@@ -222,7 +222,7 @@ class Windows10CompliancePolicy
             $this->passwordRequiredToUnlockFromIdle = is_bool($data['passwordRequiredToUnlockFromIdle']) ? $data['passwordRequiredToUnlockFromIdle'] : (bool)$data['passwordRequiredToUnlockFromIdle'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? RequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['requireHealthyDeviceReport'])) {
             $this->requireHealthyDeviceReport = is_bool($data['requireHealthyDeviceReport']) ? $data['requireHealthyDeviceReport'] : (bool)$data['requireHealthyDeviceReport'];

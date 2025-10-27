@@ -36,7 +36,7 @@ class DeviceActionResult
             $this->actionName = $data['actionName'];
         }
         if (isset($data['actionState'])) {
-            $this->actionState = is_array($data['actionState']) ? new ActionState($data['actionState']) : $data['actionState'];
+            $this->actionState = is_string($data['actionState']) ? ActionState::tryFrom($data['actionState']) : $data['actionState'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];

@@ -5,29 +5,21 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * RegistryValueType
+ * RegistryValueType - Enum
  */
-class RegistryValueType
+enum RegistryValueType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UNKNOWN = 'unknown';
+    case BINARY = 'binary';
+    case DWORD = 'dword';
+    case DWORDLITTLEENDIAN = 'dwordLittleEndian';
+    case DWORDBIGENDIAN = 'dwordBigEndian';
+    case EXPANDSZ = 'expandSz';
+    case LINK = 'link';
+    case MULTISZ = 'multiSz';
+    case NONE = 'none';
+    case QWORD = 'qword';
+    case QWORDLITTLEENDIAN = 'qwordlittleEndian';
+    case SZ = 'sz';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

@@ -87,7 +87,7 @@ class ComplianceManagementPartner
             $this->macOsOnboarded = is_bool($data['macOsOnboarded']) ? $data['macOsOnboarded'] : (bool)$data['macOsOnboarded'];
         }
         if (isset($data['partnerState'])) {
-            $this->partnerState = is_array($data['partnerState']) ? new DeviceManagementPartnerTenantState($data['partnerState']) : $data['partnerState'];
+            $this->partnerState = is_string($data['partnerState']) ? DeviceManagementPartnerTenantState::tryFrom($data['partnerState']) : $data['partnerState'];
         }
     }
 

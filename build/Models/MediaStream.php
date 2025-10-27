@@ -36,13 +36,13 @@ class MediaStream
     {
         $this->rawData = $data;
         if (isset($data['direction'])) {
-            $this->direction = is_array($data['direction']) ? new MediaDirection($data['direction']) : $data['direction'];
+            $this->direction = is_string($data['direction']) ? MediaDirection::tryFrom($data['direction']) : $data['direction'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];
         }
         if (isset($data['mediaType'])) {
-            $this->mediaType = is_array($data['mediaType']) ? new Modality($data['mediaType']) : $data['mediaType'];
+            $this->mediaType = is_string($data['mediaType']) ? Modality::tryFrom($data['mediaType']) : $data['mediaType'];
         }
         if (isset($data['serverMuted'])) {
             $this->serverMuted = is_bool($data['serverMuted']) ? $data['serverMuted'] : (bool)$data['serverMuted'];

@@ -423,7 +423,7 @@ class DeviceManagement
             $this->settings = is_array($data['settings']) ? new DeviceManagementSettings($data['settings']) : $data['settings'];
         }
         if (isset($data['subscriptionState'])) {
-            $this->subscriptionState = is_array($data['subscriptionState']) ? new DeviceManagementSubscriptionState($data['subscriptionState']) : $data['subscriptionState'];
+            $this->subscriptionState = is_string($data['subscriptionState']) ? DeviceManagementSubscriptionState::tryFrom($data['subscriptionState']) : $data['subscriptionState'];
         }
         if (isset($data['userExperienceAnalyticsSettings'])) {
             $this->userExperienceAnalyticsSettings = is_array($data['userExperienceAnalyticsSettings']) ? new UserExperienceAnalyticsSettings($data['userExperienceAnalyticsSettings']) : $data['userExperienceAnalyticsSettings'];

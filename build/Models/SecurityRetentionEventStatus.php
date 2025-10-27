@@ -36,7 +36,7 @@ class SecurityRetentionEventStatus
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityEventStatusType($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityEventStatusType::tryFrom($data['status']) : $data['status'];
         }
     }
 

@@ -27,7 +27,7 @@ class WindowsUpdateScheduledInstall
     {
         $this->rawData = $data;
         if (isset($data['scheduledInstallDay'])) {
-            $this->scheduledInstallDay = is_array($data['scheduledInstallDay']) ? new WeeklySchedule($data['scheduledInstallDay']) : $data['scheduledInstallDay'];
+            $this->scheduledInstallDay = is_string($data['scheduledInstallDay']) ? WeeklySchedule::tryFrom($data['scheduledInstallDay']) : $data['scheduledInstallDay'];
         }
         if (isset($data['scheduledInstallTime'])) {
             $this->scheduledInstallTime = $data['scheduledInstallTime'];

@@ -33,7 +33,7 @@ class TeamworkActivityTopic
     {
         $this->rawData = $data;
         if (isset($data['source'])) {
-            $this->source = is_array($data['source']) ? new TeamworkActivityTopicSource($data['source']) : $data['source'];
+            $this->source = is_string($data['source']) ? TeamworkActivityTopicSource::tryFrom($data['source']) : $data['source'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

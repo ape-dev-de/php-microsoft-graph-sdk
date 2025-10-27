@@ -5,29 +5,30 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * MiracastChannel
+ * MiracastChannel - Enum
+ * Possible values for Miracast channel.
  */
-class MiracastChannel
+enum MiracastChannel: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case USERDEFINED = 'userDefined';
+    case ONE = 'one';
+    case TWO = 'two';
+    case THREE = 'three';
+    case FOUR = 'four';
+    case FIVE = 'five';
+    case SIX = 'six';
+    case SEVEN = 'seven';
+    case EIGHT = 'eight';
+    case NINE = 'nine';
+    case TEN = 'ten';
+    case ELEVEN = 'eleven';
+    case THIRTYSIX = 'thirtySix';
+    case FORTY = 'forty';
+    case FORTYFOUR = 'fortyFour';
+    case FORTYEIGHT = 'fortyEight';
+    case ONEHUNDREDFORTYNINE = 'oneHundredFortyNine';
+    case ONEHUNDREDFIFTYTHREE = 'oneHundredFiftyThree';
+    case ONEHUNDREDFIFTYSEVEN = 'oneHundredFiftySeven';
+    case ONEHUNDREDSIXTYONE = 'oneHundredSixtyOne';
+    case ONEHUNDREDSIXTYFIVE = 'oneHundredSixtyFive';
 }

@@ -162,7 +162,7 @@ class WindowsUniversalAppX
             $this->publisher = $data['publisher'];
         }
         if (isset($data['publishingState'])) {
-            $this->publishingState = is_array($data['publishingState']) ? new MobileAppPublishingState($data['publishingState']) : $data['publishingState'];
+            $this->publishingState = is_string($data['publishingState']) ? MobileAppPublishingState::tryFrom($data['publishingState']) : $data['publishingState'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -183,10 +183,10 @@ class WindowsUniversalAppX
             $this->contentVersions = $data['contentVersions'];
         }
         if (isset($data['applicableArchitectures'])) {
-            $this->applicableArchitectures = is_array($data['applicableArchitectures']) ? new WindowsArchitecture($data['applicableArchitectures']) : $data['applicableArchitectures'];
+            $this->applicableArchitectures = is_string($data['applicableArchitectures']) ? WindowsArchitecture::tryFrom($data['applicableArchitectures']) : $data['applicableArchitectures'];
         }
         if (isset($data['applicableDeviceTypes'])) {
-            $this->applicableDeviceTypes = is_array($data['applicableDeviceTypes']) ? new WindowsDeviceType($data['applicableDeviceTypes']) : $data['applicableDeviceTypes'];
+            $this->applicableDeviceTypes = is_string($data['applicableDeviceTypes']) ? WindowsDeviceType::tryFrom($data['applicableDeviceTypes']) : $data['applicableDeviceTypes'];
         }
         if (isset($data['identityName'])) {
             $this->identityName = $data['identityName'];

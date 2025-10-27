@@ -156,7 +156,7 @@ class ChatMessage
             $this->from = is_array($data['from']) ? new ChatMessageFromIdentitySet($data['from']) : $data['from'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new ChatMessageImportance($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? ChatMessageImportance::tryFrom($data['importance']) : $data['importance'];
         }
         if (isset($data['lastEditedDateTime'])) {
             $this->lastEditedDateTime = is_string($data['lastEditedDateTime']) ? new \DateTimeImmutable($data['lastEditedDateTime']) : $data['lastEditedDateTime'];
@@ -174,7 +174,7 @@ class ChatMessage
             $this->messageHistory = $data['messageHistory'];
         }
         if (isset($data['messageType'])) {
-            $this->messageType = is_array($data['messageType']) ? new ChatMessageType($data['messageType']) : $data['messageType'];
+            $this->messageType = is_string($data['messageType']) ? ChatMessageType::tryFrom($data['messageType']) : $data['messageType'];
         }
         if (isset($data['policyViolation'])) {
             $this->policyViolation = is_array($data['policyViolation']) ? new ChatMessagePolicyViolation($data['policyViolation']) : $data['policyViolation'];

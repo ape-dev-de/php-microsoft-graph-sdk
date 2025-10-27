@@ -57,7 +57,7 @@ class IdentityGovernanceTaskProcessingResult
             $this->failureReason = $data['failureReason'];
         }
         if (isset($data['processingStatus'])) {
-            $this->processingStatus = is_array($data['processingStatus']) ? new IdentityGovernanceLifecycleWorkflowProcessingStatus($data['processingStatus']) : $data['processingStatus'];
+            $this->processingStatus = is_string($data['processingStatus']) ? IdentityGovernanceLifecycleWorkflowProcessingStatus::tryFrom($data['processingStatus']) : $data['processingStatus'];
         }
         if (isset($data['startedDateTime'])) {
             $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];

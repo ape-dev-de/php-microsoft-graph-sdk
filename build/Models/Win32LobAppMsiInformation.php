@@ -42,7 +42,7 @@ class Win32LobAppMsiInformation
     {
         $this->rawData = $data;
         if (isset($data['packageType'])) {
-            $this->packageType = is_array($data['packageType']) ? new Win32LobAppMsiPackageType($data['packageType']) : $data['packageType'];
+            $this->packageType = is_string($data['packageType']) ? Win32LobAppMsiPackageType::tryFrom($data['packageType']) : $data['packageType'];
         }
         if (isset($data['productCode'])) {
             $this->productCode = $data['productCode'];

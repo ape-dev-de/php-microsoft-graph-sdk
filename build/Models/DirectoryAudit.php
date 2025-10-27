@@ -93,7 +93,7 @@ class DirectoryAudit
             $this->operationType = $data['operationType'];
         }
         if (isset($data['result'])) {
-            $this->result = is_array($data['result']) ? new OperationResult($data['result']) : $data['result'];
+            $this->result = is_string($data['result']) ? OperationResult::tryFrom($data['result']) : $data['result'];
         }
         if (isset($data['resultReason'])) {
             $this->resultReason = $data['resultReason'];

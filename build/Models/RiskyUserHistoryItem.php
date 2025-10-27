@@ -84,16 +84,16 @@ class RiskyUserHistoryItem
             $this->isProcessing = is_bool($data['isProcessing']) ? $data['isProcessing'] : (bool)$data['isProcessing'];
         }
         if (isset($data['riskDetail'])) {
-            $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];
+            $this->riskDetail = is_string($data['riskDetail']) ? RiskDetail::tryFrom($data['riskDetail']) : $data['riskDetail'];
         }
         if (isset($data['riskLastUpdatedDateTime'])) {
             $this->riskLastUpdatedDateTime = is_string($data['riskLastUpdatedDateTime']) ? new \DateTimeImmutable($data['riskLastUpdatedDateTime']) : $data['riskLastUpdatedDateTime'];
         }
         if (isset($data['riskLevel'])) {
-            $this->riskLevel = is_array($data['riskLevel']) ? new RiskLevel($data['riskLevel']) : $data['riskLevel'];
+            $this->riskLevel = is_string($data['riskLevel']) ? RiskLevel::tryFrom($data['riskLevel']) : $data['riskLevel'];
         }
         if (isset($data['riskState'])) {
-            $this->riskState = is_array($data['riskState']) ? new RiskState($data['riskState']) : $data['riskState'];
+            $this->riskState = is_string($data['riskState']) ? RiskState::tryFrom($data['riskState']) : $data['riskState'];
         }
         if (isset($data['userDisplayName'])) {
             $this->userDisplayName = $data['userDisplayName'];

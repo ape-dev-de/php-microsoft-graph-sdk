@@ -5,29 +5,17 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * UnifiedRoleManagementPolicyRuleTargetOperations
+ * UnifiedRoleManagementPolicyRuleTargetOperations - Enum
  */
-class UnifiedRoleManagementPolicyRuleTargetOperations
+enum UnifiedRoleManagementPolicyRuleTargetOperations: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ALL = 'all';
+    case ACTIVATE = 'activate';
+    case DEACTIVATE = 'deactivate';
+    case ASSIGN = 'assign';
+    case UPDATE = 'update';
+    case REMOVE = 'remove';
+    case EXTEND = 'extend';
+    case RENEW = 'renew';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

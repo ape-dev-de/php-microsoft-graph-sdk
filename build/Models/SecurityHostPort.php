@@ -90,13 +90,13 @@ class SecurityHostPort
             $this->port = is_numeric($data['port']) ? (float)$data['port'] : $data['port'];
         }
         if (isset($data['protocol'])) {
-            $this->protocol = is_array($data['protocol']) ? new SecurityHostPortProtocol($data['protocol']) : $data['protocol'];
+            $this->protocol = is_string($data['protocol']) ? SecurityHostPortProtocol::tryFrom($data['protocol']) : $data['protocol'];
         }
         if (isset($data['services'])) {
             $this->services = $data['services'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new SecurityHostPortStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? SecurityHostPortStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['timesObserved'])) {
             $this->timesObserved = is_numeric($data['timesObserved']) ? (float)$data['timesObserved'] : $data['timesObserved'];

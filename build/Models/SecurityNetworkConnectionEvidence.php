@@ -81,7 +81,7 @@ class SecurityNetworkConnectionEvidence
             $this->detailedRoles = $data['detailedRoles'];
         }
         if (isset($data['remediationStatus'])) {
-            $this->remediationStatus = is_array($data['remediationStatus']) ? new SecurityEvidenceRemediationStatus($data['remediationStatus']) : $data['remediationStatus'];
+            $this->remediationStatus = is_string($data['remediationStatus']) ? SecurityEvidenceRemediationStatus::tryFrom($data['remediationStatus']) : $data['remediationStatus'];
         }
         if (isset($data['remediationStatusDetails'])) {
             $this->remediationStatusDetails = $data['remediationStatusDetails'];
@@ -93,7 +93,7 @@ class SecurityNetworkConnectionEvidence
             $this->tags = $data['tags'];
         }
         if (isset($data['verdict'])) {
-            $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
+            $this->verdict = is_string($data['verdict']) ? SecurityEvidenceVerdict::tryFrom($data['verdict']) : $data['verdict'];
         }
         if (isset($data['destinationAddress'])) {
             $this->destinationAddress = is_array($data['destinationAddress']) ? new SecurityIpEvidence($data['destinationAddress']) : $data['destinationAddress'];
@@ -102,7 +102,7 @@ class SecurityNetworkConnectionEvidence
             $this->destinationPort = is_numeric($data['destinationPort']) ? (float)$data['destinationPort'] : $data['destinationPort'];
         }
         if (isset($data['protocol'])) {
-            $this->protocol = is_array($data['protocol']) ? new SecurityProtocolType($data['protocol']) : $data['protocol'];
+            $this->protocol = is_string($data['protocol']) ? SecurityProtocolType::tryFrom($data['protocol']) : $data['protocol'];
         }
         if (isset($data['sourceAddress'])) {
             $this->sourceAddress = is_array($data['sourceAddress']) ? new SecurityIpEvidence($data['sourceAddress']) : $data['sourceAddress'];

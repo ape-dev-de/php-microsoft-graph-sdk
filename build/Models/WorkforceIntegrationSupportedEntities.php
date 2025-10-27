@@ -5,29 +5,20 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * WorkforceIntegrationSupportedEntities
+ * WorkforceIntegrationSupportedEntities - Enum
  */
-class WorkforceIntegrationSupportedEntities
+enum WorkforceIntegrationSupportedEntities: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case SHIFT = 'shift';
+    case SWAPREQUEST = 'swapRequest';
+    case USERSHIFTPREFERENCES = 'userShiftPreferences';
+    case OPENSHIFT = 'openShift';
+    case OPENSHIFTREQUEST = 'openShiftRequest';
+    case OFFERSHIFTREQUEST = 'offerShiftRequest';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
+    case TIMECARD = 'timeCard';
+    case TIMEOFFREASON = 'timeOffReason';
+    case TIMEOFF = 'timeOff';
+    case TIMEOFFREQUEST = 'timeOffRequest';
 }

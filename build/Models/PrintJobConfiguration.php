@@ -111,7 +111,7 @@ class PrintJobConfiguration
             $this->collate = is_bool($data['collate']) ? $data['collate'] : (bool)$data['collate'];
         }
         if (isset($data['colorMode'])) {
-            $this->colorMode = is_array($data['colorMode']) ? new PrintColorMode($data['colorMode']) : $data['colorMode'];
+            $this->colorMode = is_string($data['colorMode']) ? PrintColorMode::tryFrom($data['colorMode']) : $data['colorMode'];
         }
         if (isset($data['copies'])) {
             $this->copies = is_numeric($data['copies']) ? (float)$data['copies'] : $data['copies'];
@@ -120,10 +120,10 @@ class PrintJobConfiguration
             $this->dpi = is_numeric($data['dpi']) ? (float)$data['dpi'] : $data['dpi'];
         }
         if (isset($data['duplexMode'])) {
-            $this->duplexMode = is_array($data['duplexMode']) ? new PrintDuplexMode($data['duplexMode']) : $data['duplexMode'];
+            $this->duplexMode = is_string($data['duplexMode']) ? PrintDuplexMode::tryFrom($data['duplexMode']) : $data['duplexMode'];
         }
         if (isset($data['feedOrientation'])) {
-            $this->feedOrientation = is_array($data['feedOrientation']) ? new PrinterFeedOrientation($data['feedOrientation']) : $data['feedOrientation'];
+            $this->feedOrientation = is_string($data['feedOrientation']) ? PrinterFeedOrientation::tryFrom($data['feedOrientation']) : $data['feedOrientation'];
         }
         if (isset($data['finishings'])) {
             $this->finishings = $data['finishings'];
@@ -144,10 +144,10 @@ class PrintJobConfiguration
             $this->mediaType = $data['mediaType'];
         }
         if (isset($data['multipageLayout'])) {
-            $this->multipageLayout = is_array($data['multipageLayout']) ? new PrintMultipageLayout($data['multipageLayout']) : $data['multipageLayout'];
+            $this->multipageLayout = is_string($data['multipageLayout']) ? PrintMultipageLayout::tryFrom($data['multipageLayout']) : $data['multipageLayout'];
         }
         if (isset($data['orientation'])) {
-            $this->orientation = is_array($data['orientation']) ? new PrintOrientation($data['orientation']) : $data['orientation'];
+            $this->orientation = is_string($data['orientation']) ? PrintOrientation::tryFrom($data['orientation']) : $data['orientation'];
         }
         if (isset($data['outputBin'])) {
             $this->outputBin = $data['outputBin'];
@@ -159,10 +159,10 @@ class PrintJobConfiguration
             $this->pagesPerSheet = is_numeric($data['pagesPerSheet']) ? (float)$data['pagesPerSheet'] : $data['pagesPerSheet'];
         }
         if (isset($data['quality'])) {
-            $this->quality = is_array($data['quality']) ? new PrintQuality($data['quality']) : $data['quality'];
+            $this->quality = is_string($data['quality']) ? PrintQuality::tryFrom($data['quality']) : $data['quality'];
         }
         if (isset($data['scaling'])) {
-            $this->scaling = is_array($data['scaling']) ? new PrintScaling($data['scaling']) : $data['scaling'];
+            $this->scaling = is_string($data['scaling']) ? PrintScaling::tryFrom($data['scaling']) : $data['scaling'];
         }
     }
 

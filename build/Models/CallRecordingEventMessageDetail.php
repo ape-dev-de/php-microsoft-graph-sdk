@@ -60,7 +60,7 @@ class CallRecordingEventMessageDetail
             $this->callRecordingDuration = $data['callRecordingDuration'];
         }
         if (isset($data['callRecordingStatus'])) {
-            $this->callRecordingStatus = is_array($data['callRecordingStatus']) ? new CallRecordingStatus($data['callRecordingStatus']) : $data['callRecordingStatus'];
+            $this->callRecordingStatus = is_string($data['callRecordingStatus']) ? CallRecordingStatus::tryFrom($data['callRecordingStatus']) : $data['callRecordingStatus'];
         }
         if (isset($data['callRecordingUrl'])) {
             $this->callRecordingUrl = $data['callRecordingUrl'];

@@ -129,7 +129,7 @@ class CloudPcProvisioningPolicy
             $this->imageId = $data['imageId'];
         }
         if (isset($data['imageType'])) {
-            $this->imageType = is_array($data['imageType']) ? new CloudPcProvisioningPolicyImageType($data['imageType']) : $data['imageType'];
+            $this->imageType = is_string($data['imageType']) ? CloudPcProvisioningPolicyImageType::tryFrom($data['imageType']) : $data['imageType'];
         }
         if (isset($data['localAdminEnabled'])) {
             $this->localAdminEnabled = is_bool($data['localAdminEnabled']) ? $data['localAdminEnabled'] : (bool)$data['localAdminEnabled'];
@@ -138,7 +138,7 @@ class CloudPcProvisioningPolicy
             $this->microsoftManagedDesktop = is_array($data['microsoftManagedDesktop']) ? new MicrosoftManagedDesktop($data['microsoftManagedDesktop']) : $data['microsoftManagedDesktop'];
         }
         if (isset($data['provisioningType'])) {
-            $this->provisioningType = is_array($data['provisioningType']) ? new CloudPcProvisioningType($data['provisioningType']) : $data['provisioningType'];
+            $this->provisioningType = is_string($data['provisioningType']) ? CloudPcProvisioningType::tryFrom($data['provisioningType']) : $data['provisioningType'];
         }
         if (isset($data['windowsSetting'])) {
             $this->windowsSetting = is_array($data['windowsSetting']) ? new CloudPcWindowsSetting($data['windowsSetting']) : $data['windowsSetting'];

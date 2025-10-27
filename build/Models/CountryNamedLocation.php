@@ -63,7 +63,7 @@ class CountryNamedLocation
             $this->countriesAndRegions = $data['countriesAndRegions'];
         }
         if (isset($data['countryLookupMethod'])) {
-            $this->countryLookupMethod = is_array($data['countryLookupMethod']) ? new CountryLookupMethodType($data['countryLookupMethod']) : $data['countryLookupMethod'];
+            $this->countryLookupMethod = is_string($data['countryLookupMethod']) ? CountryLookupMethodType::tryFrom($data['countryLookupMethod']) : $data['countryLookupMethod'];
         }
         if (isset($data['includeUnknownCountriesAndRegions'])) {
             $this->includeUnknownCountriesAndRegions = is_bool($data['includeUnknownCountriesAndRegions']) ? $data['includeUnknownCountriesAndRegions'] : (bool)$data['includeUnknownCountriesAndRegions'];

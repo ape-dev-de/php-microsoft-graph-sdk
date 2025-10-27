@@ -60,7 +60,7 @@ class ProcessingError
             $this->details = $data['details'];
         }
         if (isset($data['errorType'])) {
-            $this->errorType = is_array($data['errorType']) ? new ContentProcessingErrorType($data['errorType']) : $data['errorType'];
+            $this->errorType = is_string($data['errorType']) ? ContentProcessingErrorType::tryFrom($data['errorType']) : $data['errorType'];
         }
     }
 

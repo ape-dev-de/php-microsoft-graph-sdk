@@ -42,7 +42,7 @@ class SimulationNotification
             $this->endUserNotification = is_array($data['endUserNotification']) ? new EndUserNotification($data['endUserNotification']) : $data['endUserNotification'];
         }
         if (isset($data['targettedUserType'])) {
-            $this->targettedUserType = is_array($data['targettedUserType']) ? new TargettedUserType($data['targettedUserType']) : $data['targettedUserType'];
+            $this->targettedUserType = is_string($data['targettedUserType']) ? TargettedUserType::tryFrom($data['targettedUserType']) : $data['targettedUserType'];
         }
     }
 

@@ -33,7 +33,7 @@ class DefaultInvitationRedemptionIdentityProviderConfiguration
     {
         $this->rawData = $data;
         if (isset($data['fallbackIdentityProvider'])) {
-            $this->fallbackIdentityProvider = is_array($data['fallbackIdentityProvider']) ? new B2bIdentityProvidersType($data['fallbackIdentityProvider']) : $data['fallbackIdentityProvider'];
+            $this->fallbackIdentityProvider = is_string($data['fallbackIdentityProvider']) ? B2bIdentityProvidersType::tryFrom($data['fallbackIdentityProvider']) : $data['fallbackIdentityProvider'];
         }
         if (isset($data['primaryIdentityProviderPrecedenceOrder'])) {
             $this->primaryIdentityProviderPrecedenceOrder = $data['primaryIdentityProviderPrecedenceOrder'];

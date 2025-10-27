@@ -36,7 +36,7 @@ class AttachmentInfo
     {
         $this->rawData = $data;
         if (isset($data['attachmentType'])) {
-            $this->attachmentType = is_array($data['attachmentType']) ? new AttachmentType($data['attachmentType']) : $data['attachmentType'];
+            $this->attachmentType = is_string($data['attachmentType']) ? AttachmentType::tryFrom($data['attachmentType']) : $data['attachmentType'];
         }
         if (isset($data['contentType'])) {
             $this->contentType = $data['contentType'];

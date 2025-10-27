@@ -48,7 +48,7 @@ class EducationOrganization
             $this->displayName = $data['displayName'];
         }
         if (isset($data['externalSource'])) {
-            $this->externalSource = is_array($data['externalSource']) ? new EducationExternalSource($data['externalSource']) : $data['externalSource'];
+            $this->externalSource = is_string($data['externalSource']) ? EducationExternalSource::tryFrom($data['externalSource']) : $data['externalSource'];
         }
         if (isset($data['externalSourceDetail'])) {
             $this->externalSourceDetail = $data['externalSourceDetail'];

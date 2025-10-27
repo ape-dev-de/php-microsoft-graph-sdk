@@ -1,0 +1,20 @@
+<?= "<?php" ?>
+
+
+declare(strict_types=1);
+
+namespace ApeDevDe\MicrosoftGraphSdk\Models;
+
+/**
+ * <?= $ENUM_NAME ?> - Enum
+<?php if (!empty($DESCRIPTION)): ?>
+ * <?= $DESCRIPTION ?>
+
+<?php endif; ?>
+ */
+enum <?= $ENUM_NAME ?>: string
+{
+<?php foreach ($ENUM_VALUES as $value): ?>
+    case <?= strtoupper(preg_replace('/[^a-zA-Z0-9_]/', '_', $value)) ?> = '<?= $value ?>';
+<?php endforeach; ?>
+}

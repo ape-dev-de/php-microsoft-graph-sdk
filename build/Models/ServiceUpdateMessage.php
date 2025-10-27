@@ -114,7 +114,7 @@ class ServiceUpdateMessage
             $this->body = is_array($data['body']) ? new ItemBody($data['body']) : $data['body'];
         }
         if (isset($data['category'])) {
-            $this->category = is_array($data['category']) ? new ServiceUpdateCategory($data['category']) : $data['category'];
+            $this->category = is_string($data['category']) ? ServiceUpdateCategory::tryFrom($data['category']) : $data['category'];
         }
         if (isset($data['hasAttachments'])) {
             $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
@@ -126,7 +126,7 @@ class ServiceUpdateMessage
             $this->services = $data['services'];
         }
         if (isset($data['severity'])) {
-            $this->severity = is_array($data['severity']) ? new ServiceUpdateSeverity($data['severity']) : $data['severity'];
+            $this->severity = is_string($data['severity']) ? ServiceUpdateSeverity::tryFrom($data['severity']) : $data['severity'];
         }
         if (isset($data['tags'])) {
             $this->tags = $data['tags'];

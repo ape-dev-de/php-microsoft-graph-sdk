@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * WindowsUserAccountControlSettings
+ * WindowsUserAccountControlSettings - Enum
+ * Possible values for Windows user account control settings.
  */
-class WindowsUserAccountControlSettings
+enum WindowsUserAccountControlSettings: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case USERDEFINED = 'userDefined';
+    case ALWAYSNOTIFY = 'alwaysNotify';
+    case NOTIFYONAPPCHANGES = 'notifyOnAppChanges';
+    case NOTIFYONAPPCHANGESWITHOUTDIMMING = 'notifyOnAppChangesWithoutDimming';
+    case NEVERNOTIFY = 'neverNotify';
 }

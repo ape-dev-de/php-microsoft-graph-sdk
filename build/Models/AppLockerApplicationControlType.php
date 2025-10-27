@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * AppLockerApplicationControlType
+ * AppLockerApplicationControlType - Enum
+ * Possible values of AppLocker Application Control Types
  */
-class AppLockerApplicationControlType
+enum AppLockerApplicationControlType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NOTCONFIGURED = 'notConfigured';
+    case ENFORCECOMPONENTSANDSTOREAPPS = 'enforceComponentsAndStoreApps';
+    case AUDITCOMPONENTSANDSTOREAPPS = 'auditComponentsAndStoreApps';
+    case ENFORCECOMPONENTSSTOREAPPSANDSMARTLOCKER = 'enforceComponentsStoreAppsAndSmartlocker';
+    case AUDITCOMPONENTSSTOREAPPSANDSMARTLOCKER = 'auditComponentsStoreAppsAndSmartlocker';
 }

@@ -33,7 +33,7 @@ class ConditionalAccessGuestsOrExternalUsers
             $this->externalTenants = is_array($data['externalTenants']) ? new ConditionalAccessExternalTenants($data['externalTenants']) : $data['externalTenants'];
         }
         if (isset($data['guestOrExternalUserTypes'])) {
-            $this->guestOrExternalUserTypes = is_array($data['guestOrExternalUserTypes']) ? new ConditionalAccessGuestOrExternalUserTypes($data['guestOrExternalUserTypes']) : $data['guestOrExternalUserTypes'];
+            $this->guestOrExternalUserTypes = is_string($data['guestOrExternalUserTypes']) ? ConditionalAccessGuestOrExternalUserTypes::tryFrom($data['guestOrExternalUserTypes']) : $data['guestOrExternalUserTypes'];
         }
     }
 

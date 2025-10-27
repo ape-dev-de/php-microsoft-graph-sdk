@@ -69,7 +69,7 @@ class AuthenticationMethodsPolicy
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['policyMigrationState'])) {
-            $this->policyMigrationState = is_array($data['policyMigrationState']) ? new AuthenticationMethodsPolicyMigrationState($data['policyMigrationState']) : $data['policyMigrationState'];
+            $this->policyMigrationState = is_string($data['policyMigrationState']) ? AuthenticationMethodsPolicyMigrationState::tryFrom($data['policyMigrationState']) : $data['policyMigrationState'];
         }
         if (isset($data['policyVersion'])) {
             $this->policyVersion = $data['policyVersion'];

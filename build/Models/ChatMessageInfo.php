@@ -69,7 +69,7 @@ class ChatMessageInfo
             $this->isDeleted = is_bool($data['isDeleted']) ? $data['isDeleted'] : (bool)$data['isDeleted'];
         }
         if (isset($data['messageType'])) {
-            $this->messageType = is_array($data['messageType']) ? new ChatMessageType($data['messageType']) : $data['messageType'];
+            $this->messageType = is_string($data['messageType']) ? ChatMessageType::tryFrom($data['messageType']) : $data['messageType'];
         }
     }
 

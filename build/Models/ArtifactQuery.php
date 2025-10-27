@@ -30,7 +30,7 @@ class ArtifactQuery
     {
         $this->rawData = $data;
         if (isset($data['artifactType'])) {
-            $this->artifactType = is_array($data['artifactType']) ? new RestorableArtifact($data['artifactType']) : $data['artifactType'];
+            $this->artifactType = is_string($data['artifactType']) ? RestorableArtifact::tryFrom($data['artifactType']) : $data['artifactType'];
         }
         if (isset($data['queryExpression'])) {
             $this->queryExpression = $data['queryExpression'];

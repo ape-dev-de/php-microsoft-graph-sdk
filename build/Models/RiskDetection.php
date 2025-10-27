@@ -105,7 +105,7 @@ class RiskDetection
             $this->id = $data['id'];
         }
         if (isset($data['activity'])) {
-            $this->activity = is_array($data['activity']) ? new ActivityType($data['activity']) : $data['activity'];
+            $this->activity = is_string($data['activity']) ? ActivityType::tryFrom($data['activity']) : $data['activity'];
         }
         if (isset($data['activityDateTime'])) {
             $this->activityDateTime = is_string($data['activityDateTime']) ? new \DateTimeImmutable($data['activityDateTime']) : $data['activityDateTime'];
@@ -120,7 +120,7 @@ class RiskDetection
             $this->detectedDateTime = is_string($data['detectedDateTime']) ? new \DateTimeImmutable($data['detectedDateTime']) : $data['detectedDateTime'];
         }
         if (isset($data['detectionTimingType'])) {
-            $this->detectionTimingType = is_array($data['detectionTimingType']) ? new RiskDetectionTimingType($data['detectionTimingType']) : $data['detectionTimingType'];
+            $this->detectionTimingType = is_string($data['detectionTimingType']) ? RiskDetectionTimingType::tryFrom($data['detectionTimingType']) : $data['detectionTimingType'];
         }
         if (isset($data['ipAddress'])) {
             $this->ipAddress = $data['ipAddress'];
@@ -135,22 +135,22 @@ class RiskDetection
             $this->requestId = $data['requestId'];
         }
         if (isset($data['riskDetail'])) {
-            $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];
+            $this->riskDetail = is_string($data['riskDetail']) ? RiskDetail::tryFrom($data['riskDetail']) : $data['riskDetail'];
         }
         if (isset($data['riskEventType'])) {
             $this->riskEventType = $data['riskEventType'];
         }
         if (isset($data['riskLevel'])) {
-            $this->riskLevel = is_array($data['riskLevel']) ? new RiskLevel($data['riskLevel']) : $data['riskLevel'];
+            $this->riskLevel = is_string($data['riskLevel']) ? RiskLevel::tryFrom($data['riskLevel']) : $data['riskLevel'];
         }
         if (isset($data['riskState'])) {
-            $this->riskState = is_array($data['riskState']) ? new RiskState($data['riskState']) : $data['riskState'];
+            $this->riskState = is_string($data['riskState']) ? RiskState::tryFrom($data['riskState']) : $data['riskState'];
         }
         if (isset($data['source'])) {
             $this->source = $data['source'];
         }
         if (isset($data['tokenIssuerType'])) {
-            $this->tokenIssuerType = is_array($data['tokenIssuerType']) ? new TokenIssuerType($data['tokenIssuerType']) : $data['tokenIssuerType'];
+            $this->tokenIssuerType = is_string($data['tokenIssuerType']) ? TokenIssuerType::tryFrom($data['tokenIssuerType']) : $data['tokenIssuerType'];
         }
         if (isset($data['userDisplayName'])) {
             $this->userDisplayName = $data['userDisplayName'];

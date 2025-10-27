@@ -207,7 +207,7 @@ class Team
             $this->messagingSettings = is_array($data['messagingSettings']) ? new TeamMessagingSettings($data['messagingSettings']) : $data['messagingSettings'];
         }
         if (isset($data['specialization'])) {
-            $this->specialization = is_array($data['specialization']) ? new TeamSpecialization($data['specialization']) : $data['specialization'];
+            $this->specialization = is_string($data['specialization']) ? TeamSpecialization::tryFrom($data['specialization']) : $data['specialization'];
         }
         if (isset($data['summary'])) {
             $this->summary = is_array($data['summary']) ? new TeamSummary($data['summary']) : $data['summary'];
@@ -216,7 +216,7 @@ class Team
             $this->tenantId = $data['tenantId'];
         }
         if (isset($data['visibility'])) {
-            $this->visibility = is_array($data['visibility']) ? new TeamVisibilityType($data['visibility']) : $data['visibility'];
+            $this->visibility = is_string($data['visibility']) ? TeamVisibilityType::tryFrom($data['visibility']) : $data['visibility'];
         }
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];

@@ -102,7 +102,7 @@ class Chat
             $this->id = $data['id'];
         }
         if (isset($data['chatType'])) {
-            $this->chatType = is_array($data['chatType']) ? new ChatType($data['chatType']) : $data['chatType'];
+            $this->chatType = is_string($data['chatType']) ? ChatType::tryFrom($data['chatType']) : $data['chatType'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

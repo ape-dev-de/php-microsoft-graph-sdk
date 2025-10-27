@@ -81,10 +81,10 @@ class BookingStaffMember
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['membershipStatus'])) {
-            $this->membershipStatus = is_array($data['membershipStatus']) ? new BookingStaffMembershipStatus($data['membershipStatus']) : $data['membershipStatus'];
+            $this->membershipStatus = is_string($data['membershipStatus']) ? BookingStaffMembershipStatus::tryFrom($data['membershipStatus']) : $data['membershipStatus'];
         }
         if (isset($data['role'])) {
-            $this->role = is_array($data['role']) ? new BookingStaffRole($data['role']) : $data['role'];
+            $this->role = is_string($data['role']) ? BookingStaffRole::tryFrom($data['role']) : $data['role'];
         }
         if (isset($data['timeZone'])) {
             $this->timeZone = $data['timeZone'];

@@ -33,7 +33,7 @@ class TimeConstraint
     {
         $this->rawData = $data;
         if (isset($data['activityDomain'])) {
-            $this->activityDomain = is_array($data['activityDomain']) ? new ActivityDomain($data['activityDomain']) : $data['activityDomain'];
+            $this->activityDomain = is_string($data['activityDomain']) ? ActivityDomain::tryFrom($data['activityDomain']) : $data['activityDomain'];
         }
         if (isset($data['timeSlots'])) {
             $this->timeSlots = $data['timeSlots'];

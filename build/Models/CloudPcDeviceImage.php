@@ -69,7 +69,7 @@ class CloudPcDeviceImage
             $this->displayName = $data['displayName'];
         }
         if (isset($data['errorCode'])) {
-            $this->errorCode = is_array($data['errorCode']) ? new CloudPcDeviceImageErrorCode($data['errorCode']) : $data['errorCode'];
+            $this->errorCode = is_string($data['errorCode']) ? CloudPcDeviceImageErrorCode::tryFrom($data['errorCode']) : $data['errorCode'];
         }
         if (isset($data['expirationDate'])) {
             $this->expirationDate = is_string($data['expirationDate']) ? new \DateTimeImmutable($data['expirationDate']) : $data['expirationDate'];
@@ -84,13 +84,13 @@ class CloudPcDeviceImage
             $this->osBuildNumber = $data['osBuildNumber'];
         }
         if (isset($data['osStatus'])) {
-            $this->osStatus = is_array($data['osStatus']) ? new CloudPcDeviceImageOsStatus($data['osStatus']) : $data['osStatus'];
+            $this->osStatus = is_string($data['osStatus']) ? CloudPcDeviceImageOsStatus::tryFrom($data['osStatus']) : $data['osStatus'];
         }
         if (isset($data['sourceImageResourceId'])) {
             $this->sourceImageResourceId = $data['sourceImageResourceId'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new CloudPcDeviceImageStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? CloudPcDeviceImageStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

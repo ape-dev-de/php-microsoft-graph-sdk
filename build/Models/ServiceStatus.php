@@ -54,10 +54,10 @@ class ServiceStatus
     {
         $this->rawData = $data;
         if (isset($data['backupServiceConsumer'])) {
-            $this->backupServiceConsumer = is_array($data['backupServiceConsumer']) ? new BackupServiceConsumer($data['backupServiceConsumer']) : $data['backupServiceConsumer'];
+            $this->backupServiceConsumer = is_string($data['backupServiceConsumer']) ? BackupServiceConsumer::tryFrom($data['backupServiceConsumer']) : $data['backupServiceConsumer'];
         }
         if (isset($data['disableReason'])) {
-            $this->disableReason = is_array($data['disableReason']) ? new DisableReason($data['disableReason']) : $data['disableReason'];
+            $this->disableReason = is_string($data['disableReason']) ? DisableReason::tryFrom($data['disableReason']) : $data['disableReason'];
         }
         if (isset($data['gracePeriodDateTime'])) {
             $this->gracePeriodDateTime = is_string($data['gracePeriodDateTime']) ? new \DateTimeImmutable($data['gracePeriodDateTime']) : $data['gracePeriodDateTime'];
@@ -72,7 +72,7 @@ class ServiceStatus
             $this->restoreAllowedTillDateTime = is_string($data['restoreAllowedTillDateTime']) ? new \DateTimeImmutable($data['restoreAllowedTillDateTime']) : $data['restoreAllowedTillDateTime'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new BackupServiceStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? BackupServiceStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

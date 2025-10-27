@@ -96,7 +96,7 @@ class OneDriveForBusinessProtectionPolicy
             $this->retentionSettings = $data['retentionSettings'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new ProtectionPolicyStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? ProtectionPolicyStatus::tryFrom($data['status']) : $data['status'];
         }
         if (isset($data['driveInclusionRules'])) {
             $this->driveInclusionRules = $data['driveInclusionRules'];

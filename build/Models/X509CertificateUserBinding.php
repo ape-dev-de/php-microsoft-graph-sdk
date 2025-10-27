@@ -39,7 +39,7 @@ class X509CertificateUserBinding
             $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['trustAffinityLevel'])) {
-            $this->trustAffinityLevel = is_array($data['trustAffinityLevel']) ? new X509CertificateAffinityLevel($data['trustAffinityLevel']) : $data['trustAffinityLevel'];
+            $this->trustAffinityLevel = is_string($data['trustAffinityLevel']) ? X509CertificateAffinityLevel::tryFrom($data['trustAffinityLevel']) : $data['trustAffinityLevel'];
         }
         if (isset($data['userProperty'])) {
             $this->userProperty = $data['userProperty'];

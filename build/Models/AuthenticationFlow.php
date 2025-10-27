@@ -27,7 +27,7 @@ class AuthenticationFlow
     {
         $this->rawData = $data;
         if (isset($data['transferMethod'])) {
-            $this->transferMethod = is_array($data['transferMethod']) ? new ConditionalAccessTransferMethods($data['transferMethod']) : $data['transferMethod'];
+            $this->transferMethod = is_string($data['transferMethod']) ? ConditionalAccessTransferMethods::tryFrom($data['transferMethod']) : $data['transferMethod'];
         }
     }
 

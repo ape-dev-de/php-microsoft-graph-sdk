@@ -27,7 +27,7 @@ class DlpActionInfo
     {
         $this->rawData = $data;
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new DlpAction($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? DlpAction::tryFrom($data['action']) : $data['action'];
         }
     }
 

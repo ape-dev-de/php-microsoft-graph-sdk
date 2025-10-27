@@ -108,7 +108,7 @@ class ConditionalAccessConditionSet
             $this->devices = is_array($data['devices']) ? new ConditionalAccessDevices($data['devices']) : $data['devices'];
         }
         if (isset($data['insiderRiskLevels'])) {
-            $this->insiderRiskLevels = is_array($data['insiderRiskLevels']) ? new ConditionalAccessInsiderRiskLevels($data['insiderRiskLevels']) : $data['insiderRiskLevels'];
+            $this->insiderRiskLevels = is_string($data['insiderRiskLevels']) ? ConditionalAccessInsiderRiskLevels::tryFrom($data['insiderRiskLevels']) : $data['insiderRiskLevels'];
         }
         if (isset($data['locations'])) {
             $this->locations = is_array($data['locations']) ? new ConditionalAccessLocations($data['locations']) : $data['locations'];

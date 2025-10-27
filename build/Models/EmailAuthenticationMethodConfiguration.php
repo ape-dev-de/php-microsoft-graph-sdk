@@ -54,10 +54,10 @@ class EmailAuthenticationMethodConfiguration
             $this->excludeTargets = $data['excludeTargets'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AuthenticationMethodState::tryFrom($data['state']) : $data['state'];
         }
         if (isset($data['allowExternalIdToUseEmailOtp'])) {
-            $this->allowExternalIdToUseEmailOtp = is_array($data['allowExternalIdToUseEmailOtp']) ? new ExternalEmailOtpState($data['allowExternalIdToUseEmailOtp']) : $data['allowExternalIdToUseEmailOtp'];
+            $this->allowExternalIdToUseEmailOtp = is_string($data['allowExternalIdToUseEmailOtp']) ? ExternalEmailOtpState::tryFrom($data['allowExternalIdToUseEmailOtp']) : $data['allowExternalIdToUseEmailOtp'];
         }
         if (isset($data['includeTargets'])) {
             $this->includeTargets = $data['includeTargets'];

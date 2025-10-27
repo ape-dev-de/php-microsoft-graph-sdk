@@ -5,29 +5,12 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * Win32LobAppMsiPackageType
+ * Win32LobAppMsiPackageType - Enum
+ * Indicates the package type of an MSI Win32LobApp.
  */
-class Win32LobAppMsiPackageType
+enum Win32LobAppMsiPackageType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case PERMACHINE = 'perMachine';
+    case PERUSER = 'perUser';
+    case DUALPURPOSE = 'dualPurpose';
 }

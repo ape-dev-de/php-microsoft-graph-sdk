@@ -123,7 +123,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
             $this->status = $data['status'];
         }
         if (isset($data['action'])) {
-            $this->action = is_array($data['action']) ? new ScheduleRequestActions($data['action']) : $data['action'];
+            $this->action = is_string($data['action']) ? ScheduleRequestActions::tryFrom($data['action']) : $data['action'];
         }
         if (isset($data['isValidationOnly'])) {
             $this->isValidationOnly = is_bool($data['isValidationOnly']) ? $data['isValidationOnly'] : (bool)$data['isValidationOnly'];
@@ -138,7 +138,7 @@ class PrivilegedAccessGroupEligibilityScheduleRequest
             $this->ticketInfo = is_array($data['ticketInfo']) ? new TicketInfo($data['ticketInfo']) : $data['ticketInfo'];
         }
         if (isset($data['accessId'])) {
-            $this->accessId = is_array($data['accessId']) ? new PrivilegedAccessGroupRelationships($data['accessId']) : $data['accessId'];
+            $this->accessId = is_string($data['accessId']) ? PrivilegedAccessGroupRelationships::tryFrom($data['accessId']) : $data['accessId'];
         }
         if (isset($data['groupId'])) {
             $this->groupId = $data['groupId'];

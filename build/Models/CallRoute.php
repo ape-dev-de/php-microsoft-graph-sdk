@@ -36,7 +36,7 @@ class CallRoute
             $this->original = is_array($data['original']) ? new IdentitySet($data['original']) : $data['original'];
         }
         if (isset($data['routingType'])) {
-            $this->routingType = is_array($data['routingType']) ? new RoutingType($data['routingType']) : $data['routingType'];
+            $this->routingType = is_string($data['routingType']) ? RoutingType::tryFrom($data['routingType']) : $data['routingType'];
         }
     }
 

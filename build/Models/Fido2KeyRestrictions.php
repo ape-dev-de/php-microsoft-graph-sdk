@@ -39,7 +39,7 @@ class Fido2KeyRestrictions
             $this->aaGuids = $data['aaGuids'];
         }
         if (isset($data['enforcementType'])) {
-            $this->enforcementType = is_array($data['enforcementType']) ? new Fido2RestrictionEnforcementType($data['enforcementType']) : $data['enforcementType'];
+            $this->enforcementType = is_string($data['enforcementType']) ? Fido2RestrictionEnforcementType::tryFrom($data['enforcementType']) : $data['enforcementType'];
         }
         if (isset($data['isEnforced'])) {
             $this->isEnforced = is_bool($data['isEnforced']) ? $data['isEnforced'] : (bool)$data['isEnforced'];

@@ -42,10 +42,10 @@ class KeyCredentialConfiguration
             $this->restrictForAppsCreatedAfterDateTime = is_string($data['restrictForAppsCreatedAfterDateTime']) ? new \DateTimeImmutable($data['restrictForAppsCreatedAfterDateTime']) : $data['restrictForAppsCreatedAfterDateTime'];
         }
         if (isset($data['restrictionType'])) {
-            $this->restrictionType = is_array($data['restrictionType']) ? new AppKeyCredentialRestrictionType($data['restrictionType']) : $data['restrictionType'];
+            $this->restrictionType = is_string($data['restrictionType']) ? AppKeyCredentialRestrictionType::tryFrom($data['restrictionType']) : $data['restrictionType'];
         }
         if (isset($data['state'])) {
-            $this->state = is_array($data['state']) ? new AppManagementRestrictionState($data['state']) : $data['state'];
+            $this->state = is_string($data['state']) ? AppManagementRestrictionState::tryFrom($data['state']) : $data['state'];
         }
     }
 

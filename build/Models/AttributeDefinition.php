@@ -87,7 +87,7 @@ class AttributeDefinition
             $this->multivalued = is_bool($data['multivalued']) ? $data['multivalued'] : (bool)$data['multivalued'];
         }
         if (isset($data['mutability'])) {
-            $this->mutability = is_array($data['mutability']) ? new Mutability($data['mutability']) : $data['mutability'];
+            $this->mutability = is_string($data['mutability']) ? Mutability::tryFrom($data['mutability']) : $data['mutability'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
@@ -99,7 +99,7 @@ class AttributeDefinition
             $this->required = is_bool($data['required']) ? $data['required'] : (bool)$data['required'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new AttributeType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? AttributeType::tryFrom($data['type']) : $data['type'];
         }
     }
 

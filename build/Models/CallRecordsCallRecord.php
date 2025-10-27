@@ -102,7 +102,7 @@ class CallRecordsCallRecord
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new CallRecordsCallType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? CallRecordsCallType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['version'])) {
             $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];

@@ -5,29 +5,15 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * ProvisioningAction
+ * ProvisioningAction - Enum
  */
-class ProvisioningAction
+enum ProvisioningAction: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case OTHER = 'other';
+    case CREATE = 'create';
+    case DELETE = 'delete';
+    case DISABLE = 'disable';
+    case UPDATE = 'update';
+    case STAGEDDELETE = 'stagedDelete';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

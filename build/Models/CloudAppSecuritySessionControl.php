@@ -33,7 +33,7 @@ class CloudAppSecuritySessionControl
             $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['cloudAppSecurityType'])) {
-            $this->cloudAppSecurityType = is_array($data['cloudAppSecurityType']) ? new CloudAppSecuritySessionControlType($data['cloudAppSecurityType']) : $data['cloudAppSecurityType'];
+            $this->cloudAppSecurityType = is_string($data['cloudAppSecurityType']) ? CloudAppSecuritySessionControlType::tryFrom($data['cloudAppSecurityType']) : $data['cloudAppSecurityType'];
         }
     }
 

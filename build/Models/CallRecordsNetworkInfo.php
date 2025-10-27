@@ -120,7 +120,7 @@ class CallRecordsNetworkInfo
             $this->basicServiceSetIdentifier = $data['basicServiceSetIdentifier'];
         }
         if (isset($data['connectionType'])) {
-            $this->connectionType = is_array($data['connectionType']) ? new CallRecordsNetworkConnectionType($data['connectionType']) : $data['connectionType'];
+            $this->connectionType = is_string($data['connectionType']) ? CallRecordsNetworkConnectionType::tryFrom($data['connectionType']) : $data['connectionType'];
         }
         if (isset($data['delayEventRatio'])) {
             $this->delayEventRatio = is_numeric($data['delayEventRatio']) ? (float)$data['delayEventRatio'] : $data['delayEventRatio'];
@@ -138,7 +138,7 @@ class CallRecordsNetworkInfo
             $this->macAddress = $data['macAddress'];
         }
         if (isset($data['networkTransportProtocol'])) {
-            $this->networkTransportProtocol = is_array($data['networkTransportProtocol']) ? new CallRecordsNetworkTransportProtocol($data['networkTransportProtocol']) : $data['networkTransportProtocol'];
+            $this->networkTransportProtocol = is_string($data['networkTransportProtocol']) ? CallRecordsNetworkTransportProtocol::tryFrom($data['networkTransportProtocol']) : $data['networkTransportProtocol'];
         }
         if (isset($data['port'])) {
             $this->port = is_numeric($data['port']) ? (float)$data['port'] : $data['port'];
@@ -165,7 +165,7 @@ class CallRecordsNetworkInfo
             $this->traceRouteHops = $data['traceRouteHops'];
         }
         if (isset($data['wifiBand'])) {
-            $this->wifiBand = is_array($data['wifiBand']) ? new CallRecordsWifiBand($data['wifiBand']) : $data['wifiBand'];
+            $this->wifiBand = is_string($data['wifiBand']) ? CallRecordsWifiBand::tryFrom($data['wifiBand']) : $data['wifiBand'];
         }
         if (isset($data['wifiBatteryCharge'])) {
             $this->wifiBatteryCharge = is_numeric($data['wifiBatteryCharge']) ? (float)$data['wifiBatteryCharge'] : $data['wifiBatteryCharge'];
@@ -180,7 +180,7 @@ class CallRecordsNetworkInfo
             $this->wifiMicrosoftDriverVersion = $data['wifiMicrosoftDriverVersion'];
         }
         if (isset($data['wifiRadioType'])) {
-            $this->wifiRadioType = is_array($data['wifiRadioType']) ? new CallRecordsWifiRadioType($data['wifiRadioType']) : $data['wifiRadioType'];
+            $this->wifiRadioType = is_string($data['wifiRadioType']) ? CallRecordsWifiRadioType::tryFrom($data['wifiRadioType']) : $data['wifiRadioType'];
         }
         if (isset($data['wifiSignalStrength'])) {
             $this->wifiSignalStrength = is_numeric($data['wifiSignalStrength']) ? (float)$data['wifiSignalStrength'] : $data['wifiSignalStrength'];

@@ -36,7 +36,7 @@ class ExternalConnectorsPropertyRule
     {
         $this->rawData = $data;
         if (isset($data['operation'])) {
-            $this->operation = is_array($data['operation']) ? new ExternalConnectorsRuleOperation($data['operation']) : $data['operation'];
+            $this->operation = is_string($data['operation']) ? ExternalConnectorsRuleOperation::tryFrom($data['operation']) : $data['operation'];
         }
         if (isset($data['property'])) {
             $this->property = $data['property'];
@@ -45,7 +45,7 @@ class ExternalConnectorsPropertyRule
             $this->values = $data['values'];
         }
         if (isset($data['valuesJoinedBy'])) {
-            $this->valuesJoinedBy = is_array($data['valuesJoinedBy']) ? new BinaryOperator($data['valuesJoinedBy']) : $data['valuesJoinedBy'];
+            $this->valuesJoinedBy = is_string($data['valuesJoinedBy']) ? BinaryOperator::tryFrom($data['valuesJoinedBy']) : $data['valuesJoinedBy'];
         }
     }
 

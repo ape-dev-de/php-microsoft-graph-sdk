@@ -36,13 +36,13 @@ class MultiTenantOrganizationJoinRequestTransitionDetails
     {
         $this->rawData = $data;
         if (isset($data['desiredMemberState'])) {
-            $this->desiredMemberState = is_array($data['desiredMemberState']) ? new MultiTenantOrganizationMemberState($data['desiredMemberState']) : $data['desiredMemberState'];
+            $this->desiredMemberState = is_string($data['desiredMemberState']) ? MultiTenantOrganizationMemberState::tryFrom($data['desiredMemberState']) : $data['desiredMemberState'];
         }
         if (isset($data['details'])) {
             $this->details = $data['details'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new MultiTenantOrganizationMemberProcessingStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? MultiTenantOrganizationMemberProcessingStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

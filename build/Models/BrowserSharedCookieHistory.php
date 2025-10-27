@@ -69,7 +69,7 @@ class BrowserSharedCookieHistory
             $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
         }
         if (isset($data['sourceEnvironment'])) {
-            $this->sourceEnvironment = is_array($data['sourceEnvironment']) ? new BrowserSharedCookieSourceEnvironment($data['sourceEnvironment']) : $data['sourceEnvironment'];
+            $this->sourceEnvironment = is_string($data['sourceEnvironment']) ? BrowserSharedCookieSourceEnvironment::tryFrom($data['sourceEnvironment']) : $data['sourceEnvironment'];
         }
     }
 

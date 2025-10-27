@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * WindowsArchitecture
+ * WindowsArchitecture - Enum
+ * Contains properties for Windows architecture.
  */
-class WindowsArchitecture
+enum WindowsArchitecture: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case NONE = 'none';
+    case X86 = 'x86';
+    case X64 = 'x64';
+    case ARM = 'arm';
+    case NEUTRAL = 'neutral';
 }

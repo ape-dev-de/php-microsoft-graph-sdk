@@ -216,7 +216,7 @@ class WindowsPhone81GeneralConfiguration
             $this->cellularBlockWifiTethering = is_bool($data['cellularBlockWifiTethering']) ? $data['cellularBlockWifiTethering'] : (bool)$data['cellularBlockWifiTethering'];
         }
         if (isset($data['compliantAppListType'])) {
-            $this->compliantAppListType = is_array($data['compliantAppListType']) ? new AppListType($data['compliantAppListType']) : $data['compliantAppListType'];
+            $this->compliantAppListType = is_string($data['compliantAppListType']) ? AppListType::tryFrom($data['compliantAppListType']) : $data['compliantAppListType'];
         }
         if (isset($data['compliantAppsList'])) {
             $this->compliantAppsList = $data['compliantAppsList'];
@@ -258,7 +258,7 @@ class WindowsPhone81GeneralConfiguration
             $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
-            $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
+            $this->passwordRequiredType = is_string($data['passwordRequiredType']) ? RequiredPasswordType::tryFrom($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
             $this->passwordSignInFailureCountBeforeFactoryReset = is_numeric($data['passwordSignInFailureCountBeforeFactoryReset']) ? (float)$data['passwordSignInFailureCountBeforeFactoryReset'] : $data['passwordSignInFailureCountBeforeFactoryReset'];

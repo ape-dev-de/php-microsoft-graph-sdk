@@ -51,10 +51,10 @@ class DelegatedAdminRelationshipOperation
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['operationType'])) {
-            $this->operationType = is_array($data['operationType']) ? new DelegatedAdminRelationshipOperationType($data['operationType']) : $data['operationType'];
+            $this->operationType = is_string($data['operationType']) ? DelegatedAdminRelationshipOperationType::tryFrom($data['operationType']) : $data['operationType'];
         }
         if (isset($data['status'])) {
-            $this->status = is_array($data['status']) ? new LongRunningOperationStatus($data['status']) : $data['status'];
+            $this->status = is_string($data['status']) ? LongRunningOperationStatus::tryFrom($data['status']) : $data['status'];
         }
     }
 

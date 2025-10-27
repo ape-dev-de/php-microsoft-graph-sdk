@@ -33,7 +33,7 @@ class SecurityVmMetadata
     {
         $this->rawData = $data;
         if (isset($data['cloudProvider'])) {
-            $this->cloudProvider = is_array($data['cloudProvider']) ? new SecurityVmCloudProvider($data['cloudProvider']) : $data['cloudProvider'];
+            $this->cloudProvider = is_string($data['cloudProvider']) ? SecurityVmCloudProvider::tryFrom($data['cloudProvider']) : $data['cloudProvider'];
         }
         if (isset($data['resourceId'])) {
             $this->resourceId = $data['resourceId'];

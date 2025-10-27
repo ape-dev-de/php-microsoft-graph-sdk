@@ -51,10 +51,10 @@ class SubjectRightsRequestHistory
             $this->eventDateTime = is_string($data['eventDateTime']) ? new \DateTimeImmutable($data['eventDateTime']) : $data['eventDateTime'];
         }
         if (isset($data['stage'])) {
-            $this->stage = is_array($data['stage']) ? new SubjectRightsRequestStage($data['stage']) : $data['stage'];
+            $this->stage = is_string($data['stage']) ? SubjectRightsRequestStage::tryFrom($data['stage']) : $data['stage'];
         }
         if (isset($data['stageStatus'])) {
-            $this->stageStatus = is_array($data['stageStatus']) ? new SubjectRightsRequestStageStatus($data['stageStatus']) : $data['stageStatus'];
+            $this->stageStatus = is_string($data['stageStatus']) ? SubjectRightsRequestStageStatus::tryFrom($data['stageStatus']) : $data['stageStatus'];
         }
         if (isset($data['type'])) {
             $this->type = $data['type'];

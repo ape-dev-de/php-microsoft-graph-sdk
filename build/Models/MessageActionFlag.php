@@ -5,29 +5,19 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * MessageActionFlag
+ * MessageActionFlag - Enum
  */
-class MessageActionFlag
+enum MessageActionFlag: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case ANY = 'any';
+    case CALL = 'call';
+    case DONOTFORWARD = 'doNotForward';
+    case FOLLOWUP = 'followUp';
+    case FYI = 'fyi';
+    case FORWARD = 'forward';
+    case NORESPONSENECESSARY = 'noResponseNecessary';
+    case READ = 'read';
+    case REPLY = 'reply';
+    case REPLYTOALL = 'replyToAll';
+    case REVIEW = 'review';
 }

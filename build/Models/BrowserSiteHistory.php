@@ -60,19 +60,19 @@ class BrowserSiteHistory
             $this->comment = $data['comment'];
         }
         if (isset($data['compatibilityMode'])) {
-            $this->compatibilityMode = is_array($data['compatibilityMode']) ? new BrowserSiteCompatibilityMode($data['compatibilityMode']) : $data['compatibilityMode'];
+            $this->compatibilityMode = is_string($data['compatibilityMode']) ? BrowserSiteCompatibilityMode::tryFrom($data['compatibilityMode']) : $data['compatibilityMode'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];
         }
         if (isset($data['mergeType'])) {
-            $this->mergeType = is_array($data['mergeType']) ? new BrowserSiteMergeType($data['mergeType']) : $data['mergeType'];
+            $this->mergeType = is_string($data['mergeType']) ? BrowserSiteMergeType::tryFrom($data['mergeType']) : $data['mergeType'];
         }
         if (isset($data['publishedDateTime'])) {
             $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
         }
         if (isset($data['targetEnvironment'])) {
-            $this->targetEnvironment = is_array($data['targetEnvironment']) ? new BrowserSiteTargetEnvironment($data['targetEnvironment']) : $data['targetEnvironment'];
+            $this->targetEnvironment = is_string($data['targetEnvironment']) ? BrowserSiteTargetEnvironment::tryFrom($data['targetEnvironment']) : $data['targetEnvironment'];
         }
     }
 

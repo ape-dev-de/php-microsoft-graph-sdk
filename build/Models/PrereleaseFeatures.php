@@ -5,29 +5,13 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * PrereleaseFeatures
+ * PrereleaseFeatures - Enum
+ * Possible values for pre-release features.
  */
-class PrereleaseFeatures
+enum PrereleaseFeatures: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case USERDEFINED = 'userDefined';
+    case SETTINGSONLY = 'settingsOnly';
+    case SETTINGSANDEXPERIMENTATIONS = 'settingsAndExperimentations';
+    case NOTALLOWED = 'notAllowed';
 }

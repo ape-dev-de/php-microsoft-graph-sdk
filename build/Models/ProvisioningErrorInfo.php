@@ -42,7 +42,7 @@ class ProvisioningErrorInfo
             $this->additionalDetails = $data['additionalDetails'];
         }
         if (isset($data['errorCategory'])) {
-            $this->errorCategory = is_array($data['errorCategory']) ? new ProvisioningStatusErrorCategory($data['errorCategory']) : $data['errorCategory'];
+            $this->errorCategory = is_string($data['errorCategory']) ? ProvisioningStatusErrorCategory::tryFrom($data['errorCategory']) : $data['errorCategory'];
         }
         if (isset($data['errorCode'])) {
             $this->errorCode = $data['errorCode'];

@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * MailTipsType
+ * MailTipsType - Enum
  */
-class MailTipsType
+enum MailTipsType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case AUTOMATICREPLIES = 'automaticReplies';
+    case MAILBOXFULLSTATUS = 'mailboxFullStatus';
+    case CUSTOMMAILTIP = 'customMailTip';
+    case EXTERNALMEMBERCOUNT = 'externalMemberCount';
+    case TOTALMEMBERCOUNT = 'totalMemberCount';
+    case MAXMESSAGESIZE = 'maxMessageSize';
+    case DELIVERYRESTRICTION = 'deliveryRestriction';
+    case MODERATIONSTATUS = 'moderationStatus';
+    case RECIPIENTSCOPE = 'recipientScope';
+    case RECIPIENTSUGGESTIONS = 'recipientSuggestions';
 }

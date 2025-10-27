@@ -51,7 +51,7 @@ class FollowupFlag
             $this->dueDateTime = is_array($data['dueDateTime']) ? new DateTimeTimeZone($data['dueDateTime']) : $data['dueDateTime'];
         }
         if (isset($data['flagStatus'])) {
-            $this->flagStatus = is_array($data['flagStatus']) ? new FollowupFlagStatus($data['flagStatus']) : $data['flagStatus'];
+            $this->flagStatus = is_string($data['flagStatus']) ? FollowupFlagStatus::tryFrom($data['flagStatus']) : $data['flagStatus'];
         }
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];

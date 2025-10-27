@@ -5,29 +5,16 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * PrintJobStateDetail
+ * PrintJobStateDetail - Enum
  */
-class PrintJobStateDetail
+enum PrintJobStateDetail: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case UPLOADPENDING = 'uploadPending';
+    case TRANSFORMING = 'transforming';
+    case COMPLETEDSUCCESSFULLY = 'completedSuccessfully';
+    case COMPLETEDWITHWARNINGS = 'completedWithWarnings';
+    case COMPLETEDWITHERRORS = 'completedWithErrors';
+    case RELEASEWAIT = 'releaseWait';
+    case INTERPRETING = 'interpreting';
+    case UNKNOWNFUTUREVALUE = 'unknownFutureValue';
 }

@@ -282,7 +282,7 @@ class Event
             $this->iCalUId = $data['iCalUId'];
         }
         if (isset($data['importance'])) {
-            $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
+            $this->importance = is_string($data['importance']) ? Importance::tryFrom($data['importance']) : $data['importance'];
         }
         if (isset($data['isAllDay'])) {
             $this->isAllDay = is_bool($data['isAllDay']) ? $data['isAllDay'] : (bool)$data['isAllDay'];
@@ -312,7 +312,7 @@ class Event
             $this->onlineMeeting = is_array($data['onlineMeeting']) ? new OnlineMeetingInfo($data['onlineMeeting']) : $data['onlineMeeting'];
         }
         if (isset($data['onlineMeetingProvider'])) {
-            $this->onlineMeetingProvider = is_array($data['onlineMeetingProvider']) ? new OnlineMeetingProviderType($data['onlineMeetingProvider']) : $data['onlineMeetingProvider'];
+            $this->onlineMeetingProvider = is_string($data['onlineMeetingProvider']) ? OnlineMeetingProviderType::tryFrom($data['onlineMeetingProvider']) : $data['onlineMeetingProvider'];
         }
         if (isset($data['onlineMeetingUrl'])) {
             $this->onlineMeetingUrl = $data['onlineMeetingUrl'];
@@ -342,13 +342,13 @@ class Event
             $this->responseStatus = is_array($data['responseStatus']) ? new ResponseStatus($data['responseStatus']) : $data['responseStatus'];
         }
         if (isset($data['sensitivity'])) {
-            $this->sensitivity = is_array($data['sensitivity']) ? new Sensitivity($data['sensitivity']) : $data['sensitivity'];
+            $this->sensitivity = is_string($data['sensitivity']) ? Sensitivity::tryFrom($data['sensitivity']) : $data['sensitivity'];
         }
         if (isset($data['seriesMasterId'])) {
             $this->seriesMasterId = $data['seriesMasterId'];
         }
         if (isset($data['showAs'])) {
-            $this->showAs = is_array($data['showAs']) ? new FreeBusyStatus($data['showAs']) : $data['showAs'];
+            $this->showAs = is_string($data['showAs']) ? FreeBusyStatus::tryFrom($data['showAs']) : $data['showAs'];
         }
         if (isset($data['start'])) {
             $this->start = is_array($data['start']) ? new DateTimeTimeZone($data['start']) : $data['start'];
@@ -360,7 +360,7 @@ class Event
             $this->transactionId = $data['transactionId'];
         }
         if (isset($data['type'])) {
-            $this->type = is_array($data['type']) ? new EventType($data['type']) : $data['type'];
+            $this->type = is_string($data['type']) ? EventType::tryFrom($data['type']) : $data['type'];
         }
         if (isset($data['webLink'])) {
             $this->webLink = $data['webLink'];

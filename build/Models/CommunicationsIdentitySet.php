@@ -108,7 +108,7 @@ class CommunicationsIdentitySet
             $this->encrypted = is_array($data['encrypted']) ? new Identity($data['encrypted']) : $data['encrypted'];
         }
         if (isset($data['endpointType'])) {
-            $this->endpointType = is_array($data['endpointType']) ? new EndpointType($data['endpointType']) : $data['endpointType'];
+            $this->endpointType = is_string($data['endpointType']) ? EndpointType::tryFrom($data['endpointType']) : $data['endpointType'];
         }
         if (isset($data['guest'])) {
             $this->guest = is_array($data['guest']) ? new Identity($data['guest']) : $data['guest'];

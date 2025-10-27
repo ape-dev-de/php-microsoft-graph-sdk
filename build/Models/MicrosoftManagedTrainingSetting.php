@@ -36,13 +36,13 @@ class MicrosoftManagedTrainingSetting
     {
         $this->rawData = $data;
         if (isset($data['settingType'])) {
-            $this->settingType = is_array($data['settingType']) ? new TrainingSettingType($data['settingType']) : $data['settingType'];
+            $this->settingType = is_string($data['settingType']) ? TrainingSettingType::tryFrom($data['settingType']) : $data['settingType'];
         }
         if (isset($data['completionDateTime'])) {
             $this->completionDateTime = is_string($data['completionDateTime']) ? new \DateTimeImmutable($data['completionDateTime']) : $data['completionDateTime'];
         }
         if (isset($data['trainingCompletionDuration'])) {
-            $this->trainingCompletionDuration = is_array($data['trainingCompletionDuration']) ? new TrainingCompletionDuration($data['trainingCompletionDuration']) : $data['trainingCompletionDuration'];
+            $this->trainingCompletionDuration = is_string($data['trainingCompletionDuration']) ? TrainingCompletionDuration::tryFrom($data['trainingCompletionDuration']) : $data['trainingCompletionDuration'];
         }
     }
 

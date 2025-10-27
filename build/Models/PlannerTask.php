@@ -177,7 +177,7 @@ class PlannerTask
             $this->planId = $data['planId'];
         }
         if (isset($data['previewType'])) {
-            $this->previewType = is_array($data['previewType']) ? new PlannerPreviewType($data['previewType']) : $data['previewType'];
+            $this->previewType = is_string($data['previewType']) ? PlannerPreviewType::tryFrom($data['previewType']) : $data['previewType'];
         }
         if (isset($data['priority'])) {
             $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];

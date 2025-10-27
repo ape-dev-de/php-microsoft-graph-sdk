@@ -5,29 +5,14 @@ declare(strict_types=1);
 namespace ApeDevDe\MicrosoftGraphSdk\Models;
 
 /**
- * MdmAppConfigKeyType
+ * MdmAppConfigKeyType - Enum
+ * App configuration key types.
  */
-class MdmAppConfigKeyType
+enum MdmAppConfigKeyType: string
 {
-    /** @var array<string, mixed> Raw data from API response */
-    private array $rawData = [];
-
-
-    /**
-     * Constructor - fast deserialization
-     * @param array<string, mixed> $data
-     */
-    public function __construct(array $data = [])
-    {
-        $this->rawData = $data;
-    }
-
-    /**
-     * Get raw data from API response
-     * @return array<string, mixed>
-     */
-    public function getRaw(): array
-    {
-        return $this->rawData;
-    }
+    case STRINGTYPE = 'stringType';
+    case INTEGERTYPE = 'integerType';
+    case REALTYPE = 'realType';
+    case BOOLEANTYPE = 'booleanType';
+    case TOKENTYPE = 'tokenType';
 }
