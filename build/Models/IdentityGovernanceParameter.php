@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceParameter
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The name of the parameter. */
     public ?string $name = null;
 
@@ -28,6 +31,7 @@ class IdentityGovernanceParameter
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
@@ -37,5 +41,14 @@ class IdentityGovernanceParameter
         if (isset($data['valueType'])) {
             $this->valueType = is_array($data['valueType']) ? new IdentityGovernanceValueType($data['valueType']) : $data['valueType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

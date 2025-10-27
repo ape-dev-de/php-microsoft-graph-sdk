@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecentNotebook
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The name of the notebook. */
     public ?string $displayName = null;
 
@@ -34,6 +37,7 @@ class RecentNotebook
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
@@ -46,5 +50,14 @@ class RecentNotebook
         if (isset($data['sourceService'])) {
             $this->sourceService = is_array($data['sourceService']) ? new OnenoteSourceService($data['sourceService']) : $data['sourceService'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

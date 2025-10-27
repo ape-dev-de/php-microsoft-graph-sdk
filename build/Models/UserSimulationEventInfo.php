@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSimulationEventInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign. */
     public ?string $browser = null;
 
@@ -37,6 +40,7 @@ class UserSimulationEventInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['browser'])) {
             $this->browser = $data['browser'];
         }
@@ -55,5 +59,14 @@ class UserSimulationEventInfo
         if (isset($data['osPlatformDeviceDetails'])) {
             $this->osPlatformDeviceDetails = $data['osPlatformDeviceDetails'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

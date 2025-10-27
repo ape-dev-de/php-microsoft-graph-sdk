@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CopilotRoot
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var CopilotAdmin|\stdClass|null
@@ -34,6 +37,7 @@ class CopilotRoot
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['admin'])) {
             $this->admin = is_array($data['admin']) ? new CopilotAdmin($data['admin']) : $data['admin'];
         }
@@ -43,5 +47,14 @@ class CopilotRoot
         if (isset($data['users'])) {
             $this->users = $data['users'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

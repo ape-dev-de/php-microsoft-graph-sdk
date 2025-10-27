@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LookupColumn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether multiple values can be selected from the source. */
     public ?bool $allowMultipleValues = null;
 
@@ -31,6 +34,7 @@ class LookupColumn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowMultipleValues'])) {
             $this->allowMultipleValues = $data['allowMultipleValues'];
         }
@@ -46,5 +50,14 @@ class LookupColumn
         if (isset($data['primaryLookupColumnId'])) {
             $this->primaryLookupColumnId = $data['primaryLookupColumnId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSimulationDetails
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Number of trainings assigned to a user in an attack simulation and training campaign. */
     public ?float $assignedTrainingsCount = null;
 
@@ -52,6 +55,7 @@ class UserSimulationDetails
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['assignedTrainingsCount'])) {
             $this->assignedTrainingsCount = $data['assignedTrainingsCount'];
         }
@@ -79,5 +83,14 @@ class UserSimulationDetails
         if (isset($data['trainingEvents'])) {
             $this->trainingEvents = $data['trainingEvents'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAssignmentPointsGradeType
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Max points possible for this assignment. */
     public ?string $maxPoints = null;
 
@@ -19,8 +22,18 @@ class EducationAssignmentPointsGradeType
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['maxPoints'])) {
             $this->maxPoints = $data['maxPoints'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

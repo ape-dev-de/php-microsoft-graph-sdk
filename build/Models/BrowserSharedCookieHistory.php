@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSharedCookieHistory
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The comment for the shared cookie. */
     public ?string $comment = null;
 
@@ -43,6 +46,7 @@ class BrowserSharedCookieHistory
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['comment'])) {
             $this->comment = $data['comment'];
         }
@@ -67,5 +71,14 @@ class BrowserSharedCookieHistory
         if (isset($data['sourceEnvironment'])) {
             $this->sourceEnvironment = is_array($data['sourceEnvironment']) ? new BrowserSharedCookieSourceEnvironment($data['sourceEnvironment']) : $data['sourceEnvironment'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceEnrollmentPlatformRestrictionsConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -73,6 +76,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -112,5 +116,14 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration
         if (isset($data['windowsRestriction'])) {
             $this->windowsRestriction = is_array($data['windowsRestriction']) ? new DeviceEnrollmentPlatformRestriction($data['windowsRestriction']) : $data['windowsRestriction'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

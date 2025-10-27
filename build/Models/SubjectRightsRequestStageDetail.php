@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestStageDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Describes the error, if any, for the current stage.
      * @var PublicError|\stdClass|null
@@ -34,6 +37,7 @@ class SubjectRightsRequestStageDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['error'])) {
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
@@ -43,5 +47,14 @@ class SubjectRightsRequestStageDetail
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new SubjectRightsRequestStageStatus($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessUsers
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Group IDs excluded from scope of policy.
      * @var string[]
@@ -64,6 +67,7 @@ class ConditionalAccessUsers
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['excludeGroups'])) {
             $this->excludeGroups = $data['excludeGroups'];
         }
@@ -88,5 +92,14 @@ class ConditionalAccessUsers
         if (isset($data['includeUsers'])) {
             $this->includeUsers = $data['includeUsers'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

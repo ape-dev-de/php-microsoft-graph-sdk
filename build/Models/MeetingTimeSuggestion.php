@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingTimeSuggestion
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * An array that shows the availability status of each attendee for this meeting suggestion.
      * @var AttendeeAvailability[]
@@ -49,6 +52,7 @@ class MeetingTimeSuggestion
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attendeeAvailability'])) {
             $this->attendeeAvailability = $data['attendeeAvailability'];
         }
@@ -70,5 +74,14 @@ class MeetingTimeSuggestion
         if (isset($data['suggestionReason'])) {
             $this->suggestionReason = $data['suggestionReason'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

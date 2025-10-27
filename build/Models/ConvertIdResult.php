@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConvertIdResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * An error object indicating the reason for the conversion failure. This value isn't present if the conversion succeeded.
      * @var GenericError|\stdClass|null
@@ -28,6 +31,7 @@ class ConvertIdResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['errorDetails'])) {
             $this->errorDetails = is_array($data['errorDetails']) ? new GenericError($data['errorDetails']) : $data['errorDetails'];
         }
@@ -37,5 +41,14 @@ class ConvertIdResult
         if (isset($data['targetId'])) {
             $this->targetId = $data['targetId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

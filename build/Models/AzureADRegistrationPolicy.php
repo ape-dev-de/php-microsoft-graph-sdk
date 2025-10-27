@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AzureADRegistrationPolicy
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var DeviceRegistrationMembership|\stdClass|null
@@ -25,11 +28,21 @@ class AzureADRegistrationPolicy
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowedToRegister'])) {
             $this->allowedToRegister = is_array($data['allowedToRegister']) ? new DeviceRegistrationMembership($data['allowedToRegister']) : $data['allowedToRegister'];
         }
         if (isset($data['isAdminConfigurable'])) {
             $this->isAdminConfigurable = $data['isAdminConfigurable'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

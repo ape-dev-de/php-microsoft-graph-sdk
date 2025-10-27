@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppLogCollectionDownloadDetails
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?AppLogDecryptionAlgorithm $appLogDecryptionAlgorithm = null;
 
@@ -25,6 +28,7 @@ class AppLogCollectionDownloadDetails
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['appLogDecryptionAlgorithm'])) {
             $this->appLogDecryptionAlgorithm = is_array($data['appLogDecryptionAlgorithm']) ? new AppLogDecryptionAlgorithm($data['appLogDecryptionAlgorithm']) : $data['appLogDecryptionAlgorithm'];
         }
@@ -34,5 +38,14 @@ class AppLogCollectionDownloadDetails
         if (isset($data['downloadUrl'])) {
             $this->downloadUrl = $data['downloadUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

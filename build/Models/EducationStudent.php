@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationStudent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Birth date of the student. */
     public ?\DateTimeInterface $birthDate = null;
 
@@ -37,6 +40,7 @@ class EducationStudent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['birthDate'])) {
             $this->birthDate = is_string($data['birthDate']) ? new \DateTimeImmutable($data['birthDate']) : $data['birthDate'];
         }
@@ -55,5 +59,14 @@ class EducationStudent
         if (isset($data['studentNumber'])) {
             $this->studentNumber = $data['studentNumber'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

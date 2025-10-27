@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChannelMembersNotificationRecipient
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for the channel whose members should receive the notification. */
     public ?string $channelId = null;
 
@@ -22,11 +25,21 @@ class ChannelMembersNotificationRecipient
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['channelId'])) {
             $this->channelId = $data['channelId'];
         }
         if (isset($data['teamId'])) {
             $this->teamId = $data['teamId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

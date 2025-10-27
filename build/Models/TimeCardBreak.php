@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeCardBreak
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** ID of the timeCardBreak. */
     public ?string $breakId = null;
 
@@ -34,6 +37,7 @@ class TimeCardBreak
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['breakId'])) {
             $this->breakId = $data['breakId'];
         }
@@ -46,5 +50,14 @@ class TimeCardBreak
         if (isset($data['start'])) {
             $this->start = is_array($data['start']) ? new TimeCardEvent($data['start']) : $data['start'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

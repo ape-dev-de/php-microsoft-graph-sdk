@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Filter
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * *Experimental* Filter group set used to decide whether given object belongs and should be processed as part of this object mapping. An object is considered in scope if ANY of the groups in the collection is evaluated to true.
      * @var FilterGroup[]
@@ -34,6 +37,7 @@ class Filter
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['categoryFilterGroups'])) {
             $this->categoryFilterGroups = $data['categoryFilterGroups'];
         }
@@ -43,5 +47,14 @@ class Filter
         if (isset($data['inputFilterGroups'])) {
             $this->inputFilterGroups = $data['inputFilterGroups'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

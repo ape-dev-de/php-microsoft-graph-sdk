@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EnterpriseCodeSigningCertificate
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -43,6 +46,7 @@ class EnterpriseCodeSigningCertificate
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -70,5 +74,14 @@ class EnterpriseCodeSigningCertificate
         if (isset($data['uploadDateTime'])) {
             $this->uploadDateTime = is_string($data['uploadDateTime']) ? new \DateTimeImmutable($data['uploadDateTime']) : $data['uploadDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsNetworkInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent. */
     public ?string $bandwidthLowEventRatio = null;
 
@@ -97,6 +100,7 @@ class CallRecordsNetworkInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['bandwidthLowEventRatio'])) {
             $this->bandwidthLowEventRatio = $data['bandwidthLowEventRatio'];
         }
@@ -175,5 +179,14 @@ class CallRecordsNetworkInfo
         if (isset($data['wifiVendorDriverVersion'])) {
             $this->wifiVendorDriverVersion = $data['wifiVendorDriverVersion'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

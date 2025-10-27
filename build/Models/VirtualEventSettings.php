@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether virtual event attendees receive email notifications. */
     public ?bool $isAttendeeEmailNotificationEnabled = null;
 
@@ -19,8 +22,18 @@ class VirtualEventSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isAttendeeEmailNotificationEnabled'])) {
             $this->isAttendeeEmailNotificationEnabled = $data['isAttendeeEmailNotificationEnabled'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RetentionSetting
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The frequency of the backup. */
     public ?string $interval = null;
 
@@ -22,11 +25,21 @@ class RetentionSetting
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['interval'])) {
             $this->interval = $data['interval'];
         }
         if (isset($data['period'])) {
             $this->period = $data['period'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerTask
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -121,6 +124,7 @@ class PlannerTask
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -199,5 +203,14 @@ class PlannerTask
         if (isset($data['progressTaskBoardFormat'])) {
             $this->progressTaskBoardFormat = is_array($data['progressTaskBoardFormat']) ? new PlannerProgressTaskBoardTaskFormat($data['progressTaskBoardFormat']) : $data['progressTaskBoardFormat'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

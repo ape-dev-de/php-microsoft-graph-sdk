@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationAttributeCollectionInputConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The built-in or custom attribute for which a value is being collected. */
     public ?string $attribute = null;
 
@@ -49,6 +52,7 @@ class AuthenticationAttributeCollectionInputConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attribute'])) {
             $this->attribute = $data['attribute'];
         }
@@ -79,5 +83,14 @@ class AuthenticationAttributeCollectionInputConfiguration
         if (isset($data['writeToDirectory'])) {
             $this->writeToDirectory = $data['writeToDirectory'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

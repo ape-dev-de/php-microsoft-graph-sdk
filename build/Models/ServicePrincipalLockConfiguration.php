@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServicePrincipalLockConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Enables locking all sensitive properties. The sensitive properties are keyCredentials, passwordCredentials, and tokenEncryptionKeyId. */
     public ?bool $allProperties = null;
 
@@ -31,6 +34,7 @@ class ServicePrincipalLockConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allProperties'])) {
             $this->allProperties = $data['allProperties'];
         }
@@ -46,5 +50,14 @@ class ServicePrincipalLockConfiguration
         if (isset($data['tokenEncryptionKeyId'])) {
             $this->tokenEncryptionKeyId = $data['tokenEncryptionKeyId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

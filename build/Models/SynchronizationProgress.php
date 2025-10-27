@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationProgress
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The numerator of a progress ratio; the number of units of changes already processed. */
     public ?float $completedUnits = null;
 
@@ -28,6 +31,7 @@ class SynchronizationProgress
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['completedUnits'])) {
             $this->completedUnits = $data['completedUnits'];
         }
@@ -40,5 +44,14 @@ class SynchronizationProgress
         if (isset($data['units'])) {
             $this->units = $data['units'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

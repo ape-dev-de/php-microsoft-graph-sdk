@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DomainDnsTxtRecord
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -37,6 +40,7 @@ class DomainDnsTxtRecord
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -58,5 +62,14 @@ class DomainDnsTxtRecord
         if (isset($data['text'])) {
             $this->text = $data['text'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

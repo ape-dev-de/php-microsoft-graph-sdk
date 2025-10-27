@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WebPartPosition
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates the identifier of the column where the web part is located. */
     public ?string $columnId = null;
 
@@ -28,6 +31,7 @@ class WebPartPosition
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['columnId'])) {
             $this->columnId = $data['columnId'];
         }
@@ -40,5 +44,14 @@ class WebPartPosition
         if (isset($data['webPartIndex'])) {
             $this->webPartIndex = $data['webPartIndex'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

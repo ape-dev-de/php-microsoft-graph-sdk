@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlterationResponse
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Defines the original user query string. */
     public ?string $originalQueryString = null;
 
@@ -31,6 +34,7 @@ class AlterationResponse
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['originalQueryString'])) {
             $this->originalQueryString = $data['originalQueryString'];
         }
@@ -40,5 +44,14 @@ class AlterationResponse
         if (isset($data['queryAlterationType'])) {
             $this->queryAlterationType = is_array($data['queryAlterationType']) ? new SearchAlterationType($data['queryAlterationType']) : $data['queryAlterationType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

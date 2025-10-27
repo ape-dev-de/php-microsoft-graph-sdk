@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttendanceInterval
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime. */
     public ?float $durationInSeconds = null;
 
@@ -25,6 +28,7 @@ class AttendanceInterval
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['durationInSeconds'])) {
             $this->durationInSeconds = $data['durationInSeconds'];
         }
@@ -34,5 +38,14 @@ class AttendanceInterval
         if (isset($data['leaveDateTime'])) {
             $this->leaveDateTime = is_string($data['leaveDateTime']) ? new \DateTimeImmutable($data['leaveDateTime']) : $data['leaveDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

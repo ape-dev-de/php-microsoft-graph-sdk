@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DaylightTimeZoneOffset
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Represents the nth occurrence of the day of week that the transition from daylight saving time to standard time occurs. */
     public ?float $dayOccurrence = null;
 
@@ -37,6 +40,7 @@ class DaylightTimeZoneOffset
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['dayOccurrence'])) {
             $this->dayOccurrence = $data['dayOccurrence'];
         }
@@ -55,5 +59,14 @@ class DaylightTimeZoneOffset
         if (isset($data['daylightBias'])) {
             $this->daylightBias = $data['daylightBias'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

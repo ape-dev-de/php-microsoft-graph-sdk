@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HyperlinkOrPictureColumn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specifies whether the display format used for URL columns is an image or a hyperlink. */
     public ?bool $isPicture = null;
 
@@ -19,8 +22,18 @@ class HyperlinkOrPictureColumn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isPicture'])) {
             $this->isPicture = $data['isPicture'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

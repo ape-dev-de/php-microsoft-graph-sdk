@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnenotePatchContentCommand
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?OnenotePatchActionType $action = null;
 
@@ -31,6 +34,7 @@ class OnenotePatchContentCommand
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['action'])) {
             $this->action = is_array($data['action']) ? new OnenotePatchActionType($data['action']) : $data['action'];
         }
@@ -43,5 +47,14 @@ class OnenotePatchContentCommand
         if (isset($data['target'])) {
             $this->target = $data['target'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

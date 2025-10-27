@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAssignmentGrade
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * User who did the grading.
      * @var IdentitySet|\stdClass|null
@@ -25,11 +28,21 @@ class EducationAssignmentGrade
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['gradedBy'])) {
             $this->gradedBy = is_array($data['gradedBy']) ? new IdentitySet($data['gradedBy']) : $data['gradedBy'];
         }
         if (isset($data['gradedDateTime'])) {
             $this->gradedDateTime = is_string($data['gradedDateTime']) ? new \DateTimeImmutable($data['gradedDateTime']) : $data['gradedDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

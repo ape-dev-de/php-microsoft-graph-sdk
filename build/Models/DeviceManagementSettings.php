@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceManagementSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of days a device is allowed to go without checking in to remain compliant. */
     public ?float $deviceComplianceCheckinThresholdDays = null;
 
@@ -25,6 +28,7 @@ class DeviceManagementSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deviceComplianceCheckinThresholdDays'])) {
             $this->deviceComplianceCheckinThresholdDays = $data['deviceComplianceCheckinThresholdDays'];
         }
@@ -34,5 +38,14 @@ class DeviceManagementSettings
         if (isset($data['secureByDefault'])) {
             $this->secureByDefault = $data['secureByDefault'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

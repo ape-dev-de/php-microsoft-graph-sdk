@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IncomingContext
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The ID of the participant that is under observation. Read-only. */
     public ?string $observedParticipantId = null;
 
@@ -34,6 +37,7 @@ class IncomingContext
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['observedParticipantId'])) {
             $this->observedParticipantId = $data['observedParticipantId'];
         }
@@ -46,5 +50,14 @@ class IncomingContext
         if (isset($data['transferor'])) {
             $this->transferor = is_array($data['transferor']) ? new IdentitySet($data['transferor']) : $data['transferor'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

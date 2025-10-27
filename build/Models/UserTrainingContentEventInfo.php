@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserTrainingContentEventInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Browser of the user from where the training event was generated. */
     public ?string $browser = null;
 
@@ -31,6 +34,7 @@ class UserTrainingContentEventInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['browser'])) {
             $this->browser = $data['browser'];
         }
@@ -46,5 +50,14 @@ class UserTrainingContentEventInfo
         if (isset($data['potentialScoreImpact'])) {
             $this->potentialScoreImpact = $data['potentialScoreImpact'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

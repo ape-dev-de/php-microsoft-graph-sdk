@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateCombinationConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -37,6 +40,7 @@ class X509CertificateCombinationConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -49,5 +53,14 @@ class X509CertificateCombinationConfiguration
         if (isset($data['allowedPolicyOIDs'])) {
             $this->allowedPolicyOIDs = $data['allowedPolicyOIDs'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

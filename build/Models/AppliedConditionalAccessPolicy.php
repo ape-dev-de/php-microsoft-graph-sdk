@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppliedConditionalAccessPolicy
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** An identifier of the conditional access policy. Supports $filter (eq). */
     public ?string $id = null;
 
@@ -40,6 +43,7 @@ class AppliedConditionalAccessPolicy
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -55,5 +59,14 @@ class AppliedConditionalAccessPolicy
         if (isset($data['result'])) {
             $this->result = is_array($data['result']) ? new AppliedConditionalAccessPolicyResult($data['result']) : $data['result'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

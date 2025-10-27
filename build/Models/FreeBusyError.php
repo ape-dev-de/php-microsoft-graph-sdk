@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FreeBusyError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Describes the error. */
     public ?string $message = null;
 
@@ -22,11 +25,21 @@ class FreeBusyError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['message'])) {
             $this->message = $data['message'];
         }
         if (isset($data['responseCode'])) {
             $this->responseCode = $data['responseCode'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppProductCodeRule
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?Win32LobAppRuleType $ruleType = null;
 
@@ -28,6 +31,7 @@ class Win32LobAppProductCodeRule
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['ruleType'])) {
             $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
         }
@@ -40,5 +44,14 @@ class Win32LobAppProductCodeRule
         if (isset($data['productVersionOperator'])) {
             $this->productVersionOperator = is_array($data['productVersionOperator']) ? new Win32LobAppRuleOperator($data['productVersionOperator']) : $data['productVersionOperator'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

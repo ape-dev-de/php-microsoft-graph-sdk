@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AverageComparativeScore
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Average score within specified basis. */
     public ?string $averageScore = null;
 
@@ -22,11 +25,21 @@ class AverageComparativeScore
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['averageScore'])) {
             $this->averageScore = $data['averageScore'];
         }
         if (isset($data['basis'])) {
             $this->basis = $data['basis'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

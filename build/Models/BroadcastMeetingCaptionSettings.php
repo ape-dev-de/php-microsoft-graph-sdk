@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BroadcastMeetingCaptionSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether captions are enabled for this Teams live event. */
     public ?bool $isCaptionEnabled = null;
 
@@ -28,6 +31,7 @@ class BroadcastMeetingCaptionSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isCaptionEnabled'])) {
             $this->isCaptionEnabled = $data['isCaptionEnabled'];
         }
@@ -37,5 +41,14 @@ class BroadcastMeetingCaptionSettings
         if (isset($data['translationLanguages'])) {
             $this->translationLanguages = $data['translationLanguages'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

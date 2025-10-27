@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessFilter
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?FilterMode $mode = null;
 
@@ -22,11 +25,21 @@ class ConditionalAccessFilter
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['mode'])) {
             $this->mode = is_array($data['mode']) ? new FilterMode($data['mode']) : $data['mode'];
         }
         if (isset($data['rule'])) {
             $this->rule = $data['rule'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

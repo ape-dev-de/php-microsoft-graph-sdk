@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnTokenIssuanceStartCustomExtensionHandler
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var CustomExtensionOverwriteConfiguration|\stdClass|null
@@ -28,11 +31,21 @@ class OnTokenIssuanceStartCustomExtensionHandler
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['configuration'])) {
             $this->configuration = is_array($data['configuration']) ? new CustomExtensionOverwriteConfiguration($data['configuration']) : $data['configuration'];
         }
         if (isset($data['customExtension'])) {
             $this->customExtension = is_array($data['customExtension']) ? new OnTokenIssuanceStartCustomExtension($data['customExtension']) : $data['customExtension'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

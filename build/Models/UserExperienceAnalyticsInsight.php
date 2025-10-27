@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsInsight
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier of the user experience analytics insight. */
     public ?string $insightId = null;
 
@@ -31,6 +34,7 @@ class UserExperienceAnalyticsInsight
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['insightId'])) {
             $this->insightId = $data['insightId'];
         }
@@ -43,5 +47,14 @@ class UserExperienceAnalyticsInsight
         if (isset($data['values'])) {
             $this->values = $data['values'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

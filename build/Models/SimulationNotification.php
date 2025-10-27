@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationNotification
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The default language for the end user notification. */
     public ?string $defaultLanguage = null;
 
@@ -31,6 +34,7 @@ class SimulationNotification
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['defaultLanguage'])) {
             $this->defaultLanguage = $data['defaultLanguage'];
         }
@@ -40,5 +44,14 @@ class SimulationNotification
         if (isset($data['targettedUserType'])) {
             $this->targettedUserType = is_array($data['targettedUserType']) ? new TargettedUserType($data['targettedUserType']) : $data['targettedUserType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

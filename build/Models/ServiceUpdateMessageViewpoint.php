@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceUpdateMessageViewpoint
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether the user archived the message. */
     public ?bool $isArchived = null;
 
@@ -25,6 +28,7 @@ class ServiceUpdateMessageViewpoint
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isArchived'])) {
             $this->isArchived = $data['isArchived'];
         }
@@ -34,5 +38,14 @@ class ServiceUpdateMessageViewpoint
         if (isset($data['isRead'])) {
             $this->isRead = $data['isRead'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

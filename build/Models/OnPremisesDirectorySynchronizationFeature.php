@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesDirectorySynchronizationFeature
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Used to block cloud object takeover via source anchor hard match if enabled. */
     public ?bool $blockCloudObjectTakeoverThroughHardMatchEnabled = null;
 
@@ -73,6 +76,7 @@ class OnPremisesDirectorySynchronizationFeature
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['blockCloudObjectTakeoverThroughHardMatchEnabled'])) {
             $this->blockCloudObjectTakeoverThroughHardMatchEnabled = $data['blockCloudObjectTakeoverThroughHardMatchEnabled'];
         }
@@ -130,5 +134,14 @@ class OnPremisesDirectorySynchronizationFeature
         if (isset($data['userWritebackEnabled'])) {
             $this->userWritebackEnabled = $data['userWritebackEnabled'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

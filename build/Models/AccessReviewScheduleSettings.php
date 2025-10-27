@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewScheduleSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.
      * @var AccessReviewApplyAction[]
@@ -64,6 +67,7 @@ class AccessReviewScheduleSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applyActions'])) {
             $this->applyActions = $data['applyActions'];
         }
@@ -103,5 +107,14 @@ class AccessReviewScheduleSettings
         if (isset($data['reminderNotificationsEnabled'])) {
             $this->reminderNotificationsEnabled = $data['reminderNotificationsEnabled'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyBinding
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Specifies the users or groups to be explicitly excluded from this policy scope. Can be null or empty.
      * @var ScopeBase[]
@@ -28,11 +31,21 @@ class PolicyBinding
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['exclusions'])) {
             $this->exclusions = $data['exclusions'];
         }
         if (isset($data['inclusions'])) {
             $this->inclusions = $data['inclusions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecycleBinSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Recycle bin retention period override in days for deleted content. The default value is 93; the value range is 7 to 180. The setting applies to newly deleted content only. Setting this property to null reverts to its default value. Read-write. */
     public ?float $retentionPeriodOverrideDays = null;
 
@@ -19,8 +22,18 @@ class RecycleBinSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['retentionPeriodOverrideDays'])) {
             $this->retentionPeriodOverrideDays = $data['retentionPeriodOverrideDays'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

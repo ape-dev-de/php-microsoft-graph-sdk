@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppMsiInformation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?Win32LobAppMsiPackageType $packageType = null;
 
@@ -37,6 +40,7 @@ class Win32LobAppMsiInformation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['packageType'])) {
             $this->packageType = is_array($data['packageType']) ? new Win32LobAppMsiPackageType($data['packageType']) : $data['packageType'];
         }
@@ -58,5 +62,14 @@ class Win32LobAppMsiInformation
         if (isset($data['upgradeCode'])) {
             $this->upgradeCode = $data['upgradeCode'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

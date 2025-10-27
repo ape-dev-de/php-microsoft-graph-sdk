@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkOnlineMeetingInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The identifier of the calendar event associated with the meeting. */
     public ?string $calendarEventId = null;
 
@@ -28,6 +31,7 @@ class TeamworkOnlineMeetingInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['calendarEventId'])) {
             $this->calendarEventId = $data['calendarEventId'];
         }
@@ -37,5 +41,14 @@ class TeamworkOnlineMeetingInfo
         if (isset($data['organizer'])) {
             $this->organizer = is_array($data['organizer']) ? new TeamworkUserIdentity($data['organizer']) : $data['organizer'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

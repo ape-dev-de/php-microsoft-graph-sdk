@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LoginPageLayoutConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Option to show the footer on the sign-in page. */
     public ?bool $isFooterShown = null;
 
@@ -28,6 +31,7 @@ class LoginPageLayoutConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isFooterShown'])) {
             $this->isFooterShown = $data['isFooterShown'];
         }
@@ -37,5 +41,14 @@ class LoginPageLayoutConfiguration
         if (isset($data['layoutTemplateType'])) {
             $this->layoutTemplateType = is_array($data['layoutTemplateType']) ? new LayoutTemplateType($data['layoutTemplateType']) : $data['layoutTemplateType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessDevices
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
      * @var ConditionalAccessFilter|\stdClass|null
@@ -22,8 +25,18 @@ class ConditionalAccessDevices
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deviceFilter'])) {
             $this->deviceFilter = is_array($data['deviceFilter']) ? new ConditionalAccessFilter($data['deviceFilter']) : $data['deviceFilter'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

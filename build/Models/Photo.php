@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Photo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Camera manufacturer. Read-only. */
     public ?string $cameraMake = null;
 
@@ -43,6 +46,7 @@ class Photo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['cameraMake'])) {
             $this->cameraMake = $data['cameraMake'];
         }
@@ -70,5 +74,14 @@ class Photo
         if (isset($data['takenDateTime'])) {
             $this->takenDateTime = is_string($data['takenDateTime']) ? new \DateTimeImmutable($data['takenDateTime']) : $data['takenDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharepointIds
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier (guid) for the item's list in SharePoint. */
     public ?string $listId = null;
 
@@ -37,6 +40,7 @@ class SharepointIds
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['listId'])) {
             $this->listId = $data['listId'];
         }
@@ -58,5 +62,14 @@ class SharepointIds
         if (isset($data['webId'])) {
             $this->webId = $data['webId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

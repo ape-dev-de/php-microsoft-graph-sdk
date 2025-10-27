@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewInstanceDecisionItemServicePrincipalResource
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Identifier of the resource */
     public ?string $id = null;
 
@@ -28,6 +31,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalResource
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -40,5 +44,14 @@ class AccessReviewInstanceDecisionItemServicePrincipalResource
         if (isset($data['appId'])) {
             $this->appId = $data['appId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

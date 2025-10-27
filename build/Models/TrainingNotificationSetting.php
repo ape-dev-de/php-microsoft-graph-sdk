@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TrainingNotificationSetting
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Notification preference. Possible values are: unknown, microsoft, custom, unknownFutureValue.
      * @var EndUserNotificationPreference|\stdClass|null
@@ -46,6 +49,7 @@ class TrainingNotificationSetting
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['notificationPreference'])) {
             $this->notificationPreference = is_array($data['notificationPreference']) ? new EndUserNotificationPreference($data['notificationPreference']) : $data['notificationPreference'];
         }
@@ -61,5 +65,14 @@ class TrainingNotificationSetting
         if (isset($data['trainingReminder'])) {
             $this->trainingReminder = is_array($data['trainingReminder']) ? new TrainingReminderNotification($data['trainingReminder']) : $data['trainingReminder'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEdiscoveryAddToReviewSetOperation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -94,6 +97,7 @@ class SecurityEdiscoveryAddToReviewSetOperation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -139,5 +143,14 @@ class SecurityEdiscoveryAddToReviewSetOperation
         if (isset($data['search'])) {
             $this->search = is_array($data['search']) ? new SecurityEdiscoverySearch($data['search']) : $data['search'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

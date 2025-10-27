@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeleconferenceDeviceQuality
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
     public ?string $callChainId = null;
 
@@ -49,6 +52,7 @@ class TeleconferenceDeviceQuality
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['callChainId'])) {
             $this->callChainId = $data['callChainId'];
         }
@@ -79,5 +83,14 @@ class TeleconferenceDeviceQuality
         if (isset($data['participantId'])) {
             $this->participantId = $data['participantId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

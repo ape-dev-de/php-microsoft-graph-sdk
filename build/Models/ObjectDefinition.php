@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectDefinition
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Defines attributes of the object.
      * @var AttributeDefinition[]
@@ -37,6 +40,7 @@ class ObjectDefinition
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attributes'])) {
             $this->attributes = $data['attributes'];
         }
@@ -49,5 +53,14 @@ class ObjectDefinition
         if (isset($data['supportedApis'])) {
             $this->supportedApis = $data['supportedApis'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

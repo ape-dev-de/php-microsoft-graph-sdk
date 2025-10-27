@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsAutopilotDevicesSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The count of intune devices that are not autopilot registerd. Read-only. */
     public ?float $devicesNotAutopilotRegistered = null;
 
@@ -25,6 +28,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['devicesNotAutopilotRegistered'])) {
             $this->devicesNotAutopilotRegistered = $data['devicesNotAutopilotRegistered'];
         }
@@ -34,5 +38,14 @@ class UserExperienceAnalyticsAutopilotDevicesSummary
         if (isset($data['totalWindows10DevicesWithoutTenantAttached'])) {
             $this->totalWindows10DevicesWithoutTenantAttached = $data['totalWindows10DevicesWithoutTenantAttached'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

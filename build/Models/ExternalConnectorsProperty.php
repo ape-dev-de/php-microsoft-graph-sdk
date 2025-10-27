@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsProperty
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A set of aliases or a friendly name for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^. Optional.
      * @var string[]
@@ -46,6 +49,7 @@ class ExternalConnectorsProperty
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['aliases'])) {
             $this->aliases = $data['aliases'];
         }
@@ -70,5 +74,14 @@ class ExternalConnectorsProperty
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new ExternalConnectorsPropertyType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

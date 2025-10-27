@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DocumentSet
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Content types allowed in document set.
      * @var ContentTypeInfo[]
@@ -49,6 +52,7 @@ class DocumentSet
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowedContentTypes'])) {
             $this->allowedContentTypes = $data['allowedContentTypes'];
         }
@@ -70,5 +74,14 @@ class DocumentSet
         if (isset($data['welcomePageColumns'])) {
             $this->welcomePageColumns = $data['welcomePageColumns'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

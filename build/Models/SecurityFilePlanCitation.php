@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFilePlanCitation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique string that defines the name for the file plan descriptor associated with a particular retention label. */
     public ?string $displayName = null;
 
@@ -25,6 +28,7 @@ class SecurityFilePlanCitation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
@@ -34,5 +38,14 @@ class SecurityFilePlanCitation
         if (isset($data['citationUrl'])) {
             $this->citationUrl = $data['citationUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

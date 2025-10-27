@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrincipalResourceMembershipsScope
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Defines the scopes of the principals whose access to resources are reviewed in the access review.
      * @var AccessReviewScope[]
@@ -28,11 +31,21 @@ class PrincipalResourceMembershipsScope
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['principalScopes'])) {
             $this->principalScopes = $data['principalScopes'];
         }
         if (isset($data['resourceScopes'])) {
             $this->resourceScopes = $data['resourceScopes'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

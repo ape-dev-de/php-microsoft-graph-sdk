@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FilterClause
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Name of the operator to be applied to the source and target operands. Must be one of the supported operators. Supported operators can be discovered. */
     public ?string $operatorName = null;
 
@@ -28,6 +31,7 @@ class FilterClause
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['operatorName'])) {
             $this->operatorName = $data['operatorName'];
         }
@@ -37,5 +41,14 @@ class FilterClause
         if (isset($data['targetOperand'])) {
             $this->targetOperand = is_array($data['targetOperand']) ? new FilterOperand($data['targetOperand']) : $data['targetOperand'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

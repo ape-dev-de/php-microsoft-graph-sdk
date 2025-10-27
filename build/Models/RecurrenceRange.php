@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecurrenceRange
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate. */
     public ?\DateTimeInterface $endDate = null;
 
@@ -34,6 +37,7 @@ class RecurrenceRange
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['endDate'])) {
             $this->endDate = is_string($data['endDate']) ? new \DateTimeImmutable($data['endDate']) : $data['endDate'];
         }
@@ -49,5 +53,14 @@ class RecurrenceRange
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new RecurrenceRangeType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

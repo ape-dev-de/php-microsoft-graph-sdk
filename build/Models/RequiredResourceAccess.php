@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RequiredResourceAccess
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.
      * @var ResourceAccess[]
@@ -25,11 +28,21 @@ class RequiredResourceAccess
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['resourceAccess'])) {
             $this->resourceAccess = $data['resourceAccess'];
         }
         if (isset($data['resourceAppId'])) {
             $this->resourceAppId = $data['resourceAppId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RgbColor
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Blue value */
     public ?float $b = null;
 
@@ -25,6 +28,7 @@ class RgbColor
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['b'])) {
             $this->b = $data['b'];
         }
@@ -34,5 +38,14 @@ class RgbColor
         if (isset($data['r'])) {
             $this->r = $data['r'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

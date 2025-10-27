@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestorePointSearchResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Total number of artifacts restored. */
     public ?float $artifactHitCount = null;
 
@@ -25,11 +28,21 @@ class RestorePointSearchResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['artifactHitCount'])) {
             $this->artifactHitCount = $data['artifactHitCount'];
         }
         if (isset($data['restorePoint'])) {
             $this->restorePoint = is_array($data['restorePoint']) ? new RestorePoint($data['restorePoint']) : $data['restorePoint'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

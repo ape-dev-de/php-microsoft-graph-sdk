@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsMediaStream
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRta, unknownFutureValue.
      * @var CallRecordsAudioCodec|\stdClass|null
@@ -112,6 +115,7 @@ class CallRecordsMediaStream
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['audioCodec'])) {
             $this->audioCodec = is_array($data['audioCodec']) ? new CallRecordsAudioCodec($data['audioCodec']) : $data['audioCodec'];
         }
@@ -202,5 +206,14 @@ class CallRecordsMediaStream
         if (isset($data['wasMediaBypassed'])) {
             $this->wasMediaBypassed = $data['wasMediaBypassed'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

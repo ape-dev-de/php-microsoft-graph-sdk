@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GeoCoordinates
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only. */
     public ?string $altitude = null;
 
@@ -25,6 +28,7 @@ class GeoCoordinates
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['altitude'])) {
             $this->altitude = $data['altitude'];
         }
@@ -34,5 +38,14 @@ class GeoCoordinates
         if (isset($data['longitude'])) {
             $this->longitude = $data['longitude'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

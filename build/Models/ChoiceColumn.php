@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChoiceColumn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If true, allows custom values that aren't in the configured choices. */
     public ?bool $allowTextEntry = null;
 
@@ -28,6 +31,7 @@ class ChoiceColumn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowTextEntry'])) {
             $this->allowTextEntry = $data['allowTextEntry'];
         }
@@ -37,5 +41,14 @@ class ChoiceColumn
         if (isset($data['displayAs'])) {
             $this->displayAs = $data['displayAs'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

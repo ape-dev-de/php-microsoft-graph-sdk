@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MultiTenantOrganizationJoinRequestTransitionDetails
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * State of the tenant in the multitenant organization currently being processed. The possible values are: pending, active, removed, unknownFutureValue. Read-only.
      * @var MultiTenantOrganizationMemberState|\stdClass|null
@@ -31,6 +34,7 @@ class MultiTenantOrganizationJoinRequestTransitionDetails
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['desiredMemberState'])) {
             $this->desiredMemberState = is_array($data['desiredMemberState']) ? new MultiTenantOrganizationMemberState($data['desiredMemberState']) : $data['desiredMemberState'];
         }
@@ -40,5 +44,14 @@ class MultiTenantOrganizationJoinRequestTransitionDetails
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new MultiTenantOrganizationMemberProcessingStatus($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

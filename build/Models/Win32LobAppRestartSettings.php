@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppRestartSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of minutes before the restart time to display the countdown dialog for pending restarts. */
     public ?float $countdownDisplayBeforeRestartInMinutes = null;
 
@@ -25,6 +28,7 @@ class Win32LobAppRestartSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['countdownDisplayBeforeRestartInMinutes'])) {
             $this->countdownDisplayBeforeRestartInMinutes = $data['countdownDisplayBeforeRestartInMinutes'];
         }
@@ -34,5 +38,14 @@ class Win32LobAppRestartSettings
         if (isset($data['restartNotificationSnoozeDurationInMinutes'])) {
             $this->restartNotificationSnoozeDurationInMinutes = $data['restartNotificationSnoozeDurationInMinutes'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

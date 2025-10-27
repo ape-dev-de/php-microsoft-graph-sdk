@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Thumbnail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The content stream for the thumbnail. */
     public ?string $content = null;
 
@@ -31,6 +34,7 @@ class Thumbnail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['content'])) {
             $this->content = $data['content'];
         }
@@ -46,5 +50,14 @@ class Thumbnail
         if (isset($data['width'])) {
             $this->width = $data['width'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

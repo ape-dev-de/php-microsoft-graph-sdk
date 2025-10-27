@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookSortField
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Represents whether the sorting is done in an ascending fashion. */
     public ?bool $ascending = null;
 
@@ -37,6 +40,7 @@ class WorkbookSortField
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['ascending'])) {
             $this->ascending = $data['ascending'];
         }
@@ -55,5 +59,14 @@ class WorkbookSortField
         if (isset($data['sortOn'])) {
             $this->sortOn = $data['sortOn'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

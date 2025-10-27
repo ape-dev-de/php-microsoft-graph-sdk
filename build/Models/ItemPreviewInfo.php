@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ItemPreviewInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $getUrl = null;
 
@@ -25,6 +28,7 @@ class ItemPreviewInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['getUrl'])) {
             $this->getUrl = $data['getUrl'];
         }
@@ -34,5 +38,14 @@ class ItemPreviewInfo
         if (isset($data['postUrl'])) {
             $this->postUrl = $data['postUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

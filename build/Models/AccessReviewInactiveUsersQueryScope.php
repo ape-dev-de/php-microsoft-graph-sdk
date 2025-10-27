@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewInactiveUsersQueryScope
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The query representing what will be reviewed in an access review. */
     public ?string $query = null;
 
@@ -28,6 +31,7 @@ class AccessReviewInactiveUsersQueryScope
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['query'])) {
             $this->query = $data['query'];
         }
@@ -40,5 +44,14 @@ class AccessReviewInactiveUsersQueryScope
         if (isset($data['inactiveDuration'])) {
             $this->inactiveDuration = $data['inactiveDuration'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

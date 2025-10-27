@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AndroidMinimumOperatingSystem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     public ?bool $v10_0 = null;
 
@@ -64,6 +67,7 @@ class AndroidMinimumOperatingSystem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['v10_0'])) {
             $this->v10_0 = $data['v10_0'];
         }
@@ -112,5 +116,14 @@ class AndroidMinimumOperatingSystem
         if (isset($data['v9_0'])) {
             $this->v9_0 = $data['v9_0'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

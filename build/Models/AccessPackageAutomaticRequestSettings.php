@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAutomaticRequestSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The duration for which access must be retained before the target's access is revoked once they leave the allowed target scope. */
     public ?string $gracePeriodBeforeAccessRemoval = null;
 
@@ -25,6 +28,7 @@ class AccessPackageAutomaticRequestSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['gracePeriodBeforeAccessRemoval'])) {
             $this->gracePeriodBeforeAccessRemoval = $data['gracePeriodBeforeAccessRemoval'];
         }
@@ -34,5 +38,14 @@ class AccessPackageAutomaticRequestSettings
         if (isset($data['requestAccessForAllowedTargets'])) {
             $this->requestAccessForAllowedTargets = $data['requestAccessForAllowedTargets'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

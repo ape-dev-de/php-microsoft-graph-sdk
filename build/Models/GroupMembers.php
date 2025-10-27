@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class GroupMembers
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The name of the group in Microsoft Entra ID. Read-only. */
     public ?string $description = null;
 
@@ -22,11 +25,21 @@ class GroupMembers
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
         if (isset($data['groupId'])) {
             $this->groupId = $data['groupId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

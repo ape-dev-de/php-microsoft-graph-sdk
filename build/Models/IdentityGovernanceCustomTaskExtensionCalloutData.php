@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceCustomTaskExtensionCalloutData
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var User|\stdClass|null
@@ -40,6 +43,7 @@ class IdentityGovernanceCustomTaskExtensionCalloutData
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['subject'])) {
             $this->subject = is_array($data['subject']) ? new User($data['subject']) : $data['subject'];
         }
@@ -52,5 +56,14 @@ class IdentityGovernanceCustomTaskExtensionCalloutData
         if (isset($data['workflow'])) {
             $this->workflow = is_array($data['workflow']) ? new IdentityGovernanceWorkflow($data['workflow']) : $data['workflow'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFileHash
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?SecurityFileHashAlgorithm $algorithm = null;
 
@@ -22,11 +25,21 @@ class SecurityFileHash
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['algorithm'])) {
             $this->algorithm = is_array($data['algorithm']) ? new SecurityFileHashAlgorithm($data['algorithm']) : $data['algorithm'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

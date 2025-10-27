@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessageReactionIdentitySet
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Optional. The application associated with this action.
      * @var Identity|\stdClass|null
@@ -34,6 +37,7 @@ class ChatMessageReactionIdentitySet
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['application'])) {
             $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
@@ -43,5 +47,14 @@ class ChatMessageReactionIdentitySet
         if (isset($data['user'])) {
             $this->user = is_array($data['user']) ? new Identity($data['user']) : $data['user'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

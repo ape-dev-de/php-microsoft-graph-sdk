@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EnumeratedDeviceRegistrationMembership
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var string[]
@@ -28,11 +31,21 @@ class EnumeratedDeviceRegistrationMembership
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['groups'])) {
             $this->groups = $data['groups'];
         }
         if (isset($data['users'])) {
             $this->users = $data['users'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

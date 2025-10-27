@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SingleServicePrincipal
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Description of this service principal. */
     public ?string $description = null;
 
@@ -22,11 +25,21 @@ class SingleServicePrincipal
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
         if (isset($data['servicePrincipalId'])) {
             $this->servicePrincipalId = $data['servicePrincipalId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

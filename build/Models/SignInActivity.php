@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInActivity
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The last non-interactive sign-in date for a specific user. You can use this field to calculate the last time a client attempted (either successfully or unsuccessfully) to sign in to the directory on behalf of a user. Because some users may use clients to access tenant resources rather than signing into your tenant directly, you can use the non-interactive sign-in date to along with lastSignInDateTime to identify inactive users. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Microsoft Entra ID maintains non-interactive sign-ins going back to May 2020. For more information about using the value of this property, see Manage inactive user accounts in Microsoft Entra ID. */
     public ?\DateTimeInterface $lastNonInteractiveSignInDateTime = null;
 
@@ -34,6 +37,7 @@ class SignInActivity
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['lastNonInteractiveSignInDateTime'])) {
             $this->lastNonInteractiveSignInDateTime = is_string($data['lastNonInteractiveSignInDateTime']) ? new \DateTimeImmutable($data['lastNonInteractiveSignInDateTime']) : $data['lastNonInteractiveSignInDateTime'];
         }
@@ -52,5 +56,14 @@ class SignInActivity
         if (isset($data['lastSuccessfulSignInRequestId'])) {
             $this->lastSuccessfulSignInRequestId = $data['lastSuccessfulSignInRequestId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationJobSubject
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Principals that you would like to provision.
      * @var SynchronizationLinkedObjects|\stdClass|null
@@ -28,6 +31,7 @@ class SynchronizationJobSubject
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['links'])) {
             $this->links = is_array($data['links']) ? new SynchronizationLinkedObjects($data['links']) : $data['links'];
         }
@@ -37,5 +41,14 @@ class SynchronizationJobSubject
         if (isset($data['objectTypeName'])) {
             $this->objectTypeName = $data['objectTypeName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

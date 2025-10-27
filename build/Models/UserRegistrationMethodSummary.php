@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserRegistrationMethodSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Total number of users in the tenant. */
     public ?float $totalUserCount = null;
 
@@ -37,6 +40,7 @@ class UserRegistrationMethodSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['totalUserCount'])) {
             $this->totalUserCount = $data['totalUserCount'];
         }
@@ -49,5 +53,14 @@ class UserRegistrationMethodSummary
         if (isset($data['userTypes'])) {
             $this->userTypes = is_array($data['userTypes']) ? new IncludedUserTypes($data['userTypes']) : $data['userTypes'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

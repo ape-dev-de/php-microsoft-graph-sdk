@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityFilePlanAppliedCategory
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique string that defines the name for the file plan descriptor associated with a particular retention label. */
     public ?string $displayName = null;
 
@@ -25,11 +28,21 @@ class SecurityFilePlanAppliedCategory
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['subcategory'])) {
             $this->subcategory = is_array($data['subcategory']) ? new SecurityFilePlanSubcategory($data['subcategory']) : $data['subcategory'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

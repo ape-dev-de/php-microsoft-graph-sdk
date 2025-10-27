@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsServiceUserAgent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Identifies the version of application software used by this endpoint. */
     public ?string $applicationVersion = null;
 
@@ -25,6 +28,7 @@ class CallRecordsServiceUserAgent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applicationVersion'])) {
             $this->applicationVersion = $data['applicationVersion'];
         }
@@ -34,5 +38,14 @@ class CallRecordsServiceUserAgent
         if (isset($data['role'])) {
             $this->role = is_array($data['role']) ? new CallRecordsServiceRole($data['role']) : $data['role'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

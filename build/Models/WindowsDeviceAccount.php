@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDeviceAccount
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Not yet documented */
     public ?string $password = null;
 
@@ -19,8 +22,18 @@ class WindowsDeviceAccount
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['password'])) {
             $this->password = $data['password'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

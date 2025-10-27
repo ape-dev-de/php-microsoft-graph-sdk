@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharePointOneDriveOptions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The type of search content. The possible values are: sharedContent, privateContent, unknownFutureValue. Read-only.
      * @var SearchContent|\stdClass|null
@@ -22,8 +25,18 @@ class SharePointOneDriveOptions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['includeContent'])) {
             $this->includeContent = is_array($data['includeContent']) ? new SearchContent($data['includeContent']) : $data['includeContent'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

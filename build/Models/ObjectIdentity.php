@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectIdentity
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specifies the issuer of the identity, for example facebook.com. 512 character limit. For local accounts (where signInType isn't federated), this property is the local default domain name for the tenant, for example contoso.com.  For guests from other Microsoft Entra organizations, this is the domain of the federated organization, for example contoso.com. For more information about filtering behavior for this property, see Filtering on the identities property of a user. */
     public ?string $issuer = null;
 
@@ -25,6 +28,7 @@ class ObjectIdentity
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['issuer'])) {
             $this->issuer = $data['issuer'];
         }
@@ -34,5 +38,14 @@ class ObjectIdentity
         if (isset($data['signInType'])) {
             $this->signInType = $data['signInType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthContext
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Supported values are c1 through c99. */
     public ?string $authenticationContextValue = null;
 
@@ -19,8 +22,18 @@ class AuthContext
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['authenticationContextValue'])) {
             $this->authenticationContextValue = $data['authenticationContextValue'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

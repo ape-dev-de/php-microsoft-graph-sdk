@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlertHistoryState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $appId = null;
 
@@ -46,6 +49,7 @@ class AlertHistoryState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['appId'])) {
             $this->appId = $data['appId'];
         }
@@ -67,5 +71,14 @@ class AlertHistoryState
         if (isset($data['user'])) {
             $this->user = $data['user'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

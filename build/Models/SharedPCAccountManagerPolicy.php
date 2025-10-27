@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharedPCAccountManagerPolicy
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?SharedPCAccountDeletionPolicyType $accountDeletionPolicy = null;
 
@@ -28,6 +31,7 @@ class SharedPCAccountManagerPolicy
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accountDeletionPolicy'])) {
             $this->accountDeletionPolicy = is_array($data['accountDeletionPolicy']) ? new SharedPCAccountDeletionPolicyType($data['accountDeletionPolicy']) : $data['accountDeletionPolicy'];
         }
@@ -40,5 +44,14 @@ class SharedPCAccountManagerPolicy
         if (isset($data['removeAccountsBelowDiskFreePercentage'])) {
             $this->removeAccountsBelowDiskFreePercentage = $data['removeAccountsBelowDiskFreePercentage'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

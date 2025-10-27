@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesExtensionAttributes
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** First customizable extension attribute. */
     public ?string $extensionAttribute1 = null;
 
@@ -61,6 +64,7 @@ class OnPremisesExtensionAttributes
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['extensionAttribute1'])) {
             $this->extensionAttribute1 = $data['extensionAttribute1'];
         }
@@ -106,5 +110,14 @@ class OnPremisesExtensionAttributes
         if (isset($data['extensionAttribute9'])) {
             $this->extensionAttribute9 = $data['extensionAttribute9'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

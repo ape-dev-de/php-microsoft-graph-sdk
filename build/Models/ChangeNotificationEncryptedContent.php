@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChangeNotificationEncryptedContent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Base64-encoded encrypted data that produces a full resource respresented as JSON. The data has been encrypted with the provided dataKey using an AES/CBC/PKCS5PADDING cipher suite. */
     public ?string $data = null;
 
@@ -31,6 +34,7 @@ class ChangeNotificationEncryptedContent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['data'])) {
             $this->data = $data['data'];
         }
@@ -46,5 +50,14 @@ class ChangeNotificationEncryptedContent
         if (isset($data['encryptionCertificateThumbprint'])) {
             $this->encryptionCertificateThumbprint = $data['encryptionCertificateThumbprint'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

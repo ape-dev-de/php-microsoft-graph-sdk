@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedDevice
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -226,6 +229,7 @@ class ManagedDevice
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -409,5 +413,14 @@ class ManagedDevice
         if (isset($data['windowsProtectionState'])) {
             $this->windowsProtectionState = is_array($data['windowsProtectionState']) ? new WindowsProtectionState($data['windowsProtectionState']) : $data['windowsProtectionState'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

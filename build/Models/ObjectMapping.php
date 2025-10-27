@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectMapping
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
      * @var AttributeMapping[]
@@ -49,6 +52,7 @@ class ObjectMapping
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attributeMappings'])) {
             $this->attributeMappings = $data['attributeMappings'];
         }
@@ -73,5 +77,14 @@ class ObjectMapping
         if (isset($data['targetObjectName'])) {
             $this->targetObjectName = $data['targetObjectName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

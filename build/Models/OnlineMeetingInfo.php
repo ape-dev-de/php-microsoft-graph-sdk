@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnlineMeetingInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The ID of the conference. */
     public ?string $conferenceId = null;
 
@@ -40,6 +43,7 @@ class OnlineMeetingInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['conferenceId'])) {
             $this->conferenceId = $data['conferenceId'];
         }
@@ -58,5 +62,14 @@ class OnlineMeetingInfo
         if (isset($data['tollNumber'])) {
             $this->tollNumber = $data['tollNumber'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

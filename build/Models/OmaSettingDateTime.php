@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OmaSettingDateTime
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Description. */
     public ?string $description = null;
 
@@ -28,6 +31,7 @@ class OmaSettingDateTime
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -40,5 +44,14 @@ class OmaSettingDateTime
         if (isset($data['value'])) {
             $this->value = is_string($data['value']) ? new \DateTimeImmutable($data['value']) : $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NetworkConnection
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Name of the application managing the network connection (for example, Facebook or SMTP). */
     public ?string $applicationName = null;
 
@@ -85,6 +88,7 @@ class NetworkConnection
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applicationName'])) {
             $this->applicationName = $data['applicationName'];
         }
@@ -145,5 +149,14 @@ class NetworkConnection
         if (isset($data['urlParameters'])) {
             $this->urlParameters = $data['urlParameters'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

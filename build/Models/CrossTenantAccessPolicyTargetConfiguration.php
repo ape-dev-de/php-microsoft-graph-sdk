@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyTargetConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Defines whether access is allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.
      * @var CrossTenantAccessPolicyTargetConfigurationAccessType|\stdClass|null
@@ -28,11 +31,21 @@ class CrossTenantAccessPolicyTargetConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accessType'])) {
             $this->accessType = is_array($data['accessType']) ? new CrossTenantAccessPolicyTargetConfigurationAccessType($data['accessType']) : $data['accessType'];
         }
         if (isset($data['targets'])) {
             $this->targets = $data['targets'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

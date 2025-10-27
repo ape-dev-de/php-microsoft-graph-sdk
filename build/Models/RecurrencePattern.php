@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecurrencePattern
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The day of the month on which the event occurs. Required if type is absoluteMonthly or absoluteYearly. */
     public ?float $dayOfMonth = null;
 
@@ -49,6 +52,7 @@ class RecurrencePattern
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['dayOfMonth'])) {
             $this->dayOfMonth = $data['dayOfMonth'];
         }
@@ -70,5 +74,14 @@ class RecurrencePattern
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new RecurrencePatternType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

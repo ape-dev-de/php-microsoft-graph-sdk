@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationCourse
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique identifier for the course. */
     public ?string $courseNumber = null;
 
@@ -31,6 +34,7 @@ class EducationCourse
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['courseNumber'])) {
             $this->courseNumber = $data['courseNumber'];
         }
@@ -46,5 +50,14 @@ class EducationCourse
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkApplicationIdentity
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique identifier for the identity or actor. For example, in the access reviews decisions API, this property might record the id of the principal, that is, the group, user, or application that's subject to review. */
     public ?string $id = null;
 
@@ -28,6 +31,7 @@ class TeamworkApplicationIdentity
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -37,5 +41,14 @@ class TeamworkApplicationIdentity
         if (isset($data['applicationIdentityType'])) {
             $this->applicationIdentityType = is_array($data['applicationIdentityType']) ? new TeamworkApplicationIdentityType($data['applicationIdentityType']) : $data['applicationIdentityType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

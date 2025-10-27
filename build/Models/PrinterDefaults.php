@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrinterDefaults
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The default color mode to use when printing the document. Valid values are described in the following table.
      * @var PrintColorMode|\stdClass|null
@@ -88,6 +91,7 @@ class PrinterDefaults
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['colorMode'])) {
             $this->colorMode = is_array($data['colorMode']) ? new PrintColorMode($data['colorMode']) : $data['colorMode'];
         }
@@ -139,5 +143,14 @@ class PrinterDefaults
         if (isset($data['scaling'])) {
             $this->scaling = is_array($data['scaling']) ? new PrintScaling($data['scaling']) : $data['scaling'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

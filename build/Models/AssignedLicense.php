@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AssignedLicense
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A collection of the unique identifiers for plans that have been disabled. IDs are available in servicePlans > servicePlanId in the tenant's subscribedSkus or serviceStatus > servicePlanId in the tenant's companySubscription.
      * @var string[]
@@ -25,11 +28,21 @@ class AssignedLicense
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['disabledPlans'])) {
             $this->disabledPlans = $data['disabledPlans'];
         }
         if (isset($data['skuId'])) {
             $this->skuId = $data['skuId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

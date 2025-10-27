@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VisualInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Optional. JSON object used to represent an icon which represents the application used to generate the activity
      * @var ImageInfo|\stdClass|null
@@ -34,6 +37,7 @@ class VisualInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attribution'])) {
             $this->attribution = is_array($data['attribution']) ? new ImageInfo($data['attribution']) : $data['attribution'];
         }
@@ -49,5 +53,14 @@ class VisualInfo
         if (isset($data['displayText'])) {
             $this->displayText = $data['displayText'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApiApplication
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** When true, allows an application to use claims mapping without specifying a custom signing key. */
     public ?bool $acceptMappedClaims = null;
 
@@ -40,6 +43,7 @@ class ApiApplication
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['acceptMappedClaims'])) {
             $this->acceptMappedClaims = $data['acceptMappedClaims'];
         }
@@ -55,5 +59,14 @@ class ApiApplication
         if (isset($data['requestedAccessTokenVersion'])) {
             $this->requestedAccessTokenVersion = $data['requestedAccessTokenVersion'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityAlertComment
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The comment text. */
     public ?string $comment = null;
 
@@ -25,6 +28,7 @@ class SecurityAlertComment
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['comment'])) {
             $this->comment = $data['comment'];
         }
@@ -34,5 +38,14 @@ class SecurityAlertComment
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

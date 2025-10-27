@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CollapseProperty
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Defines the collapse group to trim results. The properties in this collection must be sortable/refinable properties. Required.
      * @var string[]
@@ -25,11 +28,21 @@ class CollapseProperty
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['fields'])) {
             $this->fields = $data['fields'];
         }
         if (isset($data['limit'])) {
             $this->limit = $data['limit'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

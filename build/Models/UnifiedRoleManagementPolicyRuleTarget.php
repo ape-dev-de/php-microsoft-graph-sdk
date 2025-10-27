@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRoleManagementPolicyRuleTarget
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser. */
     public ?string $caller = null;
 
@@ -46,6 +49,7 @@ class UnifiedRoleManagementPolicyRuleTarget
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['caller'])) {
             $this->caller = $data['caller'];
         }
@@ -64,5 +68,14 @@ class UnifiedRoleManagementPolicyRuleTarget
         if (isset($data['targetObjects'])) {
             $this->targetObjects = $data['targetObjects'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

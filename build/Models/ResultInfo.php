@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResultInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The result code. */
     public ?float $code = null;
 
@@ -25,6 +28,7 @@ class ResultInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['code'])) {
             $this->code = $data['code'];
         }
@@ -34,5 +38,14 @@ class ResultInfo
         if (isset($data['subcode'])) {
             $this->subcode = $data['subcode'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

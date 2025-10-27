@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationStatus
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?SynchronizationStatusCode $code = null;
 
@@ -70,6 +73,7 @@ class SynchronizationStatus
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['code'])) {
             $this->code = is_array($data['code']) ? new SynchronizationStatusCode($data['code']) : $data['code'];
         }
@@ -106,5 +110,14 @@ class SynchronizationStatus
         if (isset($data['troubleshootingUrl'])) {
             $this->troubleshootingUrl = $data['troubleshootingUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

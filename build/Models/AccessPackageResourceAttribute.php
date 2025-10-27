@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageResourceAttribute
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Information about how to set the attribute, currently a accessPackageUserDirectoryAttributeStore type.
      * @var AccessPackageResourceAttributeDestination|\stdClass|null
@@ -37,6 +40,7 @@ class AccessPackageResourceAttribute
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['destination'])) {
             $this->destination = is_array($data['destination']) ? new AccessPackageResourceAttributeDestination($data['destination']) : $data['destination'];
         }
@@ -52,5 +56,14 @@ class AccessPackageResourceAttribute
         if (isset($data['source'])) {
             $this->source = is_array($data['source']) ? new AccessPackageResourceAttributeSource($data['source']) : $data['source'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

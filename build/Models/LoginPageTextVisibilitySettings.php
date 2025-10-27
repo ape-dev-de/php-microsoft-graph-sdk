@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LoginPageTextVisibilitySettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Option to hide the self-service password reset (SSPR) hyperlinks such as 'Can't access your account?', 'Forgot my password' and 'Reset it now' on the sign-in form. */
     public ?bool $hideAccountResetCredentials = null;
 
@@ -34,6 +37,7 @@ class LoginPageTextVisibilitySettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hideAccountResetCredentials'])) {
             $this->hideAccountResetCredentials = $data['hideAccountResetCredentials'];
         }
@@ -52,5 +56,14 @@ class LoginPageTextVisibilitySettings
         if (isset($data['hideTermsOfUse'])) {
             $this->hideTermsOfUse = $data['hideTermsOfUse'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

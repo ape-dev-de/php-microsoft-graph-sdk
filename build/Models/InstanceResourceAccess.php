@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InstanceResourceAccess
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var ResourcePermission[]
@@ -25,11 +28,21 @@ class InstanceResourceAccess
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['permissions'])) {
             $this->permissions = $data['permissions'];
         }
         if (isset($data['resourceAppId'])) {
             $this->resourceAppId = $data['resourceAppId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

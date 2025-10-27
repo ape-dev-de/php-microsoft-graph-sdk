@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateAuthenticationModeConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode.
      * @var X509CertificateRule[]
@@ -34,6 +37,7 @@ class X509CertificateAuthenticationModeConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['rules'])) {
             $this->rules = $data['rules'];
         }
@@ -43,5 +47,14 @@ class X509CertificateAuthenticationModeConfiguration
         if (isset($data['x509CertificateDefaultRequiredAffinityLevel'])) {
             $this->x509CertificateDefaultRequiredAffinityLevel = is_array($data['x509CertificateDefaultRequiredAffinityLevel']) ? new X509CertificateAffinityLevel($data['x509CertificateDefaultRequiredAffinityLevel']) : $data['x509CertificateDefaultRequiredAffinityLevel'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

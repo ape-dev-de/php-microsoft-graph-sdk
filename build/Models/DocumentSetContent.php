@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DocumentSetContent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Content type information of the file.
      * @var ContentTypeInfo|\stdClass|null
@@ -28,6 +31,7 @@ class DocumentSetContent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['contentType'])) {
             $this->contentType = is_array($data['contentType']) ? new ContentTypeInfo($data['contentType']) : $data['contentType'];
         }
@@ -37,5 +41,14 @@ class DocumentSetContent
         if (isset($data['folderName'])) {
             $this->folderName = $data['folderName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

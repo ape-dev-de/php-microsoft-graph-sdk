@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessPlatforms
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
      * @var ConditionalAccessDevicePlatform[]
@@ -28,11 +31,21 @@ class ConditionalAccessPlatforms
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['excludePlatforms'])) {
             $this->excludePlatforms = $data['excludePlatforms'];
         }
         if (isset($data['includePlatforms'])) {
             $this->includePlatforms = $data['includePlatforms'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

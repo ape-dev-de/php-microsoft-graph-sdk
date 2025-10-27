@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Certification
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** URL that shows certification details for the application. */
     public ?string $certificationDetailsUrl = null;
 
@@ -31,6 +34,7 @@ class Certification
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['certificationDetailsUrl'])) {
             $this->certificationDetailsUrl = $data['certificationDetailsUrl'];
         }
@@ -46,5 +50,14 @@ class Certification
         if (isset($data['lastCertificationDateTime'])) {
             $this->lastCertificationDateTime = is_string($data['lastCertificationDateTime']) ? new \DateTimeImmutable($data['lastCertificationDateTime']) : $data['lastCertificationDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftStoreForBusinessAppAssignmentSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Whether or not to use device execution context for Microsoft Store for Business mobile app. */
     public ?bool $useDeviceContext = null;
 
@@ -19,8 +22,18 @@ class MicrosoftStoreForBusinessAppAssignmentSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['useDeviceContext'])) {
             $this->useDeviceContext = $data['useDeviceContext'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

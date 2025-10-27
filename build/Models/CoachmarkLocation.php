@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CoachmarkLocation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Length of coachmark. */
     public ?float $length = null;
 
@@ -28,6 +31,7 @@ class CoachmarkLocation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['length'])) {
             $this->length = $data['length'];
         }
@@ -37,5 +41,14 @@ class CoachmarkLocation
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new CoachmarkLocationType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

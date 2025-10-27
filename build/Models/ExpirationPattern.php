@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExpirationPattern
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration. */
     public ?string $duration = null;
 
@@ -28,6 +31,7 @@ class ExpirationPattern
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['duration'])) {
             $this->duration = $data['duration'];
         }
@@ -37,5 +41,14 @@ class ExpirationPattern
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new ExpirationPatternType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAlteration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is: /ue000, /ue001. */
     public ?string $alteredHighlightedQueryString = null;
 
@@ -28,6 +31,7 @@ class SearchAlteration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['alteredHighlightedQueryString'])) {
             $this->alteredHighlightedQueryString = $data['alteredHighlightedQueryString'];
         }
@@ -37,5 +41,14 @@ class SearchAlteration
         if (isset($data['alteredQueryTokens'])) {
             $this->alteredQueryTokens = $data['alteredQueryTokens'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

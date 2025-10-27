@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalLink
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The URL of the link. */
     public ?string $href = null;
 
@@ -19,8 +22,18 @@ class ExternalLink
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['href'])) {
             $this->href = $data['href'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

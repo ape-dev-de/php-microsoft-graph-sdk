@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintJobStatus
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A human-readable description of the print job's current processing state. Read-only. */
     public ?string $description = null;
 
@@ -31,6 +34,7 @@ class PrintJobStatus
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -43,5 +47,14 @@ class PrintJobStatus
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new PrintJobProcessingState($data['state']) : $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

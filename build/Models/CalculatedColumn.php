@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CalculatedColumn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** For dateTime output types, the format of the value. Possible values are: dateOnly or dateTime. */
     public ?string $format = null;
 
@@ -25,6 +28,7 @@ class CalculatedColumn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['format'])) {
             $this->format = $data['format'];
         }
@@ -34,5 +38,14 @@ class CalculatedColumn
         if (isset($data['outputType'])) {
             $this->outputType = $data['outputType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

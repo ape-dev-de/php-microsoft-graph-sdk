@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessSessionControls
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.
      * @var ApplicationEnforcedRestrictionsSessionControl|\stdClass|null
@@ -49,6 +52,7 @@ class ConditionalAccessSessionControls
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applicationEnforcedRestrictions'])) {
             $this->applicationEnforcedRestrictions = is_array($data['applicationEnforcedRestrictions']) ? new ApplicationEnforcedRestrictionsSessionControl($data['applicationEnforcedRestrictions']) : $data['applicationEnforcedRestrictions'];
         }
@@ -67,5 +71,14 @@ class ConditionalAccessSessionControls
         if (isset($data['signInFrequency'])) {
             $this->signInFrequency = is_array($data['signInFrequency']) ? new SignInFrequencySessionControl($data['signInFrequency']) : $data['signInFrequency'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

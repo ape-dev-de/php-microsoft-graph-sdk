@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttackSimulationTrainingUserCoverage
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * User in an attack simulation and training campaign.
      * @var AttackSimulationUser|\stdClass|null
@@ -28,11 +31,21 @@ class AttackSimulationTrainingUserCoverage
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attackSimulationUser'])) {
             $this->attackSimulationUser = is_array($data['attackSimulationUser']) ? new AttackSimulationUser($data['attackSimulationUser']) : $data['attackSimulationUser'];
         }
         if (isset($data['userTrainings'])) {
             $this->userTrainings = $data['userTrainings'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

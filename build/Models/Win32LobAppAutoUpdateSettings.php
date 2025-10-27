@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppAutoUpdateSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?Win32LobAutoUpdateSupersededAppsState $autoUpdateSupersededAppsState = null;
 
@@ -19,8 +22,18 @@ class Win32LobAppAutoUpdateSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['autoUpdateSupersededAppsState'])) {
             $this->autoUpdateSupersededAppsState = is_array($data['autoUpdateSupersededAppsState']) ? new Win32LobAutoUpdateSupersededAppsState($data['autoUpdateSupersededAppsState']) : $data['autoUpdateSupersededAppsState'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

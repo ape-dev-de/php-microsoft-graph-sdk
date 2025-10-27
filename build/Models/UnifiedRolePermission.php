@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedRolePermission
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Set of tasks that can be performed on a resource. Required.
      * @var string[]
@@ -31,6 +34,7 @@ class UnifiedRolePermission
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowedResourceActions'])) {
             $this->allowedResourceActions = $data['allowedResourceActions'];
         }
@@ -40,5 +44,14 @@ class UnifiedRolePermission
         if (isset($data['excludedResourceActions'])) {
             $this->excludedResourceActions = $data['excludedResourceActions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

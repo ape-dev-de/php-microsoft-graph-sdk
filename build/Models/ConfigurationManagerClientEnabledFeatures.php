@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConfigurationManagerClientEnabledFeatures
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Whether compliance policy is managed by Intune */
     public ?bool $compliancePolicy = null;
 
@@ -34,6 +37,7 @@ class ConfigurationManagerClientEnabledFeatures
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['compliancePolicy'])) {
             $this->compliancePolicy = $data['compliancePolicy'];
         }
@@ -52,5 +56,14 @@ class ConfigurationManagerClientEnabledFeatures
         if (isset($data['windowsUpdateForBusiness'])) {
             $this->windowsUpdateForBusiness = $data['windowsUpdateForBusiness'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

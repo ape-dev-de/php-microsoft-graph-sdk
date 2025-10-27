@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEventQuery
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Represents unique identification for the  query. 'Asset ID' for SharePoint Online and OneDrive for Business, 'keywords' for Exchange Online. */
     public ?string $query = null;
 
@@ -25,11 +28,21 @@ class SecurityEventQuery
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['query'])) {
             $this->query = $data['query'];
         }
         if (isset($data['queryType'])) {
             $this->queryType = is_array($data['queryType']) ? new SecurityQueryType($data['queryType']) : $data['queryType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

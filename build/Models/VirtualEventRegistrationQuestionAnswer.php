@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventRegistrationQuestionAnswer
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Boolean answer of the virtual event registration question. Only appears when answerInputType is boolean. */
     public ?bool $booleanValue = null;
 
@@ -34,6 +37,7 @@ class VirtualEventRegistrationQuestionAnswer
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['booleanValue'])) {
             $this->booleanValue = $data['booleanValue'];
         }
@@ -49,5 +53,14 @@ class VirtualEventRegistrationQuestionAnswer
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

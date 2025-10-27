@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SectionLinks
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Opens the section in the OneNote native client if it's installed.
      * @var ExternalLink|\stdClass|null
@@ -28,11 +31,21 @@ class SectionLinks
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['oneNoteClientUrl'])) {
             $this->oneNoteClientUrl = is_array($data['oneNoteClientUrl']) ? new ExternalLink($data['oneNoteClientUrl']) : $data['oneNoteClientUrl'];
         }
         if (isset($data['oneNoteWebUrl'])) {
             $this->oneNoteWebUrl = is_array($data['oneNoteWebUrl']) ? new ExternalLink($data['oneNoteWebUrl']) : $data['oneNoteWebUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

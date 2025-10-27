@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RemovedState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The removal reason for the participant resource. */
     public ?string $reason = null;
 
@@ -19,8 +22,18 @@ class RemovedState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['reason'])) {
             $this->reason = $data['reason'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

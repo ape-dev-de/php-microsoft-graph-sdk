@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingSchedulingPolicy
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** True to allow customers to choose a specific person for the booking. */
     public ?bool $allowStaffSelection = null;
 
@@ -46,6 +49,7 @@ class BookingSchedulingPolicy
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowStaffSelection'])) {
             $this->allowStaffSelection = $data['allowStaffSelection'];
         }
@@ -70,5 +74,14 @@ class BookingSchedulingPolicy
         if (isset($data['timeSlotInterval'])) {
             $this->timeSlotInterval = $data['timeSlotInterval'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

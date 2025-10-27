@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesProvisioningError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Category of the provisioning error. Note: Currently, there is only one possible value. Possible value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the property. */
     public ?string $category = null;
 
@@ -28,6 +31,7 @@ class OnPremisesProvisioningError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['category'])) {
             $this->category = $data['category'];
         }
@@ -40,5 +44,14 @@ class OnPremisesProvisioningError
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

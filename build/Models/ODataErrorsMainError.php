@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ODataErrorsMainError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $code = null;
 
@@ -34,6 +37,7 @@ class ODataErrorsMainError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['code'])) {
             $this->code = $data['code'];
         }
@@ -49,5 +53,14 @@ class ODataErrorsMainError
         if (isset($data['innerError'])) {
             $this->innerError = is_array($data['innerError']) ? new ODataErrorsInnerError($data['innerError']) : $data['innerError'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

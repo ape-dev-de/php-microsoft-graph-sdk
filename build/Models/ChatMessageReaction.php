@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessageReaction
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
 
@@ -31,6 +34,7 @@ class ChatMessageReaction
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
@@ -46,5 +50,14 @@ class ChatMessageReaction
         if (isset($data['user'])) {
             $this->user = is_array($data['user']) ? new ChatMessageReactionIdentitySet($data['user']) : $data['user'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

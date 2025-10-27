@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttachmentItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The type of attachment. Possible values are: file, item, reference. Required.
      * @var AttachmentType|\stdClass|null
@@ -37,6 +40,7 @@ class AttachmentItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attachmentType'])) {
             $this->attachmentType = is_array($data['attachmentType']) ? new AttachmentType($data['attachmentType']) : $data['attachmentType'];
         }
@@ -55,5 +59,14 @@ class AttachmentItem
         if (isset($data['size'])) {
             $this->size = $data['size'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

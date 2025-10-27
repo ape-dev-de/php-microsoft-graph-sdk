@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsItemIdResolver
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The priority which defines the sequence in which the urlToItemResolverBase instances are evaluated. */
     public ?float $priority = null;
 
@@ -28,6 +31,7 @@ class ExternalConnectorsItemIdResolver
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['priority'])) {
             $this->priority = $data['priority'];
         }
@@ -37,5 +41,14 @@ class ExternalConnectorsItemIdResolver
         if (isset($data['urlMatchInfo'])) {
             $this->urlMatchInfo = is_array($data['urlMatchInfo']) ? new ExternalConnectorsUrlMatchInfo($data['urlMatchInfo']) : $data['urlMatchInfo'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

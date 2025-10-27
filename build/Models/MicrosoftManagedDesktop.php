@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftManagedDesktop
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Indicates the provisioning policy associated with Microsoft Managed Desktop settings. Possible values are: notManaged, premiumManaged, standardManaged, starterManaged, unknownFutureValue. The default is notManaged.
      * @var MicrosoftManagedDesktopType|\stdClass|null
@@ -25,11 +28,21 @@ class MicrosoftManagedDesktop
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['managedType'])) {
             $this->managedType = is_array($data['managedType']) ? new MicrosoftManagedDesktopType($data['managedType']) : $data['managedType'];
         }
         if (isset($data['profile'])) {
             $this->profile = $data['profile'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

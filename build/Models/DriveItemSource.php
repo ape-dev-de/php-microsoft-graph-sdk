@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DriveItemSource
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Enumeration value that indicates the source application where the file was created.
      * @var DriveItemSourceApplication|\stdClass|null
@@ -25,11 +28,21 @@ class DriveItemSource
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['application'])) {
             $this->application = is_array($data['application']) ? new DriveItemSourceApplication($data['application']) : $data['application'];
         }
         if (isset($data['externalId'])) {
             $this->externalId = $data['externalId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FolderView
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The method by which the folder should be sorted. */
     public ?string $sortBy = null;
 
@@ -25,6 +28,7 @@ class FolderView
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['sortBy'])) {
             $this->sortBy = $data['sortBy'];
         }
@@ -34,5 +38,14 @@ class FolderView
         if (isset($data['viewType'])) {
             $this->viewType = $data['viewType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

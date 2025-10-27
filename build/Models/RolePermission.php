@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RolePermission
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Resource Actions each containing a set of allowed and not allowed permissions.
      * @var ResourceAction[]
@@ -22,8 +25,18 @@ class RolePermission
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['resourceActions'])) {
             $this->resourceActions = $data['resourceActions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

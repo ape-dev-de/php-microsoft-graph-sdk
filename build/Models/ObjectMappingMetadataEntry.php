@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ObjectMappingMetadataEntry
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Possible values are: EscrowBehavior, DisableMonitoringForChanges, OriginalJoiningProperty, Disposition, IsCustomerDefined, ExcludeFromReporting, Unsynchronized.
      * @var ObjectMappingMetadata|\stdClass|null
@@ -25,11 +28,21 @@ class ObjectMappingMetadataEntry
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['key'])) {
             $this->key = is_array($data['key']) ? new ObjectMappingMetadata($data['key']) : $data['key'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

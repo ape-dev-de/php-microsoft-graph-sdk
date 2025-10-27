@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RubricQuality
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The collection of criteria for this rubric quality.
      * @var RubricCriterion[]
@@ -37,6 +40,7 @@ class RubricQuality
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['criteria'])) {
             $this->criteria = $data['criteria'];
         }
@@ -52,5 +56,14 @@ class RubricQuality
         if (isset($data['weight'])) {
             $this->weight = $data['weight'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

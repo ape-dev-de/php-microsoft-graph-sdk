@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookIcon
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The index of the icon in the given set. */
     public ?float $index = null;
 
@@ -22,11 +25,21 @@ class WorkbookIcon
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['index'])) {
             $this->index = $data['index'];
         }
         if (isset($data['set'])) {
             $this->set = $data['set'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

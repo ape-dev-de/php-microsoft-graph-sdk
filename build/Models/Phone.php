@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Phone
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $language = null;
 
@@ -31,6 +34,7 @@ class Phone
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['language'])) {
             $this->language = $data['language'];
         }
@@ -43,5 +47,14 @@ class Phone
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new PhoneType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

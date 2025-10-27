@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventPresenterDetails
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Bio of the presenter.
      * @var ItemBody|\stdClass|null
@@ -40,6 +43,7 @@ class VirtualEventPresenterDetails
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['bio'])) {
             $this->bio = is_array($data['bio']) ? new ItemBody($data['bio']) : $data['bio'];
         }
@@ -61,5 +65,14 @@ class VirtualEventPresenterDetails
         if (isset($data['twitterProfileWebUrl'])) {
             $this->twitterProfileWebUrl = $data['twitterProfileWebUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

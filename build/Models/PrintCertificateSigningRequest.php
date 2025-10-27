@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintCertificateSigningRequest
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A base64-encoded pkcs10 certificate request. Read-only. */
     public ?string $content = null;
 
@@ -22,11 +25,21 @@ class PrintCertificateSigningRequest
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['content'])) {
             $this->content = $data['content'];
         }
         if (isset($data['transportKey'])) {
             $this->transportKey = $data['transportKey'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

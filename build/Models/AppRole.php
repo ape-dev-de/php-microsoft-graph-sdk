@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppRole
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided. */
     public ?string $id = null;
 
@@ -40,6 +43,7 @@ class AppRole
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -61,5 +65,14 @@ class AppRole
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

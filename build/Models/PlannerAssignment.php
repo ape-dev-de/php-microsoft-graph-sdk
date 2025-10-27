@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerAssignment
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The identity of the user that performed the assignment of the task, that is, the assignor.
      * @var IdentitySet|\stdClass|null
@@ -28,6 +31,7 @@ class PlannerAssignment
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['assignedBy'])) {
             $this->assignedBy = is_array($data['assignedBy']) ? new IdentitySet($data['assignedBy']) : $data['assignedBy'];
         }
@@ -37,5 +41,14 @@ class PlannerAssignment
         if (isset($data['orderHint'])) {
             $this->orderHint = $data['orderHint'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

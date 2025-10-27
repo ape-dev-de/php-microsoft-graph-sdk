@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookFilterDatetime
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The date in ISO 8601 format used to filter data. */
     public ?string $date = null;
 
@@ -22,11 +25,21 @@ class WorkbookFilterDatetime
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['date'])) {
             $this->date = $data['date'];
         }
         if (isset($data['specificity'])) {
             $this->specificity = $data['specificity'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VerifiedDomain
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** For example, Email, OfficeCommunicationsOnline. */
     public ?string $capabilities = null;
 
@@ -31,6 +34,7 @@ class VerifiedDomain
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['capabilities'])) {
             $this->capabilities = $data['capabilities'];
         }
@@ -46,5 +50,14 @@ class VerifiedDomain
         if (isset($data['type'])) {
             $this->type = $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

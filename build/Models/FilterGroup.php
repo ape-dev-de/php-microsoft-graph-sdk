@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FilterGroup
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true.
      * @var FilterClause[]
@@ -25,11 +28,21 @@ class FilterGroup
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['clauses'])) {
             $this->clauses = $data['clauses'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionCalloutInstance
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique identifier for the callout instance. Read-only. */
     public ?string $id = null;
 
@@ -34,6 +37,7 @@ class CustomExtensionCalloutInstance
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -49,5 +53,14 @@ class CustomExtensionCalloutInstance
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new CustomExtensionCalloutInstanceStatus($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

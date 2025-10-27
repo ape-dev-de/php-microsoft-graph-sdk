@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationAssignmentPointsGrade
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * User who did the grading.
      * @var IdentitySet|\stdClass|null
@@ -28,6 +31,7 @@ class EducationAssignmentPointsGrade
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['gradedBy'])) {
             $this->gradedBy = is_array($data['gradedBy']) ? new IdentitySet($data['gradedBy']) : $data['gradedBy'];
         }
@@ -37,5 +41,14 @@ class EducationAssignmentPointsGrade
         if (isset($data['points'])) {
             $this->points = $data['points'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

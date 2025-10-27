@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BroadcastMeetingSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Defines who can join the Teams live event. Possible values are listed in the following table.
      * @var BroadcastMeetingAudience|\stdClass|null
@@ -40,6 +43,7 @@ class BroadcastMeetingSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowedAudience'])) {
             $this->allowedAudience = is_array($data['allowedAudience']) ? new BroadcastMeetingAudience($data['allowedAudience']) : $data['allowedAudience'];
         }
@@ -58,5 +62,14 @@ class BroadcastMeetingSettings
         if (isset($data['isVideoOnDemandEnabled'])) {
             $this->isVideoOnDemandEnabled = $data['isVideoOnDemandEnabled'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

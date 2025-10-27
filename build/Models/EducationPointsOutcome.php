@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationPointsOutcome
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -40,6 +43,7 @@ class EducationPointsOutcome
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -55,5 +59,14 @@ class EducationPointsOutcome
         if (isset($data['publishedPoints'])) {
             $this->publishedPoints = is_array($data['publishedPoints']) ? new EducationAssignmentPointsGrade($data['publishedPoints']) : $data['publishedPoints'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

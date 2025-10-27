@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateUserBinding
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The priority of the binding. Microsoft Entra ID uses the binding with the highest priority. This value must be a non-negative integer and unique in the collection of objects in the certificateUserBindings property of an x509CertificateAuthenticationMethodConfiguration object. Required */
     public ?float $priority = null;
 
@@ -31,6 +34,7 @@ class X509CertificateUserBinding
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['priority'])) {
             $this->priority = $data['priority'];
         }
@@ -43,5 +47,14 @@ class X509CertificateUserBinding
         if (isset($data['x509CertificateField'])) {
             $this->x509CertificateField = $data['x509CertificateField'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

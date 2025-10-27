@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MessageRulePredicates
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Represents the strings that should appear in the body of an incoming message in order for the condition or exception to apply.
      * @var string[]
@@ -145,6 +148,7 @@ class MessageRulePredicates
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['bodyContains'])) {
             $this->bodyContains = $data['bodyContains'];
         }
@@ -235,5 +239,14 @@ class MessageRulePredicates
         if (isset($data['withinSizeRange'])) {
             $this->withinSizeRange = is_array($data['withinSizeRange']) ? new SizeRange($data['withinSizeRange']) : $data['withinSizeRange'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ColumnValidation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Default BCP 47 language tag for the description. */
     public ?string $defaultLanguage = null;
 
@@ -28,6 +31,7 @@ class ColumnValidation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['defaultLanguage'])) {
             $this->defaultLanguage = $data['defaultLanguage'];
         }
@@ -37,5 +41,14 @@ class ColumnValidation
         if (isset($data['formula'])) {
             $this->formula = $data['formula'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcRestorePointSetting
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are: default, fourHours, sixHours, twelveHours, sixteenHours, twentyFourHours, unknownFutureValue. The default value is default that indicates that the time interval for automatic capturing of restore point snapshots is set to 12 hours.
      * @var CloudPcRestorePointFrequencyType|\stdClass|null
@@ -25,11 +28,21 @@ class CloudPcRestorePointSetting
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['frequencyType'])) {
             $this->frequencyType = is_array($data['frequencyType']) ? new CloudPcRestorePointFrequencyType($data['frequencyType']) : $data['frequencyType'];
         }
         if (isset($data['userRestoreEnabled'])) {
             $this->userRestoreEnabled = $data['userRestoreEnabled'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

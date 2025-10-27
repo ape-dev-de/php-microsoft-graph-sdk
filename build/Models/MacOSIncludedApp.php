@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSIncludedApp
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The bundleId of the app. This maps to the CFBundleIdentifier in the app's bundle configuration. */
     public ?string $bundleId = null;
 
@@ -22,11 +25,21 @@ class MacOSIncludedApp
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['bundleId'])) {
             $this->bundleId = $data['bundleId'];
         }
         if (isset($data['bundleVersion'])) {
             $this->bundleVersion = $data['bundleVersion'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

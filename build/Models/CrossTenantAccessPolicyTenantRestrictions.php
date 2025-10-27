@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyTenantRestrictions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The list of applications targeted with your cross-tenant access policy.
      * @var CrossTenantAccessPolicyTargetConfiguration|\stdClass|null
@@ -34,6 +37,7 @@ class CrossTenantAccessPolicyTenantRestrictions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applications'])) {
             $this->applications = is_array($data['applications']) ? new CrossTenantAccessPolicyTargetConfiguration($data['applications']) : $data['applications'];
         }
@@ -43,5 +47,14 @@ class CrossTenantAccessPolicyTenantRestrictions
         if (isset($data['devices'])) {
             $this->devices = is_array($data['devices']) ? new DevicesFilter($data['devices']) : $data['devices'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

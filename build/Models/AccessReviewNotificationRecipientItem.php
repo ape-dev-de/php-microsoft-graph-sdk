@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewNotificationRecipientItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Determines the recipient of the notification email.
      * @var AccessReviewNotificationRecipientScope|\stdClass|null
@@ -25,11 +28,21 @@ class AccessReviewNotificationRecipientItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['notificationRecipientScope'])) {
             $this->notificationRecipientScope = is_array($data['notificationRecipientScope']) ? new AccessReviewNotificationRecipientScope($data['notificationRecipientScope']) : $data['notificationRecipientScope'];
         }
         if (isset($data['notificationTemplateType'])) {
             $this->notificationTemplateType = $data['notificationTemplateType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PasswordCredential
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Do not use. */
     public ?string $customKeyIdentifier = null;
 
@@ -37,6 +40,7 @@ class PasswordCredential
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['customKeyIdentifier'])) {
             $this->customKeyIdentifier = $data['customKeyIdentifier'];
         }
@@ -58,5 +62,14 @@ class PasswordCredential
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

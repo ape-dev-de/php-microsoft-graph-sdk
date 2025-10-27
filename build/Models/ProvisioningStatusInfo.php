@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningStatusInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * If status isn't success/ skipped details for the error are contained in this.
      * @var ProvisioningErrorInfo|\stdClass|null
@@ -28,11 +31,21 @@ class ProvisioningStatusInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['errorInformation'])) {
             $this->errorInformation = is_array($data['errorInformation']) ? new ProvisioningErrorInfo($data['errorInformation']) : $data['errorInformation'];
         }
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new ProvisioningResult($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

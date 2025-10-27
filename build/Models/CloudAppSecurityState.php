@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudAppSecurityState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Destination IP Address of the connection to the cloud application/service. */
     public ?string $destinationServiceIp = null;
 
@@ -25,6 +28,7 @@ class CloudAppSecurityState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['destinationServiceIp'])) {
             $this->destinationServiceIp = $data['destinationServiceIp'];
         }
@@ -34,5 +38,14 @@ class CloudAppSecurityState
         if (isset($data['riskScore'])) {
             $this->riskScore = $data['riskScore'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

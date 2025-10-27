@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AvailabilityItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?DateTimeTimeZone $endDateTime = null;
 
@@ -31,6 +34,7 @@ class AvailabilityItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_array($data['endDateTime']) ? new DateTimeTimeZone($data['endDateTime']) : $data['endDateTime'];
         }
@@ -43,5 +47,14 @@ class AvailabilityItem
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new BookingsAvailabilityStatus($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

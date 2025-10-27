@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmployeeExperience
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A collection of communities in Viva Engage.
      * @var Community[]
@@ -40,6 +43,7 @@ class EmployeeExperience
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['communities'])) {
             $this->communities = $data['communities'];
         }
@@ -52,5 +56,14 @@ class EmployeeExperience
         if (isset($data['learningProviders'])) {
             $this->learningProviders = $data['learningProviders'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

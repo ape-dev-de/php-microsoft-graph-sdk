@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatViewpoint
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether the chat is hidden for the current user. */
     public ?bool $isHidden = null;
 
@@ -22,11 +25,21 @@ class ChatViewpoint
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isHidden'])) {
             $this->isHidden = $data['isHidden'];
         }
         if (isset($data['lastMessageReadDateTime'])) {
             $this->lastMessageReadDateTime = is_string($data['lastMessageReadDateTime']) ? new \DateTimeImmutable($data['lastMessageReadDateTime']) : $data['lastMessageReadDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

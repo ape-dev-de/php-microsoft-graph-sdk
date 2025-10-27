@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewNotificationRecipientQueryScope
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user. */
     public ?string $query = null;
 
@@ -25,6 +28,7 @@ class AccessReviewNotificationRecipientQueryScope
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['query'])) {
             $this->query = $data['query'];
         }
@@ -34,5 +38,14 @@ class AccessReviewNotificationRecipientQueryScope
         if (isset($data['queryType'])) {
             $this->queryType = $data['queryType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceUserSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of failed tasks for users in a user summary. */
     public ?float $failedTasks = null;
 
@@ -31,6 +34,7 @@ class IdentityGovernanceUserSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['failedTasks'])) {
             $this->failedTasks = $data['failedTasks'];
         }
@@ -46,5 +50,14 @@ class IdentityGovernanceUserSummary
         if (isset($data['totalUsers'])) {
             $this->totalUsers = $data['totalUsers'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -12,6 +12,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
 class <?= $MODEL_NAME ?>
 
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
 <?php 
 // Sort properties to put 'id' first if it exists
 $sortedProperties = [];
@@ -32,7 +35,11 @@ foreach ($sortedProperties as $propName => $propDef):
     $description = $propDef['description'] ?? '';
     $isLast = $currentIndex === $propCount;
     // Normalize property name: convert dashes to camelCase for valid PHP variable names
-    $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $propName))));
+    // Also handle @microsoft.graph.* properties by removing the prefix
+    $normalizedPropName = str_starts_with($propName, '@microsoft.graph.') 
+        ? substr($propName, strlen('@microsoft.graph.')) 
+        : $propName;
+    $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $normalizedPropName))));
     $hasUnion = str_contains($type, '|');
     $isArray = $type === 'array';
 ?>
@@ -59,7 +66,6 @@ foreach ($sortedProperties as $propName => $propDef):
 
 <?php endif; ?>
 <?php endforeach; ?>
-<?php if (!empty($sortedProperties)): ?>
 
     /**
      * Constructor - fast deserialization
@@ -67,8 +73,14 @@ foreach ($sortedProperties as $propName => $propDef):
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
+<?php if (!empty($sortedProperties)): ?>
 <?php foreach ($sortedProperties as $propName => $propDef): 
-    $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $propName))));
+    // Normalize property name: handle @microsoft.graph.* properties
+    $normalizedPropName = str_starts_with($propName, '@microsoft.graph.') 
+        ? substr($propName, strlen('@microsoft.graph.')) 
+        : $propName;
+    $phpPropName = lcfirst(str_replace(' ', '', ucwords(str_replace('-', ' ', $normalizedPropName))));
     $type = $propDef['type'];
     $isArray = $propDef['type'] === 'array';
     $isDateTime = str_contains($type, 'DateTimeInterface');
@@ -89,6 +101,15 @@ foreach ($sortedProperties as $propName => $propDef):
 <?php endif; ?>
         }
 <?php endforeach; ?>
-    }
 <?php endif; ?>
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
+    }
 }

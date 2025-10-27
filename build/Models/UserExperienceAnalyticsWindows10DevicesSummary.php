@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsWindows10DevicesSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The count of Windows 10 devices that have unsupported OS versions. Read-only. */
     public ?float $unsupportedOSversionDeviceCount = null;
 
@@ -19,8 +22,18 @@ class UserExperienceAnalyticsWindows10DevicesSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['unsupportedOSversionDeviceCount'])) {
             $this->unsupportedOSversionDeviceCount = $data['unsupportedOSversionDeviceCount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

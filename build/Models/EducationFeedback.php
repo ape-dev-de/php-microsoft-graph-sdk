@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationFeedback
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * User who created the feedback.
      * @var IdentitySet|\stdClass|null
@@ -31,6 +34,7 @@ class EducationFeedback
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['feedbackBy'])) {
             $this->feedbackBy = is_array($data['feedbackBy']) ? new IdentitySet($data['feedbackBy']) : $data['feedbackBy'];
         }
@@ -40,5 +44,14 @@ class EducationFeedback
         if (isset($data['text'])) {
             $this->text = is_array($data['text']) ? new EducationItemBody($data['text']) : $data['text'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

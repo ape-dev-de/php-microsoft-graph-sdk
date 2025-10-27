@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageLocalizedText
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The language code that text is in. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the country component follows 2-letter codes as defined in ISO 3166-1 alpha-2. Required. */
     public ?string $languageCode = null;
 
@@ -22,11 +25,21 @@ class AccessPackageLocalizedText
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['languageCode'])) {
             $this->languageCode = $data['languageCode'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingPageSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?BookingPageAccessControl $accessControl = null;
 
@@ -49,6 +52,7 @@ class BookingPageSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accessControl'])) {
             $this->accessControl = is_array($data['accessControl']) ? new BookingPageAccessControl($data['accessControl']) : $data['accessControl'];
         }
@@ -82,5 +86,14 @@ class BookingPageSettings
         if (isset($data['termsAndConditionsWebUrl'])) {
             $this->termsAndConditionsWebUrl = $data['termsAndConditionsWebUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

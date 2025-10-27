@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServicePrincipalSignIn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** appId of the service principal that is signing in. */
     public ?string $servicePrincipalId = null;
 
@@ -19,8 +22,18 @@ class ServicePrincipalSignIn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['servicePrincipalId'])) {
             $this->servicePrincipalId = $data['servicePrincipalId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

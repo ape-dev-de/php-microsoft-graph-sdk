@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Storage
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var FileStorage|\stdClass|null
@@ -28,11 +31,21 @@ class Storage
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['fileStorage'])) {
             $this->fileStorage = is_array($data['fileStorage']) ? new FileStorage($data['fileStorage']) : $data['fileStorage'];
         }
         if (isset($data['settings'])) {
             $this->settings = is_array($data['settings']) ? new StorageSettings($data['settings']) : $data['settings'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

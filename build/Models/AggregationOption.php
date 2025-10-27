@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AggregationOption
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?BucketAggregationDefinition $bucketDefinition = null;
 
@@ -25,6 +28,7 @@ class AggregationOption
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['bucketDefinition'])) {
             $this->bucketDefinition = is_array($data['bucketDefinition']) ? new BucketAggregationDefinition($data['bucketDefinition']) : $data['bucketDefinition'];
         }
@@ -34,5 +38,14 @@ class AggregationOption
         if (isset($data['size'])) {
             $this->size = $data['size'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

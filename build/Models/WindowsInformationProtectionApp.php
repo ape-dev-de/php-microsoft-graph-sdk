@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionApp
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If true, app is denied protection or exemption. */
     public ?bool $denied = null;
 
@@ -31,6 +34,7 @@ class WindowsInformationProtectionApp
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['denied'])) {
             $this->denied = $data['denied'];
         }
@@ -46,5 +50,14 @@ class WindowsInformationProtectionApp
         if (isset($data['publisherName'])) {
             $this->publisherName = $data['publisherName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

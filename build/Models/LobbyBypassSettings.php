@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LobbyBypassSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
     public ?bool $isDialInBypassEnabled = null;
 
@@ -25,11 +28,21 @@ class LobbyBypassSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isDialInBypassEnabled'])) {
             $this->isDialInBypassEnabled = $data['isDialInBypassEnabled'];
         }
         if (isset($data['scope'])) {
             $this->scope = is_array($data['scope']) ? new LobbyBypassScope($data['scope']) : $data['scope'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

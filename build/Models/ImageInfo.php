@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ImageInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image */
     public ?bool $addImageQuery = null;
 
@@ -28,6 +31,7 @@ class ImageInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['addImageQuery'])) {
             $this->addImageQuery = $data['addImageQuery'];
         }
@@ -40,5 +44,14 @@ class ImageInfo
         if (isset($data['iconUrl'])) {
             $this->iconUrl = $data['iconUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

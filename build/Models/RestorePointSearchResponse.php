@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestorePointSearchResponse
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Contains  alist of protection units with no restore points.
      * @var string[]
@@ -31,6 +34,7 @@ class RestorePointSearchResponse
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['noResultProtectionUnitIds'])) {
             $this->noResultProtectionUnitIds = $data['noResultProtectionUnitIds'];
         }
@@ -40,5 +44,14 @@ class RestorePointSearchResponse
         if (isset($data['searchResults'])) {
             $this->searchResults = $data['searchResults'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

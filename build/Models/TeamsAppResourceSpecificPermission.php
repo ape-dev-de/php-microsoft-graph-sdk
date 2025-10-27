@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsAppResourceSpecificPermission
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The type of resource-specific permission.
      * @var TeamsAppResourceSpecificPermissionType|\stdClass|null
@@ -25,11 +28,21 @@ class TeamsAppResourceSpecificPermission
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['permissionType'])) {
             $this->permissionType = is_array($data['permissionType']) ? new TeamsAppResourceSpecificPermissionType($data['permissionType']) : $data['permissionType'];
         }
         if (isset($data['permissionValue'])) {
             $this->permissionValue = $data['permissionValue'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DocumentSetVersionItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for the item. */
     public ?string $itemId = null;
 
@@ -25,6 +28,7 @@ class DocumentSetVersionItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['itemId'])) {
             $this->itemId = $data['itemId'];
         }
@@ -34,5 +38,14 @@ class DocumentSetVersionItem
         if (isset($data['versionId'])) {
             $this->versionId = $data['versionId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

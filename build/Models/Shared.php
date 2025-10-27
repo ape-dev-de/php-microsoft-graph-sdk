@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Shared
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The identity of the owner of the shared item. Read-only.
      * @var IdentitySet|\stdClass|null
@@ -34,6 +37,7 @@ class Shared
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['owner'])) {
             $this->owner = is_array($data['owner']) ? new IdentitySet($data['owner']) : $data['owner'];
         }
@@ -46,5 +50,14 @@ class Shared
         if (isset($data['sharedDateTime'])) {
             $this->sharedDateTime = is_string($data['sharedDateTime']) ? new \DateTimeImmutable($data['sharedDateTime']) : $data['sharedDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

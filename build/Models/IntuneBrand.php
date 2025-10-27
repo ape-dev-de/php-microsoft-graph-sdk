@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IntuneBrand
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Email address of the person/organization responsible for IT support. */
     public ?string $contactITEmailAddress = null;
 
@@ -67,6 +70,7 @@ class IntuneBrand
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['contactITEmailAddress'])) {
             $this->contactITEmailAddress = $data['contactITEmailAddress'];
         }
@@ -109,5 +113,14 @@ class IntuneBrand
         if (isset($data['themeColor'])) {
             $this->themeColor = is_array($data['themeColor']) ? new RgbColor($data['themeColor']) : $data['themeColor'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

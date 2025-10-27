@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeMapping
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Default value to be used in case the source property was evaluated to null. Optional. */
     public ?string $defaultValue = null;
 
@@ -40,6 +43,7 @@ class AttributeMapping
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['defaultValue'])) {
             $this->defaultValue = $data['defaultValue'];
         }
@@ -61,5 +65,14 @@ class AttributeMapping
         if (isset($data['targetAttributeName'])) {
             $this->targetAttributeName = $data['targetAttributeName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRoute
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?IdentitySet $final = null;
 
@@ -25,6 +28,7 @@ class CallRoute
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['final'])) {
             $this->final = is_array($data['final']) ? new IdentitySet($data['final']) : $data['final'];
         }
@@ -34,5 +38,14 @@ class CallRoute
         if (isset($data['routingType'])) {
             $this->routingType = is_array($data['routingType']) ? new RoutingType($data['routingType']) : $data['routingType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

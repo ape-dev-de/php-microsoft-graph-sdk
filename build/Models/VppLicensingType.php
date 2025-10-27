@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VppLicensingType
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Whether the program supports the device licensing type. */
     public ?bool $supportsDeviceLicensing = null;
 
@@ -22,11 +25,21 @@ class VppLicensingType
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['supportsDeviceLicensing'])) {
             $this->supportsDeviceLicensing = $data['supportsDeviceLicensing'];
         }
         if (isset($data['supportsUserLicensing'])) {
             $this->supportsUserLicensing = $data['supportsUserLicensing'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

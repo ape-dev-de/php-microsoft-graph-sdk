@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IPv6CidrRange
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** IPv6 address in CIDR notation. Not nullable. */
     public ?string $cidrAddress = null;
 
@@ -19,8 +22,18 @@ class IPv6CidrRange
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['cidrAddress'])) {
             $this->cidrAddress = $data['cidrAddress'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

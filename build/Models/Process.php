@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Process
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** User account identifier (user account context the process ran under) for example, AccountName, SID, and so on. */
     public ?string $accountName = null;
 
@@ -58,6 +61,7 @@ class Process
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accountName'])) {
             $this->accountName = $data['accountName'];
         }
@@ -94,5 +98,14 @@ class Process
         if (isset($data['processId'])) {
             $this->processId = $data['processId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

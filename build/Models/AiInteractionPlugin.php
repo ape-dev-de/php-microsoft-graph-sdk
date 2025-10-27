@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionPlugin
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier of the plugin. */
     public ?string $identifier = null;
 
@@ -25,6 +28,7 @@ class AiInteractionPlugin
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['identifier'])) {
             $this->identifier = $data['identifier'];
         }
@@ -34,5 +38,14 @@ class AiInteractionPlugin
         if (isset($data['version'])) {
             $this->version = $data['version'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

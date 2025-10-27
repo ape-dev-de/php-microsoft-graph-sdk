@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsPropertyRule
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?ExternalConnectorsRuleOperation $operation = null;
 
@@ -31,6 +34,7 @@ class ExternalConnectorsPropertyRule
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['operation'])) {
             $this->operation = is_array($data['operation']) ? new ExternalConnectorsRuleOperation($data['operation']) : $data['operation'];
         }
@@ -43,5 +47,14 @@ class ExternalConnectorsPropertyRule
         if (isset($data['valuesJoinedBy'])) {
             $this->valuesJoinedBy = is_array($data['valuesJoinedBy']) ? new BinaryOperator($data['valuesJoinedBy']) : $data['valuesJoinedBy'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

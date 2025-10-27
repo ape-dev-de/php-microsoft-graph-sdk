@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppAssignmentSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The auto-update settings to apply for this app assignment.
      * @var Win32LobAppAutoUpdateSettings|\stdClass|null
@@ -40,6 +43,7 @@ class Win32LobAppAssignmentSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['autoUpdateSettings'])) {
             $this->autoUpdateSettings = is_array($data['autoUpdateSettings']) ? new Win32LobAppAutoUpdateSettings($data['autoUpdateSettings']) : $data['autoUpdateSettings'];
         }
@@ -55,5 +59,14 @@ class Win32LobAppAssignmentSettings
         if (isset($data['restartSettings'])) {
             $this->restartSettings = is_array($data['restartSettings']) ? new Win32LobAppRestartSettings($data['restartSettings']) : $data['restartSettings'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

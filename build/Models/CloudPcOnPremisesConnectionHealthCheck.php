@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcOnPremisesConnectionHealthCheck
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Additional details about the health check or the recommended action. For exmaple, the string value can be download.microsoft.com:443;software-download.microsoft.com:443; Read-only. */
     public ?string $additionalDetail = null;
 
@@ -43,6 +46,7 @@ class CloudPcOnPremisesConnectionHealthCheck
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['additionalDetail'])) {
             $this->additionalDetail = $data['additionalDetail'];
         }
@@ -67,5 +71,14 @@ class CloudPcOnPremisesConnectionHealthCheck
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new CloudPcOnPremisesConnectionStatus($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

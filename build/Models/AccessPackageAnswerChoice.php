@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAnswerChoice
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The actual value of the selected choice. This is typically a string value which is understandable by applications. Required. */
     public ?string $actualValue = null;
 
@@ -28,6 +31,7 @@ class AccessPackageAnswerChoice
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['actualValue'])) {
             $this->actualValue = $data['actualValue'];
         }
@@ -37,5 +41,14 @@ class AccessPackageAnswerChoice
         if (isset($data['text'])) {
             $this->text = $data['text'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

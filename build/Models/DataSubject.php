@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DataSubject
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Email of the data subject. */
     public ?string $email = null;
 
@@ -28,6 +31,7 @@ class DataSubject
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['email'])) {
             $this->email = $data['email'];
         }
@@ -40,5 +44,14 @@ class DataSubject
         if (isset($data['residency'])) {
             $this->residency = $data['residency'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

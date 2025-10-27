@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProcessContentResponses
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier that matches the requestId provided in the corresponding processContentBatchRequest. */
     public ?string $requestId = null;
 
@@ -22,11 +25,21 @@ class ProcessContentResponses
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['requestId'])) {
             $this->requestId = $data['requestId'];
         }
         if (isset($data['results'])) {
             $this->results = is_array($data['results']) ? new ProcessContentResponse($data['results']) : $data['results'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

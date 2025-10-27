@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommsNotification
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?ChangeType $changeType = null;
 
@@ -22,11 +25,21 @@ class CommsNotification
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['changeType'])) {
             $this->changeType = is_array($data['changeType']) ? new ChangeType($data['changeType']) : $data['changeType'];
         }
         if (isset($data['resourceUrl'])) {
             $this->resourceUrl = $data['resourceUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

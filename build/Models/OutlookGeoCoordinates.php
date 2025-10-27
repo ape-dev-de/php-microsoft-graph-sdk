@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OutlookGeoCoordinates
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters. */
     public ?string $accuracy = null;
 
@@ -31,6 +34,7 @@ class OutlookGeoCoordinates
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accuracy'])) {
             $this->accuracy = $data['accuracy'];
         }
@@ -46,5 +50,14 @@ class OutlookGeoCoordinates
         if (isset($data['longitude'])) {
             $this->longitude = $data['longitude'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

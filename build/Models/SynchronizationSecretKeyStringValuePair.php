@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationSecretKeyStringValuePair
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?SynchronizationSecret $key = null;
 
@@ -22,11 +25,21 @@ class SynchronizationSecretKeyStringValuePair
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['key'])) {
             $this->key = is_array($data['key']) ? new SynchronizationSecret($data['key']) : $data['key'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

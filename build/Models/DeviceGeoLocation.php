@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceGeoLocation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Altitude, given in meters above sea level */
     public ?string $altitude = null;
 
@@ -40,6 +43,7 @@ class DeviceGeoLocation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['altitude'])) {
             $this->altitude = $data['altitude'];
         }
@@ -64,5 +68,14 @@ class DeviceGeoLocation
         if (isset($data['verticalAccuracy'])) {
             $this->verticalAccuracy = $data['verticalAccuracy'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PositiveReinforcementNotification
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The default language for the end user notification. */
     public ?string $defaultLanguage = null;
 
@@ -31,6 +34,7 @@ class PositiveReinforcementNotification
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['defaultLanguage'])) {
             $this->defaultLanguage = $data['defaultLanguage'];
         }
@@ -40,5 +44,14 @@ class PositiveReinforcementNotification
         if (isset($data['deliveryPreference'])) {
             $this->deliveryPreference = is_array($data['deliveryPreference']) ? new NotificationDeliveryPreference($data['deliveryPreference']) : $data['deliveryPreference'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

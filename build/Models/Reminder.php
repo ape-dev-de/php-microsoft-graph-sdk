@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Reminder
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. */
     public ?string $changeKey = null;
 
@@ -52,6 +55,7 @@ class Reminder
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['changeKey'])) {
             $this->changeKey = $data['changeKey'];
         }
@@ -76,5 +80,14 @@ class Reminder
         if (isset($data['reminderFireTime'])) {
             $this->reminderFireTime = is_array($data['reminderFireTime']) ? new DateTimeTimeZone($data['reminderFireTime']) : $data['reminderFireTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

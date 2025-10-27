@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegatedAdminRelationshipCustomerParticipant
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The display name of the customer tenant as set by Microsoft Entra ID. Read-only */
     public ?string $displayName = null;
 
@@ -22,11 +25,21 @@ class DelegatedAdminRelationshipCustomerParticipant
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

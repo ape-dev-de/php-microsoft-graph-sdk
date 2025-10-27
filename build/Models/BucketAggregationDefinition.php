@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BucketAggregationDefinition
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** True to specify the sort order as descending. The default is false, with the sort order as ascending. Optional. */
     public ?bool $isDescending = null;
 
@@ -34,6 +37,7 @@ class BucketAggregationDefinition
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isDescending'])) {
             $this->isDescending = $data['isDescending'];
         }
@@ -49,5 +53,14 @@ class BucketAggregationDefinition
         if (isset($data['sortBy'])) {
             $this->sortBy = is_array($data['sortBy']) ? new BucketAggregationSortProperty($data['sortBy']) : $data['sortBy'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

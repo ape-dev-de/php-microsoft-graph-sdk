@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlteredQueryToken
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Defines the length of a changed segment. */
     public ?float $length = null;
 
@@ -25,6 +28,7 @@ class AlteredQueryToken
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['length'])) {
             $this->length = $data['length'];
         }
@@ -34,5 +38,14 @@ class AlteredQueryToken
         if (isset($data['suggestion'])) {
             $this->suggestion = $data['suggestion'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

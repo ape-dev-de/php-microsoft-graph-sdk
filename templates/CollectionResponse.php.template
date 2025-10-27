@@ -13,6 +13,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class <?= $COLLECTION_NAME ?> implements \ArrayAccess, \Countable, \IteratorAggregate
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**
      * @var <?= $MODEL_NAME ?>[]
      */
@@ -20,6 +23,24 @@ class <?= $COLLECTION_NAME ?> implements \ArrayAccess, \Countable, \IteratorAggr
 
     private ?string $odataNextLink = null;
     private ?int $odataCount = null;
+
+    /**
+     * Constructor - store raw data
+     * @param array<string, mixed> $data
+     */
+    public function __construct(array $data = [])
+    {
+        $this->rawData = $data;
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
+    }
 
     /**
      * Get the collection items

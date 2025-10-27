@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileEncryptionInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The key used to encrypt the file content. */
     public ?string $encryptionKey = null;
 
@@ -37,6 +40,7 @@ class FileEncryptionInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['encryptionKey'])) {
             $this->encryptionKey = $data['encryptionKey'];
         }
@@ -58,5 +62,14 @@ class FileEncryptionInfo
         if (isset($data['profileIdentifier'])) {
             $this->profileIdentifier = $data['profileIdentifier'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

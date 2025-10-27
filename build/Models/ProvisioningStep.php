@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningStep
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Summary of what occurred during the step. */
     public ?string $description = null;
 
@@ -40,6 +43,7 @@ class ProvisioningStep
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -55,5 +59,14 @@ class ProvisioningStep
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new ProvisioningResult($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

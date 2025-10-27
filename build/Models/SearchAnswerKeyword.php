@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAnswerKeyword
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A collection of keywords used to trigger the search answer.
      * @var string[]
@@ -31,6 +34,7 @@ class SearchAnswerKeyword
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['keywords'])) {
             $this->keywords = $data['keywords'];
         }
@@ -40,5 +44,14 @@ class SearchAnswerKeyword
         if (isset($data['reservedKeywords'])) {
             $this->reservedKeywords = $data['reservedKeywords'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

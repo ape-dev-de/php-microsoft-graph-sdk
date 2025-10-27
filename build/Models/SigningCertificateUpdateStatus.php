@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SigningCertificateUpdateStatus
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status. */
     public ?string $certificateUpdateResult = null;
 
@@ -22,11 +25,21 @@ class SigningCertificateUpdateStatus
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['certificateUpdateResult'])) {
             $this->certificateUpdateResult = $data['certificateUpdateResult'];
         }
         if (isset($data['lastRunDateTime'])) {
             $this->lastRunDateTime = is_string($data['lastRunDateTime']) ? new \DateTimeImmutable($data['lastRunDateTime']) : $data['lastRunDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

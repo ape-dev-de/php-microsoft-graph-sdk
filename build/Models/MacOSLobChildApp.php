@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSLobChildApp
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The build number of the app. */
     public ?string $buildNumber = null;
 
@@ -25,6 +28,7 @@ class MacOSLobChildApp
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['buildNumber'])) {
             $this->buildNumber = $data['buildNumber'];
         }
@@ -34,5 +38,14 @@ class MacOSLobChildApp
         if (isset($data['versionNumber'])) {
             $this->versionNumber = $data['versionNumber'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

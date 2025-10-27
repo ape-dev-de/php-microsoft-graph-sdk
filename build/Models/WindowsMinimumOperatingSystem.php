@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsMinimumOperatingSystem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Windows version 10.0 or later. */
     public ?bool $v10_0 = null;
 
@@ -25,6 +28,7 @@ class WindowsMinimumOperatingSystem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['v10_0'])) {
             $this->v10_0 = $data['v10_0'];
         }
@@ -34,5 +38,14 @@ class WindowsMinimumOperatingSystem
         if (isset($data['v8_1'])) {
             $this->v8_1 = $data['v8_1'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

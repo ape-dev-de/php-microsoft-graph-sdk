@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MeetingParticipants
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Information about the meeting attendees.
      * @var MeetingParticipantInfo[]
@@ -28,11 +31,21 @@ class MeetingParticipants
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attendees'])) {
             $this->attendees = $data['attendees'];
         }
         if (isset($data['organizer'])) {
             $this->organizer = is_array($data['organizer']) ? new MeetingParticipantInfo($data['organizer']) : $data['organizer'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityExportFileMetadata
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $downloadUrl = null;
 
@@ -25,6 +28,7 @@ class SecurityExportFileMetadata
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['downloadUrl'])) {
             $this->downloadUrl = $data['downloadUrl'];
         }
@@ -34,5 +38,14 @@ class SecurityExportFileMetadata
         if (isset($data['size'])) {
             $this->size = $data['size'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

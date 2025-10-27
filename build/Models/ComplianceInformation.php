@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ComplianceInformation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Collection of the certification controls associated with the certification.
      * @var CertificationControl[]
@@ -25,11 +28,21 @@ class ComplianceInformation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['certificationControls'])) {
             $this->certificationControls = $data['certificationControls'];
         }
         if (isset($data['certificationName'])) {
             $this->certificationName = $data['certificationName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

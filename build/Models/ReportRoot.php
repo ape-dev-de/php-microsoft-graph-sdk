@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReportRoot
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Container for navigation properties for Microsoft Entra authentication methods resources.
      * @var AuthenticationMethodsRoot|\stdClass|null
@@ -58,6 +61,7 @@ class ReportRoot
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['authenticationMethods'])) {
             $this->authenticationMethods = is_array($data['authenticationMethods']) ? new AuthenticationMethodsRoot($data['authenticationMethods']) : $data['authenticationMethods'];
         }
@@ -79,5 +83,14 @@ class ReportRoot
         if (isset($data['security'])) {
             $this->security = is_array($data['security']) ? new SecurityReportsRoot($data['security']) : $data['security'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

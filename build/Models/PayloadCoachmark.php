@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PayloadCoachmark
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The coachmark location.
      * @var CoachmarkLocation|\stdClass|null
@@ -37,6 +40,7 @@ class PayloadCoachmark
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['coachmarkLocation'])) {
             $this->coachmarkLocation = is_array($data['coachmarkLocation']) ? new CoachmarkLocation($data['coachmarkLocation']) : $data['coachmarkLocation'];
         }
@@ -55,5 +59,14 @@ class PayloadCoachmark
         if (isset($data['order'])) {
             $this->order = $data['order'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SubjectRightsRequestDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Count of items that are excluded from the request. */
     public ?float $excludedItemCount = null;
 
@@ -43,6 +46,7 @@ class SubjectRightsRequestDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['excludedItemCount'])) {
             $this->excludedItemCount = $data['excludedItemCount'];
         }
@@ -64,5 +68,14 @@ class SubjectRightsRequestDetail
         if (isset($data['totalItemSize'])) {
             $this->totalItemSize = $data['totalItemSize'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

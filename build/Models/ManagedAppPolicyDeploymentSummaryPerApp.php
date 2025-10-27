@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppPolicyDeploymentSummaryPerApp
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Number of users the policy is applied. */
     public ?float $configurationAppliedUserCount = null;
 
@@ -25,11 +28,21 @@ class ManagedAppPolicyDeploymentSummaryPerApp
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['configurationAppliedUserCount'])) {
             $this->configurationAppliedUserCount = $data['configurationAppliedUserCount'];
         }
         if (isset($data['mobileAppIdentifier'])) {
             $this->mobileAppIdentifier = is_array($data['mobileAppIdentifier']) ? new MobileAppIdentifier($data['mobileAppIdentifier']) : $data['mobileAppIdentifier'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityWhoisContact
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The physical address of the entity.
      * @var PhysicalAddress|\stdClass|null
@@ -37,6 +40,7 @@ class SecurityWhoisContact
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['address'])) {
             $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
@@ -55,5 +59,14 @@ class SecurityWhoisContact
         if (isset($data['telephone'])) {
             $this->telephone = $data['telephone'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

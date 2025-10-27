@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyConfigurationDefault
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -70,6 +73,7 @@ class CrossTenantAccessPolicyConfigurationDefault
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -100,5 +104,14 @@ class CrossTenantAccessPolicyConfigurationDefault
         if (isset($data['tenantRestrictions'])) {
             $this->tenantRestrictions = is_array($data['tenantRestrictions']) ? new CrossTenantAccessPolicyTenantRestrictions($data['tenantRestrictions']) : $data['tenantRestrictions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

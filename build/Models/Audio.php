@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Audio
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The title of the album for this audio file. */
     public ?string $album = null;
 
@@ -64,6 +67,7 @@ class Audio
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['album'])) {
             $this->album = $data['album'];
         }
@@ -112,5 +116,14 @@ class Audio
         if (isset($data['year'])) {
             $this->year = $data['year'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

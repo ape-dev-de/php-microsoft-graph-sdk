@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeMappingSource
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Equivalent expression representation of this attributeMappingSource object. */
     public ?string $expression = null;
 
@@ -31,6 +34,7 @@ class AttributeMappingSource
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['expression'])) {
             $this->expression = $data['expression'];
         }
@@ -43,5 +47,14 @@ class AttributeMappingSource
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new AttributeMappingSourceType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

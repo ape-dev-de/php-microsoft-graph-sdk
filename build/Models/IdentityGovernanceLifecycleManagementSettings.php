@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceLifecycleManagementSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -25,6 +28,7 @@ class IdentityGovernanceLifecycleManagementSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -34,5 +38,14 @@ class IdentityGovernanceLifecycleManagementSettings
         if (isset($data['workflowScheduleIntervalInHours'])) {
             $this->workflowScheduleIntervalInHours = $data['workflowScheduleIntervalInHours'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

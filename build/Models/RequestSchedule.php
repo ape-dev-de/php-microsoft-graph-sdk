@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RequestSchedule
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * When the eligible or active assignment expires.
      * @var ExpirationPattern|\stdClass|null
@@ -31,6 +34,7 @@ class RequestSchedule
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['expiration'])) {
             $this->expiration = is_array($data['expiration']) ? new ExpirationPattern($data['expiration']) : $data['expiration'];
         }
@@ -40,5 +44,14 @@ class RequestSchedule
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

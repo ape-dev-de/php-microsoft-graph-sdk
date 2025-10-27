@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyTarget
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Defines the target for cross-tenant access policy settings and can have one of the following values:  The unique identifier of the user, group, or application  AllUsers  AllApplications - Refers to any Microsoft cloud application.  Office365 - Includes the applications mentioned as part of the Office 365 suite. */
     public ?string $target = null;
 
@@ -25,11 +28,21 @@ class CrossTenantAccessPolicyTarget
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['target'])) {
             $this->target = $data['target'];
         }
         if (isset($data['targetType'])) {
             $this->targetType = is_array($data['targetType']) ? new CrossTenantAccessPolicyTargetType($data['targetType']) : $data['targetType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

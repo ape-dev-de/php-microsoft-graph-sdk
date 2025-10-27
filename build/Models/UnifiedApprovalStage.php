@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UnifiedApprovalStage
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of days that a request can be pending a response before it is automatically denied. */
     public ?float $approvalStageTimeOutInDays = null;
 
@@ -40,6 +43,7 @@ class UnifiedApprovalStage
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['approvalStageTimeOutInDays'])) {
             $this->approvalStageTimeOutInDays = $data['approvalStageTimeOutInDays'];
         }
@@ -58,5 +62,14 @@ class UnifiedApprovalStage
         if (isset($data['primaryApprovers'])) {
             $this->primaryApprovers = $data['primaryApprovers'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

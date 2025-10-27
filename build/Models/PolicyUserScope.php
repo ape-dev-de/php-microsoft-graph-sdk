@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PolicyUserScope
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?UserActivityTypes $activities = null;
 
@@ -34,6 +37,7 @@ class PolicyUserScope
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['activities'])) {
             $this->activities = is_array($data['activities']) ? new UserActivityTypes($data['activities']) : $data['activities'];
         }
@@ -46,5 +50,14 @@ class PolicyUserScope
         if (isset($data['policyActions'])) {
             $this->policyActions = $data['policyActions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingCustomerInformation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The ID of the bookingCustomer for this appointment. If no ID is specified when an appointment is created, then a new bookingCustomer object is created. Once set, you should consider the customerId immutable. */
     public ?string $customerId = null;
 
@@ -46,6 +49,7 @@ class BookingCustomerInformation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['customerId'])) {
             $this->customerId = $data['customerId'];
         }
@@ -70,5 +74,14 @@ class BookingCustomerInformation
         if (isset($data['timeZone'])) {
             $this->timeZone = $data['timeZone'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

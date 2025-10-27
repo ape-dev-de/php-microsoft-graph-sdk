@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServicePlanInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The object the service plan can be assigned to. The possible values are:User - service plan can be assigned to individual users.Company - service plan can be assigned to the entire tenant. */
     public ?string $appliesTo = null;
 
@@ -28,6 +31,7 @@ class ServicePlanInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['appliesTo'])) {
             $this->appliesTo = $data['appliesTo'];
         }
@@ -40,5 +44,14 @@ class ServicePlanInfo
         if (isset($data['servicePlanName'])) {
             $this->servicePlanName = $data['servicePlanName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

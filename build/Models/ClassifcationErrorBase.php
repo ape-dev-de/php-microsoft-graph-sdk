@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ClassifcationErrorBase
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A service-defined error code string. */
     public ?string $code = null;
 
@@ -31,6 +34,7 @@ class ClassifcationErrorBase
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['code'])) {
             $this->code = $data['code'];
         }
@@ -43,5 +47,14 @@ class ClassifcationErrorBase
         if (isset($data['target'])) {
             $this->target = $data['target'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceTaskProcessingResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -40,6 +43,7 @@ class IdentityGovernanceTaskProcessingResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -64,5 +68,14 @@ class IdentityGovernanceTaskProcessingResult
         if (isset($data['task'])) {
             $this->task = is_array($data['task']) ? new IdentityGovernanceTask($data['task']) : $data['task'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScheduleItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The date, time, and time zone that the corresponding event ends.
      * @var DateTimeTimeZone|\stdClass|null
@@ -43,6 +46,7 @@ class ScheduleItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['end'])) {
             $this->end = is_array($data['end']) ? new DateTimeTimeZone($data['end']) : $data['end'];
         }
@@ -61,5 +65,14 @@ class ScheduleItem
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

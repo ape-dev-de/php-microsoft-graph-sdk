@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchBucket
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example. */
     public ?string $aggregationFilterToken = null;
 
@@ -25,6 +28,7 @@ class SearchBucket
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['aggregationFilterToken'])) {
             $this->aggregationFilterToken = $data['aggregationFilterToken'];
         }
@@ -34,5 +38,14 @@ class SearchBucket
         if (isset($data['key'])) {
             $this->key = $data['key'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

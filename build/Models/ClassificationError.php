@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ClassificationError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A service-defined error code string. */
     public ?string $code = null;
 
@@ -37,6 +40,7 @@ class ClassificationError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['code'])) {
             $this->code = $data['code'];
         }
@@ -52,5 +56,14 @@ class ClassificationError
         if (isset($data['details'])) {
             $this->details = $data['details'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

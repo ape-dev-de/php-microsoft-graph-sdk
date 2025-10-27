@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceHealthIssuePost
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The published time of the post. */
     public ?\DateTimeInterface $createdDateTime = null;
 
@@ -31,6 +34,7 @@ class ServiceHealthIssuePost
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
@@ -40,5 +44,14 @@ class ServiceHealthIssuePost
         if (isset($data['postType'])) {
             $this->postType = is_array($data['postType']) ? new PostType($data['postType']) : $data['postType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

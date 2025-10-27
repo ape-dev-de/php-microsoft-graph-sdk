@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScoredEmailAddress
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The email address. */
     public ?string $address = null;
 
@@ -31,6 +34,7 @@ class ScoredEmailAddress
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['address'])) {
             $this->address = $data['address'];
         }
@@ -43,5 +47,14 @@ class ScoredEmailAddress
         if (isset($data['selectionLikelihood'])) {
             $this->selectionLikelihood = is_array($data['selectionLikelihood']) ? new SelectionLikelihoodInfo($data['selectionLikelihood']) : $data['selectionLikelihood'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

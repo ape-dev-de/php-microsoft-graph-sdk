@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ImportedWindowsAutopilotDeviceIdentityUpload
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -31,6 +34,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -43,5 +47,14 @@ class ImportedWindowsAutopilotDeviceIdentityUpload
         if (isset($data['deviceIdentities'])) {
             $this->deviceIdentities = $data['deviceIdentities'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

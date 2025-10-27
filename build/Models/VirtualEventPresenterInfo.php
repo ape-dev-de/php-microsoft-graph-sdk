@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VirtualEventPresenterInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Identity information of the participant.
      * @var IdentitySet|\stdClass|null
@@ -37,6 +40,7 @@ class VirtualEventPresenterInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['identity'])) {
             $this->identity = is_array($data['identity']) ? new IdentitySet($data['identity']) : $data['identity'];
         }
@@ -49,5 +53,14 @@ class VirtualEventPresenterInfo
         if (isset($data['presenterDetails'])) {
             $this->presenterDetails = is_array($data['presenterDetails']) ? new VirtualEventPresenterDetails($data['presenterDetails']) : $data['presenterDetails'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

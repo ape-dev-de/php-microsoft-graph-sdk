@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommentAction
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If true, this activity was a reply to an existing comment thread. */
     public ?bool $isReply = null;
 
@@ -31,6 +34,7 @@ class CommentAction
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isReply'])) {
             $this->isReply = $data['isReply'];
         }
@@ -40,5 +44,14 @@ class CommentAction
         if (isset($data['participants'])) {
             $this->participants = $data['participants'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

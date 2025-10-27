@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamMemberSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If set to true, members can add and remove apps. */
     public ?bool $allowAddRemoveApps = null;
 
@@ -34,6 +37,7 @@ class TeamMemberSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowAddRemoveApps'])) {
             $this->allowAddRemoveApps = $data['allowAddRemoveApps'];
         }
@@ -52,5 +56,14 @@ class TeamMemberSettings
         if (isset($data['allowDeleteChannels'])) {
             $this->allowDeleteChannels = $data['allowDeleteChannels'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

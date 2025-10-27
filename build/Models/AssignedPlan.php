@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AssignedPlan
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The date and time at which the plan was assigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $assignedDateTime = null;
 
@@ -28,6 +31,7 @@ class AssignedPlan
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['assignedDateTime'])) {
             $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
@@ -40,5 +44,14 @@ class AssignedPlan
         if (isset($data['servicePlanId'])) {
             $this->servicePlanId = $data['servicePlanId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

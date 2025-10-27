@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerExternalReference
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A name alias to describe the reference. */
     public ?string $alias = null;
 
@@ -34,6 +37,7 @@ class PlannerExternalReference
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['alias'])) {
             $this->alias = $data['alias'];
         }
@@ -49,5 +53,14 @@ class PlannerExternalReference
         if (isset($data['type'])) {
             $this->type = $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

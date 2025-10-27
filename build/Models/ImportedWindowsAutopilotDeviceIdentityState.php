@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ImportedWindowsAutopilotDeviceIdentityState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Device error code reported by Device Directory Service(DDS). */
     public ?float $deviceErrorCode = null;
 
@@ -28,6 +31,7 @@ class ImportedWindowsAutopilotDeviceIdentityState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deviceErrorCode'])) {
             $this->deviceErrorCode = $data['deviceErrorCode'];
         }
@@ -40,5 +44,14 @@ class ImportedWindowsAutopilotDeviceIdentityState
         if (isset($data['deviceRegistrationId'])) {
             $this->deviceRegistrationId = $data['deviceRegistrationId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

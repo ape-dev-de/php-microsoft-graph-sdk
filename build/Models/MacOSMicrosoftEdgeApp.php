@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSMicrosoftEdgeApp
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -76,6 +79,7 @@ class MacOSMicrosoftEdgeApp
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -127,5 +131,14 @@ class MacOSMicrosoftEdgeApp
         if (isset($data['channel'])) {
             $this->channel = is_array($data['channel']) ? new MicrosoftEdgeChannel($data['channel']) : $data['channel'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

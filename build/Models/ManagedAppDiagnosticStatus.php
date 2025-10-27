@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ManagedAppDiagnosticStatus
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Instruction on how to mitigate a failed validation */
     public ?string $mitigationInstruction = null;
 
@@ -25,6 +28,7 @@ class ManagedAppDiagnosticStatus
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['mitigationInstruction'])) {
             $this->mitigationInstruction = $data['mitigationInstruction'];
         }
@@ -34,5 +38,14 @@ class ManagedAppDiagnosticStatus
         if (isset($data['validationName'])) {
             $this->validationName = $data['validationName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

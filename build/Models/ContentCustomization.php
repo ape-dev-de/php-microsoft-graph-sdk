@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ContentCustomization
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Represents the content options of External Identities to be customized throughout the authentication flow for a tenant.
      * @var KeyValue[]
@@ -34,6 +37,7 @@ class ContentCustomization
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attributeCollection'])) {
             $this->attributeCollection = $data['attributeCollection'];
         }
@@ -46,5 +50,14 @@ class ContentCustomization
         if (isset($data['registrationCampaignRelativeUrl'])) {
             $this->registrationCampaignRelativeUrl = $data['registrationCampaignRelativeUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

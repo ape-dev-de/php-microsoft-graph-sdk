@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationMethodsRegistrationCampaign
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Users and groups of users that are excluded from being prompted to set up the authentication method.
      * @var ExcludeTarget[]
@@ -34,6 +37,7 @@ class AuthenticationMethodsRegistrationCampaign
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['excludeTargets'])) {
             $this->excludeTargets = $data['excludeTargets'];
         }
@@ -46,5 +50,14 @@ class AuthenticationMethodsRegistrationCampaign
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new AdvancedConfigState($data['state']) : $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAggregation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var SearchBucket[]
@@ -25,11 +28,21 @@ class SearchAggregation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['buckets'])) {
             $this->buckets = $data['buckets'];
         }
         if (isset($data['field'])) {
             $this->field = $data['field'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

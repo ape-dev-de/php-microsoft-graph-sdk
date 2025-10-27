@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceWorkflow
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby. */
     public ?string $id = null;
 
@@ -103,6 +106,7 @@ class IdentityGovernanceWorkflow
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -163,5 +167,14 @@ class IdentityGovernanceWorkflow
         if (isset($data['versions'])) {
             $this->versions = $data['versions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

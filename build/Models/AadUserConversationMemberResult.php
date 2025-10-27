@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AadUserConversationMemberResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The error that occurred, if any, during the bulk operation.
      * @var PublicError|\stdClass|null
@@ -25,11 +28,21 @@ class AadUserConversationMemberResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['error'])) {
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

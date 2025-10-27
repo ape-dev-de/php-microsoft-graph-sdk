@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantIdentitySyncPolicyPartner
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Display name for the cross-tenant user synchronization policy. Use the name of the partner Microsoft Entra tenant to easily identify the policy. Optional. */
     public ?string $displayName = null;
 
@@ -28,6 +31,7 @@ class CrossTenantIdentitySyncPolicyPartner
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
@@ -37,5 +41,14 @@ class CrossTenantIdentitySyncPolicyPartner
         if (isset($data['userSyncInbound'])) {
             $this->userSyncInbound = is_array($data['userSyncInbound']) ? new CrossTenantUserSyncInbound($data['userSyncInbound']) : $data['userSyncInbound'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessConditionSet
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Applications and user actions included in and excluded from the policy. Required.
      * @var ConditionalAccessApplications|\stdClass|null
@@ -88,6 +91,7 @@ class ConditionalAccessConditionSet
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applications'])) {
             $this->applications = is_array($data['applications']) ? new ConditionalAccessApplications($data['applications']) : $data['applications'];
         }
@@ -124,5 +128,14 @@ class ConditionalAccessConditionSet
         if (isset($data['users'])) {
             $this->users = is_array($data['users']) ? new ConditionalAccessUsers($data['users']) : $data['users'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

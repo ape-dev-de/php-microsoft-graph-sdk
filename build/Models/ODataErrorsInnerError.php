@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ODataErrorsInnerError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Request Id as tracked internally by the service */
     public ?string $requestId = null;
 
@@ -25,6 +28,7 @@ class ODataErrorsInnerError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['request-id'])) {
             $this->requestId = $data['request-id'];
         }
@@ -34,5 +38,14 @@ class ODataErrorsInnerError
         if (isset($data['date'])) {
             $this->date = is_string($data['date']) ? new \DateTimeImmutable($data['date']) : $data['date'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

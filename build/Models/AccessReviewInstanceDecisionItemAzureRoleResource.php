@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewInstanceDecisionItemAzureRoleResource
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Identifier of the resource */
     public ?string $id = null;
 
@@ -31,6 +34,7 @@ class AccessReviewInstanceDecisionItemAzureRoleResource
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -43,5 +47,14 @@ class AccessReviewInstanceDecisionItemAzureRoleResource
         if (isset($data['scope'])) {
             $this->scope = is_array($data['scope']) ? new AccessReviewInstanceDecisionItemResource($data['scope']) : $data['scope'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationMethodsRegistrationCampaignIncludeTarget
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The object identifier of a Microsoft Entra user or group. */
     public ?string $id = null;
 
@@ -25,6 +28,7 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -34,5 +38,14 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget
         if (isset($data['targetType'])) {
             $this->targetType = is_array($data['targetType']) ? new AuthenticationMethodTargetType($data['targetType']) : $data['targetType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

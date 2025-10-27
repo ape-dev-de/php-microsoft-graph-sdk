@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationItemBody
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $content = null;
 
@@ -25,11 +28,21 @@ class EducationItemBody
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['content'])) {
             $this->content = $data['content'];
         }
         if (isset($data['contentType'])) {
             $this->contentType = is_array($data['contentType']) ? new BodyType($data['contentType']) : $data['contentType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

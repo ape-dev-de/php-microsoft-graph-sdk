@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UpdateAllowedCombinationsResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Information about why the updateAllowedCombinations action was successful or failed. */
     public ?string $additionalInformation = null;
 
@@ -37,6 +40,7 @@ class UpdateAllowedCombinationsResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['additionalInformation'])) {
             $this->additionalInformation = $data['additionalInformation'];
         }
@@ -49,5 +53,14 @@ class UpdateAllowedCombinationsResult
         if (isset($data['previousCombinations'])) {
             $this->previousCombinations = $data['previousCombinations'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

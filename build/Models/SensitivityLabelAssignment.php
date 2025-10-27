@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SensitivityLabelAssignment
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?SensitivityLabelAssignmentMethod $assignmentMethod = null;
 
@@ -25,6 +28,7 @@ class SensitivityLabelAssignment
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['assignmentMethod'])) {
             $this->assignmentMethod = is_array($data['assignmentMethod']) ? new SensitivityLabelAssignmentMethod($data['assignmentMethod']) : $data['assignmentMethod'];
         }
@@ -34,5 +38,14 @@ class SensitivityLabelAssignment
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

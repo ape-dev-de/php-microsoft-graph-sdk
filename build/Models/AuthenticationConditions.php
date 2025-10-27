@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationConditions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Applications which trigger a custom authentication extension.
      * @var AuthenticationConditionsApplications|\stdClass|null
@@ -22,8 +25,18 @@ class AuthenticationConditions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applications'])) {
             $this->applications = is_array($data['applications']) ? new AuthenticationConditionsApplications($data['applications']) : $data['applications'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

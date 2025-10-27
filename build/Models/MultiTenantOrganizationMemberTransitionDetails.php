@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MultiTenantOrganizationMemberTransitionDetails
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Role of the tenant in the multitenant organization. The possible values are: owner, member, unknownFutureValue.
      * @var MultiTenantOrganizationMemberRole|\stdClass|null
@@ -37,6 +40,7 @@ class MultiTenantOrganizationMemberTransitionDetails
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['desiredRole'])) {
             $this->desiredRole = is_array($data['desiredRole']) ? new MultiTenantOrganizationMemberRole($data['desiredRole']) : $data['desiredRole'];
         }
@@ -49,5 +53,14 @@ class MultiTenantOrganizationMemberTransitionDetails
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new MultiTenantOrganizationMemberProcessingStatus($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

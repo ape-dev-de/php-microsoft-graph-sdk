@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AlertTrigger
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Name of the property serving as a detection trigger. */
     public ?string $name = null;
 
@@ -25,6 +28,7 @@ class AlertTrigger
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
@@ -34,5 +38,14 @@ class AlertTrigger
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

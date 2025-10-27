@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MentionAction
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The identities of the users mentioned in this action.
      * @var IdentitySet[]
@@ -22,8 +25,18 @@ class MentionAction
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['mentionees'])) {
             $this->mentionees = $data['mentionees'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

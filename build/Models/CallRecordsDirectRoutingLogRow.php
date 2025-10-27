@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsDirectRoutingLogRow
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique call identifier. GUID. */
     public ?string $id = null;
 
@@ -79,6 +82,7 @@ class CallRecordsDirectRoutingLogRow
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -142,5 +146,14 @@ class CallRecordsDirectRoutingLogRow
         if (isset($data['userPrincipalName'])) {
             $this->userPrincipalName = $data['userPrincipalName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

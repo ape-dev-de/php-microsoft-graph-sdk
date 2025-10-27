@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TitleArea
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Alternative text on the title area. */
     public ?string $alternativeText = null;
 
@@ -55,6 +58,7 @@ class TitleArea
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['alternativeText'])) {
             $this->alternativeText = $data['alternativeText'];
         }
@@ -85,5 +89,14 @@ class TitleArea
         if (isset($data['textAlignment'])) {
             $this->textAlignment = is_array($data['textAlignment']) ? new TitleAreaTextAlignmentType($data['textAlignment']) : $data['textAlignment'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

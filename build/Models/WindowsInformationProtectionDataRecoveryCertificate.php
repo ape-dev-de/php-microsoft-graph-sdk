@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsInformationProtectionDataRecoveryCertificate
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Data recovery Certificate */
     public ?string $certificate = null;
 
@@ -28,6 +31,7 @@ class WindowsInformationProtectionDataRecoveryCertificate
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['certificate'])) {
             $this->certificate = $data['certificate'];
         }
@@ -40,5 +44,14 @@ class WindowsInformationProtectionDataRecoveryCertificate
         if (isset($data['subjectName'])) {
             $this->subjectName = $data['subjectName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

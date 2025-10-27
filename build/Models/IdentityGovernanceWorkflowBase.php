@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceWorkflowBase
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?IdentityGovernanceLifecycleWorkflowCategory $category = null;
 
@@ -61,6 +64,7 @@ class IdentityGovernanceWorkflowBase
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['category'])) {
             $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['category']) : $data['category'];
         }
@@ -94,5 +98,14 @@ class IdentityGovernanceWorkflowBase
         if (isset($data['tasks'])) {
             $this->tasks = $data['tasks'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

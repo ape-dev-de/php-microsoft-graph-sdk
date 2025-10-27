@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileSecurityState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Complex type containing file hashes (cryptographic and location-sensitive).
      * @var FileHash|\stdClass|null
@@ -31,6 +34,7 @@ class FileSecurityState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['fileHash'])) {
             $this->fileHash = is_array($data['fileHash']) ? new FileHash($data['fileHash']) : $data['fileHash'];
         }
@@ -43,5 +47,14 @@ class FileSecurityState
         if (isset($data['riskScore'])) {
             $this->riskScore = $data['riskScore'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

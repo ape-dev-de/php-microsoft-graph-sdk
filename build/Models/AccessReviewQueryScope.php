@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewQueryScope
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The query representing what will be reviewed in an access review. */
     public ?string $query = null;
 
@@ -25,6 +28,7 @@ class AccessReviewQueryScope
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['query'])) {
             $this->query = $data['query'];
         }
@@ -34,5 +38,14 @@ class AccessReviewQueryScope
         if (isset($data['queryType'])) {
             $this->queryType = $data['queryType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

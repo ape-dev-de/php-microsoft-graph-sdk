@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppsInstallationOptionsForWindows
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specifies whether users can install Microsoft 365 apps, including Skype for Business, on their Windows devices. The default value is true. */
     public ?bool $isMicrosoft365AppsEnabled = null;
 
@@ -28,6 +31,7 @@ class AppsInstallationOptionsForWindows
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isMicrosoft365AppsEnabled'])) {
             $this->isMicrosoft365AppsEnabled = $data['isMicrosoft365AppsEnabled'];
         }
@@ -40,5 +44,14 @@ class AppsInstallationOptionsForWindows
         if (isset($data['isVisioEnabled'])) {
             $this->isVisioEnabled = $data['isVisioEnabled'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

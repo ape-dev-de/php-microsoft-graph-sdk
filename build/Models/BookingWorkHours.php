@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingWorkHours
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?DayOfWeek $day = null;
 
@@ -25,11 +28,21 @@ class BookingWorkHours
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['day'])) {
             $this->day = is_array($data['day']) ? new DayOfWeek($data['day']) : $data['day'];
         }
         if (isset($data['timeSlots'])) {
             $this->timeSlots = $data['timeSlots'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

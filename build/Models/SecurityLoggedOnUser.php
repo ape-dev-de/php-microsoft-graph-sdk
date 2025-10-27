@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityLoggedOnUser
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** User account name of the logged-on user. */
     public ?string $accountName = null;
 
@@ -22,11 +25,21 @@ class SecurityLoggedOnUser
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accountName'])) {
             $this->accountName = $data['accountName'];
         }
         if (isset($data['domainName'])) {
             $this->domainName = $data['domainName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

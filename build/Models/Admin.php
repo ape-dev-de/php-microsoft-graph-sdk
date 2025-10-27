@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Admin
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A container for Microsoft Edge resources. Read-only.
      * @var Edge|\stdClass|null
@@ -52,6 +55,7 @@ class Admin
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['edge'])) {
             $this->edge = is_array($data['edge']) ? new Edge($data['edge']) : $data['edge'];
         }
@@ -70,5 +74,14 @@ class Admin
         if (isset($data['sharepoint'])) {
             $this->sharepoint = is_array($data['sharepoint']) ? new Sharepoint($data['sharepoint']) : $data['sharepoint'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

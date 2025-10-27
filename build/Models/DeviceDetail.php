@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates the browser information of the used in the sign-in. Populated for devices registered in Microsoft Entra. */
     public ?string $browser = null;
 
@@ -37,6 +40,7 @@ class DeviceDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['browser'])) {
             $this->browser = $data['browser'];
         }
@@ -58,5 +62,14 @@ class DeviceDetail
         if (isset($data['trustType'])) {
             $this->trustType = $data['trustType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

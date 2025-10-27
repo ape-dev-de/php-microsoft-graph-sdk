@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InvitationParticipantInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Optional. Whether to hide the participant from the roster. */
     public ?bool $hidden = null;
 
@@ -31,6 +34,7 @@ class InvitationParticipantInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hidden'])) {
             $this->hidden = $data['hidden'];
         }
@@ -46,5 +50,14 @@ class InvitationParticipantInfo
         if (isset($data['replacesCallId'])) {
             $this->replacesCallId = $data['replacesCallId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

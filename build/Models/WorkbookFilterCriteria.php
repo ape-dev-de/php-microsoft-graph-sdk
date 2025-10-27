@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookFilterCriteria
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The color applied to the cell. */
     public ?string $color = null;
 
@@ -43,6 +46,7 @@ class WorkbookFilterCriteria
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['color'])) {
             $this->color = $data['color'];
         }
@@ -67,5 +71,14 @@ class WorkbookFilterCriteria
         if (isset($data['values'])) {
             $this->values = $data['values'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

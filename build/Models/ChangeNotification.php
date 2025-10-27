@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChangeNotification
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique ID for the notification. Optional. */
     public ?string $id = null;
 
@@ -55,6 +58,7 @@ class ChangeNotification
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -85,5 +89,14 @@ class ChangeNotification
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

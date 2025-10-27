@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReflectCheckInResponse
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -49,6 +52,7 @@ class ReflectCheckInResponse
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -82,5 +86,14 @@ class ReflectCheckInResponse
         if (isset($data['submitDateTime'])) {
             $this->submitDateTime = is_string($data['submitDateTime']) ? new \DateTimeImmutable($data['submitDateTime']) : $data['submitDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

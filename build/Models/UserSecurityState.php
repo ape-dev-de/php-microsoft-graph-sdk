@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSecurityState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** AAD User object identifier (GUID) - represents the physical/multi-account user entity. */
     public ?string $aadUserId = null;
 
@@ -67,6 +70,7 @@ class UserSecurityState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['aadUserId'])) {
             $this->aadUserId = $data['aadUserId'];
         }
@@ -109,5 +113,14 @@ class UserSecurityState
         if (isset($data['userPrincipalName'])) {
             $this->userPrincipalName = $data['userPrincipalName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

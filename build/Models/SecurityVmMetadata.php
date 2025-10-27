@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityVmMetadata
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?SecurityVmCloudProvider $cloudProvider = null;
 
@@ -28,6 +31,7 @@ class SecurityVmMetadata
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['cloudProvider'])) {
             $this->cloudProvider = is_array($data['cloudProvider']) ? new SecurityVmCloudProvider($data['cloudProvider']) : $data['cloudProvider'];
         }
@@ -40,5 +44,14 @@ class SecurityVmMetadata
         if (isset($data['vmId'])) {
             $this->vmId = $data['vmId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

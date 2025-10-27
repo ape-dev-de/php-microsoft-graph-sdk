@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServiceProvisioningError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The date and time at which the error occurred. */
     public ?\DateTimeInterface $createdDateTime = null;
 
@@ -25,6 +28,7 @@ class ServiceProvisioningError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
@@ -34,5 +38,14 @@ class ServiceProvisioningError
         if (isset($data['serviceInstance'])) {
             $this->serviceInstance = $data['serviceInstance'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

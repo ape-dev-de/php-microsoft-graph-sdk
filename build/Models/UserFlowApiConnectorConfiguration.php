@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserFlowApiConnectorConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var IdentityApiConnector|\stdClass|null
@@ -28,11 +31,21 @@ class UserFlowApiConnectorConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['postAttributeCollection'])) {
             $this->postAttributeCollection = is_array($data['postAttributeCollection']) ? new IdentityApiConnector($data['postAttributeCollection']) : $data['postAttributeCollection'];
         }
         if (isset($data['postFederationSignup'])) {
             $this->postFederationSignup = is_array($data['postFederationSignup']) ? new IdentityApiConnector($data['postFederationSignup']) : $data['postFederationSignup'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

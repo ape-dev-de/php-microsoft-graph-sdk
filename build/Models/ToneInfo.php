@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ToneInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** An incremental identifier used for ordering DTMF events. */
     public ?float $sequenceId = null;
 
@@ -22,11 +25,21 @@ class ToneInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['sequenceId'])) {
             $this->sequenceId = $data['sequenceId'];
         }
         if (isset($data['tone'])) {
             $this->tone = is_array($data['tone']) ? new Tone($data['tone']) : $data['tone'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

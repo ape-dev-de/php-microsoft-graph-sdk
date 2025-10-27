@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResetPasscodeActionResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Action name */
     public ?string $actionName = null;
 
@@ -34,6 +37,7 @@ class ResetPasscodeActionResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['actionName'])) {
             $this->actionName = $data['actionName'];
         }
@@ -52,5 +56,14 @@ class ResetPasscodeActionResult
         if (isset($data['passcode'])) {
             $this->passcode = $data['passcode'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

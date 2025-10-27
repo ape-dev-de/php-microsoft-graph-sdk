@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisioningErrorInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Additional details if there's error. */
     public ?string $additionalDetails = null;
 
@@ -34,6 +37,7 @@ class ProvisioningErrorInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['additionalDetails'])) {
             $this->additionalDetails = $data['additionalDetails'];
         }
@@ -49,5 +53,14 @@ class ProvisioningErrorInfo
         if (isset($data['recommendedAction'])) {
             $this->recommendedAction = $data['recommendedAction'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

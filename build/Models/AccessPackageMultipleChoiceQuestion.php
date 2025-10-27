@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageMultipleChoiceQuestion
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -46,6 +49,7 @@ class AccessPackageMultipleChoiceQuestion
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -70,5 +74,14 @@ class AccessPackageMultipleChoiceQuestion
         if (isset($data['isMultipleSelectionAllowed'])) {
             $this->isMultipleSelectionAllowed = $data['isMultipleSelectionAllowed'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

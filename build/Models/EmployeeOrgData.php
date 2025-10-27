@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmployeeOrgData
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The cost center associated with the user. Returned only on $select. Supports $filter. */
     public ?string $costCenter = null;
 
@@ -22,11 +25,21 @@ class EmployeeOrgData
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['costCenter'])) {
             $this->costCenter = $data['costCenter'];
         }
         if (isset($data['division'])) {
             $this->division = $data['division'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

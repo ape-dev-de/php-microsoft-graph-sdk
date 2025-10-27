@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LocationConstraintItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The street address of the location.
      * @var PhysicalAddress|\stdClass|null
@@ -55,6 +58,7 @@ class LocationConstraintItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['address'])) {
             $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
@@ -82,5 +86,14 @@ class LocationConstraintItem
         if (isset($data['resolveAvailability'])) {
             $this->resolveAvailability = $data['resolveAvailability'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

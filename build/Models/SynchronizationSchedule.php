@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationSchedule
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Date and time when this job expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $expiration = null;
 
@@ -25,6 +28,7 @@ class SynchronizationSchedule
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['expiration'])) {
             $this->expiration = is_string($data['expiration']) ? new \DateTimeImmutable($data['expiration']) : $data['expiration'];
         }
@@ -34,5 +38,14 @@ class SynchronizationSchedule
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new SynchronizationScheduleState($data['state']) : $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Quota
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
     public ?float $deleted = null;
 
@@ -37,6 +40,7 @@ class Quota
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deleted'])) {
             $this->deleted = $data['deleted'];
         }
@@ -55,5 +59,14 @@ class Quota
         if (isset($data['used'])) {
             $this->used = $data['used'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

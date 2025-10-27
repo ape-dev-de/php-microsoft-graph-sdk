@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Pkcs12CertificateInformation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Represents whether the certificate is the active certificate to be used for calling the API connector. The active certificate is the most recently uploaded certificate that isn't yet expired but whose notBefore time is in the past. */
     public ?bool $isActive = null;
 
@@ -28,6 +31,7 @@ class Pkcs12CertificateInformation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isActive'])) {
             $this->isActive = $data['isActive'];
         }
@@ -40,5 +44,14 @@ class Pkcs12CertificateInformation
         if (isset($data['thumbprint'])) {
             $this->thumbprint = $data['thumbprint'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

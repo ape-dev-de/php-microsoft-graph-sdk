@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsTraceRouteHop
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The network path count of this hop that was used to compute the RTT. */
     public ?float $hopCount = null;
 
@@ -25,6 +28,7 @@ class CallRecordsTraceRouteHop
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hopCount'])) {
             $this->hopCount = $data['hopCount'];
         }
@@ -34,5 +38,14 @@ class CallRecordsTraceRouteHop
         if (isset($data['roundTripTime'])) {
             $this->roundTripTime = $data['roundTripTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Pkcs12Certificate
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The password for the pfx file. Required. If no password is used, you must still provide a value of ''. */
     public ?string $password = null;
 
@@ -22,11 +25,21 @@ class Pkcs12Certificate
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['password'])) {
             $this->password = $data['password'];
         }
         if (isset($data['pkcs12Value'])) {
             $this->pkcs12Value = $data['pkcs12Value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInLocation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Provides the city where the sign-in originated and is determined using latitude/longitude information from the sign-in activity. */
     public ?string $city = null;
 
@@ -31,6 +34,7 @@ class SignInLocation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['city'])) {
             $this->city = $data['city'];
         }
@@ -43,5 +47,14 @@ class SignInLocation
         if (isset($data['state'])) {
             $this->state = $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsParticipantEndpoint
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * User-agent reported by this endpoint.
      * @var CallRecordsUserAgent|\stdClass|null
@@ -52,6 +55,7 @@ class CallRecordsParticipantEndpoint
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['userAgent'])) {
             $this->userAgent = is_array($data['userAgent']) ? new CallRecordsUserAgent($data['userAgent']) : $data['userAgent'];
         }
@@ -76,5 +80,14 @@ class CallRecordsParticipantEndpoint
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

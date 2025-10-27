@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationAttributeCollectionPageViewConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The description of the page. */
     public ?string $description = null;
 
@@ -28,6 +31,7 @@ class AuthenticationAttributeCollectionPageViewConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -37,5 +41,14 @@ class AuthenticationAttributeCollectionPageViewConfiguration
         if (isset($data['title'])) {
             $this->title = $data['title'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

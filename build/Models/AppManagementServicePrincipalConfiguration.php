@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppManagementServicePrincipalConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Collection of keyCredential restrictions settings to be applied to an application or service principal.
      * @var KeyCredentialConfiguration[]
@@ -28,11 +31,21 @@ class AppManagementServicePrincipalConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['keyCredentials'])) {
             $this->keyCredentials = $data['keyCredentials'];
         }
         if (isset($data['passwordCredentials'])) {
             $this->passwordCredentials = $data['passwordCredentials'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

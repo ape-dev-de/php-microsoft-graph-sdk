@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Count of guests in a team. */
     public ?float $guestsCount = null;
 
@@ -25,6 +28,7 @@ class TeamSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['guestsCount'])) {
             $this->guestsCount = $data['guestsCount'];
         }
@@ -34,5 +38,14 @@ class TeamSummary
         if (isset($data['ownersCount'])) {
             $this->ownersCount = $data['ownersCount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

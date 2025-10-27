@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeMappingParameterSchema
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function). */
     public ?bool $allowMultipleOccurrences = null;
 
@@ -28,6 +31,7 @@ class AttributeMappingParameterSchema
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowMultipleOccurrences'])) {
             $this->allowMultipleOccurrences = $data['allowMultipleOccurrences'];
         }
@@ -40,5 +44,14 @@ class AttributeMappingParameterSchema
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new AttributeType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

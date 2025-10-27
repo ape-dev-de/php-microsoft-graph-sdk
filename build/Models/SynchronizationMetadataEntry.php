@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationMetadataEntry
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Possible values are: GalleryApplicationIdentifier, GalleryApplicationKey, IsOAuthEnabled, IsSynchronizationAgentAssignmentRequired, IsSynchronizationAgentRequired, IsSynchronizationInPreview, OAuthSettings, SynchronizationLearnMoreIbizaFwLink, ConfigurationFields.
      * @var SynchronizationMetadata|\stdClass|null
@@ -25,11 +28,21 @@ class SynchronizationMetadataEntry
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['key'])) {
             $this->key = is_array($data['key']) ? new SynchronizationMetadata($data['key']) : $data['key'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallMediaState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The audio media state. Possible values are: active, inactive, unknownFutureValue.
      * @var MediaState|\stdClass|null
@@ -22,8 +25,18 @@ class CallMediaState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['audio'])) {
             $this->audio = is_array($data['audio']) ? new MediaState($data['audio']) : $data['audio'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

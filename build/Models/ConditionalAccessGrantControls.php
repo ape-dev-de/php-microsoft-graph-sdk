@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessGrantControls
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
      * @var ConditionalAccessGrantControl[]
@@ -43,6 +46,7 @@ class ConditionalAccessGrantControls
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['builtInControls'])) {
             $this->builtInControls = $data['builtInControls'];
         }
@@ -58,5 +62,14 @@ class ConditionalAccessGrantControls
         if (isset($data['authenticationStrength'])) {
             $this->authenticationStrength = is_array($data['authenticationStrength']) ? new AuthenticationStrengthPolicy($data['authenticationStrength']) : $data['authenticationStrength'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

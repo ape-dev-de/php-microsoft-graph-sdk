@@ -1434,7 +1434,7 @@ function normalizeSchemaStructure(array $schemaData): array
                     $schema['allOf'][] = ['$ref' => $matches[1]];
                 }
             } elseif (isset($item['properties'])) {
-                // Filter out all @odata.* properties (metadata)
+                // Filter out @odata.* properties (metadata) but keep @microsoft.graph.* properties
                 $filteredProperties = array_filter(
                     $item['properties'],
                     fn($key) => !str_starts_with($key, '@odata.'),
@@ -1445,7 +1445,7 @@ function normalizeSchemaStructure(array $schemaData): array
         }
     }
     
-    // Handle direct properties and filter out all @odata.* properties
+    // Handle direct properties and filter out @odata.* properties but keep @microsoft.graph.* properties
     if (isset($schemaData['properties']) && is_array($schemaData['properties'])) {
         $schema['properties'] = array_filter(
             $schemaData['properties'],

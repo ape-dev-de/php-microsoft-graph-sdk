@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ComputeRightsAndInheritanceResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var LabelContentRight[]
@@ -34,6 +37,7 @@ class ComputeRightsAndInheritanceResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['contentRights'])) {
             $this->contentRights = $data['contentRights'];
         }
@@ -43,5 +47,14 @@ class ComputeRightsAndInheritanceResult
         if (isset($data['sensitivityLabels'])) {
             $this->sensitivityLabels = $data['sensitivityLabels'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

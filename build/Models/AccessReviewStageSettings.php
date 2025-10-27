@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessReviewStageSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Indicate which decisions will go to the next stage. Can be a subset of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
      * @var string[]
@@ -55,6 +58,7 @@ class AccessReviewStageSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['decisionsThatWillMoveToNextStage'])) {
             $this->decisionsThatWillMoveToNextStage = $data['decisionsThatWillMoveToNextStage'];
         }
@@ -79,5 +83,14 @@ class AccessReviewStageSettings
         if (isset($data['stageId'])) {
             $this->stageId = $data['stageId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

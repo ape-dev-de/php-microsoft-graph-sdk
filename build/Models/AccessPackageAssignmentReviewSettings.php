@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAssignmentReviewSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.
      * @var AccessReviewExpirationBehavior|\stdClass|null
@@ -52,6 +55,7 @@ class AccessPackageAssignmentReviewSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['expirationBehavior'])) {
             $this->expirationBehavior = is_array($data['expirationBehavior']) ? new AccessReviewExpirationBehavior($data['expirationBehavior']) : $data['expirationBehavior'];
         }
@@ -76,5 +80,14 @@ class AccessPackageAssignmentReviewSettings
         if (isset($data['schedule'])) {
             $this->schedule = is_array($data['schedule']) ? new EntitlementManagementSchedule($data['schedule']) : $data['schedule'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OutOfBoxExperienceSetting
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?WindowsDeviceUsageType $deviceUsageType = null;
 
@@ -34,6 +37,7 @@ class OutOfBoxExperienceSetting
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deviceUsageType'])) {
             $this->deviceUsageType = is_array($data['deviceUsageType']) ? new WindowsDeviceUsageType($data['deviceUsageType']) : $data['deviceUsageType'];
         }
@@ -52,5 +56,14 @@ class OutOfBoxExperienceSetting
         if (isset($data['userType'])) {
             $this->userType = is_array($data['userType']) ? new WindowsUserType($data['userType']) : $data['userType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

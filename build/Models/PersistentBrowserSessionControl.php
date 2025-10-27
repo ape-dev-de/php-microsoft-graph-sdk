@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersistentBrowserSessionControl
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specifies whether the session control is enabled. */
     public ?bool $isEnabled = null;
 
@@ -25,11 +28,21 @@ class PersistentBrowserSessionControl
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isEnabled'])) {
             $this->isEnabled = $data['isEnabled'];
         }
         if (isset($data['mode'])) {
             $this->mode = is_array($data['mode']) ? new PersistentBrowserSessionMode($data['mode']) : $data['mode'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Optional. Used to uniquely identity the resource. If passed in, the prompt uri is against this resourceId as a key. */
     public ?string $resourceId = null;
 
@@ -22,11 +25,21 @@ class MediaInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['resourceId'])) {
             $this->resourceId = $data['resourceId'];
         }
         if (isset($data['uri'])) {
             $this->uri = $data['uri'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class VerifiedPublisher
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The timestamp when the verified publisher was first added or most recently updated. */
     public ?\DateTimeInterface $addedDateTime = null;
 
@@ -25,6 +28,7 @@ class VerifiedPublisher
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['addedDateTime'])) {
             $this->addedDateTime = is_string($data['addedDateTime']) ? new \DateTimeImmutable($data['addedDateTime']) : $data['addedDateTime'];
         }
@@ -34,5 +38,14 @@ class VerifiedPublisher
         if (isset($data['verifiedPublisherId'])) {
             $this->verifiedPublisherId = $data['verifiedPublisherId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

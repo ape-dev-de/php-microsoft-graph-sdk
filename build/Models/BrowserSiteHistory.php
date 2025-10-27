@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BrowserSiteHistory
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain. */
     public ?bool $allowRedirect = null;
 
@@ -49,6 +52,7 @@ class BrowserSiteHistory
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowRedirect'])) {
             $this->allowRedirect = $data['allowRedirect'];
         }
@@ -70,5 +74,14 @@ class BrowserSiteHistory
         if (isset($data['targetEnvironment'])) {
             $this->targetEnvironment = is_array($data['targetEnvironment']) ? new BrowserSiteTargetEnvironment($data['targetEnvironment']) : $data['targetEnvironment'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

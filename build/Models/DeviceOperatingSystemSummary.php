@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceOperatingSystemSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647 */
     public ?float $androidCorporateWorkProfileCount = null;
 
@@ -52,6 +55,7 @@ class DeviceOperatingSystemSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['androidCorporateWorkProfileCount'])) {
             $this->androidCorporateWorkProfileCount = $data['androidCorporateWorkProfileCount'];
         }
@@ -88,5 +92,14 @@ class DeviceOperatingSystemSummary
         if (isset($data['windowsMobileCount'])) {
             $this->windowsMobileCount = $data['windowsMobileCount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

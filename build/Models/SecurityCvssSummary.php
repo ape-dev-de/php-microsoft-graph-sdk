@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityCvssSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The CVSS score about this vulnerability. */
     public ?string $score = null;
 
@@ -28,6 +31,7 @@ class SecurityCvssSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['score'])) {
             $this->score = $data['score'];
         }
@@ -37,5 +41,14 @@ class SecurityCvssSummary
         if (isset($data['vectorString'])) {
             $this->vectorString = $data['vectorString'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

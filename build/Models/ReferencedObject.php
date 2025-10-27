@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ReferencedObject
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Name of the referenced object. Must match one of the objects in the directory definition. */
     public ?string $referencedObjectName = null;
 
@@ -22,11 +25,21 @@ class ReferencedObject
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['referencedObjectName'])) {
             $this->referencedObjectName = $data['referencedObjectName'];
         }
         if (isset($data['referencedProperty'])) {
             $this->referencedProperty = $data['referencedProperty'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

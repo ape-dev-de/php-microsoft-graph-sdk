@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ShiftAvailability
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Specifies the pattern for recurrence
      * @var PatternedRecurrence|\stdClass|null
@@ -31,6 +34,7 @@ class ShiftAvailability
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['recurrence'])) {
             $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
@@ -40,5 +44,14 @@ class ShiftAvailability
         if (isset($data['timeZone'])) {
             $this->timeZone = $data['timeZone'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

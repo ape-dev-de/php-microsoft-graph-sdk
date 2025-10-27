@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsDefenderScanActionResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Action name */
     public ?string $actionName = null;
 
@@ -31,6 +34,7 @@ class WindowsDefenderScanActionResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['actionName'])) {
             $this->actionName = $data['actionName'];
         }
@@ -46,5 +50,14 @@ class WindowsDefenderScanActionResult
         if (isset($data['scanType'])) {
             $this->scanType = $data['scanType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessageHistoryItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?ChatMessageActions $actions = null;
 
@@ -28,6 +31,7 @@ class ChatMessageHistoryItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['actions'])) {
             $this->actions = is_array($data['actions']) ? new ChatMessageActions($data['actions']) : $data['actions'];
         }
@@ -37,5 +41,14 @@ class ChatMessageHistoryItem
         if (isset($data['reaction'])) {
             $this->reaction = is_array($data['reaction']) ? new ChatMessageReaction($data['reaction']) : $data['reaction'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

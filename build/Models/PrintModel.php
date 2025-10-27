@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintModel
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Tenant-wide settings for the Universal Print service.
      * @var PrintSettings|\stdClass|null
@@ -58,6 +61,7 @@ class PrintModel
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['settings'])) {
             $this->settings = is_array($data['settings']) ? new PrintSettings($data['settings']) : $data['settings'];
         }
@@ -79,5 +83,14 @@ class PrintModel
         if (isset($data['taskDefinitions'])) {
             $this->taskDefinitions = $data['taskDefinitions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

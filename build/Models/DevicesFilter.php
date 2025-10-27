@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DevicesFilter
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Determines whether devices that satisfy the rule should be allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.
      * @var CrossTenantAccessPolicyTargetConfigurationAccessType|\stdClass|null
@@ -25,11 +28,21 @@ class DevicesFilter
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['mode'])) {
             $this->mode = is_array($data['mode']) ? new CrossTenantAccessPolicyTargetConfigurationAccessType($data['mode']) : $data['mode'];
         }
         if (isset($data['rule'])) {
             $this->rule = $data['rule'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

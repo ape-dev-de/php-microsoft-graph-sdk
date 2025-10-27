@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Website
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The URL of the website. */
     public ?string $address = null;
 
@@ -28,6 +31,7 @@ class Website
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['address'])) {
             $this->address = $data['address'];
         }
@@ -37,5 +41,14 @@ class Website
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new WebsiteType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

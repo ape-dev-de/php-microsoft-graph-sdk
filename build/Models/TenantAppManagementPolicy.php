@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TenantAppManagementPolicy
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -43,6 +46,7 @@ class TenantAppManagementPolicy
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -64,5 +68,14 @@ class TenantAppManagementPolicy
         if (isset($data['servicePrincipalRestrictions'])) {
             $this->servicePrincipalRestrictions = is_array($data['servicePrincipalRestrictions']) ? new AppManagementServicePrincipalConfiguration($data['servicePrincipalRestrictions']) : $data['servicePrincipalRestrictions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

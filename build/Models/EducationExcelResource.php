@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationExcelResource
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The individual who created the resource.
      * @var IdentitySet|\stdClass|null
@@ -40,6 +43,7 @@ class EducationExcelResource
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['createdBy'])) {
             $this->createdBy = is_array($data['createdBy']) ? new IdentitySet($data['createdBy']) : $data['createdBy'];
         }
@@ -58,5 +62,14 @@ class EducationExcelResource
         if (isset($data['fileUrl'])) {
             $this->fileUrl = $data['fileUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

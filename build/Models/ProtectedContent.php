@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProtectedContent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The content id */
     public ?string $cid = null;
 
@@ -25,6 +28,7 @@ class ProtectedContent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['cid'])) {
             $this->cid = $data['cid'];
         }
@@ -34,5 +38,14 @@ class ProtectedContent
         if (isset($data['labelId'])) {
             $this->labelId = $data['labelId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

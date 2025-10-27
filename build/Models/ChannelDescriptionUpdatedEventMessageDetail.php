@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChannelDescriptionUpdatedEventMessageDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The updated description of the channel. */
     public ?string $channelDescription = null;
 
@@ -28,6 +31,7 @@ class ChannelDescriptionUpdatedEventMessageDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['channelDescription'])) {
             $this->channelDescription = $data['channelDescription'];
         }
@@ -37,5 +41,14 @@ class ChannelDescriptionUpdatedEventMessageDetail
         if (isset($data['initiator'])) {
             $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

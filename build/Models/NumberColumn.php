@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class NumberColumn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** How many decimal places to display. See below for information about the possible values. */
     public ?string $decimalPlaces = null;
 
@@ -28,6 +31,7 @@ class NumberColumn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['decimalPlaces'])) {
             $this->decimalPlaces = $data['decimalPlaces'];
         }
@@ -40,5 +44,14 @@ class NumberColumn
         if (isset($data['minimum'])) {
             $this->minimum = $data['minimum'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

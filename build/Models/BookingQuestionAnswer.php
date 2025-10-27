@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingQuestionAnswer
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The answer given by the user in case the answerInputType is text. */
     public ?string $answer = null;
 
@@ -46,6 +49,7 @@ class BookingQuestionAnswer
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['answer'])) {
             $this->answer = $data['answer'];
         }
@@ -67,5 +71,14 @@ class BookingQuestionAnswer
         if (isset($data['selectedOptions'])) {
             $this->selectedOptions = $data['selectedOptions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

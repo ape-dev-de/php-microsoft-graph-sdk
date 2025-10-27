@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerCategoryDescriptions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The label associated with Category 1 */
     public ?string $category1 = null;
 
@@ -91,6 +94,7 @@ class PlannerCategoryDescriptions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['category1'])) {
             $this->category1 = $data['category1'];
         }
@@ -166,5 +170,14 @@ class PlannerCategoryDescriptions
         if (isset($data['category9'])) {
             $this->category9 = $data['category9'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

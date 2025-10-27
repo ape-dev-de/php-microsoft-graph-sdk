@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Hashes
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The CRC32 value of the file (if available). Read-only. */
     public ?string $crc32Hash = null;
 
@@ -28,6 +31,7 @@ class Hashes
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['crc32Hash'])) {
             $this->crc32Hash = $data['crc32Hash'];
         }
@@ -40,5 +44,14 @@ class Hashes
         if (isset($data['sha256Hash'])) {
             $this->sha256Hash = $data['sha256Hash'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

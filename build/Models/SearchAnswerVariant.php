@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchAnswerVariant
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The answer variation description that is shown on the search results page. */
     public ?string $description = null;
 
@@ -34,6 +37,7 @@ class SearchAnswerVariant
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -49,5 +53,14 @@ class SearchAnswerVariant
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

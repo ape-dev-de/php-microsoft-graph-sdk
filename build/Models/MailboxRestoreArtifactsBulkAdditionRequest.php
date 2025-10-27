@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MailboxRestoreArtifactsBulkAdditionRequest
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -91,6 +94,7 @@ class MailboxRestoreArtifactsBulkAdditionRequest
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -136,5 +140,14 @@ class MailboxRestoreArtifactsBulkAdditionRequest
         if (isset($data['mailboxes'])) {
             $this->mailboxes = $data['mailboxes'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

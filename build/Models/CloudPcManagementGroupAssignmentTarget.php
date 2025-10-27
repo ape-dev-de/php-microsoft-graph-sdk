@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcManagementGroupAssignmentTarget
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The ID of the target group for the assignment. */
     public ?string $groupId = null;
 
@@ -22,11 +25,21 @@ class CloudPcManagementGroupAssignmentTarget
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['groupId'])) {
             $this->groupId = $data['groupId'];
         }
         if (isset($data['servicePlanId'])) {
             $this->servicePlanId = $data['servicePlanId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

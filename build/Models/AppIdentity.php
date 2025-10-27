@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppIdentity
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Refers to the unique ID representing application in Microsoft Entra ID. */
     public ?string $appId = null;
 
@@ -28,6 +31,7 @@ class AppIdentity
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['appId'])) {
             $this->appId = $data['appId'];
         }
@@ -40,5 +44,14 @@ class AppIdentity
         if (isset($data['servicePrincipalName'])) {
             $this->servicePrincipalName = $data['servicePrincipalName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

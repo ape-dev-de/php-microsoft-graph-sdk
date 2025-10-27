@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Location
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The street address of the location.
      * @var PhysicalAddress|\stdClass|null
@@ -52,6 +55,7 @@ class Location
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['address'])) {
             $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
@@ -76,5 +80,14 @@ class Location
         if (isset($data['uniqueIdType'])) {
             $this->uniqueIdType = is_array($data['uniqueIdType']) ? new LocationUniqueIdType($data['uniqueIdType']) : $data['uniqueIdType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

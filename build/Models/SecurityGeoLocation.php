@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityGeoLocation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $city = null;
 
@@ -31,6 +34,7 @@ class SecurityGeoLocation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['city'])) {
             $this->city = $data['city'];
         }
@@ -46,5 +50,14 @@ class SecurityGeoLocation
         if (isset($data['state'])) {
             $this->state = $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

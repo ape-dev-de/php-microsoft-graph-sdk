@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RestoreSessionArtifactCount
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of artifacts whose restoration completed. */
     public ?float $completed = null;
 
@@ -28,6 +31,7 @@ class RestoreSessionArtifactCount
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['completed'])) {
             $this->completed = $data['completed'];
         }
@@ -40,5 +44,14 @@ class RestoreSessionArtifactCount
         if (isset($data['total'])) {
             $this->total = $data['total'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

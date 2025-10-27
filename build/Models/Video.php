@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Video
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Number of audio bits per sample. */
     public ?float $audioBitsPerSample = null;
 
@@ -46,6 +49,7 @@ class Video
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['audioBitsPerSample'])) {
             $this->audioBitsPerSample = $data['audioBitsPerSample'];
         }
@@ -76,5 +80,14 @@ class Video
         if (isset($data['width'])) {
             $this->width = $data['width'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

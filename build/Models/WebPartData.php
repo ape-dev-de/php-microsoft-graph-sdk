@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WebPartData
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Data version of the web part. The value is defined by the web part developer. Different dataVersions usually refers to a different property structure. */
     public ?string $dataVersion = null;
 
@@ -34,6 +37,7 @@ class WebPartData
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['dataVersion'])) {
             $this->dataVersion = $data['dataVersion'];
         }
@@ -49,5 +53,14 @@ class WebPartData
         if (isset($data['title'])) {
             $this->title = $data['title'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

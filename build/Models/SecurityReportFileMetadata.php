@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityReportFileMetadata
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The URL to download the report. */
     public ?string $downloadUrl = null;
 
@@ -25,6 +28,7 @@ class SecurityReportFileMetadata
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['downloadUrl'])) {
             $this->downloadUrl = $data['downloadUrl'];
         }
@@ -34,5 +38,14 @@ class SecurityReportFileMetadata
         if (isset($data['size'])) {
             $this->size = $data['size'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

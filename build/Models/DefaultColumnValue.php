@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DefaultColumnValue
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The formula used to compute the default value for the column. */
     public ?string $formula = null;
 
@@ -22,11 +25,21 @@ class DefaultColumnValue
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['formula'])) {
             $this->formula = $data['formula'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

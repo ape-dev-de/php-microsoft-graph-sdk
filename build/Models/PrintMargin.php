@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintMargin
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The margin in microns from the bottom edge. */
     public ?float $bottom = null;
 
@@ -28,6 +31,7 @@ class PrintMargin
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['bottom'])) {
             $this->bottom = $data['bottom'];
         }
@@ -40,5 +44,14 @@ class PrintMargin
         if (isset($data['top'])) {
             $this->top = $data['top'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

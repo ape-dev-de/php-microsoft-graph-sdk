@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Optional. Specifies whether the authentication flow includes an option to sign up (create account) and sign in. Default value is false meaning only sign in is enabled. */
     public ?bool $isSignUpAllowed = null;
 
@@ -19,8 +22,18 @@ class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isSignUpAllowed'])) {
             $this->isSignUpAllowed = $data['isSignUpAllowed'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

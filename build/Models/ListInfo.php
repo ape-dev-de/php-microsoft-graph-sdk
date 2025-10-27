@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ListInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If true, indicates that content types are enabled for this list. */
     public ?bool $contentTypesEnabled = null;
 
@@ -25,6 +28,7 @@ class ListInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['contentTypesEnabled'])) {
             $this->contentTypesEnabled = $data['contentTypesEnabled'];
         }
@@ -34,5 +38,14 @@ class ListInfo
         if (isset($data['template'])) {
             $this->template = $data['template'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

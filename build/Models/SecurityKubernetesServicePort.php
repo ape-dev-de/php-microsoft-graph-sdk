@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityKubernetesServicePort
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The application protocol for this port. */
     public ?string $appProtocol = null;
 
@@ -37,6 +40,7 @@ class SecurityKubernetesServicePort
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['appProtocol'])) {
             $this->appProtocol = $data['appProtocol'];
         }
@@ -55,5 +59,14 @@ class SecurityKubernetesServicePort
         if (isset($data['targetPort'])) {
             $this->targetPort = $data['targetPort'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

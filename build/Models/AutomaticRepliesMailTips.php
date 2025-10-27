@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AutomaticRepliesMailTips
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The automatic reply message. */
     public ?string $message = null;
 
@@ -37,6 +40,7 @@ class AutomaticRepliesMailTips
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['message'])) {
             $this->message = $data['message'];
         }
@@ -49,5 +53,14 @@ class AutomaticRepliesMailTips
         if (isset($data['scheduledStartTime'])) {
             $this->scheduledStartTime = is_array($data['scheduledStartTime']) ? new DateTimeTimeZone($data['scheduledStartTime']) : $data['scheduledStartTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EducationSubmissionIndividualRecipient
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** User ID of the user to whom the submission is assigned. */
     public ?string $userId = null;
 
@@ -19,8 +22,18 @@ class EducationSubmissionIndividualRecipient
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

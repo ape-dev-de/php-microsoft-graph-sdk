@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MailTips
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Mail tips for automatic reply if it has been set up by the recipient.
      * @var AutomaticRepliesMailTips|\stdClass|null
@@ -67,6 +70,7 @@ class MailTips
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['automaticReplies'])) {
             $this->automaticReplies = is_array($data['automaticReplies']) ? new AutomaticRepliesMailTips($data['automaticReplies']) : $data['automaticReplies'];
         }
@@ -103,5 +107,14 @@ class MailTips
         if (isset($data['totalMemberCount'])) {
             $this->totalMemberCount = $data['totalMemberCount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

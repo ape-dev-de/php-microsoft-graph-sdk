@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MessageSecurityState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $connectingIP = null;
 
@@ -43,6 +46,7 @@ class MessageSecurityState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['connectingIP'])) {
             $this->connectingIP = $data['connectingIP'];
         }
@@ -70,5 +74,14 @@ class MessageSecurityState
         if (isset($data['networkMessageId'])) {
             $this->networkMessageId = $data['networkMessageId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

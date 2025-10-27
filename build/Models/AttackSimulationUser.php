@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttackSimulationUser
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Display name of the user. */
     public ?string $displayName = null;
 
@@ -25,6 +28,7 @@ class AttackSimulationUser
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
@@ -34,5 +38,14 @@ class AttackSimulationUser
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityVendorInformation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specific provider (product/service - not vendor company); for example, WindowsDefenderATP. */
     public ?string $provider = null;
 
@@ -28,6 +31,7 @@ class SecurityVendorInformation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['provider'])) {
             $this->provider = $data['provider'];
         }
@@ -40,5 +44,14 @@ class SecurityVendorInformation
         if (isset($data['vendor'])) {
             $this->vendor = $data['vendor'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

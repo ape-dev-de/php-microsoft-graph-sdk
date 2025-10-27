@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyInboundTrust
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specifies whether compliant devices from external Microsoft Entra organizations are trusted. */
     public ?bool $isCompliantDeviceAccepted = null;
 
@@ -25,6 +28,7 @@ class CrossTenantAccessPolicyInboundTrust
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isCompliantDeviceAccepted'])) {
             $this->isCompliantDeviceAccepted = $data['isCompliantDeviceAccepted'];
         }
@@ -34,5 +38,14 @@ class CrossTenantAccessPolicyInboundTrust
         if (isset($data['isMfaAccepted'])) {
             $this->isMfaAccepted = $data['isMfaAccepted'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

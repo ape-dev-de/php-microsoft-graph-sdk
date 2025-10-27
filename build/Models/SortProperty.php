@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SortProperty
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** True if the sort order is descending. Default is false, with the sort order as ascending. Optional. */
     public ?bool $isDescending = null;
 
@@ -22,11 +25,21 @@ class SortProperty
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isDescending'])) {
             $this->isDescending = $data['isDescending'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

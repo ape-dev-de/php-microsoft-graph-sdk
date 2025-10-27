@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique identifier set by Azure Device Registration Service at the time of registration. */
     public ?string $deviceId = null;
 
@@ -109,6 +112,7 @@ class DeviceInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deviceId'])) {
             $this->deviceId = $data['deviceId'];
         }
@@ -196,5 +200,14 @@ class DeviceInfo
         if (isset($data['trustType'])) {
             $this->trustType = $data['trustType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

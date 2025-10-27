@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RecommendedAction
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Web URL to the recommended action. */
     public ?string $actionWebUrl = null;
 
@@ -25,6 +28,7 @@ class RecommendedAction
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['actionWebUrl'])) {
             $this->actionWebUrl = $data['actionWebUrl'];
         }
@@ -34,5 +38,14 @@ class RecommendedAction
         if (isset($data['title'])) {
             $this->title = $data['title'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BaseEndUserNotification
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The default language for the end user notification. */
     public ?string $defaultLanguage = null;
 
@@ -25,11 +28,21 @@ class BaseEndUserNotification
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['defaultLanguage'])) {
             $this->defaultLanguage = $data['defaultLanguage'];
         }
         if (isset($data['endUserNotification'])) {
             $this->endUserNotification = is_array($data['endUserNotification']) ? new EndUserNotification($data['endUserNotification']) : $data['endUserNotification'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

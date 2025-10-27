@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ParentalControlSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Specifies the two-letter ISO country codes. Access to the application will be blocked for minors from the countries specified in this list.
      * @var string[]
@@ -25,11 +28,21 @@ class ParentalControlSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['countriesBlockedForMinors'])) {
             $this->countriesBlockedForMinors = $data['countriesBlockedForMinors'];
         }
         if (isset($data['legalAgeGroupRule'])) {
             $this->legalAgeGroupRule = $data['legalAgeGroupRule'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

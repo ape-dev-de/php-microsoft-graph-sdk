@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The error code. For example, AzureDirectoryB2BManagementPolicyCheckFailure. */
     public ?string $code = null;
 
@@ -25,6 +28,7 @@ class SynchronizationError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['code'])) {
             $this->code = $data['code'];
         }
@@ -34,5 +38,14 @@ class SynchronizationError
         if (isset($data['tenantActionable'])) {
             $this->tenantActionable = $data['tenantActionable'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

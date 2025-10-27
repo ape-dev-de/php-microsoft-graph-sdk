@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConversationMemberRoleUpdatedEventMessageDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Roles for the coversation member user.
      * @var string[]
@@ -34,6 +37,7 @@ class ConversationMemberRoleUpdatedEventMessageDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['conversationMemberRoles'])) {
             $this->conversationMemberRoles = $data['conversationMemberRoles'];
         }
@@ -43,5 +47,14 @@ class ConversationMemberRoleUpdatedEventMessageDetail
         if (isset($data['initiator'])) {
             $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

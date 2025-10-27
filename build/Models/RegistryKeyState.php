@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RegistryKeyState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A Windows registry hive : HKEYCURRENTCONFIG HKEYCURRENTUSER HKEYLOCALMACHINE/SAM HKEYLOCALMACHINE/Security HKEYLOCALMACHINE/Software HKEYLOCALMACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault.
      * @var RegistryHive|\stdClass|null
@@ -55,6 +58,7 @@ class RegistryKeyState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hive'])) {
             $this->hive = is_array($data['hive']) ? new RegistryHive($data['hive']) : $data['hive'];
         }
@@ -85,5 +89,14 @@ class RegistryKeyState
         if (isset($data['valueType'])) {
             $this->valueType = is_array($data['valueType']) ? new RegistryValueType($data['valueType']) : $data['valueType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

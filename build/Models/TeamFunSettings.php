@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamFunSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If set to true, enables users to include custom memes. */
     public ?bool $allowCustomMemes = null;
 
@@ -31,6 +34,7 @@ class TeamFunSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowCustomMemes'])) {
             $this->allowCustomMemes = $data['allowCustomMemes'];
         }
@@ -43,5 +47,14 @@ class TeamFunSettings
         if (isset($data['giphyContentRating'])) {
             $this->giphyContentRating = is_array($data['giphyContentRating']) ? new GiphyRatingType($data['giphyContentRating']) : $data['giphyContentRating'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceMembershipChangeTrigger
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?IdentityGovernanceMembershipChangeType $changeType = null;
 
@@ -19,8 +22,18 @@ class IdentityGovernanceMembershipChangeTrigger
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['changeType'])) {
             $this->changeType = is_array($data['changeType']) ? new IdentityGovernanceMembershipChangeType($data['changeType']) : $data['changeType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecuritySslCertificateEntity
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A physical address of the entity.
      * @var PhysicalAddress|\stdClass|null
@@ -49,6 +52,7 @@ class SecuritySslCertificateEntity
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['address'])) {
             $this->address = is_array($data['address']) ? new PhysicalAddress($data['address']) : $data['address'];
         }
@@ -76,5 +80,14 @@ class SecuritySslCertificateEntity
         if (isset($data['surname'])) {
             $this->surname = $data['surname'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

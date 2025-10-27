@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OptionalClaim
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Additional properties of the claim. If a property exists in this collection, it modifies the behavior of the optional claim specified in the name property.
      * @var string[]
@@ -31,6 +34,7 @@ class OptionalClaim
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['additionalProperties'])) {
             $this->additionalProperties = $data['additionalProperties'];
         }
@@ -43,5 +47,14 @@ class OptionalClaim
         if (isset($data['source'])) {
             $this->source = $data['source'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

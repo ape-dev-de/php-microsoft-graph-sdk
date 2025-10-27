@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionAttachment
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?string $attachmentId = null;
 
@@ -31,6 +34,7 @@ class AiInteractionAttachment
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attachmentId'])) {
             $this->attachmentId = $data['attachmentId'];
         }
@@ -46,5 +50,14 @@ class AiInteractionAttachment
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

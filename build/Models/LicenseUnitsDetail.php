@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LicenseUnitsDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of units that are enabled for the active subscription of the service SKU. */
     public ?float $enabled = null;
 
@@ -28,6 +31,7 @@ class LicenseUnitsDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['enabled'])) {
             $this->enabled = $data['enabled'];
         }
@@ -40,5 +44,14 @@ class LicenseUnitsDetail
         if (isset($data['warning'])) {
             $this->warning = $data['warning'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceCompliancePolicySettingState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Current value of setting on device */
     public ?string $currentValue = null;
 
@@ -55,6 +58,7 @@ class DeviceCompliancePolicySettingState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['currentValue'])) {
             $this->currentValue = $data['currentValue'];
         }
@@ -91,5 +95,14 @@ class DeviceCompliancePolicySettingState
         if (isset($data['userPrincipalName'])) {
             $this->userPrincipalName = $data['userPrincipalName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

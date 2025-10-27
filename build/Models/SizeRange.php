@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SizeRange
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply. */
     public ?float $maximumSize = null;
 
@@ -22,11 +25,21 @@ class SizeRange
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['maximumSize'])) {
             $this->maximumSize = $data['maximumSize'];
         }
         if (isset($data['minimumSize'])) {
             $this->minimumSize = $data['minimumSize'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

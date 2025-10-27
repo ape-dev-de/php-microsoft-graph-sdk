@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RoleManagement
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var RbacApplication|\stdClass|null
@@ -28,11 +31,21 @@ class RoleManagement
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['directory'])) {
             $this->directory = is_array($data['directory']) ? new RbacApplication($data['directory']) : $data['directory'];
         }
         if (isset($data['entitlementManagement'])) {
             $this->entitlementManagement = is_array($data['entitlementManagement']) ? new RbacApplication($data['entitlementManagement']) : $data['entitlementManagement'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

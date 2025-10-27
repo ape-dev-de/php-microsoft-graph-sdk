@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharingLink
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The app the link is associated with.
      * @var Identity|\stdClass|null
@@ -37,6 +40,7 @@ class SharingLink
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['application'])) {
             $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
@@ -55,5 +59,14 @@ class SharingLink
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

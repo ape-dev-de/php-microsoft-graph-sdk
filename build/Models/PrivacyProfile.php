@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrivacyProfile
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A valid smtp email address for the privacy statement contact. Not required. */
     public ?string $contactEmail = null;
 
@@ -22,11 +25,21 @@ class PrivacyProfile
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['contactEmail'])) {
             $this->contactEmail = $data['contactEmail'];
         }
         if (isset($data['statementUrl'])) {
             $this->statementUrl = $data['statementUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEmailSender
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The name of the sender. */
     public ?string $displayName = null;
 
@@ -25,6 +28,7 @@ class SecurityEmailSender
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
@@ -34,5 +38,14 @@ class SecurityEmailSender
         if (isset($data['emailAddress'])) {
             $this->emailAddress = $data['emailAddress'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

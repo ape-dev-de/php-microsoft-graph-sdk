@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ResourceVisualization
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A string describing where the item is stored. For example, the name of a SharePoint site or the user name identifying the owner of the OneDrive storing the item. */
     public ?string $containerDisplayName = null;
 
@@ -40,6 +43,7 @@ class ResourceVisualization
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['containerDisplayName'])) {
             $this->containerDisplayName = $data['containerDisplayName'];
         }
@@ -64,5 +68,14 @@ class ResourceVisualization
         if (isset($data['type'])) {
             $this->type = $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

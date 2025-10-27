@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DeviceHealthAttestationState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate. */
     public ?string $attestationIdentityKey = null;
 
@@ -112,6 +115,7 @@ class DeviceHealthAttestationState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['attestationIdentityKey'])) {
             $this->attestationIdentityKey = $data['attestationIdentityKey'];
         }
@@ -208,5 +212,14 @@ class DeviceHealthAttestationState
         if (isset($data['windowsPE'])) {
             $this->windowsPE = $data['windowsPE'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

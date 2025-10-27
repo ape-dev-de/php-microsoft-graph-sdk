@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class KeyCredentialConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** String value that indicates the maximum lifetime for key expiration, defined as an ISO 8601 duration. For example, P4DT12H30M5S represents four days, 12 hours, 30 minutes, and five seconds. This property is required when restrictionType is set to keyLifetime. */
     public ?string $maxLifetime = null;
 
@@ -31,6 +34,7 @@ class KeyCredentialConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['maxLifetime'])) {
             $this->maxLifetime = $data['maxLifetime'];
         }
@@ -43,5 +47,14 @@ class KeyCredentialConfiguration
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new AppManagementRestrictionState($data['state']) : $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

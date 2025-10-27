@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserTrainingStatusInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Date and time of assignment of the training to the user. */
     public ?\DateTimeInterface $assignedDateTime = null;
 
@@ -31,6 +34,7 @@ class UserTrainingStatusInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['assignedDateTime'])) {
             $this->assignedDateTime = is_string($data['assignedDateTime']) ? new \DateTimeImmutable($data['assignedDateTime']) : $data['assignedDateTime'];
         }
@@ -43,5 +47,14 @@ class UserTrainingStatusInfo
         if (isset($data['trainingStatus'])) {
             $this->trainingStatus = is_array($data['trainingStatus']) ? new TrainingStatus($data['trainingStatus']) : $data['trainingStatus'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

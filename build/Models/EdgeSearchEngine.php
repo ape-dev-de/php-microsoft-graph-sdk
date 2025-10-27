@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EdgeSearchEngine
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?EdgeSearchEngineType $edgeSearchEngineType = null;
 
@@ -19,8 +22,18 @@ class EdgeSearchEngine
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['edgeSearchEngineType'])) {
             $this->edgeSearchEngineType = is_array($data['edgeSearchEngineType']) ? new EdgeSearchEngineType($data['edgeSearchEngineType']) : $data['edgeSearchEngineType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

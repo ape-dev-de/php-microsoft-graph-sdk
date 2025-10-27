@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintJobConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document. */
     public ?bool $collate = null;
 
@@ -103,6 +106,7 @@ class PrintJobConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['collate'])) {
             $this->collate = $data['collate'];
         }
@@ -160,5 +164,14 @@ class PrintJobConfiguration
         if (isset($data['scaling'])) {
             $this->scaling = is_array($data['scaling']) ? new PrintScaling($data['scaling']) : $data['scaling'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

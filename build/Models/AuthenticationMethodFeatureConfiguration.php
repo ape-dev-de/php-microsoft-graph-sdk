@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationMethodFeatureConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A single entity that is excluded from this feature.
      * @var FeatureTarget|\stdClass|null
@@ -34,6 +37,7 @@ class AuthenticationMethodFeatureConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['excludeTarget'])) {
             $this->excludeTarget = is_array($data['excludeTarget']) ? new FeatureTarget($data['excludeTarget']) : $data['excludeTarget'];
         }
@@ -43,5 +47,14 @@ class AuthenticationMethodFeatureConfiguration
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new AdvancedConfigState($data['state']) : $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

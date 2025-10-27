@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuthenticationFlow
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Represents the transfer methods in scope for the policy. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue. Default value is none.
      * @var ConditionalAccessTransferMethods|\stdClass|null
@@ -22,8 +25,18 @@ class AuthenticationFlow
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['transferMethod'])) {
             $this->transferMethod = is_array($data['transferMethod']) ? new ConditionalAccessTransferMethods($data['transferMethod']) : $data['transferMethod'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

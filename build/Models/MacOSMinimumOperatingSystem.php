@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MacOSMinimumOperatingSystem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE. */
     public ?bool $v10_10 = null;
 
@@ -52,6 +55,7 @@ class MacOSMinimumOperatingSystem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['v10_10'])) {
             $this->v10_10 = $data['v10_10'];
         }
@@ -88,5 +92,14 @@ class MacOSMinimumOperatingSystem
         if (isset($data['v13_0'])) {
             $this->v13_0 = $data['v13_0'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

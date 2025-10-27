@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttributeDefinition
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization. */
     public ?bool $anchor = null;
 
@@ -61,6 +64,7 @@ class AttributeDefinition
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['anchor'])) {
             $this->anchor = $data['anchor'];
         }
@@ -97,5 +101,14 @@ class AttributeDefinition
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new AttributeType($data['type']) : $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

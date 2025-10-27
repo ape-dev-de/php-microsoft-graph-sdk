@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationTaskExecution
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Identifier of the job run. */
     public ?string $activityIdentifier = null;
 
@@ -61,6 +64,7 @@ class SynchronizationTaskExecution
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['activityIdentifier'])) {
             $this->activityIdentifier = $data['activityIdentifier'];
         }
@@ -103,5 +107,14 @@ class SynchronizationTaskExecution
         if (isset($data['timeEnded'])) {
             $this->timeEnded = is_string($data['timeEnded']) ? new \DateTimeImmutable($data['timeEnded']) : $data['timeEnded'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

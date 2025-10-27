@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TenantRelationship
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The customer who has a delegated admin relationship with a Microsoft partner.
      * @var DelegatedAdminCustomer[]
@@ -34,6 +37,7 @@ class TenantRelationship
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['delegatedAdminCustomers'])) {
             $this->delegatedAdminCustomers = $data['delegatedAdminCustomers'];
         }
@@ -43,5 +47,14 @@ class TenantRelationship
         if (isset($data['multiTenantOrganization'])) {
             $this->multiTenantOrganization = is_array($data['multiTenantOrganization']) ? new MultiTenantOrganization($data['multiTenantOrganization']) : $data['multiTenantOrganization'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

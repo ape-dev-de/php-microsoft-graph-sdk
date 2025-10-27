@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernanceWorkflowsInsightsByCategory
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Failed 'Joiner' workflows processed in a tenant. */
     public ?float $failedJoinerRuns = null;
 
@@ -43,6 +46,7 @@ class IdentityGovernanceWorkflowsInsightsByCategory
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['failedJoinerRuns'])) {
             $this->failedJoinerRuns = $data['failedJoinerRuns'];
         }
@@ -70,5 +74,14 @@ class IdentityGovernanceWorkflowsInsightsByCategory
         if (isset($data['totalMoverRuns'])) {
             $this->totalMoverRuns = $data['totalMoverRuns'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

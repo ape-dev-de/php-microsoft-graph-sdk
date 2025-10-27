@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProcessFileMetadata
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Represents the actual content, either as text (textContent) or binary data (binaryContent). Optional if metadata alone is sufficient for policy evaluation. Do not use for contentActivities.
      * @var ContentBase|\stdClass|null
@@ -55,6 +58,7 @@ class ProcessFileMetadata
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['content'])) {
             $this->content = is_array($data['content']) ? new ContentBase($data['content']) : $data['content'];
         }
@@ -88,5 +92,14 @@ class ProcessFileMetadata
         if (isset($data['ownerId'])) {
             $this->ownerId = $data['ownerId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

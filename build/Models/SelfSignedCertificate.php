@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SelfSignedCertificate
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Custom key identifier. */
     public ?string $customKeyIdentifier = null;
 
@@ -43,6 +46,7 @@ class SelfSignedCertificate
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['customKeyIdentifier'])) {
             $this->customKeyIdentifier = $data['customKeyIdentifier'];
         }
@@ -70,5 +74,14 @@ class SelfSignedCertificate
         if (isset($data['usage'])) {
             $this->usage = $data['usage'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

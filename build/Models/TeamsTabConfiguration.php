@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamsTabConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Url used for rendering tab contents in Teams. Required. */
     public ?string $contentUrl = null;
 
@@ -28,6 +31,7 @@ class TeamsTabConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['contentUrl'])) {
             $this->contentUrl = $data['contentUrl'];
         }
@@ -40,5 +44,14 @@ class TeamsTabConfiguration
         if (isset($data['websiteUrl'])) {
             $this->websiteUrl = $data['websiteUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

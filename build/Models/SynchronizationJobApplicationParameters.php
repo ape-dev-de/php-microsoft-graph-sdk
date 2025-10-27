@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SynchronizationJobApplicationParameters
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template. */
     public ?string $ruleId = null;
 
@@ -25,11 +28,21 @@ class SynchronizationJobApplicationParameters
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['ruleId'])) {
             $this->ruleId = $data['ruleId'];
         }
         if (isset($data['subjects'])) {
             $this->subjects = $data['subjects'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

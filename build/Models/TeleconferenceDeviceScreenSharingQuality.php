@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeleconferenceDeviceScreenSharingQuality
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The average inbound stream network jitter. */
     public ?string $averageInboundJitter = null;
 
@@ -91,6 +94,7 @@ class TeleconferenceDeviceScreenSharingQuality
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['averageInboundJitter'])) {
             $this->averageInboundJitter = $data['averageInboundJitter'];
         }
@@ -166,5 +170,14 @@ class TeleconferenceDeviceScreenSharingQuality
         if (isset($data['averageOutboundFrameRate'])) {
             $this->averageOutboundFrameRate = $data['averageOutboundFrameRate'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

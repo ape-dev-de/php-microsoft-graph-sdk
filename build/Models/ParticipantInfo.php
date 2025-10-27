@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ParticipantInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
     public ?string $countryCode = null;
 
@@ -37,6 +40,7 @@ class ParticipantInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['countryCode'])) {
             $this->countryCode = $data['countryCode'];
         }
@@ -55,5 +59,14 @@ class ParticipantInfo
         if (isset($data['region'])) {
             $this->region = $data['region'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

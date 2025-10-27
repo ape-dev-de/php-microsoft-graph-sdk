@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InformationalUrl
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** CDN URL to the application's logo, Read-only. */
     public ?string $logoUrl = null;
 
@@ -31,6 +34,7 @@ class InformationalUrl
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['logoUrl'])) {
             $this->logoUrl = $data['logoUrl'];
         }
@@ -46,5 +50,14 @@ class InformationalUrl
         if (isset($data['termsOfServiceUrl'])) {
             $this->termsOfServiceUrl = $data['termsOfServiceUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

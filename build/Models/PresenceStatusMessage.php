@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PresenceStatusMessage
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Time in which the status message expires.If not provided, the status message doesn't expire.expiryDateTime.dateTime shouldn't include time zone.expiryDateTime isn't available when you request the presence of another user.
      * @var DateTimeTimeZone|\stdClass|null
@@ -31,6 +34,7 @@ class PresenceStatusMessage
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['expiryDateTime'])) {
             $this->expiryDateTime = is_array($data['expiryDateTime']) ? new DateTimeTimeZone($data['expiryDateTime']) : $data['expiryDateTime'];
         }
@@ -40,5 +44,14 @@ class PresenceStatusMessage
         if (isset($data['publishedDateTime'])) {
             $this->publishedDateTime = is_string($data['publishedDateTime']) ? new \DateTimeImmutable($data['publishedDateTime']) : $data['publishedDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

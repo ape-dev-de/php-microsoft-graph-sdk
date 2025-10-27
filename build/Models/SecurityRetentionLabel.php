@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityRetentionLabel
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -100,6 +103,7 @@ class SecurityRetentionLabel
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -154,5 +158,14 @@ class SecurityRetentionLabel
         if (isset($data['retentionEventType'])) {
             $this->retentionEventType = is_array($data['retentionEventType']) ? new SecurityRetentionEventType($data['retentionEventType']) : $data['retentionEventType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DriveItemUploadableProperties
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Provides a user-visible description of the item. Read-write. Only on OneDrive Personal. */
     public ?string $description = null;
 
@@ -43,6 +46,7 @@ class DriveItemUploadableProperties
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -61,5 +65,14 @@ class DriveItemUploadableProperties
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

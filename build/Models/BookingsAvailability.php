@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BookingsAvailability
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?BookingsServiceAvailabilityType $availabilityType = null;
 
@@ -25,11 +28,21 @@ class BookingsAvailability
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['availabilityType'])) {
             $this->availabilityType = is_array($data['availabilityType']) ? new BookingsServiceAvailabilityType($data['availabilityType']) : $data['availabilityType'];
         }
         if (isset($data['businessHours'])) {
             $this->businessHours = $data['businessHours'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

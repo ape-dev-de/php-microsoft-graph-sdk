@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HostSecurityState
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com). */
     public ?string $fqdn = null;
 
@@ -43,6 +46,7 @@ class HostSecurityState
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['fqdn'])) {
             $this->fqdn = $data['fqdn'];
         }
@@ -70,5 +74,14 @@ class HostSecurityState
         if (isset($data['riskScore'])) {
             $this->riskScore = $data['riskScore'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

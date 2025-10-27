@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsActivitySettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Specifies configurations to identify an externalItem based on a shared URL.
      * @var ExternalConnectorsUrlToItemResolverBase[]
@@ -22,8 +25,18 @@ class ExternalConnectorsActivitySettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['urlToItemResolvers'])) {
             $this->urlToItemResolvers = $data['urlToItemResolvers'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

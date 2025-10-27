@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DefaultUserRolePermissions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether the default user role can create applications. This setting corresponds to the Users can register applications setting in the User settings menu in the Microsoft Entra admin center. */
     public ?bool $allowedToCreateApps = null;
 
@@ -37,6 +40,7 @@ class DefaultUserRolePermissions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowedToCreateApps'])) {
             $this->allowedToCreateApps = $data['allowedToCreateApps'];
         }
@@ -55,5 +59,14 @@ class DefaultUserRolePermissions
         if (isset($data['permissionGrantPoliciesAssigned'])) {
             $this->permissionGrantPoliciesAssigned = $data['permissionGrantPoliciesAssigned'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

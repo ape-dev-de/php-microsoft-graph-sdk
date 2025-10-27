@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInConditions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Type of authentication flow. The possible value is: deviceCodeFlow or authenticationTransfer. Default value is none.
      * @var AuthenticationFlow|\stdClass|null
@@ -70,6 +73,7 @@ class SignInConditions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['authenticationFlow'])) {
             $this->authenticationFlow = is_array($data['authenticationFlow']) ? new AuthenticationFlow($data['authenticationFlow']) : $data['authenticationFlow'];
         }
@@ -100,5 +104,14 @@ class SignInConditions
         if (isset($data['userRiskLevel'])) {
             $this->userRiskLevel = is_array($data['userRiskLevel']) ? new RiskLevel($data['userRiskLevel']) : $data['userRiskLevel'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

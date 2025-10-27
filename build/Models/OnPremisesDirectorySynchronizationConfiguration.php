@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OnPremisesDirectorySynchronizationConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Contains the accidental deletion prevention configuration for a tenant.
      * @var OnPremisesAccidentalDeletionPrevention|\stdClass|null
@@ -22,8 +25,18 @@ class OnPremisesDirectorySynchronizationConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accidentalDeletionPrevention'])) {
             $this->accidentalDeletionPrevention = is_array($data['accidentalDeletionPrevention']) ? new OnPremisesAccidentalDeletionPrevention($data['accidentalDeletionPrevention']) : $data['accidentalDeletionPrevention'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProcessContentRequest
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?ActivityMetadata $activityMetadata = null;
 
@@ -37,6 +40,7 @@ class ProcessContentRequest
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['activityMetadata'])) {
             $this->activityMetadata = is_array($data['activityMetadata']) ? new ActivityMetadata($data['activityMetadata']) : $data['activityMetadata'];
         }
@@ -52,5 +56,14 @@ class ProcessContentRequest
         if (isset($data['protectedAppMetadata'])) {
             $this->protectedAppMetadata = is_array($data['protectedAppMetadata']) ? new ProtectedApplicationMetadata($data['protectedAppMetadata']) : $data['protectedAppMetadata'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

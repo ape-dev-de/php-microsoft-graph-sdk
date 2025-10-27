@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CalendarSharingMessageAction
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var CalendarSharingAction|\stdClass|null
@@ -34,6 +37,7 @@ class CalendarSharingMessageAction
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['action'])) {
             $this->action = is_array($data['action']) ? new CalendarSharingAction($data['action']) : $data['action'];
         }
@@ -43,5 +47,14 @@ class CalendarSharingMessageAction
         if (isset($data['importance'])) {
             $this->importance = is_array($data['importance']) ? new CalendarSharingActionImportance($data['importance']) : $data['importance'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class File
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Hashes of the file's binary content, if available. Read-only.
      * @var Hashes|\stdClass|null
@@ -28,6 +31,7 @@ class File
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hashes'])) {
             $this->hashes = is_array($data['hashes']) ? new Hashes($data['hashes']) : $data['hashes'];
         }
@@ -37,5 +41,14 @@ class File
         if (isset($data['processingMetadata'])) {
             $this->processingMetadata = $data['processingMetadata'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

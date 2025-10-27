@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SpecialFolder
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for this item in the /drive/special collection */
     public ?string $name = null;
 
@@ -19,8 +22,18 @@ class SpecialFolder
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

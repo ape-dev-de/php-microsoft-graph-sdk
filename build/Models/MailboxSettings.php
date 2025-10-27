@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MailboxSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Folder ID of an archive folder for the user. */
     public ?string $archiveFolder = null;
 
@@ -58,6 +61,7 @@ class MailboxSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['archiveFolder'])) {
             $this->archiveFolder = $data['archiveFolder'];
         }
@@ -85,5 +89,14 @@ class MailboxSettings
         if (isset($data['workingHours'])) {
             $this->workingHours = is_array($data['workingHours']) ? new WorkingHours($data['workingHours']) : $data['workingHours'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

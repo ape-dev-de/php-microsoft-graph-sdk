@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class BitLockerRemovableDrivePolicy
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** This policy setting determines whether BitLocker protection is required for removable data drives to be writable on a computer. */
     public ?bool $blockCrossOrganizationWriteAccess = null;
 
@@ -28,6 +31,7 @@ class BitLockerRemovableDrivePolicy
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['blockCrossOrganizationWriteAccess'])) {
             $this->blockCrossOrganizationWriteAccess = $data['blockCrossOrganizationWriteAccess'];
         }
@@ -37,5 +41,14 @@ class BitLockerRemovableDrivePolicy
         if (isset($data['requireEncryptionForWriteAccess'])) {
             $this->requireEncryptionForWriteAccess = $data['requireEncryptionForWriteAccess'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

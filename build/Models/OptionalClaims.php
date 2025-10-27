@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class OptionalClaims
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The optional claims returned in the JWT access token.
      * @var OptionalClaim[]
@@ -34,6 +37,7 @@ class OptionalClaims
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accessToken'])) {
             $this->accessToken = $data['accessToken'];
         }
@@ -43,5 +47,14 @@ class OptionalClaims
         if (isset($data['saml2Token'])) {
             $this->saml2Token = $data['saml2Token'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

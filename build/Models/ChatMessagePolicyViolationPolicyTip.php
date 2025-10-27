@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ChatMessagePolicyViolationPolicyTip
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The URL a user can visit to read about the data loss prevention policies for the organization. (ie, policies about what users shouldn't say in chats) */
     public ?string $complianceUrl = null;
 
@@ -28,6 +31,7 @@ class ChatMessagePolicyViolationPolicyTip
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['complianceUrl'])) {
             $this->complianceUrl = $data['complianceUrl'];
         }
@@ -37,5 +41,14 @@ class ChatMessagePolicyViolationPolicyTip
         if (isset($data['matchedConditionDescriptions'])) {
             $this->matchedConditionDescriptions = $data['matchedConditionDescriptions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

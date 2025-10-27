@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class InvitedUserMessageInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Additional recipients the invitation message should be sent to. Currently only one additional recipient is supported.
      * @var Recipient[]
@@ -28,6 +31,7 @@ class InvitedUserMessageInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['ccRecipients'])) {
             $this->ccRecipients = $data['ccRecipients'];
         }
@@ -37,5 +41,14 @@ class InvitedUserMessageInfo
         if (isset($data['messageLanguage'])) {
             $this->messageLanguage = $data['messageLanguage'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

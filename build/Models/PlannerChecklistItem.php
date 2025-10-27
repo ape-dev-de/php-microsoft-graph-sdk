@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PlannerChecklistItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Value is true if the item is checked and false otherwise. */
     public ?bool $isChecked = null;
 
@@ -34,6 +37,7 @@ class PlannerChecklistItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isChecked'])) {
             $this->isChecked = $data['isChecked'];
         }
@@ -49,5 +53,14 @@ class PlannerChecklistItem
         if (isset($data['title'])) {
             $this->title = $data['title'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

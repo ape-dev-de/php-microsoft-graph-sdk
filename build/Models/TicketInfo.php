@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TicketInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The ticket number. */
     public ?string $ticketNumber = null;
 
@@ -22,11 +25,21 @@ class TicketInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['ticketNumber'])) {
             $this->ticketNumber = $data['ticketNumber'];
         }
         if (isset($data['ticketSystem'])) {
             $this->ticketSystem = $data['ticketSystem'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

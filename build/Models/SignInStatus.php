@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SignInStatus
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Provides additional details on the sign-in activity */
     public ?string $additionalDetails = null;
 
@@ -25,6 +28,7 @@ class SignInStatus
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['additionalDetails'])) {
             $this->additionalDetails = $data['additionalDetails'];
         }
@@ -34,5 +38,14 @@ class SignInStatus
         if (isset($data['failureReason'])) {
             $this->failureReason = $data['failureReason'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UploadSession
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The date and time in UTC that the upload session expires. The complete file must be uploaded before this expiration time is reached. Each fragment uploaded during the session extends the expiration time. */
     public ?\DateTimeInterface $expirationDateTime = null;
 
@@ -28,6 +31,7 @@ class UploadSession
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['expirationDateTime'])) {
             $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
@@ -37,5 +41,14 @@ class UploadSession
         if (isset($data['uploadUrl'])) {
             $this->uploadUrl = $data['uploadUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

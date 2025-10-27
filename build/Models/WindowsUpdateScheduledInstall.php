@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsUpdateScheduledInstall
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?WeeklySchedule $scheduledInstallDay = null;
 
@@ -22,11 +25,21 @@ class WindowsUpdateScheduledInstall
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['scheduledInstallDay'])) {
             $this->scheduledInstallDay = is_array($data['scheduledInstallDay']) ? new WeeklySchedule($data['scheduledInstallDay']) : $data['scheduledInstallDay'];
         }
         if (isset($data['scheduledInstallTime'])) {
             $this->scheduledInstallTime = $data['scheduledInstallTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

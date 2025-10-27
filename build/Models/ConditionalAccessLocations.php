@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessLocations
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Location IDs excluded from scope of policy.
      * @var string[]
@@ -28,11 +31,21 @@ class ConditionalAccessLocations
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['excludeLocations'])) {
             $this->excludeLocations = $data['excludeLocations'];
         }
         if (isset($data['includeLocations'])) {
             $this->includeLocations = $data['includeLocations'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

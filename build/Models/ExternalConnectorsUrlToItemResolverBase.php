@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsUrlToItemResolverBase
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The priority which defines the sequence in which the urlToItemResolverBase instances are evaluated. */
     public ?float $priority = null;
 
@@ -19,8 +22,18 @@ class ExternalConnectorsUrlToItemResolverBase
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['priority'])) {
             $this->priority = $data['priority'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

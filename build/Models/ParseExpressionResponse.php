@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ParseExpressionResponse
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Error details, if expression evaluation resulted in an error.
      * @var PublicError|\stdClass|null
@@ -40,6 +43,7 @@ class ParseExpressionResponse
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['error'])) {
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
@@ -55,5 +59,14 @@ class ParseExpressionResponse
         if (isset($data['parsingSucceeded'])) {
             $this->parsingSucceeded = $data['parsingSucceeded'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PendingContentUpdate
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Date and time the pending binary operation was queued in UTC time. Read-only. */
     public ?\DateTimeInterface $queuedDateTime = null;
 
@@ -19,8 +22,18 @@ class PendingContentUpdate
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['queuedDateTime'])) {
             $this->queuedDateTime = is_string($data['queuedDateTime']) ? new \DateTimeImmutable($data['queuedDateTime']) : $data['queuedDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

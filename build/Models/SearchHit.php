@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchHit
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The name of the content source that the externalItem is part of. */
     public ?string $contentSource = null;
 
@@ -40,6 +43,7 @@ class SearchHit
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['contentSource'])) {
             $this->contentSource = $data['contentSource'];
         }
@@ -61,5 +65,14 @@ class SearchHit
         if (isset($data['resource'])) {
             $this->resource = is_array($data['resource']) ? new Entity($data['resource']) : $data['resource'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

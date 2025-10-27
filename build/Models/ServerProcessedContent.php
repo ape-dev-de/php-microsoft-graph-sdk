@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ServerProcessedContent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A key-value map where keys are string identifiers and values are rich text with HTML format. SharePoint servers treat the values as HTML content and run services like safety checks, search index and link fixup on them.
      * @var MetaDataKeyStringPair[]
@@ -40,6 +43,7 @@ class ServerProcessedContent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['htmlStrings'])) {
             $this->htmlStrings = $data['htmlStrings'];
         }
@@ -52,5 +56,14 @@ class ServerProcessedContent
         if (isset($data['searchablePlainTexts'])) {
             $this->searchablePlainTexts = $data['searchablePlainTexts'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

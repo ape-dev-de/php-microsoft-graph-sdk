@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ScheduleEntity
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?\DateTimeInterface $endDateTime = null;
 
@@ -25,6 +28,7 @@ class ScheduleEntity
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
@@ -34,5 +38,14 @@ class ScheduleEntity
         if (isset($data['theme'])) {
             $this->theme = is_array($data['theme']) ? new ScheduleEntityTheme($data['theme']) : $data['theme'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

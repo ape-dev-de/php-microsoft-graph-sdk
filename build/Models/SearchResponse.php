@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SearchResponse
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A collection of search results.
      * @var SearchHitsContainer[]
@@ -40,6 +43,7 @@ class SearchResponse
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hitsContainers'])) {
             $this->hitsContainers = $data['hitsContainers'];
         }
@@ -52,5 +56,14 @@ class SearchResponse
         if (isset($data['searchTerms'])) {
             $this->searchTerms = $data['searchTerms'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

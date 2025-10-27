@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkbookWorksheetProtectionOptions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether the worksheet protection option to allow the use of the autofilter feature is enabled. */
     public ?bool $allowAutoFilter = null;
 
@@ -49,6 +52,7 @@ class WorkbookWorksheetProtectionOptions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowAutoFilter'])) {
             $this->allowAutoFilter = $data['allowAutoFilter'];
         }
@@ -82,5 +86,14 @@ class WorkbookWorksheetProtectionOptions
         if (isset($data['allowSort'])) {
             $this->allowSort = $data['allowSort'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

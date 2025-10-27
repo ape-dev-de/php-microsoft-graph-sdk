@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionMentionedIdentitySet
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Optional. The application associated with this action.
      * @var Identity|\stdClass|null
@@ -46,6 +49,7 @@ class AiInteractionMentionedIdentitySet
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['application'])) {
             $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
@@ -61,5 +65,14 @@ class AiInteractionMentionedIdentitySet
         if (isset($data['tag'])) {
             $this->tag = is_array($data['tag']) ? new TeamworkTagIdentity($data['tag']) : $data['tag'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

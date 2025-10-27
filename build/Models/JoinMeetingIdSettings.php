@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class JoinMeetingIdSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional. */
     public ?bool $isPasscodeRequired = null;
 
@@ -25,6 +28,7 @@ class JoinMeetingIdSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isPasscodeRequired'])) {
             $this->isPasscodeRequired = $data['isPasscodeRequired'];
         }
@@ -34,5 +38,14 @@ class JoinMeetingIdSettings
         if (isset($data['passcode'])) {
             $this->passcode = $data['passcode'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

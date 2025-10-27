@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAssignmentApprovalSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If false, then approval isn't required for new requests in this policy. */
     public ?bool $isApprovalRequiredForAdd = null;
 
@@ -31,6 +34,7 @@ class AccessPackageAssignmentApprovalSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isApprovalRequiredForAdd'])) {
             $this->isApprovalRequiredForAdd = $data['isApprovalRequiredForAdd'];
         }
@@ -43,5 +47,14 @@ class AccessPackageAssignmentApprovalSettings
         if (isset($data['stages'])) {
             $this->stages = $data['stages'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

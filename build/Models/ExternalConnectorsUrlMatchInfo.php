@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ExternalConnectorsUrlMatchInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A list of the URL prefixes that must match URLs to be processed by this URL-to-item-resolver.
      * @var string[]
@@ -25,11 +28,21 @@ class ExternalConnectorsUrlMatchInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['baseUrls'])) {
             $this->baseUrls = $data['baseUrls'];
         }
         if (isset($data['urlPattern'])) {
             $this->urlPattern = $data['urlPattern'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

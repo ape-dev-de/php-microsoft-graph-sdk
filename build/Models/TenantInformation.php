@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TenantInformation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Primary domain name of a Microsoft Entra tenant. */
     public ?string $defaultDomainName = null;
 
@@ -28,6 +31,7 @@ class TenantInformation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['defaultDomainName'])) {
             $this->defaultDomainName = $data['defaultDomainName'];
         }
@@ -40,5 +44,14 @@ class TenantInformation
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

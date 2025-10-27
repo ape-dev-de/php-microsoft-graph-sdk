@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FollowupFlag
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The date and time that the follow-up was finished.
      * @var DateTimeTimeZone|\stdClass|null
@@ -40,6 +43,7 @@ class FollowupFlag
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['completedDateTime'])) {
             $this->completedDateTime = is_array($data['completedDateTime']) ? new DateTimeTimeZone($data['completedDateTime']) : $data['completedDateTime'];
         }
@@ -52,5 +56,14 @@ class FollowupFlag
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_array($data['startDateTime']) ? new DateTimeTimeZone($data['startDateTime']) : $data['startDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

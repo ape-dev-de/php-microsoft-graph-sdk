@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AutomaticRepliesSetting
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @var ExternalAudienceScope|\stdClass|null
@@ -46,6 +49,7 @@ class AutomaticRepliesSetting
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['externalAudience'])) {
             $this->externalAudience = is_array($data['externalAudience']) ? new ExternalAudienceScope($data['externalAudience']) : $data['externalAudience'];
         }
@@ -64,5 +68,14 @@ class AutomaticRepliesSetting
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new AutomaticRepliesStatus($data['status']) : $data['status'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

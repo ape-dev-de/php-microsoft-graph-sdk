@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class StringKeyObjectValuePair
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Key. */
     public ?string $key = null;
 
@@ -19,8 +22,18 @@ class StringKeyObjectValuePair
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['key'])) {
             $this->key = $data['key'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrinterDiscoverySettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?AirPrintSettings $airPrint = null;
 
@@ -19,8 +22,18 @@ class PrinterDiscoverySettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['airPrint'])) {
             $this->airPrint = is_array($data['airPrint']) ? new AirPrintSettings($data['airPrint']) : $data['airPrint'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

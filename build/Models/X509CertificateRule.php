@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class X509CertificateRule
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The identifier of the X.509 certificate. Required. */
     public ?string $identifier = null;
 
@@ -43,6 +46,7 @@ class X509CertificateRule
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['identifier'])) {
             $this->identifier = $data['identifier'];
         }
@@ -61,5 +65,14 @@ class X509CertificateRule
         if (isset($data['x509CertificateRuleType'])) {
             $this->x509CertificateRuleType = is_array($data['x509CertificateRuleType']) ? new X509CertificateRuleType($data['x509CertificateRuleType']) : $data['x509CertificateRuleType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

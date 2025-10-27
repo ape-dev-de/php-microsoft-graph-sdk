@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersonType
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The type of data source, such as Person. */
     public ?string $class = null;
 
@@ -22,11 +25,21 @@ class PersonType
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['class'])) {
             $this->class = $data['class'];
         }
         if (isset($data['subclass'])) {
             $this->subclass = $data['subclass'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

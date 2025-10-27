@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsCloudManagementDevicesSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Total number of  co-managed devices. Read-only. */
     public ?float $coManagedDeviceCount = null;
 
@@ -25,6 +28,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['coManagedDeviceCount'])) {
             $this->coManagedDeviceCount = $data['coManagedDeviceCount'];
         }
@@ -34,5 +38,14 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary
         if (isset($data['tenantAttachDeviceCount'])) {
             $this->tenantAttachDeviceCount = $data['tenantAttachDeviceCount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

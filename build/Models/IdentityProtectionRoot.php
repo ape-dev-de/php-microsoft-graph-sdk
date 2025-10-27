@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityProtectionRoot
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Risk detection in Microsoft Entra ID Protection and the associated information about the detection.
      * @var RiskDetection[]
@@ -40,6 +43,7 @@ class IdentityProtectionRoot
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['riskDetections'])) {
             $this->riskDetections = $data['riskDetections'];
         }
@@ -52,5 +56,14 @@ class IdentityProtectionRoot
         if (isset($data['servicePrincipalRiskDetections'])) {
             $this->servicePrincipalRiskDetections = $data['servicePrincipalRiskDetections'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppConfigurationSettingItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** app configuration key. */
     public ?string $appConfigKey = null;
 
@@ -25,6 +28,7 @@ class AppConfigurationSettingItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['appConfigKey'])) {
             $this->appConfigKey = $data['appConfigKey'];
         }
@@ -34,5 +38,14 @@ class AppConfigurationSettingItem
         if (isset($data['appConfigKeyValue'])) {
             $this->appConfigKeyValue = $data['appConfigKeyValue'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CommunicationsIdentitySet
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Optional. The application associated with this action.
      * @var Identity|\stdClass|null
@@ -82,6 +85,7 @@ class CommunicationsIdentitySet
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['application'])) {
             $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
@@ -115,5 +119,14 @@ class CommunicationsIdentitySet
         if (isset($data['phone'])) {
             $this->phone = is_array($data['phone']) ? new Identity($data['phone']) : $data['phone'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SiteCollection
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Represents whether the site collection is recently archived, fully archived, or reactivating. Possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue.
      * @var SiteArchivalDetails|\stdClass|null
@@ -34,6 +37,7 @@ class SiteCollection
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['archivalDetails'])) {
             $this->archivalDetails = is_array($data['archivalDetails']) ? new SiteArchivalDetails($data['archivalDetails']) : $data['archivalDetails'];
         }
@@ -46,5 +50,14 @@ class SiteCollection
         if (isset($data['root'])) {
             $this->root = is_array($data['root']) ? new Root($data['root']) : $data['root'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

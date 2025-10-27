@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Image
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Optional. Height of the image, in pixels. Read-only. */
     public ?float $height = null;
 
@@ -22,11 +25,21 @@ class Image
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['height'])) {
             $this->height = $data['height'];
         }
         if (isset($data['width'])) {
             $this->width = $data['width'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

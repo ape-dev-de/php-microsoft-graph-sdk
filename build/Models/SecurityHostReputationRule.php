@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostReputationRule
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The description of the rule that gives more context. */
     public ?string $description = null;
 
@@ -28,6 +31,7 @@ class SecurityHostReputationRule
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -40,5 +44,14 @@ class SecurityHostReputationRule
         if (isset($data['severity'])) {
             $this->severity = is_array($data['severity']) ? new SecurityHostReputationRuleSeverity($data['severity']) : $data['severity'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

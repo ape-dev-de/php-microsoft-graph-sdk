@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityEventPropagationResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The name of the specific location in the workload associated with the event. */
     public ?string $location = null;
 
@@ -31,6 +34,7 @@ class SecurityEventPropagationResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['location'])) {
             $this->location = $data['location'];
         }
@@ -43,5 +47,14 @@ class SecurityEventPropagationResult
         if (isset($data['statusInformation'])) {
             $this->statusInformation = $data['statusInformation'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class EmailPayloadDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var PayloadCoachmark[]
@@ -40,6 +43,7 @@ class EmailPayloadDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['coachmarks'])) {
             $this->coachmarks = $data['coachmarks'];
         }
@@ -61,5 +65,14 @@ class EmailPayloadDetail
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

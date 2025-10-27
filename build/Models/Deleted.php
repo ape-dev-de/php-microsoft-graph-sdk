@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Deleted
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Represents the state of the deleted item. */
     public ?string $state = null;
 
@@ -19,8 +22,18 @@ class Deleted
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['state'])) {
             $this->state = $data['state'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

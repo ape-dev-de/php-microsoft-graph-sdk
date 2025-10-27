@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AppListItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The application or bundle identifier of the application */
     public ?string $appId = null;
 
@@ -28,6 +31,7 @@ class AppListItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['appId'])) {
             $this->appId = $data['appId'];
         }
@@ -40,5 +44,14 @@ class AppListItem
         if (isset($data['publisher'])) {
             $this->publisher = $data['publisher'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

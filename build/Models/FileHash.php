@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileHash
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
      * @var FileHashType|\stdClass|null
@@ -25,11 +28,21 @@ class FileHash
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hashType'])) {
             $this->hashType = is_array($data['hashType']) ? new FileHashType($data['hashType']) : $data['hashType'];
         }
         if (isset($data['hashValue'])) {
             $this->hashValue = $data['hashValue'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

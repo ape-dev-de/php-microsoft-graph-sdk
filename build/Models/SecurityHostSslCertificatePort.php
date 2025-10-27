@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityHostSslCertificatePort
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The first date and time when this port was observed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $firstSeenDateTime = null;
 
@@ -25,6 +28,7 @@ class SecurityHostSslCertificatePort
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['firstSeenDateTime'])) {
             $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
@@ -34,5 +38,14 @@ class SecurityHostSslCertificatePort
         if (isset($data['port'])) {
             $this->port = $data['port'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

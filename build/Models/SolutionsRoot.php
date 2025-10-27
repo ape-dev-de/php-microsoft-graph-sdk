@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SolutionsRoot
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var BackupRestoreRoot|\stdClass|null
@@ -40,6 +43,7 @@ class SolutionsRoot
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['backupRestore'])) {
             $this->backupRestore = is_array($data['backupRestore']) ? new BackupRestoreRoot($data['backupRestore']) : $data['backupRestore'];
         }
@@ -52,5 +56,14 @@ class SolutionsRoot
         if (isset($data['virtualEvents'])) {
             $this->virtualEvents = is_array($data['virtualEvents']) ? new VirtualEventsRoot($data['virtualEvents']) : $data['virtualEvents'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

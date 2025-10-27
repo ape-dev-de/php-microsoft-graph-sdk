@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CertificateAuthority
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Required. The base64 encoded string representing the public certificate. */
     public ?string $certificate = null;
 
@@ -34,6 +37,7 @@ class CertificateAuthority
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['certificate'])) {
             $this->certificate = $data['certificate'];
         }
@@ -52,5 +56,14 @@ class CertificateAuthority
         if (isset($data['issuerSki'])) {
             $this->issuerSki = $data['issuerSki'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

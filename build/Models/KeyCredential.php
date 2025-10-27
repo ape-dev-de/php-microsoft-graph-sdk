@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class KeyCredential
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate. */
     public ?string $customKeyIdentifier = null;
 
@@ -40,6 +43,7 @@ class KeyCredential
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['customKeyIdentifier'])) {
             $this->customKeyIdentifier = $data['customKeyIdentifier'];
         }
@@ -64,5 +68,14 @@ class KeyCredential
         if (isset($data['usage'])) {
             $this->usage = $data['usage'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

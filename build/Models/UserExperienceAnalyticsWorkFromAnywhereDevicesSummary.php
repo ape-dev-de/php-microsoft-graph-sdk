@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The user experience analytics work from anywhere Autopilot devices summary. Read-only.
      * @var UserExperienceAnalyticsAutopilotDevicesSummary|\stdClass|null
@@ -70,6 +73,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['autopilotDevicesSummary'])) {
             $this->autopilotDevicesSummary = is_array($data['autopilotDevicesSummary']) ? new UserExperienceAnalyticsAutopilotDevicesSummary($data['autopilotDevicesSummary']) : $data['autopilotDevicesSummary'];
         }
@@ -112,5 +116,14 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
         if (isset($data['windows10DevicesWithoutTenantAttach'])) {
             $this->windows10DevicesWithoutTenantAttach = $data['windows10DevicesWithoutTenantAttach'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

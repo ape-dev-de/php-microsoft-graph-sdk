@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WindowsFirewallNetworkProfile
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Configures the firewall to merge authorized application rules from group policy with those from local store instead of ignoring the local store rules. When AuthorizedApplicationRulesFromGroupPolicyNotMerged and AuthorizedApplicationRulesFromGroupPolicyMerged are both true, AuthorizedApplicationRulesFromGroupPolicyMerged takes priority. */
     public ?bool $authorizedApplicationRulesFromGroupPolicyMerged = null;
 
@@ -52,6 +55,7 @@ class WindowsFirewallNetworkProfile
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['authorizedApplicationRulesFromGroupPolicyMerged'])) {
             $this->authorizedApplicationRulesFromGroupPolicyMerged = $data['authorizedApplicationRulesFromGroupPolicyMerged'];
         }
@@ -88,5 +92,14 @@ class WindowsFirewallNetworkProfile
         if (isset($data['unicastResponsesToMulticastBroadcastsBlocked'])) {
             $this->unicastResponsesToMulticastBroadcastsBlocked = $data['unicastResponsesToMulticastBroadcastsBlocked'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

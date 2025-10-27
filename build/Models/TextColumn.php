@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TextColumn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Whether to allow multiple lines of text. */
     public ?bool $allowMultipleLines = null;
 
@@ -31,6 +34,7 @@ class TextColumn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowMultipleLines'])) {
             $this->allowMultipleLines = $data['allowMultipleLines'];
         }
@@ -46,5 +50,14 @@ class TextColumn
         if (isset($data['textType'])) {
             $this->textType = $data['textType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

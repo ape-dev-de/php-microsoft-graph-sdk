@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Fido2KeyRestrictions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers.
      * @var string[]
@@ -31,6 +34,7 @@ class Fido2KeyRestrictions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['aaGuids'])) {
             $this->aaGuids = $data['aaGuids'];
         }
@@ -40,5 +44,14 @@ class Fido2KeyRestrictions
         if (isset($data['isEnforced'])) {
             $this->isEnforced = $data['isEnforced'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

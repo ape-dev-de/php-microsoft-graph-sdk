@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TeamworkActivityTopic
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text.
      * @var TeamworkActivityTopicSource|\stdClass|null
@@ -28,6 +31,7 @@ class TeamworkActivityTopic
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['source'])) {
             $this->source = is_array($data['source']) ? new TeamworkActivityTopicSource($data['source']) : $data['source'];
         }
@@ -37,5 +41,14 @@ class TeamworkActivityTopic
         if (isset($data['webUrl'])) {
             $this->webUrl = $data['webUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

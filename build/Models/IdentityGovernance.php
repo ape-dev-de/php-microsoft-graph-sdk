@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IdentityGovernance
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var AccessReviewSet|\stdClass|null
@@ -52,6 +55,7 @@ class IdentityGovernance
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accessReviews'])) {
             $this->accessReviews = is_array($data['accessReviews']) ? new AccessReviewSet($data['accessReviews']) : $data['accessReviews'];
         }
@@ -70,5 +74,14 @@ class IdentityGovernance
         if (isset($data['termsOfUse'])) {
             $this->termsOfUse = is_array($data['termsOfUse']) ? new TermsOfUseContainer($data['termsOfUse']) : $data['termsOfUse'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

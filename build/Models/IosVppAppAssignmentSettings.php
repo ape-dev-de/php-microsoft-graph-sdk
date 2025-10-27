@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosVppAppAssignmentSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Whether or not to use device licensing. */
     public ?bool $useDeviceLicensing = null;
 
@@ -22,11 +25,21 @@ class IosVppAppAssignmentSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['useDeviceLicensing'])) {
             $this->useDeviceLicensing = $data['useDeviceLicensing'];
         }
         if (isset($data['vpnConfigurationId'])) {
             $this->vpnConfigurationId = $data['vpnConfigurationId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

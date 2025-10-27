@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CustomExtensionCalloutResponse
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Contains the data the external system provides to the custom extension endpoint.
      * @var CustomExtensionData|\stdClass|null
@@ -28,6 +31,7 @@ class CustomExtensionCalloutResponse
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['data'])) {
             $this->data = is_array($data['data']) ? new CustomExtensionData($data['data']) : $data['data'];
         }
@@ -37,5 +41,14 @@ class CustomExtensionCalloutResponse
         if (isset($data['type'])) {
             $this->type = $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

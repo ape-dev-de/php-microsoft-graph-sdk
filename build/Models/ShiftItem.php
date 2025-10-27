@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ShiftItem
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?\DateTimeInterface $endDateTime = null;
 
@@ -37,6 +40,7 @@ class ShiftItem
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
@@ -55,5 +59,14 @@ class ShiftItem
         if (isset($data['notes'])) {
             $this->notes = $data['notes'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

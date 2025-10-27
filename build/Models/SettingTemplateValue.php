@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SettingTemplateValue
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Default value for the setting. */
     public ?string $defaultValue = null;
 
@@ -28,6 +31,7 @@ class SettingTemplateValue
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['defaultValue'])) {
             $this->defaultValue = $data['defaultValue'];
         }
@@ -40,5 +44,14 @@ class SettingTemplateValue
         if (isset($data['type'])) {
             $this->type = $data['type'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

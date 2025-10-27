@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordingEventMessageDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Unique identifier of the call. */
     public ?string $callId = null;
 
@@ -46,6 +49,7 @@ class CallRecordingEventMessageDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['callId'])) {
             $this->callId = $data['callId'];
         }
@@ -67,5 +71,14 @@ class CallRecordingEventMessageDetail
         if (isset($data['meetingOrganizer'])) {
             $this->meetingOrganizer = is_array($data['meetingOrganizer']) ? new IdentitySet($data['meetingOrganizer']) : $data['meetingOrganizer'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

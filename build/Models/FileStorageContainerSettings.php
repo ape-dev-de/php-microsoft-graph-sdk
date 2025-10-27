@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class FileStorageContainerSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether versioning is enabled for items in the container. Optional. Read-write. */
     public ?bool $isItemVersioningEnabled = null;
 
@@ -25,6 +28,7 @@ class FileStorageContainerSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isItemVersioningEnabled'])) {
             $this->isItemVersioningEnabled = $data['isItemVersioningEnabled'];
         }
@@ -34,5 +38,14 @@ class FileStorageContainerSettings
         if (isset($data['itemMajorVersionLimit'])) {
             $this->itemMajorVersionLimit = $data['itemMajorVersionLimit'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

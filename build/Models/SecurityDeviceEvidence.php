@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityDeviceEvidence
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public ?\DateTimeInterface $createdDateTime = null;
 
@@ -130,6 +133,7 @@ class SecurityDeviceEvidence
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
@@ -214,5 +218,14 @@ class SecurityDeviceEvidence
         if (isset($data['vmMetadata'])) {
             $this->vmMetadata = is_array($data['vmMetadata']) ? new SecurityVmMetadata($data['vmMetadata']) : $data['vmMetadata'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

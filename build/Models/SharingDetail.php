@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharingDetail
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The user who shared the document.
      * @var InsightIdentity|\stdClass|null
@@ -37,6 +40,7 @@ class SharingDetail
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['sharedBy'])) {
             $this->sharedBy = is_array($data['sharedBy']) ? new InsightIdentity($data['sharedBy']) : $data['sharedBy'];
         }
@@ -52,5 +56,14 @@ class SharingDetail
         if (isset($data['sharingType'])) {
             $this->sharingType = $data['sharingType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

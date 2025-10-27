@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrinterLocation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The altitude, in meters, that the printer is located at. */
     public ?float $altitudeInMeters = null;
 
@@ -76,6 +79,7 @@ class PrinterLocation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['altitudeInMeters'])) {
             $this->altitudeInMeters = $data['altitudeInMeters'];
         }
@@ -127,5 +131,14 @@ class PrinterLocation
         if (isset($data['subunit'])) {
             $this->subunit = $data['subunit'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

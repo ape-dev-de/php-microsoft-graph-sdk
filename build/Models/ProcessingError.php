@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProcessingError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** A service-defined error code string. */
     public ?string $code = null;
 
@@ -40,6 +43,7 @@ class ProcessingError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['code'])) {
             $this->code = $data['code'];
         }
@@ -58,5 +62,14 @@ class ProcessingError
         if (isset($data['errorType'])) {
             $this->errorType = is_array($data['errorType']) ? new ContentProcessingErrorType($data['errorType']) : $data['errorType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

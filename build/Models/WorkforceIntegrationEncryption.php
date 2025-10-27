@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkforceIntegrationEncryption
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Possible values are: sharedSecret, unknownFutureValue.
      * @var WorkforceIntegrationEncryptionProtocol|\stdClass|null
@@ -25,11 +28,21 @@ class WorkforceIntegrationEncryption
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['protocol'])) {
             $this->protocol = is_array($data['protocol']) ? new WorkforceIntegrationEncryptionProtocol($data['protocol']) : $data['protocol'];
         }
         if (isset($data['secret'])) {
             $this->secret = $data['secret'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

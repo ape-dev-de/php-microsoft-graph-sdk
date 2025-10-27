@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UpdateWindowsDeviceAccountActionParameter
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Not yet documented */
     public ?bool $calendarSyncEnabled = null;
 
@@ -37,6 +40,7 @@ class UpdateWindowsDeviceAccountActionParameter
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['calendarSyncEnabled'])) {
             $this->calendarSyncEnabled = $data['calendarSyncEnabled'];
         }
@@ -55,5 +59,14 @@ class UpdateWindowsDeviceAccountActionParameter
         if (isset($data['sessionInitiationProtocalAddress'])) {
             $this->sessionInitiationProtocalAddress = $data['sessionInitiationProtocalAddress'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

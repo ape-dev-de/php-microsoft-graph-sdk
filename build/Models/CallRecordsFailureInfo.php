@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsFailureInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Classification of why a call or portion of a call failed. */
     public ?string $reason = null;
 
@@ -22,11 +25,21 @@ class CallRecordsFailureInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['reason'])) {
             $this->reason = $data['reason'];
         }
         if (isset($data['stage'])) {
             $this->stage = is_array($data['stage']) ? new CallRecordsFailureStage($data['stage']) : $data['stage'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

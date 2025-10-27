@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageAssignmentRequestRequirements
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether the requestor is allowed to set a custom schedule. */
     public ?bool $allowCustomAssignmentSchedule = null;
 
@@ -49,6 +52,7 @@ class AccessPackageAssignmentRequestRequirements
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowCustomAssignmentSchedule'])) {
             $this->allowCustomAssignmentSchedule = $data['allowCustomAssignmentSchedule'];
         }
@@ -76,5 +80,14 @@ class AccessPackageAssignmentRequestRequirements
         if (isset($data['questions'])) {
             $this->questions = $data['questions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

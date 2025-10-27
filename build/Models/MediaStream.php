@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaStream
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?MediaDirection $direction = null;
 
@@ -31,6 +34,7 @@ class MediaStream
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['direction'])) {
             $this->direction = is_array($data['direction']) ? new MediaDirection($data['direction']) : $data['direction'];
         }
@@ -46,5 +50,14 @@ class MediaStream
         if (isset($data['sourceId'])) {
             $this->sourceId = $data['sourceId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

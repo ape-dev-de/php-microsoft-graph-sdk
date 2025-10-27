@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrinterCapabilities
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A list of supported bottom margins(in microns) for the printer.
      * @var float[]
@@ -154,6 +157,7 @@ class PrinterCapabilities
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['bottomMargins'])) {
             $this->bottomMargins = $data['bottomMargins'];
         }
@@ -229,5 +233,14 @@ class PrinterCapabilities
         if (isset($data['topMargins'])) {
             $this->topMargins = $data['topMargins'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

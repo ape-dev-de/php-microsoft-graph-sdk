@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ConditionalAccessApplications
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
      * @var ConditionalAccessFilter|\stdClass|null
@@ -46,6 +49,7 @@ class ConditionalAccessApplications
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applicationFilter'])) {
             $this->applicationFilter = is_array($data['applicationFilter']) ? new ConditionalAccessFilter($data['applicationFilter']) : $data['applicationFilter'];
         }
@@ -61,5 +65,14 @@ class ConditionalAccessApplications
         if (isset($data['includeUserActions'])) {
             $this->includeUserActions = $data['includeUserActions'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

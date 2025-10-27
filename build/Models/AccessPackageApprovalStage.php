@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AccessPackageApprovalStage
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of days that a request can be pending a response before it is automatically denied. */
     public ?string $durationBeforeAutomaticDenial = null;
 
@@ -52,6 +55,7 @@ class AccessPackageApprovalStage
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['durationBeforeAutomaticDenial'])) {
             $this->durationBeforeAutomaticDenial = $data['durationBeforeAutomaticDenial'];
         }
@@ -76,5 +80,14 @@ class AccessPackageApprovalStage
         if (isset($data['primaryApprovers'])) {
             $this->primaryApprovers = $data['primaryApprovers'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

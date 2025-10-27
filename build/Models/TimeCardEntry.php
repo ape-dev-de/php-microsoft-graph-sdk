@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeCardEntry
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The clock-in event of the timeCard.
      * @var TimeCardBreak[]
@@ -34,6 +37,7 @@ class TimeCardEntry
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['breaks'])) {
             $this->breaks = $data['breaks'];
         }
@@ -43,5 +47,14 @@ class TimeCardEntry
         if (isset($data['clockOutEvent'])) {
             $this->clockOutEvent = is_array($data['clockOutEvent']) ? new TimeCardEvent($data['clockOutEvent']) : $data['clockOutEvent'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

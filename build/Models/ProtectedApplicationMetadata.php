@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProtectedApplicationMetadata
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The name of the integrated application. */
     public ?string $name = null;
 
@@ -28,6 +31,7 @@ class ProtectedApplicationMetadata
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
@@ -37,5 +41,14 @@ class ProtectedApplicationMetadata
         if (isset($data['applicationLocation'])) {
             $this->applicationLocation = is_array($data['applicationLocation']) ? new PolicyLocation($data['applicationLocation']) : $data['applicationLocation'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

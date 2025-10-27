@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MicrosoftManagedTrainingSetting
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue.
      * @var TrainingSettingType|\stdClass|null
@@ -31,6 +34,7 @@ class MicrosoftManagedTrainingSetting
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['settingType'])) {
             $this->settingType = is_array($data['settingType']) ? new TrainingSettingType($data['settingType']) : $data['settingType'];
         }
@@ -40,5 +44,14 @@ class MicrosoftManagedTrainingSetting
         if (isset($data['trainingCompletionDuration'])) {
             $this->trainingCompletionDuration = is_array($data['trainingCompletionDuration']) ? new TrainingCompletionDuration($data['trainingCompletionDuration']) : $data['trainingCompletionDuration'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

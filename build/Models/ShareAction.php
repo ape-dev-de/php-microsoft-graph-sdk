@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ShareAction
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The identities the item was shared with in this action.
      * @var IdentitySet[]
@@ -22,8 +25,18 @@ class ShareAction
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['recipients'])) {
             $this->recipients = $data['recipients'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

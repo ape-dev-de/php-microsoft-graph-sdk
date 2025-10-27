@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class RubricLevel
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The description of this rubric level.
      * @var EducationItemBody|\stdClass|null
@@ -34,6 +37,7 @@ class RubricLevel
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = is_array($data['description']) ? new EducationItemBody($data['description']) : $data['description'];
         }
@@ -46,5 +50,14 @@ class RubricLevel
         if (isset($data['levelId'])) {
             $this->levelId = $data['levelId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

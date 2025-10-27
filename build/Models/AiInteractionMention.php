@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AiInteractionMention
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * 
      * @var AiInteractionMentionedIdentitySet|\stdClass|null
@@ -28,6 +31,7 @@ class AiInteractionMention
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['mentioned'])) {
             $this->mentioned = is_array($data['mentioned']) ? new AiInteractionMentionedIdentitySet($data['mentioned']) : $data['mentioned'];
         }
@@ -37,5 +41,14 @@ class AiInteractionMention
         if (isset($data['mentionText'])) {
             $this->mentionText = $data['mentionText'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

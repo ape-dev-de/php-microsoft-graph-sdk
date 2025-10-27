@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class LocateDeviceActionResult
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Action name */
     public ?string $actionName = null;
 
@@ -34,6 +37,7 @@ class LocateDeviceActionResult
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['actionName'])) {
             $this->actionName = $data['actionName'];
         }
@@ -49,5 +53,14 @@ class LocateDeviceActionResult
         if (isset($data['deviceLocation'])) {
             $this->deviceLocation = is_array($data['deviceLocation']) ? new DeviceGeoLocation($data['deviceLocation']) : $data['deviceLocation'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PersonOrGroupColumn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether multiple values can be selected from the source. */
     public ?bool $allowMultipleSelection = null;
 
@@ -25,6 +28,7 @@ class PersonOrGroupColumn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['allowMultipleSelection'])) {
             $this->allowMultipleSelection = $data['allowMultipleSelection'];
         }
@@ -34,5 +38,14 @@ class PersonOrGroupColumn
         if (isset($data['displayAs'])) {
             $this->displayAs = $data['displayAs'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

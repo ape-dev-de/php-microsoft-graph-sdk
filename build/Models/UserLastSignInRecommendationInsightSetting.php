@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserLastSignInRecommendationInsightSetting
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Optional. Indicates the time period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look-back duration. For reviews of groups and Microsoft Entra roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. */
     public ?string $recommendationLookBackDuration = null;
 
@@ -25,11 +28,21 @@ class UserLastSignInRecommendationInsightSetting
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['recommendationLookBackDuration'])) {
             $this->recommendationLookBackDuration = $data['recommendationLookBackDuration'];
         }
         if (isset($data['signInScope'])) {
             $this->signInScope = is_array($data['signInScope']) ? new UserSignInRecommendationScope($data['signInScope']) : $data['signInScope'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

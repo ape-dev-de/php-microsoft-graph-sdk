@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AddressBookAccountTargetContent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue.
      * @var AccountTargetContentType|\stdClass|null
@@ -28,11 +31,21 @@ class AddressBookAccountTargetContent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new AccountTargetContentType($data['type']) : $data['type'];
         }
         if (isset($data['accountTargetEmails'])) {
             $this->accountTargetEmails = $data['accountTargetEmails'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

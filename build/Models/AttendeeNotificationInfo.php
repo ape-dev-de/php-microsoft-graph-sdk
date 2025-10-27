@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AttendeeNotificationInfo
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The phone number of the external attendee. Required. */
     public ?string $phoneNumber = null;
 
@@ -22,11 +25,21 @@ class AttendeeNotificationInfo
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['phoneNumber'])) {
             $this->phoneNumber = $data['phoneNumber'];
         }
         if (isset($data['timeZone'])) {
             $this->timeZone = $data['timeZone'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

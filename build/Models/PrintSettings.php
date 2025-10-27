@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class PrintSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service converts documents into a format compatible with the printer (xps to pdf) when needed. */
     public ?bool $documentConversionEnabled = null;
 
@@ -25,11 +28,21 @@ class PrintSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['documentConversionEnabled'])) {
             $this->documentConversionEnabled = $data['documentConversionEnabled'];
         }
         if (isset($data['printerDiscoverySettings'])) {
             $this->printerDiscoverySettings = is_array($data['printerDiscoverySettings']) ? new PrinterDiscoverySettings($data['printerDiscoverySettings']) : $data['printerDiscoverySettings'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ItemActionStat
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The number of times the action took place. Read-only. */
     public ?float $actionCount = null;
 
@@ -22,11 +25,21 @@ class ItemActionStat
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['actionCount'])) {
             $this->actionCount = $data['actionCount'];
         }
         if (isset($data['actorCount'])) {
             $this->actorCount = $data['actorCount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

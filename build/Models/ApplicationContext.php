@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ApplicationContext
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Collection of appId values for the applications.
      * @var string[]
@@ -22,8 +25,18 @@ class ApplicationContext
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['includeApplications'])) {
             $this->includeApplications = $data['includeApplications'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

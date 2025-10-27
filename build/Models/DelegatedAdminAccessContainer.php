@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class DelegatedAdminAccessContainer
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The identifier of the access container (for example, a security group). For 'securityGroup' access containers, this must be a valid ID of a Microsoft Entra security group in the Microsoft partner's tenant. */
     public ?string $accessContainerId = null;
 
@@ -22,11 +25,21 @@ class DelegatedAdminAccessContainer
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['accessContainerId'])) {
             $this->accessContainerId = $data['accessContainerId'];
         }
         if (isset($data['accessContainerType'])) {
             $this->accessContainerType = is_array($data['accessContainerType']) ? new DelegatedAdminAccessContainerType($data['accessContainerType']) : $data['accessContainerType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

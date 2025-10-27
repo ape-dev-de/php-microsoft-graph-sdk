@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class AuditResource
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Audit resource's type. */
     public ?string $auditResourceType = null;
 
@@ -31,6 +34,7 @@ class AuditResource
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['auditResourceType'])) {
             $this->auditResourceType = $data['auditResourceType'];
         }
@@ -43,5 +47,14 @@ class AuditResource
         if (isset($data['resourceId'])) {
             $this->resourceId = $data['resourceId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

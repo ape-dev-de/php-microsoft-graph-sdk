@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Windows10TeamGeneralConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The unique identifier for an entity. Read-only. */
     public ?string $id = null;
 
@@ -130,6 +133,7 @@ class Windows10TeamGeneralConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -226,5 +230,14 @@ class Windows10TeamGeneralConfiguration
         if (isset($data['welcomeScreenMeetingInformation'])) {
             $this->welcomeScreenMeetingInformation = is_array($data['welcomeScreenMeetingInformation']) ? new WelcomeScreenMeetingInformation($data['welcomeScreenMeetingInformation']) : $data['welcomeScreenMeetingInformation'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

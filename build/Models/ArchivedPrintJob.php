@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ArchivedPrintJob
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The archived print job's GUID. Read-only. */
     public ?string $id = null;
 
@@ -49,6 +52,7 @@ class ArchivedPrintJob
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
@@ -79,5 +83,14 @@ class ArchivedPrintJob
         if (isset($data['processingState'])) {
             $this->processingState = is_array($data['processingState']) ? new PrintJobProcessingState($data['processingState']) : $data['processingState'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

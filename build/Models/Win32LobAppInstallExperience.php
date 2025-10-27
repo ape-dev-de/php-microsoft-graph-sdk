@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Win32LobAppInstallExperience
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?Win32LobAppRestartBehavior $deviceRestartBehavior = null;
 
@@ -22,11 +25,21 @@ class Win32LobAppInstallExperience
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deviceRestartBehavior'])) {
             $this->deviceRestartBehavior = is_array($data['deviceRestartBehavior']) ? new Win32LobAppRestartBehavior($data['deviceRestartBehavior']) : $data['deviceRestartBehavior'];
         }
         if (isset($data['runAsAccount'])) {
             $this->runAsAccount = is_array($data['runAsAccount']) ? new RunAsAccountType($data['runAsAccount']) : $data['runAsAccount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

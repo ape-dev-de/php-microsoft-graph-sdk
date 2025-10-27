@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CallRecordsUserFeedback
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?CallRecordsUserFeedbackRating $rating = null;
 
@@ -28,6 +31,7 @@ class CallRecordsUserFeedback
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['rating'])) {
             $this->rating = is_array($data['rating']) ? new CallRecordsUserFeedbackRating($data['rating']) : $data['rating'];
         }
@@ -37,5 +41,14 @@ class CallRecordsUserFeedback
         if (isset($data['tokens'])) {
             $this->tokens = is_array($data['tokens']) ? new CallRecordsFeedbackTokenSet($data['tokens']) : $data['tokens'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

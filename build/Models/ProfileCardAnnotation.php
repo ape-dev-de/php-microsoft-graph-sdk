@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProfileCardAnnotation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center'). */
     public ?string $displayName = null;
 
@@ -25,11 +28,21 @@ class ProfileCardAnnotation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['localizations'])) {
             $this->localizations = $data['localizations'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

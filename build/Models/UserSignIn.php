@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class UserSignIn
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** TenantId of the guest user as applies to Microsoft Entra B2B scenarios. */
     public ?string $externalTenantId = null;
 
@@ -25,6 +28,7 @@ class UserSignIn
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['externalTenantId'])) {
             $this->externalTenantId = $data['externalTenantId'];
         }
@@ -34,5 +38,14 @@ class UserSignIn
         if (isset($data['userId'])) {
             $this->userId = $data['userId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

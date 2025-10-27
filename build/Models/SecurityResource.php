@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityResource
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Name of the resource that is related to current alert. Required. */
     public ?string $resource = null;
 
@@ -25,11 +28,21 @@ class SecurityResource
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['resource'])) {
             $this->resource = $data['resource'];
         }
         if (isset($data['resourceType'])) {
             $this->resourceType = is_array($data['resourceType']) ? new SecurityResourceType($data['resourceType']) : $data['resourceType'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

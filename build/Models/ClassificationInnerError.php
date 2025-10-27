@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ClassificationInnerError
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The activity ID associated with the request that generated the error. */
     public ?string $activityId = null;
 
@@ -28,6 +31,7 @@ class ClassificationInnerError
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['activityId'])) {
             $this->activityId = $data['activityId'];
         }
@@ -40,5 +44,14 @@ class ClassificationInnerError
         if (isset($data['errorDateTime'])) {
             $this->errorDateTime = is_string($data['errorDateTime']) ? new \DateTimeImmutable($data['errorDateTime']) : $data['errorDateTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class Windows10NetworkProxyServer
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Address to the proxy server. Specify an address in the format [':'] */
     public ?string $address = null;
 
@@ -28,6 +31,7 @@ class Windows10NetworkProxyServer
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['address'])) {
             $this->address = $data['address'];
         }
@@ -37,5 +41,14 @@ class Windows10NetworkProxyServer
         if (isset($data['useForLocalAddresses'])) {
             $this->useForLocalAddresses = $data['useForLocalAddresses'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

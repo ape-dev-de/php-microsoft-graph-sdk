@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecuritySensorSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Description of the sensor. */
     public ?string $description = null;
 
@@ -34,6 +37,7 @@ class SecuritySensorSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
@@ -46,5 +50,14 @@ class SecuritySensorSettings
         if (isset($data['networkAdapters'])) {
             $this->networkAdapters = $data['networkAdapters'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

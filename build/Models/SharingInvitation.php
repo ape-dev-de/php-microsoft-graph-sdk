@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SharingInvitation
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The email address provided for the recipient of the sharing invitation. Read-only. */
     public ?string $email = null;
 
@@ -31,6 +34,7 @@ class SharingInvitation
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['email'])) {
             $this->email = $data['email'];
         }
@@ -43,5 +47,14 @@ class SharingInvitation
         if (isset($data['signInRequired'])) {
             $this->signInRequired = $data['signInRequired'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

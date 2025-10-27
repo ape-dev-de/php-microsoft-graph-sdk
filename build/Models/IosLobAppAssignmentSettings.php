@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IosLobAppAssignmentSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE. */
     public ?bool $isRemovable = null;
 
@@ -25,6 +28,7 @@ class IosLobAppAssignmentSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['isRemovable'])) {
             $this->isRemovable = $data['isRemovable'];
         }
@@ -34,5 +38,14 @@ class IosLobAppAssignmentSettings
         if (isset($data['vpnConfigurationId'])) {
             $this->vpnConfigurationId = $data['vpnConfigurationId'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

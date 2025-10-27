@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class IncomingCallOptions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether to hide the app after the call is escalated. */
     public ?bool $hideBotAfterEscalation = null;
 
@@ -28,6 +31,7 @@ class IncomingCallOptions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['hideBotAfterEscalation'])) {
             $this->hideBotAfterEscalation = $data['hideBotAfterEscalation'];
         }
@@ -40,5 +44,14 @@ class IncomingCallOptions
         if (isset($data['isInteractiveRosterEnabled'])) {
             $this->isInteractiveRosterEnabled = $data['isInteractiveRosterEnabled'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcAuditActor
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Name of the application. */
     public ?string $applicationDisplayName = null;
 
@@ -52,6 +55,7 @@ class CloudPcAuditActor
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['applicationDisplayName'])) {
             $this->applicationDisplayName = $data['applicationDisplayName'];
         }
@@ -82,5 +86,14 @@ class CloudPcAuditActor
         if (isset($data['userRoleScopeTags'])) {
             $this->userRoleScopeTags = $data['userRoleScopeTags'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

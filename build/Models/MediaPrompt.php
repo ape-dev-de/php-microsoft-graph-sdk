@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MediaPrompt
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /**  */
     public ?MediaInfo $mediaInfo = null;
 
@@ -19,8 +22,18 @@ class MediaPrompt
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['mediaInfo'])) {
             $this->mediaInfo = is_array($data['mediaInfo']) ? new MediaInfo($data['mediaInfo']) : $data['mediaInfo'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

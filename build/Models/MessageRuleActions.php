@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MessageRuleActions
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * A list of categories to be assigned to a message.
      * @var string[]
@@ -64,6 +67,7 @@ class MessageRuleActions
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['assignCategories'])) {
             $this->assignCategories = $data['assignCategories'];
         }
@@ -97,5 +101,14 @@ class MessageRuleActions
         if (isset($data['stopProcessingRules'])) {
             $this->stopProcessingRules = $data['stopProcessingRules'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

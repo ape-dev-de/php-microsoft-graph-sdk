@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecuritySensorDeploymentPackage
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** URL to download the sensor deployment package. */
     public ?string $downloadUrl = null;
 
@@ -22,11 +25,21 @@ class SecuritySensorDeploymentPackage
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['downloadUrl'])) {
             $this->downloadUrl = $data['downloadUrl'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

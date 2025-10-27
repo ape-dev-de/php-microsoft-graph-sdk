@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class ProvisionedPlan
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value. */
     public ?string $capabilityStatus = null;
 
@@ -25,6 +28,7 @@ class ProvisionedPlan
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['capabilityStatus'])) {
             $this->capabilityStatus = $data['capabilityStatus'];
         }
@@ -34,5 +38,14 @@ class ProvisionedPlan
         if (isset($data['service'])) {
             $this->service = $data['service'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CloudPcDomainJoinConfiguration
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave the regionName property empty. If you choose the azureADJoin type, provide a value for either the onPremisesConnectionId or the regionName property. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @var CloudPcDomainJoinType|\stdClass|null
@@ -34,6 +37,7 @@ class CloudPcDomainJoinConfiguration
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['domainJoinType'])) {
             $this->domainJoinType = is_array($data['domainJoinType']) ? new CloudPcDomainJoinType($data['domainJoinType']) : $data['domainJoinType'];
         }
@@ -46,5 +50,14 @@ class CloudPcDomainJoinConfiguration
         if (isset($data['regionName'])) {
             $this->regionName = $data['regionName'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

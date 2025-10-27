@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SimulationReportOverview
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * List of recommended actions for a tenant to improve its security posture based on the attack simulation and training campaign attack type.
      * @var RecommendedAction[]
@@ -37,6 +40,7 @@ class SimulationReportOverview
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['recommendedActions'])) {
             $this->recommendedActions = $data['recommendedActions'];
         }
@@ -49,5 +53,14 @@ class SimulationReportOverview
         if (isset($data['trainingEventsContent'])) {
             $this->trainingEventsContent = is_array($data['trainingEventsContent']) ? new TrainingEventsContent($data['trainingEventsContent']) : $data['trainingEventsContent'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

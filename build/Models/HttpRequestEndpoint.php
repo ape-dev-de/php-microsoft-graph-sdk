@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class HttpRequestEndpoint
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The HTTP endpoint that a custom extension calls. */
     public ?string $targetUrl = null;
 
@@ -19,8 +22,18 @@ class HttpRequestEndpoint
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['targetUrl'])) {
             $this->targetUrl = $data['targetUrl'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

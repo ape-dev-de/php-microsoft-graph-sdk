@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class CrossTenantAccessPolicyConfigurationPartner
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * Determines the partner-specific configuration for automatic user consent settings. Unless specifically configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.
      * @var InboundOutboundPolicyConfiguration|\stdClass|null
@@ -73,6 +76,7 @@ class CrossTenantAccessPolicyConfigurationPartner
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['automaticUserConsentSettings'])) {
             $this->automaticUserConsentSettings = is_array($data['automaticUserConsentSettings']) ? new InboundOutboundPolicyConfiguration($data['automaticUserConsentSettings']) : $data['automaticUserConsentSettings'];
         }
@@ -106,5 +110,14 @@ class CrossTenantAccessPolicyConfigurationPartner
         if (isset($data['identitySynchronization'])) {
             $this->identitySynchronization = is_array($data['identitySynchronization']) ? new CrossTenantIdentitySyncPolicyPartner($data['identitySynchronization']) : $data['identitySynchronization'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

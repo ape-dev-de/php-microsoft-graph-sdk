@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class WorkingHours
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** 
      * The days of the week on which the user works.
      * @var DayOfWeek[]
@@ -34,6 +37,7 @@ class WorkingHours
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['daysOfWeek'])) {
             $this->daysOfWeek = $data['daysOfWeek'];
         }
@@ -46,5 +50,14 @@ class WorkingHours
         if (isset($data['timeZone'])) {
             $this->timeZone = is_array($data['timeZone']) ? new TimeZoneBase($data['timeZone']) : $data['timeZone'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class SecurityTopicModelingSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** Indicates whether the themes model should dynamically optimize the number of generated topics. To learn more, see Adjust maximum number of themes dynamically. */
     public ?bool $dynamicallyAdjustTopicCount = null;
 
@@ -28,6 +31,7 @@ class SecurityTopicModelingSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['dynamicallyAdjustTopicCount'])) {
             $this->dynamicallyAdjustTopicCount = $data['dynamicallyAdjustTopicCount'];
         }
@@ -40,5 +44,14 @@ class SecurityTopicModelingSettings
         if (isset($data['topicCount'])) {
             $this->topicCount = $data['topicCount'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

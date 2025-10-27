@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class TimeCardEvent
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The time the entry is recorded. */
     public ?\DateTimeInterface $dateTime = null;
 
@@ -28,6 +31,7 @@ class TimeCardEvent
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['dateTime'])) {
             $this->dateTime = is_string($data['dateTime']) ? new \DateTimeImmutable($data['dateTime']) : $data['dateTime'];
         }
@@ -37,5 +41,14 @@ class TimeCardEvent
         if (isset($data['notes'])) {
             $this->notes = is_array($data['notes']) ? new ItemBody($data['notes']) : $data['notes'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }

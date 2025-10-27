@@ -9,6 +9,9 @@ namespace ApeDevDe\MicrosoftGraphSdk\Models;
  */
 class MobileAppInstallTimeSettings
 {
+    /** @var array<string, mixed> Raw data from API response */
+    private array $rawData = [];
+
     /** The time at which the app should be installed. */
     public ?\DateTimeInterface $deadlineDateTime = null;
 
@@ -25,6 +28,7 @@ class MobileAppInstallTimeSettings
      */
     public function __construct(array $data = [])
     {
+        $this->rawData = $data;
         if (isset($data['deadlineDateTime'])) {
             $this->deadlineDateTime = is_string($data['deadlineDateTime']) ? new \DateTimeImmutable($data['deadlineDateTime']) : $data['deadlineDateTime'];
         }
@@ -34,5 +38,14 @@ class MobileAppInstallTimeSettings
         if (isset($data['useLocalTime'])) {
             $this->useLocalTime = $data['useLocalTime'];
         }
+    }
+
+    /**
+     * Get raw data from API response
+     * @return array<string, mixed>
+     */
+    public function getRaw(): array
+    {
+        return $this->rawData;
     }
 }
