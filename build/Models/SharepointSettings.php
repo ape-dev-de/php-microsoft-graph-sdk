@@ -147,7 +147,7 @@ class SharepointSettings
             $this->availableManagedPathsForSiteCreation = $data['availableManagedPathsForSiteCreation'];
         }
         if (isset($data['deletedUserPersonalSiteRetentionPeriodInDays'])) {
-            $this->deletedUserPersonalSiteRetentionPeriodInDays = $data['deletedUserPersonalSiteRetentionPeriodInDays'];
+            $this->deletedUserPersonalSiteRetentionPeriodInDays = is_numeric($data['deletedUserPersonalSiteRetentionPeriodInDays']) ? (float)$data['deletedUserPersonalSiteRetentionPeriodInDays'] : $data['deletedUserPersonalSiteRetentionPeriodInDays'];
         }
         if (isset($data['excludedFileExtensionsForSyncApp'])) {
             $this->excludedFileExtensionsForSyncApp = $data['excludedFileExtensionsForSyncApp'];
@@ -159,52 +159,52 @@ class SharepointSettings
             $this->imageTaggingOption = is_array($data['imageTaggingOption']) ? new ImageTaggingChoice($data['imageTaggingOption']) : $data['imageTaggingOption'];
         }
         if (isset($data['isCommentingOnSitePagesEnabled'])) {
-            $this->isCommentingOnSitePagesEnabled = $data['isCommentingOnSitePagesEnabled'];
+            $this->isCommentingOnSitePagesEnabled = is_bool($data['isCommentingOnSitePagesEnabled']) ? $data['isCommentingOnSitePagesEnabled'] : (bool)$data['isCommentingOnSitePagesEnabled'];
         }
         if (isset($data['isFileActivityNotificationEnabled'])) {
-            $this->isFileActivityNotificationEnabled = $data['isFileActivityNotificationEnabled'];
+            $this->isFileActivityNotificationEnabled = is_bool($data['isFileActivityNotificationEnabled']) ? $data['isFileActivityNotificationEnabled'] : (bool)$data['isFileActivityNotificationEnabled'];
         }
         if (isset($data['isLegacyAuthProtocolsEnabled'])) {
-            $this->isLegacyAuthProtocolsEnabled = $data['isLegacyAuthProtocolsEnabled'];
+            $this->isLegacyAuthProtocolsEnabled = is_bool($data['isLegacyAuthProtocolsEnabled']) ? $data['isLegacyAuthProtocolsEnabled'] : (bool)$data['isLegacyAuthProtocolsEnabled'];
         }
         if (isset($data['isLoopEnabled'])) {
-            $this->isLoopEnabled = $data['isLoopEnabled'];
+            $this->isLoopEnabled = is_bool($data['isLoopEnabled']) ? $data['isLoopEnabled'] : (bool)$data['isLoopEnabled'];
         }
         if (isset($data['isMacSyncAppEnabled'])) {
-            $this->isMacSyncAppEnabled = $data['isMacSyncAppEnabled'];
+            $this->isMacSyncAppEnabled = is_bool($data['isMacSyncAppEnabled']) ? $data['isMacSyncAppEnabled'] : (bool)$data['isMacSyncAppEnabled'];
         }
         if (isset($data['isRequireAcceptingUserToMatchInvitedUserEnabled'])) {
-            $this->isRequireAcceptingUserToMatchInvitedUserEnabled = $data['isRequireAcceptingUserToMatchInvitedUserEnabled'];
+            $this->isRequireAcceptingUserToMatchInvitedUserEnabled = is_bool($data['isRequireAcceptingUserToMatchInvitedUserEnabled']) ? $data['isRequireAcceptingUserToMatchInvitedUserEnabled'] : (bool)$data['isRequireAcceptingUserToMatchInvitedUserEnabled'];
         }
         if (isset($data['isResharingByExternalUsersEnabled'])) {
-            $this->isResharingByExternalUsersEnabled = $data['isResharingByExternalUsersEnabled'];
+            $this->isResharingByExternalUsersEnabled = is_bool($data['isResharingByExternalUsersEnabled']) ? $data['isResharingByExternalUsersEnabled'] : (bool)$data['isResharingByExternalUsersEnabled'];
         }
         if (isset($data['isSharePointMobileNotificationEnabled'])) {
-            $this->isSharePointMobileNotificationEnabled = $data['isSharePointMobileNotificationEnabled'];
+            $this->isSharePointMobileNotificationEnabled = is_bool($data['isSharePointMobileNotificationEnabled']) ? $data['isSharePointMobileNotificationEnabled'] : (bool)$data['isSharePointMobileNotificationEnabled'];
         }
         if (isset($data['isSharePointNewsfeedEnabled'])) {
-            $this->isSharePointNewsfeedEnabled = $data['isSharePointNewsfeedEnabled'];
+            $this->isSharePointNewsfeedEnabled = is_bool($data['isSharePointNewsfeedEnabled']) ? $data['isSharePointNewsfeedEnabled'] : (bool)$data['isSharePointNewsfeedEnabled'];
         }
         if (isset($data['isSiteCreationEnabled'])) {
-            $this->isSiteCreationEnabled = $data['isSiteCreationEnabled'];
+            $this->isSiteCreationEnabled = is_bool($data['isSiteCreationEnabled']) ? $data['isSiteCreationEnabled'] : (bool)$data['isSiteCreationEnabled'];
         }
         if (isset($data['isSiteCreationUIEnabled'])) {
-            $this->isSiteCreationUIEnabled = $data['isSiteCreationUIEnabled'];
+            $this->isSiteCreationUIEnabled = is_bool($data['isSiteCreationUIEnabled']) ? $data['isSiteCreationUIEnabled'] : (bool)$data['isSiteCreationUIEnabled'];
         }
         if (isset($data['isSitePagesCreationEnabled'])) {
-            $this->isSitePagesCreationEnabled = $data['isSitePagesCreationEnabled'];
+            $this->isSitePagesCreationEnabled = is_bool($data['isSitePagesCreationEnabled']) ? $data['isSitePagesCreationEnabled'] : (bool)$data['isSitePagesCreationEnabled'];
         }
         if (isset($data['isSitesStorageLimitAutomatic'])) {
-            $this->isSitesStorageLimitAutomatic = $data['isSitesStorageLimitAutomatic'];
+            $this->isSitesStorageLimitAutomatic = is_bool($data['isSitesStorageLimitAutomatic']) ? $data['isSitesStorageLimitAutomatic'] : (bool)$data['isSitesStorageLimitAutomatic'];
         }
         if (isset($data['isSyncButtonHiddenOnPersonalSite'])) {
-            $this->isSyncButtonHiddenOnPersonalSite = $data['isSyncButtonHiddenOnPersonalSite'];
+            $this->isSyncButtonHiddenOnPersonalSite = is_bool($data['isSyncButtonHiddenOnPersonalSite']) ? $data['isSyncButtonHiddenOnPersonalSite'] : (bool)$data['isSyncButtonHiddenOnPersonalSite'];
         }
         if (isset($data['isUnmanagedSyncAppForTenantRestricted'])) {
-            $this->isUnmanagedSyncAppForTenantRestricted = $data['isUnmanagedSyncAppForTenantRestricted'];
+            $this->isUnmanagedSyncAppForTenantRestricted = is_bool($data['isUnmanagedSyncAppForTenantRestricted']) ? $data['isUnmanagedSyncAppForTenantRestricted'] : (bool)$data['isUnmanagedSyncAppForTenantRestricted'];
         }
         if (isset($data['personalSiteDefaultStorageLimitInMB'])) {
-            $this->personalSiteDefaultStorageLimitInMB = $data['personalSiteDefaultStorageLimitInMB'];
+            $this->personalSiteDefaultStorageLimitInMB = is_numeric($data['personalSiteDefaultStorageLimitInMB']) ? (float)$data['personalSiteDefaultStorageLimitInMB'] : $data['personalSiteDefaultStorageLimitInMB'];
         }
         if (isset($data['sharingAllowedDomainList'])) {
             $this->sharingAllowedDomainList = $data['sharingAllowedDomainList'];
@@ -222,7 +222,7 @@ class SharepointSettings
             $this->siteCreationDefaultManagedPath = $data['siteCreationDefaultManagedPath'];
         }
         if (isset($data['siteCreationDefaultStorageLimitInMB'])) {
-            $this->siteCreationDefaultStorageLimitInMB = $data['siteCreationDefaultStorageLimitInMB'];
+            $this->siteCreationDefaultStorageLimitInMB = is_numeric($data['siteCreationDefaultStorageLimitInMB']) ? (float)$data['siteCreationDefaultStorageLimitInMB'] : $data['siteCreationDefaultStorageLimitInMB'];
         }
         if (isset($data['tenantDefaultTimezone'])) {
             $this->tenantDefaultTimezone = $data['tenantDefaultTimezone'];

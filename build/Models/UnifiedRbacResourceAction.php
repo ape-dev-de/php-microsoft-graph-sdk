@@ -54,7 +54,7 @@ class UnifiedRbacResourceAction
             $this->description = $data['description'];
         }
         if (isset($data['isAuthenticationContextSettable'])) {
-            $this->isAuthenticationContextSettable = $data['isAuthenticationContextSettable'];
+            $this->isAuthenticationContextSettable = is_bool($data['isAuthenticationContextSettable']) ? $data['isAuthenticationContextSettable'] : (bool)$data['isAuthenticationContextSettable'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

@@ -45,7 +45,7 @@ class SecuritySensorSettings
             $this->domainControllerDnsNames = $data['domainControllerDnsNames'];
         }
         if (isset($data['isDelayedDeploymentEnabled'])) {
-            $this->isDelayedDeploymentEnabled = $data['isDelayedDeploymentEnabled'];
+            $this->isDelayedDeploymentEnabled = is_bool($data['isDelayedDeploymentEnabled']) ? $data['isDelayedDeploymentEnabled'] : (bool)$data['isDelayedDeploymentEnabled'];
         }
         if (isset($data['networkAdapters'])) {
             $this->networkAdapters = $data['networkAdapters'];

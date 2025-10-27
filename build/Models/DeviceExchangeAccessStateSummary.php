@@ -36,19 +36,19 @@ class DeviceExchangeAccessStateSummary
     {
         $this->rawData = $data;
         if (isset($data['allowedDeviceCount'])) {
-            $this->allowedDeviceCount = $data['allowedDeviceCount'];
+            $this->allowedDeviceCount = is_numeric($data['allowedDeviceCount']) ? (float)$data['allowedDeviceCount'] : $data['allowedDeviceCount'];
         }
         if (isset($data['blockedDeviceCount'])) {
-            $this->blockedDeviceCount = $data['blockedDeviceCount'];
+            $this->blockedDeviceCount = is_numeric($data['blockedDeviceCount']) ? (float)$data['blockedDeviceCount'] : $data['blockedDeviceCount'];
         }
         if (isset($data['quarantinedDeviceCount'])) {
-            $this->quarantinedDeviceCount = $data['quarantinedDeviceCount'];
+            $this->quarantinedDeviceCount = is_numeric($data['quarantinedDeviceCount']) ? (float)$data['quarantinedDeviceCount'] : $data['quarantinedDeviceCount'];
         }
         if (isset($data['unavailableDeviceCount'])) {
-            $this->unavailableDeviceCount = $data['unavailableDeviceCount'];
+            $this->unavailableDeviceCount = is_numeric($data['unavailableDeviceCount']) ? (float)$data['unavailableDeviceCount'] : $data['unavailableDeviceCount'];
         }
         if (isset($data['unknownDeviceCount'])) {
-            $this->unknownDeviceCount = $data['unknownDeviceCount'];
+            $this->unknownDeviceCount = is_numeric($data['unknownDeviceCount']) ? (float)$data['unknownDeviceCount'] : $data['unknownDeviceCount'];
         }
     }
 

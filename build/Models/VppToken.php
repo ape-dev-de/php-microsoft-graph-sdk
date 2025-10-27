@@ -63,7 +63,7 @@ class VppToken
             $this->appleId = $data['appleId'];
         }
         if (isset($data['automaticallyUpdateApps'])) {
-            $this->automaticallyUpdateApps = $data['automaticallyUpdateApps'];
+            $this->automaticallyUpdateApps = is_bool($data['automaticallyUpdateApps']) ? $data['automaticallyUpdateApps'] : (bool)$data['automaticallyUpdateApps'];
         }
         if (isset($data['countryOrRegion'])) {
             $this->countryOrRegion = $data['countryOrRegion'];

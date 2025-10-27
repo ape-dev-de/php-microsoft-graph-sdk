@@ -66,7 +66,7 @@ class WorkbookNamedItem
             $this->value = $data['value'];
         }
         if (isset($data['visible'])) {
-            $this->visible = $data['visible'];
+            $this->visible = is_bool($data['visible']) ? $data['visible'] : (bool)$data['visible'];
         }
         if (isset($data['worksheet'])) {
             $this->worksheet = is_array($data['worksheet']) ? new WorkbookWorksheet($data['worksheet']) : $data['worksheet'];

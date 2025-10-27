@@ -63,7 +63,7 @@ class StsPolicy
             $this->definition = $data['definition'];
         }
         if (isset($data['isOrganizationDefault'])) {
-            $this->isOrganizationDefault = $data['isOrganizationDefault'];
+            $this->isOrganizationDefault = is_bool($data['isOrganizationDefault']) ? $data['isOrganizationDefault'] : (bool)$data['isOrganizationDefault'];
         }
         if (isset($data['appliesTo'])) {
             $this->appliesTo = $data['appliesTo'];

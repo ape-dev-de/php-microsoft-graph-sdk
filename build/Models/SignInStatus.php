@@ -33,7 +33,7 @@ class SignInStatus
             $this->additionalDetails = $data['additionalDetails'];
         }
         if (isset($data['errorCode'])) {
-            $this->errorCode = $data['errorCode'];
+            $this->errorCode = is_numeric($data['errorCode']) ? (float)$data['errorCode'] : $data['errorCode'];
         }
         if (isset($data['failureReason'])) {
             $this->failureReason = $data['failureReason'];

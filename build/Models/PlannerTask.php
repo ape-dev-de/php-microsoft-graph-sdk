@@ -129,7 +129,7 @@ class PlannerTask
             $this->id = $data['id'];
         }
         if (isset($data['activeChecklistItemCount'])) {
-            $this->activeChecklistItemCount = $data['activeChecklistItemCount'];
+            $this->activeChecklistItemCount = is_numeric($data['activeChecklistItemCount']) ? (float)$data['activeChecklistItemCount'] : $data['activeChecklistItemCount'];
         }
         if (isset($data['appliedCategories'])) {
             $this->appliedCategories = is_array($data['appliedCategories']) ? new PlannerAppliedCategories($data['appliedCategories']) : $data['appliedCategories'];
@@ -144,7 +144,7 @@ class PlannerTask
             $this->bucketId = $data['bucketId'];
         }
         if (isset($data['checklistItemCount'])) {
-            $this->checklistItemCount = $data['checklistItemCount'];
+            $this->checklistItemCount = is_numeric($data['checklistItemCount']) ? (float)$data['checklistItemCount'] : $data['checklistItemCount'];
         }
         if (isset($data['completedBy'])) {
             $this->completedBy = is_array($data['completedBy']) ? new IdentitySet($data['completedBy']) : $data['completedBy'];
@@ -165,13 +165,13 @@ class PlannerTask
             $this->dueDateTime = is_string($data['dueDateTime']) ? new \DateTimeImmutable($data['dueDateTime']) : $data['dueDateTime'];
         }
         if (isset($data['hasDescription'])) {
-            $this->hasDescription = $data['hasDescription'];
+            $this->hasDescription = is_bool($data['hasDescription']) ? $data['hasDescription'] : (bool)$data['hasDescription'];
         }
         if (isset($data['orderHint'])) {
             $this->orderHint = $data['orderHint'];
         }
         if (isset($data['percentComplete'])) {
-            $this->percentComplete = $data['percentComplete'];
+            $this->percentComplete = is_numeric($data['percentComplete']) ? (float)$data['percentComplete'] : $data['percentComplete'];
         }
         if (isset($data['planId'])) {
             $this->planId = $data['planId'];
@@ -180,10 +180,10 @@ class PlannerTask
             $this->previewType = is_array($data['previewType']) ? new PlannerPreviewType($data['previewType']) : $data['previewType'];
         }
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['referenceCount'])) {
-            $this->referenceCount = $data['referenceCount'];
+            $this->referenceCount = is_numeric($data['referenceCount']) ? (float)$data['referenceCount'] : $data['referenceCount'];
         }
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];

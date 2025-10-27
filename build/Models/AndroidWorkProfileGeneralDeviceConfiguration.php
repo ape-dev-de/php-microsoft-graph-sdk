@@ -192,7 +192,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -213,55 +213,55 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['passwordBlockFingerprintUnlock'])) {
-            $this->passwordBlockFingerprintUnlock = $data['passwordBlockFingerprintUnlock'];
+            $this->passwordBlockFingerprintUnlock = is_bool($data['passwordBlockFingerprintUnlock']) ? $data['passwordBlockFingerprintUnlock'] : (bool)$data['passwordBlockFingerprintUnlock'];
         }
         if (isset($data['passwordBlockTrustAgents'])) {
-            $this->passwordBlockTrustAgents = $data['passwordBlockTrustAgents'];
+            $this->passwordBlockTrustAgents = is_bool($data['passwordBlockTrustAgents']) ? $data['passwordBlockTrustAgents'] : (bool)$data['passwordBlockTrustAgents'];
         }
         if (isset($data['passwordExpirationDays'])) {
-            $this->passwordExpirationDays = $data['passwordExpirationDays'];
+            $this->passwordExpirationDays = is_numeric($data['passwordExpirationDays']) ? (float)$data['passwordExpirationDays'] : $data['passwordExpirationDays'];
         }
         if (isset($data['passwordMinimumLength'])) {
-            $this->passwordMinimumLength = $data['passwordMinimumLength'];
+            $this->passwordMinimumLength = is_numeric($data['passwordMinimumLength']) ? (float)$data['passwordMinimumLength'] : $data['passwordMinimumLength'];
         }
         if (isset($data['passwordMinutesOfInactivityBeforeScreenTimeout'])) {
-            $this->passwordMinutesOfInactivityBeforeScreenTimeout = $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
+            $this->passwordMinutesOfInactivityBeforeScreenTimeout = is_numeric($data['passwordMinutesOfInactivityBeforeScreenTimeout']) ? (float)$data['passwordMinutesOfInactivityBeforeScreenTimeout'] : $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
         }
         if (isset($data['passwordPreviousPasswordBlockCount'])) {
-            $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
+            $this->passwordPreviousPasswordBlockCount = is_numeric($data['passwordPreviousPasswordBlockCount']) ? (float)$data['passwordPreviousPasswordBlockCount'] : $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequiredType'])) {
             $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new AndroidWorkProfileRequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
-            $this->passwordSignInFailureCountBeforeFactoryReset = $data['passwordSignInFailureCountBeforeFactoryReset'];
+            $this->passwordSignInFailureCountBeforeFactoryReset = is_numeric($data['passwordSignInFailureCountBeforeFactoryReset']) ? (float)$data['passwordSignInFailureCountBeforeFactoryReset'] : $data['passwordSignInFailureCountBeforeFactoryReset'];
         }
         if (isset($data['securityRequireVerifyApps'])) {
-            $this->securityRequireVerifyApps = $data['securityRequireVerifyApps'];
+            $this->securityRequireVerifyApps = is_bool($data['securityRequireVerifyApps']) ? $data['securityRequireVerifyApps'] : (bool)$data['securityRequireVerifyApps'];
         }
         if (isset($data['workProfileBlockAddingAccounts'])) {
-            $this->workProfileBlockAddingAccounts = $data['workProfileBlockAddingAccounts'];
+            $this->workProfileBlockAddingAccounts = is_bool($data['workProfileBlockAddingAccounts']) ? $data['workProfileBlockAddingAccounts'] : (bool)$data['workProfileBlockAddingAccounts'];
         }
         if (isset($data['workProfileBlockCamera'])) {
-            $this->workProfileBlockCamera = $data['workProfileBlockCamera'];
+            $this->workProfileBlockCamera = is_bool($data['workProfileBlockCamera']) ? $data['workProfileBlockCamera'] : (bool)$data['workProfileBlockCamera'];
         }
         if (isset($data['workProfileBlockCrossProfileCallerId'])) {
-            $this->workProfileBlockCrossProfileCallerId = $data['workProfileBlockCrossProfileCallerId'];
+            $this->workProfileBlockCrossProfileCallerId = is_bool($data['workProfileBlockCrossProfileCallerId']) ? $data['workProfileBlockCrossProfileCallerId'] : (bool)$data['workProfileBlockCrossProfileCallerId'];
         }
         if (isset($data['workProfileBlockCrossProfileContactsSearch'])) {
-            $this->workProfileBlockCrossProfileContactsSearch = $data['workProfileBlockCrossProfileContactsSearch'];
+            $this->workProfileBlockCrossProfileContactsSearch = is_bool($data['workProfileBlockCrossProfileContactsSearch']) ? $data['workProfileBlockCrossProfileContactsSearch'] : (bool)$data['workProfileBlockCrossProfileContactsSearch'];
         }
         if (isset($data['workProfileBlockCrossProfileCopyPaste'])) {
-            $this->workProfileBlockCrossProfileCopyPaste = $data['workProfileBlockCrossProfileCopyPaste'];
+            $this->workProfileBlockCrossProfileCopyPaste = is_bool($data['workProfileBlockCrossProfileCopyPaste']) ? $data['workProfileBlockCrossProfileCopyPaste'] : (bool)$data['workProfileBlockCrossProfileCopyPaste'];
         }
         if (isset($data['workProfileBlockNotificationsWhileDeviceLocked'])) {
-            $this->workProfileBlockNotificationsWhileDeviceLocked = $data['workProfileBlockNotificationsWhileDeviceLocked'];
+            $this->workProfileBlockNotificationsWhileDeviceLocked = is_bool($data['workProfileBlockNotificationsWhileDeviceLocked']) ? $data['workProfileBlockNotificationsWhileDeviceLocked'] : (bool)$data['workProfileBlockNotificationsWhileDeviceLocked'];
         }
         if (isset($data['workProfileBlockScreenCapture'])) {
-            $this->workProfileBlockScreenCapture = $data['workProfileBlockScreenCapture'];
+            $this->workProfileBlockScreenCapture = is_bool($data['workProfileBlockScreenCapture']) ? $data['workProfileBlockScreenCapture'] : (bool)$data['workProfileBlockScreenCapture'];
         }
         if (isset($data['workProfileBluetoothEnableContactSharing'])) {
-            $this->workProfileBluetoothEnableContactSharing = $data['workProfileBluetoothEnableContactSharing'];
+            $this->workProfileBluetoothEnableContactSharing = is_bool($data['workProfileBluetoothEnableContactSharing']) ? $data['workProfileBluetoothEnableContactSharing'] : (bool)$data['workProfileBluetoothEnableContactSharing'];
         }
         if (isset($data['workProfileDataSharingType'])) {
             $this->workProfileDataSharingType = is_array($data['workProfileDataSharingType']) ? new AndroidWorkProfileCrossProfileDataSharingType($data['workProfileDataSharingType']) : $data['workProfileDataSharingType'];
@@ -270,49 +270,49 @@ class AndroidWorkProfileGeneralDeviceConfiguration
             $this->workProfileDefaultAppPermissionPolicy = is_array($data['workProfileDefaultAppPermissionPolicy']) ? new AndroidWorkProfileDefaultAppPermissionPolicyType($data['workProfileDefaultAppPermissionPolicy']) : $data['workProfileDefaultAppPermissionPolicy'];
         }
         if (isset($data['workProfilePasswordBlockFingerprintUnlock'])) {
-            $this->workProfilePasswordBlockFingerprintUnlock = $data['workProfilePasswordBlockFingerprintUnlock'];
+            $this->workProfilePasswordBlockFingerprintUnlock = is_bool($data['workProfilePasswordBlockFingerprintUnlock']) ? $data['workProfilePasswordBlockFingerprintUnlock'] : (bool)$data['workProfilePasswordBlockFingerprintUnlock'];
         }
         if (isset($data['workProfilePasswordBlockTrustAgents'])) {
-            $this->workProfilePasswordBlockTrustAgents = $data['workProfilePasswordBlockTrustAgents'];
+            $this->workProfilePasswordBlockTrustAgents = is_bool($data['workProfilePasswordBlockTrustAgents']) ? $data['workProfilePasswordBlockTrustAgents'] : (bool)$data['workProfilePasswordBlockTrustAgents'];
         }
         if (isset($data['workProfilePasswordExpirationDays'])) {
-            $this->workProfilePasswordExpirationDays = $data['workProfilePasswordExpirationDays'];
+            $this->workProfilePasswordExpirationDays = is_numeric($data['workProfilePasswordExpirationDays']) ? (float)$data['workProfilePasswordExpirationDays'] : $data['workProfilePasswordExpirationDays'];
         }
         if (isset($data['workProfilePasswordMinimumLength'])) {
-            $this->workProfilePasswordMinimumLength = $data['workProfilePasswordMinimumLength'];
+            $this->workProfilePasswordMinimumLength = is_numeric($data['workProfilePasswordMinimumLength']) ? (float)$data['workProfilePasswordMinimumLength'] : $data['workProfilePasswordMinimumLength'];
         }
         if (isset($data['workProfilePasswordMinLetterCharacters'])) {
-            $this->workProfilePasswordMinLetterCharacters = $data['workProfilePasswordMinLetterCharacters'];
+            $this->workProfilePasswordMinLetterCharacters = is_numeric($data['workProfilePasswordMinLetterCharacters']) ? (float)$data['workProfilePasswordMinLetterCharacters'] : $data['workProfilePasswordMinLetterCharacters'];
         }
         if (isset($data['workProfilePasswordMinLowerCaseCharacters'])) {
-            $this->workProfilePasswordMinLowerCaseCharacters = $data['workProfilePasswordMinLowerCaseCharacters'];
+            $this->workProfilePasswordMinLowerCaseCharacters = is_numeric($data['workProfilePasswordMinLowerCaseCharacters']) ? (float)$data['workProfilePasswordMinLowerCaseCharacters'] : $data['workProfilePasswordMinLowerCaseCharacters'];
         }
         if (isset($data['workProfilePasswordMinNonLetterCharacters'])) {
-            $this->workProfilePasswordMinNonLetterCharacters = $data['workProfilePasswordMinNonLetterCharacters'];
+            $this->workProfilePasswordMinNonLetterCharacters = is_numeric($data['workProfilePasswordMinNonLetterCharacters']) ? (float)$data['workProfilePasswordMinNonLetterCharacters'] : $data['workProfilePasswordMinNonLetterCharacters'];
         }
         if (isset($data['workProfilePasswordMinNumericCharacters'])) {
-            $this->workProfilePasswordMinNumericCharacters = $data['workProfilePasswordMinNumericCharacters'];
+            $this->workProfilePasswordMinNumericCharacters = is_numeric($data['workProfilePasswordMinNumericCharacters']) ? (float)$data['workProfilePasswordMinNumericCharacters'] : $data['workProfilePasswordMinNumericCharacters'];
         }
         if (isset($data['workProfilePasswordMinSymbolCharacters'])) {
-            $this->workProfilePasswordMinSymbolCharacters = $data['workProfilePasswordMinSymbolCharacters'];
+            $this->workProfilePasswordMinSymbolCharacters = is_numeric($data['workProfilePasswordMinSymbolCharacters']) ? (float)$data['workProfilePasswordMinSymbolCharacters'] : $data['workProfilePasswordMinSymbolCharacters'];
         }
         if (isset($data['workProfilePasswordMinUpperCaseCharacters'])) {
-            $this->workProfilePasswordMinUpperCaseCharacters = $data['workProfilePasswordMinUpperCaseCharacters'];
+            $this->workProfilePasswordMinUpperCaseCharacters = is_numeric($data['workProfilePasswordMinUpperCaseCharacters']) ? (float)$data['workProfilePasswordMinUpperCaseCharacters'] : $data['workProfilePasswordMinUpperCaseCharacters'];
         }
         if (isset($data['workProfilePasswordMinutesOfInactivityBeforeScreenTimeout'])) {
-            $this->workProfilePasswordMinutesOfInactivityBeforeScreenTimeout = $data['workProfilePasswordMinutesOfInactivityBeforeScreenTimeout'];
+            $this->workProfilePasswordMinutesOfInactivityBeforeScreenTimeout = is_numeric($data['workProfilePasswordMinutesOfInactivityBeforeScreenTimeout']) ? (float)$data['workProfilePasswordMinutesOfInactivityBeforeScreenTimeout'] : $data['workProfilePasswordMinutesOfInactivityBeforeScreenTimeout'];
         }
         if (isset($data['workProfilePasswordPreviousPasswordBlockCount'])) {
-            $this->workProfilePasswordPreviousPasswordBlockCount = $data['workProfilePasswordPreviousPasswordBlockCount'];
+            $this->workProfilePasswordPreviousPasswordBlockCount = is_numeric($data['workProfilePasswordPreviousPasswordBlockCount']) ? (float)$data['workProfilePasswordPreviousPasswordBlockCount'] : $data['workProfilePasswordPreviousPasswordBlockCount'];
         }
         if (isset($data['workProfilePasswordRequiredType'])) {
             $this->workProfilePasswordRequiredType = is_array($data['workProfilePasswordRequiredType']) ? new AndroidWorkProfileRequiredPasswordType($data['workProfilePasswordRequiredType']) : $data['workProfilePasswordRequiredType'];
         }
         if (isset($data['workProfilePasswordSignInFailureCountBeforeFactoryReset'])) {
-            $this->workProfilePasswordSignInFailureCountBeforeFactoryReset = $data['workProfilePasswordSignInFailureCountBeforeFactoryReset'];
+            $this->workProfilePasswordSignInFailureCountBeforeFactoryReset = is_numeric($data['workProfilePasswordSignInFailureCountBeforeFactoryReset']) ? (float)$data['workProfilePasswordSignInFailureCountBeforeFactoryReset'] : $data['workProfilePasswordSignInFailureCountBeforeFactoryReset'];
         }
         if (isset($data['workProfileRequirePassword'])) {
-            $this->workProfileRequirePassword = $data['workProfileRequirePassword'];
+            $this->workProfileRequirePassword = is_bool($data['workProfileRequirePassword']) ? $data['workProfileRequirePassword'] : (bool)$data['workProfileRequirePassword'];
         }
     }
 

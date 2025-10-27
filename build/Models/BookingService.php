@@ -132,7 +132,7 @@ class BookingService
             $this->defaultLocation = is_array($data['defaultLocation']) ? new Location($data['defaultLocation']) : $data['defaultLocation'];
         }
         if (isset($data['defaultPrice'])) {
-            $this->defaultPrice = $data['defaultPrice'];
+            $this->defaultPrice = is_numeric($data['defaultPrice']) ? (float)$data['defaultPrice'] : $data['defaultPrice'];
         }
         if (isset($data['defaultPriceType'])) {
             $this->defaultPriceType = is_array($data['defaultPriceType']) ? new BookingPriceType($data['defaultPriceType']) : $data['defaultPriceType'];
@@ -147,16 +147,16 @@ class BookingService
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isAnonymousJoinEnabled'])) {
-            $this->isAnonymousJoinEnabled = $data['isAnonymousJoinEnabled'];
+            $this->isAnonymousJoinEnabled = is_bool($data['isAnonymousJoinEnabled']) ? $data['isAnonymousJoinEnabled'] : (bool)$data['isAnonymousJoinEnabled'];
         }
         if (isset($data['isCustomerAllowedToManageBooking'])) {
-            $this->isCustomerAllowedToManageBooking = $data['isCustomerAllowedToManageBooking'];
+            $this->isCustomerAllowedToManageBooking = is_bool($data['isCustomerAllowedToManageBooking']) ? $data['isCustomerAllowedToManageBooking'] : (bool)$data['isCustomerAllowedToManageBooking'];
         }
         if (isset($data['isHiddenFromCustomers'])) {
-            $this->isHiddenFromCustomers = $data['isHiddenFromCustomers'];
+            $this->isHiddenFromCustomers = is_bool($data['isHiddenFromCustomers']) ? $data['isHiddenFromCustomers'] : (bool)$data['isHiddenFromCustomers'];
         }
         if (isset($data['isLocationOnline'])) {
-            $this->isLocationOnline = $data['isLocationOnline'];
+            $this->isLocationOnline = is_bool($data['isLocationOnline']) ? $data['isLocationOnline'] : (bool)$data['isLocationOnline'];
         }
         if (isset($data['languageTag'])) {
             $this->languageTag = $data['languageTag'];
@@ -165,7 +165,7 @@ class BookingService
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['maximumAttendeesCount'])) {
-            $this->maximumAttendeesCount = $data['maximumAttendeesCount'];
+            $this->maximumAttendeesCount = is_numeric($data['maximumAttendeesCount']) ? (float)$data['maximumAttendeesCount'] : $data['maximumAttendeesCount'];
         }
         if (isset($data['notes'])) {
             $this->notes = $data['notes'];
@@ -180,7 +180,7 @@ class BookingService
             $this->schedulingPolicy = is_array($data['schedulingPolicy']) ? new BookingSchedulingPolicy($data['schedulingPolicy']) : $data['schedulingPolicy'];
         }
         if (isset($data['smsNotificationsEnabled'])) {
-            $this->smsNotificationsEnabled = $data['smsNotificationsEnabled'];
+            $this->smsNotificationsEnabled = is_bool($data['smsNotificationsEnabled']) ? $data['smsNotificationsEnabled'] : (bool)$data['smsNotificationsEnabled'];
         }
         if (isset($data['staffMemberIds'])) {
             $this->staffMemberIds = $data['staffMemberIds'];

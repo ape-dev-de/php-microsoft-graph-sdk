@@ -162,7 +162,7 @@ class MessageRulePredicates
             $this->fromAddresses = $data['fromAddresses'];
         }
         if (isset($data['hasAttachments'])) {
-            $this->hasAttachments = $data['hasAttachments'];
+            $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['headerContains'])) {
             $this->headerContains = $data['headerContains'];
@@ -171,43 +171,43 @@ class MessageRulePredicates
             $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
         }
         if (isset($data['isApprovalRequest'])) {
-            $this->isApprovalRequest = $data['isApprovalRequest'];
+            $this->isApprovalRequest = is_bool($data['isApprovalRequest']) ? $data['isApprovalRequest'] : (bool)$data['isApprovalRequest'];
         }
         if (isset($data['isAutomaticForward'])) {
-            $this->isAutomaticForward = $data['isAutomaticForward'];
+            $this->isAutomaticForward = is_bool($data['isAutomaticForward']) ? $data['isAutomaticForward'] : (bool)$data['isAutomaticForward'];
         }
         if (isset($data['isAutomaticReply'])) {
-            $this->isAutomaticReply = $data['isAutomaticReply'];
+            $this->isAutomaticReply = is_bool($data['isAutomaticReply']) ? $data['isAutomaticReply'] : (bool)$data['isAutomaticReply'];
         }
         if (isset($data['isEncrypted'])) {
-            $this->isEncrypted = $data['isEncrypted'];
+            $this->isEncrypted = is_bool($data['isEncrypted']) ? $data['isEncrypted'] : (bool)$data['isEncrypted'];
         }
         if (isset($data['isMeetingRequest'])) {
-            $this->isMeetingRequest = $data['isMeetingRequest'];
+            $this->isMeetingRequest = is_bool($data['isMeetingRequest']) ? $data['isMeetingRequest'] : (bool)$data['isMeetingRequest'];
         }
         if (isset($data['isMeetingResponse'])) {
-            $this->isMeetingResponse = $data['isMeetingResponse'];
+            $this->isMeetingResponse = is_bool($data['isMeetingResponse']) ? $data['isMeetingResponse'] : (bool)$data['isMeetingResponse'];
         }
         if (isset($data['isNonDeliveryReport'])) {
-            $this->isNonDeliveryReport = $data['isNonDeliveryReport'];
+            $this->isNonDeliveryReport = is_bool($data['isNonDeliveryReport']) ? $data['isNonDeliveryReport'] : (bool)$data['isNonDeliveryReport'];
         }
         if (isset($data['isPermissionControlled'])) {
-            $this->isPermissionControlled = $data['isPermissionControlled'];
+            $this->isPermissionControlled = is_bool($data['isPermissionControlled']) ? $data['isPermissionControlled'] : (bool)$data['isPermissionControlled'];
         }
         if (isset($data['isReadReceipt'])) {
-            $this->isReadReceipt = $data['isReadReceipt'];
+            $this->isReadReceipt = is_bool($data['isReadReceipt']) ? $data['isReadReceipt'] : (bool)$data['isReadReceipt'];
         }
         if (isset($data['isSigned'])) {
-            $this->isSigned = $data['isSigned'];
+            $this->isSigned = is_bool($data['isSigned']) ? $data['isSigned'] : (bool)$data['isSigned'];
         }
         if (isset($data['isVoicemail'])) {
-            $this->isVoicemail = $data['isVoicemail'];
+            $this->isVoicemail = is_bool($data['isVoicemail']) ? $data['isVoicemail'] : (bool)$data['isVoicemail'];
         }
         if (isset($data['messageActionFlag'])) {
             $this->messageActionFlag = is_array($data['messageActionFlag']) ? new MessageActionFlag($data['messageActionFlag']) : $data['messageActionFlag'];
         }
         if (isset($data['notSentToMe'])) {
-            $this->notSentToMe = $data['notSentToMe'];
+            $this->notSentToMe = is_bool($data['notSentToMe']) ? $data['notSentToMe'] : (bool)$data['notSentToMe'];
         }
         if (isset($data['recipientContains'])) {
             $this->recipientContains = $data['recipientContains'];
@@ -219,19 +219,19 @@ class MessageRulePredicates
             $this->sensitivity = is_array($data['sensitivity']) ? new Sensitivity($data['sensitivity']) : $data['sensitivity'];
         }
         if (isset($data['sentCcMe'])) {
-            $this->sentCcMe = $data['sentCcMe'];
+            $this->sentCcMe = is_bool($data['sentCcMe']) ? $data['sentCcMe'] : (bool)$data['sentCcMe'];
         }
         if (isset($data['sentOnlyToMe'])) {
-            $this->sentOnlyToMe = $data['sentOnlyToMe'];
+            $this->sentOnlyToMe = is_bool($data['sentOnlyToMe']) ? $data['sentOnlyToMe'] : (bool)$data['sentOnlyToMe'];
         }
         if (isset($data['sentToAddresses'])) {
             $this->sentToAddresses = $data['sentToAddresses'];
         }
         if (isset($data['sentToMe'])) {
-            $this->sentToMe = $data['sentToMe'];
+            $this->sentToMe = is_bool($data['sentToMe']) ? $data['sentToMe'] : (bool)$data['sentToMe'];
         }
         if (isset($data['sentToOrCcMe'])) {
-            $this->sentToOrCcMe = $data['sentToOrCcMe'];
+            $this->sentToOrCcMe = is_bool($data['sentToOrCcMe']) ? $data['sentToOrCcMe'] : (bool)$data['sentToOrCcMe'];
         }
         if (isset($data['subjectContains'])) {
             $this->subjectContains = $data['subjectContains'];

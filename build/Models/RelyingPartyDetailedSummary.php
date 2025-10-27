@@ -69,7 +69,7 @@ class RelyingPartyDetailedSummary
             $this->id = $data['id'];
         }
         if (isset($data['failedSignInCount'])) {
-            $this->failedSignInCount = $data['failedSignInCount'];
+            $this->failedSignInCount = is_numeric($data['failedSignInCount']) ? (float)$data['failedSignInCount'] : $data['failedSignInCount'];
         }
         if (isset($data['migrationStatus'])) {
             $this->migrationStatus = is_array($data['migrationStatus']) ? new MigrationStatus($data['migrationStatus']) : $data['migrationStatus'];
@@ -90,16 +90,16 @@ class RelyingPartyDetailedSummary
             $this->serviceId = $data['serviceId'];
         }
         if (isset($data['signInSuccessRate'])) {
-            $this->signInSuccessRate = $data['signInSuccessRate'];
+            $this->signInSuccessRate = is_numeric($data['signInSuccessRate']) ? (float)$data['signInSuccessRate'] : $data['signInSuccessRate'];
         }
         if (isset($data['successfulSignInCount'])) {
-            $this->successfulSignInCount = $data['successfulSignInCount'];
+            $this->successfulSignInCount = is_numeric($data['successfulSignInCount']) ? (float)$data['successfulSignInCount'] : $data['successfulSignInCount'];
         }
         if (isset($data['totalSignInCount'])) {
-            $this->totalSignInCount = $data['totalSignInCount'];
+            $this->totalSignInCount = is_numeric($data['totalSignInCount']) ? (float)$data['totalSignInCount'] : $data['totalSignInCount'];
         }
         if (isset($data['uniqueUserCount'])) {
-            $this->uniqueUserCount = $data['uniqueUserCount'];
+            $this->uniqueUserCount = is_numeric($data['uniqueUserCount']) ? (float)$data['uniqueUserCount'] : $data['uniqueUserCount'];
         }
     }
 

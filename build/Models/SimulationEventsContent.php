@@ -33,7 +33,7 @@ class SimulationEventsContent
     {
         $this->rawData = $data;
         if (isset($data['compromisedRate'])) {
-            $this->compromisedRate = $data['compromisedRate'];
+            $this->compromisedRate = is_numeric($data['compromisedRate']) ? (float)$data['compromisedRate'] : $data['compromisedRate'];
         }
         if (isset($data['events'])) {
             $this->events = $data['events'];

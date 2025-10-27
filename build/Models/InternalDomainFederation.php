@@ -105,7 +105,7 @@ class InternalDomainFederation
             $this->federatedIdpMfaBehavior = is_array($data['federatedIdpMfaBehavior']) ? new FederatedIdpMfaBehavior($data['federatedIdpMfaBehavior']) : $data['federatedIdpMfaBehavior'];
         }
         if (isset($data['isSignedAuthenticationRequestRequired'])) {
-            $this->isSignedAuthenticationRequestRequired = $data['isSignedAuthenticationRequestRequired'];
+            $this->isSignedAuthenticationRequestRequired = is_bool($data['isSignedAuthenticationRequestRequired']) ? $data['isSignedAuthenticationRequestRequired'] : (bool)$data['isSignedAuthenticationRequestRequired'];
         }
         if (isset($data['nextSigningCertificate'])) {
             $this->nextSigningCertificate = $data['nextSigningCertificate'];

@@ -39,7 +39,7 @@ class VirtualEventRegistrationConfiguration
             $this->id = $data['id'];
         }
         if (isset($data['capacity'])) {
-            $this->capacity = $data['capacity'];
+            $this->capacity = is_numeric($data['capacity']) ? (float)$data['capacity'] : $data['capacity'];
         }
         if (isset($data['registrationWebUrl'])) {
             $this->registrationWebUrl = $data['registrationWebUrl'];

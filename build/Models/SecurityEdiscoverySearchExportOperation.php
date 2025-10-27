@@ -129,7 +129,7 @@ class SecurityEdiscoverySearchExportOperation
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['percentProgress'])) {
-            $this->percentProgress = $data['percentProgress'];
+            $this->percentProgress = is_numeric($data['percentProgress']) ? (float)$data['percentProgress'] : $data['percentProgress'];
         }
         if (isset($data['resultInfo'])) {
             $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
@@ -165,7 +165,7 @@ class SecurityEdiscoverySearchExportOperation
             $this->exportLocation = is_array($data['exportLocation']) ? new SecurityExportLocation($data['exportLocation']) : $data['exportLocation'];
         }
         if (isset($data['exportSingleItems'])) {
-            $this->exportSingleItems = $data['exportSingleItems'];
+            $this->exportSingleItems = is_bool($data['exportSingleItems']) ? $data['exportSingleItems'] : (bool)$data['exportSingleItems'];
         }
         if (isset($data['search'])) {
             $this->search = is_array($data['search']) ? new SecurityEdiscoverySearch($data['search']) : $data['search'];

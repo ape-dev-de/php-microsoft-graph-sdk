@@ -147,7 +147,7 @@ class OrgContact
             $this->onPremisesProvisioningErrors = $data['onPremisesProvisioningErrors'];
         }
         if (isset($data['onPremisesSyncEnabled'])) {
-            $this->onPremisesSyncEnabled = $data['onPremisesSyncEnabled'];
+            $this->onPremisesSyncEnabled = is_bool($data['onPremisesSyncEnabled']) ? $data['onPremisesSyncEnabled'] : (bool)$data['onPremisesSyncEnabled'];
         }
         if (isset($data['phones'])) {
             $this->phones = $data['phones'];

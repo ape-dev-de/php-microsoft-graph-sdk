@@ -57,7 +57,7 @@ class RubricQuality
             $this->qualityId = $data['qualityId'];
         }
         if (isset($data['weight'])) {
-            $this->weight = $data['weight'];
+            $this->weight = is_numeric($data['weight']) ? (float)$data['weight'] : $data['weight'];
         }
     }
 

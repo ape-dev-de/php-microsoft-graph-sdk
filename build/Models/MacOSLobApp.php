@@ -147,7 +147,7 @@ class MacOSLobApp
             $this->informationUrl = $data['informationUrl'];
         }
         if (isset($data['isFeatured'])) {
-            $this->isFeatured = $data['isFeatured'];
+            $this->isFeatured = is_bool($data['isFeatured']) ? $data['isFeatured'] : (bool)$data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
             $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
@@ -183,7 +183,7 @@ class MacOSLobApp
             $this->fileName = $data['fileName'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['contentVersions'])) {
             $this->contentVersions = $data['contentVersions'];
@@ -198,16 +198,16 @@ class MacOSLobApp
             $this->childApps = $data['childApps'];
         }
         if (isset($data['ignoreVersionDetection'])) {
-            $this->ignoreVersionDetection = $data['ignoreVersionDetection'];
+            $this->ignoreVersionDetection = is_bool($data['ignoreVersionDetection']) ? $data['ignoreVersionDetection'] : (bool)$data['ignoreVersionDetection'];
         }
         if (isset($data['installAsManaged'])) {
-            $this->installAsManaged = $data['installAsManaged'];
+            $this->installAsManaged = is_bool($data['installAsManaged']) ? $data['installAsManaged'] : (bool)$data['installAsManaged'];
         }
         if (isset($data['md5Hash'])) {
             $this->md5Hash = $data['md5Hash'];
         }
         if (isset($data['md5HashChunkSize'])) {
-            $this->md5HashChunkSize = $data['md5HashChunkSize'];
+            $this->md5HashChunkSize = is_numeric($data['md5HashChunkSize']) ? (float)$data['md5HashChunkSize'] : $data['md5HashChunkSize'];
         }
         if (isset($data['minimumSupportedOperatingSystem'])) {
             $this->minimumSupportedOperatingSystem = is_array($data['minimumSupportedOperatingSystem']) ? new MacOSMinimumOperatingSystem($data['minimumSupportedOperatingSystem']) : $data['minimumSupportedOperatingSystem'];

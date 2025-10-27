@@ -60,10 +60,10 @@ class ExtensionProperty
             $this->dataType = $data['dataType'];
         }
         if (isset($data['isMultiValued'])) {
-            $this->isMultiValued = $data['isMultiValued'];
+            $this->isMultiValued = is_bool($data['isMultiValued']) ? $data['isMultiValued'] : (bool)$data['isMultiValued'];
         }
         if (isset($data['isSyncedFromOnPremises'])) {
-            $this->isSyncedFromOnPremises = $data['isSyncedFromOnPremises'];
+            $this->isSyncedFromOnPremises = is_bool($data['isSyncedFromOnPremises']) ? $data['isSyncedFromOnPremises'] : (bool)$data['isSyncedFromOnPremises'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

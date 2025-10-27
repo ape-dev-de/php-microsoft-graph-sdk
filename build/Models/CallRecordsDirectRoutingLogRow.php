@@ -90,7 +90,7 @@ class CallRecordsDirectRoutingLogRow
             $this->calleeNumber = $data['calleeNumber'];
         }
         if (isset($data['callEndSubReason'])) {
-            $this->callEndSubReason = $data['callEndSubReason'];
+            $this->callEndSubReason = is_numeric($data['callEndSubReason']) ? (float)$data['callEndSubReason'] : $data['callEndSubReason'];
         }
         if (isset($data['callerNumber'])) {
             $this->callerNumber = $data['callerNumber'];
@@ -102,7 +102,7 @@ class CallRecordsDirectRoutingLogRow
             $this->correlationId = $data['correlationId'];
         }
         if (isset($data['duration'])) {
-            $this->duration = $data['duration'];
+            $this->duration = is_numeric($data['duration']) ? (float)$data['duration'] : $data['duration'];
         }
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
@@ -111,7 +111,7 @@ class CallRecordsDirectRoutingLogRow
             $this->failureDateTime = is_string($data['failureDateTime']) ? new \DateTimeImmutable($data['failureDateTime']) : $data['failureDateTime'];
         }
         if (isset($data['finalSipCode'])) {
-            $this->finalSipCode = $data['finalSipCode'];
+            $this->finalSipCode = is_numeric($data['finalSipCode']) ? (float)$data['finalSipCode'] : $data['finalSipCode'];
         }
         if (isset($data['finalSipCodePhrase'])) {
             $this->finalSipCodePhrase = $data['finalSipCodePhrase'];
@@ -120,7 +120,7 @@ class CallRecordsDirectRoutingLogRow
             $this->inviteDateTime = is_string($data['inviteDateTime']) ? new \DateTimeImmutable($data['inviteDateTime']) : $data['inviteDateTime'];
         }
         if (isset($data['mediaBypassEnabled'])) {
-            $this->mediaBypassEnabled = $data['mediaBypassEnabled'];
+            $this->mediaBypassEnabled = is_bool($data['mediaBypassEnabled']) ? $data['mediaBypassEnabled'] : (bool)$data['mediaBypassEnabled'];
         }
         if (isset($data['mediaPathLocation'])) {
             $this->mediaPathLocation = $data['mediaPathLocation'];
@@ -132,7 +132,7 @@ class CallRecordsDirectRoutingLogRow
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['successfulCall'])) {
-            $this->successfulCall = $data['successfulCall'];
+            $this->successfulCall = is_bool($data['successfulCall']) ? $data['successfulCall'] : (bool)$data['successfulCall'];
         }
         if (isset($data['trunkFullyQualifiedDomainName'])) {
             $this->trunkFullyQualifiedDomainName = $data['trunkFullyQualifiedDomainName'];

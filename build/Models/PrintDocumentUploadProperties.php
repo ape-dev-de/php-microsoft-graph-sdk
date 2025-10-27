@@ -36,7 +36,7 @@ class PrintDocumentUploadProperties
             $this->documentName = $data['documentName'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
     }
 

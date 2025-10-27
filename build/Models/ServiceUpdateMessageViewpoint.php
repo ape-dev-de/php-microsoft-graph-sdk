@@ -30,13 +30,13 @@ class ServiceUpdateMessageViewpoint
     {
         $this->rawData = $data;
         if (isset($data['isArchived'])) {
-            $this->isArchived = $data['isArchived'];
+            $this->isArchived = is_bool($data['isArchived']) ? $data['isArchived'] : (bool)$data['isArchived'];
         }
         if (isset($data['isFavorited'])) {
-            $this->isFavorited = $data['isFavorited'];
+            $this->isFavorited = is_bool($data['isFavorited']) ? $data['isFavorited'] : (bool)$data['isFavorited'];
         }
         if (isset($data['isRead'])) {
-            $this->isRead = $data['isRead'];
+            $this->isRead = is_bool($data['isRead']) ? $data['isRead'] : (bool)$data['isRead'];
         }
     }
 

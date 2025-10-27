@@ -24,7 +24,7 @@ class HyperlinkOrPictureColumn
     {
         $this->rawData = $data;
         if (isset($data['isPicture'])) {
-            $this->isPicture = $data['isPicture'];
+            $this->isPicture = is_bool($data['isPicture']) ? $data['isPicture'] : (bool)$data['isPicture'];
         }
     }
 

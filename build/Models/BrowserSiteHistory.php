@@ -54,7 +54,7 @@ class BrowserSiteHistory
     {
         $this->rawData = $data;
         if (isset($data['allowRedirect'])) {
-            $this->allowRedirect = $data['allowRedirect'];
+            $this->allowRedirect = is_bool($data['allowRedirect']) ? $data['allowRedirect'] : (bool)$data['allowRedirect'];
         }
         if (isset($data['comment'])) {
             $this->comment = $data['comment'];

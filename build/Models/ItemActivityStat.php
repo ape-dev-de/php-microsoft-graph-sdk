@@ -96,7 +96,7 @@ class ItemActivityStat
             $this->incompleteData = is_array($data['incompleteData']) ? new IncompleteData($data['incompleteData']) : $data['incompleteData'];
         }
         if (isset($data['isTrending'])) {
-            $this->isTrending = $data['isTrending'];
+            $this->isTrending = is_bool($data['isTrending']) ? $data['isTrending'] : (bool)$data['isTrending'];
         }
         if (isset($data['move'])) {
             $this->move = is_array($data['move']) ? new ItemActionStat($data['move']) : $data['move'];

@@ -27,7 +27,7 @@ class RedirectUriSettings
     {
         $this->rawData = $data;
         if (isset($data['index'])) {
-            $this->index = $data['index'];
+            $this->index = is_numeric($data['index']) ? (float)$data['index'] : $data['index'];
         }
         if (isset($data['uri'])) {
             $this->uri = $data['uri'];

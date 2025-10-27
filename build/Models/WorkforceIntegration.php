@@ -87,7 +87,7 @@ class WorkforceIntegration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['apiVersion'])) {
-            $this->apiVersion = $data['apiVersion'];
+            $this->apiVersion = is_numeric($data['apiVersion']) ? (float)$data['apiVersion'] : $data['apiVersion'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -99,7 +99,7 @@ class WorkforceIntegration
             $this->encryption = is_array($data['encryption']) ? new WorkforceIntegrationEncryption($data['encryption']) : $data['encryption'];
         }
         if (isset($data['isActive'])) {
-            $this->isActive = $data['isActive'];
+            $this->isActive = is_bool($data['isActive']) ? $data['isActive'] : (bool)$data['isActive'];
         }
         if (isset($data['supportedEntities'])) {
             $this->supportedEntities = is_array($data['supportedEntities']) ? new WorkforceIntegrationSupportedEntities($data['supportedEntities']) : $data['supportedEntities'];

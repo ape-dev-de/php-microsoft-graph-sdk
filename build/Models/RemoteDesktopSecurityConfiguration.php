@@ -36,7 +36,7 @@ class RemoteDesktopSecurityConfiguration
             $this->id = $data['id'];
         }
         if (isset($data['isRemoteDesktopProtocolEnabled'])) {
-            $this->isRemoteDesktopProtocolEnabled = $data['isRemoteDesktopProtocolEnabled'];
+            $this->isRemoteDesktopProtocolEnabled = is_bool($data['isRemoteDesktopProtocolEnabled']) ? $data['isRemoteDesktopProtocolEnabled'] : (bool)$data['isRemoteDesktopProtocolEnabled'];
         }
         if (isset($data['targetDeviceGroups'])) {
             $this->targetDeviceGroups = $data['targetDeviceGroups'];

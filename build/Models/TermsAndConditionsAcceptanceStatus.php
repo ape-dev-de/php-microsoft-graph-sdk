@@ -48,7 +48,7 @@ class TermsAndConditionsAcceptanceStatus
             $this->acceptedDateTime = is_string($data['acceptedDateTime']) ? new \DateTimeImmutable($data['acceptedDateTime']) : $data['acceptedDateTime'];
         }
         if (isset($data['acceptedVersion'])) {
-            $this->acceptedVersion = $data['acceptedVersion'];
+            $this->acceptedVersion = is_numeric($data['acceptedVersion']) ? (float)$data['acceptedVersion'] : $data['acceptedVersion'];
         }
         if (isset($data['userDisplayName'])) {
             $this->userDisplayName = $data['userDisplayName'];

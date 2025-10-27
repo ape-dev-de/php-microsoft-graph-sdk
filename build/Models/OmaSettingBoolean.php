@@ -42,7 +42,7 @@ class OmaSettingBoolean
             $this->omaUri = $data['omaUri'];
         }
         if (isset($data['value'])) {
-            $this->value = $data['value'];
+            $this->value = is_bool($data['value']) ? $data['value'] : (bool)$data['value'];
         }
     }
 

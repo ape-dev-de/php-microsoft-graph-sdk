@@ -36,16 +36,16 @@ class TextColumn
     {
         $this->rawData = $data;
         if (isset($data['allowMultipleLines'])) {
-            $this->allowMultipleLines = $data['allowMultipleLines'];
+            $this->allowMultipleLines = is_bool($data['allowMultipleLines']) ? $data['allowMultipleLines'] : (bool)$data['allowMultipleLines'];
         }
         if (isset($data['appendChangesToExistingText'])) {
-            $this->appendChangesToExistingText = $data['appendChangesToExistingText'];
+            $this->appendChangesToExistingText = is_bool($data['appendChangesToExistingText']) ? $data['appendChangesToExistingText'] : (bool)$data['appendChangesToExistingText'];
         }
         if (isset($data['linesForEditing'])) {
-            $this->linesForEditing = $data['linesForEditing'];
+            $this->linesForEditing = is_numeric($data['linesForEditing']) ? (float)$data['linesForEditing'] : $data['linesForEditing'];
         }
         if (isset($data['maxLength'])) {
-            $this->maxLength = $data['maxLength'];
+            $this->maxLength = is_numeric($data['maxLength']) ? (float)$data['maxLength'] : $data['maxLength'];
         }
         if (isset($data['textType'])) {
             $this->textType = $data['textType'];

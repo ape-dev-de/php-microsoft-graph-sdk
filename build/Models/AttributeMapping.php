@@ -48,7 +48,7 @@ class AttributeMapping
             $this->defaultValue = $data['defaultValue'];
         }
         if (isset($data['exportMissingReferences'])) {
-            $this->exportMissingReferences = $data['exportMissingReferences'];
+            $this->exportMissingReferences = is_bool($data['exportMissingReferences']) ? $data['exportMissingReferences'] : (bool)$data['exportMissingReferences'];
         }
         if (isset($data['flowBehavior'])) {
             $this->flowBehavior = is_array($data['flowBehavior']) ? new AttributeFlowBehavior($data['flowBehavior']) : $data['flowBehavior'];
@@ -57,7 +57,7 @@ class AttributeMapping
             $this->flowType = is_array($data['flowType']) ? new AttributeFlowType($data['flowType']) : $data['flowType'];
         }
         if (isset($data['matchingPriority'])) {
-            $this->matchingPriority = $data['matchingPriority'];
+            $this->matchingPriority = is_numeric($data['matchingPriority']) ? (float)$data['matchingPriority'] : $data['matchingPriority'];
         }
         if (isset($data['source'])) {
             $this->source = is_array($data['source']) ? new AttributeMappingSource($data['source']) : $data['source'];

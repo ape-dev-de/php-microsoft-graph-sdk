@@ -33,16 +33,16 @@ class SecurityTopicModelingSettings
     {
         $this->rawData = $data;
         if (isset($data['dynamicallyAdjustTopicCount'])) {
-            $this->dynamicallyAdjustTopicCount = $data['dynamicallyAdjustTopicCount'];
+            $this->dynamicallyAdjustTopicCount = is_bool($data['dynamicallyAdjustTopicCount']) ? $data['dynamicallyAdjustTopicCount'] : (bool)$data['dynamicallyAdjustTopicCount'];
         }
         if (isset($data['ignoreNumbers'])) {
-            $this->ignoreNumbers = $data['ignoreNumbers'];
+            $this->ignoreNumbers = is_bool($data['ignoreNumbers']) ? $data['ignoreNumbers'] : (bool)$data['ignoreNumbers'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['topicCount'])) {
-            $this->topicCount = $data['topicCount'];
+            $this->topicCount = is_numeric($data['topicCount']) ? (float)$data['topicCount'] : $data['topicCount'];
         }
     }
 

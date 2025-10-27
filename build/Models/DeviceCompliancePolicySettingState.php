@@ -63,7 +63,7 @@ class DeviceCompliancePolicySettingState
             $this->currentValue = $data['currentValue'];
         }
         if (isset($data['errorCode'])) {
-            $this->errorCode = $data['errorCode'];
+            $this->errorCode = is_numeric($data['errorCode']) ? (float)$data['errorCode'] : $data['errorCode'];
         }
         if (isset($data['errorDescription'])) {
             $this->errorDescription = $data['errorDescription'];

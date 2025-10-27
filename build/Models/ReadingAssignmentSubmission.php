@@ -102,7 +102,7 @@ class ReadingAssignmentSubmission
             $this->id = $data['id'];
         }
         if (isset($data['accuracyScore'])) {
-            $this->accuracyScore = $data['accuracyScore'];
+            $this->accuracyScore = is_numeric($data['accuracyScore']) ? (float)$data['accuracyScore'] : $data['accuracyScore'];
         }
         if (isset($data['action'])) {
             $this->action = $data['action'];
@@ -117,34 +117,34 @@ class ReadingAssignmentSubmission
             $this->classId = $data['classId'];
         }
         if (isset($data['insertions'])) {
-            $this->insertions = $data['insertions'];
+            $this->insertions = is_numeric($data['insertions']) ? (float)$data['insertions'] : $data['insertions'];
         }
         if (isset($data['mispronunciations'])) {
-            $this->mispronunciations = $data['mispronunciations'];
+            $this->mispronunciations = is_numeric($data['mispronunciations']) ? (float)$data['mispronunciations'] : $data['mispronunciations'];
         }
         if (isset($data['missedExclamationMarks'])) {
-            $this->missedExclamationMarks = $data['missedExclamationMarks'];
+            $this->missedExclamationMarks = is_numeric($data['missedExclamationMarks']) ? (float)$data['missedExclamationMarks'] : $data['missedExclamationMarks'];
         }
         if (isset($data['missedPeriods'])) {
-            $this->missedPeriods = $data['missedPeriods'];
+            $this->missedPeriods = is_numeric($data['missedPeriods']) ? (float)$data['missedPeriods'] : $data['missedPeriods'];
         }
         if (isset($data['missedQuestionMarks'])) {
-            $this->missedQuestionMarks = $data['missedQuestionMarks'];
+            $this->missedQuestionMarks = is_numeric($data['missedQuestionMarks']) ? (float)$data['missedQuestionMarks'] : $data['missedQuestionMarks'];
         }
         if (isset($data['missedShorts'])) {
-            $this->missedShorts = $data['missedShorts'];
+            $this->missedShorts = is_numeric($data['missedShorts']) ? (float)$data['missedShorts'] : $data['missedShorts'];
         }
         if (isset($data['monotoneScore'])) {
-            $this->monotoneScore = $data['monotoneScore'];
+            $this->monotoneScore = is_numeric($data['monotoneScore']) ? (float)$data['monotoneScore'] : $data['monotoneScore'];
         }
         if (isset($data['omissions'])) {
-            $this->omissions = $data['omissions'];
+            $this->omissions = is_numeric($data['omissions']) ? (float)$data['omissions'] : $data['omissions'];
         }
         if (isset($data['repetitions'])) {
-            $this->repetitions = $data['repetitions'];
+            $this->repetitions = is_numeric($data['repetitions']) ? (float)$data['repetitions'] : $data['repetitions'];
         }
         if (isset($data['selfCorrections'])) {
-            $this->selfCorrections = $data['selfCorrections'];
+            $this->selfCorrections = is_numeric($data['selfCorrections']) ? (float)$data['selfCorrections'] : $data['selfCorrections'];
         }
         if (isset($data['studentId'])) {
             $this->studentId = $data['studentId'];
@@ -156,13 +156,13 @@ class ReadingAssignmentSubmission
             $this->submissionId = $data['submissionId'];
         }
         if (isset($data['unexpectedPauses'])) {
-            $this->unexpectedPauses = $data['unexpectedPauses'];
+            $this->unexpectedPauses = is_numeric($data['unexpectedPauses']) ? (float)$data['unexpectedPauses'] : $data['unexpectedPauses'];
         }
         if (isset($data['wordCount'])) {
-            $this->wordCount = $data['wordCount'];
+            $this->wordCount = is_numeric($data['wordCount']) ? (float)$data['wordCount'] : $data['wordCount'];
         }
         if (isset($data['wordsPerMinute'])) {
-            $this->wordsPerMinute = $data['wordsPerMinute'];
+            $this->wordsPerMinute = is_numeric($data['wordsPerMinute']) ? (float)$data['wordsPerMinute'] : $data['wordsPerMinute'];
         }
     }
 

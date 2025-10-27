@@ -33,7 +33,7 @@ class ChatMessageMention
     {
         $this->rawData = $data;
         if (isset($data['id'])) {
-            $this->id = $data['id'];
+            $this->id = is_numeric($data['id']) ? (float)$data['id'] : $data['id'];
         }
         if (isset($data['mentioned'])) {
             $this->mentioned = is_array($data['mentioned']) ? new ChatMessageMentionedIdentitySet($data['mentioned']) : $data['mentioned'];

@@ -33,10 +33,10 @@ class TeamsAppSettings
             $this->id = $data['id'];
         }
         if (isset($data['allowUserRequestsForAppAccess'])) {
-            $this->allowUserRequestsForAppAccess = $data['allowUserRequestsForAppAccess'];
+            $this->allowUserRequestsForAppAccess = is_bool($data['allowUserRequestsForAppAccess']) ? $data['allowUserRequestsForAppAccess'] : (bool)$data['allowUserRequestsForAppAccess'];
         }
         if (isset($data['isUserPersonalScopeResourceSpecificConsentEnabled'])) {
-            $this->isUserPersonalScopeResourceSpecificConsentEnabled = $data['isUserPersonalScopeResourceSpecificConsentEnabled'];
+            $this->isUserPersonalScopeResourceSpecificConsentEnabled = is_bool($data['isUserPersonalScopeResourceSpecificConsentEnabled']) ? $data['isUserPersonalScopeResourceSpecificConsentEnabled'] : (bool)$data['isUserPersonalScopeResourceSpecificConsentEnabled'];
         }
     }
 

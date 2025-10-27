@@ -78,7 +78,7 @@ class CallRecordsSession
             $this->failureInfo = is_array($data['failureInfo']) ? new CallRecordsFailureInfo($data['failureInfo']) : $data['failureInfo'];
         }
         if (isset($data['isTest'])) {
-            $this->isTest = $data['isTest'];
+            $this->isTest = is_bool($data['isTest']) ? $data['isTest'] : (bool)$data['isTest'];
         }
         if (isset($data['modalities'])) {
             $this->modalities = $data['modalities'];

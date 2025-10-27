@@ -75,7 +75,7 @@ class MessageRuleActions
             $this->copyToFolder = $data['copyToFolder'];
         }
         if (isset($data['delete'])) {
-            $this->delete = $data['delete'];
+            $this->delete = is_bool($data['delete']) ? $data['delete'] : (bool)$data['delete'];
         }
         if (isset($data['forwardAsAttachmentTo'])) {
             $this->forwardAsAttachmentTo = $data['forwardAsAttachmentTo'];
@@ -84,7 +84,7 @@ class MessageRuleActions
             $this->forwardTo = $data['forwardTo'];
         }
         if (isset($data['markAsRead'])) {
-            $this->markAsRead = $data['markAsRead'];
+            $this->markAsRead = is_bool($data['markAsRead']) ? $data['markAsRead'] : (bool)$data['markAsRead'];
         }
         if (isset($data['markImportance'])) {
             $this->markImportance = is_array($data['markImportance']) ? new Importance($data['markImportance']) : $data['markImportance'];
@@ -93,13 +93,13 @@ class MessageRuleActions
             $this->moveToFolder = $data['moveToFolder'];
         }
         if (isset($data['permanentDelete'])) {
-            $this->permanentDelete = $data['permanentDelete'];
+            $this->permanentDelete = is_bool($data['permanentDelete']) ? $data['permanentDelete'] : (bool)$data['permanentDelete'];
         }
         if (isset($data['redirectTo'])) {
             $this->redirectTo = $data['redirectTo'];
         }
         if (isset($data['stopProcessingRules'])) {
-            $this->stopProcessingRules = $data['stopProcessingRules'];
+            $this->stopProcessingRules = is_bool($data['stopProcessingRules']) ? $data['stopProcessingRules'] : (bool)$data['stopProcessingRules'];
         }
     }
 

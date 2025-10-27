@@ -156,7 +156,7 @@ class SignIn
             $this->ipAddress = $data['ipAddress'];
         }
         if (isset($data['isInteractive'])) {
-            $this->isInteractive = $data['isInteractive'];
+            $this->isInteractive = is_bool($data['isInteractive']) ? $data['isInteractive'] : (bool)$data['isInteractive'];
         }
         if (isset($data['location'])) {
             $this->location = is_array($data['location']) ? new SignInLocation($data['location']) : $data['location'];

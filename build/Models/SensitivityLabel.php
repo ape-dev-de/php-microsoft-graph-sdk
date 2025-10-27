@@ -87,13 +87,13 @@ class SensitivityLabel
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isDefault'])) {
-            $this->isDefault = $data['isDefault'];
+            $this->isDefault = is_bool($data['isDefault']) ? $data['isDefault'] : (bool)$data['isDefault'];
         }
         if (isset($data['isEndpointProtectionEnabled'])) {
-            $this->isEndpointProtectionEnabled = $data['isEndpointProtectionEnabled'];
+            $this->isEndpointProtectionEnabled = is_bool($data['isEndpointProtectionEnabled']) ? $data['isEndpointProtectionEnabled'] : (bool)$data['isEndpointProtectionEnabled'];
         }
         if (isset($data['isScopedToUser'])) {
-            $this->isScopedToUser = $data['isScopedToUser'];
+            $this->isScopedToUser = is_bool($data['isScopedToUser']) ? $data['isScopedToUser'] : (bool)$data['isScopedToUser'];
         }
         if (isset($data['locale'])) {
             $this->locale = $data['locale'];
@@ -102,7 +102,7 @@ class SensitivityLabel
             $this->name = $data['name'];
         }
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['toolTip'])) {
             $this->toolTip = $data['toolTip'];

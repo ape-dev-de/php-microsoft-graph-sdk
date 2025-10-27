@@ -96,7 +96,7 @@ class AccessPackageCatalog
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isExternallyVisible'])) {
-            $this->isExternallyVisible = $data['isExternallyVisible'];
+            $this->isExternallyVisible = is_bool($data['isExternallyVisible']) ? $data['isExternallyVisible'] : (bool)$data['isExternallyVisible'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];

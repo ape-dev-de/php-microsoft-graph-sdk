@@ -36,7 +36,7 @@ class InsightsSettings
             $this->disabledForGroup = $data['disabledForGroup'];
         }
         if (isset($data['isEnabledInOrganization'])) {
-            $this->isEnabledInOrganization = $data['isEnabledInOrganization'];
+            $this->isEnabledInOrganization = is_bool($data['isEnabledInOrganization']) ? $data['isEnabledInOrganization'] : (bool)$data['isEnabledInOrganization'];
         }
     }
 

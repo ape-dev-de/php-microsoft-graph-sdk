@@ -54,16 +54,16 @@ class AccessPackageAssignmentRequestRequirements
     {
         $this->rawData = $data;
         if (isset($data['allowCustomAssignmentSchedule'])) {
-            $this->allowCustomAssignmentSchedule = $data['allowCustomAssignmentSchedule'];
+            $this->allowCustomAssignmentSchedule = is_bool($data['allowCustomAssignmentSchedule']) ? $data['allowCustomAssignmentSchedule'] : (bool)$data['allowCustomAssignmentSchedule'];
         }
         if (isset($data['isApprovalRequiredForAdd'])) {
-            $this->isApprovalRequiredForAdd = $data['isApprovalRequiredForAdd'];
+            $this->isApprovalRequiredForAdd = is_bool($data['isApprovalRequiredForAdd']) ? $data['isApprovalRequiredForAdd'] : (bool)$data['isApprovalRequiredForAdd'];
         }
         if (isset($data['isApprovalRequiredForUpdate'])) {
-            $this->isApprovalRequiredForUpdate = $data['isApprovalRequiredForUpdate'];
+            $this->isApprovalRequiredForUpdate = is_bool($data['isApprovalRequiredForUpdate']) ? $data['isApprovalRequiredForUpdate'] : (bool)$data['isApprovalRequiredForUpdate'];
         }
         if (isset($data['isRequestorJustificationRequired'])) {
-            $this->isRequestorJustificationRequired = $data['isRequestorJustificationRequired'];
+            $this->isRequestorJustificationRequired = is_bool($data['isRequestorJustificationRequired']) ? $data['isRequestorJustificationRequired'] : (bool)$data['isRequestorJustificationRequired'];
         }
         if (isset($data['policyDescription'])) {
             $this->policyDescription = $data['policyDescription'];

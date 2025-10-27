@@ -69,31 +69,31 @@ class SynchronizationTaskExecution
             $this->activityIdentifier = $data['activityIdentifier'];
         }
         if (isset($data['countEntitled'])) {
-            $this->countEntitled = $data['countEntitled'];
+            $this->countEntitled = is_numeric($data['countEntitled']) ? (float)$data['countEntitled'] : $data['countEntitled'];
         }
         if (isset($data['countEntitledForProvisioning'])) {
-            $this->countEntitledForProvisioning = $data['countEntitledForProvisioning'];
+            $this->countEntitledForProvisioning = is_numeric($data['countEntitledForProvisioning']) ? (float)$data['countEntitledForProvisioning'] : $data['countEntitledForProvisioning'];
         }
         if (isset($data['countEscrowed'])) {
-            $this->countEscrowed = $data['countEscrowed'];
+            $this->countEscrowed = is_numeric($data['countEscrowed']) ? (float)$data['countEscrowed'] : $data['countEscrowed'];
         }
         if (isset($data['countEscrowedRaw'])) {
-            $this->countEscrowedRaw = $data['countEscrowedRaw'];
+            $this->countEscrowedRaw = is_numeric($data['countEscrowedRaw']) ? (float)$data['countEscrowedRaw'] : $data['countEscrowedRaw'];
         }
         if (isset($data['countExported'])) {
-            $this->countExported = $data['countExported'];
+            $this->countExported = is_numeric($data['countExported']) ? (float)$data['countExported'] : $data['countExported'];
         }
         if (isset($data['countExports'])) {
-            $this->countExports = $data['countExports'];
+            $this->countExports = is_numeric($data['countExports']) ? (float)$data['countExports'] : $data['countExports'];
         }
         if (isset($data['countImported'])) {
-            $this->countImported = $data['countImported'];
+            $this->countImported = is_numeric($data['countImported']) ? (float)$data['countImported'] : $data['countImported'];
         }
         if (isset($data['countImportedDeltas'])) {
-            $this->countImportedDeltas = $data['countImportedDeltas'];
+            $this->countImportedDeltas = is_numeric($data['countImportedDeltas']) ? (float)$data['countImportedDeltas'] : $data['countImportedDeltas'];
         }
         if (isset($data['countImportedReferenceDeltas'])) {
-            $this->countImportedReferenceDeltas = $data['countImportedReferenceDeltas'];
+            $this->countImportedReferenceDeltas = is_numeric($data['countImportedReferenceDeltas']) ? (float)$data['countImportedReferenceDeltas'] : $data['countImportedReferenceDeltas'];
         }
         if (isset($data['error'])) {
             $this->error = is_array($data['error']) ? new SynchronizationError($data['error']) : $data['error'];

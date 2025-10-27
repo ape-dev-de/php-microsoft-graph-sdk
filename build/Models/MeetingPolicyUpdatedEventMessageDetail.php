@@ -36,7 +36,7 @@ class MeetingPolicyUpdatedEventMessageDetail
             $this->initiator = is_array($data['initiator']) ? new IdentitySet($data['initiator']) : $data['initiator'];
         }
         if (isset($data['meetingChatEnabled'])) {
-            $this->meetingChatEnabled = $data['meetingChatEnabled'];
+            $this->meetingChatEnabled = is_bool($data['meetingChatEnabled']) ? $data['meetingChatEnabled'] : (bool)$data['meetingChatEnabled'];
         }
         if (isset($data['meetingChatId'])) {
             $this->meetingChatId = $data['meetingChatId'];

@@ -96,7 +96,7 @@ class WindowsPhone81CustomConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];

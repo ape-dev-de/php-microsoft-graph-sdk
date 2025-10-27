@@ -27,10 +27,10 @@ class Image
     {
         $this->rawData = $data;
         if (isset($data['height'])) {
-            $this->height = $data['height'];
+            $this->height = is_numeric($data['height']) ? (float)$data['height'] : $data['height'];
         }
         if (isset($data['width'])) {
-            $this->width = $data['width'];
+            $this->width = is_numeric($data['width']) ? (float)$data['width'] : $data['width'];
         }
     }
 

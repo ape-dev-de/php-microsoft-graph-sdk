@@ -30,7 +30,7 @@ class EmailSettings
             $this->senderDomain = $data['senderDomain'];
         }
         if (isset($data['useCompanyBranding'])) {
-            $this->useCompanyBranding = $data['useCompanyBranding'];
+            $this->useCompanyBranding = is_bool($data['useCompanyBranding']) ? $data['useCompanyBranding'] : (bool)$data['useCompanyBranding'];
         }
     }
 

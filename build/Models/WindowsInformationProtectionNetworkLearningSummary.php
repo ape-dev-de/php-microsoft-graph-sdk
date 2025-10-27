@@ -33,7 +33,7 @@ class WindowsInformationProtectionNetworkLearningSummary
             $this->id = $data['id'];
         }
         if (isset($data['deviceCount'])) {
-            $this->deviceCount = $data['deviceCount'];
+            $this->deviceCount = is_numeric($data['deviceCount']) ? (float)$data['deviceCount'] : $data['deviceCount'];
         }
         if (isset($data['url'])) {
             $this->url = $data['url'];

@@ -42,16 +42,16 @@ class WebPartPosition
     {
         $this->rawData = $data;
         if (isset($data['columnId'])) {
-            $this->columnId = $data['columnId'];
+            $this->columnId = is_numeric($data['columnId']) ? (float)$data['columnId'] : $data['columnId'];
         }
         if (isset($data['horizontalSectionId'])) {
-            $this->horizontalSectionId = $data['horizontalSectionId'];
+            $this->horizontalSectionId = is_numeric($data['horizontalSectionId']) ? (float)$data['horizontalSectionId'] : $data['horizontalSectionId'];
         }
         if (isset($data['isInVerticalSection'])) {
-            $this->isInVerticalSection = $data['isInVerticalSection'];
+            $this->isInVerticalSection = is_bool($data['isInVerticalSection']) ? $data['isInVerticalSection'] : (bool)$data['isInVerticalSection'];
         }
         if (isset($data['webPartIndex'])) {
-            $this->webPartIndex = $data['webPartIndex'];
+            $this->webPartIndex = is_numeric($data['webPartIndex']) ? (float)$data['webPartIndex'] : $data['webPartIndex'];
         }
     }
 

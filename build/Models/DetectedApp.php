@@ -51,7 +51,7 @@ class DetectedApp
             $this->id = $data['id'];
         }
         if (isset($data['deviceCount'])) {
-            $this->deviceCount = $data['deviceCount'];
+            $this->deviceCount = is_numeric($data['deviceCount']) ? (float)$data['deviceCount'] : $data['deviceCount'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -63,7 +63,7 @@ class DetectedApp
             $this->publisher = $data['publisher'];
         }
         if (isset($data['sizeInByte'])) {
-            $this->sizeInByte = $data['sizeInByte'];
+            $this->sizeInByte = is_numeric($data['sizeInByte']) ? (float)$data['sizeInByte'] : $data['sizeInByte'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

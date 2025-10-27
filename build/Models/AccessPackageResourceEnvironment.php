@@ -72,7 +72,7 @@ class AccessPackageResourceEnvironment
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isDefaultEnvironment'])) {
-            $this->isDefaultEnvironment = $data['isDefaultEnvironment'];
+            $this->isDefaultEnvironment = is_bool($data['isDefaultEnvironment']) ? $data['isDefaultEnvironment'] : (bool)$data['isDefaultEnvironment'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];

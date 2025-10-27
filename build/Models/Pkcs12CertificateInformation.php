@@ -33,13 +33,13 @@ class Pkcs12CertificateInformation
     {
         $this->rawData = $data;
         if (isset($data['isActive'])) {
-            $this->isActive = $data['isActive'];
+            $this->isActive = is_bool($data['isActive']) ? $data['isActive'] : (bool)$data['isActive'];
         }
         if (isset($data['notAfter'])) {
-            $this->notAfter = $data['notAfter'];
+            $this->notAfter = is_numeric($data['notAfter']) ? (float)$data['notAfter'] : $data['notAfter'];
         }
         if (isset($data['notBefore'])) {
-            $this->notBefore = $data['notBefore'];
+            $this->notBefore = is_numeric($data['notBefore']) ? (float)$data['notBefore'] : $data['notBefore'];
         }
         if (isset($data['thumbprint'])) {
             $this->thumbprint = $data['thumbprint'];

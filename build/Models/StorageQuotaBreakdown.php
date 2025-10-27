@@ -42,7 +42,7 @@ class StorageQuotaBreakdown
             $this->manageWebUrl = $data['manageWebUrl'];
         }
         if (isset($data['used'])) {
-            $this->used = $data['used'];
+            $this->used = is_numeric($data['used']) ? (float)$data['used'] : $data['used'];
         }
     }
 

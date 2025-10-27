@@ -72,7 +72,7 @@ class AttackSimulationOperation
             $this->statusDetail = $data['statusDetail'];
         }
         if (isset($data['percentageCompleted'])) {
-            $this->percentageCompleted = $data['percentageCompleted'];
+            $this->percentageCompleted = is_numeric($data['percentageCompleted']) ? (float)$data['percentageCompleted'] : $data['percentageCompleted'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];

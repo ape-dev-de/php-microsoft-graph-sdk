@@ -249,7 +249,7 @@ class AndroidGeneralDeviceConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -270,13 +270,13 @@ class AndroidGeneralDeviceConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['appsBlockClipboardSharing'])) {
-            $this->appsBlockClipboardSharing = $data['appsBlockClipboardSharing'];
+            $this->appsBlockClipboardSharing = is_bool($data['appsBlockClipboardSharing']) ? $data['appsBlockClipboardSharing'] : (bool)$data['appsBlockClipboardSharing'];
         }
         if (isset($data['appsBlockCopyPaste'])) {
-            $this->appsBlockCopyPaste = $data['appsBlockCopyPaste'];
+            $this->appsBlockCopyPaste = is_bool($data['appsBlockCopyPaste']) ? $data['appsBlockCopyPaste'] : (bool)$data['appsBlockCopyPaste'];
         }
         if (isset($data['appsBlockYouTube'])) {
-            $this->appsBlockYouTube = $data['appsBlockYouTube'];
+            $this->appsBlockYouTube = is_bool($data['appsBlockYouTube']) ? $data['appsBlockYouTube'] : (bool)$data['appsBlockYouTube'];
         }
         if (isset($data['appsHideList'])) {
             $this->appsHideList = $data['appsHideList'];
@@ -288,22 +288,22 @@ class AndroidGeneralDeviceConfiguration
             $this->appsLaunchBlockList = $data['appsLaunchBlockList'];
         }
         if (isset($data['bluetoothBlocked'])) {
-            $this->bluetoothBlocked = $data['bluetoothBlocked'];
+            $this->bluetoothBlocked = is_bool($data['bluetoothBlocked']) ? $data['bluetoothBlocked'] : (bool)$data['bluetoothBlocked'];
         }
         if (isset($data['cameraBlocked'])) {
-            $this->cameraBlocked = $data['cameraBlocked'];
+            $this->cameraBlocked = is_bool($data['cameraBlocked']) ? $data['cameraBlocked'] : (bool)$data['cameraBlocked'];
         }
         if (isset($data['cellularBlockDataRoaming'])) {
-            $this->cellularBlockDataRoaming = $data['cellularBlockDataRoaming'];
+            $this->cellularBlockDataRoaming = is_bool($data['cellularBlockDataRoaming']) ? $data['cellularBlockDataRoaming'] : (bool)$data['cellularBlockDataRoaming'];
         }
         if (isset($data['cellularBlockMessaging'])) {
-            $this->cellularBlockMessaging = $data['cellularBlockMessaging'];
+            $this->cellularBlockMessaging = is_bool($data['cellularBlockMessaging']) ? $data['cellularBlockMessaging'] : (bool)$data['cellularBlockMessaging'];
         }
         if (isset($data['cellularBlockVoiceRoaming'])) {
-            $this->cellularBlockVoiceRoaming = $data['cellularBlockVoiceRoaming'];
+            $this->cellularBlockVoiceRoaming = is_bool($data['cellularBlockVoiceRoaming']) ? $data['cellularBlockVoiceRoaming'] : (bool)$data['cellularBlockVoiceRoaming'];
         }
         if (isset($data['cellularBlockWiFiTethering'])) {
-            $this->cellularBlockWiFiTethering = $data['cellularBlockWiFiTethering'];
+            $this->cellularBlockWiFiTethering = is_bool($data['cellularBlockWiFiTethering']) ? $data['cellularBlockWiFiTethering'] : (bool)$data['cellularBlockWiFiTethering'];
         }
         if (isset($data['compliantAppListType'])) {
             $this->compliantAppListType = is_array($data['compliantAppListType']) ? new AppListType($data['compliantAppListType']) : $data['compliantAppListType'];
@@ -312,106 +312,106 @@ class AndroidGeneralDeviceConfiguration
             $this->compliantAppsList = $data['compliantAppsList'];
         }
         if (isset($data['deviceSharingAllowed'])) {
-            $this->deviceSharingAllowed = $data['deviceSharingAllowed'];
+            $this->deviceSharingAllowed = is_bool($data['deviceSharingAllowed']) ? $data['deviceSharingAllowed'] : (bool)$data['deviceSharingAllowed'];
         }
         if (isset($data['diagnosticDataBlockSubmission'])) {
-            $this->diagnosticDataBlockSubmission = $data['diagnosticDataBlockSubmission'];
+            $this->diagnosticDataBlockSubmission = is_bool($data['diagnosticDataBlockSubmission']) ? $data['diagnosticDataBlockSubmission'] : (bool)$data['diagnosticDataBlockSubmission'];
         }
         if (isset($data['factoryResetBlocked'])) {
-            $this->factoryResetBlocked = $data['factoryResetBlocked'];
+            $this->factoryResetBlocked = is_bool($data['factoryResetBlocked']) ? $data['factoryResetBlocked'] : (bool)$data['factoryResetBlocked'];
         }
         if (isset($data['googleAccountBlockAutoSync'])) {
-            $this->googleAccountBlockAutoSync = $data['googleAccountBlockAutoSync'];
+            $this->googleAccountBlockAutoSync = is_bool($data['googleAccountBlockAutoSync']) ? $data['googleAccountBlockAutoSync'] : (bool)$data['googleAccountBlockAutoSync'];
         }
         if (isset($data['googlePlayStoreBlocked'])) {
-            $this->googlePlayStoreBlocked = $data['googlePlayStoreBlocked'];
+            $this->googlePlayStoreBlocked = is_bool($data['googlePlayStoreBlocked']) ? $data['googlePlayStoreBlocked'] : (bool)$data['googlePlayStoreBlocked'];
         }
         if (isset($data['kioskModeApps'])) {
             $this->kioskModeApps = $data['kioskModeApps'];
         }
         if (isset($data['kioskModeBlockSleepButton'])) {
-            $this->kioskModeBlockSleepButton = $data['kioskModeBlockSleepButton'];
+            $this->kioskModeBlockSleepButton = is_bool($data['kioskModeBlockSleepButton']) ? $data['kioskModeBlockSleepButton'] : (bool)$data['kioskModeBlockSleepButton'];
         }
         if (isset($data['kioskModeBlockVolumeButtons'])) {
-            $this->kioskModeBlockVolumeButtons = $data['kioskModeBlockVolumeButtons'];
+            $this->kioskModeBlockVolumeButtons = is_bool($data['kioskModeBlockVolumeButtons']) ? $data['kioskModeBlockVolumeButtons'] : (bool)$data['kioskModeBlockVolumeButtons'];
         }
         if (isset($data['locationServicesBlocked'])) {
-            $this->locationServicesBlocked = $data['locationServicesBlocked'];
+            $this->locationServicesBlocked = is_bool($data['locationServicesBlocked']) ? $data['locationServicesBlocked'] : (bool)$data['locationServicesBlocked'];
         }
         if (isset($data['nfcBlocked'])) {
-            $this->nfcBlocked = $data['nfcBlocked'];
+            $this->nfcBlocked = is_bool($data['nfcBlocked']) ? $data['nfcBlocked'] : (bool)$data['nfcBlocked'];
         }
         if (isset($data['passwordBlockFingerprintUnlock'])) {
-            $this->passwordBlockFingerprintUnlock = $data['passwordBlockFingerprintUnlock'];
+            $this->passwordBlockFingerprintUnlock = is_bool($data['passwordBlockFingerprintUnlock']) ? $data['passwordBlockFingerprintUnlock'] : (bool)$data['passwordBlockFingerprintUnlock'];
         }
         if (isset($data['passwordBlockTrustAgents'])) {
-            $this->passwordBlockTrustAgents = $data['passwordBlockTrustAgents'];
+            $this->passwordBlockTrustAgents = is_bool($data['passwordBlockTrustAgents']) ? $data['passwordBlockTrustAgents'] : (bool)$data['passwordBlockTrustAgents'];
         }
         if (isset($data['passwordExpirationDays'])) {
-            $this->passwordExpirationDays = $data['passwordExpirationDays'];
+            $this->passwordExpirationDays = is_numeric($data['passwordExpirationDays']) ? (float)$data['passwordExpirationDays'] : $data['passwordExpirationDays'];
         }
         if (isset($data['passwordMinimumLength'])) {
-            $this->passwordMinimumLength = $data['passwordMinimumLength'];
+            $this->passwordMinimumLength = is_numeric($data['passwordMinimumLength']) ? (float)$data['passwordMinimumLength'] : $data['passwordMinimumLength'];
         }
         if (isset($data['passwordMinutesOfInactivityBeforeScreenTimeout'])) {
-            $this->passwordMinutesOfInactivityBeforeScreenTimeout = $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
+            $this->passwordMinutesOfInactivityBeforeScreenTimeout = is_numeric($data['passwordMinutesOfInactivityBeforeScreenTimeout']) ? (float)$data['passwordMinutesOfInactivityBeforeScreenTimeout'] : $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
         }
         if (isset($data['passwordPreviousPasswordBlockCount'])) {
-            $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
+            $this->passwordPreviousPasswordBlockCount = is_numeric($data['passwordPreviousPasswordBlockCount']) ? (float)$data['passwordPreviousPasswordBlockCount'] : $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequired'])) {
-            $this->passwordRequired = $data['passwordRequired'];
+            $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
             $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new AndroidRequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
-            $this->passwordSignInFailureCountBeforeFactoryReset = $data['passwordSignInFailureCountBeforeFactoryReset'];
+            $this->passwordSignInFailureCountBeforeFactoryReset = is_numeric($data['passwordSignInFailureCountBeforeFactoryReset']) ? (float)$data['passwordSignInFailureCountBeforeFactoryReset'] : $data['passwordSignInFailureCountBeforeFactoryReset'];
         }
         if (isset($data['powerOffBlocked'])) {
-            $this->powerOffBlocked = $data['powerOffBlocked'];
+            $this->powerOffBlocked = is_bool($data['powerOffBlocked']) ? $data['powerOffBlocked'] : (bool)$data['powerOffBlocked'];
         }
         if (isset($data['screenCaptureBlocked'])) {
-            $this->screenCaptureBlocked = $data['screenCaptureBlocked'];
+            $this->screenCaptureBlocked = is_bool($data['screenCaptureBlocked']) ? $data['screenCaptureBlocked'] : (bool)$data['screenCaptureBlocked'];
         }
         if (isset($data['securityRequireVerifyApps'])) {
-            $this->securityRequireVerifyApps = $data['securityRequireVerifyApps'];
+            $this->securityRequireVerifyApps = is_bool($data['securityRequireVerifyApps']) ? $data['securityRequireVerifyApps'] : (bool)$data['securityRequireVerifyApps'];
         }
         if (isset($data['storageBlockGoogleBackup'])) {
-            $this->storageBlockGoogleBackup = $data['storageBlockGoogleBackup'];
+            $this->storageBlockGoogleBackup = is_bool($data['storageBlockGoogleBackup']) ? $data['storageBlockGoogleBackup'] : (bool)$data['storageBlockGoogleBackup'];
         }
         if (isset($data['storageBlockRemovableStorage'])) {
-            $this->storageBlockRemovableStorage = $data['storageBlockRemovableStorage'];
+            $this->storageBlockRemovableStorage = is_bool($data['storageBlockRemovableStorage']) ? $data['storageBlockRemovableStorage'] : (bool)$data['storageBlockRemovableStorage'];
         }
         if (isset($data['storageRequireDeviceEncryption'])) {
-            $this->storageRequireDeviceEncryption = $data['storageRequireDeviceEncryption'];
+            $this->storageRequireDeviceEncryption = is_bool($data['storageRequireDeviceEncryption']) ? $data['storageRequireDeviceEncryption'] : (bool)$data['storageRequireDeviceEncryption'];
         }
         if (isset($data['storageRequireRemovableStorageEncryption'])) {
-            $this->storageRequireRemovableStorageEncryption = $data['storageRequireRemovableStorageEncryption'];
+            $this->storageRequireRemovableStorageEncryption = is_bool($data['storageRequireRemovableStorageEncryption']) ? $data['storageRequireRemovableStorageEncryption'] : (bool)$data['storageRequireRemovableStorageEncryption'];
         }
         if (isset($data['voiceAssistantBlocked'])) {
-            $this->voiceAssistantBlocked = $data['voiceAssistantBlocked'];
+            $this->voiceAssistantBlocked = is_bool($data['voiceAssistantBlocked']) ? $data['voiceAssistantBlocked'] : (bool)$data['voiceAssistantBlocked'];
         }
         if (isset($data['voiceDialingBlocked'])) {
-            $this->voiceDialingBlocked = $data['voiceDialingBlocked'];
+            $this->voiceDialingBlocked = is_bool($data['voiceDialingBlocked']) ? $data['voiceDialingBlocked'] : (bool)$data['voiceDialingBlocked'];
         }
         if (isset($data['webBrowserBlockAutofill'])) {
-            $this->webBrowserBlockAutofill = $data['webBrowserBlockAutofill'];
+            $this->webBrowserBlockAutofill = is_bool($data['webBrowserBlockAutofill']) ? $data['webBrowserBlockAutofill'] : (bool)$data['webBrowserBlockAutofill'];
         }
         if (isset($data['webBrowserBlocked'])) {
-            $this->webBrowserBlocked = $data['webBrowserBlocked'];
+            $this->webBrowserBlocked = is_bool($data['webBrowserBlocked']) ? $data['webBrowserBlocked'] : (bool)$data['webBrowserBlocked'];
         }
         if (isset($data['webBrowserBlockJavaScript'])) {
-            $this->webBrowserBlockJavaScript = $data['webBrowserBlockJavaScript'];
+            $this->webBrowserBlockJavaScript = is_bool($data['webBrowserBlockJavaScript']) ? $data['webBrowserBlockJavaScript'] : (bool)$data['webBrowserBlockJavaScript'];
         }
         if (isset($data['webBrowserBlockPopups'])) {
-            $this->webBrowserBlockPopups = $data['webBrowserBlockPopups'];
+            $this->webBrowserBlockPopups = is_bool($data['webBrowserBlockPopups']) ? $data['webBrowserBlockPopups'] : (bool)$data['webBrowserBlockPopups'];
         }
         if (isset($data['webBrowserCookieSettings'])) {
             $this->webBrowserCookieSettings = is_array($data['webBrowserCookieSettings']) ? new WebBrowserCookieSettings($data['webBrowserCookieSettings']) : $data['webBrowserCookieSettings'];
         }
         if (isset($data['wiFiBlocked'])) {
-            $this->wiFiBlocked = $data['wiFiBlocked'];
+            $this->wiFiBlocked = is_bool($data['wiFiBlocked']) ? $data['wiFiBlocked'] : (bool)$data['wiFiBlocked'];
         }
     }
 

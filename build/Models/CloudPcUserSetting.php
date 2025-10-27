@@ -63,10 +63,10 @@ class CloudPcUserSetting
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['localAdminEnabled'])) {
-            $this->localAdminEnabled = $data['localAdminEnabled'];
+            $this->localAdminEnabled = is_bool($data['localAdminEnabled']) ? $data['localAdminEnabled'] : (bool)$data['localAdminEnabled'];
         }
         if (isset($data['resetEnabled'])) {
-            $this->resetEnabled = $data['resetEnabled'];
+            $this->resetEnabled = is_bool($data['resetEnabled']) ? $data['resetEnabled'] : (bool)$data['resetEnabled'];
         }
         if (isset($data['restorePointSetting'])) {
             $this->restorePointSetting = is_array($data['restorePointSetting']) ? new CloudPcRestorePointSetting($data['restorePointSetting']) : $data['restorePointSetting'];

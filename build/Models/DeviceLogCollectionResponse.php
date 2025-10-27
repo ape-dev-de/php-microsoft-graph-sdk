@@ -72,7 +72,7 @@ class DeviceLogCollectionResponse
             $this->requestedDateTimeUTC = is_string($data['requestedDateTimeUTC']) ? new \DateTimeImmutable($data['requestedDateTimeUTC']) : $data['requestedDateTimeUTC'];
         }
         if (isset($data['sizeInKB'])) {
-            $this->sizeInKB = $data['sizeInKB'];
+            $this->sizeInKB = is_numeric($data['sizeInKB']) ? (float)$data['sizeInKB'] : $data['sizeInKB'];
         }
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new AppLogUploadState($data['status']) : $data['status'];

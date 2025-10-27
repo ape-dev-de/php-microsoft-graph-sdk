@@ -30,13 +30,13 @@ class UserExperienceAnalyticsAutopilotDevicesSummary
     {
         $this->rawData = $data;
         if (isset($data['devicesNotAutopilotRegistered'])) {
-            $this->devicesNotAutopilotRegistered = $data['devicesNotAutopilotRegistered'];
+            $this->devicesNotAutopilotRegistered = is_numeric($data['devicesNotAutopilotRegistered']) ? (float)$data['devicesNotAutopilotRegistered'] : $data['devicesNotAutopilotRegistered'];
         }
         if (isset($data['devicesWithoutAutopilotProfileAssigned'])) {
-            $this->devicesWithoutAutopilotProfileAssigned = $data['devicesWithoutAutopilotProfileAssigned'];
+            $this->devicesWithoutAutopilotProfileAssigned = is_numeric($data['devicesWithoutAutopilotProfileAssigned']) ? (float)$data['devicesWithoutAutopilotProfileAssigned'] : $data['devicesWithoutAutopilotProfileAssigned'];
         }
         if (isset($data['totalWindows10DevicesWithoutTenantAttached'])) {
-            $this->totalWindows10DevicesWithoutTenantAttached = $data['totalWindows10DevicesWithoutTenantAttached'];
+            $this->totalWindows10DevicesWithoutTenantAttached = is_numeric($data['totalWindows10DevicesWithoutTenantAttached']) ? (float)$data['totalWindows10DevicesWithoutTenantAttached'] : $data['totalWindows10DevicesWithoutTenantAttached'];
         }
     }
 

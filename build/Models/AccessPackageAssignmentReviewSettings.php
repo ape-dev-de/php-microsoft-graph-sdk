@@ -63,16 +63,16 @@ class AccessPackageAssignmentReviewSettings
             $this->fallbackReviewers = $data['fallbackReviewers'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['isRecommendationEnabled'])) {
-            $this->isRecommendationEnabled = $data['isRecommendationEnabled'];
+            $this->isRecommendationEnabled = is_bool($data['isRecommendationEnabled']) ? $data['isRecommendationEnabled'] : (bool)$data['isRecommendationEnabled'];
         }
         if (isset($data['isReviewerJustificationRequired'])) {
-            $this->isReviewerJustificationRequired = $data['isReviewerJustificationRequired'];
+            $this->isReviewerJustificationRequired = is_bool($data['isReviewerJustificationRequired']) ? $data['isReviewerJustificationRequired'] : (bool)$data['isReviewerJustificationRequired'];
         }
         if (isset($data['isSelfReview'])) {
-            $this->isSelfReview = $data['isSelfReview'];
+            $this->isSelfReview = is_bool($data['isSelfReview']) ? $data['isSelfReview'] : (bool)$data['isSelfReview'];
         }
         if (isset($data['primaryReviewers'])) {
             $this->primaryReviewers = $data['primaryReviewers'];

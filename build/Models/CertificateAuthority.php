@@ -48,7 +48,7 @@ class CertificateAuthority
             $this->deltaCertificateRevocationListUrl = $data['deltaCertificateRevocationListUrl'];
         }
         if (isset($data['isRootAuthority'])) {
-            $this->isRootAuthority = $data['isRootAuthority'];
+            $this->isRootAuthority = is_bool($data['isRootAuthority']) ? $data['isRootAuthority'] : (bool)$data['isRootAuthority'];
         }
         if (isset($data['issuer'])) {
             $this->issuer = $data['issuer'];

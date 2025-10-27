@@ -30,7 +30,7 @@ class Folder
     {
         $this->rawData = $data;
         if (isset($data['childCount'])) {
-            $this->childCount = $data['childCount'];
+            $this->childCount = is_numeric($data['childCount']) ? (float)$data['childCount'] : $data['childCount'];
         }
         if (isset($data['view'])) {
             $this->view = is_array($data['view']) ? new FolderView($data['view']) : $data['view'];

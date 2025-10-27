@@ -54,16 +54,16 @@ class ExternalConnectorsProperty
             $this->aliases = $data['aliases'];
         }
         if (isset($data['isQueryable'])) {
-            $this->isQueryable = $data['isQueryable'];
+            $this->isQueryable = is_bool($data['isQueryable']) ? $data['isQueryable'] : (bool)$data['isQueryable'];
         }
         if (isset($data['isRefinable'])) {
-            $this->isRefinable = $data['isRefinable'];
+            $this->isRefinable = is_bool($data['isRefinable']) ? $data['isRefinable'] : (bool)$data['isRefinable'];
         }
         if (isset($data['isRetrievable'])) {
-            $this->isRetrievable = $data['isRetrievable'];
+            $this->isRetrievable = is_bool($data['isRetrievable']) ? $data['isRetrievable'] : (bool)$data['isRetrievable'];
         }
         if (isset($data['isSearchable'])) {
-            $this->isSearchable = $data['isSearchable'];
+            $this->isSearchable = is_bool($data['isSearchable']) ? $data['isSearchable'] : (bool)$data['isSearchable'];
         }
         if (isset($data['labels'])) {
             $this->labels = $data['labels'];

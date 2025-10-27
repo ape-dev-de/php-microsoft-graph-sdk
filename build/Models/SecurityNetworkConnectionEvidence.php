@@ -99,7 +99,7 @@ class SecurityNetworkConnectionEvidence
             $this->destinationAddress = is_array($data['destinationAddress']) ? new SecurityIpEvidence($data['destinationAddress']) : $data['destinationAddress'];
         }
         if (isset($data['destinationPort'])) {
-            $this->destinationPort = $data['destinationPort'];
+            $this->destinationPort = is_numeric($data['destinationPort']) ? (float)$data['destinationPort'] : $data['destinationPort'];
         }
         if (isset($data['protocol'])) {
             $this->protocol = is_array($data['protocol']) ? new SecurityProtocolType($data['protocol']) : $data['protocol'];
@@ -108,7 +108,7 @@ class SecurityNetworkConnectionEvidence
             $this->sourceAddress = is_array($data['sourceAddress']) ? new SecurityIpEvidence($data['sourceAddress']) : $data['sourceAddress'];
         }
         if (isset($data['sourcePort'])) {
-            $this->sourcePort = $data['sourcePort'];
+            $this->sourcePort = is_numeric($data['sourcePort']) ? (float)$data['sourcePort'] : $data['sourcePort'];
         }
     }
 

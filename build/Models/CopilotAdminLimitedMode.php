@@ -36,7 +36,7 @@ class CopilotAdminLimitedMode
             $this->groupId = $data['groupId'];
         }
         if (isset($data['isEnabledForGroup'])) {
-            $this->isEnabledForGroup = $data['isEnabledForGroup'];
+            $this->isEnabledForGroup = is_bool($data['isEnabledForGroup']) ? $data['isEnabledForGroup'] : (bool)$data['isEnabledForGroup'];
         }
     }
 

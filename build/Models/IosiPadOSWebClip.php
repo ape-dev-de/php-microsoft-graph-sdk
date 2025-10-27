@@ -102,7 +102,7 @@ class IosiPadOSWebClip
             $this->informationUrl = $data['informationUrl'];
         }
         if (isset($data['isFeatured'])) {
-            $this->isFeatured = $data['isFeatured'];
+            $this->isFeatured = is_bool($data['isFeatured']) ? $data['isFeatured'] : (bool)$data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
             $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
@@ -135,7 +135,7 @@ class IosiPadOSWebClip
             $this->appUrl = $data['appUrl'];
         }
         if (isset($data['useManagedBrowser'])) {
-            $this->useManagedBrowser = $data['useManagedBrowser'];
+            $this->useManagedBrowser = is_bool($data['useManagedBrowser']) ? $data['useManagedBrowser'] : (bool)$data['useManagedBrowser'];
         }
     }
 

@@ -27,7 +27,7 @@ class SortProperty
     {
         $this->rawData = $data;
         if (isset($data['isDescending'])) {
-            $this->isDescending = $data['isDescending'];
+            $this->isDescending = is_bool($data['isDescending']) ? $data['isDescending'] : (bool)$data['isDescending'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

@@ -39,7 +39,7 @@ class VirtualEventRegistrationQuestionAnswer
     {
         $this->rawData = $data;
         if (isset($data['booleanValue'])) {
-            $this->booleanValue = $data['booleanValue'];
+            $this->booleanValue = is_bool($data['booleanValue']) ? $data['booleanValue'] : (bool)$data['booleanValue'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

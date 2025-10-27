@@ -30,7 +30,7 @@ class LobbyBypassSettings
     {
         $this->rawData = $data;
         if (isset($data['isDialInBypassEnabled'])) {
-            $this->isDialInBypassEnabled = $data['isDialInBypassEnabled'];
+            $this->isDialInBypassEnabled = is_bool($data['isDialInBypassEnabled']) ? $data['isDialInBypassEnabled'] : (bool)$data['isDialInBypassEnabled'];
         }
         if (isset($data['scope'])) {
             $this->scope = is_array($data['scope']) ? new LobbyBypassScope($data['scope']) : $data['scope'];

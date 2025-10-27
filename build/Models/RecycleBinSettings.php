@@ -24,7 +24,7 @@ class RecycleBinSettings
     {
         $this->rawData = $data;
         if (isset($data['retentionPeriodOverrideDays'])) {
-            $this->retentionPeriodOverrideDays = $data['retentionPeriodOverrideDays'];
+            $this->retentionPeriodOverrideDays = is_numeric($data['retentionPeriodOverrideDays']) ? (float)$data['retentionPeriodOverrideDays'] : $data['retentionPeriodOverrideDays'];
         }
     }
 

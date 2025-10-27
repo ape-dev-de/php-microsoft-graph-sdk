@@ -24,7 +24,7 @@ class StoragePlanInformation
     {
         $this->rawData = $data;
         if (isset($data['upgradeAvailable'])) {
-            $this->upgradeAvailable = $data['upgradeAvailable'];
+            $this->upgradeAvailable = is_bool($data['upgradeAvailable']) ? $data['upgradeAvailable'] : (bool)$data['upgradeAvailable'];
         }
     }
 

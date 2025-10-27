@@ -60,10 +60,10 @@ class AuthenticationAttributeCollectionInputConfiguration
             $this->defaultValue = $data['defaultValue'];
         }
         if (isset($data['editable'])) {
-            $this->editable = $data['editable'];
+            $this->editable = is_bool($data['editable']) ? $data['editable'] : (bool)$data['editable'];
         }
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['inputType'])) {
             $this->inputType = is_array($data['inputType']) ? new AuthenticationAttributeCollectionInputType($data['inputType']) : $data['inputType'];
@@ -75,13 +75,13 @@ class AuthenticationAttributeCollectionInputConfiguration
             $this->options = $data['options'];
         }
         if (isset($data['required'])) {
-            $this->required = $data['required'];
+            $this->required = is_bool($data['required']) ? $data['required'] : (bool)$data['required'];
         }
         if (isset($data['validationRegEx'])) {
             $this->validationRegEx = $data['validationRegEx'];
         }
         if (isset($data['writeToDirectory'])) {
-            $this->writeToDirectory = $data['writeToDirectory'];
+            $this->writeToDirectory = is_bool($data['writeToDirectory']) ? $data['writeToDirectory'] : (bool)$data['writeToDirectory'];
         }
     }
 

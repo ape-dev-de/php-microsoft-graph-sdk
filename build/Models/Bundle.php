@@ -33,7 +33,7 @@ class Bundle
             $this->album = is_array($data['album']) ? new Album($data['album']) : $data['album'];
         }
         if (isset($data['childCount'])) {
-            $this->childCount = $data['childCount'];
+            $this->childCount = is_numeric($data['childCount']) ? (float)$data['childCount'] : $data['childCount'];
         }
     }
 

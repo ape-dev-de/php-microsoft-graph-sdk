@@ -129,7 +129,7 @@ class Windows81CompliancePolicy
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -159,31 +159,31 @@ class Windows81CompliancePolicy
             $this->osMinimumVersion = $data['osMinimumVersion'];
         }
         if (isset($data['passwordBlockSimple'])) {
-            $this->passwordBlockSimple = $data['passwordBlockSimple'];
+            $this->passwordBlockSimple = is_bool($data['passwordBlockSimple']) ? $data['passwordBlockSimple'] : (bool)$data['passwordBlockSimple'];
         }
         if (isset($data['passwordExpirationDays'])) {
-            $this->passwordExpirationDays = $data['passwordExpirationDays'];
+            $this->passwordExpirationDays = is_numeric($data['passwordExpirationDays']) ? (float)$data['passwordExpirationDays'] : $data['passwordExpirationDays'];
         }
         if (isset($data['passwordMinimumCharacterSetCount'])) {
-            $this->passwordMinimumCharacterSetCount = $data['passwordMinimumCharacterSetCount'];
+            $this->passwordMinimumCharacterSetCount = is_numeric($data['passwordMinimumCharacterSetCount']) ? (float)$data['passwordMinimumCharacterSetCount'] : $data['passwordMinimumCharacterSetCount'];
         }
         if (isset($data['passwordMinimumLength'])) {
-            $this->passwordMinimumLength = $data['passwordMinimumLength'];
+            $this->passwordMinimumLength = is_numeric($data['passwordMinimumLength']) ? (float)$data['passwordMinimumLength'] : $data['passwordMinimumLength'];
         }
         if (isset($data['passwordMinutesOfInactivityBeforeLock'])) {
-            $this->passwordMinutesOfInactivityBeforeLock = $data['passwordMinutesOfInactivityBeforeLock'];
+            $this->passwordMinutesOfInactivityBeforeLock = is_numeric($data['passwordMinutesOfInactivityBeforeLock']) ? (float)$data['passwordMinutesOfInactivityBeforeLock'] : $data['passwordMinutesOfInactivityBeforeLock'];
         }
         if (isset($data['passwordPreviousPasswordBlockCount'])) {
-            $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
+            $this->passwordPreviousPasswordBlockCount = is_numeric($data['passwordPreviousPasswordBlockCount']) ? (float)$data['passwordPreviousPasswordBlockCount'] : $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequired'])) {
-            $this->passwordRequired = $data['passwordRequired'];
+            $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
             $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['storageRequireEncryption'])) {
-            $this->storageRequireEncryption = $data['storageRequireEncryption'];
+            $this->storageRequireEncryption = is_bool($data['storageRequireEncryption']) ? $data['storageRequireEncryption'] : (bool)$data['storageRequireEncryption'];
         }
     }
 

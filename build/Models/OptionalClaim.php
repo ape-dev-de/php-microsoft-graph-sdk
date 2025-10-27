@@ -39,7 +39,7 @@ class OptionalClaim
             $this->additionalProperties = $data['additionalProperties'];
         }
         if (isset($data['essential'])) {
-            $this->essential = $data['essential'];
+            $this->essential = is_bool($data['essential']) ? $data['essential'] : (bool)$data['essential'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

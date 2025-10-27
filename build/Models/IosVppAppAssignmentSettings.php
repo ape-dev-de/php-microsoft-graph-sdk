@@ -27,7 +27,7 @@ class IosVppAppAssignmentSettings
     {
         $this->rawData = $data;
         if (isset($data['useDeviceLicensing'])) {
-            $this->useDeviceLicensing = $data['useDeviceLicensing'];
+            $this->useDeviceLicensing = is_bool($data['useDeviceLicensing']) ? $data['useDeviceLicensing'] : (bool)$data['useDeviceLicensing'];
         }
         if (isset($data['vpnConfigurationId'])) {
             $this->vpnConfigurationId = $data['vpnConfigurationId'];

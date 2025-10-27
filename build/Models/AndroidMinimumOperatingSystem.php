@@ -69,52 +69,52 @@ class AndroidMinimumOperatingSystem
     {
         $this->rawData = $data;
         if (isset($data['v10_0'])) {
-            $this->v10_0 = $data['v10_0'];
+            $this->v10_0 = is_bool($data['v10_0']) ? $data['v10_0'] : (bool)$data['v10_0'];
         }
         if (isset($data['v11_0'])) {
-            $this->v11_0 = $data['v11_0'];
+            $this->v11_0 = is_bool($data['v11_0']) ? $data['v11_0'] : (bool)$data['v11_0'];
         }
         if (isset($data['v4_0'])) {
-            $this->v4_0 = $data['v4_0'];
+            $this->v4_0 = is_bool($data['v4_0']) ? $data['v4_0'] : (bool)$data['v4_0'];
         }
         if (isset($data['v4_0_3'])) {
-            $this->v4_0_3 = $data['v4_0_3'];
+            $this->v4_0_3 = is_bool($data['v4_0_3']) ? $data['v4_0_3'] : (bool)$data['v4_0_3'];
         }
         if (isset($data['v4_1'])) {
-            $this->v4_1 = $data['v4_1'];
+            $this->v4_1 = is_bool($data['v4_1']) ? $data['v4_1'] : (bool)$data['v4_1'];
         }
         if (isset($data['v4_2'])) {
-            $this->v4_2 = $data['v4_2'];
+            $this->v4_2 = is_bool($data['v4_2']) ? $data['v4_2'] : (bool)$data['v4_2'];
         }
         if (isset($data['v4_3'])) {
-            $this->v4_3 = $data['v4_3'];
+            $this->v4_3 = is_bool($data['v4_3']) ? $data['v4_3'] : (bool)$data['v4_3'];
         }
         if (isset($data['v4_4'])) {
-            $this->v4_4 = $data['v4_4'];
+            $this->v4_4 = is_bool($data['v4_4']) ? $data['v4_4'] : (bool)$data['v4_4'];
         }
         if (isset($data['v5_0'])) {
-            $this->v5_0 = $data['v5_0'];
+            $this->v5_0 = is_bool($data['v5_0']) ? $data['v5_0'] : (bool)$data['v5_0'];
         }
         if (isset($data['v5_1'])) {
-            $this->v5_1 = $data['v5_1'];
+            $this->v5_1 = is_bool($data['v5_1']) ? $data['v5_1'] : (bool)$data['v5_1'];
         }
         if (isset($data['v6_0'])) {
-            $this->v6_0 = $data['v6_0'];
+            $this->v6_0 = is_bool($data['v6_0']) ? $data['v6_0'] : (bool)$data['v6_0'];
         }
         if (isset($data['v7_0'])) {
-            $this->v7_0 = $data['v7_0'];
+            $this->v7_0 = is_bool($data['v7_0']) ? $data['v7_0'] : (bool)$data['v7_0'];
         }
         if (isset($data['v7_1'])) {
-            $this->v7_1 = $data['v7_1'];
+            $this->v7_1 = is_bool($data['v7_1']) ? $data['v7_1'] : (bool)$data['v7_1'];
         }
         if (isset($data['v8_0'])) {
-            $this->v8_0 = $data['v8_0'];
+            $this->v8_0 = is_bool($data['v8_0']) ? $data['v8_0'] : (bool)$data['v8_0'];
         }
         if (isset($data['v8_1'])) {
-            $this->v8_1 = $data['v8_1'];
+            $this->v8_1 = is_bool($data['v8_1']) ? $data['v8_1'] : (bool)$data['v8_1'];
         }
         if (isset($data['v9_0'])) {
-            $this->v9_0 = $data['v9_0'];
+            $this->v9_0 = is_bool($data['v9_0']) ? $data['v9_0'] : (bool)$data['v9_0'];
         }
     }
 

@@ -54,25 +54,25 @@ class IosNotificationSettings
             $this->appName = $data['appName'];
         }
         if (isset($data['badgesEnabled'])) {
-            $this->badgesEnabled = $data['badgesEnabled'];
+            $this->badgesEnabled = is_bool($data['badgesEnabled']) ? $data['badgesEnabled'] : (bool)$data['badgesEnabled'];
         }
         if (isset($data['bundleID'])) {
             $this->bundleID = $data['bundleID'];
         }
         if (isset($data['enabled'])) {
-            $this->enabled = $data['enabled'];
+            $this->enabled = is_bool($data['enabled']) ? $data['enabled'] : (bool)$data['enabled'];
         }
         if (isset($data['publisher'])) {
             $this->publisher = $data['publisher'];
         }
         if (isset($data['showInNotificationCenter'])) {
-            $this->showInNotificationCenter = $data['showInNotificationCenter'];
+            $this->showInNotificationCenter = is_bool($data['showInNotificationCenter']) ? $data['showInNotificationCenter'] : (bool)$data['showInNotificationCenter'];
         }
         if (isset($data['showOnLockScreen'])) {
-            $this->showOnLockScreen = $data['showOnLockScreen'];
+            $this->showOnLockScreen = is_bool($data['showOnLockScreen']) ? $data['showOnLockScreen'] : (bool)$data['showOnLockScreen'];
         }
         if (isset($data['soundsEnabled'])) {
-            $this->soundsEnabled = $data['soundsEnabled'];
+            $this->soundsEnabled = is_bool($data['soundsEnabled']) ? $data['soundsEnabled'] : (bool)$data['soundsEnabled'];
         }
     }
 

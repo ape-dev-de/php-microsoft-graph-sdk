@@ -99,25 +99,25 @@ class UserExperienceAnalyticsDevicePerformance
             $this->id = $data['id'];
         }
         if (isset($data['averageBlueScreens'])) {
-            $this->averageBlueScreens = $data['averageBlueScreens'];
+            $this->averageBlueScreens = is_numeric($data['averageBlueScreens']) ? (float)$data['averageBlueScreens'] : $data['averageBlueScreens'];
         }
         if (isset($data['averageRestarts'])) {
-            $this->averageRestarts = $data['averageRestarts'];
+            $this->averageRestarts = is_numeric($data['averageRestarts']) ? (float)$data['averageRestarts'] : $data['averageRestarts'];
         }
         if (isset($data['blueScreenCount'])) {
-            $this->blueScreenCount = $data['blueScreenCount'];
+            $this->blueScreenCount = is_numeric($data['blueScreenCount']) ? (float)$data['blueScreenCount'] : $data['blueScreenCount'];
         }
         if (isset($data['bootScore'])) {
-            $this->bootScore = $data['bootScore'];
+            $this->bootScore = is_numeric($data['bootScore']) ? (float)$data['bootScore'] : $data['bootScore'];
         }
         if (isset($data['coreBootTimeInMs'])) {
-            $this->coreBootTimeInMs = $data['coreBootTimeInMs'];
+            $this->coreBootTimeInMs = is_numeric($data['coreBootTimeInMs']) ? (float)$data['coreBootTimeInMs'] : $data['coreBootTimeInMs'];
         }
         if (isset($data['coreLoginTimeInMs'])) {
-            $this->coreLoginTimeInMs = $data['coreLoginTimeInMs'];
+            $this->coreLoginTimeInMs = is_numeric($data['coreLoginTimeInMs']) ? (float)$data['coreLoginTimeInMs'] : $data['coreLoginTimeInMs'];
         }
         if (isset($data['deviceCount'])) {
-            $this->deviceCount = $data['deviceCount'];
+            $this->deviceCount = is_numeric($data['deviceCount']) ? (float)$data['deviceCount'] : $data['deviceCount'];
         }
         if (isset($data['deviceName'])) {
             $this->deviceName = $data['deviceName'];
@@ -126,16 +126,16 @@ class UserExperienceAnalyticsDevicePerformance
             $this->diskType = is_array($data['diskType']) ? new DiskType($data['diskType']) : $data['diskType'];
         }
         if (isset($data['groupPolicyBootTimeInMs'])) {
-            $this->groupPolicyBootTimeInMs = $data['groupPolicyBootTimeInMs'];
+            $this->groupPolicyBootTimeInMs = is_numeric($data['groupPolicyBootTimeInMs']) ? (float)$data['groupPolicyBootTimeInMs'] : $data['groupPolicyBootTimeInMs'];
         }
         if (isset($data['groupPolicyLoginTimeInMs'])) {
-            $this->groupPolicyLoginTimeInMs = $data['groupPolicyLoginTimeInMs'];
+            $this->groupPolicyLoginTimeInMs = is_numeric($data['groupPolicyLoginTimeInMs']) ? (float)$data['groupPolicyLoginTimeInMs'] : $data['groupPolicyLoginTimeInMs'];
         }
         if (isset($data['healthStatus'])) {
             $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['loginScore'])) {
-            $this->loginScore = $data['loginScore'];
+            $this->loginScore = is_numeric($data['loginScore']) ? (float)$data['loginScore'] : $data['loginScore'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];
@@ -144,19 +144,19 @@ class UserExperienceAnalyticsDevicePerformance
             $this->model = $data['model'];
         }
         if (isset($data['modelStartupPerformanceScore'])) {
-            $this->modelStartupPerformanceScore = $data['modelStartupPerformanceScore'];
+            $this->modelStartupPerformanceScore = is_numeric($data['modelStartupPerformanceScore']) ? (float)$data['modelStartupPerformanceScore'] : $data['modelStartupPerformanceScore'];
         }
         if (isset($data['operatingSystemVersion'])) {
             $this->operatingSystemVersion = $data['operatingSystemVersion'];
         }
         if (isset($data['responsiveDesktopTimeInMs'])) {
-            $this->responsiveDesktopTimeInMs = $data['responsiveDesktopTimeInMs'];
+            $this->responsiveDesktopTimeInMs = is_numeric($data['responsiveDesktopTimeInMs']) ? (float)$data['responsiveDesktopTimeInMs'] : $data['responsiveDesktopTimeInMs'];
         }
         if (isset($data['restartCount'])) {
-            $this->restartCount = $data['restartCount'];
+            $this->restartCount = is_numeric($data['restartCount']) ? (float)$data['restartCount'] : $data['restartCount'];
         }
         if (isset($data['startupPerformanceScore'])) {
-            $this->startupPerformanceScore = $data['startupPerformanceScore'];
+            $this->startupPerformanceScore = is_numeric($data['startupPerformanceScore']) ? (float)$data['startupPerformanceScore'] : $data['startupPerformanceScore'];
         }
     }
 

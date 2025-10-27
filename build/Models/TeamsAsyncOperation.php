@@ -54,7 +54,7 @@ class TeamsAsyncOperation
             $this->id = $data['id'];
         }
         if (isset($data['attemptsCount'])) {
-            $this->attemptsCount = $data['attemptsCount'];
+            $this->attemptsCount = is_numeric($data['attemptsCount']) ? (float)$data['attemptsCount'] : $data['attemptsCount'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

@@ -150,7 +150,7 @@ class UnifiedRoleAssignmentScheduleRequest
             $this->directoryScopeId = $data['directoryScopeId'];
         }
         if (isset($data['isValidationOnly'])) {
-            $this->isValidationOnly = $data['isValidationOnly'];
+            $this->isValidationOnly = is_bool($data['isValidationOnly']) ? $data['isValidationOnly'] : (bool)$data['isValidationOnly'];
         }
         if (isset($data['justification'])) {
             $this->justification = $data['justification'];

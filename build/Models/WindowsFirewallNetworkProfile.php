@@ -57,40 +57,40 @@ class WindowsFirewallNetworkProfile
     {
         $this->rawData = $data;
         if (isset($data['authorizedApplicationRulesFromGroupPolicyMerged'])) {
-            $this->authorizedApplicationRulesFromGroupPolicyMerged = $data['authorizedApplicationRulesFromGroupPolicyMerged'];
+            $this->authorizedApplicationRulesFromGroupPolicyMerged = is_bool($data['authorizedApplicationRulesFromGroupPolicyMerged']) ? $data['authorizedApplicationRulesFromGroupPolicyMerged'] : (bool)$data['authorizedApplicationRulesFromGroupPolicyMerged'];
         }
         if (isset($data['connectionSecurityRulesFromGroupPolicyMerged'])) {
-            $this->connectionSecurityRulesFromGroupPolicyMerged = $data['connectionSecurityRulesFromGroupPolicyMerged'];
+            $this->connectionSecurityRulesFromGroupPolicyMerged = is_bool($data['connectionSecurityRulesFromGroupPolicyMerged']) ? $data['connectionSecurityRulesFromGroupPolicyMerged'] : (bool)$data['connectionSecurityRulesFromGroupPolicyMerged'];
         }
         if (isset($data['firewallEnabled'])) {
             $this->firewallEnabled = is_array($data['firewallEnabled']) ? new StateManagementSetting($data['firewallEnabled']) : $data['firewallEnabled'];
         }
         if (isset($data['globalPortRulesFromGroupPolicyMerged'])) {
-            $this->globalPortRulesFromGroupPolicyMerged = $data['globalPortRulesFromGroupPolicyMerged'];
+            $this->globalPortRulesFromGroupPolicyMerged = is_bool($data['globalPortRulesFromGroupPolicyMerged']) ? $data['globalPortRulesFromGroupPolicyMerged'] : (bool)$data['globalPortRulesFromGroupPolicyMerged'];
         }
         if (isset($data['inboundConnectionsBlocked'])) {
-            $this->inboundConnectionsBlocked = $data['inboundConnectionsBlocked'];
+            $this->inboundConnectionsBlocked = is_bool($data['inboundConnectionsBlocked']) ? $data['inboundConnectionsBlocked'] : (bool)$data['inboundConnectionsBlocked'];
         }
         if (isset($data['inboundNotificationsBlocked'])) {
-            $this->inboundNotificationsBlocked = $data['inboundNotificationsBlocked'];
+            $this->inboundNotificationsBlocked = is_bool($data['inboundNotificationsBlocked']) ? $data['inboundNotificationsBlocked'] : (bool)$data['inboundNotificationsBlocked'];
         }
         if (isset($data['incomingTrafficBlocked'])) {
-            $this->incomingTrafficBlocked = $data['incomingTrafficBlocked'];
+            $this->incomingTrafficBlocked = is_bool($data['incomingTrafficBlocked']) ? $data['incomingTrafficBlocked'] : (bool)$data['incomingTrafficBlocked'];
         }
         if (isset($data['outboundConnectionsBlocked'])) {
-            $this->outboundConnectionsBlocked = $data['outboundConnectionsBlocked'];
+            $this->outboundConnectionsBlocked = is_bool($data['outboundConnectionsBlocked']) ? $data['outboundConnectionsBlocked'] : (bool)$data['outboundConnectionsBlocked'];
         }
         if (isset($data['policyRulesFromGroupPolicyMerged'])) {
-            $this->policyRulesFromGroupPolicyMerged = $data['policyRulesFromGroupPolicyMerged'];
+            $this->policyRulesFromGroupPolicyMerged = is_bool($data['policyRulesFromGroupPolicyMerged']) ? $data['policyRulesFromGroupPolicyMerged'] : (bool)$data['policyRulesFromGroupPolicyMerged'];
         }
         if (isset($data['securedPacketExemptionAllowed'])) {
-            $this->securedPacketExemptionAllowed = $data['securedPacketExemptionAllowed'];
+            $this->securedPacketExemptionAllowed = is_bool($data['securedPacketExemptionAllowed']) ? $data['securedPacketExemptionAllowed'] : (bool)$data['securedPacketExemptionAllowed'];
         }
         if (isset($data['stealthModeBlocked'])) {
-            $this->stealthModeBlocked = $data['stealthModeBlocked'];
+            $this->stealthModeBlocked = is_bool($data['stealthModeBlocked']) ? $data['stealthModeBlocked'] : (bool)$data['stealthModeBlocked'];
         }
         if (isset($data['unicastResponsesToMulticastBroadcastsBlocked'])) {
-            $this->unicastResponsesToMulticastBroadcastsBlocked = $data['unicastResponsesToMulticastBroadcastsBlocked'];
+            $this->unicastResponsesToMulticastBroadcastsBlocked = is_bool($data['unicastResponsesToMulticastBroadcastsBlocked']) ? $data['unicastResponsesToMulticastBroadcastsBlocked'] : (bool)$data['unicastResponsesToMulticastBroadcastsBlocked'];
         }
     }
 

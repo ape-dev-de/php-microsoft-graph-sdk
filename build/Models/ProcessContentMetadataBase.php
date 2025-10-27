@@ -63,10 +63,10 @@ class ProcessContentMetadataBase
             $this->identifier = $data['identifier'];
         }
         if (isset($data['isTruncated'])) {
-            $this->isTruncated = $data['isTruncated'];
+            $this->isTruncated = is_bool($data['isTruncated']) ? $data['isTruncated'] : (bool)$data['isTruncated'];
         }
         if (isset($data['length'])) {
-            $this->length = $data['length'];
+            $this->length = is_numeric($data['length']) ? (float)$data['length'] : $data['length'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];
@@ -75,7 +75,7 @@ class ProcessContentMetadataBase
             $this->name = $data['name'];
         }
         if (isset($data['sequenceNumber'])) {
-            $this->sequenceNumber = $data['sequenceNumber'];
+            $this->sequenceNumber = is_numeric($data['sequenceNumber']) ? (float)$data['sequenceNumber'] : $data['sequenceNumber'];
         }
     }
 

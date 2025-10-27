@@ -168,16 +168,16 @@ class VirtualEventSession
             $this->id = $data['id'];
         }
         if (isset($data['allowAttendeeToEnableCamera'])) {
-            $this->allowAttendeeToEnableCamera = $data['allowAttendeeToEnableCamera'];
+            $this->allowAttendeeToEnableCamera = is_bool($data['allowAttendeeToEnableCamera']) ? $data['allowAttendeeToEnableCamera'] : (bool)$data['allowAttendeeToEnableCamera'];
         }
         if (isset($data['allowAttendeeToEnableMic'])) {
-            $this->allowAttendeeToEnableMic = $data['allowAttendeeToEnableMic'];
+            $this->allowAttendeeToEnableMic = is_bool($data['allowAttendeeToEnableMic']) ? $data['allowAttendeeToEnableMic'] : (bool)$data['allowAttendeeToEnableMic'];
         }
         if (isset($data['allowBreakoutRooms'])) {
-            $this->allowBreakoutRooms = $data['allowBreakoutRooms'];
+            $this->allowBreakoutRooms = is_bool($data['allowBreakoutRooms']) ? $data['allowBreakoutRooms'] : (bool)$data['allowBreakoutRooms'];
         }
         if (isset($data['allowCopyingAndSharingMeetingContent'])) {
-            $this->allowCopyingAndSharingMeetingContent = $data['allowCopyingAndSharingMeetingContent'];
+            $this->allowCopyingAndSharingMeetingContent = is_bool($data['allowCopyingAndSharingMeetingContent']) ? $data['allowCopyingAndSharingMeetingContent'] : (bool)$data['allowCopyingAndSharingMeetingContent'];
         }
         if (isset($data['allowedLobbyAdmitters'])) {
             $this->allowedLobbyAdmitters = is_array($data['allowedLobbyAdmitters']) ? new AllowedLobbyAdmitterRoles($data['allowedLobbyAdmitters']) : $data['allowedLobbyAdmitters'];
@@ -192,22 +192,22 @@ class VirtualEventSession
             $this->allowMeetingChat = is_array($data['allowMeetingChat']) ? new MeetingChatMode($data['allowMeetingChat']) : $data['allowMeetingChat'];
         }
         if (isset($data['allowParticipantsToChangeName'])) {
-            $this->allowParticipantsToChangeName = $data['allowParticipantsToChangeName'];
+            $this->allowParticipantsToChangeName = is_bool($data['allowParticipantsToChangeName']) ? $data['allowParticipantsToChangeName'] : (bool)$data['allowParticipantsToChangeName'];
         }
         if (isset($data['allowPowerPointSharing'])) {
-            $this->allowPowerPointSharing = $data['allowPowerPointSharing'];
+            $this->allowPowerPointSharing = is_bool($data['allowPowerPointSharing']) ? $data['allowPowerPointSharing'] : (bool)$data['allowPowerPointSharing'];
         }
         if (isset($data['allowRecording'])) {
-            $this->allowRecording = $data['allowRecording'];
+            $this->allowRecording = is_bool($data['allowRecording']) ? $data['allowRecording'] : (bool)$data['allowRecording'];
         }
         if (isset($data['allowTeamworkReactions'])) {
-            $this->allowTeamworkReactions = $data['allowTeamworkReactions'];
+            $this->allowTeamworkReactions = is_bool($data['allowTeamworkReactions']) ? $data['allowTeamworkReactions'] : (bool)$data['allowTeamworkReactions'];
         }
         if (isset($data['allowTranscription'])) {
-            $this->allowTranscription = $data['allowTranscription'];
+            $this->allowTranscription = is_bool($data['allowTranscription']) ? $data['allowTranscription'] : (bool)$data['allowTranscription'];
         }
         if (isset($data['allowWhiteboard'])) {
-            $this->allowWhiteboard = $data['allowWhiteboard'];
+            $this->allowWhiteboard = is_bool($data['allowWhiteboard']) ? $data['allowWhiteboard'] : (bool)$data['allowWhiteboard'];
         }
         if (isset($data['audioConferencing'])) {
             $this->audioConferencing = is_array($data['audioConferencing']) ? new AudioConferencing($data['audioConferencing']) : $data['audioConferencing'];
@@ -219,10 +219,10 @@ class VirtualEventSession
             $this->chatRestrictions = is_array($data['chatRestrictions']) ? new ChatRestrictions($data['chatRestrictions']) : $data['chatRestrictions'];
         }
         if (isset($data['isEndToEndEncryptionEnabled'])) {
-            $this->isEndToEndEncryptionEnabled = $data['isEndToEndEncryptionEnabled'];
+            $this->isEndToEndEncryptionEnabled = is_bool($data['isEndToEndEncryptionEnabled']) ? $data['isEndToEndEncryptionEnabled'] : (bool)$data['isEndToEndEncryptionEnabled'];
         }
         if (isset($data['isEntryExitAnnounced'])) {
-            $this->isEntryExitAnnounced = $data['isEntryExitAnnounced'];
+            $this->isEntryExitAnnounced = is_bool($data['isEntryExitAnnounced']) ? $data['isEntryExitAnnounced'] : (bool)$data['isEntryExitAnnounced'];
         }
         if (isset($data['joinInformation'])) {
             $this->joinInformation = is_array($data['joinInformation']) ? new ItemBody($data['joinInformation']) : $data['joinInformation'];
@@ -237,7 +237,7 @@ class VirtualEventSession
             $this->lobbyBypassSettings = is_array($data['lobbyBypassSettings']) ? new LobbyBypassSettings($data['lobbyBypassSettings']) : $data['lobbyBypassSettings'];
         }
         if (isset($data['recordAutomatically'])) {
-            $this->recordAutomatically = $data['recordAutomatically'];
+            $this->recordAutomatically = is_bool($data['recordAutomatically']) ? $data['recordAutomatically'] : (bool)$data['recordAutomatically'];
         }
         if (isset($data['shareMeetingChatHistoryDefault'])) {
             $this->shareMeetingChatHistoryDefault = is_array($data['shareMeetingChatHistoryDefault']) ? new MeetingChatHistoryDefaultMode($data['shareMeetingChatHistoryDefault']) : $data['shareMeetingChatHistoryDefault'];

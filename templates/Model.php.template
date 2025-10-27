@@ -93,12 +93,23 @@ foreach ($sortedProperties as $propName => $propDef):
     $cleanType = trim($cleanType, '|'); // Remove trailing/leading pipes
     $isPrimitive = in_array($cleanType, ['string', 'int', 'bool', 'float', 'mixed', 'array']);
     $isComplexType = !$isPrimitive && !$isDateTime && !$isArray && !empty($cleanType) && ctype_upper($cleanType[0]);
+    
+    // Check for specific primitive types that need casting
+    $isFloat = $cleanType === 'float' || str_contains($type, 'float');
+    $isInt = $cleanType === 'int' || str_contains($type, 'int');
+    $isBool = $cleanType === 'bool' || str_contains($type, 'bool');
 ?>
         if (isset($data['<?= $propName ?>'])) {
 <?php if ($isDateTime): ?>
             $this-><?= $phpPropName ?> = is_string($data['<?= $propName ?>']) ? new \DateTimeImmutable($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
 <?php elseif ($isComplexType): ?>
             $this-><?= $phpPropName ?> = is_array($data['<?= $propName ?>']) ? new <?= $cleanType ?>($data['<?= $propName ?>']) : $data['<?= $propName ?>'];
+<?php elseif ($isFloat): ?>
+            $this-><?= $phpPropName ?> = is_numeric($data['<?= $propName ?>']) ? (float)$data['<?= $propName ?>'] : $data['<?= $propName ?>'];
+<?php elseif ($isInt): ?>
+            $this-><?= $phpPropName ?> = is_numeric($data['<?= $propName ?>']) ? (int)$data['<?= $propName ?>'] : $data['<?= $propName ?>'];
+<?php elseif ($isBool): ?>
+            $this-><?= $phpPropName ?> = is_bool($data['<?= $propName ?>']) ? $data['<?= $propName ?>'] : (bool)$data['<?= $propName ?>'];
 <?php else: ?>
             $this-><?= $phpPropName ?> = $data['<?= $propName ?>'];
 <?php endif; ?>

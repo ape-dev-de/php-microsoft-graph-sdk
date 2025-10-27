@@ -63,7 +63,7 @@ class DeviceManagementPartner
             $this->groupsRequiringPartnerEnrollment = $data['groupsRequiringPartnerEnrollment'];
         }
         if (isset($data['isConfigured'])) {
-            $this->isConfigured = $data['isConfigured'];
+            $this->isConfigured = is_bool($data['isConfigured']) ? $data['isConfigured'] : (bool)$data['isConfigured'];
         }
         if (isset($data['lastHeartbeatDateTime'])) {
             $this->lastHeartbeatDateTime = is_string($data['lastHeartbeatDateTime']) ? new \DateTimeImmutable($data['lastHeartbeatDateTime']) : $data['lastHeartbeatDateTime'];

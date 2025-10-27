@@ -30,7 +30,7 @@ class RestorePointSearchResult
     {
         $this->rawData = $data;
         if (isset($data['artifactHitCount'])) {
-            $this->artifactHitCount = $data['artifactHitCount'];
+            $this->artifactHitCount = is_numeric($data['artifactHitCount']) ? (float)$data['artifactHitCount'] : $data['artifactHitCount'];
         }
         if (isset($data['restorePoint'])) {
             $this->restorePoint = is_array($data['restorePoint']) ? new RestorePoint($data['restorePoint']) : $data['restorePoint'];

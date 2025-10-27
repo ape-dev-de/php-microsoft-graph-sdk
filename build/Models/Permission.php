@@ -99,7 +99,7 @@ class Permission
             $this->grantedToV2 = is_array($data['grantedToV2']) ? new SharePointIdentitySet($data['grantedToV2']) : $data['grantedToV2'];
         }
         if (isset($data['hasPassword'])) {
-            $this->hasPassword = $data['hasPassword'];
+            $this->hasPassword = is_bool($data['hasPassword']) ? $data['hasPassword'] : (bool)$data['hasPassword'];
         }
         if (isset($data['inheritedFrom'])) {
             $this->inheritedFrom = is_array($data['inheritedFrom']) ? new ItemReference($data['inheritedFrom']) : $data['inheritedFrom'];

@@ -63,16 +63,16 @@ class UserExperienceAnalyticsAppHealthDevicePerformance
             $this->id = $data['id'];
         }
         if (isset($data['appCrashCount'])) {
-            $this->appCrashCount = $data['appCrashCount'];
+            $this->appCrashCount = is_numeric($data['appCrashCount']) ? (float)$data['appCrashCount'] : $data['appCrashCount'];
         }
         if (isset($data['appHangCount'])) {
-            $this->appHangCount = $data['appHangCount'];
+            $this->appHangCount = is_numeric($data['appHangCount']) ? (float)$data['appHangCount'] : $data['appHangCount'];
         }
         if (isset($data['crashedAppCount'])) {
-            $this->crashedAppCount = $data['crashedAppCount'];
+            $this->crashedAppCount = is_numeric($data['crashedAppCount']) ? (float)$data['crashedAppCount'] : $data['crashedAppCount'];
         }
         if (isset($data['deviceAppHealthScore'])) {
-            $this->deviceAppHealthScore = $data['deviceAppHealthScore'];
+            $this->deviceAppHealthScore = is_numeric($data['deviceAppHealthScore']) ? (float)$data['deviceAppHealthScore'] : $data['deviceAppHealthScore'];
         }
         if (isset($data['deviceDisplayName'])) {
             $this->deviceDisplayName = $data['deviceDisplayName'];
@@ -90,7 +90,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance
             $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['meanTimeToFailureInMinutes'])) {
-            $this->meanTimeToFailureInMinutes = $data['meanTimeToFailureInMinutes'];
+            $this->meanTimeToFailureInMinutes = is_numeric($data['meanTimeToFailureInMinutes']) ? (float)$data['meanTimeToFailureInMinutes'] : $data['meanTimeToFailureInMinutes'];
         }
         if (isset($data['processedDateTime'])) {
             $this->processedDateTime = is_string($data['processedDateTime']) ? new \DateTimeImmutable($data['processedDateTime']) : $data['processedDateTime'];

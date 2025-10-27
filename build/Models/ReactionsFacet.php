@@ -30,13 +30,13 @@ class ReactionsFacet
     {
         $this->rawData = $data;
         if (isset($data['commentCount'])) {
-            $this->commentCount = $data['commentCount'];
+            $this->commentCount = is_numeric($data['commentCount']) ? (float)$data['commentCount'] : $data['commentCount'];
         }
         if (isset($data['likeCount'])) {
-            $this->likeCount = $data['likeCount'];
+            $this->likeCount = is_numeric($data['likeCount']) ? (float)$data['likeCount'] : $data['likeCount'];
         }
         if (isset($data['shareCount'])) {
-            $this->shareCount = $data['shareCount'];
+            $this->shareCount = is_numeric($data['shareCount']) ? (float)$data['shareCount'] : $data['shareCount'];
         }
     }
 

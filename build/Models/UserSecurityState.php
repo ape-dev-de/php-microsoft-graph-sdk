@@ -84,7 +84,7 @@ class UserSecurityState
             $this->emailRole = is_array($data['emailRole']) ? new EmailRole($data['emailRole']) : $data['emailRole'];
         }
         if (isset($data['isVpn'])) {
-            $this->isVpn = $data['isVpn'];
+            $this->isVpn = is_bool($data['isVpn']) ? $data['isVpn'] : (bool)$data['isVpn'];
         }
         if (isset($data['logonDateTime'])) {
             $this->logonDateTime = is_string($data['logonDateTime']) ? new \DateTimeImmutable($data['logonDateTime']) : $data['logonDateTime'];

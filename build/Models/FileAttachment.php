@@ -54,7 +54,7 @@ class FileAttachment
             $this->contentType = $data['contentType'];
         }
         if (isset($data['isInline'])) {
-            $this->isInline = $data['isInline'];
+            $this->isInline = is_bool($data['isInline']) ? $data['isInline'] : (bool)$data['isInline'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -63,7 +63,7 @@ class FileAttachment
             $this->name = $data['name'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['contentBytes'])) {
             $this->contentBytes = $data['contentBytes'];

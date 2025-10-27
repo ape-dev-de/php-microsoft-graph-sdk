@@ -132,7 +132,7 @@ class PrivilegedAccessGroupAssignmentScheduleRequest
             $this->action = is_array($data['action']) ? new ScheduleRequestActions($data['action']) : $data['action'];
         }
         if (isset($data['isValidationOnly'])) {
-            $this->isValidationOnly = $data['isValidationOnly'];
+            $this->isValidationOnly = is_bool($data['isValidationOnly']) ? $data['isValidationOnly'] : (bool)$data['isValidationOnly'];
         }
         if (isset($data['justification'])) {
             $this->justification = $data['justification'];

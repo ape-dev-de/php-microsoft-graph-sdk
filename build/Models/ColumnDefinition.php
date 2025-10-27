@@ -210,28 +210,28 @@ class ColumnDefinition
             $this->displayName = $data['displayName'];
         }
         if (isset($data['enforceUniqueValues'])) {
-            $this->enforceUniqueValues = $data['enforceUniqueValues'];
+            $this->enforceUniqueValues = is_bool($data['enforceUniqueValues']) ? $data['enforceUniqueValues'] : (bool)$data['enforceUniqueValues'];
         }
         if (isset($data['geolocation'])) {
             $this->geolocation = is_array($data['geolocation']) ? new GeolocationColumn($data['geolocation']) : $data['geolocation'];
         }
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['hyperlinkOrPicture'])) {
             $this->hyperlinkOrPicture = is_array($data['hyperlinkOrPicture']) ? new HyperlinkOrPictureColumn($data['hyperlinkOrPicture']) : $data['hyperlinkOrPicture'];
         }
         if (isset($data['indexed'])) {
-            $this->indexed = $data['indexed'];
+            $this->indexed = is_bool($data['indexed']) ? $data['indexed'] : (bool)$data['indexed'];
         }
         if (isset($data['isDeletable'])) {
-            $this->isDeletable = $data['isDeletable'];
+            $this->isDeletable = is_bool($data['isDeletable']) ? $data['isDeletable'] : (bool)$data['isDeletable'];
         }
         if (isset($data['isReorderable'])) {
-            $this->isReorderable = $data['isReorderable'];
+            $this->isReorderable = is_bool($data['isReorderable']) ? $data['isReorderable'] : (bool)$data['isReorderable'];
         }
         if (isset($data['isSealed'])) {
-            $this->isSealed = $data['isSealed'];
+            $this->isSealed = is_bool($data['isSealed']) ? $data['isSealed'] : (bool)$data['isSealed'];
         }
         if (isset($data['lookup'])) {
             $this->lookup = is_array($data['lookup']) ? new LookupColumn($data['lookup']) : $data['lookup'];
@@ -246,13 +246,13 @@ class ColumnDefinition
             $this->personOrGroup = is_array($data['personOrGroup']) ? new PersonOrGroupColumn($data['personOrGroup']) : $data['personOrGroup'];
         }
         if (isset($data['propagateChanges'])) {
-            $this->propagateChanges = $data['propagateChanges'];
+            $this->propagateChanges = is_bool($data['propagateChanges']) ? $data['propagateChanges'] : (bool)$data['propagateChanges'];
         }
         if (isset($data['readOnly'])) {
-            $this->readOnly = $data['readOnly'];
+            $this->readOnly = is_bool($data['readOnly']) ? $data['readOnly'] : (bool)$data['readOnly'];
         }
         if (isset($data['required'])) {
-            $this->required = $data['required'];
+            $this->required = is_bool($data['required']) ? $data['required'] : (bool)$data['required'];
         }
         if (isset($data['sourceContentType'])) {
             $this->sourceContentType = is_array($data['sourceContentType']) ? new ContentTypeInfo($data['sourceContentType']) : $data['sourceContentType'];

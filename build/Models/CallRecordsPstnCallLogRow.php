@@ -111,13 +111,13 @@ class CallRecordsPstnCallLogRow
             $this->callType = $data['callType'];
         }
         if (isset($data['charge'])) {
-            $this->charge = $data['charge'];
+            $this->charge = is_numeric($data['charge']) ? (float)$data['charge'] : $data['charge'];
         }
         if (isset($data['conferenceId'])) {
             $this->conferenceId = $data['conferenceId'];
         }
         if (isset($data['connectionCharge'])) {
-            $this->connectionCharge = $data['connectionCharge'];
+            $this->connectionCharge = is_numeric($data['connectionCharge']) ? (float)$data['connectionCharge'] : $data['connectionCharge'];
         }
         if (isset($data['currency'])) {
             $this->currency = $data['currency'];
@@ -129,7 +129,7 @@ class CallRecordsPstnCallLogRow
             $this->destinationName = $data['destinationName'];
         }
         if (isset($data['duration'])) {
-            $this->duration = $data['duration'];
+            $this->duration = is_numeric($data['duration']) ? (float)$data['duration'] : $data['duration'];
         }
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];

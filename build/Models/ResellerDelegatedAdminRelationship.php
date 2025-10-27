@@ -129,7 +129,7 @@ class ResellerDelegatedAdminRelationship
             $this->indirectProviderTenantId = $data['indirectProviderTenantId'];
         }
         if (isset($data['isPartnerConsentPending'])) {
-            $this->isPartnerConsentPending = $data['isPartnerConsentPending'];
+            $this->isPartnerConsentPending = is_bool($data['isPartnerConsentPending']) ? $data['isPartnerConsentPending'] : (bool)$data['isPartnerConsentPending'];
         }
     }
 

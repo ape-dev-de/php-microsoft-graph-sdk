@@ -48,25 +48,25 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary
             $this->id = $data['id'];
         }
         if (isset($data['configurationVersion'])) {
-            $this->configurationVersion = $data['configurationVersion'];
+            $this->configurationVersion = is_numeric($data['configurationVersion']) ? (float)$data['configurationVersion'] : $data['configurationVersion'];
         }
         if (isset($data['errorCount'])) {
-            $this->errorCount = $data['errorCount'];
+            $this->errorCount = is_numeric($data['errorCount']) ? (float)$data['errorCount'] : $data['errorCount'];
         }
         if (isset($data['failedCount'])) {
-            $this->failedCount = $data['failedCount'];
+            $this->failedCount = is_numeric($data['failedCount']) ? (float)$data['failedCount'] : $data['failedCount'];
         }
         if (isset($data['lastUpdateDateTime'])) {
             $this->lastUpdateDateTime = is_string($data['lastUpdateDateTime']) ? new \DateTimeImmutable($data['lastUpdateDateTime']) : $data['lastUpdateDateTime'];
         }
         if (isset($data['notApplicableCount'])) {
-            $this->notApplicableCount = $data['notApplicableCount'];
+            $this->notApplicableCount = is_numeric($data['notApplicableCount']) ? (float)$data['notApplicableCount'] : $data['notApplicableCount'];
         }
         if (isset($data['pendingCount'])) {
-            $this->pendingCount = $data['pendingCount'];
+            $this->pendingCount = is_numeric($data['pendingCount']) ? (float)$data['pendingCount'] : $data['pendingCount'];
         }
         if (isset($data['successCount'])) {
-            $this->successCount = $data['successCount'];
+            $this->successCount = is_numeric($data['successCount']) ? (float)$data['successCount'] : $data['successCount'];
         }
     }
 

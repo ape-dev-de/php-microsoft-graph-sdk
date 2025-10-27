@@ -30,13 +30,13 @@ class WindowsMinimumOperatingSystem
     {
         $this->rawData = $data;
         if (isset($data['v10_0'])) {
-            $this->v10_0 = $data['v10_0'];
+            $this->v10_0 = is_bool($data['v10_0']) ? $data['v10_0'] : (bool)$data['v10_0'];
         }
         if (isset($data['v8_0'])) {
-            $this->v8_0 = $data['v8_0'];
+            $this->v8_0 = is_bool($data['v8_0']) ? $data['v8_0'] : (bool)$data['v8_0'];
         }
         if (isset($data['v8_1'])) {
-            $this->v8_1 = $data['v8_1'];
+            $this->v8_1 = is_bool($data['v8_1']) ? $data['v8_1'] : (bool)$data['v8_1'];
         }
     }
 

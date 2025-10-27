@@ -126,7 +126,7 @@ class SearchBookmark
             $this->groupIds = $data['groupIds'];
         }
         if (isset($data['isSuggested'])) {
-            $this->isSuggested = $data['isSuggested'];
+            $this->isSuggested = is_bool($data['isSuggested']) ? $data['isSuggested'] : (bool)$data['isSuggested'];
         }
         if (isset($data['keywords'])) {
             $this->keywords = is_array($data['keywords']) ? new SearchAnswerKeyword($data['keywords']) : $data['keywords'];

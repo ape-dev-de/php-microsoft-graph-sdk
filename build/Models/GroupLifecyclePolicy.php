@@ -39,7 +39,7 @@ class GroupLifecyclePolicy
             $this->alternateNotificationEmails = $data['alternateNotificationEmails'];
         }
         if (isset($data['groupLifetimeInDays'])) {
-            $this->groupLifetimeInDays = $data['groupLifetimeInDays'];
+            $this->groupLifetimeInDays = is_numeric($data['groupLifetimeInDays']) ? (float)$data['groupLifetimeInDays'] : $data['groupLifetimeInDays'];
         }
         if (isset($data['managedGroupTypes'])) {
             $this->managedGroupTypes = $data['managedGroupTypes'];

@@ -51,7 +51,7 @@ class IdentityGovernanceTaskDefinition
             $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleTaskCategory($data['category']) : $data['category'];
         }
         if (isset($data['continueOnError'])) {
-            $this->continueOnError = $data['continueOnError'];
+            $this->continueOnError = is_bool($data['continueOnError']) ? $data['continueOnError'] : (bool)$data['continueOnError'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -63,7 +63,7 @@ class IdentityGovernanceTaskDefinition
             $this->parameters = $data['parameters'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
     }
 

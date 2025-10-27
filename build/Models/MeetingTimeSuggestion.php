@@ -60,7 +60,7 @@ class MeetingTimeSuggestion
             $this->attendeeAvailability = $data['attendeeAvailability'];
         }
         if (isset($data['confidence'])) {
-            $this->confidence = $data['confidence'];
+            $this->confidence = is_numeric($data['confidence']) ? (float)$data['confidence'] : $data['confidence'];
         }
         if (isset($data['locations'])) {
             $this->locations = $data['locations'];
@@ -69,7 +69,7 @@ class MeetingTimeSuggestion
             $this->meetingTimeSlot = is_array($data['meetingTimeSlot']) ? new TimeSlot($data['meetingTimeSlot']) : $data['meetingTimeSlot'];
         }
         if (isset($data['order'])) {
-            $this->order = $data['order'];
+            $this->order = is_numeric($data['order']) ? (float)$data['order'] : $data['order'];
         }
         if (isset($data['organizerAvailability'])) {
             $this->organizerAvailability = is_array($data['organizerAvailability']) ? new FreeBusyStatus($data['organizerAvailability']) : $data['organizerAvailability'];

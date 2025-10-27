@@ -66,28 +66,28 @@ class DeviceGeoLocation
     {
         $this->rawData = $data;
         if (isset($data['altitude'])) {
-            $this->altitude = $data['altitude'];
+            $this->altitude = is_numeric($data['altitude']) ? (float)$data['altitude'] : $data['altitude'];
         }
         if (isset($data['heading'])) {
-            $this->heading = $data['heading'];
+            $this->heading = is_numeric($data['heading']) ? (float)$data['heading'] : $data['heading'];
         }
         if (isset($data['horizontalAccuracy'])) {
-            $this->horizontalAccuracy = $data['horizontalAccuracy'];
+            $this->horizontalAccuracy = is_numeric($data['horizontalAccuracy']) ? (float)$data['horizontalAccuracy'] : $data['horizontalAccuracy'];
         }
         if (isset($data['lastCollectedDateTime'])) {
             $this->lastCollectedDateTime = is_string($data['lastCollectedDateTime']) ? new \DateTimeImmutable($data['lastCollectedDateTime']) : $data['lastCollectedDateTime'];
         }
         if (isset($data['latitude'])) {
-            $this->latitude = $data['latitude'];
+            $this->latitude = is_numeric($data['latitude']) ? (float)$data['latitude'] : $data['latitude'];
         }
         if (isset($data['longitude'])) {
-            $this->longitude = $data['longitude'];
+            $this->longitude = is_numeric($data['longitude']) ? (float)$data['longitude'] : $data['longitude'];
         }
         if (isset($data['speed'])) {
-            $this->speed = $data['speed'];
+            $this->speed = is_numeric($data['speed']) ? (float)$data['speed'] : $data['speed'];
         }
         if (isset($data['verticalAccuracy'])) {
-            $this->verticalAccuracy = $data['verticalAccuracy'];
+            $this->verticalAccuracy = is_numeric($data['verticalAccuracy']) ? (float)$data['verticalAccuracy'] : $data['verticalAccuracy'];
         }
     }
 

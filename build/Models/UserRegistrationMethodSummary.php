@@ -42,7 +42,7 @@ class UserRegistrationMethodSummary
     {
         $this->rawData = $data;
         if (isset($data['totalUserCount'])) {
-            $this->totalUserCount = $data['totalUserCount'];
+            $this->totalUserCount = is_numeric($data['totalUserCount']) ? (float)$data['totalUserCount'] : $data['totalUserCount'];
         }
         if (isset($data['userRegistrationMethodCounts'])) {
             $this->userRegistrationMethodCounts = $data['userRegistrationMethodCounts'];

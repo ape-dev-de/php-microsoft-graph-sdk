@@ -108,7 +108,7 @@ class SecurityGoogleCloudResourceEvidence
             $this->projectId = $data['projectId'];
         }
         if (isset($data['projectNumber'])) {
-            $this->projectNumber = $data['projectNumber'];
+            $this->projectNumber = is_numeric($data['projectNumber']) ? (float)$data['projectNumber'] : $data['projectNumber'];
         }
         if (isset($data['resourceName'])) {
             $this->resourceName = $data['resourceName'];

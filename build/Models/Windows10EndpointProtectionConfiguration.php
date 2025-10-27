@@ -219,7 +219,7 @@ class Windows10EndpointProtectionConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -240,19 +240,19 @@ class Windows10EndpointProtectionConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['applicationGuardAllowPersistence'])) {
-            $this->applicationGuardAllowPersistence = $data['applicationGuardAllowPersistence'];
+            $this->applicationGuardAllowPersistence = is_bool($data['applicationGuardAllowPersistence']) ? $data['applicationGuardAllowPersistence'] : (bool)$data['applicationGuardAllowPersistence'];
         }
         if (isset($data['applicationGuardAllowPrintToLocalPrinters'])) {
-            $this->applicationGuardAllowPrintToLocalPrinters = $data['applicationGuardAllowPrintToLocalPrinters'];
+            $this->applicationGuardAllowPrintToLocalPrinters = is_bool($data['applicationGuardAllowPrintToLocalPrinters']) ? $data['applicationGuardAllowPrintToLocalPrinters'] : (bool)$data['applicationGuardAllowPrintToLocalPrinters'];
         }
         if (isset($data['applicationGuardAllowPrintToNetworkPrinters'])) {
-            $this->applicationGuardAllowPrintToNetworkPrinters = $data['applicationGuardAllowPrintToNetworkPrinters'];
+            $this->applicationGuardAllowPrintToNetworkPrinters = is_bool($data['applicationGuardAllowPrintToNetworkPrinters']) ? $data['applicationGuardAllowPrintToNetworkPrinters'] : (bool)$data['applicationGuardAllowPrintToNetworkPrinters'];
         }
         if (isset($data['applicationGuardAllowPrintToPDF'])) {
-            $this->applicationGuardAllowPrintToPDF = $data['applicationGuardAllowPrintToPDF'];
+            $this->applicationGuardAllowPrintToPDF = is_bool($data['applicationGuardAllowPrintToPDF']) ? $data['applicationGuardAllowPrintToPDF'] : (bool)$data['applicationGuardAllowPrintToPDF'];
         }
         if (isset($data['applicationGuardAllowPrintToXPS'])) {
-            $this->applicationGuardAllowPrintToXPS = $data['applicationGuardAllowPrintToXPS'];
+            $this->applicationGuardAllowPrintToXPS = is_bool($data['applicationGuardAllowPrintToXPS']) ? $data['applicationGuardAllowPrintToXPS'] : (bool)$data['applicationGuardAllowPrintToXPS'];
         }
         if (isset($data['applicationGuardBlockClipboardSharing'])) {
             $this->applicationGuardBlockClipboardSharing = is_array($data['applicationGuardBlockClipboardSharing']) ? new ApplicationGuardBlockClipboardSharingType($data['applicationGuardBlockClipboardSharing']) : $data['applicationGuardBlockClipboardSharing'];
@@ -261,25 +261,25 @@ class Windows10EndpointProtectionConfiguration
             $this->applicationGuardBlockFileTransfer = is_array($data['applicationGuardBlockFileTransfer']) ? new ApplicationGuardBlockFileTransferType($data['applicationGuardBlockFileTransfer']) : $data['applicationGuardBlockFileTransfer'];
         }
         if (isset($data['applicationGuardBlockNonEnterpriseContent'])) {
-            $this->applicationGuardBlockNonEnterpriseContent = $data['applicationGuardBlockNonEnterpriseContent'];
+            $this->applicationGuardBlockNonEnterpriseContent = is_bool($data['applicationGuardBlockNonEnterpriseContent']) ? $data['applicationGuardBlockNonEnterpriseContent'] : (bool)$data['applicationGuardBlockNonEnterpriseContent'];
         }
         if (isset($data['applicationGuardEnabled'])) {
-            $this->applicationGuardEnabled = $data['applicationGuardEnabled'];
+            $this->applicationGuardEnabled = is_bool($data['applicationGuardEnabled']) ? $data['applicationGuardEnabled'] : (bool)$data['applicationGuardEnabled'];
         }
         if (isset($data['applicationGuardForceAuditing'])) {
-            $this->applicationGuardForceAuditing = $data['applicationGuardForceAuditing'];
+            $this->applicationGuardForceAuditing = is_bool($data['applicationGuardForceAuditing']) ? $data['applicationGuardForceAuditing'] : (bool)$data['applicationGuardForceAuditing'];
         }
         if (isset($data['appLockerApplicationControl'])) {
             $this->appLockerApplicationControl = is_array($data['appLockerApplicationControl']) ? new AppLockerApplicationControlType($data['appLockerApplicationControl']) : $data['appLockerApplicationControl'];
         }
         if (isset($data['bitLockerDisableWarningForOtherDiskEncryption'])) {
-            $this->bitLockerDisableWarningForOtherDiskEncryption = $data['bitLockerDisableWarningForOtherDiskEncryption'];
+            $this->bitLockerDisableWarningForOtherDiskEncryption = is_bool($data['bitLockerDisableWarningForOtherDiskEncryption']) ? $data['bitLockerDisableWarningForOtherDiskEncryption'] : (bool)$data['bitLockerDisableWarningForOtherDiskEncryption'];
         }
         if (isset($data['bitLockerEnableStorageCardEncryptionOnMobile'])) {
-            $this->bitLockerEnableStorageCardEncryptionOnMobile = $data['bitLockerEnableStorageCardEncryptionOnMobile'];
+            $this->bitLockerEnableStorageCardEncryptionOnMobile = is_bool($data['bitLockerEnableStorageCardEncryptionOnMobile']) ? $data['bitLockerEnableStorageCardEncryptionOnMobile'] : (bool)$data['bitLockerEnableStorageCardEncryptionOnMobile'];
         }
         if (isset($data['bitLockerEncryptDevice'])) {
-            $this->bitLockerEncryptDevice = $data['bitLockerEncryptDevice'];
+            $this->bitLockerEncryptDevice = is_bool($data['bitLockerEncryptDevice']) ? $data['bitLockerEncryptDevice'] : (bool)$data['bitLockerEncryptDevice'];
         }
         if (isset($data['bitLockerRemovableDrivePolicy'])) {
             $this->bitLockerRemovableDrivePolicy = is_array($data['bitLockerRemovableDrivePolicy']) ? new BitLockerRemovableDrivePolicy($data['bitLockerRemovableDrivePolicy']) : $data['bitLockerRemovableDrivePolicy'];
@@ -300,31 +300,31 @@ class Windows10EndpointProtectionConfiguration
             $this->defenderGuardedFoldersAllowedAppPaths = $data['defenderGuardedFoldersAllowedAppPaths'];
         }
         if (isset($data['defenderSecurityCenterBlockExploitProtectionOverride'])) {
-            $this->defenderSecurityCenterBlockExploitProtectionOverride = $data['defenderSecurityCenterBlockExploitProtectionOverride'];
+            $this->defenderSecurityCenterBlockExploitProtectionOverride = is_bool($data['defenderSecurityCenterBlockExploitProtectionOverride']) ? $data['defenderSecurityCenterBlockExploitProtectionOverride'] : (bool)$data['defenderSecurityCenterBlockExploitProtectionOverride'];
         }
         if (isset($data['firewallBlockStatefulFTP'])) {
-            $this->firewallBlockStatefulFTP = $data['firewallBlockStatefulFTP'];
+            $this->firewallBlockStatefulFTP = is_bool($data['firewallBlockStatefulFTP']) ? $data['firewallBlockStatefulFTP'] : (bool)$data['firewallBlockStatefulFTP'];
         }
         if (isset($data['firewallCertificateRevocationListCheckMethod'])) {
             $this->firewallCertificateRevocationListCheckMethod = is_array($data['firewallCertificateRevocationListCheckMethod']) ? new FirewallCertificateRevocationListCheckMethodType($data['firewallCertificateRevocationListCheckMethod']) : $data['firewallCertificateRevocationListCheckMethod'];
         }
         if (isset($data['firewallIdleTimeoutForSecurityAssociationInSeconds'])) {
-            $this->firewallIdleTimeoutForSecurityAssociationInSeconds = $data['firewallIdleTimeoutForSecurityAssociationInSeconds'];
+            $this->firewallIdleTimeoutForSecurityAssociationInSeconds = is_numeric($data['firewallIdleTimeoutForSecurityAssociationInSeconds']) ? (float)$data['firewallIdleTimeoutForSecurityAssociationInSeconds'] : $data['firewallIdleTimeoutForSecurityAssociationInSeconds'];
         }
         if (isset($data['firewallIPSecExemptionsAllowDHCP'])) {
-            $this->firewallIPSecExemptionsAllowDHCP = $data['firewallIPSecExemptionsAllowDHCP'];
+            $this->firewallIPSecExemptionsAllowDHCP = is_bool($data['firewallIPSecExemptionsAllowDHCP']) ? $data['firewallIPSecExemptionsAllowDHCP'] : (bool)$data['firewallIPSecExemptionsAllowDHCP'];
         }
         if (isset($data['firewallIPSecExemptionsAllowICMP'])) {
-            $this->firewallIPSecExemptionsAllowICMP = $data['firewallIPSecExemptionsAllowICMP'];
+            $this->firewallIPSecExemptionsAllowICMP = is_bool($data['firewallIPSecExemptionsAllowICMP']) ? $data['firewallIPSecExemptionsAllowICMP'] : (bool)$data['firewallIPSecExemptionsAllowICMP'];
         }
         if (isset($data['firewallIPSecExemptionsAllowNeighborDiscovery'])) {
-            $this->firewallIPSecExemptionsAllowNeighborDiscovery = $data['firewallIPSecExemptionsAllowNeighborDiscovery'];
+            $this->firewallIPSecExemptionsAllowNeighborDiscovery = is_bool($data['firewallIPSecExemptionsAllowNeighborDiscovery']) ? $data['firewallIPSecExemptionsAllowNeighborDiscovery'] : (bool)$data['firewallIPSecExemptionsAllowNeighborDiscovery'];
         }
         if (isset($data['firewallIPSecExemptionsAllowRouterDiscovery'])) {
-            $this->firewallIPSecExemptionsAllowRouterDiscovery = $data['firewallIPSecExemptionsAllowRouterDiscovery'];
+            $this->firewallIPSecExemptionsAllowRouterDiscovery = is_bool($data['firewallIPSecExemptionsAllowRouterDiscovery']) ? $data['firewallIPSecExemptionsAllowRouterDiscovery'] : (bool)$data['firewallIPSecExemptionsAllowRouterDiscovery'];
         }
         if (isset($data['firewallMergeKeyingModuleSettings'])) {
-            $this->firewallMergeKeyingModuleSettings = $data['firewallMergeKeyingModuleSettings'];
+            $this->firewallMergeKeyingModuleSettings = is_bool($data['firewallMergeKeyingModuleSettings']) ? $data['firewallMergeKeyingModuleSettings'] : (bool)$data['firewallMergeKeyingModuleSettings'];
         }
         if (isset($data['firewallPacketQueueingMethod'])) {
             $this->firewallPacketQueueingMethod = is_array($data['firewallPacketQueueingMethod']) ? new FirewallPacketQueueingMethodType($data['firewallPacketQueueingMethod']) : $data['firewallPacketQueueingMethod'];
@@ -342,10 +342,10 @@ class Windows10EndpointProtectionConfiguration
             $this->firewallProfilePublic = is_array($data['firewallProfilePublic']) ? new WindowsFirewallNetworkProfile($data['firewallProfilePublic']) : $data['firewallProfilePublic'];
         }
         if (isset($data['smartScreenBlockOverrideForFiles'])) {
-            $this->smartScreenBlockOverrideForFiles = $data['smartScreenBlockOverrideForFiles'];
+            $this->smartScreenBlockOverrideForFiles = is_bool($data['smartScreenBlockOverrideForFiles']) ? $data['smartScreenBlockOverrideForFiles'] : (bool)$data['smartScreenBlockOverrideForFiles'];
         }
         if (isset($data['smartScreenEnableInShell'])) {
-            $this->smartScreenEnableInShell = $data['smartScreenEnableInShell'];
+            $this->smartScreenEnableInShell = is_bool($data['smartScreenEnableInShell']) ? $data['smartScreenEnableInShell'] : (bool)$data['smartScreenEnableInShell'];
         }
     }
 

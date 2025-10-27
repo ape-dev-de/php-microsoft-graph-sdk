@@ -66,22 +66,22 @@ class Photo
             $this->cameraModel = $data['cameraModel'];
         }
         if (isset($data['exposureDenominator'])) {
-            $this->exposureDenominator = $data['exposureDenominator'];
+            $this->exposureDenominator = is_numeric($data['exposureDenominator']) ? (float)$data['exposureDenominator'] : $data['exposureDenominator'];
         }
         if (isset($data['exposureNumerator'])) {
-            $this->exposureNumerator = $data['exposureNumerator'];
+            $this->exposureNumerator = is_numeric($data['exposureNumerator']) ? (float)$data['exposureNumerator'] : $data['exposureNumerator'];
         }
         if (isset($data['fNumber'])) {
-            $this->fNumber = $data['fNumber'];
+            $this->fNumber = is_numeric($data['fNumber']) ? (float)$data['fNumber'] : $data['fNumber'];
         }
         if (isset($data['focalLength'])) {
-            $this->focalLength = $data['focalLength'];
+            $this->focalLength = is_numeric($data['focalLength']) ? (float)$data['focalLength'] : $data['focalLength'];
         }
         if (isset($data['iso'])) {
-            $this->iso = $data['iso'];
+            $this->iso = is_numeric($data['iso']) ? (float)$data['iso'] : $data['iso'];
         }
         if (isset($data['orientation'])) {
-            $this->orientation = $data['orientation'];
+            $this->orientation = is_numeric($data['orientation']) ? (float)$data['orientation'] : $data['orientation'];
         }
         if (isset($data['takenDateTime'])) {
             $this->takenDateTime = is_string($data['takenDateTime']) ? new \DateTimeImmutable($data['takenDateTime']) : $data['takenDateTime'];

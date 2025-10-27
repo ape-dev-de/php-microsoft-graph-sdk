@@ -57,7 +57,7 @@ class Teamwork
             $this->id = $data['id'];
         }
         if (isset($data['isTeamsEnabled'])) {
-            $this->isTeamsEnabled = $data['isTeamsEnabled'];
+            $this->isTeamsEnabled = is_bool($data['isTeamsEnabled']) ? $data['isTeamsEnabled'] : (bool)$data['isTeamsEnabled'];
         }
         if (isset($data['region'])) {
             $this->region = $data['region'];

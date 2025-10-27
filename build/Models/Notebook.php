@@ -105,10 +105,10 @@ class Notebook
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['isDefault'])) {
-            $this->isDefault = $data['isDefault'];
+            $this->isDefault = is_bool($data['isDefault']) ? $data['isDefault'] : (bool)$data['isDefault'];
         }
         if (isset($data['isShared'])) {
-            $this->isShared = $data['isShared'];
+            $this->isShared = is_bool($data['isShared']) ? $data['isShared'] : (bool)$data['isShared'];
         }
         if (isset($data['links'])) {
             $this->links = is_array($data['links']) ? new NotebookLinks($data['links']) : $data['links'];

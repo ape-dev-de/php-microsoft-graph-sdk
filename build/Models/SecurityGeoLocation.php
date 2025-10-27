@@ -48,10 +48,10 @@ class SecurityGeoLocation
             $this->countryName = $data['countryName'];
         }
         if (isset($data['latitude'])) {
-            $this->latitude = $data['latitude'];
+            $this->latitude = is_numeric($data['latitude']) ? (float)$data['latitude'] : $data['latitude'];
         }
         if (isset($data['longitude'])) {
-            $this->longitude = $data['longitude'];
+            $this->longitude = is_numeric($data['longitude']) ? (float)$data['longitude'] : $data['longitude'];
         }
         if (isset($data['state'])) {
             $this->state = $data['state'];

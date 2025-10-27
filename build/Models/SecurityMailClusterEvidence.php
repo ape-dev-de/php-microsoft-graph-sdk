@@ -99,7 +99,7 @@ class SecurityMailClusterEvidence
             $this->clusterByValue = $data['clusterByValue'];
         }
         if (isset($data['emailCount'])) {
-            $this->emailCount = $data['emailCount'];
+            $this->emailCount = is_numeric($data['emailCount']) ? (float)$data['emailCount'] : $data['emailCount'];
         }
         if (isset($data['networkMessageIds'])) {
             $this->networkMessageIds = $data['networkMessageIds'];

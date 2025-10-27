@@ -33,16 +33,16 @@ class AppsInstallationOptionsForWindows
     {
         $this->rawData = $data;
         if (isset($data['isMicrosoft365AppsEnabled'])) {
-            $this->isMicrosoft365AppsEnabled = $data['isMicrosoft365AppsEnabled'];
+            $this->isMicrosoft365AppsEnabled = is_bool($data['isMicrosoft365AppsEnabled']) ? $data['isMicrosoft365AppsEnabled'] : (bool)$data['isMicrosoft365AppsEnabled'];
         }
         if (isset($data['isProjectEnabled'])) {
-            $this->isProjectEnabled = $data['isProjectEnabled'];
+            $this->isProjectEnabled = is_bool($data['isProjectEnabled']) ? $data['isProjectEnabled'] : (bool)$data['isProjectEnabled'];
         }
         if (isset($data['isSkypeForBusinessEnabled'])) {
-            $this->isSkypeForBusinessEnabled = $data['isSkypeForBusinessEnabled'];
+            $this->isSkypeForBusinessEnabled = is_bool($data['isSkypeForBusinessEnabled']) ? $data['isSkypeForBusinessEnabled'] : (bool)$data['isSkypeForBusinessEnabled'];
         }
         if (isset($data['isVisioEnabled'])) {
-            $this->isVisioEnabled = $data['isVisioEnabled'];
+            $this->isVisioEnabled = is_bool($data['isVisioEnabled']) ? $data['isVisioEnabled'] : (bool)$data['isVisioEnabled'];
         }
     }
 

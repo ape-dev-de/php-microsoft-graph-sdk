@@ -33,10 +33,10 @@ class CoachmarkLocation
     {
         $this->rawData = $data;
         if (isset($data['length'])) {
-            $this->length = $data['length'];
+            $this->length = is_numeric($data['length']) ? (float)$data['length'] : $data['length'];
         }
         if (isset($data['offset'])) {
-            $this->offset = $data['offset'];
+            $this->offset = is_numeric($data['offset']) ? (float)$data['offset'] : $data['offset'];
         }
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new CoachmarkLocationType($data['type']) : $data['type'];

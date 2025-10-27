@@ -60,7 +60,7 @@ class BookingQuestionAnswer
             $this->answerOptions = $data['answerOptions'];
         }
         if (isset($data['isRequired'])) {
-            $this->isRequired = $data['isRequired'];
+            $this->isRequired = is_bool($data['isRequired']) ? $data['isRequired'] : (bool)$data['isRequired'];
         }
         if (isset($data['question'])) {
             $this->question = $data['question'];

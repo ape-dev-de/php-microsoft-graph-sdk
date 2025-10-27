@@ -42,7 +42,7 @@ class WorkbookTableColumn
             $this->id = $data['id'];
         }
         if (isset($data['index'])) {
-            $this->index = $data['index'];
+            $this->index = is_numeric($data['index']) ? (float)$data['index'] : $data['index'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

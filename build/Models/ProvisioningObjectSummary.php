@@ -114,7 +114,7 @@ class ProvisioningObjectSummary
             $this->cycleId = $data['cycleId'];
         }
         if (isset($data['durationInMilliseconds'])) {
-            $this->durationInMilliseconds = $data['durationInMilliseconds'];
+            $this->durationInMilliseconds = is_numeric($data['durationInMilliseconds']) ? (float)$data['durationInMilliseconds'] : $data['durationInMilliseconds'];
         }
         if (isset($data['initiatedBy'])) {
             $this->initiatedBy = is_array($data['initiatedBy']) ? new Initiator($data['initiatedBy']) : $data['initiatedBy'];

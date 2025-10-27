@@ -63,7 +63,7 @@ class BookingStaffMember
             $this->id = $data['id'];
         }
         if (isset($data['availabilityIsAffectedByPersonalCalendar'])) {
-            $this->availabilityIsAffectedByPersonalCalendar = $data['availabilityIsAffectedByPersonalCalendar'];
+            $this->availabilityIsAffectedByPersonalCalendar = is_bool($data['availabilityIsAffectedByPersonalCalendar']) ? $data['availabilityIsAffectedByPersonalCalendar'] : (bool)$data['availabilityIsAffectedByPersonalCalendar'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
@@ -75,7 +75,7 @@ class BookingStaffMember
             $this->emailAddress = $data['emailAddress'];
         }
         if (isset($data['isEmailNotificationEnabled'])) {
-            $this->isEmailNotificationEnabled = $data['isEmailNotificationEnabled'];
+            $this->isEmailNotificationEnabled = is_bool($data['isEmailNotificationEnabled']) ? $data['isEmailNotificationEnabled'] : (bool)$data['isEmailNotificationEnabled'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
@@ -90,7 +90,7 @@ class BookingStaffMember
             $this->timeZone = $data['timeZone'];
         }
         if (isset($data['useBusinessHours'])) {
-            $this->useBusinessHours = $data['useBusinessHours'];
+            $this->useBusinessHours = is_bool($data['useBusinessHours']) ? $data['useBusinessHours'] : (bool)$data['useBusinessHours'];
         }
         if (isset($data['workingHours'])) {
             $this->workingHours = $data['workingHours'];

@@ -30,7 +30,7 @@ class WorkbookSessionInfo
             $this->id = $data['id'];
         }
         if (isset($data['persistChanges'])) {
-            $this->persistChanges = $data['persistChanges'];
+            $this->persistChanges = is_bool($data['persistChanges']) ? $data['persistChanges'] : (bool)$data['persistChanges'];
         }
     }
 

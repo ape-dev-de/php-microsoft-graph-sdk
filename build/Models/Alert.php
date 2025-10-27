@@ -243,7 +243,7 @@ class Alert
             $this->comments = $data['comments'];
         }
         if (isset($data['confidence'])) {
-            $this->confidence = $data['confidence'];
+            $this->confidence = is_numeric($data['confidence']) ? (float)$data['confidence'] : $data['confidence'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

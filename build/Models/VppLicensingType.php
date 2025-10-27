@@ -27,10 +27,10 @@ class VppLicensingType
     {
         $this->rawData = $data;
         if (isset($data['supportsDeviceLicensing'])) {
-            $this->supportsDeviceLicensing = $data['supportsDeviceLicensing'];
+            $this->supportsDeviceLicensing = is_bool($data['supportsDeviceLicensing']) ? $data['supportsDeviceLicensing'] : (bool)$data['supportsDeviceLicensing'];
         }
         if (isset($data['supportsUserLicensing'])) {
-            $this->supportsUserLicensing = $data['supportsUserLicensing'];
+            $this->supportsUserLicensing = is_bool($data['supportsUserLicensing']) ? $data['supportsUserLicensing'] : (bool)$data['supportsUserLicensing'];
         }
     }
 

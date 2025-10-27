@@ -36,13 +36,13 @@ class SharedPCAccountManagerPolicy
             $this->accountDeletionPolicy = is_array($data['accountDeletionPolicy']) ? new SharedPCAccountDeletionPolicyType($data['accountDeletionPolicy']) : $data['accountDeletionPolicy'];
         }
         if (isset($data['cacheAccountsAboveDiskFreePercentage'])) {
-            $this->cacheAccountsAboveDiskFreePercentage = $data['cacheAccountsAboveDiskFreePercentage'];
+            $this->cacheAccountsAboveDiskFreePercentage = is_numeric($data['cacheAccountsAboveDiskFreePercentage']) ? (float)$data['cacheAccountsAboveDiskFreePercentage'] : $data['cacheAccountsAboveDiskFreePercentage'];
         }
         if (isset($data['inactiveThresholdDays'])) {
-            $this->inactiveThresholdDays = $data['inactiveThresholdDays'];
+            $this->inactiveThresholdDays = is_numeric($data['inactiveThresholdDays']) ? (float)$data['inactiveThresholdDays'] : $data['inactiveThresholdDays'];
         }
         if (isset($data['removeAccountsBelowDiskFreePercentage'])) {
-            $this->removeAccountsBelowDiskFreePercentage = $data['removeAccountsBelowDiskFreePercentage'];
+            $this->removeAccountsBelowDiskFreePercentage = is_numeric($data['removeAccountsBelowDiskFreePercentage']) ? (float)$data['removeAccountsBelowDiskFreePercentage'] : $data['removeAccountsBelowDiskFreePercentage'];
         }
     }
 

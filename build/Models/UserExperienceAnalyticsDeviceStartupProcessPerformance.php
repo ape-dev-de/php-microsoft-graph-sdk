@@ -45,10 +45,10 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance
             $this->id = $data['id'];
         }
         if (isset($data['deviceCount'])) {
-            $this->deviceCount = $data['deviceCount'];
+            $this->deviceCount = is_numeric($data['deviceCount']) ? (float)$data['deviceCount'] : $data['deviceCount'];
         }
         if (isset($data['medianImpactInMs'])) {
-            $this->medianImpactInMs = $data['medianImpactInMs'];
+            $this->medianImpactInMs = is_numeric($data['medianImpactInMs']) ? (float)$data['medianImpactInMs'] : $data['medianImpactInMs'];
         }
         if (isset($data['processName'])) {
             $this->processName = $data['processName'];
@@ -60,7 +60,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance
             $this->publisher = $data['publisher'];
         }
         if (isset($data['totalImpactInMs'])) {
-            $this->totalImpactInMs = $data['totalImpactInMs'];
+            $this->totalImpactInMs = is_numeric($data['totalImpactInMs']) ? (float)$data['totalImpactInMs'] : $data['totalImpactInMs'];
         }
     }
 

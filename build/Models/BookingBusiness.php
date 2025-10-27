@@ -144,7 +144,7 @@ class BookingBusiness
             $this->email = $data['email'];
         }
         if (isset($data['isPublished'])) {
-            $this->isPublished = $data['isPublished'];
+            $this->isPublished = is_bool($data['isPublished']) ? $data['isPublished'] : (bool)$data['isPublished'];
         }
         if (isset($data['languageTag'])) {
             $this->languageTag = $data['languageTag'];

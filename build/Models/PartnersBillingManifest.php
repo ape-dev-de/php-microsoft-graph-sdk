@@ -60,7 +60,7 @@ class PartnersBillingManifest
             $this->id = $data['id'];
         }
         if (isset($data['blobCount'])) {
-            $this->blobCount = $data['blobCount'];
+            $this->blobCount = is_numeric($data['blobCount']) ? (float)$data['blobCount'] : $data['blobCount'];
         }
         if (isset($data['blobs'])) {
             $this->blobs = $data['blobs'];

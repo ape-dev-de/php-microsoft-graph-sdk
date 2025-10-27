@@ -24,7 +24,7 @@ class UserExperienceAnalyticsSettings
     {
         $this->rawData = $data;
         if (isset($data['configurationManagerDataConnectorConfigured'])) {
-            $this->configurationManagerDataConnectorConfigured = $data['configurationManagerDataConnectorConfigured'];
+            $this->configurationManagerDataConnectorConfigured = is_bool($data['configurationManagerDataConnectorConfigured']) ? $data['configurationManagerDataConnectorConfigured'] : (bool)$data['configurationManagerDataConnectorConfigured'];
         }
     }
 

@@ -45,16 +45,16 @@ class AccessPackageQuestion
             $this->id = $data['id'];
         }
         if (isset($data['isAnswerEditable'])) {
-            $this->isAnswerEditable = $data['isAnswerEditable'];
+            $this->isAnswerEditable = is_bool($data['isAnswerEditable']) ? $data['isAnswerEditable'] : (bool)$data['isAnswerEditable'];
         }
         if (isset($data['isRequired'])) {
-            $this->isRequired = $data['isRequired'];
+            $this->isRequired = is_bool($data['isRequired']) ? $data['isRequired'] : (bool)$data['isRequired'];
         }
         if (isset($data['localizations'])) {
             $this->localizations = $data['localizations'];
         }
         if (isset($data['sequence'])) {
-            $this->sequence = $data['sequence'];
+            $this->sequence = is_numeric($data['sequence']) ? (float)$data['sequence'] : $data['sequence'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];

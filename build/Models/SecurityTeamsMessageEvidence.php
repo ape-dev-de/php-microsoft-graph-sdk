@@ -183,10 +183,10 @@ class SecurityTeamsMessageEvidence
             $this->groupId = $data['groupId'];
         }
         if (isset($data['isExternal'])) {
-            $this->isExternal = $data['isExternal'];
+            $this->isExternal = is_bool($data['isExternal']) ? $data['isExternal'] : (bool)$data['isExternal'];
         }
         if (isset($data['isOwned'])) {
-            $this->isOwned = $data['isOwned'];
+            $this->isOwned = is_bool($data['isOwned']) ? $data['isOwned'] : (bool)$data['isOwned'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];

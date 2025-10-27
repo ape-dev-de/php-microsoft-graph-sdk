@@ -27,10 +27,10 @@ class SearchAlterationOptions
     {
         $this->rawData = $data;
         if (isset($data['enableModification'])) {
-            $this->enableModification = $data['enableModification'];
+            $this->enableModification = is_bool($data['enableModification']) ? $data['enableModification'] : (bool)$data['enableModification'];
         }
         if (isset($data['enableSuggestion'])) {
-            $this->enableSuggestion = $data['enableSuggestion'];
+            $this->enableSuggestion = is_bool($data['enableSuggestion']) ? $data['enableSuggestion'] : (bool)$data['enableSuggestion'];
         }
     }
 

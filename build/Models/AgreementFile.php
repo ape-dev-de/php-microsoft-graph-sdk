@@ -69,10 +69,10 @@ class AgreementFile
             $this->fileName = $data['fileName'];
         }
         if (isset($data['isDefault'])) {
-            $this->isDefault = $data['isDefault'];
+            $this->isDefault = is_bool($data['isDefault']) ? $data['isDefault'] : (bool)$data['isDefault'];
         }
         if (isset($data['isMajorVersion'])) {
-            $this->isMajorVersion = $data['isMajorVersion'];
+            $this->isMajorVersion = is_bool($data['isMajorVersion']) ? $data['isMajorVersion'] : (bool)$data['isMajorVersion'];
         }
         if (isset($data['language'])) {
             $this->language = $data['language'];

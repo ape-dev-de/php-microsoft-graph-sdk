@@ -30,7 +30,7 @@ class AverageComparativeScore
     {
         $this->rawData = $data;
         if (isset($data['averageScore'])) {
-            $this->averageScore = $data['averageScore'];
+            $this->averageScore = is_numeric($data['averageScore']) ? (float)$data['averageScore'] : $data['averageScore'];
         }
         if (isset($data['basis'])) {
             $this->basis = $data['basis'];

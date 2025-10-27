@@ -33,7 +33,7 @@ class SecurityNetworkAdapter
             $this->id = $data['id'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

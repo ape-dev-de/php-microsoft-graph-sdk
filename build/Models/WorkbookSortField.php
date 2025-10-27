@@ -42,7 +42,7 @@ class WorkbookSortField
     {
         $this->rawData = $data;
         if (isset($data['ascending'])) {
-            $this->ascending = $data['ascending'];
+            $this->ascending = is_bool($data['ascending']) ? $data['ascending'] : (bool)$data['ascending'];
         }
         if (isset($data['color'])) {
             $this->color = $data['color'];
@@ -54,7 +54,7 @@ class WorkbookSortField
             $this->icon = is_array($data['icon']) ? new WorkbookIcon($data['icon']) : $data['icon'];
         }
         if (isset($data['key'])) {
-            $this->key = $data['key'];
+            $this->key = is_numeric($data['key']) ? (float)$data['key'] : $data['key'];
         }
         if (isset($data['sortOn'])) {
             $this->sortOn = $data['sortOn'];

@@ -198,13 +198,13 @@ class SecurityDeviceEvidence
             $this->onboardingStatus = is_array($data['onboardingStatus']) ? new SecurityOnboardingStatus($data['onboardingStatus']) : $data['onboardingStatus'];
         }
         if (isset($data['osBuild'])) {
-            $this->osBuild = $data['osBuild'];
+            $this->osBuild = is_numeric($data['osBuild']) ? (float)$data['osBuild'] : $data['osBuild'];
         }
         if (isset($data['osPlatform'])) {
             $this->osPlatform = $data['osPlatform'];
         }
         if (isset($data['rbacGroupId'])) {
-            $this->rbacGroupId = $data['rbacGroupId'];
+            $this->rbacGroupId = is_numeric($data['rbacGroupId']) ? (float)$data['rbacGroupId'] : $data['rbacGroupId'];
         }
         if (isset($data['rbacGroupName'])) {
             $this->rbacGroupName = $data['rbacGroupName'];

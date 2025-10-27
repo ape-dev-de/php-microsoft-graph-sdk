@@ -39,7 +39,7 @@ class UserExperienceAnalyticsMetric
             $this->unit = $data['unit'];
         }
         if (isset($data['value'])) {
-            $this->value = $data['value'];
+            $this->value = is_numeric($data['value']) ? (float)$data['value'] : $data['value'];
         }
     }
 

@@ -84,28 +84,28 @@ class UserRegistrationDetails
             $this->id = $data['id'];
         }
         if (isset($data['isAdmin'])) {
-            $this->isAdmin = $data['isAdmin'];
+            $this->isAdmin = is_bool($data['isAdmin']) ? $data['isAdmin'] : (bool)$data['isAdmin'];
         }
         if (isset($data['isMfaCapable'])) {
-            $this->isMfaCapable = $data['isMfaCapable'];
+            $this->isMfaCapable = is_bool($data['isMfaCapable']) ? $data['isMfaCapable'] : (bool)$data['isMfaCapable'];
         }
         if (isset($data['isMfaRegistered'])) {
-            $this->isMfaRegistered = $data['isMfaRegistered'];
+            $this->isMfaRegistered = is_bool($data['isMfaRegistered']) ? $data['isMfaRegistered'] : (bool)$data['isMfaRegistered'];
         }
         if (isset($data['isPasswordlessCapable'])) {
-            $this->isPasswordlessCapable = $data['isPasswordlessCapable'];
+            $this->isPasswordlessCapable = is_bool($data['isPasswordlessCapable']) ? $data['isPasswordlessCapable'] : (bool)$data['isPasswordlessCapable'];
         }
         if (isset($data['isSsprCapable'])) {
-            $this->isSsprCapable = $data['isSsprCapable'];
+            $this->isSsprCapable = is_bool($data['isSsprCapable']) ? $data['isSsprCapable'] : (bool)$data['isSsprCapable'];
         }
         if (isset($data['isSsprEnabled'])) {
-            $this->isSsprEnabled = $data['isSsprEnabled'];
+            $this->isSsprEnabled = is_bool($data['isSsprEnabled']) ? $data['isSsprEnabled'] : (bool)$data['isSsprEnabled'];
         }
         if (isset($data['isSsprRegistered'])) {
-            $this->isSsprRegistered = $data['isSsprRegistered'];
+            $this->isSsprRegistered = is_bool($data['isSsprRegistered']) ? $data['isSsprRegistered'] : (bool)$data['isSsprRegistered'];
         }
         if (isset($data['isSystemPreferredAuthenticationMethodEnabled'])) {
-            $this->isSystemPreferredAuthenticationMethodEnabled = $data['isSystemPreferredAuthenticationMethodEnabled'];
+            $this->isSystemPreferredAuthenticationMethodEnabled = is_bool($data['isSystemPreferredAuthenticationMethodEnabled']) ? $data['isSystemPreferredAuthenticationMethodEnabled'] : (bool)$data['isSystemPreferredAuthenticationMethodEnabled'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];

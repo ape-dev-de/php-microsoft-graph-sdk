@@ -33,10 +33,10 @@ class IosNetworkUsageRule
     {
         $this->rawData = $data;
         if (isset($data['cellularDataBlocked'])) {
-            $this->cellularDataBlocked = $data['cellularDataBlocked'];
+            $this->cellularDataBlocked = is_bool($data['cellularDataBlocked']) ? $data['cellularDataBlocked'] : (bool)$data['cellularDataBlocked'];
         }
         if (isset($data['cellularDataBlockWhenRoaming'])) {
-            $this->cellularDataBlockWhenRoaming = $data['cellularDataBlockWhenRoaming'];
+            $this->cellularDataBlockWhenRoaming = is_bool($data['cellularDataBlockWhenRoaming']) ? $data['cellularDataBlockWhenRoaming'] : (bool)$data['cellularDataBlockWhenRoaming'];
         }
         if (isset($data['managedApps'])) {
             $this->managedApps = $data['managedApps'];

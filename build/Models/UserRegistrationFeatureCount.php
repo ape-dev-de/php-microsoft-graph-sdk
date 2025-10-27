@@ -30,7 +30,7 @@ class UserRegistrationFeatureCount
             $this->feature = is_array($data['feature']) ? new AuthenticationMethodFeature($data['feature']) : $data['feature'];
         }
         if (isset($data['userCount'])) {
-            $this->userCount = $data['userCount'];
+            $this->userCount = is_numeric($data['userCount']) ? (float)$data['userCount'] : $data['userCount'];
         }
     }
 

@@ -45,28 +45,28 @@ class IosMinimumOperatingSystem
     {
         $this->rawData = $data;
         if (isset($data['v10_0'])) {
-            $this->v10_0 = $data['v10_0'];
+            $this->v10_0 = is_bool($data['v10_0']) ? $data['v10_0'] : (bool)$data['v10_0'];
         }
         if (isset($data['v11_0'])) {
-            $this->v11_0 = $data['v11_0'];
+            $this->v11_0 = is_bool($data['v11_0']) ? $data['v11_0'] : (bool)$data['v11_0'];
         }
         if (isset($data['v12_0'])) {
-            $this->v12_0 = $data['v12_0'];
+            $this->v12_0 = is_bool($data['v12_0']) ? $data['v12_0'] : (bool)$data['v12_0'];
         }
         if (isset($data['v13_0'])) {
-            $this->v13_0 = $data['v13_0'];
+            $this->v13_0 = is_bool($data['v13_0']) ? $data['v13_0'] : (bool)$data['v13_0'];
         }
         if (isset($data['v14_0'])) {
-            $this->v14_0 = $data['v14_0'];
+            $this->v14_0 = is_bool($data['v14_0']) ? $data['v14_0'] : (bool)$data['v14_0'];
         }
         if (isset($data['v15_0'])) {
-            $this->v15_0 = $data['v15_0'];
+            $this->v15_0 = is_bool($data['v15_0']) ? $data['v15_0'] : (bool)$data['v15_0'];
         }
         if (isset($data['v8_0'])) {
-            $this->v8_0 = $data['v8_0'];
+            $this->v8_0 = is_bool($data['v8_0']) ? $data['v8_0'] : (bool)$data['v8_0'];
         }
         if (isset($data['v9_0'])) {
-            $this->v9_0 = $data['v9_0'];
+            $this->v9_0 = is_bool($data['v9_0']) ? $data['v9_0'] : (bool)$data['v9_0'];
         }
     }
 

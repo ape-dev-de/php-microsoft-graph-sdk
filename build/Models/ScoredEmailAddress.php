@@ -45,7 +45,7 @@ class ScoredEmailAddress
             $this->itemId = $data['itemId'];
         }
         if (isset($data['relevanceScore'])) {
-            $this->relevanceScore = $data['relevanceScore'];
+            $this->relevanceScore = is_numeric($data['relevanceScore']) ? (float)$data['relevanceScore'] : $data['relevanceScore'];
         }
         if (isset($data['selectionLikelihood'])) {
             $this->selectionLikelihood = is_array($data['selectionLikelihood']) ? new SelectionLikelihoodInfo($data['selectionLikelihood']) : $data['selectionLikelihood'];

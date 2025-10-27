@@ -54,7 +54,7 @@ class RecurrencePattern
     {
         $this->rawData = $data;
         if (isset($data['dayOfMonth'])) {
-            $this->dayOfMonth = $data['dayOfMonth'];
+            $this->dayOfMonth = is_numeric($data['dayOfMonth']) ? (float)$data['dayOfMonth'] : $data['dayOfMonth'];
         }
         if (isset($data['daysOfWeek'])) {
             $this->daysOfWeek = $data['daysOfWeek'];
@@ -66,10 +66,10 @@ class RecurrencePattern
             $this->index = is_array($data['index']) ? new WeekIndex($data['index']) : $data['index'];
         }
         if (isset($data['interval'])) {
-            $this->interval = $data['interval'];
+            $this->interval = is_numeric($data['interval']) ? (float)$data['interval'] : $data['interval'];
         }
         if (isset($data['month'])) {
-            $this->month = $data['month'];
+            $this->month = is_numeric($data['month']) ? (float)$data['month'] : $data['month'];
         }
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new RecurrencePatternType($data['type']) : $data['type'];

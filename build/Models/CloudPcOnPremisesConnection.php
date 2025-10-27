@@ -105,7 +105,7 @@ class CloudPcOnPremisesConnection
             $this->healthCheckStatusDetail = is_array($data['healthCheckStatusDetail']) ? new CloudPcOnPremisesConnectionStatusDetail($data['healthCheckStatusDetail']) : $data['healthCheckStatusDetail'];
         }
         if (isset($data['inUse'])) {
-            $this->inUse = $data['inUse'];
+            $this->inUse = is_bool($data['inUse']) ? $data['inUse'] : (bool)$data['inUse'];
         }
         if (isset($data['organizationalUnit'])) {
             $this->organizationalUnit = $data['organizationalUnit'];

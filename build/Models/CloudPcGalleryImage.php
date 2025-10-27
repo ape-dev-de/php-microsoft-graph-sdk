@@ -72,7 +72,7 @@ class CloudPcGalleryImage
             $this->publisherName = $data['publisherName'];
         }
         if (isset($data['sizeInGB'])) {
-            $this->sizeInGB = $data['sizeInGB'];
+            $this->sizeInGB = is_numeric($data['sizeInGB']) ? (float)$data['sizeInGB'] : $data['sizeInGB'];
         }
         if (isset($data['skuName'])) {
             $this->skuName = $data['skuName'];

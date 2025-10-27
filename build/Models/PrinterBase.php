@@ -75,7 +75,7 @@ class PrinterBase
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isAcceptingJobs'])) {
-            $this->isAcceptingJobs = $data['isAcceptingJobs'];
+            $this->isAcceptingJobs = is_bool($data['isAcceptingJobs']) ? $data['isAcceptingJobs'] : (bool)$data['isAcceptingJobs'];
         }
         if (isset($data['location'])) {
             $this->location = is_array($data['location']) ? new PrinterLocation($data['location']) : $data['location'];

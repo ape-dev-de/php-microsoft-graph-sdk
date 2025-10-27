@@ -48,22 +48,22 @@ class AdminConsentRequestPolicy
             $this->id = $data['id'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['notifyReviewers'])) {
-            $this->notifyReviewers = $data['notifyReviewers'];
+            $this->notifyReviewers = is_bool($data['notifyReviewers']) ? $data['notifyReviewers'] : (bool)$data['notifyReviewers'];
         }
         if (isset($data['remindersEnabled'])) {
-            $this->remindersEnabled = $data['remindersEnabled'];
+            $this->remindersEnabled = is_bool($data['remindersEnabled']) ? $data['remindersEnabled'] : (bool)$data['remindersEnabled'];
         }
         if (isset($data['requestDurationInDays'])) {
-            $this->requestDurationInDays = $data['requestDurationInDays'];
+            $this->requestDurationInDays = is_numeric($data['requestDurationInDays']) ? (float)$data['requestDurationInDays'] : $data['requestDurationInDays'];
         }
         if (isset($data['reviewers'])) {
             $this->reviewers = $data['reviewers'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
     }
 

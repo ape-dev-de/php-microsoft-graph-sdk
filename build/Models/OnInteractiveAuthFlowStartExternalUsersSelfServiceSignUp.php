@@ -24,7 +24,7 @@ class OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp
     {
         $this->rawData = $data;
         if (isset($data['isSignUpAllowed'])) {
-            $this->isSignUpAllowed = $data['isSignUpAllowed'];
+            $this->isSignUpAllowed = is_bool($data['isSignUpAllowed']) ? $data['isSignUpAllowed'] : (bool)$data['isSignUpAllowed'];
         }
     }
 

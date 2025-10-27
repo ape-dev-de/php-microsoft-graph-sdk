@@ -42,7 +42,7 @@ class DomainDnsRecord
             $this->id = $data['id'];
         }
         if (isset($data['isOptional'])) {
-            $this->isOptional = $data['isOptional'];
+            $this->isOptional = is_bool($data['isOptional']) ? $data['isOptional'] : (bool)$data['isOptional'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];
@@ -54,7 +54,7 @@ class DomainDnsRecord
             $this->supportedService = $data['supportedService'];
         }
         if (isset($data['ttl'])) {
-            $this->ttl = $data['ttl'];
+            $this->ttl = is_numeric($data['ttl']) ? (float)$data['ttl'] : $data['ttl'];
         }
     }
 

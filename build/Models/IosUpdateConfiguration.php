@@ -105,7 +105,7 @@ class IosUpdateConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -135,7 +135,7 @@ class IosUpdateConfiguration
             $this->scheduledInstallDays = $data['scheduledInstallDays'];
         }
         if (isset($data['utcTimeOffsetInMinutes'])) {
-            $this->utcTimeOffsetInMinutes = $data['utcTimeOffsetInMinutes'];
+            $this->utcTimeOffsetInMinutes = is_numeric($data['utcTimeOffsetInMinutes']) ? (float)$data['utcTimeOffsetInMinutes'] : $data['utcTimeOffsetInMinutes'];
         }
     }
 

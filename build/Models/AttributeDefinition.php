@@ -66,25 +66,25 @@ class AttributeDefinition
     {
         $this->rawData = $data;
         if (isset($data['anchor'])) {
-            $this->anchor = $data['anchor'];
+            $this->anchor = is_bool($data['anchor']) ? $data['anchor'] : (bool)$data['anchor'];
         }
         if (isset($data['apiExpressions'])) {
             $this->apiExpressions = $data['apiExpressions'];
         }
         if (isset($data['caseExact'])) {
-            $this->caseExact = $data['caseExact'];
+            $this->caseExact = is_bool($data['caseExact']) ? $data['caseExact'] : (bool)$data['caseExact'];
         }
         if (isset($data['defaultValue'])) {
             $this->defaultValue = $data['defaultValue'];
         }
         if (isset($data['flowNullValues'])) {
-            $this->flowNullValues = $data['flowNullValues'];
+            $this->flowNullValues = is_bool($data['flowNullValues']) ? $data['flowNullValues'] : (bool)$data['flowNullValues'];
         }
         if (isset($data['metadata'])) {
             $this->metadata = $data['metadata'];
         }
         if (isset($data['multivalued'])) {
-            $this->multivalued = $data['multivalued'];
+            $this->multivalued = is_bool($data['multivalued']) ? $data['multivalued'] : (bool)$data['multivalued'];
         }
         if (isset($data['mutability'])) {
             $this->mutability = is_array($data['mutability']) ? new Mutability($data['mutability']) : $data['mutability'];
@@ -96,7 +96,7 @@ class AttributeDefinition
             $this->referencedObjects = $data['referencedObjects'];
         }
         if (isset($data['required'])) {
-            $this->required = $data['required'];
+            $this->required = is_bool($data['required']) ? $data['required'] : (bool)$data['required'];
         }
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new AttributeType($data['type']) : $data['type'];

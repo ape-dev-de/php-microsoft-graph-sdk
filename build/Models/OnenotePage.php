@@ -96,13 +96,13 @@ class OnenotePage
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['level'])) {
-            $this->level = $data['level'];
+            $this->level = is_numeric($data['level']) ? (float)$data['level'] : $data['level'];
         }
         if (isset($data['links'])) {
             $this->links = is_array($data['links']) ? new PageLinks($data['links']) : $data['links'];
         }
         if (isset($data['order'])) {
-            $this->order = $data['order'];
+            $this->order = is_numeric($data['order']) ? (float)$data['order'] : $data['order'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];

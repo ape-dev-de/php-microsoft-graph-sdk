@@ -75,7 +75,7 @@ class SecureScore
             $this->id = $data['id'];
         }
         if (isset($data['activeUserCount'])) {
-            $this->activeUserCount = $data['activeUserCount'];
+            $this->activeUserCount = is_numeric($data['activeUserCount']) ? (float)$data['activeUserCount'] : $data['activeUserCount'];
         }
         if (isset($data['averageComparativeScores'])) {
             $this->averageComparativeScores = $data['averageComparativeScores'];
@@ -90,16 +90,16 @@ class SecureScore
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['currentScore'])) {
-            $this->currentScore = $data['currentScore'];
+            $this->currentScore = is_numeric($data['currentScore']) ? (float)$data['currentScore'] : $data['currentScore'];
         }
         if (isset($data['enabledServices'])) {
             $this->enabledServices = $data['enabledServices'];
         }
         if (isset($data['licensedUserCount'])) {
-            $this->licensedUserCount = $data['licensedUserCount'];
+            $this->licensedUserCount = is_numeric($data['licensedUserCount']) ? (float)$data['licensedUserCount'] : $data['licensedUserCount'];
         }
         if (isset($data['maxScore'])) {
-            $this->maxScore = $data['maxScore'];
+            $this->maxScore = is_numeric($data['maxScore']) ? (float)$data['maxScore'] : $data['maxScore'];
         }
         if (isset($data['vendorInformation'])) {
             $this->vendorInformation = is_array($data['vendorInformation']) ? new SecurityVendorInformation($data['vendorInformation']) : $data['vendorInformation'];

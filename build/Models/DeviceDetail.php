@@ -51,10 +51,10 @@ class DeviceDetail
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isCompliant'])) {
-            $this->isCompliant = $data['isCompliant'];
+            $this->isCompliant = is_bool($data['isCompliant']) ? $data['isCompliant'] : (bool)$data['isCompliant'];
         }
         if (isset($data['isManaged'])) {
-            $this->isManaged = $data['isManaged'];
+            $this->isManaged = is_bool($data['isManaged']) ? $data['isManaged'] : (bool)$data['isManaged'];
         }
         if (isset($data['operatingSystem'])) {
             $this->operatingSystem = $data['operatingSystem'];

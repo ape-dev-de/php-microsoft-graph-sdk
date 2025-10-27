@@ -60,7 +60,7 @@ class DomainDnsSrvRecord
             $this->id = $data['id'];
         }
         if (isset($data['isOptional'])) {
-            $this->isOptional = $data['isOptional'];
+            $this->isOptional = is_bool($data['isOptional']) ? $data['isOptional'] : (bool)$data['isOptional'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];
@@ -72,16 +72,16 @@ class DomainDnsSrvRecord
             $this->supportedService = $data['supportedService'];
         }
         if (isset($data['ttl'])) {
-            $this->ttl = $data['ttl'];
+            $this->ttl = is_numeric($data['ttl']) ? (float)$data['ttl'] : $data['ttl'];
         }
         if (isset($data['nameTarget'])) {
             $this->nameTarget = $data['nameTarget'];
         }
         if (isset($data['port'])) {
-            $this->port = $data['port'];
+            $this->port = is_numeric($data['port']) ? (float)$data['port'] : $data['port'];
         }
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['protocol'])) {
             $this->protocol = $data['protocol'];
@@ -90,7 +90,7 @@ class DomainDnsSrvRecord
             $this->service = $data['service'];
         }
         if (isset($data['weight'])) {
-            $this->weight = $data['weight'];
+            $this->weight = is_numeric($data['weight']) ? (float)$data['weight'] : $data['weight'];
         }
     }
 

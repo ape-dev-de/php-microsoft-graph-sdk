@@ -45,7 +45,7 @@ class SharingInvitation
             $this->redeemedBy = $data['redeemedBy'];
         }
         if (isset($data['signInRequired'])) {
-            $this->signInRequired = $data['signInRequired'];
+            $this->signInRequired = is_bool($data['signInRequired']) ? $data['signInRequired'] : (bool)$data['signInRequired'];
         }
     }
 

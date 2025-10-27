@@ -72,7 +72,7 @@ class ReflectCheckInResponse
             $this->creatorId = $data['creatorId'];
         }
         if (isset($data['isClosed'])) {
-            $this->isClosed = $data['isClosed'];
+            $this->isClosed = is_bool($data['isClosed']) ? $data['isClosed'] : (bool)$data['isClosed'];
         }
         if (isset($data['responderId'])) {
             $this->responderId = $data['responderId'];

@@ -54,7 +54,7 @@ class RoleDefinition
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isBuiltIn'])) {
-            $this->isBuiltIn = $data['isBuiltIn'];
+            $this->isBuiltIn = is_bool($data['isBuiltIn']) ? $data['isBuiltIn'] : (bool)$data['isBuiltIn'];
         }
         if (isset($data['rolePermissions'])) {
             $this->rolePermissions = $data['rolePermissions'];

@@ -33,7 +33,7 @@ class CollapseProperty
             $this->fields = $data['fields'];
         }
         if (isset($data['limit'])) {
-            $this->limit = $data['limit'];
+            $this->limit = is_numeric($data['limit']) ? (float)$data['limit'] : $data['limit'];
         }
     }
 

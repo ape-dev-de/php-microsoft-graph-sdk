@@ -24,7 +24,7 @@ class ChatRestrictions
     {
         $this->rawData = $data;
         if (isset($data['allowTextOnly'])) {
-            $this->allowTextOnly = $data['allowTextOnly'];
+            $this->allowTextOnly = is_bool($data['allowTextOnly']) ? $data['allowTextOnly'] : (bool)$data['allowTextOnly'];
         }
     }
 

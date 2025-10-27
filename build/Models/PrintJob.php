@@ -81,10 +81,10 @@ class PrintJob
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['errorCode'])) {
-            $this->errorCode = $data['errorCode'];
+            $this->errorCode = is_numeric($data['errorCode']) ? (float)$data['errorCode'] : $data['errorCode'];
         }
         if (isset($data['isFetchable'])) {
-            $this->isFetchable = $data['isFetchable'];
+            $this->isFetchable = is_bool($data['isFetchable']) ? $data['isFetchable'] : (bool)$data['isFetchable'];
         }
         if (isset($data['redirectedFrom'])) {
             $this->redirectedFrom = $data['redirectedFrom'];

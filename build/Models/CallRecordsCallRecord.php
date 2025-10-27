@@ -105,7 +105,7 @@ class CallRecordsCallRecord
             $this->type = is_array($data['type']) ? new CallRecordsCallType($data['type']) : $data['type'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['organizer_v2'])) {
             $this->organizer_v2 = is_array($data['organizer_v2']) ? new CallRecordsOrganizer($data['organizer_v2']) : $data['organizer_v2'];

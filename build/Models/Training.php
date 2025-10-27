@@ -108,10 +108,10 @@ class Training
             $this->displayName = $data['displayName'];
         }
         if (isset($data['durationInMinutes'])) {
-            $this->durationInMinutes = $data['durationInMinutes'];
+            $this->durationInMinutes = is_numeric($data['durationInMinutes']) ? (float)$data['durationInMinutes'] : $data['durationInMinutes'];
         }
         if (isset($data['hasEvaluation'])) {
-            $this->hasEvaluation = $data['hasEvaluation'];
+            $this->hasEvaluation = is_bool($data['hasEvaluation']) ? $data['hasEvaluation'] : (bool)$data['hasEvaluation'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new EmailIdentity($data['lastModifiedBy']) : $data['lastModifiedBy'];

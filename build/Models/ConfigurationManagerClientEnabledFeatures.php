@@ -39,22 +39,22 @@ class ConfigurationManagerClientEnabledFeatures
     {
         $this->rawData = $data;
         if (isset($data['compliancePolicy'])) {
-            $this->compliancePolicy = $data['compliancePolicy'];
+            $this->compliancePolicy = is_bool($data['compliancePolicy']) ? $data['compliancePolicy'] : (bool)$data['compliancePolicy'];
         }
         if (isset($data['deviceConfiguration'])) {
-            $this->deviceConfiguration = $data['deviceConfiguration'];
+            $this->deviceConfiguration = is_bool($data['deviceConfiguration']) ? $data['deviceConfiguration'] : (bool)$data['deviceConfiguration'];
         }
         if (isset($data['inventory'])) {
-            $this->inventory = $data['inventory'];
+            $this->inventory = is_bool($data['inventory']) ? $data['inventory'] : (bool)$data['inventory'];
         }
         if (isset($data['modernApps'])) {
-            $this->modernApps = $data['modernApps'];
+            $this->modernApps = is_bool($data['modernApps']) ? $data['modernApps'] : (bool)$data['modernApps'];
         }
         if (isset($data['resourceAccess'])) {
-            $this->resourceAccess = $data['resourceAccess'];
+            $this->resourceAccess = is_bool($data['resourceAccess']) ? $data['resourceAccess'] : (bool)$data['resourceAccess'];
         }
         if (isset($data['windowsUpdateForBusiness'])) {
-            $this->windowsUpdateForBusiness = $data['windowsUpdateForBusiness'];
+            $this->windowsUpdateForBusiness = is_bool($data['windowsUpdateForBusiness']) ? $data['windowsUpdateForBusiness'] : (bool)$data['windowsUpdateForBusiness'];
         }
     }
 

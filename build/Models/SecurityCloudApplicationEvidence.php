@@ -93,19 +93,19 @@ class SecurityCloudApplicationEvidence
             $this->verdict = is_array($data['verdict']) ? new SecurityEvidenceVerdict($data['verdict']) : $data['verdict'];
         }
         if (isset($data['appId'])) {
-            $this->appId = $data['appId'];
+            $this->appId = is_numeric($data['appId']) ? (float)$data['appId'] : $data['appId'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['instanceId'])) {
-            $this->instanceId = $data['instanceId'];
+            $this->instanceId = is_numeric($data['instanceId']) ? (float)$data['instanceId'] : $data['instanceId'];
         }
         if (isset($data['instanceName'])) {
             $this->instanceName = $data['instanceName'];
         }
         if (isset($data['saasAppId'])) {
-            $this->saasAppId = $data['saasAppId'];
+            $this->saasAppId = is_numeric($data['saasAppId']) ? (float)$data['saasAppId'] : $data['saasAppId'];
         }
         if (isset($data['stream'])) {
             $this->stream = is_array($data['stream']) ? new SecurityStream($data['stream']) : $data['stream'];

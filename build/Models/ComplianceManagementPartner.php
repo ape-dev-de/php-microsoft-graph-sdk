@@ -66,7 +66,7 @@ class ComplianceManagementPartner
             $this->androidEnrollmentAssignments = $data['androidEnrollmentAssignments'];
         }
         if (isset($data['androidOnboarded'])) {
-            $this->androidOnboarded = $data['androidOnboarded'];
+            $this->androidOnboarded = is_bool($data['androidOnboarded']) ? $data['androidOnboarded'] : (bool)$data['androidOnboarded'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -75,7 +75,7 @@ class ComplianceManagementPartner
             $this->iosEnrollmentAssignments = $data['iosEnrollmentAssignments'];
         }
         if (isset($data['iosOnboarded'])) {
-            $this->iosOnboarded = $data['iosOnboarded'];
+            $this->iosOnboarded = is_bool($data['iosOnboarded']) ? $data['iosOnboarded'] : (bool)$data['iosOnboarded'];
         }
         if (isset($data['lastHeartbeatDateTime'])) {
             $this->lastHeartbeatDateTime = is_string($data['lastHeartbeatDateTime']) ? new \DateTimeImmutable($data['lastHeartbeatDateTime']) : $data['lastHeartbeatDateTime'];
@@ -84,7 +84,7 @@ class ComplianceManagementPartner
             $this->macOsEnrollmentAssignments = $data['macOsEnrollmentAssignments'];
         }
         if (isset($data['macOsOnboarded'])) {
-            $this->macOsOnboarded = $data['macOsOnboarded'];
+            $this->macOsOnboarded = is_bool($data['macOsOnboarded']) ? $data['macOsOnboarded'] : (bool)$data['macOsOnboarded'];
         }
         if (isset($data['partnerState'])) {
             $this->partnerState = is_array($data['partnerState']) ? new DeviceManagementPartnerTenantState($data['partnerState']) : $data['partnerState'];

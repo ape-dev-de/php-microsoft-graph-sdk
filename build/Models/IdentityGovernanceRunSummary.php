@@ -39,22 +39,22 @@ class IdentityGovernanceRunSummary
     {
         $this->rawData = $data;
         if (isset($data['failedRuns'])) {
-            $this->failedRuns = $data['failedRuns'];
+            $this->failedRuns = is_numeric($data['failedRuns']) ? (float)$data['failedRuns'] : $data['failedRuns'];
         }
         if (isset($data['failedTasks'])) {
-            $this->failedTasks = $data['failedTasks'];
+            $this->failedTasks = is_numeric($data['failedTasks']) ? (float)$data['failedTasks'] : $data['failedTasks'];
         }
         if (isset($data['successfulRuns'])) {
-            $this->successfulRuns = $data['successfulRuns'];
+            $this->successfulRuns = is_numeric($data['successfulRuns']) ? (float)$data['successfulRuns'] : $data['successfulRuns'];
         }
         if (isset($data['totalRuns'])) {
-            $this->totalRuns = $data['totalRuns'];
+            $this->totalRuns = is_numeric($data['totalRuns']) ? (float)$data['totalRuns'] : $data['totalRuns'];
         }
         if (isset($data['totalTasks'])) {
-            $this->totalTasks = $data['totalTasks'];
+            $this->totalTasks = is_numeric($data['totalTasks']) ? (float)$data['totalTasks'] : $data['totalTasks'];
         }
         if (isset($data['totalUsers'])) {
-            $this->totalUsers = $data['totalUsers'];
+            $this->totalUsers = is_numeric($data['totalUsers']) ? (float)$data['totalUsers'] : $data['totalUsers'];
         }
     }
 

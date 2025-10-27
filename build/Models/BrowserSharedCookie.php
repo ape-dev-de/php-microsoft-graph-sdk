@@ -84,7 +84,7 @@ class BrowserSharedCookie
             $this->history = $data['history'];
         }
         if (isset($data['hostOnly'])) {
-            $this->hostOnly = $data['hostOnly'];
+            $this->hostOnly = is_bool($data['hostOnly']) ? $data['hostOnly'] : (bool)$data['hostOnly'];
         }
         if (isset($data['hostOrDomain'])) {
             $this->hostOrDomain = $data['hostOrDomain'];

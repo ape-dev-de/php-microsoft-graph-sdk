@@ -51,7 +51,7 @@ class ScheduleItem
             $this->end = is_array($data['end']) ? new DateTimeTimeZone($data['end']) : $data['end'];
         }
         if (isset($data['isPrivate'])) {
-            $this->isPrivate = $data['isPrivate'];
+            $this->isPrivate = is_bool($data['isPrivate']) ? $data['isPrivate'] : (bool)$data['isPrivate'];
         }
         if (isset($data['location'])) {
             $this->location = $data['location'];

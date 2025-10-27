@@ -168,7 +168,7 @@ class DeviceInfo
             $this->extensionAttribute9 = $data['extensionAttribute9'];
         }
         if (isset($data['isCompliant'])) {
-            $this->isCompliant = $data['isCompliant'];
+            $this->isCompliant = is_bool($data['isCompliant']) ? $data['isCompliant'] : (bool)$data['isCompliant'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];

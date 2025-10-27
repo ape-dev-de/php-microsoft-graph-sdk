@@ -54,37 +54,37 @@ class WorkbookWorksheetProtectionOptions
     {
         $this->rawData = $data;
         if (isset($data['allowAutoFilter'])) {
-            $this->allowAutoFilter = $data['allowAutoFilter'];
+            $this->allowAutoFilter = is_bool($data['allowAutoFilter']) ? $data['allowAutoFilter'] : (bool)$data['allowAutoFilter'];
         }
         if (isset($data['allowDeleteColumns'])) {
-            $this->allowDeleteColumns = $data['allowDeleteColumns'];
+            $this->allowDeleteColumns = is_bool($data['allowDeleteColumns']) ? $data['allowDeleteColumns'] : (bool)$data['allowDeleteColumns'];
         }
         if (isset($data['allowDeleteRows'])) {
-            $this->allowDeleteRows = $data['allowDeleteRows'];
+            $this->allowDeleteRows = is_bool($data['allowDeleteRows']) ? $data['allowDeleteRows'] : (bool)$data['allowDeleteRows'];
         }
         if (isset($data['allowFormatCells'])) {
-            $this->allowFormatCells = $data['allowFormatCells'];
+            $this->allowFormatCells = is_bool($data['allowFormatCells']) ? $data['allowFormatCells'] : (bool)$data['allowFormatCells'];
         }
         if (isset($data['allowFormatColumns'])) {
-            $this->allowFormatColumns = $data['allowFormatColumns'];
+            $this->allowFormatColumns = is_bool($data['allowFormatColumns']) ? $data['allowFormatColumns'] : (bool)$data['allowFormatColumns'];
         }
         if (isset($data['allowFormatRows'])) {
-            $this->allowFormatRows = $data['allowFormatRows'];
+            $this->allowFormatRows = is_bool($data['allowFormatRows']) ? $data['allowFormatRows'] : (bool)$data['allowFormatRows'];
         }
         if (isset($data['allowInsertColumns'])) {
-            $this->allowInsertColumns = $data['allowInsertColumns'];
+            $this->allowInsertColumns = is_bool($data['allowInsertColumns']) ? $data['allowInsertColumns'] : (bool)$data['allowInsertColumns'];
         }
         if (isset($data['allowInsertHyperlinks'])) {
-            $this->allowInsertHyperlinks = $data['allowInsertHyperlinks'];
+            $this->allowInsertHyperlinks = is_bool($data['allowInsertHyperlinks']) ? $data['allowInsertHyperlinks'] : (bool)$data['allowInsertHyperlinks'];
         }
         if (isset($data['allowInsertRows'])) {
-            $this->allowInsertRows = $data['allowInsertRows'];
+            $this->allowInsertRows = is_bool($data['allowInsertRows']) ? $data['allowInsertRows'] : (bool)$data['allowInsertRows'];
         }
         if (isset($data['allowPivotTables'])) {
-            $this->allowPivotTables = $data['allowPivotTables'];
+            $this->allowPivotTables = is_bool($data['allowPivotTables']) ? $data['allowPivotTables'] : (bool)$data['allowPivotTables'];
         }
         if (isset($data['allowSort'])) {
-            $this->allowSort = $data['allowSort'];
+            $this->allowSort = is_bool($data['allowSort']) ? $data['allowSort'] : (bool)$data['allowSort'];
         }
     }
 

@@ -39,7 +39,7 @@ class PlannerChecklistItem
     {
         $this->rawData = $data;
         if (isset($data['isChecked'])) {
-            $this->isChecked = $data['isChecked'];
+            $this->isChecked = is_bool($data['isChecked']) ? $data['isChecked'] : (bool)$data['isChecked'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];

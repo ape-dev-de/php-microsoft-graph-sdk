@@ -96,7 +96,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -117,10 +117,10 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['allowSampleSharing'])) {
-            $this->allowSampleSharing = $data['allowSampleSharing'];
+            $this->allowSampleSharing = is_bool($data['allowSampleSharing']) ? $data['allowSampleSharing'] : (bool)$data['allowSampleSharing'];
         }
         if (isset($data['enableExpeditedTelemetryReporting'])) {
-            $this->enableExpeditedTelemetryReporting = $data['enableExpeditedTelemetryReporting'];
+            $this->enableExpeditedTelemetryReporting = is_bool($data['enableExpeditedTelemetryReporting']) ? $data['enableExpeditedTelemetryReporting'] : (bool)$data['enableExpeditedTelemetryReporting'];
         }
     }
 

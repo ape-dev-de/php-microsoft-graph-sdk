@@ -93,7 +93,7 @@ class DocumentSetVersion
             $this->items = $data['items'];
         }
         if (isset($data['shouldCaptureMinorVersion'])) {
-            $this->shouldCaptureMinorVersion = $data['shouldCaptureMinorVersion'];
+            $this->shouldCaptureMinorVersion = is_bool($data['shouldCaptureMinorVersion']) ? $data['shouldCaptureMinorVersion'] : (bool)$data['shouldCaptureMinorVersion'];
         }
     }
 

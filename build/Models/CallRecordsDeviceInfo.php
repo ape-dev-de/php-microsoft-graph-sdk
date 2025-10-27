@@ -126,37 +126,37 @@ class CallRecordsDeviceInfo
             $this->captureDeviceName = $data['captureDeviceName'];
         }
         if (isset($data['captureNotFunctioningEventRatio'])) {
-            $this->captureNotFunctioningEventRatio = $data['captureNotFunctioningEventRatio'];
+            $this->captureNotFunctioningEventRatio = is_numeric($data['captureNotFunctioningEventRatio']) ? (float)$data['captureNotFunctioningEventRatio'] : $data['captureNotFunctioningEventRatio'];
         }
         if (isset($data['cpuInsufficentEventRatio'])) {
-            $this->cpuInsufficentEventRatio = $data['cpuInsufficentEventRatio'];
+            $this->cpuInsufficentEventRatio = is_numeric($data['cpuInsufficentEventRatio']) ? (float)$data['cpuInsufficentEventRatio'] : $data['cpuInsufficentEventRatio'];
         }
         if (isset($data['deviceClippingEventRatio'])) {
-            $this->deviceClippingEventRatio = $data['deviceClippingEventRatio'];
+            $this->deviceClippingEventRatio = is_numeric($data['deviceClippingEventRatio']) ? (float)$data['deviceClippingEventRatio'] : $data['deviceClippingEventRatio'];
         }
         if (isset($data['deviceGlitchEventRatio'])) {
-            $this->deviceGlitchEventRatio = $data['deviceGlitchEventRatio'];
+            $this->deviceGlitchEventRatio = is_numeric($data['deviceGlitchEventRatio']) ? (float)$data['deviceGlitchEventRatio'] : $data['deviceGlitchEventRatio'];
         }
         if (isset($data['howlingEventCount'])) {
-            $this->howlingEventCount = $data['howlingEventCount'];
+            $this->howlingEventCount = is_numeric($data['howlingEventCount']) ? (float)$data['howlingEventCount'] : $data['howlingEventCount'];
         }
         if (isset($data['initialSignalLevelRootMeanSquare'])) {
-            $this->initialSignalLevelRootMeanSquare = $data['initialSignalLevelRootMeanSquare'];
+            $this->initialSignalLevelRootMeanSquare = is_numeric($data['initialSignalLevelRootMeanSquare']) ? (float)$data['initialSignalLevelRootMeanSquare'] : $data['initialSignalLevelRootMeanSquare'];
         }
         if (isset($data['lowSpeechLevelEventRatio'])) {
-            $this->lowSpeechLevelEventRatio = $data['lowSpeechLevelEventRatio'];
+            $this->lowSpeechLevelEventRatio = is_numeric($data['lowSpeechLevelEventRatio']) ? (float)$data['lowSpeechLevelEventRatio'] : $data['lowSpeechLevelEventRatio'];
         }
         if (isset($data['lowSpeechToNoiseEventRatio'])) {
-            $this->lowSpeechToNoiseEventRatio = $data['lowSpeechToNoiseEventRatio'];
+            $this->lowSpeechToNoiseEventRatio = is_numeric($data['lowSpeechToNoiseEventRatio']) ? (float)$data['lowSpeechToNoiseEventRatio'] : $data['lowSpeechToNoiseEventRatio'];
         }
         if (isset($data['micGlitchRate'])) {
-            $this->micGlitchRate = $data['micGlitchRate'];
+            $this->micGlitchRate = is_numeric($data['micGlitchRate']) ? (float)$data['micGlitchRate'] : $data['micGlitchRate'];
         }
         if (isset($data['receivedNoiseLevel'])) {
-            $this->receivedNoiseLevel = $data['receivedNoiseLevel'];
+            $this->receivedNoiseLevel = is_numeric($data['receivedNoiseLevel']) ? (float)$data['receivedNoiseLevel'] : $data['receivedNoiseLevel'];
         }
         if (isset($data['receivedSignalLevel'])) {
-            $this->receivedSignalLevel = $data['receivedSignalLevel'];
+            $this->receivedSignalLevel = is_numeric($data['receivedSignalLevel']) ? (float)$data['receivedSignalLevel'] : $data['receivedSignalLevel'];
         }
         if (isset($data['renderDeviceDriver'])) {
             $this->renderDeviceDriver = $data['renderDeviceDriver'];
@@ -165,22 +165,22 @@ class CallRecordsDeviceInfo
             $this->renderDeviceName = $data['renderDeviceName'];
         }
         if (isset($data['renderMuteEventRatio'])) {
-            $this->renderMuteEventRatio = $data['renderMuteEventRatio'];
+            $this->renderMuteEventRatio = is_numeric($data['renderMuteEventRatio']) ? (float)$data['renderMuteEventRatio'] : $data['renderMuteEventRatio'];
         }
         if (isset($data['renderNotFunctioningEventRatio'])) {
-            $this->renderNotFunctioningEventRatio = $data['renderNotFunctioningEventRatio'];
+            $this->renderNotFunctioningEventRatio = is_numeric($data['renderNotFunctioningEventRatio']) ? (float)$data['renderNotFunctioningEventRatio'] : $data['renderNotFunctioningEventRatio'];
         }
         if (isset($data['renderZeroVolumeEventRatio'])) {
-            $this->renderZeroVolumeEventRatio = $data['renderZeroVolumeEventRatio'];
+            $this->renderZeroVolumeEventRatio = is_numeric($data['renderZeroVolumeEventRatio']) ? (float)$data['renderZeroVolumeEventRatio'] : $data['renderZeroVolumeEventRatio'];
         }
         if (isset($data['sentNoiseLevel'])) {
-            $this->sentNoiseLevel = $data['sentNoiseLevel'];
+            $this->sentNoiseLevel = is_numeric($data['sentNoiseLevel']) ? (float)$data['sentNoiseLevel'] : $data['sentNoiseLevel'];
         }
         if (isset($data['sentSignalLevel'])) {
-            $this->sentSignalLevel = $data['sentSignalLevel'];
+            $this->sentSignalLevel = is_numeric($data['sentSignalLevel']) ? (float)$data['sentSignalLevel'] : $data['sentSignalLevel'];
         }
         if (isset($data['speakerGlitchRate'])) {
-            $this->speakerGlitchRate = $data['speakerGlitchRate'];
+            $this->speakerGlitchRate = is_numeric($data['speakerGlitchRate']) ? (float)$data['speakerGlitchRate'] : $data['speakerGlitchRate'];
         }
     }
 

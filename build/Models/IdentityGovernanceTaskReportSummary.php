@@ -33,16 +33,16 @@ class IdentityGovernanceTaskReportSummary
     {
         $this->rawData = $data;
         if (isset($data['failedTasks'])) {
-            $this->failedTasks = $data['failedTasks'];
+            $this->failedTasks = is_numeric($data['failedTasks']) ? (float)$data['failedTasks'] : $data['failedTasks'];
         }
         if (isset($data['successfulTasks'])) {
-            $this->successfulTasks = $data['successfulTasks'];
+            $this->successfulTasks = is_numeric($data['successfulTasks']) ? (float)$data['successfulTasks'] : $data['successfulTasks'];
         }
         if (isset($data['totalTasks'])) {
-            $this->totalTasks = $data['totalTasks'];
+            $this->totalTasks = is_numeric($data['totalTasks']) ? (float)$data['totalTasks'] : $data['totalTasks'];
         }
         if (isset($data['unprocessedTasks'])) {
-            $this->unprocessedTasks = $data['unprocessedTasks'];
+            $this->unprocessedTasks = is_numeric($data['unprocessedTasks']) ? (float)$data['unprocessedTasks'] : $data['unprocessedTasks'];
         }
     }
 

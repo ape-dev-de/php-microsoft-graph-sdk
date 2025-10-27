@@ -27,7 +27,7 @@ class OutOfOfficeSettings
     {
         $this->rawData = $data;
         if (isset($data['isOutOfOffice'])) {
-            $this->isOutOfOffice = $data['isOutOfOffice'];
+            $this->isOutOfOffice = is_bool($data['isOutOfOffice']) ? $data['isOutOfOffice'] : (bool)$data['isOutOfOffice'];
         }
         if (isset($data['message'])) {
             $this->message = $data['message'];

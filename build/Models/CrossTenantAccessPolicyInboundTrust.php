@@ -30,13 +30,13 @@ class CrossTenantAccessPolicyInboundTrust
     {
         $this->rawData = $data;
         if (isset($data['isCompliantDeviceAccepted'])) {
-            $this->isCompliantDeviceAccepted = $data['isCompliantDeviceAccepted'];
+            $this->isCompliantDeviceAccepted = is_bool($data['isCompliantDeviceAccepted']) ? $data['isCompliantDeviceAccepted'] : (bool)$data['isCompliantDeviceAccepted'];
         }
         if (isset($data['isHybridAzureADJoinedDeviceAccepted'])) {
-            $this->isHybridAzureADJoinedDeviceAccepted = $data['isHybridAzureADJoinedDeviceAccepted'];
+            $this->isHybridAzureADJoinedDeviceAccepted = is_bool($data['isHybridAzureADJoinedDeviceAccepted']) ? $data['isHybridAzureADJoinedDeviceAccepted'] : (bool)$data['isHybridAzureADJoinedDeviceAccepted'];
         }
         if (isset($data['isMfaAccepted'])) {
-            $this->isMfaAccepted = $data['isMfaAccepted'];
+            $this->isMfaAccepted = is_bool($data['isMfaAccepted']) ? $data['isMfaAccepted'] : (bool)$data['isMfaAccepted'];
         }
     }
 

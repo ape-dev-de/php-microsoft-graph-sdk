@@ -105,7 +105,7 @@ class PrinterShare
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isAcceptingJobs'])) {
-            $this->isAcceptingJobs = $data['isAcceptingJobs'];
+            $this->isAcceptingJobs = is_bool($data['isAcceptingJobs']) ? $data['isAcceptingJobs'] : (bool)$data['isAcceptingJobs'];
         }
         if (isset($data['location'])) {
             $this->location = is_array($data['location']) ? new PrinterLocation($data['location']) : $data['location'];
@@ -123,7 +123,7 @@ class PrinterShare
             $this->jobs = $data['jobs'];
         }
         if (isset($data['allowAllUsers'])) {
-            $this->allowAllUsers = $data['allowAllUsers'];
+            $this->allowAllUsers = is_bool($data['allowAllUsers']) ? $data['allowAllUsers'] : (bool)$data['allowAllUsers'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

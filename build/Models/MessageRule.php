@@ -72,16 +72,16 @@ class MessageRule
             $this->exceptions = is_array($data['exceptions']) ? new MessageRulePredicates($data['exceptions']) : $data['exceptions'];
         }
         if (isset($data['hasError'])) {
-            $this->hasError = $data['hasError'];
+            $this->hasError = is_bool($data['hasError']) ? $data['hasError'] : (bool)$data['hasError'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['isReadOnly'])) {
-            $this->isReadOnly = $data['isReadOnly'];
+            $this->isReadOnly = is_bool($data['isReadOnly']) ? $data['isReadOnly'] : (bool)$data['isReadOnly'];
         }
         if (isset($data['sequence'])) {
-            $this->sequence = $data['sequence'];
+            $this->sequence = is_numeric($data['sequence']) ? (float)$data['sequence'] : $data['sequence'];
         }
     }
 

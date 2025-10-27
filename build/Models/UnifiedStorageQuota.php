@@ -51,22 +51,22 @@ class UnifiedStorageQuota
             $this->id = $data['id'];
         }
         if (isset($data['deleted'])) {
-            $this->deleted = $data['deleted'];
+            $this->deleted = is_numeric($data['deleted']) ? (float)$data['deleted'] : $data['deleted'];
         }
         if (isset($data['manageWebUrl'])) {
             $this->manageWebUrl = $data['manageWebUrl'];
         }
         if (isset($data['remaining'])) {
-            $this->remaining = $data['remaining'];
+            $this->remaining = is_numeric($data['remaining']) ? (float)$data['remaining'] : $data['remaining'];
         }
         if (isset($data['state'])) {
             $this->state = $data['state'];
         }
         if (isset($data['total'])) {
-            $this->total = $data['total'];
+            $this->total = is_numeric($data['total']) ? (float)$data['total'] : $data['total'];
         }
         if (isset($data['used'])) {
-            $this->used = $data['used'];
+            $this->used = is_numeric($data['used']) ? (float)$data['used'] : $data['used'];
         }
         if (isset($data['services'])) {
             $this->services = $data['services'];

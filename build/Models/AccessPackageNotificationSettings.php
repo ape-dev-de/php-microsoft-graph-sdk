@@ -24,7 +24,7 @@ class AccessPackageNotificationSettings
     {
         $this->rawData = $data;
         if (isset($data['isAssignmentNotificationDisabled'])) {
-            $this->isAssignmentNotificationDisabled = $data['isAssignmentNotificationDisabled'];
+            $this->isAssignmentNotificationDisabled = is_bool($data['isAssignmentNotificationDisabled']) ? $data['isAssignmentNotificationDisabled'] : (bool)$data['isAssignmentNotificationDisabled'];
         }
     }
 

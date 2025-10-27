@@ -42,7 +42,7 @@ class ExternalConnectorsDisplayTemplate
             $this->layout = $data['layout'];
         }
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['rules'])) {
             $this->rules = $data['rules'];

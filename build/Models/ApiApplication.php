@@ -45,7 +45,7 @@ class ApiApplication
     {
         $this->rawData = $data;
         if (isset($data['acceptMappedClaims'])) {
-            $this->acceptMappedClaims = $data['acceptMappedClaims'];
+            $this->acceptMappedClaims = is_bool($data['acceptMappedClaims']) ? $data['acceptMappedClaims'] : (bool)$data['acceptMappedClaims'];
         }
         if (isset($data['knownClientApplications'])) {
             $this->knownClientApplications = $data['knownClientApplications'];
@@ -57,7 +57,7 @@ class ApiApplication
             $this->preAuthorizedApplications = $data['preAuthorizedApplications'];
         }
         if (isset($data['requestedAccessTokenVersion'])) {
-            $this->requestedAccessTokenVersion = $data['requestedAccessTokenVersion'];
+            $this->requestedAccessTokenVersion = is_numeric($data['requestedAccessTokenVersion']) ? (float)$data['requestedAccessTokenVersion'] : $data['requestedAccessTokenVersion'];
         }
     }
 

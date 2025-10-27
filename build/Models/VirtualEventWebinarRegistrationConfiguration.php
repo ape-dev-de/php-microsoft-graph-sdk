@@ -45,7 +45,7 @@ class VirtualEventWebinarRegistrationConfiguration
             $this->id = $data['id'];
         }
         if (isset($data['capacity'])) {
-            $this->capacity = $data['capacity'];
+            $this->capacity = is_numeric($data['capacity']) ? (float)$data['capacity'] : $data['capacity'];
         }
         if (isset($data['registrationWebUrl'])) {
             $this->registrationWebUrl = $data['registrationWebUrl'];
@@ -54,10 +54,10 @@ class VirtualEventWebinarRegistrationConfiguration
             $this->questions = $data['questions'];
         }
         if (isset($data['isManualApprovalEnabled'])) {
-            $this->isManualApprovalEnabled = $data['isManualApprovalEnabled'];
+            $this->isManualApprovalEnabled = is_bool($data['isManualApprovalEnabled']) ? $data['isManualApprovalEnabled'] : (bool)$data['isManualApprovalEnabled'];
         }
         if (isset($data['isWaitlistEnabled'])) {
-            $this->isWaitlistEnabled = $data['isWaitlistEnabled'];
+            $this->isWaitlistEnabled = is_bool($data['isWaitlistEnabled']) ? $data['isWaitlistEnabled'] : (bool)$data['isWaitlistEnabled'];
         }
     }
 

@@ -51,13 +51,13 @@ class HostSecurityState
             $this->fqdn = $data['fqdn'];
         }
         if (isset($data['isAzureAdJoined'])) {
-            $this->isAzureAdJoined = $data['isAzureAdJoined'];
+            $this->isAzureAdJoined = is_bool($data['isAzureAdJoined']) ? $data['isAzureAdJoined'] : (bool)$data['isAzureAdJoined'];
         }
         if (isset($data['isAzureAdRegistered'])) {
-            $this->isAzureAdRegistered = $data['isAzureAdRegistered'];
+            $this->isAzureAdRegistered = is_bool($data['isAzureAdRegistered']) ? $data['isAzureAdRegistered'] : (bool)$data['isAzureAdRegistered'];
         }
         if (isset($data['isHybridAzureDomainJoined'])) {
-            $this->isHybridAzureDomainJoined = $data['isHybridAzureDomainJoined'];
+            $this->isHybridAzureDomainJoined = is_bool($data['isHybridAzureDomainJoined']) ? $data['isHybridAzureDomainJoined'] : (bool)$data['isHybridAzureDomainJoined'];
         }
         if (isset($data['netBiosName'])) {
             $this->netBiosName = $data['netBiosName'];

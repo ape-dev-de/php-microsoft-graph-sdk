@@ -96,7 +96,7 @@ class WhatIfAnalysisResult
             $this->analysisReasons = is_array($data['analysisReasons']) ? new WhatIfAnalysisReasons($data['analysisReasons']) : $data['analysisReasons'];
         }
         if (isset($data['policyApplies'])) {
-            $this->policyApplies = $data['policyApplies'];
+            $this->policyApplies = is_bool($data['policyApplies']) ? $data['policyApplies'] : (bool)$data['policyApplies'];
         }
     }
 

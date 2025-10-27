@@ -129,13 +129,13 @@ class ContentType
             $this->group = $data['group'];
         }
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['inheritedFrom'])) {
             $this->inheritedFrom = is_array($data['inheritedFrom']) ? new ItemReference($data['inheritedFrom']) : $data['inheritedFrom'];
         }
         if (isset($data['isBuiltIn'])) {
-            $this->isBuiltIn = $data['isBuiltIn'];
+            $this->isBuiltIn = is_bool($data['isBuiltIn']) ? $data['isBuiltIn'] : (bool)$data['isBuiltIn'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
@@ -147,13 +147,13 @@ class ContentType
             $this->parentId = $data['parentId'];
         }
         if (isset($data['propagateChanges'])) {
-            $this->propagateChanges = $data['propagateChanges'];
+            $this->propagateChanges = is_bool($data['propagateChanges']) ? $data['propagateChanges'] : (bool)$data['propagateChanges'];
         }
         if (isset($data['readOnly'])) {
-            $this->readOnly = $data['readOnly'];
+            $this->readOnly = is_bool($data['readOnly']) ? $data['readOnly'] : (bool)$data['readOnly'];
         }
         if (isset($data['sealed'])) {
-            $this->sealed = $data['sealed'];
+            $this->sealed = is_bool($data['sealed']) ? $data['sealed'] : (bool)$data['sealed'];
         }
         if (isset($data['base'])) {
             $this->base = is_array($data['base']) ? new ContentType($data['base']) : $data['base'];

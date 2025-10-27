@@ -66,19 +66,19 @@ class BookingPageSettings
             $this->customerConsentMessage = $data['customerConsentMessage'];
         }
         if (isset($data['enforceOneTimePassword'])) {
-            $this->enforceOneTimePassword = $data['enforceOneTimePassword'];
+            $this->enforceOneTimePassword = is_bool($data['enforceOneTimePassword']) ? $data['enforceOneTimePassword'] : (bool)$data['enforceOneTimePassword'];
         }
         if (isset($data['isBusinessLogoDisplayEnabled'])) {
-            $this->isBusinessLogoDisplayEnabled = $data['isBusinessLogoDisplayEnabled'];
+            $this->isBusinessLogoDisplayEnabled = is_bool($data['isBusinessLogoDisplayEnabled']) ? $data['isBusinessLogoDisplayEnabled'] : (bool)$data['isBusinessLogoDisplayEnabled'];
         }
         if (isset($data['isCustomerConsentEnabled'])) {
-            $this->isCustomerConsentEnabled = $data['isCustomerConsentEnabled'];
+            $this->isCustomerConsentEnabled = is_bool($data['isCustomerConsentEnabled']) ? $data['isCustomerConsentEnabled'] : (bool)$data['isCustomerConsentEnabled'];
         }
         if (isset($data['isSearchEngineIndexabilityDisabled'])) {
-            $this->isSearchEngineIndexabilityDisabled = $data['isSearchEngineIndexabilityDisabled'];
+            $this->isSearchEngineIndexabilityDisabled = is_bool($data['isSearchEngineIndexabilityDisabled']) ? $data['isSearchEngineIndexabilityDisabled'] : (bool)$data['isSearchEngineIndexabilityDisabled'];
         }
         if (isset($data['isTimeSlotTimeZoneSetToBusinessTimeZone'])) {
-            $this->isTimeSlotTimeZoneSetToBusinessTimeZone = $data['isTimeSlotTimeZoneSetToBusinessTimeZone'];
+            $this->isTimeSlotTimeZoneSetToBusinessTimeZone = is_bool($data['isTimeSlotTimeZoneSetToBusinessTimeZone']) ? $data['isTimeSlotTimeZoneSetToBusinessTimeZone'] : (bool)$data['isTimeSlotTimeZoneSetToBusinessTimeZone'];
         }
         if (isset($data['privacyPolicyWebUrl'])) {
             $this->privacyPolicyWebUrl = $data['privacyPolicyWebUrl'];

@@ -198,7 +198,7 @@ class Team
             $this->internalId = $data['internalId'];
         }
         if (isset($data['isArchived'])) {
-            $this->isArchived = $data['isArchived'];
+            $this->isArchived = is_bool($data['isArchived']) ? $data['isArchived'] : (bool)$data['isArchived'];
         }
         if (isset($data['memberSettings'])) {
             $this->memberSettings = is_array($data['memberSettings']) ? new TeamMemberSettings($data['memberSettings']) : $data['memberSettings'];

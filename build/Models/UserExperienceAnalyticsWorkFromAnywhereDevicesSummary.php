@@ -84,37 +84,37 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
             $this->cloudManagementDevicesSummary = is_array($data['cloudManagementDevicesSummary']) ? new UserExperienceAnalyticsCloudManagementDevicesSummary($data['cloudManagementDevicesSummary']) : $data['cloudManagementDevicesSummary'];
         }
         if (isset($data['coManagedDevices'])) {
-            $this->coManagedDevices = $data['coManagedDevices'];
+            $this->coManagedDevices = is_numeric($data['coManagedDevices']) ? (float)$data['coManagedDevices'] : $data['coManagedDevices'];
         }
         if (isset($data['devicesNotAutopilotRegistered'])) {
-            $this->devicesNotAutopilotRegistered = $data['devicesNotAutopilotRegistered'];
+            $this->devicesNotAutopilotRegistered = is_numeric($data['devicesNotAutopilotRegistered']) ? (float)$data['devicesNotAutopilotRegistered'] : $data['devicesNotAutopilotRegistered'];
         }
         if (isset($data['devicesWithoutAutopilotProfileAssigned'])) {
-            $this->devicesWithoutAutopilotProfileAssigned = $data['devicesWithoutAutopilotProfileAssigned'];
+            $this->devicesWithoutAutopilotProfileAssigned = is_numeric($data['devicesWithoutAutopilotProfileAssigned']) ? (float)$data['devicesWithoutAutopilotProfileAssigned'] : $data['devicesWithoutAutopilotProfileAssigned'];
         }
         if (isset($data['devicesWithoutCloudIdentity'])) {
-            $this->devicesWithoutCloudIdentity = $data['devicesWithoutCloudIdentity'];
+            $this->devicesWithoutCloudIdentity = is_numeric($data['devicesWithoutCloudIdentity']) ? (float)$data['devicesWithoutCloudIdentity'] : $data['devicesWithoutCloudIdentity'];
         }
         if (isset($data['intuneDevices'])) {
-            $this->intuneDevices = $data['intuneDevices'];
+            $this->intuneDevices = is_numeric($data['intuneDevices']) ? (float)$data['intuneDevices'] : $data['intuneDevices'];
         }
         if (isset($data['tenantAttachDevices'])) {
-            $this->tenantAttachDevices = $data['tenantAttachDevices'];
+            $this->tenantAttachDevices = is_numeric($data['tenantAttachDevices']) ? (float)$data['tenantAttachDevices'] : $data['tenantAttachDevices'];
         }
         if (isset($data['totalDevices'])) {
-            $this->totalDevices = $data['totalDevices'];
+            $this->totalDevices = is_numeric($data['totalDevices']) ? (float)$data['totalDevices'] : $data['totalDevices'];
         }
         if (isset($data['unsupportedOSversionDevices'])) {
-            $this->unsupportedOSversionDevices = $data['unsupportedOSversionDevices'];
+            $this->unsupportedOSversionDevices = is_numeric($data['unsupportedOSversionDevices']) ? (float)$data['unsupportedOSversionDevices'] : $data['unsupportedOSversionDevices'];
         }
         if (isset($data['windows10Devices'])) {
-            $this->windows10Devices = $data['windows10Devices'];
+            $this->windows10Devices = is_numeric($data['windows10Devices']) ? (float)$data['windows10Devices'] : $data['windows10Devices'];
         }
         if (isset($data['windows10DevicesSummary'])) {
             $this->windows10DevicesSummary = is_array($data['windows10DevicesSummary']) ? new UserExperienceAnalyticsWindows10DevicesSummary($data['windows10DevicesSummary']) : $data['windows10DevicesSummary'];
         }
         if (isset($data['windows10DevicesWithoutTenantAttach'])) {
-            $this->windows10DevicesWithoutTenantAttach = $data['windows10DevicesWithoutTenantAttach'];
+            $this->windows10DevicesWithoutTenantAttach = is_numeric($data['windows10DevicesWithoutTenantAttach']) ? (float)$data['windows10DevicesWithoutTenantAttach'] : $data['windows10DevicesWithoutTenantAttach'];
         }
     }
 

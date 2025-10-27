@@ -24,7 +24,7 @@ class UserExperienceAnalyticsWindows10DevicesSummary
     {
         $this->rawData = $data;
         if (isset($data['unsupportedOSversionDeviceCount'])) {
-            $this->unsupportedOSversionDeviceCount = $data['unsupportedOSversionDeviceCount'];
+            $this->unsupportedOSversionDeviceCount = is_numeric($data['unsupportedOSversionDeviceCount']) ? (float)$data['unsupportedOSversionDeviceCount'] : $data['unsupportedOSversionDeviceCount'];
         }
     }
 

@@ -114,7 +114,7 @@ class CallRecordsNetworkInfo
     {
         $this->rawData = $data;
         if (isset($data['bandwidthLowEventRatio'])) {
-            $this->bandwidthLowEventRatio = $data['bandwidthLowEventRatio'];
+            $this->bandwidthLowEventRatio = is_numeric($data['bandwidthLowEventRatio']) ? (float)$data['bandwidthLowEventRatio'] : $data['bandwidthLowEventRatio'];
         }
         if (isset($data['basicServiceSetIdentifier'])) {
             $this->basicServiceSetIdentifier = $data['basicServiceSetIdentifier'];
@@ -123,7 +123,7 @@ class CallRecordsNetworkInfo
             $this->connectionType = is_array($data['connectionType']) ? new CallRecordsNetworkConnectionType($data['connectionType']) : $data['connectionType'];
         }
         if (isset($data['delayEventRatio'])) {
-            $this->delayEventRatio = $data['delayEventRatio'];
+            $this->delayEventRatio = is_numeric($data['delayEventRatio']) ? (float)$data['delayEventRatio'] : $data['delayEventRatio'];
         }
         if (isset($data['dnsSuffix'])) {
             $this->dnsSuffix = $data['dnsSuffix'];
@@ -132,7 +132,7 @@ class CallRecordsNetworkInfo
             $this->ipAddress = $data['ipAddress'];
         }
         if (isset($data['linkSpeed'])) {
-            $this->linkSpeed = $data['linkSpeed'];
+            $this->linkSpeed = is_numeric($data['linkSpeed']) ? (float)$data['linkSpeed'] : $data['linkSpeed'];
         }
         if (isset($data['macAddress'])) {
             $this->macAddress = $data['macAddress'];
@@ -141,10 +141,10 @@ class CallRecordsNetworkInfo
             $this->networkTransportProtocol = is_array($data['networkTransportProtocol']) ? new CallRecordsNetworkTransportProtocol($data['networkTransportProtocol']) : $data['networkTransportProtocol'];
         }
         if (isset($data['port'])) {
-            $this->port = $data['port'];
+            $this->port = is_numeric($data['port']) ? (float)$data['port'] : $data['port'];
         }
         if (isset($data['receivedQualityEventRatio'])) {
-            $this->receivedQualityEventRatio = $data['receivedQualityEventRatio'];
+            $this->receivedQualityEventRatio = is_numeric($data['receivedQualityEventRatio']) ? (float)$data['receivedQualityEventRatio'] : $data['receivedQualityEventRatio'];
         }
         if (isset($data['reflexiveIPAddress'])) {
             $this->reflexiveIPAddress = $data['reflexiveIPAddress'];
@@ -153,10 +153,10 @@ class CallRecordsNetworkInfo
             $this->relayIPAddress = $data['relayIPAddress'];
         }
         if (isset($data['relayPort'])) {
-            $this->relayPort = $data['relayPort'];
+            $this->relayPort = is_numeric($data['relayPort']) ? (float)$data['relayPort'] : $data['relayPort'];
         }
         if (isset($data['sentQualityEventRatio'])) {
-            $this->sentQualityEventRatio = $data['sentQualityEventRatio'];
+            $this->sentQualityEventRatio = is_numeric($data['sentQualityEventRatio']) ? (float)$data['sentQualityEventRatio'] : $data['sentQualityEventRatio'];
         }
         if (isset($data['subnet'])) {
             $this->subnet = $data['subnet'];
@@ -168,10 +168,10 @@ class CallRecordsNetworkInfo
             $this->wifiBand = is_array($data['wifiBand']) ? new CallRecordsWifiBand($data['wifiBand']) : $data['wifiBand'];
         }
         if (isset($data['wifiBatteryCharge'])) {
-            $this->wifiBatteryCharge = $data['wifiBatteryCharge'];
+            $this->wifiBatteryCharge = is_numeric($data['wifiBatteryCharge']) ? (float)$data['wifiBatteryCharge'] : $data['wifiBatteryCharge'];
         }
         if (isset($data['wifiChannel'])) {
-            $this->wifiChannel = $data['wifiChannel'];
+            $this->wifiChannel = is_numeric($data['wifiChannel']) ? (float)$data['wifiChannel'] : $data['wifiChannel'];
         }
         if (isset($data['wifiMicrosoftDriver'])) {
             $this->wifiMicrosoftDriver = $data['wifiMicrosoftDriver'];
@@ -183,7 +183,7 @@ class CallRecordsNetworkInfo
             $this->wifiRadioType = is_array($data['wifiRadioType']) ? new CallRecordsWifiRadioType($data['wifiRadioType']) : $data['wifiRadioType'];
         }
         if (isset($data['wifiSignalStrength'])) {
-            $this->wifiSignalStrength = $data['wifiSignalStrength'];
+            $this->wifiSignalStrength = is_numeric($data['wifiSignalStrength']) ? (float)$data['wifiSignalStrength'] : $data['wifiSignalStrength'];
         }
         if (isset($data['wifiVendorDriver'])) {
             $this->wifiVendorDriver = $data['wifiVendorDriver'];

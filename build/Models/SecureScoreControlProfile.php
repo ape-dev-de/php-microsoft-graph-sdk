@@ -117,7 +117,7 @@ class SecureScoreControlProfile
             $this->controlStateUpdates = $data['controlStateUpdates'];
         }
         if (isset($data['deprecated'])) {
-            $this->deprecated = $data['deprecated'];
+            $this->deprecated = is_bool($data['deprecated']) ? $data['deprecated'] : (bool)$data['deprecated'];
         }
         if (isset($data['implementationCost'])) {
             $this->implementationCost = $data['implementationCost'];
@@ -126,10 +126,10 @@ class SecureScoreControlProfile
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['maxScore'])) {
-            $this->maxScore = $data['maxScore'];
+            $this->maxScore = is_numeric($data['maxScore']) ? (float)$data['maxScore'] : $data['maxScore'];
         }
         if (isset($data['rank'])) {
-            $this->rank = $data['rank'];
+            $this->rank = is_numeric($data['rank']) ? (float)$data['rank'] : $data['rank'];
         }
         if (isset($data['remediation'])) {
             $this->remediation = $data['remediation'];

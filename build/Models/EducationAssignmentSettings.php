@@ -36,7 +36,7 @@ class EducationAssignmentSettings
             $this->id = $data['id'];
         }
         if (isset($data['submissionAnimationDisabled'])) {
-            $this->submissionAnimationDisabled = $data['submissionAnimationDisabled'];
+            $this->submissionAnimationDisabled = is_bool($data['submissionAnimationDisabled']) ? $data['submissionAnimationDisabled'] : (bool)$data['submissionAnimationDisabled'];
         }
         if (isset($data['gradingCategories'])) {
             $this->gradingCategories = $data['gradingCategories'];

@@ -36,7 +36,7 @@ class MobileAppInstallTimeSettings
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['useLocalTime'])) {
-            $this->useLocalTime = $data['useLocalTime'];
+            $this->useLocalTime = is_bool($data['useLocalTime']) ? $data['useLocalTime'] : (bool)$data['useLocalTime'];
         }
     }
 

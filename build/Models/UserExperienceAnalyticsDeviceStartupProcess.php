@@ -54,7 +54,7 @@ class UserExperienceAnalyticsDeviceStartupProcess
             $this->publisher = $data['publisher'];
         }
         if (isset($data['startupImpactInMs'])) {
-            $this->startupImpactInMs = $data['startupImpactInMs'];
+            $this->startupImpactInMs = is_numeric($data['startupImpactInMs']) ? (float)$data['startupImpactInMs'] : $data['startupImpactInMs'];
         }
     }
 

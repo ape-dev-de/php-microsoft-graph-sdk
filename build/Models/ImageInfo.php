@@ -33,7 +33,7 @@ class ImageInfo
     {
         $this->rawData = $data;
         if (isset($data['addImageQuery'])) {
-            $this->addImageQuery = $data['addImageQuery'];
+            $this->addImageQuery = is_bool($data['addImageQuery']) ? $data['addImageQuery'] : (bool)$data['addImageQuery'];
         }
         if (isset($data['alternateText'])) {
             $this->alternateText = $data['alternateText'];

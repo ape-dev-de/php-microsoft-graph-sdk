@@ -39,7 +39,7 @@ class SearchAnswerKeyword
             $this->keywords = $data['keywords'];
         }
         if (isset($data['matchSimilarKeywords'])) {
-            $this->matchSimilarKeywords = $data['matchSimilarKeywords'];
+            $this->matchSimilarKeywords = is_bool($data['matchSimilarKeywords']) ? $data['matchSimilarKeywords'] : (bool)$data['matchSimilarKeywords'];
         }
         if (isset($data['reservedKeywords'])) {
             $this->reservedKeywords = $data['reservedKeywords'];

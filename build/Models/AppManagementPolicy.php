@@ -60,7 +60,7 @@ class AppManagementPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['restrictions'])) {
             $this->restrictions = is_array($data['restrictions']) ? new CustomAppManagementConfiguration($data['restrictions']) : $data['restrictions'];

@@ -42,16 +42,16 @@ class AttackSimulationSimulationUserCoverage
             $this->attackSimulationUser = is_array($data['attackSimulationUser']) ? new AttackSimulationUser($data['attackSimulationUser']) : $data['attackSimulationUser'];
         }
         if (isset($data['clickCount'])) {
-            $this->clickCount = $data['clickCount'];
+            $this->clickCount = is_numeric($data['clickCount']) ? (float)$data['clickCount'] : $data['clickCount'];
         }
         if (isset($data['compromisedCount'])) {
-            $this->compromisedCount = $data['compromisedCount'];
+            $this->compromisedCount = is_numeric($data['compromisedCount']) ? (float)$data['compromisedCount'] : $data['compromisedCount'];
         }
         if (isset($data['latestSimulationDateTime'])) {
             $this->latestSimulationDateTime = is_string($data['latestSimulationDateTime']) ? new \DateTimeImmutable($data['latestSimulationDateTime']) : $data['latestSimulationDateTime'];
         }
         if (isset($data['simulationCount'])) {
-            $this->simulationCount = $data['simulationCount'];
+            $this->simulationCount = is_numeric($data['simulationCount']) ? (float)$data['simulationCount'] : $data['simulationCount'];
         }
     }
 

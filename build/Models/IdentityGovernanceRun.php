@@ -78,10 +78,10 @@ class IdentityGovernanceRun
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['failedTasksCount'])) {
-            $this->failedTasksCount = $data['failedTasksCount'];
+            $this->failedTasksCount = is_numeric($data['failedTasksCount']) ? (float)$data['failedTasksCount'] : $data['failedTasksCount'];
         }
         if (isset($data['failedUsersCount'])) {
-            $this->failedUsersCount = $data['failedUsersCount'];
+            $this->failedUsersCount = is_numeric($data['failedUsersCount']) ? (float)$data['failedUsersCount'] : $data['failedUsersCount'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
@@ -96,16 +96,16 @@ class IdentityGovernanceRun
             $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['successfulUsersCount'])) {
-            $this->successfulUsersCount = $data['successfulUsersCount'];
+            $this->successfulUsersCount = is_numeric($data['successfulUsersCount']) ? (float)$data['successfulUsersCount'] : $data['successfulUsersCount'];
         }
         if (isset($data['totalTasksCount'])) {
-            $this->totalTasksCount = $data['totalTasksCount'];
+            $this->totalTasksCount = is_numeric($data['totalTasksCount']) ? (float)$data['totalTasksCount'] : $data['totalTasksCount'];
         }
         if (isset($data['totalUnprocessedTasksCount'])) {
-            $this->totalUnprocessedTasksCount = $data['totalUnprocessedTasksCount'];
+            $this->totalUnprocessedTasksCount = is_numeric($data['totalUnprocessedTasksCount']) ? (float)$data['totalUnprocessedTasksCount'] : $data['totalUnprocessedTasksCount'];
         }
         if (isset($data['totalUsersCount'])) {
-            $this->totalUsersCount = $data['totalUsersCount'];
+            $this->totalUsersCount = is_numeric($data['totalUsersCount']) ? (float)$data['totalUsersCount'] : $data['totalUsersCount'];
         }
         if (isset($data['workflowExecutionType'])) {
             $this->workflowExecutionType = is_array($data['workflowExecutionType']) ? new IdentityGovernanceWorkflowExecutionType($data['workflowExecutionType']) : $data['workflowExecutionType'];

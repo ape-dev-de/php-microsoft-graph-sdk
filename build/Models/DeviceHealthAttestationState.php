@@ -186,10 +186,10 @@ class DeviceHealthAttestationState
             $this->pcrHashAlgorithm = $data['pcrHashAlgorithm'];
         }
         if (isset($data['resetCount'])) {
-            $this->resetCount = $data['resetCount'];
+            $this->resetCount = is_numeric($data['resetCount']) ? (float)$data['resetCount'] : $data['resetCount'];
         }
         if (isset($data['restartCount'])) {
-            $this->restartCount = $data['restartCount'];
+            $this->restartCount = is_numeric($data['restartCount']) ? (float)$data['restartCount'] : $data['restartCount'];
         }
         if (isset($data['safeMode'])) {
             $this->safeMode = $data['safeMode'];

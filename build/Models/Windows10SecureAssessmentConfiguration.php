@@ -105,7 +105,7 @@ class Windows10SecureAssessmentConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -126,13 +126,13 @@ class Windows10SecureAssessmentConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['allowPrinting'])) {
-            $this->allowPrinting = $data['allowPrinting'];
+            $this->allowPrinting = is_bool($data['allowPrinting']) ? $data['allowPrinting'] : (bool)$data['allowPrinting'];
         }
         if (isset($data['allowScreenCapture'])) {
-            $this->allowScreenCapture = $data['allowScreenCapture'];
+            $this->allowScreenCapture = is_bool($data['allowScreenCapture']) ? $data['allowScreenCapture'] : (bool)$data['allowScreenCapture'];
         }
         if (isset($data['allowTextSuggestion'])) {
-            $this->allowTextSuggestion = $data['allowTextSuggestion'];
+            $this->allowTextSuggestion = is_bool($data['allowTextSuggestion']) ? $data['allowTextSuggestion'] : (bool)$data['allowTextSuggestion'];
         }
         if (isset($data['configurationAccount'])) {
             $this->configurationAccount = $data['configurationAccount'];

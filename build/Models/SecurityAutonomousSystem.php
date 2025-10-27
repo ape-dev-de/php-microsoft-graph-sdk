@@ -36,7 +36,7 @@ class SecurityAutonomousSystem
             $this->name = $data['name'];
         }
         if (isset($data['number'])) {
-            $this->number = $data['number'];
+            $this->number = is_numeric($data['number']) ? (float)$data['number'] : $data['number'];
         }
         if (isset($data['organization'])) {
             $this->organization = $data['organization'];

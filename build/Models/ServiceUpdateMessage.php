@@ -117,10 +117,10 @@ class ServiceUpdateMessage
             $this->category = is_array($data['category']) ? new ServiceUpdateCategory($data['category']) : $data['category'];
         }
         if (isset($data['hasAttachments'])) {
-            $this->hasAttachments = $data['hasAttachments'];
+            $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['isMajorChange'])) {
-            $this->isMajorChange = $data['isMajorChange'];
+            $this->isMajorChange = is_bool($data['isMajorChange']) ? $data['isMajorChange'] : (bool)$data['isMajorChange'];
         }
         if (isset($data['services'])) {
             $this->services = $data['services'];

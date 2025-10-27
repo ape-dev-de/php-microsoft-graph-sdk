@@ -30,13 +30,13 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary
     {
         $this->rawData = $data;
         if (isset($data['coManagedDeviceCount'])) {
-            $this->coManagedDeviceCount = $data['coManagedDeviceCount'];
+            $this->coManagedDeviceCount = is_numeric($data['coManagedDeviceCount']) ? (float)$data['coManagedDeviceCount'] : $data['coManagedDeviceCount'];
         }
         if (isset($data['intuneDeviceCount'])) {
-            $this->intuneDeviceCount = $data['intuneDeviceCount'];
+            $this->intuneDeviceCount = is_numeric($data['intuneDeviceCount']) ? (float)$data['intuneDeviceCount'] : $data['intuneDeviceCount'];
         }
         if (isset($data['tenantAttachDeviceCount'])) {
-            $this->tenantAttachDeviceCount = $data['tenantAttachDeviceCount'];
+            $this->tenantAttachDeviceCount = is_numeric($data['tenantAttachDeviceCount']) ? (float)$data['tenantAttachDeviceCount'] : $data['tenantAttachDeviceCount'];
         }
     }
 

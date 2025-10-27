@@ -45,7 +45,7 @@ class UnifiedRoleManagementPolicyAuthenticationContextRule
             $this->claimValue = $data['claimValue'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
     }
 

@@ -33,10 +33,10 @@ class LoginPageLayoutConfiguration
     {
         $this->rawData = $data;
         if (isset($data['isFooterShown'])) {
-            $this->isFooterShown = $data['isFooterShown'];
+            $this->isFooterShown = is_bool($data['isFooterShown']) ? $data['isFooterShown'] : (bool)$data['isFooterShown'];
         }
         if (isset($data['isHeaderShown'])) {
-            $this->isHeaderShown = $data['isHeaderShown'];
+            $this->isHeaderShown = is_bool($data['isHeaderShown']) ? $data['isHeaderShown'] : (bool)$data['isHeaderShown'];
         }
         if (isset($data['layoutTemplateType'])) {
             $this->layoutTemplateType = is_array($data['layoutTemplateType']) ? new LayoutTemplateType($data['layoutTemplateType']) : $data['layoutTemplateType'];

@@ -156,7 +156,7 @@ class RemoteItem
             $this->sharepointIds = is_array($data['sharepointIds']) ? new SharepointIds($data['sharepointIds']) : $data['sharepointIds'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['specialFolder'])) {
             $this->specialFolder = is_array($data['specialFolder']) ? new SpecialFolder($data['specialFolder']) : $data['specialFolder'];

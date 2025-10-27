@@ -54,13 +54,13 @@ class ManagedDeviceOverview
             $this->deviceOperatingSystemSummary = is_array($data['deviceOperatingSystemSummary']) ? new DeviceOperatingSystemSummary($data['deviceOperatingSystemSummary']) : $data['deviceOperatingSystemSummary'];
         }
         if (isset($data['dualEnrolledDeviceCount'])) {
-            $this->dualEnrolledDeviceCount = $data['dualEnrolledDeviceCount'];
+            $this->dualEnrolledDeviceCount = is_numeric($data['dualEnrolledDeviceCount']) ? (float)$data['dualEnrolledDeviceCount'] : $data['dualEnrolledDeviceCount'];
         }
         if (isset($data['enrolledDeviceCount'])) {
-            $this->enrolledDeviceCount = $data['enrolledDeviceCount'];
+            $this->enrolledDeviceCount = is_numeric($data['enrolledDeviceCount']) ? (float)$data['enrolledDeviceCount'] : $data['enrolledDeviceCount'];
         }
         if (isset($data['mdmEnrolledCount'])) {
-            $this->mdmEnrolledCount = $data['mdmEnrolledCount'];
+            $this->mdmEnrolledCount = is_numeric($data['mdmEnrolledCount']) ? (float)$data['mdmEnrolledCount'] : $data['mdmEnrolledCount'];
         }
     }
 

@@ -42,10 +42,10 @@ class Certification
             $this->certificationExpirationDateTime = is_string($data['certificationExpirationDateTime']) ? new \DateTimeImmutable($data['certificationExpirationDateTime']) : $data['certificationExpirationDateTime'];
         }
         if (isset($data['isCertifiedByMicrosoft'])) {
-            $this->isCertifiedByMicrosoft = $data['isCertifiedByMicrosoft'];
+            $this->isCertifiedByMicrosoft = is_bool($data['isCertifiedByMicrosoft']) ? $data['isCertifiedByMicrosoft'] : (bool)$data['isCertifiedByMicrosoft'];
         }
         if (isset($data['isPublisherAttested'])) {
-            $this->isPublisherAttested = $data['isPublisherAttested'];
+            $this->isPublisherAttested = is_bool($data['isPublisherAttested']) ? $data['isPublisherAttested'] : (bool)$data['isPublisherAttested'];
         }
         if (isset($data['lastCertificationDateTime'])) {
             $this->lastCertificationDateTime = is_string($data['lastCertificationDateTime']) ? new \DateTimeImmutable($data['lastCertificationDateTime']) : $data['lastCertificationDateTime'];

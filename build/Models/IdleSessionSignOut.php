@@ -30,13 +30,13 @@ class IdleSessionSignOut
     {
         $this->rawData = $data;
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['signOutAfterInSeconds'])) {
-            $this->signOutAfterInSeconds = $data['signOutAfterInSeconds'];
+            $this->signOutAfterInSeconds = is_numeric($data['signOutAfterInSeconds']) ? (float)$data['signOutAfterInSeconds'] : $data['signOutAfterInSeconds'];
         }
         if (isset($data['warnAfterInSeconds'])) {
-            $this->warnAfterInSeconds = $data['warnAfterInSeconds'];
+            $this->warnAfterInSeconds = is_numeric($data['warnAfterInSeconds']) ? (float)$data['warnAfterInSeconds'] : $data['warnAfterInSeconds'];
         }
     }
 

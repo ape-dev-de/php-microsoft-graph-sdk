@@ -42,7 +42,7 @@ class VirtualEventRegistrationPredefinedQuestion
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isRequired'])) {
-            $this->isRequired = $data['isRequired'];
+            $this->isRequired = is_bool($data['isRequired']) ? $data['isRequired'] : (bool)$data['isRequired'];
         }
         if (isset($data['label'])) {
             $this->label = is_array($data['label']) ? new VirtualEventRegistrationPredefinedQuestionLabel($data['label']) : $data['label'];

@@ -78,10 +78,10 @@ class SynchronizationStatus
             $this->code = is_array($data['code']) ? new SynchronizationStatusCode($data['code']) : $data['code'];
         }
         if (isset($data['countSuccessiveCompleteFailures'])) {
-            $this->countSuccessiveCompleteFailures = $data['countSuccessiveCompleteFailures'];
+            $this->countSuccessiveCompleteFailures = is_numeric($data['countSuccessiveCompleteFailures']) ? (float)$data['countSuccessiveCompleteFailures'] : $data['countSuccessiveCompleteFailures'];
         }
         if (isset($data['escrowsPruned'])) {
-            $this->escrowsPruned = $data['escrowsPruned'];
+            $this->escrowsPruned = is_bool($data['escrowsPruned']) ? $data['escrowsPruned'] : (bool)$data['escrowsPruned'];
         }
         if (isset($data['lastExecution'])) {
             $this->lastExecution = is_array($data['lastExecution']) ? new SynchronizationTaskExecution($data['lastExecution']) : $data['lastExecution'];

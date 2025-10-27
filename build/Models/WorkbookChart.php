@@ -96,19 +96,19 @@ class WorkbookChart
             $this->id = $data['id'];
         }
         if (isset($data['height'])) {
-            $this->height = $data['height'];
+            $this->height = is_numeric($data['height']) ? (float)$data['height'] : $data['height'];
         }
         if (isset($data['left'])) {
-            $this->left = $data['left'];
+            $this->left = is_numeric($data['left']) ? (float)$data['left'] : $data['left'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['top'])) {
-            $this->top = $data['top'];
+            $this->top = is_numeric($data['top']) ? (float)$data['top'] : $data['top'];
         }
         if (isset($data['width'])) {
-            $this->width = $data['width'];
+            $this->width = is_numeric($data['width']) ? (float)$data['width'] : $data['width'];
         }
         if (isset($data['axes'])) {
             $this->axes = is_array($data['axes']) ? new WorkbookChartAxes($data['axes']) : $data['axes'];

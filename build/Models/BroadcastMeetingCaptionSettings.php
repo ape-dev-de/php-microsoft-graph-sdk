@@ -33,7 +33,7 @@ class BroadcastMeetingCaptionSettings
     {
         $this->rawData = $data;
         if (isset($data['isCaptionEnabled'])) {
-            $this->isCaptionEnabled = $data['isCaptionEnabled'];
+            $this->isCaptionEnabled = is_bool($data['isCaptionEnabled']) ? $data['isCaptionEnabled'] : (bool)$data['isCaptionEnabled'];
         }
         if (isset($data['spokenLanguage'])) {
             $this->spokenLanguage = $data['spokenLanguage'];

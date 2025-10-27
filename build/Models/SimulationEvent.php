@@ -27,7 +27,7 @@ class SimulationEvent
     {
         $this->rawData = $data;
         if (isset($data['count'])) {
-            $this->count = $data['count'];
+            $this->count = is_numeric($data['count']) ? (float)$data['count'] : $data['count'];
         }
         if (isset($data['eventName'])) {
             $this->eventName = $data['eventName'];

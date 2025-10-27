@@ -60,7 +60,7 @@ class ConditionalAccessSessionControls
             $this->cloudAppSecurity = is_array($data['cloudAppSecurity']) ? new CloudAppSecuritySessionControl($data['cloudAppSecurity']) : $data['cloudAppSecurity'];
         }
         if (isset($data['disableResilienceDefaults'])) {
-            $this->disableResilienceDefaults = $data['disableResilienceDefaults'];
+            $this->disableResilienceDefaults = is_bool($data['disableResilienceDefaults']) ? $data['disableResilienceDefaults'] : (bool)$data['disableResilienceDefaults'];
         }
         if (isset($data['persistentBrowser'])) {
             $this->persistentBrowser = is_array($data['persistentBrowser']) ? new PersistentBrowserSessionControl($data['persistentBrowser']) : $data['persistentBrowser'];

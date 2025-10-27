@@ -42,7 +42,7 @@ class RecurrenceRange
             $this->endDate = is_string($data['endDate']) ? new \DateTimeImmutable($data['endDate']) : $data['endDate'];
         }
         if (isset($data['numberOfOccurrences'])) {
-            $this->numberOfOccurrences = $data['numberOfOccurrences'];
+            $this->numberOfOccurrences = is_numeric($data['numberOfOccurrences']) ? (float)$data['numberOfOccurrences'] : $data['numberOfOccurrences'];
         }
         if (isset($data['recurrenceTimeZone'])) {
             $this->recurrenceTimeZone = $data['recurrenceTimeZone'];

@@ -33,13 +33,13 @@ class SynchronizationProgress
     {
         $this->rawData = $data;
         if (isset($data['completedUnits'])) {
-            $this->completedUnits = $data['completedUnits'];
+            $this->completedUnits = is_numeric($data['completedUnits']) ? (float)$data['completedUnits'] : $data['completedUnits'];
         }
         if (isset($data['progressObservationDateTime'])) {
             $this->progressObservationDateTime = is_string($data['progressObservationDateTime']) ? new \DateTimeImmutable($data['progressObservationDateTime']) : $data['progressObservationDateTime'];
         }
         if (isset($data['totalUnits'])) {
-            $this->totalUnits = $data['totalUnits'];
+            $this->totalUnits = is_numeric($data['totalUnits']) ? (float)$data['totalUnits'] : $data['totalUnits'];
         }
         if (isset($data['units'])) {
             $this->units = $data['units'];

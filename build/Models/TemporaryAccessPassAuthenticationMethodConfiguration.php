@@ -66,19 +66,19 @@ class TemporaryAccessPassAuthenticationMethodConfiguration
             $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
         }
         if (isset($data['defaultLength'])) {
-            $this->defaultLength = $data['defaultLength'];
+            $this->defaultLength = is_numeric($data['defaultLength']) ? (float)$data['defaultLength'] : $data['defaultLength'];
         }
         if (isset($data['defaultLifetimeInMinutes'])) {
-            $this->defaultLifetimeInMinutes = $data['defaultLifetimeInMinutes'];
+            $this->defaultLifetimeInMinutes = is_numeric($data['defaultLifetimeInMinutes']) ? (float)$data['defaultLifetimeInMinutes'] : $data['defaultLifetimeInMinutes'];
         }
         if (isset($data['isUsableOnce'])) {
-            $this->isUsableOnce = $data['isUsableOnce'];
+            $this->isUsableOnce = is_bool($data['isUsableOnce']) ? $data['isUsableOnce'] : (bool)$data['isUsableOnce'];
         }
         if (isset($data['maximumLifetimeInMinutes'])) {
-            $this->maximumLifetimeInMinutes = $data['maximumLifetimeInMinutes'];
+            $this->maximumLifetimeInMinutes = is_numeric($data['maximumLifetimeInMinutes']) ? (float)$data['maximumLifetimeInMinutes'] : $data['maximumLifetimeInMinutes'];
         }
         if (isset($data['minimumLifetimeInMinutes'])) {
-            $this->minimumLifetimeInMinutes = $data['minimumLifetimeInMinutes'];
+            $this->minimumLifetimeInMinutes = is_numeric($data['minimumLifetimeInMinutes']) ? (float)$data['minimumLifetimeInMinutes'] : $data['minimumLifetimeInMinutes'];
         }
         if (isset($data['includeTargets'])) {
             $this->includeTargets = $data['includeTargets'];

@@ -57,7 +57,7 @@ class SharedWithChannelTeamInfo
             $this->team = is_array($data['team']) ? new Team($data['team']) : $data['team'];
         }
         if (isset($data['isHostTeam'])) {
-            $this->isHostTeam = $data['isHostTeam'];
+            $this->isHostTeam = is_bool($data['isHostTeam']) ? $data['isHostTeam'] : (bool)$data['isHostTeam'];
         }
         if (isset($data['allowedMembers'])) {
             $this->allowedMembers = $data['allowedMembers'];

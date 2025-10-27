@@ -45,7 +45,7 @@ class SecurityHostReputation
             $this->rules = $data['rules'];
         }
         if (isset($data['score'])) {
-            $this->score = $data['score'];
+            $this->score = is_numeric($data['score']) ? (float)$data['score'] : $data['score'];
         }
     }
 

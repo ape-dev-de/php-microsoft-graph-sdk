@@ -75,7 +75,7 @@ class AttendanceRecord
             $this->role = $data['role'];
         }
         if (isset($data['totalAttendanceInSeconds'])) {
-            $this->totalAttendanceInSeconds = $data['totalAttendanceInSeconds'];
+            $this->totalAttendanceInSeconds = is_numeric($data['totalAttendanceInSeconds']) ? (float)$data['totalAttendanceInSeconds'] : $data['totalAttendanceInSeconds'];
         }
     }
 

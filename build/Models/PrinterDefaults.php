@@ -99,10 +99,10 @@ class PrinterDefaults
             $this->contentType = $data['contentType'];
         }
         if (isset($data['copiesPerJob'])) {
-            $this->copiesPerJob = $data['copiesPerJob'];
+            $this->copiesPerJob = is_numeric($data['copiesPerJob']) ? (float)$data['copiesPerJob'] : $data['copiesPerJob'];
         }
         if (isset($data['dpi'])) {
-            $this->dpi = $data['dpi'];
+            $this->dpi = is_numeric($data['dpi']) ? (float)$data['dpi'] : $data['dpi'];
         }
         if (isset($data['duplexMode'])) {
             $this->duplexMode = is_array($data['duplexMode']) ? new PrintDuplexMode($data['duplexMode']) : $data['duplexMode'];
@@ -111,7 +111,7 @@ class PrinterDefaults
             $this->finishings = $data['finishings'];
         }
         if (isset($data['fitPdfToPage'])) {
-            $this->fitPdfToPage = $data['fitPdfToPage'];
+            $this->fitPdfToPage = is_bool($data['fitPdfToPage']) ? $data['fitPdfToPage'] : (bool)$data['fitPdfToPage'];
         }
         if (isset($data['inputBin'])) {
             $this->inputBin = $data['inputBin'];
@@ -135,7 +135,7 @@ class PrinterDefaults
             $this->outputBin = $data['outputBin'];
         }
         if (isset($data['pagesPerSheet'])) {
-            $this->pagesPerSheet = $data['pagesPerSheet'];
+            $this->pagesPerSheet = is_numeric($data['pagesPerSheet']) ? (float)$data['pagesPerSheet'] : $data['pagesPerSheet'];
         }
         if (isset($data['quality'])) {
             $this->quality = is_array($data['quality']) ? new PrintQuality($data['quality']) : $data['quality'];

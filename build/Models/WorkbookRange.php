@@ -102,16 +102,16 @@ class WorkbookRange
             $this->addressLocal = $data['addressLocal'];
         }
         if (isset($data['cellCount'])) {
-            $this->cellCount = $data['cellCount'];
+            $this->cellCount = is_numeric($data['cellCount']) ? (float)$data['cellCount'] : $data['cellCount'];
         }
         if (isset($data['columnCount'])) {
-            $this->columnCount = $data['columnCount'];
+            $this->columnCount = is_numeric($data['columnCount']) ? (float)$data['columnCount'] : $data['columnCount'];
         }
         if (isset($data['columnHidden'])) {
-            $this->columnHidden = $data['columnHidden'];
+            $this->columnHidden = is_bool($data['columnHidden']) ? $data['columnHidden'] : (bool)$data['columnHidden'];
         }
         if (isset($data['columnIndex'])) {
-            $this->columnIndex = $data['columnIndex'];
+            $this->columnIndex = is_numeric($data['columnIndex']) ? (float)$data['columnIndex'] : $data['columnIndex'];
         }
         if (isset($data['formulas'])) {
             $this->formulas = $data['formulas'];
@@ -123,19 +123,19 @@ class WorkbookRange
             $this->formulasR1C1 = $data['formulasR1C1'];
         }
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['numberFormat'])) {
             $this->numberFormat = $data['numberFormat'];
         }
         if (isset($data['rowCount'])) {
-            $this->rowCount = $data['rowCount'];
+            $this->rowCount = is_numeric($data['rowCount']) ? (float)$data['rowCount'] : $data['rowCount'];
         }
         if (isset($data['rowHidden'])) {
-            $this->rowHidden = $data['rowHidden'];
+            $this->rowHidden = is_bool($data['rowHidden']) ? $data['rowHidden'] : (bool)$data['rowHidden'];
         }
         if (isset($data['rowIndex'])) {
-            $this->rowIndex = $data['rowIndex'];
+            $this->rowIndex = is_numeric($data['rowIndex']) ? (float)$data['rowIndex'] : $data['rowIndex'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];

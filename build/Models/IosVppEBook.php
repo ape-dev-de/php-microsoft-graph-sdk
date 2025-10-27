@@ -159,10 +159,10 @@ class IosVppEBook
             $this->seller = $data['seller'];
         }
         if (isset($data['totalLicenseCount'])) {
-            $this->totalLicenseCount = $data['totalLicenseCount'];
+            $this->totalLicenseCount = is_numeric($data['totalLicenseCount']) ? (float)$data['totalLicenseCount'] : $data['totalLicenseCount'];
         }
         if (isset($data['usedLicenseCount'])) {
-            $this->usedLicenseCount = $data['usedLicenseCount'];
+            $this->usedLicenseCount = is_numeric($data['usedLicenseCount']) ? (float)$data['usedLicenseCount'] : $data['usedLicenseCount'];
         }
         if (isset($data['vppOrganizationName'])) {
             $this->vppOrganizationName = $data['vppOrganizationName'];

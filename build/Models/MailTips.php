@@ -78,7 +78,7 @@ class MailTips
             $this->customMailTip = $data['customMailTip'];
         }
         if (isset($data['deliveryRestricted'])) {
-            $this->deliveryRestricted = $data['deliveryRestricted'];
+            $this->deliveryRestricted = is_bool($data['deliveryRestricted']) ? $data['deliveryRestricted'] : (bool)$data['deliveryRestricted'];
         }
         if (isset($data['emailAddress'])) {
             $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
@@ -87,16 +87,16 @@ class MailTips
             $this->error = is_array($data['error']) ? new MailTipsError($data['error']) : $data['error'];
         }
         if (isset($data['externalMemberCount'])) {
-            $this->externalMemberCount = $data['externalMemberCount'];
+            $this->externalMemberCount = is_numeric($data['externalMemberCount']) ? (float)$data['externalMemberCount'] : $data['externalMemberCount'];
         }
         if (isset($data['isModerated'])) {
-            $this->isModerated = $data['isModerated'];
+            $this->isModerated = is_bool($data['isModerated']) ? $data['isModerated'] : (bool)$data['isModerated'];
         }
         if (isset($data['mailboxFull'])) {
-            $this->mailboxFull = $data['mailboxFull'];
+            $this->mailboxFull = is_bool($data['mailboxFull']) ? $data['mailboxFull'] : (bool)$data['mailboxFull'];
         }
         if (isset($data['maxMessageSize'])) {
-            $this->maxMessageSize = $data['maxMessageSize'];
+            $this->maxMessageSize = is_numeric($data['maxMessageSize']) ? (float)$data['maxMessageSize'] : $data['maxMessageSize'];
         }
         if (isset($data['recipientScope'])) {
             $this->recipientScope = is_array($data['recipientScope']) ? new RecipientScopeType($data['recipientScope']) : $data['recipientScope'];
@@ -105,7 +105,7 @@ class MailTips
             $this->recipientSuggestions = $data['recipientSuggestions'];
         }
         if (isset($data['totalMemberCount'])) {
-            $this->totalMemberCount = $data['totalMemberCount'];
+            $this->totalMemberCount = is_numeric($data['totalMemberCount']) ? (float)$data['totalMemberCount'] : $data['totalMemberCount'];
         }
     }
 

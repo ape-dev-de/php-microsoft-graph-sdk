@@ -78,7 +78,7 @@ class AdministrativeUnit
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isMemberManagementRestricted'])) {
-            $this->isMemberManagementRestricted = $data['isMemberManagementRestricted'];
+            $this->isMemberManagementRestricted = is_bool($data['isMemberManagementRestricted']) ? $data['isMemberManagementRestricted'] : (bool)$data['isMemberManagementRestricted'];
         }
         if (isset($data['membershipRule'])) {
             $this->membershipRule = $data['membershipRule'];

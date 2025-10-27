@@ -33,13 +33,13 @@ class AttributeMappingParameterSchema
     {
         $this->rawData = $data;
         if (isset($data['allowMultipleOccurrences'])) {
-            $this->allowMultipleOccurrences = $data['allowMultipleOccurrences'];
+            $this->allowMultipleOccurrences = is_bool($data['allowMultipleOccurrences']) ? $data['allowMultipleOccurrences'] : (bool)$data['allowMultipleOccurrences'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['required'])) {
-            $this->required = $data['required'];
+            $this->required = is_bool($data['required']) ? $data['required'] : (bool)$data['required'];
         }
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new AttributeType($data['type']) : $data['type'];

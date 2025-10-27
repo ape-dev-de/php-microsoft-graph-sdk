@@ -69,13 +69,13 @@ class UserExperienceAnalyticsModelScores
             $this->id = $data['id'];
         }
         if (isset($data['appReliabilityScore'])) {
-            $this->appReliabilityScore = $data['appReliabilityScore'];
+            $this->appReliabilityScore = is_numeric($data['appReliabilityScore']) ? (float)$data['appReliabilityScore'] : $data['appReliabilityScore'];
         }
         if (isset($data['batteryHealthScore'])) {
-            $this->batteryHealthScore = $data['batteryHealthScore'];
+            $this->batteryHealthScore = is_numeric($data['batteryHealthScore']) ? (float)$data['batteryHealthScore'] : $data['batteryHealthScore'];
         }
         if (isset($data['endpointAnalyticsScore'])) {
-            $this->endpointAnalyticsScore = $data['endpointAnalyticsScore'];
+            $this->endpointAnalyticsScore = is_numeric($data['endpointAnalyticsScore']) ? (float)$data['endpointAnalyticsScore'] : $data['endpointAnalyticsScore'];
         }
         if (isset($data['healthStatus'])) {
             $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
@@ -87,13 +87,13 @@ class UserExperienceAnalyticsModelScores
             $this->model = $data['model'];
         }
         if (isset($data['modelDeviceCount'])) {
-            $this->modelDeviceCount = $data['modelDeviceCount'];
+            $this->modelDeviceCount = is_numeric($data['modelDeviceCount']) ? (float)$data['modelDeviceCount'] : $data['modelDeviceCount'];
         }
         if (isset($data['startupPerformanceScore'])) {
-            $this->startupPerformanceScore = $data['startupPerformanceScore'];
+            $this->startupPerformanceScore = is_numeric($data['startupPerformanceScore']) ? (float)$data['startupPerformanceScore'] : $data['startupPerformanceScore'];
         }
         if (isset($data['workFromAnywhereScore'])) {
-            $this->workFromAnywhereScore = $data['workFromAnywhereScore'];
+            $this->workFromAnywhereScore = is_numeric($data['workFromAnywhereScore']) ? (float)$data['workFromAnywhereScore'] : $data['workFromAnywhereScore'];
         }
     }
 

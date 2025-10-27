@@ -90,7 +90,7 @@ class CertificateAuthorityDetail
             $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['isIssuerHintEnabled'])) {
-            $this->isIssuerHintEnabled = $data['isIssuerHintEnabled'];
+            $this->isIssuerHintEnabled = is_bool($data['isIssuerHintEnabled']) ? $data['isIssuerHintEnabled'] : (bool)$data['isIssuerHintEnabled'];
         }
         if (isset($data['issuer'])) {
             $this->issuer = $data['issuer'];

@@ -42,19 +42,19 @@ class DefaultUserRolePermissions
     {
         $this->rawData = $data;
         if (isset($data['allowedToCreateApps'])) {
-            $this->allowedToCreateApps = $data['allowedToCreateApps'];
+            $this->allowedToCreateApps = is_bool($data['allowedToCreateApps']) ? $data['allowedToCreateApps'] : (bool)$data['allowedToCreateApps'];
         }
         if (isset($data['allowedToCreateSecurityGroups'])) {
-            $this->allowedToCreateSecurityGroups = $data['allowedToCreateSecurityGroups'];
+            $this->allowedToCreateSecurityGroups = is_bool($data['allowedToCreateSecurityGroups']) ? $data['allowedToCreateSecurityGroups'] : (bool)$data['allowedToCreateSecurityGroups'];
         }
         if (isset($data['allowedToCreateTenants'])) {
-            $this->allowedToCreateTenants = $data['allowedToCreateTenants'];
+            $this->allowedToCreateTenants = is_bool($data['allowedToCreateTenants']) ? $data['allowedToCreateTenants'] : (bool)$data['allowedToCreateTenants'];
         }
         if (isset($data['allowedToReadBitlockerKeysForOwnedDevice'])) {
-            $this->allowedToReadBitlockerKeysForOwnedDevice = $data['allowedToReadBitlockerKeysForOwnedDevice'];
+            $this->allowedToReadBitlockerKeysForOwnedDevice = is_bool($data['allowedToReadBitlockerKeysForOwnedDevice']) ? $data['allowedToReadBitlockerKeysForOwnedDevice'] : (bool)$data['allowedToReadBitlockerKeysForOwnedDevice'];
         }
         if (isset($data['allowedToReadOtherUsers'])) {
-            $this->allowedToReadOtherUsers = $data['allowedToReadOtherUsers'];
+            $this->allowedToReadOtherUsers = is_bool($data['allowedToReadOtherUsers']) ? $data['allowedToReadOtherUsers'] : (bool)$data['allowedToReadOtherUsers'];
         }
         if (isset($data['permissionGrantPoliciesAssigned'])) {
             $this->permissionGrantPoliciesAssigned = $data['permissionGrantPoliciesAssigned'];

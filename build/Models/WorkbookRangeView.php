@@ -69,7 +69,7 @@ class WorkbookRangeView
             $this->cellAddresses = $data['cellAddresses'];
         }
         if (isset($data['columnCount'])) {
-            $this->columnCount = $data['columnCount'];
+            $this->columnCount = is_numeric($data['columnCount']) ? (float)$data['columnCount'] : $data['columnCount'];
         }
         if (isset($data['formulas'])) {
             $this->formulas = $data['formulas'];
@@ -81,13 +81,13 @@ class WorkbookRangeView
             $this->formulasR1C1 = $data['formulasR1C1'];
         }
         if (isset($data['index'])) {
-            $this->index = $data['index'];
+            $this->index = is_numeric($data['index']) ? (float)$data['index'] : $data['index'];
         }
         if (isset($data['numberFormat'])) {
             $this->numberFormat = $data['numberFormat'];
         }
         if (isset($data['rowCount'])) {
-            $this->rowCount = $data['rowCount'];
+            $this->rowCount = is_numeric($data['rowCount']) ? (float)$data['rowCount'] : $data['rowCount'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];

@@ -33,16 +33,16 @@ class PrintMargin
     {
         $this->rawData = $data;
         if (isset($data['bottom'])) {
-            $this->bottom = $data['bottom'];
+            $this->bottom = is_numeric($data['bottom']) ? (float)$data['bottom'] : $data['bottom'];
         }
         if (isset($data['left'])) {
-            $this->left = $data['left'];
+            $this->left = is_numeric($data['left']) ? (float)$data['left'] : $data['left'];
         }
         if (isset($data['right'])) {
-            $this->right = $data['right'];
+            $this->right = is_numeric($data['right']) ? (float)$data['right'] : $data['right'];
         }
         if (isset($data['top'])) {
-            $this->top = $data['top'];
+            $this->top = is_numeric($data['top']) ? (float)$data['top'] : $data['top'];
         }
     }
 

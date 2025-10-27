@@ -42,13 +42,13 @@ class IosDdmLobAppAssignmentSettings
             $this->associatedDomains = $data['associatedDomains'];
         }
         if (isset($data['associatedDomainsDirectDownloadAllowed'])) {
-            $this->associatedDomainsDirectDownloadAllowed = $data['associatedDomainsDirectDownloadAllowed'];
+            $this->associatedDomainsDirectDownloadAllowed = is_bool($data['associatedDomainsDirectDownloadAllowed']) ? $data['associatedDomainsDirectDownloadAllowed'] : (bool)$data['associatedDomainsDirectDownloadAllowed'];
         }
         if (isset($data['preventManagedAppBackup'])) {
-            $this->preventManagedAppBackup = $data['preventManagedAppBackup'];
+            $this->preventManagedAppBackup = is_bool($data['preventManagedAppBackup']) ? $data['preventManagedAppBackup'] : (bool)$data['preventManagedAppBackup'];
         }
         if (isset($data['tapToPayScreenLockEnabled'])) {
-            $this->tapToPayScreenLockEnabled = $data['tapToPayScreenLockEnabled'];
+            $this->tapToPayScreenLockEnabled = is_bool($data['tapToPayScreenLockEnabled']) ? $data['tapToPayScreenLockEnabled'] : (bool)$data['tapToPayScreenLockEnabled'];
         }
         if (isset($data['vpnConfigurationId'])) {
             $this->vpnConfigurationId = $data['vpnConfigurationId'];

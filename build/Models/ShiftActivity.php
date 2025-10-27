@@ -48,7 +48,7 @@ class ShiftActivity
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['isPaid'])) {
-            $this->isPaid = $data['isPaid'];
+            $this->isPaid = is_bool($data['isPaid']) ? $data['isPaid'] : (bool)$data['isPaid'];
         }
         if (isset($data['startDateTime'])) {
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];

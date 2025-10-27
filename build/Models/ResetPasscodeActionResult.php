@@ -51,7 +51,7 @@ class ResetPasscodeActionResult
             $this->startDateTime = is_string($data['startDateTime']) ? new \DateTimeImmutable($data['startDateTime']) : $data['startDateTime'];
         }
         if (isset($data['errorCode'])) {
-            $this->errorCode = $data['errorCode'];
+            $this->errorCode = is_numeric($data['errorCode']) ? (float)$data['errorCode'] : $data['errorCode'];
         }
         if (isset($data['passcode'])) {
             $this->passcode = $data['passcode'];

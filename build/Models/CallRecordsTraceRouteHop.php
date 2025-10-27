@@ -30,7 +30,7 @@ class CallRecordsTraceRouteHop
     {
         $this->rawData = $data;
         if (isset($data['hopCount'])) {
-            $this->hopCount = $data['hopCount'];
+            $this->hopCount = is_numeric($data['hopCount']) ? (float)$data['hopCount'] : $data['hopCount'];
         }
         if (isset($data['ipAddress'])) {
             $this->ipAddress = $data['ipAddress'];

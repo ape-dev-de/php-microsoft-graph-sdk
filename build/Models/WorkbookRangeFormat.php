@@ -72,19 +72,19 @@ class WorkbookRangeFormat
             $this->id = $data['id'];
         }
         if (isset($data['columnWidth'])) {
-            $this->columnWidth = $data['columnWidth'];
+            $this->columnWidth = is_numeric($data['columnWidth']) ? (float)$data['columnWidth'] : $data['columnWidth'];
         }
         if (isset($data['horizontalAlignment'])) {
             $this->horizontalAlignment = $data['horizontalAlignment'];
         }
         if (isset($data['rowHeight'])) {
-            $this->rowHeight = $data['rowHeight'];
+            $this->rowHeight = is_numeric($data['rowHeight']) ? (float)$data['rowHeight'] : $data['rowHeight'];
         }
         if (isset($data['verticalAlignment'])) {
             $this->verticalAlignment = $data['verticalAlignment'];
         }
         if (isset($data['wrapText'])) {
-            $this->wrapText = $data['wrapText'];
+            $this->wrapText = is_bool($data['wrapText']) ? $data['wrapText'] : (bool)$data['wrapText'];
         }
         if (isset($data['borders'])) {
             $this->borders = $data['borders'];

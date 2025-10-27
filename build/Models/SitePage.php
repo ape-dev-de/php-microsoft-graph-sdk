@@ -177,10 +177,10 @@ class SitePage
             $this->reactions = is_array($data['reactions']) ? new ReactionsFacet($data['reactions']) : $data['reactions'];
         }
         if (isset($data['showComments'])) {
-            $this->showComments = $data['showComments'];
+            $this->showComments = is_bool($data['showComments']) ? $data['showComments'] : (bool)$data['showComments'];
         }
         if (isset($data['showRecommendedPages'])) {
-            $this->showRecommendedPages = $data['showRecommendedPages'];
+            $this->showRecommendedPages = is_bool($data['showRecommendedPages']) ? $data['showRecommendedPages'] : (bool)$data['showRecommendedPages'];
         }
         if (isset($data['thumbnailWebUrl'])) {
             $this->thumbnailWebUrl = $data['thumbnailWebUrl'];

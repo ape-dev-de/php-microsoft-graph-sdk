@@ -81,7 +81,7 @@ class TimeOffReason
             $this->iconType = is_array($data['iconType']) ? new TimeOffReasonIconType($data['iconType']) : $data['iconType'];
         }
         if (isset($data['isActive'])) {
-            $this->isActive = $data['isActive'];
+            $this->isActive = is_bool($data['isActive']) ? $data['isActive'] : (bool)$data['isActive'];
         }
     }
 

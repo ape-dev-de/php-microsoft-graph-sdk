@@ -57,10 +57,10 @@ class UserSettings
             $this->id = $data['id'];
         }
         if (isset($data['contributionToContentDiscoveryAsOrganizationDisabled'])) {
-            $this->contributionToContentDiscoveryAsOrganizationDisabled = $data['contributionToContentDiscoveryAsOrganizationDisabled'];
+            $this->contributionToContentDiscoveryAsOrganizationDisabled = is_bool($data['contributionToContentDiscoveryAsOrganizationDisabled']) ? $data['contributionToContentDiscoveryAsOrganizationDisabled'] : (bool)$data['contributionToContentDiscoveryAsOrganizationDisabled'];
         }
         if (isset($data['contributionToContentDiscoveryDisabled'])) {
-            $this->contributionToContentDiscoveryDisabled = $data['contributionToContentDiscoveryDisabled'];
+            $this->contributionToContentDiscoveryDisabled = is_bool($data['contributionToContentDiscoveryDisabled']) ? $data['contributionToContentDiscoveryDisabled'] : (bool)$data['contributionToContentDiscoveryDisabled'];
         }
         if (isset($data['itemInsights'])) {
             $this->itemInsights = is_array($data['itemInsights']) ? new UserInsightsSettings($data['itemInsights']) : $data['itemInsights'];

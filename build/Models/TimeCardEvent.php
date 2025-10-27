@@ -36,7 +36,7 @@ class TimeCardEvent
             $this->dateTime = is_string($data['dateTime']) ? new \DateTimeImmutable($data['dateTime']) : $data['dateTime'];
         }
         if (isset($data['isAtApprovedLocation'])) {
-            $this->isAtApprovedLocation = $data['isAtApprovedLocation'];
+            $this->isAtApprovedLocation = is_bool($data['isAtApprovedLocation']) ? $data['isAtApprovedLocation'] : (bool)$data['isAtApprovedLocation'];
         }
         if (isset($data['notes'])) {
             $this->notes = is_array($data['notes']) ? new ItemBody($data['notes']) : $data['notes'];

@@ -51,22 +51,22 @@ class IdentityGovernanceTopWorkflowsInsightsSummary
     {
         $this->rawData = $data;
         if (isset($data['failedRuns'])) {
-            $this->failedRuns = $data['failedRuns'];
+            $this->failedRuns = is_numeric($data['failedRuns']) ? (float)$data['failedRuns'] : $data['failedRuns'];
         }
         if (isset($data['failedUsers'])) {
-            $this->failedUsers = $data['failedUsers'];
+            $this->failedUsers = is_numeric($data['failedUsers']) ? (float)$data['failedUsers'] : $data['failedUsers'];
         }
         if (isset($data['successfulRuns'])) {
-            $this->successfulRuns = $data['successfulRuns'];
+            $this->successfulRuns = is_numeric($data['successfulRuns']) ? (float)$data['successfulRuns'] : $data['successfulRuns'];
         }
         if (isset($data['successfulUsers'])) {
-            $this->successfulUsers = $data['successfulUsers'];
+            $this->successfulUsers = is_numeric($data['successfulUsers']) ? (float)$data['successfulUsers'] : $data['successfulUsers'];
         }
         if (isset($data['totalRuns'])) {
-            $this->totalRuns = $data['totalRuns'];
+            $this->totalRuns = is_numeric($data['totalRuns']) ? (float)$data['totalRuns'] : $data['totalRuns'];
         }
         if (isset($data['totalUsers'])) {
-            $this->totalUsers = $data['totalUsers'];
+            $this->totalUsers = is_numeric($data['totalUsers']) ? (float)$data['totalUsers'] : $data['totalUsers'];
         }
         if (isset($data['workflowCategory'])) {
             $this->workflowCategory = is_array($data['workflowCategory']) ? new IdentityGovernanceLifecycleWorkflowCategory($data['workflowCategory']) : $data['workflowCategory'];
@@ -78,7 +78,7 @@ class IdentityGovernanceTopWorkflowsInsightsSummary
             $this->workflowId = $data['workflowId'];
         }
         if (isset($data['workflowVersion'])) {
-            $this->workflowVersion = $data['workflowVersion'];
+            $this->workflowVersion = is_numeric($data['workflowVersion']) ? (float)$data['workflowVersion'] : $data['workflowVersion'];
         }
     }
 

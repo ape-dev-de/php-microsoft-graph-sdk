@@ -30,13 +30,13 @@ class FileStorageContainerSettings
     {
         $this->rawData = $data;
         if (isset($data['isItemVersioningEnabled'])) {
-            $this->isItemVersioningEnabled = $data['isItemVersioningEnabled'];
+            $this->isItemVersioningEnabled = is_bool($data['isItemVersioningEnabled']) ? $data['isItemVersioningEnabled'] : (bool)$data['isItemVersioningEnabled'];
         }
         if (isset($data['isOcrEnabled'])) {
-            $this->isOcrEnabled = $data['isOcrEnabled'];
+            $this->isOcrEnabled = is_bool($data['isOcrEnabled']) ? $data['isOcrEnabled'] : (bool)$data['isOcrEnabled'];
         }
         if (isset($data['itemMajorVersionLimit'])) {
-            $this->itemMajorVersionLimit = $data['itemMajorVersionLimit'];
+            $this->itemMajorVersionLimit = is_numeric($data['itemMajorVersionLimit']) ? (float)$data['itemMajorVersionLimit'] : $data['itemMajorVersionLimit'];
         }
     }
 

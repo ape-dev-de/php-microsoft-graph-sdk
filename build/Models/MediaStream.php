@@ -45,7 +45,7 @@ class MediaStream
             $this->mediaType = is_array($data['mediaType']) ? new Modality($data['mediaType']) : $data['mediaType'];
         }
         if (isset($data['serverMuted'])) {
-            $this->serverMuted = $data['serverMuted'];
+            $this->serverMuted = is_bool($data['serverMuted']) ? $data['serverMuted'] : (bool)$data['serverMuted'];
         }
         if (isset($data['sourceId'])) {
             $this->sourceId = $data['sourceId'];

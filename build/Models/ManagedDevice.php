@@ -243,7 +243,7 @@ class ManagedDevice
             $this->azureADDeviceId = $data['azureADDeviceId'];
         }
         if (isset($data['azureADRegistered'])) {
-            $this->azureADRegistered = $data['azureADRegistered'];
+            $this->azureADRegistered = is_bool($data['azureADRegistered']) ? $data['azureADRegistered'] : (bool)$data['azureADRegistered'];
         }
         if (isset($data['complianceGracePeriodExpirationDateTime'])) {
             $this->complianceGracePeriodExpirationDateTime = is_string($data['complianceGracePeriodExpirationDateTime']) ? new \DateTimeImmutable($data['complianceGracePeriodExpirationDateTime']) : $data['complianceGracePeriodExpirationDateTime'];
@@ -273,7 +273,7 @@ class ManagedDevice
             $this->deviceRegistrationState = is_array($data['deviceRegistrationState']) ? new DeviceRegistrationState($data['deviceRegistrationState']) : $data['deviceRegistrationState'];
         }
         if (isset($data['easActivated'])) {
-            $this->easActivated = $data['easActivated'];
+            $this->easActivated = is_bool($data['easActivated']) ? $data['easActivated'] : (bool)$data['easActivated'];
         }
         if (isset($data['easActivationDateTime'])) {
             $this->easActivationDateTime = is_string($data['easActivationDateTime']) ? new \DateTimeImmutable($data['easActivationDateTime']) : $data['easActivationDateTime'];
@@ -303,7 +303,7 @@ class ManagedDevice
             $this->exchangeLastSuccessfulSyncDateTime = is_string($data['exchangeLastSuccessfulSyncDateTime']) ? new \DateTimeImmutable($data['exchangeLastSuccessfulSyncDateTime']) : $data['exchangeLastSuccessfulSyncDateTime'];
         }
         if (isset($data['freeStorageSpaceInBytes'])) {
-            $this->freeStorageSpaceInBytes = $data['freeStorageSpaceInBytes'];
+            $this->freeStorageSpaceInBytes = is_numeric($data['freeStorageSpaceInBytes']) ? (float)$data['freeStorageSpaceInBytes'] : $data['freeStorageSpaceInBytes'];
         }
         if (isset($data['iccid'])) {
             $this->iccid = $data['iccid'];
@@ -312,10 +312,10 @@ class ManagedDevice
             $this->imei = $data['imei'];
         }
         if (isset($data['isEncrypted'])) {
-            $this->isEncrypted = $data['isEncrypted'];
+            $this->isEncrypted = is_bool($data['isEncrypted']) ? $data['isEncrypted'] : (bool)$data['isEncrypted'];
         }
         if (isset($data['isSupervised'])) {
-            $this->isSupervised = $data['isSupervised'];
+            $this->isSupervised = is_bool($data['isSupervised']) ? $data['isSupervised'] : (bool)$data['isSupervised'];
         }
         if (isset($data['jailBroken'])) {
             $this->jailBroken = $data['jailBroken'];
@@ -360,7 +360,7 @@ class ManagedDevice
             $this->phoneNumber = $data['phoneNumber'];
         }
         if (isset($data['physicalMemoryInBytes'])) {
-            $this->physicalMemoryInBytes = $data['physicalMemoryInBytes'];
+            $this->physicalMemoryInBytes = is_numeric($data['physicalMemoryInBytes']) ? (float)$data['physicalMemoryInBytes'] : $data['physicalMemoryInBytes'];
         }
         if (isset($data['remoteAssistanceSessionErrorDetails'])) {
             $this->remoteAssistanceSessionErrorDetails = $data['remoteAssistanceSessionErrorDetails'];
@@ -369,7 +369,7 @@ class ManagedDevice
             $this->remoteAssistanceSessionUrl = $data['remoteAssistanceSessionUrl'];
         }
         if (isset($data['requireUserEnrollmentApproval'])) {
-            $this->requireUserEnrollmentApproval = $data['requireUserEnrollmentApproval'];
+            $this->requireUserEnrollmentApproval = is_bool($data['requireUserEnrollmentApproval']) ? $data['requireUserEnrollmentApproval'] : (bool)$data['requireUserEnrollmentApproval'];
         }
         if (isset($data['serialNumber'])) {
             $this->serialNumber = $data['serialNumber'];
@@ -378,7 +378,7 @@ class ManagedDevice
             $this->subscriberCarrier = $data['subscriberCarrier'];
         }
         if (isset($data['totalStorageSpaceInBytes'])) {
-            $this->totalStorageSpaceInBytes = $data['totalStorageSpaceInBytes'];
+            $this->totalStorageSpaceInBytes = is_numeric($data['totalStorageSpaceInBytes']) ? (float)$data['totalStorageSpaceInBytes'] : $data['totalStorageSpaceInBytes'];
         }
         if (isset($data['udid'])) {
             $this->udid = $data['udid'];

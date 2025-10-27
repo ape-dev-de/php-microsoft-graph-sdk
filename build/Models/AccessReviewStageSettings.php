@@ -66,7 +66,7 @@ class AccessReviewStageSettings
             $this->dependsOn = $data['dependsOn'];
         }
         if (isset($data['durationInDays'])) {
-            $this->durationInDays = $data['durationInDays'];
+            $this->durationInDays = is_numeric($data['durationInDays']) ? (float)$data['durationInDays'] : $data['durationInDays'];
         }
         if (isset($data['fallbackReviewers'])) {
             $this->fallbackReviewers = $data['fallbackReviewers'];
@@ -75,7 +75,7 @@ class AccessReviewStageSettings
             $this->recommendationInsightSettings = $data['recommendationInsightSettings'];
         }
         if (isset($data['recommendationsEnabled'])) {
-            $this->recommendationsEnabled = $data['recommendationsEnabled'];
+            $this->recommendationsEnabled = is_bool($data['recommendationsEnabled']) ? $data['recommendationsEnabled'] : (bool)$data['recommendationsEnabled'];
         }
         if (isset($data['reviewers'])) {
             $this->reviewers = $data['reviewers'];

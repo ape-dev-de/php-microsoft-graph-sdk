@@ -36,7 +36,7 @@ class AiInteractionMention
             $this->mentioned = is_array($data['mentioned']) ? new AiInteractionMentionedIdentitySet($data['mentioned']) : $data['mentioned'];
         }
         if (isset($data['mentionId'])) {
-            $this->mentionId = $data['mentionId'];
+            $this->mentionId = is_numeric($data['mentionId']) ? (float)$data['mentionId'] : $data['mentionId'];
         }
         if (isset($data['mentionText'])) {
             $this->mentionText = $data['mentionText'];

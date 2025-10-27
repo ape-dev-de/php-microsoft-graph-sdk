@@ -24,7 +24,7 @@ class WindowsAppXAppAssignmentSettings
     {
         $this->rawData = $data;
         if (isset($data['useDeviceContext'])) {
-            $this->useDeviceContext = $data['useDeviceContext'];
+            $this->useDeviceContext = is_bool($data['useDeviceContext']) ? $data['useDeviceContext'] : (bool)$data['useDeviceContext'];
         }
     }
 

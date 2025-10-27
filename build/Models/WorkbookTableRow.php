@@ -33,7 +33,7 @@ class WorkbookTableRow
             $this->id = $data['id'];
         }
         if (isset($data['index'])) {
-            $this->index = $data['index'];
+            $this->index = is_numeric($data['index']) ? (float)$data['index'] : $data['index'];
         }
         if (isset($data['values'])) {
             $this->values = $data['values'];

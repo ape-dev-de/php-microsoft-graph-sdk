@@ -69,7 +69,7 @@ class IdentityGovernanceTaskReport
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['failedUsersCount'])) {
-            $this->failedUsersCount = $data['failedUsersCount'];
+            $this->failedUsersCount = is_numeric($data['failedUsersCount']) ? (float)$data['failedUsersCount'] : $data['failedUsersCount'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
@@ -84,13 +84,13 @@ class IdentityGovernanceTaskReport
             $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['successfulUsersCount'])) {
-            $this->successfulUsersCount = $data['successfulUsersCount'];
+            $this->successfulUsersCount = is_numeric($data['successfulUsersCount']) ? (float)$data['successfulUsersCount'] : $data['successfulUsersCount'];
         }
         if (isset($data['totalUsersCount'])) {
-            $this->totalUsersCount = $data['totalUsersCount'];
+            $this->totalUsersCount = is_numeric($data['totalUsersCount']) ? (float)$data['totalUsersCount'] : $data['totalUsersCount'];
         }
         if (isset($data['unprocessedUsersCount'])) {
-            $this->unprocessedUsersCount = $data['unprocessedUsersCount'];
+            $this->unprocessedUsersCount = is_numeric($data['unprocessedUsersCount']) ? (float)$data['unprocessedUsersCount'] : $data['unprocessedUsersCount'];
         }
         if (isset($data['task'])) {
             $this->task = is_array($data['task']) ? new IdentityGovernanceTask($data['task']) : $data['task'];

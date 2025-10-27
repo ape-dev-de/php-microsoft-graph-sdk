@@ -30,7 +30,7 @@ class JoinMeetingIdSettings
     {
         $this->rawData = $data;
         if (isset($data['isPasscodeRequired'])) {
-            $this->isPasscodeRequired = $data['isPasscodeRequired'];
+            $this->isPasscodeRequired = is_bool($data['isPasscodeRequired']) ? $data['isPasscodeRequired'] : (bool)$data['isPasscodeRequired'];
         }
         if (isset($data['joinMeetingId'])) {
             $this->joinMeetingId = $data['joinMeetingId'];

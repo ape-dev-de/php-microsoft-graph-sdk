@@ -36,7 +36,7 @@ class RecommendedAction
             $this->actionWebUrl = $data['actionWebUrl'];
         }
         if (isset($data['potentialScoreImpact'])) {
-            $this->potentialScoreImpact = $data['potentialScoreImpact'];
+            $this->potentialScoreImpact = is_numeric($data['potentialScoreImpact']) ? (float)$data['potentialScoreImpact'] : $data['potentialScoreImpact'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];

@@ -24,7 +24,7 @@ class ResultTemplateOption
     {
         $this->rawData = $data;
         if (isset($data['enableResultTemplate'])) {
-            $this->enableResultTemplate = $data['enableResultTemplate'];
+            $this->enableResultTemplate = is_bool($data['enableResultTemplate']) ? $data['enableResultTemplate'] : (bool)$data['enableResultTemplate'];
         }
     }
 

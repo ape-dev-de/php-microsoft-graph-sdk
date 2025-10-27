@@ -42,7 +42,7 @@ class UnifiedRoleManagementPolicyExpirationRule
             $this->target = is_array($data['target']) ? new UnifiedRoleManagementPolicyRuleTarget($data['target']) : $data['target'];
         }
         if (isset($data['isExpirationRequired'])) {
-            $this->isExpirationRequired = $data['isExpirationRequired'];
+            $this->isExpirationRequired = is_bool($data['isExpirationRequired']) ? $data['isExpirationRequired'] : (bool)$data['isExpirationRequired'];
         }
         if (isset($data['maximumDuration'])) {
             $this->maximumDuration = $data['maximumDuration'];

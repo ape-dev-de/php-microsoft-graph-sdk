@@ -36,7 +36,7 @@ class DeltaParticipants
             $this->id = $data['id'];
         }
         if (isset($data['sequenceNumber'])) {
-            $this->sequenceNumber = $data['sequenceNumber'];
+            $this->sequenceNumber = is_numeric($data['sequenceNumber']) ? (float)$data['sequenceNumber'] : $data['sequenceNumber'];
         }
         if (isset($data['participants'])) {
             $this->participants = $data['participants'];

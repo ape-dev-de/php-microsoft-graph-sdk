@@ -36,7 +36,7 @@ class WindowsInformationProtectionApp
     {
         $this->rawData = $data;
         if (isset($data['denied'])) {
-            $this->denied = $data['denied'];
+            $this->denied = is_bool($data['denied']) ? $data['denied'] : (bool)$data['denied'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];

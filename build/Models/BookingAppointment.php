@@ -174,13 +174,13 @@ class BookingAppointment
             $this->endDateTime = is_array($data['endDateTime']) ? new DateTimeTimeZone($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['filledAttendeesCount'])) {
-            $this->filledAttendeesCount = $data['filledAttendeesCount'];
+            $this->filledAttendeesCount = is_numeric($data['filledAttendeesCount']) ? (float)$data['filledAttendeesCount'] : $data['filledAttendeesCount'];
         }
         if (isset($data['isCustomerAllowedToManageBooking'])) {
-            $this->isCustomerAllowedToManageBooking = $data['isCustomerAllowedToManageBooking'];
+            $this->isCustomerAllowedToManageBooking = is_bool($data['isCustomerAllowedToManageBooking']) ? $data['isCustomerAllowedToManageBooking'] : (bool)$data['isCustomerAllowedToManageBooking'];
         }
         if (isset($data['isLocationOnline'])) {
-            $this->isLocationOnline = $data['isLocationOnline'];
+            $this->isLocationOnline = is_bool($data['isLocationOnline']) ? $data['isLocationOnline'] : (bool)$data['isLocationOnline'];
         }
         if (isset($data['joinWebUrl'])) {
             $this->joinWebUrl = $data['joinWebUrl'];
@@ -189,10 +189,10 @@ class BookingAppointment
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];
         }
         if (isset($data['maximumAttendeesCount'])) {
-            $this->maximumAttendeesCount = $data['maximumAttendeesCount'];
+            $this->maximumAttendeesCount = is_numeric($data['maximumAttendeesCount']) ? (float)$data['maximumAttendeesCount'] : $data['maximumAttendeesCount'];
         }
         if (isset($data['optOutOfCustomerEmail'])) {
-            $this->optOutOfCustomerEmail = $data['optOutOfCustomerEmail'];
+            $this->optOutOfCustomerEmail = is_bool($data['optOutOfCustomerEmail']) ? $data['optOutOfCustomerEmail'] : (bool)$data['optOutOfCustomerEmail'];
         }
         if (isset($data['postBuffer'])) {
             $this->postBuffer = $data['postBuffer'];
@@ -201,7 +201,7 @@ class BookingAppointment
             $this->preBuffer = $data['preBuffer'];
         }
         if (isset($data['price'])) {
-            $this->price = $data['price'];
+            $this->price = is_numeric($data['price']) ? (float)$data['price'] : $data['price'];
         }
         if (isset($data['priceType'])) {
             $this->priceType = is_array($data['priceType']) ? new BookingPriceType($data['priceType']) : $data['priceType'];
@@ -225,7 +225,7 @@ class BookingAppointment
             $this->serviceNotes = $data['serviceNotes'];
         }
         if (isset($data['smsNotificationsEnabled'])) {
-            $this->smsNotificationsEnabled = $data['smsNotificationsEnabled'];
+            $this->smsNotificationsEnabled = is_bool($data['smsNotificationsEnabled']) ? $data['smsNotificationsEnabled'] : (bool)$data['smsNotificationsEnabled'];
         }
         if (isset($data['staffMemberIds'])) {
             $this->staffMemberIds = $data['staffMemberIds'];

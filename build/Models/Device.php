@@ -162,7 +162,7 @@ class Device
             $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['accountEnabled'])) {
-            $this->accountEnabled = $data['accountEnabled'];
+            $this->accountEnabled = is_bool($data['accountEnabled']) ? $data['accountEnabled'] : (bool)$data['accountEnabled'];
         }
         if (isset($data['alternativeSecurityIds'])) {
             $this->alternativeSecurityIds = $data['alternativeSecurityIds'];
@@ -186,7 +186,7 @@ class Device
             $this->deviceOwnership = $data['deviceOwnership'];
         }
         if (isset($data['deviceVersion'])) {
-            $this->deviceVersion = $data['deviceVersion'];
+            $this->deviceVersion = is_numeric($data['deviceVersion']) ? (float)$data['deviceVersion'] : $data['deviceVersion'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -198,16 +198,16 @@ class Device
             $this->enrollmentType = $data['enrollmentType'];
         }
         if (isset($data['isCompliant'])) {
-            $this->isCompliant = $data['isCompliant'];
+            $this->isCompliant = is_bool($data['isCompliant']) ? $data['isCompliant'] : (bool)$data['isCompliant'];
         }
         if (isset($data['isManaged'])) {
-            $this->isManaged = $data['isManaged'];
+            $this->isManaged = is_bool($data['isManaged']) ? $data['isManaged'] : (bool)$data['isManaged'];
         }
         if (isset($data['isManagementRestricted'])) {
-            $this->isManagementRestricted = $data['isManagementRestricted'];
+            $this->isManagementRestricted = is_bool($data['isManagementRestricted']) ? $data['isManagementRestricted'] : (bool)$data['isManagementRestricted'];
         }
         if (isset($data['isRooted'])) {
-            $this->isRooted = $data['isRooted'];
+            $this->isRooted = is_bool($data['isRooted']) ? $data['isRooted'] : (bool)$data['isRooted'];
         }
         if (isset($data['managementType'])) {
             $this->managementType = $data['managementType'];
@@ -228,7 +228,7 @@ class Device
             $this->onPremisesSecurityIdentifier = $data['onPremisesSecurityIdentifier'];
         }
         if (isset($data['onPremisesSyncEnabled'])) {
-            $this->onPremisesSyncEnabled = $data['onPremisesSyncEnabled'];
+            $this->onPremisesSyncEnabled = is_bool($data['onPremisesSyncEnabled']) ? $data['onPremisesSyncEnabled'] : (bool)$data['onPremisesSyncEnabled'];
         }
         if (isset($data['operatingSystem'])) {
             $this->operatingSystem = $data['operatingSystem'];

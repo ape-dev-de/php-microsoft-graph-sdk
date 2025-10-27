@@ -45,13 +45,13 @@ class ApprovalSettings
             $this->approvalStages = $data['approvalStages'];
         }
         if (isset($data['isApprovalRequired'])) {
-            $this->isApprovalRequired = $data['isApprovalRequired'];
+            $this->isApprovalRequired = is_bool($data['isApprovalRequired']) ? $data['isApprovalRequired'] : (bool)$data['isApprovalRequired'];
         }
         if (isset($data['isApprovalRequiredForExtension'])) {
-            $this->isApprovalRequiredForExtension = $data['isApprovalRequiredForExtension'];
+            $this->isApprovalRequiredForExtension = is_bool($data['isApprovalRequiredForExtension']) ? $data['isApprovalRequiredForExtension'] : (bool)$data['isApprovalRequiredForExtension'];
         }
         if (isset($data['isRequestorJustificationRequired'])) {
-            $this->isRequestorJustificationRequired = $data['isRequestorJustificationRequired'];
+            $this->isRequestorJustificationRequired = is_bool($data['isRequestorJustificationRequired']) ? $data['isRequestorJustificationRequired'] : (bool)$data['isRequestorJustificationRequired'];
         }
     }
 

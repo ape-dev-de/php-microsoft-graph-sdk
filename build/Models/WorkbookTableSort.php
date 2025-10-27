@@ -42,7 +42,7 @@ class WorkbookTableSort
             $this->fields = $data['fields'];
         }
         if (isset($data['matchCase'])) {
-            $this->matchCase = $data['matchCase'];
+            $this->matchCase = is_bool($data['matchCase']) ? $data['matchCase'] : (bool)$data['matchCase'];
         }
         if (isset($data['method'])) {
             $this->method = $data['method'];

@@ -87,7 +87,7 @@ class SecurityHostPort
             $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['port'])) {
-            $this->port = $data['port'];
+            $this->port = is_numeric($data['port']) ? (float)$data['port'] : $data['port'];
         }
         if (isset($data['protocol'])) {
             $this->protocol = is_array($data['protocol']) ? new SecurityHostPortProtocol($data['protocol']) : $data['protocol'];
@@ -99,7 +99,7 @@ class SecurityHostPort
             $this->status = is_array($data['status']) ? new SecurityHostPortStatus($data['status']) : $data['status'];
         }
         if (isset($data['timesObserved'])) {
-            $this->timesObserved = $data['timesObserved'];
+            $this->timesObserved = is_numeric($data['timesObserved']) ? (float)$data['timesObserved'] : $data['timesObserved'];
         }
         if (isset($data['host'])) {
             $this->host = is_array($data['host']) ? new SecurityHost($data['host']) : $data['host'];

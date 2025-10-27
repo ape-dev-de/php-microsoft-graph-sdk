@@ -72,25 +72,25 @@ class AccessReviewScheduleSettings
             $this->applyActions = $data['applyActions'];
         }
         if (isset($data['autoApplyDecisionsEnabled'])) {
-            $this->autoApplyDecisionsEnabled = $data['autoApplyDecisionsEnabled'];
+            $this->autoApplyDecisionsEnabled = is_bool($data['autoApplyDecisionsEnabled']) ? $data['autoApplyDecisionsEnabled'] : (bool)$data['autoApplyDecisionsEnabled'];
         }
         if (isset($data['decisionHistoriesForReviewersEnabled'])) {
-            $this->decisionHistoriesForReviewersEnabled = $data['decisionHistoriesForReviewersEnabled'];
+            $this->decisionHistoriesForReviewersEnabled = is_bool($data['decisionHistoriesForReviewersEnabled']) ? $data['decisionHistoriesForReviewersEnabled'] : (bool)$data['decisionHistoriesForReviewersEnabled'];
         }
         if (isset($data['defaultDecision'])) {
             $this->defaultDecision = $data['defaultDecision'];
         }
         if (isset($data['defaultDecisionEnabled'])) {
-            $this->defaultDecisionEnabled = $data['defaultDecisionEnabled'];
+            $this->defaultDecisionEnabled = is_bool($data['defaultDecisionEnabled']) ? $data['defaultDecisionEnabled'] : (bool)$data['defaultDecisionEnabled'];
         }
         if (isset($data['instanceDurationInDays'])) {
-            $this->instanceDurationInDays = $data['instanceDurationInDays'];
+            $this->instanceDurationInDays = is_numeric($data['instanceDurationInDays']) ? (float)$data['instanceDurationInDays'] : $data['instanceDurationInDays'];
         }
         if (isset($data['justificationRequiredOnApproval'])) {
-            $this->justificationRequiredOnApproval = $data['justificationRequiredOnApproval'];
+            $this->justificationRequiredOnApproval = is_bool($data['justificationRequiredOnApproval']) ? $data['justificationRequiredOnApproval'] : (bool)$data['justificationRequiredOnApproval'];
         }
         if (isset($data['mailNotificationsEnabled'])) {
-            $this->mailNotificationsEnabled = $data['mailNotificationsEnabled'];
+            $this->mailNotificationsEnabled = is_bool($data['mailNotificationsEnabled']) ? $data['mailNotificationsEnabled'] : (bool)$data['mailNotificationsEnabled'];
         }
         if (isset($data['recommendationInsightSettings'])) {
             $this->recommendationInsightSettings = $data['recommendationInsightSettings'];
@@ -99,13 +99,13 @@ class AccessReviewScheduleSettings
             $this->recommendationLookBackDuration = $data['recommendationLookBackDuration'];
         }
         if (isset($data['recommendationsEnabled'])) {
-            $this->recommendationsEnabled = $data['recommendationsEnabled'];
+            $this->recommendationsEnabled = is_bool($data['recommendationsEnabled']) ? $data['recommendationsEnabled'] : (bool)$data['recommendationsEnabled'];
         }
         if (isset($data['recurrence'])) {
             $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
         if (isset($data['reminderNotificationsEnabled'])) {
-            $this->reminderNotificationsEnabled = $data['reminderNotificationsEnabled'];
+            $this->reminderNotificationsEnabled = is_bool($data['reminderNotificationsEnabled']) ? $data['reminderNotificationsEnabled'] : (bool)$data['reminderNotificationsEnabled'];
         }
     }
 

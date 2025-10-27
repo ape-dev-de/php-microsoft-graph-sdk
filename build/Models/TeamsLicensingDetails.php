@@ -30,7 +30,7 @@ class TeamsLicensingDetails
             $this->id = $data['id'];
         }
         if (isset($data['hasTeamsLicense'])) {
-            $this->hasTeamsLicense = $data['hasTeamsLicense'];
+            $this->hasTeamsLicense = is_bool($data['hasTeamsLicense']) ? $data['hasTeamsLicense'] : (bool)$data['hasTeamsLicense'];
         }
     }
 

@@ -24,7 +24,7 @@ class SecurityRetentionDurationInDays
     {
         $this->rawData = $data;
         if (isset($data['days'])) {
-            $this->days = $data['days'];
+            $this->days = is_numeric($data['days']) ? (float)$data['days'] : $data['days'];
         }
     }
 

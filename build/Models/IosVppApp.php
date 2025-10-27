@@ -132,7 +132,7 @@ class IosVppApp
             $this->informationUrl = $data['informationUrl'];
         }
         if (isset($data['isFeatured'])) {
-            $this->isFeatured = $data['isFeatured'];
+            $this->isFeatured = is_bool($data['isFeatured']) ? $data['isFeatured'] : (bool)$data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
             $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
@@ -177,10 +177,10 @@ class IosVppApp
             $this->releaseDateTime = is_string($data['releaseDateTime']) ? new \DateTimeImmutable($data['releaseDateTime']) : $data['releaseDateTime'];
         }
         if (isset($data['totalLicenseCount'])) {
-            $this->totalLicenseCount = $data['totalLicenseCount'];
+            $this->totalLicenseCount = is_numeric($data['totalLicenseCount']) ? (float)$data['totalLicenseCount'] : $data['totalLicenseCount'];
         }
         if (isset($data['usedLicenseCount'])) {
-            $this->usedLicenseCount = $data['usedLicenseCount'];
+            $this->usedLicenseCount = is_numeric($data['usedLicenseCount']) ? (float)$data['usedLicenseCount'] : $data['usedLicenseCount'];
         }
         if (isset($data['vppTokenAccountType'])) {
             $this->vppTokenAccountType = is_array($data['vppTokenAccountType']) ? new VppTokenAccountType($data['vppTokenAccountType']) : $data['vppTokenAccountType'];

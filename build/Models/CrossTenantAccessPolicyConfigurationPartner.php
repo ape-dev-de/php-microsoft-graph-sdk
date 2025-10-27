@@ -96,10 +96,10 @@ class CrossTenantAccessPolicyConfigurationPartner
             $this->inboundTrust = is_array($data['inboundTrust']) ? new CrossTenantAccessPolicyInboundTrust($data['inboundTrust']) : $data['inboundTrust'];
         }
         if (isset($data['isInMultiTenantOrganization'])) {
-            $this->isInMultiTenantOrganization = $data['isInMultiTenantOrganization'];
+            $this->isInMultiTenantOrganization = is_bool($data['isInMultiTenantOrganization']) ? $data['isInMultiTenantOrganization'] : (bool)$data['isInMultiTenantOrganization'];
         }
         if (isset($data['isServiceProvider'])) {
-            $this->isServiceProvider = $data['isServiceProvider'];
+            $this->isServiceProvider = is_bool($data['isServiceProvider']) ? $data['isServiceProvider'] : (bool)$data['isServiceProvider'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];

@@ -45,7 +45,7 @@ class SimulationReportOverview
             $this->recommendedActions = $data['recommendedActions'];
         }
         if (isset($data['resolvedTargetsCount'])) {
-            $this->resolvedTargetsCount = $data['resolvedTargetsCount'];
+            $this->resolvedTargetsCount = is_numeric($data['resolvedTargetsCount']) ? (float)$data['resolvedTargetsCount'] : $data['resolvedTargetsCount'];
         }
         if (isset($data['simulationEventsContent'])) {
             $this->simulationEventsContent = is_array($data['simulationEventsContent']) ? new SimulationEventsContent($data['simulationEventsContent']) : $data['simulationEventsContent'];

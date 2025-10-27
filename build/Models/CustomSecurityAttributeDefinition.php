@@ -63,10 +63,10 @@ class CustomSecurityAttributeDefinition
             $this->description = $data['description'];
         }
         if (isset($data['isCollection'])) {
-            $this->isCollection = $data['isCollection'];
+            $this->isCollection = is_bool($data['isCollection']) ? $data['isCollection'] : (bool)$data['isCollection'];
         }
         if (isset($data['isSearchable'])) {
-            $this->isSearchable = $data['isSearchable'];
+            $this->isSearchable = is_bool($data['isSearchable']) ? $data['isSearchable'] : (bool)$data['isSearchable'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
@@ -78,7 +78,7 @@ class CustomSecurityAttributeDefinition
             $this->type = $data['type'];
         }
         if (isset($data['usePreDefinedValuesOnly'])) {
-            $this->usePreDefinedValuesOnly = $data['usePreDefinedValuesOnly'];
+            $this->usePreDefinedValuesOnly = is_bool($data['usePreDefinedValuesOnly']) ? $data['usePreDefinedValuesOnly'] : (bool)$data['usePreDefinedValuesOnly'];
         }
         if (isset($data['allowedValues'])) {
             $this->allowedValues = $data['allowedValues'];

@@ -72,49 +72,49 @@ class MobileThreatDefenseConnector
             $this->id = $data['id'];
         }
         if (isset($data['allowPartnerToCollectIOSApplicationMetadata'])) {
-            $this->allowPartnerToCollectIOSApplicationMetadata = $data['allowPartnerToCollectIOSApplicationMetadata'];
+            $this->allowPartnerToCollectIOSApplicationMetadata = is_bool($data['allowPartnerToCollectIOSApplicationMetadata']) ? $data['allowPartnerToCollectIOSApplicationMetadata'] : (bool)$data['allowPartnerToCollectIOSApplicationMetadata'];
         }
         if (isset($data['allowPartnerToCollectIOSPersonalApplicationMetadata'])) {
-            $this->allowPartnerToCollectIOSPersonalApplicationMetadata = $data['allowPartnerToCollectIOSPersonalApplicationMetadata'];
+            $this->allowPartnerToCollectIOSPersonalApplicationMetadata = is_bool($data['allowPartnerToCollectIOSPersonalApplicationMetadata']) ? $data['allowPartnerToCollectIOSPersonalApplicationMetadata'] : (bool)$data['allowPartnerToCollectIOSPersonalApplicationMetadata'];
         }
         if (isset($data['androidDeviceBlockedOnMissingPartnerData'])) {
-            $this->androidDeviceBlockedOnMissingPartnerData = $data['androidDeviceBlockedOnMissingPartnerData'];
+            $this->androidDeviceBlockedOnMissingPartnerData = is_bool($data['androidDeviceBlockedOnMissingPartnerData']) ? $data['androidDeviceBlockedOnMissingPartnerData'] : (bool)$data['androidDeviceBlockedOnMissingPartnerData'];
         }
         if (isset($data['androidEnabled'])) {
-            $this->androidEnabled = $data['androidEnabled'];
+            $this->androidEnabled = is_bool($data['androidEnabled']) ? $data['androidEnabled'] : (bool)$data['androidEnabled'];
         }
         if (isset($data['androidMobileApplicationManagementEnabled'])) {
-            $this->androidMobileApplicationManagementEnabled = $data['androidMobileApplicationManagementEnabled'];
+            $this->androidMobileApplicationManagementEnabled = is_bool($data['androidMobileApplicationManagementEnabled']) ? $data['androidMobileApplicationManagementEnabled'] : (bool)$data['androidMobileApplicationManagementEnabled'];
         }
         if (isset($data['iosDeviceBlockedOnMissingPartnerData'])) {
-            $this->iosDeviceBlockedOnMissingPartnerData = $data['iosDeviceBlockedOnMissingPartnerData'];
+            $this->iosDeviceBlockedOnMissingPartnerData = is_bool($data['iosDeviceBlockedOnMissingPartnerData']) ? $data['iosDeviceBlockedOnMissingPartnerData'] : (bool)$data['iosDeviceBlockedOnMissingPartnerData'];
         }
         if (isset($data['iosEnabled'])) {
-            $this->iosEnabled = $data['iosEnabled'];
+            $this->iosEnabled = is_bool($data['iosEnabled']) ? $data['iosEnabled'] : (bool)$data['iosEnabled'];
         }
         if (isset($data['iosMobileApplicationManagementEnabled'])) {
-            $this->iosMobileApplicationManagementEnabled = $data['iosMobileApplicationManagementEnabled'];
+            $this->iosMobileApplicationManagementEnabled = is_bool($data['iosMobileApplicationManagementEnabled']) ? $data['iosMobileApplicationManagementEnabled'] : (bool)$data['iosMobileApplicationManagementEnabled'];
         }
         if (isset($data['lastHeartbeatDateTime'])) {
             $this->lastHeartbeatDateTime = is_string($data['lastHeartbeatDateTime']) ? new \DateTimeImmutable($data['lastHeartbeatDateTime']) : $data['lastHeartbeatDateTime'];
         }
         if (isset($data['microsoftDefenderForEndpointAttachEnabled'])) {
-            $this->microsoftDefenderForEndpointAttachEnabled = $data['microsoftDefenderForEndpointAttachEnabled'];
+            $this->microsoftDefenderForEndpointAttachEnabled = is_bool($data['microsoftDefenderForEndpointAttachEnabled']) ? $data['microsoftDefenderForEndpointAttachEnabled'] : (bool)$data['microsoftDefenderForEndpointAttachEnabled'];
         }
         if (isset($data['partnerState'])) {
             $this->partnerState = is_array($data['partnerState']) ? new MobileThreatPartnerTenantState($data['partnerState']) : $data['partnerState'];
         }
         if (isset($data['partnerUnresponsivenessThresholdInDays'])) {
-            $this->partnerUnresponsivenessThresholdInDays = $data['partnerUnresponsivenessThresholdInDays'];
+            $this->partnerUnresponsivenessThresholdInDays = is_numeric($data['partnerUnresponsivenessThresholdInDays']) ? (float)$data['partnerUnresponsivenessThresholdInDays'] : $data['partnerUnresponsivenessThresholdInDays'];
         }
         if (isset($data['partnerUnsupportedOsVersionBlocked'])) {
-            $this->partnerUnsupportedOsVersionBlocked = $data['partnerUnsupportedOsVersionBlocked'];
+            $this->partnerUnsupportedOsVersionBlocked = is_bool($data['partnerUnsupportedOsVersionBlocked']) ? $data['partnerUnsupportedOsVersionBlocked'] : (bool)$data['partnerUnsupportedOsVersionBlocked'];
         }
         if (isset($data['windowsDeviceBlockedOnMissingPartnerData'])) {
-            $this->windowsDeviceBlockedOnMissingPartnerData = $data['windowsDeviceBlockedOnMissingPartnerData'];
+            $this->windowsDeviceBlockedOnMissingPartnerData = is_bool($data['windowsDeviceBlockedOnMissingPartnerData']) ? $data['windowsDeviceBlockedOnMissingPartnerData'] : (bool)$data['windowsDeviceBlockedOnMissingPartnerData'];
         }
         if (isset($data['windowsEnabled'])) {
-            $this->windowsEnabled = $data['windowsEnabled'];
+            $this->windowsEnabled = is_bool($data['windowsEnabled']) ? $data['windowsEnabled'] : (bool)$data['windowsEnabled'];
         }
     }
 

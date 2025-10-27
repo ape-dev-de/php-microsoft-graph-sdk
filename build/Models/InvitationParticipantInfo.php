@@ -36,7 +36,7 @@ class InvitationParticipantInfo
     {
         $this->rawData = $data;
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['identity'])) {
             $this->identity = is_array($data['identity']) ? new IdentitySet($data['identity']) : $data['identity'];
@@ -45,7 +45,7 @@ class InvitationParticipantInfo
             $this->participantId = $data['participantId'];
         }
         if (isset($data['removeFromDefaultAudioRoutingGroup'])) {
-            $this->removeFromDefaultAudioRoutingGroup = $data['removeFromDefaultAudioRoutingGroup'];
+            $this->removeFromDefaultAudioRoutingGroup = is_bool($data['removeFromDefaultAudioRoutingGroup']) ? $data['removeFromDefaultAudioRoutingGroup'] : (bool)$data['removeFromDefaultAudioRoutingGroup'];
         }
         if (isset($data['replacesCallId'])) {
             $this->replacesCallId = $data['replacesCallId'];

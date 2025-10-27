@@ -120,13 +120,13 @@ class LearningContent
             $this->format = $data['format'];
         }
         if (isset($data['isActive'])) {
-            $this->isActive = $data['isActive'];
+            $this->isActive = is_bool($data['isActive']) ? $data['isActive'] : (bool)$data['isActive'];
         }
         if (isset($data['isPremium'])) {
-            $this->isPremium = $data['isPremium'];
+            $this->isPremium = is_bool($data['isPremium']) ? $data['isPremium'] : (bool)$data['isPremium'];
         }
         if (isset($data['isSearchable'])) {
-            $this->isSearchable = $data['isSearchable'];
+            $this->isSearchable = is_bool($data['isSearchable']) ? $data['isSearchable'] : (bool)$data['isSearchable'];
         }
         if (isset($data['languageTag'])) {
             $this->languageTag = $data['languageTag'];
@@ -138,7 +138,7 @@ class LearningContent
             $this->level = is_array($data['level']) ? new Level($data['level']) : $data['level'];
         }
         if (isset($data['numberOfPages'])) {
-            $this->numberOfPages = $data['numberOfPages'];
+            $this->numberOfPages = is_numeric($data['numberOfPages']) ? (float)$data['numberOfPages'] : $data['numberOfPages'];
         }
         if (isset($data['skillTags'])) {
             $this->skillTags = $data['skillTags'];

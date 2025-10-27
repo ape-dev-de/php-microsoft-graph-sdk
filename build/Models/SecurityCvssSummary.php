@@ -36,7 +36,7 @@ class SecurityCvssSummary
     {
         $this->rawData = $data;
         if (isset($data['score'])) {
-            $this->score = $data['score'];
+            $this->score = is_numeric($data['score']) ? (float)$data['score'] : $data['score'];
         }
         if (isset($data['severity'])) {
             $this->severity = is_array($data['severity']) ? new SecurityVulnerabilitySeverity($data['severity']) : $data['severity'];

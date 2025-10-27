@@ -42,7 +42,7 @@ class EducationAssignmentPointsGrade
             $this->gradedDateTime = is_string($data['gradedDateTime']) ? new \DateTimeImmutable($data['gradedDateTime']) : $data['gradedDateTime'];
         }
         if (isset($data['points'])) {
-            $this->points = $data['points'];
+            $this->points = is_numeric($data['points']) ? (float)$data['points'] : $data['points'];
         }
     }
 

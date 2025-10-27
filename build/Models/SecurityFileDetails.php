@@ -60,7 +60,7 @@ class SecurityFileDetails
             $this->filePublisher = $data['filePublisher'];
         }
         if (isset($data['fileSize'])) {
-            $this->fileSize = $data['fileSize'];
+            $this->fileSize = is_numeric($data['fileSize']) ? (float)$data['fileSize'] : $data['fileSize'];
         }
         if (isset($data['issuer'])) {
             $this->issuer = $data['issuer'];

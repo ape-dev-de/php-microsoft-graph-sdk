@@ -72,10 +72,10 @@ class AccessPackageApprovalStage
             $this->fallbackPrimaryApprovers = $data['fallbackPrimaryApprovers'];
         }
         if (isset($data['isApproverJustificationRequired'])) {
-            $this->isApproverJustificationRequired = $data['isApproverJustificationRequired'];
+            $this->isApproverJustificationRequired = is_bool($data['isApproverJustificationRequired']) ? $data['isApproverJustificationRequired'] : (bool)$data['isApproverJustificationRequired'];
         }
         if (isset($data['isEscalationEnabled'])) {
-            $this->isEscalationEnabled = $data['isEscalationEnabled'];
+            $this->isEscalationEnabled = is_bool($data['isEscalationEnabled']) ? $data['isEscalationEnabled'] : (bool)$data['isEscalationEnabled'];
         }
         if (isset($data['primaryApprovers'])) {
             $this->primaryApprovers = $data['primaryApprovers'];

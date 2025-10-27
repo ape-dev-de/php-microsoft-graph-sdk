@@ -72,7 +72,7 @@ class PermissionGrantConditionSet
             $this->clientApplicationPublisherIds = $data['clientApplicationPublisherIds'];
         }
         if (isset($data['clientApplicationsFromVerifiedPublisherOnly'])) {
-            $this->clientApplicationsFromVerifiedPublisherOnly = $data['clientApplicationsFromVerifiedPublisherOnly'];
+            $this->clientApplicationsFromVerifiedPublisherOnly = is_bool($data['clientApplicationsFromVerifiedPublisherOnly']) ? $data['clientApplicationsFromVerifiedPublisherOnly'] : (bool)$data['clientApplicationsFromVerifiedPublisherOnly'];
         }
         if (isset($data['clientApplicationTenantIds'])) {
             $this->clientApplicationTenantIds = $data['clientApplicationTenantIds'];

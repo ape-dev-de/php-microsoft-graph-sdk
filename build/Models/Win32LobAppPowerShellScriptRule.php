@@ -60,7 +60,7 @@ class Win32LobAppPowerShellScriptRule
             $this->displayName = $data['displayName'];
         }
         if (isset($data['enforceSignatureCheck'])) {
-            $this->enforceSignatureCheck = $data['enforceSignatureCheck'];
+            $this->enforceSignatureCheck = is_bool($data['enforceSignatureCheck']) ? $data['enforceSignatureCheck'] : (bool)$data['enforceSignatureCheck'];
         }
         if (isset($data['operationType'])) {
             $this->operationType = is_array($data['operationType']) ? new Win32LobAppPowerShellScriptRuleOperationType($data['operationType']) : $data['operationType'];
@@ -69,7 +69,7 @@ class Win32LobAppPowerShellScriptRule
             $this->operator = is_array($data['operator']) ? new Win32LobAppRuleOperator($data['operator']) : $data['operator'];
         }
         if (isset($data['runAs32Bit'])) {
-            $this->runAs32Bit = $data['runAs32Bit'];
+            $this->runAs32Bit = is_bool($data['runAs32Bit']) ? $data['runAs32Bit'] : (bool)$data['runAs32Bit'];
         }
         if (isset($data['runAsAccount'])) {
             $this->runAsAccount = is_array($data['runAsAccount']) ? new RunAsAccountType($data['runAsAccount']) : $data['runAsAccount'];

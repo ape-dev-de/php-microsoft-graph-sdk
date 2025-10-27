@@ -60,10 +60,10 @@ class DocumentSet
             $this->defaultContents = $data['defaultContents'];
         }
         if (isset($data['propagateWelcomePageChanges'])) {
-            $this->propagateWelcomePageChanges = $data['propagateWelcomePageChanges'];
+            $this->propagateWelcomePageChanges = is_bool($data['propagateWelcomePageChanges']) ? $data['propagateWelcomePageChanges'] : (bool)$data['propagateWelcomePageChanges'];
         }
         if (isset($data['shouldPrefixNameToFile'])) {
-            $this->shouldPrefixNameToFile = $data['shouldPrefixNameToFile'];
+            $this->shouldPrefixNameToFile = is_bool($data['shouldPrefixNameToFile']) ? $data['shouldPrefixNameToFile'] : (bool)$data['shouldPrefixNameToFile'];
         }
         if (isset($data['welcomePageUrl'])) {
             $this->welcomePageUrl = $data['welcomePageUrl'];

@@ -33,7 +33,7 @@ class TrainingEventsContent
             $this->assignedTrainingsInfos = $data['assignedTrainingsInfos'];
         }
         if (isset($data['trainingsAssignedUserCount'])) {
-            $this->trainingsAssignedUserCount = $data['trainingsAssignedUserCount'];
+            $this->trainingsAssignedUserCount = is_numeric($data['trainingsAssignedUserCount']) ? (float)$data['trainingsAssignedUserCount'] : $data['trainingsAssignedUserCount'];
         }
     }
 

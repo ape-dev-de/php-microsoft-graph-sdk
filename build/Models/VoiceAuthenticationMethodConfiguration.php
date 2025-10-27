@@ -54,7 +54,7 @@ class VoiceAuthenticationMethodConfiguration
             $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
         }
         if (isset($data['isOfficePhoneAllowed'])) {
-            $this->isOfficePhoneAllowed = $data['isOfficePhoneAllowed'];
+            $this->isOfficePhoneAllowed = is_bool($data['isOfficePhoneAllowed']) ? $data['isOfficePhoneAllowed'] : (bool)$data['isOfficePhoneAllowed'];
         }
         if (isset($data['includeTargets'])) {
             $this->includeTargets = $data['includeTargets'];

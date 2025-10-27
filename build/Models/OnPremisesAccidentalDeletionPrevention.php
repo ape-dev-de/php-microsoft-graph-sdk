@@ -30,7 +30,7 @@ class OnPremisesAccidentalDeletionPrevention
     {
         $this->rawData = $data;
         if (isset($data['alertThreshold'])) {
-            $this->alertThreshold = $data['alertThreshold'];
+            $this->alertThreshold = is_numeric($data['alertThreshold']) ? (float)$data['alertThreshold'] : $data['alertThreshold'];
         }
         if (isset($data['synchronizationPreventionType'])) {
             $this->synchronizationPreventionType = is_array($data['synchronizationPreventionType']) ? new OnPremisesDirectorySynchronizationDeletionPreventionType($data['synchronizationPreventionType']) : $data['synchronizationPreventionType'];

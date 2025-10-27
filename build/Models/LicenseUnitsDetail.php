@@ -33,16 +33,16 @@ class LicenseUnitsDetail
     {
         $this->rawData = $data;
         if (isset($data['enabled'])) {
-            $this->enabled = $data['enabled'];
+            $this->enabled = is_numeric($data['enabled']) ? (float)$data['enabled'] : $data['enabled'];
         }
         if (isset($data['lockedOut'])) {
-            $this->lockedOut = $data['lockedOut'];
+            $this->lockedOut = is_numeric($data['lockedOut']) ? (float)$data['lockedOut'] : $data['lockedOut'];
         }
         if (isset($data['suspended'])) {
-            $this->suspended = $data['suspended'];
+            $this->suspended = is_numeric($data['suspended']) ? (float)$data['suspended'] : $data['suspended'];
         }
         if (isset($data['warning'])) {
-            $this->warning = $data['warning'];
+            $this->warning = is_numeric($data['warning']) ? (float)$data['warning'] : $data['warning'];
         }
     }
 

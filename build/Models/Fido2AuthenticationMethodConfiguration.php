@@ -63,10 +63,10 @@ class Fido2AuthenticationMethodConfiguration
             $this->state = is_array($data['state']) ? new AuthenticationMethodState($data['state']) : $data['state'];
         }
         if (isset($data['isAttestationEnforced'])) {
-            $this->isAttestationEnforced = $data['isAttestationEnforced'];
+            $this->isAttestationEnforced = is_bool($data['isAttestationEnforced']) ? $data['isAttestationEnforced'] : (bool)$data['isAttestationEnforced'];
         }
         if (isset($data['isSelfServiceRegistrationAllowed'])) {
-            $this->isSelfServiceRegistrationAllowed = $data['isSelfServiceRegistrationAllowed'];
+            $this->isSelfServiceRegistrationAllowed = is_bool($data['isSelfServiceRegistrationAllowed']) ? $data['isSelfServiceRegistrationAllowed'] : (bool)$data['isSelfServiceRegistrationAllowed'];
         }
         if (isset($data['keyRestrictions'])) {
             $this->keyRestrictions = is_array($data['keyRestrictions']) ? new Fido2KeyRestrictions($data['keyRestrictions']) : $data['keyRestrictions'];

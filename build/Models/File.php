@@ -39,7 +39,7 @@ class File
             $this->mimeType = $data['mimeType'];
         }
         if (isset($data['processingMetadata'])) {
-            $this->processingMetadata = $data['processingMetadata'];
+            $this->processingMetadata = is_bool($data['processingMetadata']) ? $data['processingMetadata'] : (bool)$data['processingMetadata'];
         }
     }
 

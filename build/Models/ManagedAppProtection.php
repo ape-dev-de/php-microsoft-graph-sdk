@@ -153,31 +153,31 @@ class ManagedAppProtection
             $this->allowedOutboundDataTransferDestinations = is_array($data['allowedOutboundDataTransferDestinations']) ? new ManagedAppDataTransferLevel($data['allowedOutboundDataTransferDestinations']) : $data['allowedOutboundDataTransferDestinations'];
         }
         if (isset($data['contactSyncBlocked'])) {
-            $this->contactSyncBlocked = $data['contactSyncBlocked'];
+            $this->contactSyncBlocked = is_bool($data['contactSyncBlocked']) ? $data['contactSyncBlocked'] : (bool)$data['contactSyncBlocked'];
         }
         if (isset($data['dataBackupBlocked'])) {
-            $this->dataBackupBlocked = $data['dataBackupBlocked'];
+            $this->dataBackupBlocked = is_bool($data['dataBackupBlocked']) ? $data['dataBackupBlocked'] : (bool)$data['dataBackupBlocked'];
         }
         if (isset($data['deviceComplianceRequired'])) {
-            $this->deviceComplianceRequired = $data['deviceComplianceRequired'];
+            $this->deviceComplianceRequired = is_bool($data['deviceComplianceRequired']) ? $data['deviceComplianceRequired'] : (bool)$data['deviceComplianceRequired'];
         }
         if (isset($data['disableAppPinIfDevicePinIsSet'])) {
-            $this->disableAppPinIfDevicePinIsSet = $data['disableAppPinIfDevicePinIsSet'];
+            $this->disableAppPinIfDevicePinIsSet = is_bool($data['disableAppPinIfDevicePinIsSet']) ? $data['disableAppPinIfDevicePinIsSet'] : (bool)$data['disableAppPinIfDevicePinIsSet'];
         }
         if (isset($data['fingerprintBlocked'])) {
-            $this->fingerprintBlocked = $data['fingerprintBlocked'];
+            $this->fingerprintBlocked = is_bool($data['fingerprintBlocked']) ? $data['fingerprintBlocked'] : (bool)$data['fingerprintBlocked'];
         }
         if (isset($data['managedBrowser'])) {
             $this->managedBrowser = is_array($data['managedBrowser']) ? new ManagedBrowserType($data['managedBrowser']) : $data['managedBrowser'];
         }
         if (isset($data['managedBrowserToOpenLinksRequired'])) {
-            $this->managedBrowserToOpenLinksRequired = $data['managedBrowserToOpenLinksRequired'];
+            $this->managedBrowserToOpenLinksRequired = is_bool($data['managedBrowserToOpenLinksRequired']) ? $data['managedBrowserToOpenLinksRequired'] : (bool)$data['managedBrowserToOpenLinksRequired'];
         }
         if (isset($data['maximumPinRetries'])) {
-            $this->maximumPinRetries = $data['maximumPinRetries'];
+            $this->maximumPinRetries = is_numeric($data['maximumPinRetries']) ? (float)$data['maximumPinRetries'] : $data['maximumPinRetries'];
         }
         if (isset($data['minimumPinLength'])) {
-            $this->minimumPinLength = $data['minimumPinLength'];
+            $this->minimumPinLength = is_numeric($data['minimumPinLength']) ? (float)$data['minimumPinLength'] : $data['minimumPinLength'];
         }
         if (isset($data['minimumRequiredAppVersion'])) {
             $this->minimumRequiredAppVersion = $data['minimumRequiredAppVersion'];
@@ -192,7 +192,7 @@ class ManagedAppProtection
             $this->minimumWarningOsVersion = $data['minimumWarningOsVersion'];
         }
         if (isset($data['organizationalCredentialsRequired'])) {
-            $this->organizationalCredentialsRequired = $data['organizationalCredentialsRequired'];
+            $this->organizationalCredentialsRequired = is_bool($data['organizationalCredentialsRequired']) ? $data['organizationalCredentialsRequired'] : (bool)$data['organizationalCredentialsRequired'];
         }
         if (isset($data['periodBeforePinReset'])) {
             $this->periodBeforePinReset = $data['periodBeforePinReset'];
@@ -210,16 +210,16 @@ class ManagedAppProtection
             $this->pinCharacterSet = is_array($data['pinCharacterSet']) ? new ManagedAppPinCharacterSet($data['pinCharacterSet']) : $data['pinCharacterSet'];
         }
         if (isset($data['pinRequired'])) {
-            $this->pinRequired = $data['pinRequired'];
+            $this->pinRequired = is_bool($data['pinRequired']) ? $data['pinRequired'] : (bool)$data['pinRequired'];
         }
         if (isset($data['printBlocked'])) {
-            $this->printBlocked = $data['printBlocked'];
+            $this->printBlocked = is_bool($data['printBlocked']) ? $data['printBlocked'] : (bool)$data['printBlocked'];
         }
         if (isset($data['saveAsBlocked'])) {
-            $this->saveAsBlocked = $data['saveAsBlocked'];
+            $this->saveAsBlocked = is_bool($data['saveAsBlocked']) ? $data['saveAsBlocked'] : (bool)$data['saveAsBlocked'];
         }
         if (isset($data['simplePinBlocked'])) {
-            $this->simplePinBlocked = $data['simplePinBlocked'];
+            $this->simplePinBlocked = is_bool($data['simplePinBlocked']) ? $data['simplePinBlocked'] : (bool)$data['simplePinBlocked'];
         }
     }
 

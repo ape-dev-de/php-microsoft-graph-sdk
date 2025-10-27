@@ -90,7 +90,7 @@ class WindowsAutopilotDeploymentProfile
             $this->displayName = $data['displayName'];
         }
         if (isset($data['hardwareHashExtractionEnabled'])) {
-            $this->hardwareHashExtractionEnabled = $data['hardwareHashExtractionEnabled'];
+            $this->hardwareHashExtractionEnabled = is_bool($data['hardwareHashExtractionEnabled']) ? $data['hardwareHashExtractionEnabled'] : (bool)$data['hardwareHashExtractionEnabled'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
@@ -105,7 +105,7 @@ class WindowsAutopilotDeploymentProfile
             $this->outOfBoxExperienceSetting = is_array($data['outOfBoxExperienceSetting']) ? new OutOfBoxExperienceSetting($data['outOfBoxExperienceSetting']) : $data['outOfBoxExperienceSetting'];
         }
         if (isset($data['preprovisioningAllowed'])) {
-            $this->preprovisioningAllowed = $data['preprovisioningAllowed'];
+            $this->preprovisioningAllowed = is_bool($data['preprovisioningAllowed']) ? $data['preprovisioningAllowed'] : (bool)$data['preprovisioningAllowed'];
         }
         if (isset($data['roleScopeTagIds'])) {
             $this->roleScopeTagIds = $data['roleScopeTagIds'];

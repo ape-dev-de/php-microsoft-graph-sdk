@@ -24,7 +24,7 @@ class CrossTenantUserSyncInbound
     {
         $this->rawData = $data;
         if (isset($data['isSyncAllowed'])) {
-            $this->isSyncAllowed = $data['isSyncAllowed'];
+            $this->isSyncAllowed = is_bool($data['isSyncAllowed']) ? $data['isSyncAllowed'] : (bool)$data['isSyncAllowed'];
         }
     }
 

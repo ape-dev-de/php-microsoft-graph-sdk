@@ -90,10 +90,10 @@ class TargetedManagedAppConfiguration
             $this->customSettings = $data['customSettings'];
         }
         if (isset($data['deployedAppCount'])) {
-            $this->deployedAppCount = $data['deployedAppCount'];
+            $this->deployedAppCount = is_numeric($data['deployedAppCount']) ? (float)$data['deployedAppCount'] : $data['deployedAppCount'];
         }
         if (isset($data['isAssigned'])) {
-            $this->isAssigned = $data['isAssigned'];
+            $this->isAssigned = is_bool($data['isAssigned']) ? $data['isAssigned'] : (bool)$data['isAssigned'];
         }
         if (isset($data['apps'])) {
             $this->apps = $data['apps'];

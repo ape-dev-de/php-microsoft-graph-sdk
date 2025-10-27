@@ -81,10 +81,10 @@ class IdentityGovernanceWorkflowBase
             $this->executionConditions = is_array($data['executionConditions']) ? new IdentityGovernanceWorkflowExecutionConditions($data['executionConditions']) : $data['executionConditions'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['isSchedulingEnabled'])) {
-            $this->isSchedulingEnabled = $data['isSchedulingEnabled'];
+            $this->isSchedulingEnabled = is_bool($data['isSchedulingEnabled']) ? $data['isSchedulingEnabled'] : (bool)$data['isSchedulingEnabled'];
         }
         if (isset($data['lastModifiedDateTime'])) {
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];

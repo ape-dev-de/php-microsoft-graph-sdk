@@ -156,10 +156,10 @@ class EducationAssignment
             $this->addToCalendarAction = is_array($data['addToCalendarAction']) ? new EducationAddToCalendarOptions($data['addToCalendarAction']) : $data['addToCalendarAction'];
         }
         if (isset($data['allowLateSubmissions'])) {
-            $this->allowLateSubmissions = $data['allowLateSubmissions'];
+            $this->allowLateSubmissions = is_bool($data['allowLateSubmissions']) ? $data['allowLateSubmissions'] : (bool)$data['allowLateSubmissions'];
         }
         if (isset($data['allowStudentsToAddResourcesToSubmission'])) {
-            $this->allowStudentsToAddResourcesToSubmission = $data['allowStudentsToAddResourcesToSubmission'];
+            $this->allowStudentsToAddResourcesToSubmission = is_bool($data['allowStudentsToAddResourcesToSubmission']) ? $data['allowStudentsToAddResourcesToSubmission'] : (bool)$data['allowStudentsToAddResourcesToSubmission'];
         }
         if (isset($data['assignDateTime'])) {
             $this->assignDateTime = is_string($data['assignDateTime']) ? new \DateTimeImmutable($data['assignDateTime']) : $data['assignDateTime'];

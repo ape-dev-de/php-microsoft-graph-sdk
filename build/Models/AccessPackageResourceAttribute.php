@@ -45,10 +45,10 @@ class AccessPackageResourceAttribute
             $this->destination = is_array($data['destination']) ? new AccessPackageResourceAttributeDestination($data['destination']) : $data['destination'];
         }
         if (isset($data['isEditable'])) {
-            $this->isEditable = $data['isEditable'];
+            $this->isEditable = is_bool($data['isEditable']) ? $data['isEditable'] : (bool)$data['isEditable'];
         }
         if (isset($data['isPersistedOnAssignmentRemoval'])) {
-            $this->isPersistedOnAssignmentRemoval = $data['isPersistedOnAssignmentRemoval'];
+            $this->isPersistedOnAssignmentRemoval = is_bool($data['isPersistedOnAssignmentRemoval']) ? $data['isPersistedOnAssignmentRemoval'] : (bool)$data['isPersistedOnAssignmentRemoval'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

@@ -234,7 +234,7 @@ class Site
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['isPersonalSite'])) {
-            $this->isPersonalSite = $data['isPersonalSite'];
+            $this->isPersonalSite = is_bool($data['isPersonalSite']) ? $data['isPersonalSite'] : (bool)$data['isPersonalSite'];
         }
         if (isset($data['root'])) {
             $this->root = is_array($data['root']) ? new Root($data['root']) : $data['root'];

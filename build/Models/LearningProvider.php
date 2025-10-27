@@ -63,7 +63,7 @@ class LearningProvider
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isCourseActivitySyncEnabled'])) {
-            $this->isCourseActivitySyncEnabled = $data['isCourseActivitySyncEnabled'];
+            $this->isCourseActivitySyncEnabled = is_bool($data['isCourseActivitySyncEnabled']) ? $data['isCourseActivitySyncEnabled'] : (bool)$data['isCourseActivitySyncEnabled'];
         }
         if (isset($data['loginWebUrl'])) {
             $this->loginWebUrl = $data['loginWebUrl'];

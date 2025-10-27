@@ -27,10 +27,10 @@ class WatermarkProtectionValues
     {
         $this->rawData = $data;
         if (isset($data['isEnabledForContentSharing'])) {
-            $this->isEnabledForContentSharing = $data['isEnabledForContentSharing'];
+            $this->isEnabledForContentSharing = is_bool($data['isEnabledForContentSharing']) ? $data['isEnabledForContentSharing'] : (bool)$data['isEnabledForContentSharing'];
         }
         if (isset($data['isEnabledForVideo'])) {
-            $this->isEnabledForVideo = $data['isEnabledForVideo'];
+            $this->isEnabledForVideo = is_bool($data['isEnabledForVideo']) ? $data['isEnabledForVideo'] : (bool)$data['isEnabledForVideo'];
         }
     }
 

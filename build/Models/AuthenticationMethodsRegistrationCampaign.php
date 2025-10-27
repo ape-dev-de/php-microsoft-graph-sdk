@@ -45,7 +45,7 @@ class AuthenticationMethodsRegistrationCampaign
             $this->includeTargets = $data['includeTargets'];
         }
         if (isset($data['snoozeDurationInDays'])) {
-            $this->snoozeDurationInDays = $data['snoozeDurationInDays'];
+            $this->snoozeDurationInDays = is_numeric($data['snoozeDurationInDays']) ? (float)$data['snoozeDurationInDays'] : $data['snoozeDurationInDays'];
         }
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new AdvancedConfigState($data['state']) : $data['state'];

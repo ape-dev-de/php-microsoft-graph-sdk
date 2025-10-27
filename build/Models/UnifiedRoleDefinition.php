@@ -69,10 +69,10 @@ class UnifiedRoleDefinition
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isBuiltIn'])) {
-            $this->isBuiltIn = $data['isBuiltIn'];
+            $this->isBuiltIn = is_bool($data['isBuiltIn']) ? $data['isBuiltIn'] : (bool)$data['isBuiltIn'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['resourceScopes'])) {
             $this->resourceScopes = $data['resourceScopes'];

@@ -90,7 +90,7 @@ class MailboxRestoreArtifact
             $this->restoredFolderName = $data['restoredFolderName'];
         }
         if (isset($data['restoredItemCount'])) {
-            $this->restoredItemCount = $data['restoredItemCount'];
+            $this->restoredItemCount = is_numeric($data['restoredItemCount']) ? (float)$data['restoredItemCount'] : $data['restoredItemCount'];
         }
     }
 

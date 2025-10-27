@@ -90,7 +90,7 @@ class Subscription
             $this->expirationDateTime = is_string($data['expirationDateTime']) ? new \DateTimeImmutable($data['expirationDateTime']) : $data['expirationDateTime'];
         }
         if (isset($data['includeResourceData'])) {
-            $this->includeResourceData = $data['includeResourceData'];
+            $this->includeResourceData = is_bool($data['includeResourceData']) ? $data['includeResourceData'] : (bool)$data['includeResourceData'];
         }
         if (isset($data['latestSupportedTlsVersion'])) {
             $this->latestSupportedTlsVersion = $data['latestSupportedTlsVersion'];

@@ -117,7 +117,7 @@ class Person
             $this->imAddress = $data['imAddress'];
         }
         if (isset($data['isFavorite'])) {
-            $this->isFavorite = $data['isFavorite'];
+            $this->isFavorite = is_bool($data['isFavorite']) ? $data['isFavorite'] : (bool)$data['isFavorite'];
         }
         if (isset($data['jobTitle'])) {
             $this->jobTitle = $data['jobTitle'];

@@ -288,7 +288,7 @@ class ServicePrincipal
             $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['accountEnabled'])) {
-            $this->accountEnabled = $data['accountEnabled'];
+            $this->accountEnabled = is_bool($data['accountEnabled']) ? $data['accountEnabled'] : (bool)$data['accountEnabled'];
         }
         if (isset($data['addIns'])) {
             $this->addIns = $data['addIns'];
@@ -312,7 +312,7 @@ class ServicePrincipal
             $this->appOwnerOrganizationId = $data['appOwnerOrganizationId'];
         }
         if (isset($data['appRoleAssignmentRequired'])) {
-            $this->appRoleAssignmentRequired = $data['appRoleAssignmentRequired'];
+            $this->appRoleAssignmentRequired = is_bool($data['appRoleAssignmentRequired']) ? $data['appRoleAssignmentRequired'] : (bool)$data['appRoleAssignmentRequired'];
         }
         if (isset($data['appRoles'])) {
             $this->appRoles = $data['appRoles'];

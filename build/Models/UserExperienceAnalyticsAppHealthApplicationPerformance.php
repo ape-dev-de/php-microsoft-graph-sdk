@@ -57,19 +57,19 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance
             $this->id = $data['id'];
         }
         if (isset($data['activeDeviceCount'])) {
-            $this->activeDeviceCount = $data['activeDeviceCount'];
+            $this->activeDeviceCount = is_numeric($data['activeDeviceCount']) ? (float)$data['activeDeviceCount'] : $data['activeDeviceCount'];
         }
         if (isset($data['appCrashCount'])) {
-            $this->appCrashCount = $data['appCrashCount'];
+            $this->appCrashCount = is_numeric($data['appCrashCount']) ? (float)$data['appCrashCount'] : $data['appCrashCount'];
         }
         if (isset($data['appDisplayName'])) {
             $this->appDisplayName = $data['appDisplayName'];
         }
         if (isset($data['appHangCount'])) {
-            $this->appHangCount = $data['appHangCount'];
+            $this->appHangCount = is_numeric($data['appHangCount']) ? (float)$data['appHangCount'] : $data['appHangCount'];
         }
         if (isset($data['appHealthScore'])) {
-            $this->appHealthScore = $data['appHealthScore'];
+            $this->appHealthScore = is_numeric($data['appHealthScore']) ? (float)$data['appHealthScore'] : $data['appHealthScore'];
         }
         if (isset($data['appName'])) {
             $this->appName = $data['appName'];
@@ -78,10 +78,10 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance
             $this->appPublisher = $data['appPublisher'];
         }
         if (isset($data['appUsageDuration'])) {
-            $this->appUsageDuration = $data['appUsageDuration'];
+            $this->appUsageDuration = is_numeric($data['appUsageDuration']) ? (float)$data['appUsageDuration'] : $data['appUsageDuration'];
         }
         if (isset($data['meanTimeToFailureInMinutes'])) {
-            $this->meanTimeToFailureInMinutes = $data['meanTimeToFailureInMinutes'];
+            $this->meanTimeToFailureInMinutes = is_numeric($data['meanTimeToFailureInMinutes']) ? (float)$data['meanTimeToFailureInMinutes'] : $data['meanTimeToFailureInMinutes'];
         }
     }
 

@@ -81,10 +81,10 @@ class WorkbookTable
             $this->id = $data['id'];
         }
         if (isset($data['highlightFirstColumn'])) {
-            $this->highlightFirstColumn = $data['highlightFirstColumn'];
+            $this->highlightFirstColumn = is_bool($data['highlightFirstColumn']) ? $data['highlightFirstColumn'] : (bool)$data['highlightFirstColumn'];
         }
         if (isset($data['highlightLastColumn'])) {
-            $this->highlightLastColumn = $data['highlightLastColumn'];
+            $this->highlightLastColumn = is_bool($data['highlightLastColumn']) ? $data['highlightLastColumn'] : (bool)$data['highlightLastColumn'];
         }
         if (isset($data['legacyId'])) {
             $this->legacyId = $data['legacyId'];
@@ -93,19 +93,19 @@ class WorkbookTable
             $this->name = $data['name'];
         }
         if (isset($data['showBandedColumns'])) {
-            $this->showBandedColumns = $data['showBandedColumns'];
+            $this->showBandedColumns = is_bool($data['showBandedColumns']) ? $data['showBandedColumns'] : (bool)$data['showBandedColumns'];
         }
         if (isset($data['showBandedRows'])) {
-            $this->showBandedRows = $data['showBandedRows'];
+            $this->showBandedRows = is_bool($data['showBandedRows']) ? $data['showBandedRows'] : (bool)$data['showBandedRows'];
         }
         if (isset($data['showFilterButton'])) {
-            $this->showFilterButton = $data['showFilterButton'];
+            $this->showFilterButton = is_bool($data['showFilterButton']) ? $data['showFilterButton'] : (bool)$data['showFilterButton'];
         }
         if (isset($data['showHeaders'])) {
-            $this->showHeaders = $data['showHeaders'];
+            $this->showHeaders = is_bool($data['showHeaders']) ? $data['showHeaders'] : (bool)$data['showHeaders'];
         }
         if (isset($data['showTotals'])) {
-            $this->showTotals = $data['showTotals'];
+            $this->showTotals = is_bool($data['showTotals']) ? $data['showTotals'] : (bool)$data['showTotals'];
         }
         if (isset($data['style'])) {
             $this->style = $data['style'];

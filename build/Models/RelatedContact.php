@@ -36,7 +36,7 @@ class RelatedContact
     {
         $this->rawData = $data;
         if (isset($data['accessConsent'])) {
-            $this->accessConsent = $data['accessConsent'];
+            $this->accessConsent = is_bool($data['accessConsent']) ? $data['accessConsent'] : (bool)$data['accessConsent'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

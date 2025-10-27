@@ -27,7 +27,7 @@ class Win32LobAppReturnCode
     {
         $this->rawData = $data;
         if (isset($data['returnCode'])) {
-            $this->returnCode = $data['returnCode'];
+            $this->returnCode = is_numeric($data['returnCode']) ? (float)$data['returnCode'] : $data['returnCode'];
         }
         if (isset($data['type'])) {
             $this->type = is_array($data['type']) ? new Win32LobAppReturnCodeType($data['type']) : $data['type'];

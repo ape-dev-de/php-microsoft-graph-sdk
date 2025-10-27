@@ -24,7 +24,7 @@ class TeamClassSettings
     {
         $this->rawData = $data;
         if (isset($data['notifyGuardiansAboutAssignments'])) {
-            $this->notifyGuardiansAboutAssignments = $data['notifyGuardiansAboutAssignments'];
+            $this->notifyGuardiansAboutAssignments = is_bool($data['notifyGuardiansAboutAssignments']) ? $data['notifyGuardiansAboutAssignments'] : (bool)$data['notifyGuardiansAboutAssignments'];
         }
     }
 

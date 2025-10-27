@@ -45,19 +45,19 @@ class RetentionLabelSettings
             $this->behaviorDuringRetentionPeriod = is_array($data['behaviorDuringRetentionPeriod']) ? new SecurityBehaviorDuringRetentionPeriod($data['behaviorDuringRetentionPeriod']) : $data['behaviorDuringRetentionPeriod'];
         }
         if (isset($data['isContentUpdateAllowed'])) {
-            $this->isContentUpdateAllowed = $data['isContentUpdateAllowed'];
+            $this->isContentUpdateAllowed = is_bool($data['isContentUpdateAllowed']) ? $data['isContentUpdateAllowed'] : (bool)$data['isContentUpdateAllowed'];
         }
         if (isset($data['isDeleteAllowed'])) {
-            $this->isDeleteAllowed = $data['isDeleteAllowed'];
+            $this->isDeleteAllowed = is_bool($data['isDeleteAllowed']) ? $data['isDeleteAllowed'] : (bool)$data['isDeleteAllowed'];
         }
         if (isset($data['isLabelUpdateAllowed'])) {
-            $this->isLabelUpdateAllowed = $data['isLabelUpdateAllowed'];
+            $this->isLabelUpdateAllowed = is_bool($data['isLabelUpdateAllowed']) ? $data['isLabelUpdateAllowed'] : (bool)$data['isLabelUpdateAllowed'];
         }
         if (isset($data['isMetadataUpdateAllowed'])) {
-            $this->isMetadataUpdateAllowed = $data['isMetadataUpdateAllowed'];
+            $this->isMetadataUpdateAllowed = is_bool($data['isMetadataUpdateAllowed']) ? $data['isMetadataUpdateAllowed'] : (bool)$data['isMetadataUpdateAllowed'];
         }
         if (isset($data['isRecordLocked'])) {
-            $this->isRecordLocked = $data['isRecordLocked'];
+            $this->isRecordLocked = is_bool($data['isRecordLocked']) ? $data['isRecordLocked'] : (bool)$data['isRecordLocked'];
         }
     }
 

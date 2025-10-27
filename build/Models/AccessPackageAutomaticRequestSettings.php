@@ -33,10 +33,10 @@ class AccessPackageAutomaticRequestSettings
             $this->gracePeriodBeforeAccessRemoval = $data['gracePeriodBeforeAccessRemoval'];
         }
         if (isset($data['removeAccessWhenTargetLeavesAllowedTargets'])) {
-            $this->removeAccessWhenTargetLeavesAllowedTargets = $data['removeAccessWhenTargetLeavesAllowedTargets'];
+            $this->removeAccessWhenTargetLeavesAllowedTargets = is_bool($data['removeAccessWhenTargetLeavesAllowedTargets']) ? $data['removeAccessWhenTargetLeavesAllowedTargets'] : (bool)$data['removeAccessWhenTargetLeavesAllowedTargets'];
         }
         if (isset($data['requestAccessForAllowedTargets'])) {
-            $this->requestAccessForAllowedTargets = $data['requestAccessForAllowedTargets'];
+            $this->requestAccessForAllowedTargets = is_bool($data['requestAccessForAllowedTargets']) ? $data['requestAccessForAllowedTargets'] : (bool)$data['requestAccessForAllowedTargets'];
         }
     }
 

@@ -45,7 +45,7 @@ class Win32LobAppRegistryRule
             $this->ruleType = is_array($data['ruleType']) ? new Win32LobAppRuleType($data['ruleType']) : $data['ruleType'];
         }
         if (isset($data['check32BitOn64System'])) {
-            $this->check32BitOn64System = $data['check32BitOn64System'];
+            $this->check32BitOn64System = is_bool($data['check32BitOn64System']) ? $data['check32BitOn64System'] : (bool)$data['check32BitOn64System'];
         }
         if (isset($data['comparisonValue'])) {
             $this->comparisonValue = $data['comparisonValue'];

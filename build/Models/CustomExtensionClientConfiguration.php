@@ -27,10 +27,10 @@ class CustomExtensionClientConfiguration
     {
         $this->rawData = $data;
         if (isset($data['maximumRetries'])) {
-            $this->maximumRetries = $data['maximumRetries'];
+            $this->maximumRetries = is_numeric($data['maximumRetries']) ? (float)$data['maximumRetries'] : $data['maximumRetries'];
         }
         if (isset($data['timeoutInMilliseconds'])) {
-            $this->timeoutInMilliseconds = $data['timeoutInMilliseconds'];
+            $this->timeoutInMilliseconds = is_numeric($data['timeoutInMilliseconds']) ? (float)$data['timeoutInMilliseconds'] : $data['timeoutInMilliseconds'];
         }
     }
 

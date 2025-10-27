@@ -30,13 +30,13 @@ class Win32LobAppRestartSettings
     {
         $this->rawData = $data;
         if (isset($data['countdownDisplayBeforeRestartInMinutes'])) {
-            $this->countdownDisplayBeforeRestartInMinutes = $data['countdownDisplayBeforeRestartInMinutes'];
+            $this->countdownDisplayBeforeRestartInMinutes = is_numeric($data['countdownDisplayBeforeRestartInMinutes']) ? (float)$data['countdownDisplayBeforeRestartInMinutes'] : $data['countdownDisplayBeforeRestartInMinutes'];
         }
         if (isset($data['gracePeriodInMinutes'])) {
-            $this->gracePeriodInMinutes = $data['gracePeriodInMinutes'];
+            $this->gracePeriodInMinutes = is_numeric($data['gracePeriodInMinutes']) ? (float)$data['gracePeriodInMinutes'] : $data['gracePeriodInMinutes'];
         }
         if (isset($data['restartNotificationSnoozeDurationInMinutes'])) {
-            $this->restartNotificationSnoozeDurationInMinutes = $data['restartNotificationSnoozeDurationInMinutes'];
+            $this->restartNotificationSnoozeDurationInMinutes = is_numeric($data['restartNotificationSnoozeDurationInMinutes']) ? (float)$data['restartNotificationSnoozeDurationInMinutes'] : $data['restartNotificationSnoozeDurationInMinutes'];
         }
     }
 

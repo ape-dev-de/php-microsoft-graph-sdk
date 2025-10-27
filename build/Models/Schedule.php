@@ -144,16 +144,16 @@ class Schedule
             $this->id = $data['id'];
         }
         if (isset($data['enabled'])) {
-            $this->enabled = $data['enabled'];
+            $this->enabled = is_bool($data['enabled']) ? $data['enabled'] : (bool)$data['enabled'];
         }
         if (isset($data['isActivitiesIncludedWhenCopyingShiftsEnabled'])) {
-            $this->isActivitiesIncludedWhenCopyingShiftsEnabled = $data['isActivitiesIncludedWhenCopyingShiftsEnabled'];
+            $this->isActivitiesIncludedWhenCopyingShiftsEnabled = is_bool($data['isActivitiesIncludedWhenCopyingShiftsEnabled']) ? $data['isActivitiesIncludedWhenCopyingShiftsEnabled'] : (bool)$data['isActivitiesIncludedWhenCopyingShiftsEnabled'];
         }
         if (isset($data['offerShiftRequestsEnabled'])) {
-            $this->offerShiftRequestsEnabled = $data['offerShiftRequestsEnabled'];
+            $this->offerShiftRequestsEnabled = is_bool($data['offerShiftRequestsEnabled']) ? $data['offerShiftRequestsEnabled'] : (bool)$data['offerShiftRequestsEnabled'];
         }
         if (isset($data['openShiftsEnabled'])) {
-            $this->openShiftsEnabled = $data['openShiftsEnabled'];
+            $this->openShiftsEnabled = is_bool($data['openShiftsEnabled']) ? $data['openShiftsEnabled'] : (bool)$data['openShiftsEnabled'];
         }
         if (isset($data['provisionStatus'])) {
             $this->provisionStatus = is_array($data['provisionStatus']) ? new OperationStatus($data['provisionStatus']) : $data['provisionStatus'];
@@ -165,16 +165,16 @@ class Schedule
             $this->startDayOfWeek = is_array($data['startDayOfWeek']) ? new DayOfWeek($data['startDayOfWeek']) : $data['startDayOfWeek'];
         }
         if (isset($data['swapShiftsRequestsEnabled'])) {
-            $this->swapShiftsRequestsEnabled = $data['swapShiftsRequestsEnabled'];
+            $this->swapShiftsRequestsEnabled = is_bool($data['swapShiftsRequestsEnabled']) ? $data['swapShiftsRequestsEnabled'] : (bool)$data['swapShiftsRequestsEnabled'];
         }
         if (isset($data['timeClockEnabled'])) {
-            $this->timeClockEnabled = $data['timeClockEnabled'];
+            $this->timeClockEnabled = is_bool($data['timeClockEnabled']) ? $data['timeClockEnabled'] : (bool)$data['timeClockEnabled'];
         }
         if (isset($data['timeClockSettings'])) {
             $this->timeClockSettings = is_array($data['timeClockSettings']) ? new TimeClockSettings($data['timeClockSettings']) : $data['timeClockSettings'];
         }
         if (isset($data['timeOffRequestsEnabled'])) {
-            $this->timeOffRequestsEnabled = $data['timeOffRequestsEnabled'];
+            $this->timeOffRequestsEnabled = is_bool($data['timeOffRequestsEnabled']) ? $data['timeOffRequestsEnabled'] : (bool)$data['timeOffRequestsEnabled'];
         }
         if (isset($data['timeZone'])) {
             $this->timeZone = $data['timeZone'];

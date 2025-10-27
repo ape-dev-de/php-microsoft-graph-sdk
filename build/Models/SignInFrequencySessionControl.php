@@ -45,7 +45,7 @@ class SignInFrequencySessionControl
     {
         $this->rawData = $data;
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['authenticationType'])) {
             $this->authenticationType = is_array($data['authenticationType']) ? new SignInFrequencyAuthenticationType($data['authenticationType']) : $data['authenticationType'];
@@ -57,7 +57,7 @@ class SignInFrequencySessionControl
             $this->type = is_array($data['type']) ? new SigninFrequencyType($data['type']) : $data['type'];
         }
         if (isset($data['value'])) {
-            $this->value = $data['value'];
+            $this->value = is_numeric($data['value']) ? (float)$data['value'] : $data['value'];
         }
     }
 

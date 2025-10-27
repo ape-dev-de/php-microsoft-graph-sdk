@@ -45,7 +45,7 @@ class OnPremisesConditionalAccessSettings
             $this->id = $data['id'];
         }
         if (isset($data['enabled'])) {
-            $this->enabled = $data['enabled'];
+            $this->enabled = is_bool($data['enabled']) ? $data['enabled'] : (bool)$data['enabled'];
         }
         if (isset($data['excludedGroups'])) {
             $this->excludedGroups = $data['excludedGroups'];
@@ -54,7 +54,7 @@ class OnPremisesConditionalAccessSettings
             $this->includedGroups = $data['includedGroups'];
         }
         if (isset($data['overrideDefaultRule'])) {
-            $this->overrideDefaultRule = $data['overrideDefaultRule'];
+            $this->overrideDefaultRule = is_bool($data['overrideDefaultRule']) ? $data['overrideDefaultRule'] : (bool)$data['overrideDefaultRule'];
         }
     }
 

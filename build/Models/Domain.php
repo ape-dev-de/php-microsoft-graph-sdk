@@ -108,19 +108,19 @@ class Domain
             $this->availabilityStatus = $data['availabilityStatus'];
         }
         if (isset($data['isAdminManaged'])) {
-            $this->isAdminManaged = $data['isAdminManaged'];
+            $this->isAdminManaged = is_bool($data['isAdminManaged']) ? $data['isAdminManaged'] : (bool)$data['isAdminManaged'];
         }
         if (isset($data['isDefault'])) {
-            $this->isDefault = $data['isDefault'];
+            $this->isDefault = is_bool($data['isDefault']) ? $data['isDefault'] : (bool)$data['isDefault'];
         }
         if (isset($data['isInitial'])) {
-            $this->isInitial = $data['isInitial'];
+            $this->isInitial = is_bool($data['isInitial']) ? $data['isInitial'] : (bool)$data['isInitial'];
         }
         if (isset($data['isRoot'])) {
-            $this->isRoot = $data['isRoot'];
+            $this->isRoot = is_bool($data['isRoot']) ? $data['isRoot'] : (bool)$data['isRoot'];
         }
         if (isset($data['isVerified'])) {
-            $this->isVerified = $data['isVerified'];
+            $this->isVerified = is_bool($data['isVerified']) ? $data['isVerified'] : (bool)$data['isVerified'];
         }
         if (isset($data['manufacturer'])) {
             $this->manufacturer = $data['manufacturer'];
@@ -129,10 +129,10 @@ class Domain
             $this->model = $data['model'];
         }
         if (isset($data['passwordNotificationWindowInDays'])) {
-            $this->passwordNotificationWindowInDays = $data['passwordNotificationWindowInDays'];
+            $this->passwordNotificationWindowInDays = is_numeric($data['passwordNotificationWindowInDays']) ? (float)$data['passwordNotificationWindowInDays'] : $data['passwordNotificationWindowInDays'];
         }
         if (isset($data['passwordValidityPeriodInDays'])) {
-            $this->passwordValidityPeriodInDays = $data['passwordValidityPeriodInDays'];
+            $this->passwordValidityPeriodInDays = is_numeric($data['passwordValidityPeriodInDays']) ? (float)$data['passwordValidityPeriodInDays'] : $data['passwordValidityPeriodInDays'];
         }
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new DomainState($data['state']) : $data['state'];

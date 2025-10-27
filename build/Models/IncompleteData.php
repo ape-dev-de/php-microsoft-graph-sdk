@@ -30,7 +30,7 @@ class IncompleteData
             $this->missingDataBeforeDateTime = is_string($data['missingDataBeforeDateTime']) ? new \DateTimeImmutable($data['missingDataBeforeDateTime']) : $data['missingDataBeforeDateTime'];
         }
         if (isset($data['wasThrottled'])) {
-            $this->wasThrottled = $data['wasThrottled'];
+            $this->wasThrottled = is_bool($data['wasThrottled']) ? $data['wasThrottled'] : (bool)$data['wasThrottled'];
         }
     }
 

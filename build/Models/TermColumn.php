@@ -39,10 +39,10 @@ class TermColumn
     {
         $this->rawData = $data;
         if (isset($data['allowMultipleValues'])) {
-            $this->allowMultipleValues = $data['allowMultipleValues'];
+            $this->allowMultipleValues = is_bool($data['allowMultipleValues']) ? $data['allowMultipleValues'] : (bool)$data['allowMultipleValues'];
         }
         if (isset($data['showFullyQualifiedName'])) {
-            $this->showFullyQualifiedName = $data['showFullyQualifiedName'];
+            $this->showFullyQualifiedName = is_bool($data['showFullyQualifiedName']) ? $data['showFullyQualifiedName'] : (bool)$data['showFullyQualifiedName'];
         }
         if (isset($data['parentTerm'])) {
             $this->parentTerm = is_array($data['parentTerm']) ? new TermStoreTerm($data['parentTerm']) : $data['parentTerm'];

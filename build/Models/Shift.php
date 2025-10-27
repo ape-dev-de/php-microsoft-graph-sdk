@@ -81,7 +81,7 @@ class Shift
             $this->draftShift = is_array($data['draftShift']) ? new ShiftItem($data['draftShift']) : $data['draftShift'];
         }
         if (isset($data['isStagedForDeletion'])) {
-            $this->isStagedForDeletion = $data['isStagedForDeletion'];
+            $this->isStagedForDeletion = is_bool($data['isStagedForDeletion']) ? $data['isStagedForDeletion'] : (bool)$data['isStagedForDeletion'];
         }
         if (isset($data['schedulingGroupId'])) {
             $this->schedulingGroupId = $data['schedulingGroupId'];

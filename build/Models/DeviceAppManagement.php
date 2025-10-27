@@ -129,7 +129,7 @@ class DeviceAppManagement
             $this->id = $data['id'];
         }
         if (isset($data['isEnabledForMicrosoftStoreForBusiness'])) {
-            $this->isEnabledForMicrosoftStoreForBusiness = $data['isEnabledForMicrosoftStoreForBusiness'];
+            $this->isEnabledForMicrosoftStoreForBusiness = is_bool($data['isEnabledForMicrosoftStoreForBusiness']) ? $data['isEnabledForMicrosoftStoreForBusiness'] : (bool)$data['isEnabledForMicrosoftStoreForBusiness'];
         }
         if (isset($data['microsoftStoreForBusinessLanguage'])) {
             $this->microsoftStoreForBusinessLanguage = $data['microsoftStoreForBusinessLanguage'];

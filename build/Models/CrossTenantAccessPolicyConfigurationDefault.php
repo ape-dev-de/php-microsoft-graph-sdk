@@ -99,7 +99,7 @@ class CrossTenantAccessPolicyConfigurationDefault
             $this->invitationRedemptionIdentityProviderConfiguration = is_array($data['invitationRedemptionIdentityProviderConfiguration']) ? new DefaultInvitationRedemptionIdentityProviderConfiguration($data['invitationRedemptionIdentityProviderConfiguration']) : $data['invitationRedemptionIdentityProviderConfiguration'];
         }
         if (isset($data['isServiceDefault'])) {
-            $this->isServiceDefault = $data['isServiceDefault'];
+            $this->isServiceDefault = is_bool($data['isServiceDefault']) ? $data['isServiceDefault'] : (bool)$data['isServiceDefault'];
         }
         if (isset($data['tenantRestrictions'])) {
             $this->tenantRestrictions = is_array($data['tenantRestrictions']) ? new CrossTenantAccessPolicyTenantRestrictions($data['tenantRestrictions']) : $data['tenantRestrictions'];

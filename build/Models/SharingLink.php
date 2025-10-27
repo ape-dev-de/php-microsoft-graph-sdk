@@ -45,7 +45,7 @@ class SharingLink
             $this->application = is_array($data['application']) ? new Identity($data['application']) : $data['application'];
         }
         if (isset($data['preventsDownload'])) {
-            $this->preventsDownload = $data['preventsDownload'];
+            $this->preventsDownload = is_bool($data['preventsDownload']) ? $data['preventsDownload'] : (bool)$data['preventsDownload'];
         }
         if (isset($data['scope'])) {
             $this->scope = $data['scope'];

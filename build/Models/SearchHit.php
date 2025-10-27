@@ -51,10 +51,10 @@ class SearchHit
             $this->hitId = $data['hitId'];
         }
         if (isset($data['isCollapsed'])) {
-            $this->isCollapsed = $data['isCollapsed'];
+            $this->isCollapsed = is_bool($data['isCollapsed']) ? $data['isCollapsed'] : (bool)$data['isCollapsed'];
         }
         if (isset($data['rank'])) {
-            $this->rank = $data['rank'];
+            $this->rank = is_numeric($data['rank']) ? (float)$data['rank'] : $data['rank'];
         }
         if (isset($data['resultTemplateId'])) {
             $this->resultTemplateId = $data['resultTemplateId'];

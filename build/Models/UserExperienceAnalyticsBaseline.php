@@ -84,7 +84,7 @@ class UserExperienceAnalyticsBaseline
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isBuiltIn'])) {
-            $this->isBuiltIn = $data['isBuiltIn'];
+            $this->isBuiltIn = is_bool($data['isBuiltIn']) ? $data['isBuiltIn'] : (bool)$data['isBuiltIn'];
         }
         if (isset($data['appHealthMetrics'])) {
             $this->appHealthMetrics = is_array($data['appHealthMetrics']) ? new UserExperienceAnalyticsCategory($data['appHealthMetrics']) : $data['appHealthMetrics'];

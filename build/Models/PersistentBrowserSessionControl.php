@@ -30,7 +30,7 @@ class PersistentBrowserSessionControl
     {
         $this->rawData = $data;
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['mode'])) {
             $this->mode = is_array($data['mode']) ? new PersistentBrowserSessionMode($data['mode']) : $data['mode'];

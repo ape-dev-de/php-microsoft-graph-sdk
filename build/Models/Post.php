@@ -129,7 +129,7 @@ class Post
             $this->from = is_array($data['from']) ? new Recipient($data['from']) : $data['from'];
         }
         if (isset($data['hasAttachments'])) {
-            $this->hasAttachments = $data['hasAttachments'];
+            $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['newParticipants'])) {
             $this->newParticipants = $data['newParticipants'];

@@ -99,10 +99,10 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -111,19 +111,19 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->enhancedBiometricsState = is_array($data['enhancedBiometricsState']) ? new Enablement($data['enhancedBiometricsState']) : $data['enhancedBiometricsState'];
         }
         if (isset($data['pinExpirationInDays'])) {
-            $this->pinExpirationInDays = $data['pinExpirationInDays'];
+            $this->pinExpirationInDays = is_numeric($data['pinExpirationInDays']) ? (float)$data['pinExpirationInDays'] : $data['pinExpirationInDays'];
         }
         if (isset($data['pinLowercaseCharactersUsage'])) {
             $this->pinLowercaseCharactersUsage = is_array($data['pinLowercaseCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinLowercaseCharactersUsage']) : $data['pinLowercaseCharactersUsage'];
         }
         if (isset($data['pinMaximumLength'])) {
-            $this->pinMaximumLength = $data['pinMaximumLength'];
+            $this->pinMaximumLength = is_numeric($data['pinMaximumLength']) ? (float)$data['pinMaximumLength'] : $data['pinMaximumLength'];
         }
         if (isset($data['pinMinimumLength'])) {
-            $this->pinMinimumLength = $data['pinMinimumLength'];
+            $this->pinMinimumLength = is_numeric($data['pinMinimumLength']) ? (float)$data['pinMinimumLength'] : $data['pinMinimumLength'];
         }
         if (isset($data['pinPreviousBlockCount'])) {
-            $this->pinPreviousBlockCount = $data['pinPreviousBlockCount'];
+            $this->pinPreviousBlockCount = is_numeric($data['pinPreviousBlockCount']) ? (float)$data['pinPreviousBlockCount'] : $data['pinPreviousBlockCount'];
         }
         if (isset($data['pinSpecialCharactersUsage'])) {
             $this->pinSpecialCharactersUsage = is_array($data['pinSpecialCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinSpecialCharactersUsage']) : $data['pinSpecialCharactersUsage'];
@@ -132,16 +132,16 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration
             $this->pinUppercaseCharactersUsage = is_array($data['pinUppercaseCharactersUsage']) ? new WindowsHelloForBusinessPinUsage($data['pinUppercaseCharactersUsage']) : $data['pinUppercaseCharactersUsage'];
         }
         if (isset($data['remotePassportEnabled'])) {
-            $this->remotePassportEnabled = $data['remotePassportEnabled'];
+            $this->remotePassportEnabled = is_bool($data['remotePassportEnabled']) ? $data['remotePassportEnabled'] : (bool)$data['remotePassportEnabled'];
         }
         if (isset($data['securityDeviceRequired'])) {
-            $this->securityDeviceRequired = $data['securityDeviceRequired'];
+            $this->securityDeviceRequired = is_bool($data['securityDeviceRequired']) ? $data['securityDeviceRequired'] : (bool)$data['securityDeviceRequired'];
         }
         if (isset($data['state'])) {
             $this->state = is_array($data['state']) ? new Enablement($data['state']) : $data['state'];
         }
         if (isset($data['unlockWithBiometricsEnabled'])) {
-            $this->unlockWithBiometricsEnabled = $data['unlockWithBiometricsEnabled'];
+            $this->unlockWithBiometricsEnabled = is_bool($data['unlockWithBiometricsEnabled']) ? $data['unlockWithBiometricsEnabled'] : (bool)$data['unlockWithBiometricsEnabled'];
         }
     }
 

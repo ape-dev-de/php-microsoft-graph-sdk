@@ -33,7 +33,7 @@ class AttackSimulationRepeatOffender
             $this->attackSimulationUser = is_array($data['attackSimulationUser']) ? new AttackSimulationUser($data['attackSimulationUser']) : $data['attackSimulationUser'];
         }
         if (isset($data['repeatOffenceCount'])) {
-            $this->repeatOffenceCount = $data['repeatOffenceCount'];
+            $this->repeatOffenceCount = is_numeric($data['repeatOffenceCount']) ? (float)$data['repeatOffenceCount'] : $data['repeatOffenceCount'];
         }
     }
 

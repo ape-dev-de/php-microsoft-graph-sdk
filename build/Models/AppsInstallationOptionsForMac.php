@@ -27,10 +27,10 @@ class AppsInstallationOptionsForMac
     {
         $this->rawData = $data;
         if (isset($data['isMicrosoft365AppsEnabled'])) {
-            $this->isMicrosoft365AppsEnabled = $data['isMicrosoft365AppsEnabled'];
+            $this->isMicrosoft365AppsEnabled = is_bool($data['isMicrosoft365AppsEnabled']) ? $data['isMicrosoft365AppsEnabled'] : (bool)$data['isMicrosoft365AppsEnabled'];
         }
         if (isset($data['isSkypeForBusinessEnabled'])) {
-            $this->isSkypeForBusinessEnabled = $data['isSkypeForBusinessEnabled'];
+            $this->isSkypeForBusinessEnabled = is_bool($data['isSkypeForBusinessEnabled']) ? $data['isSkypeForBusinessEnabled'] : (bool)$data['isSkypeForBusinessEnabled'];
         }
     }
 

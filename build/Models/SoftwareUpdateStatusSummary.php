@@ -72,49 +72,49 @@ class SoftwareUpdateStatusSummary
             $this->id = $data['id'];
         }
         if (isset($data['compliantDeviceCount'])) {
-            $this->compliantDeviceCount = $data['compliantDeviceCount'];
+            $this->compliantDeviceCount = is_numeric($data['compliantDeviceCount']) ? (float)$data['compliantDeviceCount'] : $data['compliantDeviceCount'];
         }
         if (isset($data['compliantUserCount'])) {
-            $this->compliantUserCount = $data['compliantUserCount'];
+            $this->compliantUserCount = is_numeric($data['compliantUserCount']) ? (float)$data['compliantUserCount'] : $data['compliantUserCount'];
         }
         if (isset($data['conflictDeviceCount'])) {
-            $this->conflictDeviceCount = $data['conflictDeviceCount'];
+            $this->conflictDeviceCount = is_numeric($data['conflictDeviceCount']) ? (float)$data['conflictDeviceCount'] : $data['conflictDeviceCount'];
         }
         if (isset($data['conflictUserCount'])) {
-            $this->conflictUserCount = $data['conflictUserCount'];
+            $this->conflictUserCount = is_numeric($data['conflictUserCount']) ? (float)$data['conflictUserCount'] : $data['conflictUserCount'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['errorDeviceCount'])) {
-            $this->errorDeviceCount = $data['errorDeviceCount'];
+            $this->errorDeviceCount = is_numeric($data['errorDeviceCount']) ? (float)$data['errorDeviceCount'] : $data['errorDeviceCount'];
         }
         if (isset($data['errorUserCount'])) {
-            $this->errorUserCount = $data['errorUserCount'];
+            $this->errorUserCount = is_numeric($data['errorUserCount']) ? (float)$data['errorUserCount'] : $data['errorUserCount'];
         }
         if (isset($data['nonCompliantDeviceCount'])) {
-            $this->nonCompliantDeviceCount = $data['nonCompliantDeviceCount'];
+            $this->nonCompliantDeviceCount = is_numeric($data['nonCompliantDeviceCount']) ? (float)$data['nonCompliantDeviceCount'] : $data['nonCompliantDeviceCount'];
         }
         if (isset($data['nonCompliantUserCount'])) {
-            $this->nonCompliantUserCount = $data['nonCompliantUserCount'];
+            $this->nonCompliantUserCount = is_numeric($data['nonCompliantUserCount']) ? (float)$data['nonCompliantUserCount'] : $data['nonCompliantUserCount'];
         }
         if (isset($data['notApplicableDeviceCount'])) {
-            $this->notApplicableDeviceCount = $data['notApplicableDeviceCount'];
+            $this->notApplicableDeviceCount = is_numeric($data['notApplicableDeviceCount']) ? (float)$data['notApplicableDeviceCount'] : $data['notApplicableDeviceCount'];
         }
         if (isset($data['notApplicableUserCount'])) {
-            $this->notApplicableUserCount = $data['notApplicableUserCount'];
+            $this->notApplicableUserCount = is_numeric($data['notApplicableUserCount']) ? (float)$data['notApplicableUserCount'] : $data['notApplicableUserCount'];
         }
         if (isset($data['remediatedDeviceCount'])) {
-            $this->remediatedDeviceCount = $data['remediatedDeviceCount'];
+            $this->remediatedDeviceCount = is_numeric($data['remediatedDeviceCount']) ? (float)$data['remediatedDeviceCount'] : $data['remediatedDeviceCount'];
         }
         if (isset($data['remediatedUserCount'])) {
-            $this->remediatedUserCount = $data['remediatedUserCount'];
+            $this->remediatedUserCount = is_numeric($data['remediatedUserCount']) ? (float)$data['remediatedUserCount'] : $data['remediatedUserCount'];
         }
         if (isset($data['unknownDeviceCount'])) {
-            $this->unknownDeviceCount = $data['unknownDeviceCount'];
+            $this->unknownDeviceCount = is_numeric($data['unknownDeviceCount']) ? (float)$data['unknownDeviceCount'] : $data['unknownDeviceCount'];
         }
         if (isset($data['unknownUserCount'])) {
-            $this->unknownUserCount = $data['unknownUserCount'];
+            $this->unknownUserCount = is_numeric($data['unknownUserCount']) ? (float)$data['unknownUserCount'] : $data['unknownUserCount'];
         }
     }
 

@@ -48,7 +48,7 @@ class ChecklistItem
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isChecked'])) {
-            $this->isChecked = $data['isChecked'];
+            $this->isChecked = is_bool($data['isChecked']) ? $data['isChecked'] : (bool)$data['isChecked'];
         }
     }
 

@@ -45,19 +45,19 @@ class UnifiedApprovalStage
     {
         $this->rawData = $data;
         if (isset($data['approvalStageTimeOutInDays'])) {
-            $this->approvalStageTimeOutInDays = $data['approvalStageTimeOutInDays'];
+            $this->approvalStageTimeOutInDays = is_numeric($data['approvalStageTimeOutInDays']) ? (float)$data['approvalStageTimeOutInDays'] : $data['approvalStageTimeOutInDays'];
         }
         if (isset($data['escalationApprovers'])) {
             $this->escalationApprovers = $data['escalationApprovers'];
         }
         if (isset($data['escalationTimeInMinutes'])) {
-            $this->escalationTimeInMinutes = $data['escalationTimeInMinutes'];
+            $this->escalationTimeInMinutes = is_numeric($data['escalationTimeInMinutes']) ? (float)$data['escalationTimeInMinutes'] : $data['escalationTimeInMinutes'];
         }
         if (isset($data['isApproverJustificationRequired'])) {
-            $this->isApproverJustificationRequired = $data['isApproverJustificationRequired'];
+            $this->isApproverJustificationRequired = is_bool($data['isApproverJustificationRequired']) ? $data['isApproverJustificationRequired'] : (bool)$data['isApproverJustificationRequired'];
         }
         if (isset($data['isEscalationEnabled'])) {
-            $this->isEscalationEnabled = $data['isEscalationEnabled'];
+            $this->isEscalationEnabled = is_bool($data['isEscalationEnabled']) ? $data['isEscalationEnabled'] : (bool)$data['isEscalationEnabled'];
         }
         if (isset($data['primaryApprovers'])) {
             $this->primaryApprovers = $data['primaryApprovers'];

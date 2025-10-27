@@ -54,37 +54,37 @@ class DeviceProtectionOverview
     {
         $this->rawData = $data;
         if (isset($data['cleanDeviceCount'])) {
-            $this->cleanDeviceCount = $data['cleanDeviceCount'];
+            $this->cleanDeviceCount = is_numeric($data['cleanDeviceCount']) ? (float)$data['cleanDeviceCount'] : $data['cleanDeviceCount'];
         }
         if (isset($data['criticalFailuresDeviceCount'])) {
-            $this->criticalFailuresDeviceCount = $data['criticalFailuresDeviceCount'];
+            $this->criticalFailuresDeviceCount = is_numeric($data['criticalFailuresDeviceCount']) ? (float)$data['criticalFailuresDeviceCount'] : $data['criticalFailuresDeviceCount'];
         }
         if (isset($data['inactiveThreatAgentDeviceCount'])) {
-            $this->inactiveThreatAgentDeviceCount = $data['inactiveThreatAgentDeviceCount'];
+            $this->inactiveThreatAgentDeviceCount = is_numeric($data['inactiveThreatAgentDeviceCount']) ? (float)$data['inactiveThreatAgentDeviceCount'] : $data['inactiveThreatAgentDeviceCount'];
         }
         if (isset($data['pendingFullScanDeviceCount'])) {
-            $this->pendingFullScanDeviceCount = $data['pendingFullScanDeviceCount'];
+            $this->pendingFullScanDeviceCount = is_numeric($data['pendingFullScanDeviceCount']) ? (float)$data['pendingFullScanDeviceCount'] : $data['pendingFullScanDeviceCount'];
         }
         if (isset($data['pendingManualStepsDeviceCount'])) {
-            $this->pendingManualStepsDeviceCount = $data['pendingManualStepsDeviceCount'];
+            $this->pendingManualStepsDeviceCount = is_numeric($data['pendingManualStepsDeviceCount']) ? (float)$data['pendingManualStepsDeviceCount'] : $data['pendingManualStepsDeviceCount'];
         }
         if (isset($data['pendingOfflineScanDeviceCount'])) {
-            $this->pendingOfflineScanDeviceCount = $data['pendingOfflineScanDeviceCount'];
+            $this->pendingOfflineScanDeviceCount = is_numeric($data['pendingOfflineScanDeviceCount']) ? (float)$data['pendingOfflineScanDeviceCount'] : $data['pendingOfflineScanDeviceCount'];
         }
         if (isset($data['pendingQuickScanDeviceCount'])) {
-            $this->pendingQuickScanDeviceCount = $data['pendingQuickScanDeviceCount'];
+            $this->pendingQuickScanDeviceCount = is_numeric($data['pendingQuickScanDeviceCount']) ? (float)$data['pendingQuickScanDeviceCount'] : $data['pendingQuickScanDeviceCount'];
         }
         if (isset($data['pendingRestartDeviceCount'])) {
-            $this->pendingRestartDeviceCount = $data['pendingRestartDeviceCount'];
+            $this->pendingRestartDeviceCount = is_numeric($data['pendingRestartDeviceCount']) ? (float)$data['pendingRestartDeviceCount'] : $data['pendingRestartDeviceCount'];
         }
         if (isset($data['pendingSignatureUpdateDeviceCount'])) {
-            $this->pendingSignatureUpdateDeviceCount = $data['pendingSignatureUpdateDeviceCount'];
+            $this->pendingSignatureUpdateDeviceCount = is_numeric($data['pendingSignatureUpdateDeviceCount']) ? (float)$data['pendingSignatureUpdateDeviceCount'] : $data['pendingSignatureUpdateDeviceCount'];
         }
         if (isset($data['totalReportedDeviceCount'])) {
-            $this->totalReportedDeviceCount = $data['totalReportedDeviceCount'];
+            $this->totalReportedDeviceCount = is_numeric($data['totalReportedDeviceCount']) ? (float)$data['totalReportedDeviceCount'] : $data['totalReportedDeviceCount'];
         }
         if (isset($data['unknownStateThreatAgentDeviceCount'])) {
-            $this->unknownStateThreatAgentDeviceCount = $data['unknownStateThreatAgentDeviceCount'];
+            $this->unknownStateThreatAgentDeviceCount = is_numeric($data['unknownStateThreatAgentDeviceCount']) ? (float)$data['unknownStateThreatAgentDeviceCount'] : $data['unknownStateThreatAgentDeviceCount'];
         }
     }
 

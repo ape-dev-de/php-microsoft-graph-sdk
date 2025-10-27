@@ -42,13 +42,13 @@ class TelecomExpenseManagementPartner
             $this->id = $data['id'];
         }
         if (isset($data['appAuthorized'])) {
-            $this->appAuthorized = $data['appAuthorized'];
+            $this->appAuthorized = is_bool($data['appAuthorized']) ? $data['appAuthorized'] : (bool)$data['appAuthorized'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['enabled'])) {
-            $this->enabled = $data['enabled'];
+            $this->enabled = is_bool($data['enabled']) ? $data['enabled'] : (bool)$data['enabled'];
         }
         if (isset($data['lastConnectionDateTime'])) {
             $this->lastConnectionDateTime = is_string($data['lastConnectionDateTime']) ? new \DateTimeImmutable($data['lastConnectionDateTime']) : $data['lastConnectionDateTime'];

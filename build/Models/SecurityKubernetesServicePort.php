@@ -48,10 +48,10 @@ class SecurityKubernetesServicePort
             $this->name = $data['name'];
         }
         if (isset($data['nodePort'])) {
-            $this->nodePort = $data['nodePort'];
+            $this->nodePort = is_numeric($data['nodePort']) ? (float)$data['nodePort'] : $data['nodePort'];
         }
         if (isset($data['port'])) {
-            $this->port = $data['port'];
+            $this->port = is_numeric($data['port']) ? (float)$data['port'] : $data['port'];
         }
         if (isset($data['protocol'])) {
             $this->protocol = is_array($data['protocol']) ? new SecurityContainerPortProtocol($data['protocol']) : $data['protocol'];

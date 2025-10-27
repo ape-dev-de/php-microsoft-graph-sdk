@@ -66,10 +66,10 @@ class Agreement
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isPerDeviceAcceptanceRequired'])) {
-            $this->isPerDeviceAcceptanceRequired = $data['isPerDeviceAcceptanceRequired'];
+            $this->isPerDeviceAcceptanceRequired = is_bool($data['isPerDeviceAcceptanceRequired']) ? $data['isPerDeviceAcceptanceRequired'] : (bool)$data['isPerDeviceAcceptanceRequired'];
         }
         if (isset($data['isViewingBeforeAcceptanceRequired'])) {
-            $this->isViewingBeforeAcceptanceRequired = $data['isViewingBeforeAcceptanceRequired'];
+            $this->isViewingBeforeAcceptanceRequired = is_bool($data['isViewingBeforeAcceptanceRequired']) ? $data['isViewingBeforeAcceptanceRequired'] : (bool)$data['isViewingBeforeAcceptanceRequired'];
         }
         if (isset($data['termsExpiration'])) {
             $this->termsExpiration = is_array($data['termsExpiration']) ? new TermsExpiration($data['termsExpiration']) : $data['termsExpiration'];

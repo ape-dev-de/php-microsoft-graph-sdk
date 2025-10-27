@@ -54,7 +54,7 @@ class DriveItemUploadableProperties
             $this->driveItemSource = is_array($data['driveItemSource']) ? new DriveItemSource($data['driveItemSource']) : $data['driveItemSource'];
         }
         if (isset($data['fileSize'])) {
-            $this->fileSize = $data['fileSize'];
+            $this->fileSize = is_numeric($data['fileSize']) ? (float)$data['fileSize'] : $data['fileSize'];
         }
         if (isset($data['fileSystemInfo'])) {
             $this->fileSystemInfo = is_array($data['fileSystemInfo']) ? new FileSystemInfo($data['fileSystemInfo']) : $data['fileSystemInfo'];

@@ -48,7 +48,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance
             $this->id = $data['id'];
         }
         if (isset($data['activeDeviceCount'])) {
-            $this->activeDeviceCount = $data['activeDeviceCount'];
+            $this->activeDeviceCount = is_numeric($data['activeDeviceCount']) ? (float)$data['activeDeviceCount'] : $data['activeDeviceCount'];
         }
         if (isset($data['deviceManufacturer'])) {
             $this->deviceManufacturer = $data['deviceManufacturer'];
@@ -60,10 +60,10 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance
             $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['meanTimeToFailureInMinutes'])) {
-            $this->meanTimeToFailureInMinutes = $data['meanTimeToFailureInMinutes'];
+            $this->meanTimeToFailureInMinutes = is_numeric($data['meanTimeToFailureInMinutes']) ? (float)$data['meanTimeToFailureInMinutes'] : $data['meanTimeToFailureInMinutes'];
         }
         if (isset($data['modelAppHealthScore'])) {
-            $this->modelAppHealthScore = $data['modelAppHealthScore'];
+            $this->modelAppHealthScore = is_numeric($data['modelAppHealthScore']) ? (float)$data['modelAppHealthScore'] : $data['modelAppHealthScore'];
         }
     }
 

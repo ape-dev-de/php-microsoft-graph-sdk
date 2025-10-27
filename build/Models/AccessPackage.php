@@ -87,7 +87,7 @@ class AccessPackage
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isHidden'])) {
-            $this->isHidden = $data['isHidden'];
+            $this->isHidden = is_bool($data['isHidden']) ? $data['isHidden'] : (bool)$data['isHidden'];
         }
         if (isset($data['modifiedDateTime'])) {
             $this->modifiedDateTime = is_string($data['modifiedDateTime']) ? new \DateTimeImmutable($data['modifiedDateTime']) : $data['modifiedDateTime'];

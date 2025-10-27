@@ -57,13 +57,13 @@ class SynchronizationTemplate
             $this->applicationId = $data['applicationId'];
         }
         if (isset($data['default'])) {
-            $this->default = $data['default'];
+            $this->default = is_bool($data['default']) ? $data['default'] : (bool)$data['default'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
         }
         if (isset($data['discoverable'])) {
-            $this->discoverable = $data['discoverable'];
+            $this->discoverable = is_bool($data['discoverable']) ? $data['discoverable'] : (bool)$data['discoverable'];
         }
         if (isset($data['factoryTag'])) {
             $this->factoryTag = $data['factoryTag'];

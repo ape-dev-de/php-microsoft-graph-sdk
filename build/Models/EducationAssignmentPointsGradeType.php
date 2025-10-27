@@ -27,7 +27,7 @@ class EducationAssignmentPointsGradeType
     {
         $this->rawData = $data;
         if (isset($data['maxPoints'])) {
-            $this->maxPoints = $data['maxPoints'];
+            $this->maxPoints = is_numeric($data['maxPoints']) ? (float)$data['maxPoints'] : $data['maxPoints'];
         }
     }
 

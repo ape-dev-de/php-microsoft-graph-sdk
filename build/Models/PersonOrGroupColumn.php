@@ -30,7 +30,7 @@ class PersonOrGroupColumn
     {
         $this->rawData = $data;
         if (isset($data['allowMultipleSelection'])) {
-            $this->allowMultipleSelection = $data['allowMultipleSelection'];
+            $this->allowMultipleSelection = is_bool($data['allowMultipleSelection']) ? $data['allowMultipleSelection'] : (bool)$data['allowMultipleSelection'];
         }
         if (isset($data['chooseFromType'])) {
             $this->chooseFromType = $data['chooseFromType'];

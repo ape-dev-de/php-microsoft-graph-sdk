@@ -33,7 +33,7 @@ class ServiceProvisioningError
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isResolved'])) {
-            $this->isResolved = $data['isResolved'];
+            $this->isResolved = is_bool($data['isResolved']) ? $data['isResolved'] : (bool)$data['isResolved'];
         }
         if (isset($data['serviceInstance'])) {
             $this->serviceInstance = $data['serviceInstance'];

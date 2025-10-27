@@ -33,7 +33,7 @@ class AzureADJoinPolicy
             $this->allowedToJoin = is_array($data['allowedToJoin']) ? new DeviceRegistrationMembership($data['allowedToJoin']) : $data['allowedToJoin'];
         }
         if (isset($data['isAdminConfigurable'])) {
-            $this->isAdminConfigurable = $data['isAdminConfigurable'];
+            $this->isAdminConfigurable = is_bool($data['isAdminConfigurable']) ? $data['isAdminConfigurable'] : (bool)$data['isAdminConfigurable'];
         }
     }
 

@@ -69,7 +69,7 @@ class B2xIdentityUserFlow
             $this->userFlowType = is_array($data['userFlowType']) ? new UserFlowType($data['userFlowType']) : $data['userFlowType'];
         }
         if (isset($data['userFlowTypeVersion'])) {
-            $this->userFlowTypeVersion = $data['userFlowTypeVersion'];
+            $this->userFlowTypeVersion = is_numeric($data['userFlowTypeVersion']) ? (float)$data['userFlowTypeVersion'] : $data['userFlowTypeVersion'];
         }
         if (isset($data['apiConnectorConfiguration'])) {
             $this->apiConnectorConfiguration = is_array($data['apiConnectorConfiguration']) ? new UserFlowApiConnectorConfiguration($data['apiConnectorConfiguration']) : $data['apiConnectorConfiguration'];

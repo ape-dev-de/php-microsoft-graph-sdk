@@ -189,7 +189,7 @@ class Windows81GeneralConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -210,34 +210,34 @@ class Windows81GeneralConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['accountsBlockAddingNonMicrosoftAccountEmail'])) {
-            $this->accountsBlockAddingNonMicrosoftAccountEmail = $data['accountsBlockAddingNonMicrosoftAccountEmail'];
+            $this->accountsBlockAddingNonMicrosoftAccountEmail = is_bool($data['accountsBlockAddingNonMicrosoftAccountEmail']) ? $data['accountsBlockAddingNonMicrosoftAccountEmail'] : (bool)$data['accountsBlockAddingNonMicrosoftAccountEmail'];
         }
         if (isset($data['applyOnlyToWindows81'])) {
-            $this->applyOnlyToWindows81 = $data['applyOnlyToWindows81'];
+            $this->applyOnlyToWindows81 = is_bool($data['applyOnlyToWindows81']) ? $data['applyOnlyToWindows81'] : (bool)$data['applyOnlyToWindows81'];
         }
         if (isset($data['browserBlockAutofill'])) {
-            $this->browserBlockAutofill = $data['browserBlockAutofill'];
+            $this->browserBlockAutofill = is_bool($data['browserBlockAutofill']) ? $data['browserBlockAutofill'] : (bool)$data['browserBlockAutofill'];
         }
         if (isset($data['browserBlockAutomaticDetectionOfIntranetSites'])) {
-            $this->browserBlockAutomaticDetectionOfIntranetSites = $data['browserBlockAutomaticDetectionOfIntranetSites'];
+            $this->browserBlockAutomaticDetectionOfIntranetSites = is_bool($data['browserBlockAutomaticDetectionOfIntranetSites']) ? $data['browserBlockAutomaticDetectionOfIntranetSites'] : (bool)$data['browserBlockAutomaticDetectionOfIntranetSites'];
         }
         if (isset($data['browserBlockEnterpriseModeAccess'])) {
-            $this->browserBlockEnterpriseModeAccess = $data['browserBlockEnterpriseModeAccess'];
+            $this->browserBlockEnterpriseModeAccess = is_bool($data['browserBlockEnterpriseModeAccess']) ? $data['browserBlockEnterpriseModeAccess'] : (bool)$data['browserBlockEnterpriseModeAccess'];
         }
         if (isset($data['browserBlockJavaScript'])) {
-            $this->browserBlockJavaScript = $data['browserBlockJavaScript'];
+            $this->browserBlockJavaScript = is_bool($data['browserBlockJavaScript']) ? $data['browserBlockJavaScript'] : (bool)$data['browserBlockJavaScript'];
         }
         if (isset($data['browserBlockPlugins'])) {
-            $this->browserBlockPlugins = $data['browserBlockPlugins'];
+            $this->browserBlockPlugins = is_bool($data['browserBlockPlugins']) ? $data['browserBlockPlugins'] : (bool)$data['browserBlockPlugins'];
         }
         if (isset($data['browserBlockPopups'])) {
-            $this->browserBlockPopups = $data['browserBlockPopups'];
+            $this->browserBlockPopups = is_bool($data['browserBlockPopups']) ? $data['browserBlockPopups'] : (bool)$data['browserBlockPopups'];
         }
         if (isset($data['browserBlockSendingDoNotTrackHeader'])) {
-            $this->browserBlockSendingDoNotTrackHeader = $data['browserBlockSendingDoNotTrackHeader'];
+            $this->browserBlockSendingDoNotTrackHeader = is_bool($data['browserBlockSendingDoNotTrackHeader']) ? $data['browserBlockSendingDoNotTrackHeader'] : (bool)$data['browserBlockSendingDoNotTrackHeader'];
         }
         if (isset($data['browserBlockSingleWordEntryOnIntranetSites'])) {
-            $this->browserBlockSingleWordEntryOnIntranetSites = $data['browserBlockSingleWordEntryOnIntranetSites'];
+            $this->browserBlockSingleWordEntryOnIntranetSites = is_bool($data['browserBlockSingleWordEntryOnIntranetSites']) ? $data['browserBlockSingleWordEntryOnIntranetSites'] : (bool)$data['browserBlockSingleWordEntryOnIntranetSites'];
         }
         if (isset($data['browserEnterpriseModeSiteListLocation'])) {
             $this->browserEnterpriseModeSiteListLocation = $data['browserEnterpriseModeSiteListLocation'];
@@ -252,55 +252,55 @@ class Windows81GeneralConfiguration
             $this->browserLoggingReportLocation = $data['browserLoggingReportLocation'];
         }
         if (isset($data['browserRequireFirewall'])) {
-            $this->browserRequireFirewall = $data['browserRequireFirewall'];
+            $this->browserRequireFirewall = is_bool($data['browserRequireFirewall']) ? $data['browserRequireFirewall'] : (bool)$data['browserRequireFirewall'];
         }
         if (isset($data['browserRequireFraudWarning'])) {
-            $this->browserRequireFraudWarning = $data['browserRequireFraudWarning'];
+            $this->browserRequireFraudWarning = is_bool($data['browserRequireFraudWarning']) ? $data['browserRequireFraudWarning'] : (bool)$data['browserRequireFraudWarning'];
         }
         if (isset($data['browserRequireHighSecurityForRestrictedSites'])) {
-            $this->browserRequireHighSecurityForRestrictedSites = $data['browserRequireHighSecurityForRestrictedSites'];
+            $this->browserRequireHighSecurityForRestrictedSites = is_bool($data['browserRequireHighSecurityForRestrictedSites']) ? $data['browserRequireHighSecurityForRestrictedSites'] : (bool)$data['browserRequireHighSecurityForRestrictedSites'];
         }
         if (isset($data['browserRequireSmartScreen'])) {
-            $this->browserRequireSmartScreen = $data['browserRequireSmartScreen'];
+            $this->browserRequireSmartScreen = is_bool($data['browserRequireSmartScreen']) ? $data['browserRequireSmartScreen'] : (bool)$data['browserRequireSmartScreen'];
         }
         if (isset($data['browserTrustedSitesSecurityLevel'])) {
             $this->browserTrustedSitesSecurityLevel = is_array($data['browserTrustedSitesSecurityLevel']) ? new SiteSecurityLevel($data['browserTrustedSitesSecurityLevel']) : $data['browserTrustedSitesSecurityLevel'];
         }
         if (isset($data['cellularBlockDataRoaming'])) {
-            $this->cellularBlockDataRoaming = $data['cellularBlockDataRoaming'];
+            $this->cellularBlockDataRoaming = is_bool($data['cellularBlockDataRoaming']) ? $data['cellularBlockDataRoaming'] : (bool)$data['cellularBlockDataRoaming'];
         }
         if (isset($data['diagnosticsBlockDataSubmission'])) {
-            $this->diagnosticsBlockDataSubmission = $data['diagnosticsBlockDataSubmission'];
+            $this->diagnosticsBlockDataSubmission = is_bool($data['diagnosticsBlockDataSubmission']) ? $data['diagnosticsBlockDataSubmission'] : (bool)$data['diagnosticsBlockDataSubmission'];
         }
         if (isset($data['passwordBlockPicturePasswordAndPin'])) {
-            $this->passwordBlockPicturePasswordAndPin = $data['passwordBlockPicturePasswordAndPin'];
+            $this->passwordBlockPicturePasswordAndPin = is_bool($data['passwordBlockPicturePasswordAndPin']) ? $data['passwordBlockPicturePasswordAndPin'] : (bool)$data['passwordBlockPicturePasswordAndPin'];
         }
         if (isset($data['passwordExpirationDays'])) {
-            $this->passwordExpirationDays = $data['passwordExpirationDays'];
+            $this->passwordExpirationDays = is_numeric($data['passwordExpirationDays']) ? (float)$data['passwordExpirationDays'] : $data['passwordExpirationDays'];
         }
         if (isset($data['passwordMinimumCharacterSetCount'])) {
-            $this->passwordMinimumCharacterSetCount = $data['passwordMinimumCharacterSetCount'];
+            $this->passwordMinimumCharacterSetCount = is_numeric($data['passwordMinimumCharacterSetCount']) ? (float)$data['passwordMinimumCharacterSetCount'] : $data['passwordMinimumCharacterSetCount'];
         }
         if (isset($data['passwordMinimumLength'])) {
-            $this->passwordMinimumLength = $data['passwordMinimumLength'];
+            $this->passwordMinimumLength = is_numeric($data['passwordMinimumLength']) ? (float)$data['passwordMinimumLength'] : $data['passwordMinimumLength'];
         }
         if (isset($data['passwordMinutesOfInactivityBeforeScreenTimeout'])) {
-            $this->passwordMinutesOfInactivityBeforeScreenTimeout = $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
+            $this->passwordMinutesOfInactivityBeforeScreenTimeout = is_numeric($data['passwordMinutesOfInactivityBeforeScreenTimeout']) ? (float)$data['passwordMinutesOfInactivityBeforeScreenTimeout'] : $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
         }
         if (isset($data['passwordPreviousPasswordBlockCount'])) {
-            $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
+            $this->passwordPreviousPasswordBlockCount = is_numeric($data['passwordPreviousPasswordBlockCount']) ? (float)$data['passwordPreviousPasswordBlockCount'] : $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequiredType'])) {
             $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
-            $this->passwordSignInFailureCountBeforeFactoryReset = $data['passwordSignInFailureCountBeforeFactoryReset'];
+            $this->passwordSignInFailureCountBeforeFactoryReset = is_numeric($data['passwordSignInFailureCountBeforeFactoryReset']) ? (float)$data['passwordSignInFailureCountBeforeFactoryReset'] : $data['passwordSignInFailureCountBeforeFactoryReset'];
         }
         if (isset($data['storageRequireDeviceEncryption'])) {
-            $this->storageRequireDeviceEncryption = $data['storageRequireDeviceEncryption'];
+            $this->storageRequireDeviceEncryption = is_bool($data['storageRequireDeviceEncryption']) ? $data['storageRequireDeviceEncryption'] : (bool)$data['storageRequireDeviceEncryption'];
         }
         if (isset($data['updatesRequireAutomaticUpdates'])) {
-            $this->updatesRequireAutomaticUpdates = $data['updatesRequireAutomaticUpdates'];
+            $this->updatesRequireAutomaticUpdates = is_bool($data['updatesRequireAutomaticUpdates']) ? $data['updatesRequireAutomaticUpdates'] : (bool)$data['updatesRequireAutomaticUpdates'];
         }
         if (isset($data['userAccountControlSettings'])) {
             $this->userAccountControlSettings = is_array($data['userAccountControlSettings']) ? new WindowsUserAccountControlSettings($data['userAccountControlSettings']) : $data['userAccountControlSettings'];

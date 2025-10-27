@@ -138,7 +138,7 @@ class IosCompliancePolicy
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -162,13 +162,13 @@ class IosCompliancePolicy
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceComplianceUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['deviceThreatProtectionEnabled'])) {
-            $this->deviceThreatProtectionEnabled = $data['deviceThreatProtectionEnabled'];
+            $this->deviceThreatProtectionEnabled = is_bool($data['deviceThreatProtectionEnabled']) ? $data['deviceThreatProtectionEnabled'] : (bool)$data['deviceThreatProtectionEnabled'];
         }
         if (isset($data['deviceThreatProtectionRequiredSecurityLevel'])) {
             $this->deviceThreatProtectionRequiredSecurityLevel = is_array($data['deviceThreatProtectionRequiredSecurityLevel']) ? new DeviceThreatProtectionLevel($data['deviceThreatProtectionRequiredSecurityLevel']) : $data['deviceThreatProtectionRequiredSecurityLevel'];
         }
         if (isset($data['managedEmailProfileRequired'])) {
-            $this->managedEmailProfileRequired = $data['managedEmailProfileRequired'];
+            $this->managedEmailProfileRequired = is_bool($data['managedEmailProfileRequired']) ? $data['managedEmailProfileRequired'] : (bool)$data['managedEmailProfileRequired'];
         }
         if (isset($data['osMaximumVersion'])) {
             $this->osMaximumVersion = $data['osMaximumVersion'];
@@ -177,31 +177,31 @@ class IosCompliancePolicy
             $this->osMinimumVersion = $data['osMinimumVersion'];
         }
         if (isset($data['passcodeBlockSimple'])) {
-            $this->passcodeBlockSimple = $data['passcodeBlockSimple'];
+            $this->passcodeBlockSimple = is_bool($data['passcodeBlockSimple']) ? $data['passcodeBlockSimple'] : (bool)$data['passcodeBlockSimple'];
         }
         if (isset($data['passcodeExpirationDays'])) {
-            $this->passcodeExpirationDays = $data['passcodeExpirationDays'];
+            $this->passcodeExpirationDays = is_numeric($data['passcodeExpirationDays']) ? (float)$data['passcodeExpirationDays'] : $data['passcodeExpirationDays'];
         }
         if (isset($data['passcodeMinimumCharacterSetCount'])) {
-            $this->passcodeMinimumCharacterSetCount = $data['passcodeMinimumCharacterSetCount'];
+            $this->passcodeMinimumCharacterSetCount = is_numeric($data['passcodeMinimumCharacterSetCount']) ? (float)$data['passcodeMinimumCharacterSetCount'] : $data['passcodeMinimumCharacterSetCount'];
         }
         if (isset($data['passcodeMinimumLength'])) {
-            $this->passcodeMinimumLength = $data['passcodeMinimumLength'];
+            $this->passcodeMinimumLength = is_numeric($data['passcodeMinimumLength']) ? (float)$data['passcodeMinimumLength'] : $data['passcodeMinimumLength'];
         }
         if (isset($data['passcodeMinutesOfInactivityBeforeLock'])) {
-            $this->passcodeMinutesOfInactivityBeforeLock = $data['passcodeMinutesOfInactivityBeforeLock'];
+            $this->passcodeMinutesOfInactivityBeforeLock = is_numeric($data['passcodeMinutesOfInactivityBeforeLock']) ? (float)$data['passcodeMinutesOfInactivityBeforeLock'] : $data['passcodeMinutesOfInactivityBeforeLock'];
         }
         if (isset($data['passcodePreviousPasscodeBlockCount'])) {
-            $this->passcodePreviousPasscodeBlockCount = $data['passcodePreviousPasscodeBlockCount'];
+            $this->passcodePreviousPasscodeBlockCount = is_numeric($data['passcodePreviousPasscodeBlockCount']) ? (float)$data['passcodePreviousPasscodeBlockCount'] : $data['passcodePreviousPasscodeBlockCount'];
         }
         if (isset($data['passcodeRequired'])) {
-            $this->passcodeRequired = $data['passcodeRequired'];
+            $this->passcodeRequired = is_bool($data['passcodeRequired']) ? $data['passcodeRequired'] : (bool)$data['passcodeRequired'];
         }
         if (isset($data['passcodeRequiredType'])) {
             $this->passcodeRequiredType = is_array($data['passcodeRequiredType']) ? new RequiredPasswordType($data['passcodeRequiredType']) : $data['passcodeRequiredType'];
         }
         if (isset($data['securityBlockJailbrokenDevices'])) {
-            $this->securityBlockJailbrokenDevices = $data['securityBlockJailbrokenDevices'];
+            $this->securityBlockJailbrokenDevices = is_bool($data['securityBlockJailbrokenDevices']) ? $data['securityBlockJailbrokenDevices'] : (bool)$data['securityBlockJailbrokenDevices'];
         }
     }
 

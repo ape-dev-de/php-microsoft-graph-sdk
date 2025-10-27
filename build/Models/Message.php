@@ -216,7 +216,7 @@ class Message
             $this->from = is_array($data['from']) ? new Recipient($data['from']) : $data['from'];
         }
         if (isset($data['hasAttachments'])) {
-            $this->hasAttachments = $data['hasAttachments'];
+            $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['importance'])) {
             $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
@@ -231,16 +231,16 @@ class Message
             $this->internetMessageId = $data['internetMessageId'];
         }
         if (isset($data['isDeliveryReceiptRequested'])) {
-            $this->isDeliveryReceiptRequested = $data['isDeliveryReceiptRequested'];
+            $this->isDeliveryReceiptRequested = is_bool($data['isDeliveryReceiptRequested']) ? $data['isDeliveryReceiptRequested'] : (bool)$data['isDeliveryReceiptRequested'];
         }
         if (isset($data['isDraft'])) {
-            $this->isDraft = $data['isDraft'];
+            $this->isDraft = is_bool($data['isDraft']) ? $data['isDraft'] : (bool)$data['isDraft'];
         }
         if (isset($data['isRead'])) {
-            $this->isRead = $data['isRead'];
+            $this->isRead = is_bool($data['isRead']) ? $data['isRead'] : (bool)$data['isRead'];
         }
         if (isset($data['isReadReceiptRequested'])) {
-            $this->isReadReceiptRequested = $data['isReadReceiptRequested'];
+            $this->isReadReceiptRequested = is_bool($data['isReadReceiptRequested']) ? $data['isReadReceiptRequested'] : (bool)$data['isReadReceiptRequested'];
         }
         if (isset($data['parentFolderId'])) {
             $this->parentFolderId = $data['parentFolderId'];

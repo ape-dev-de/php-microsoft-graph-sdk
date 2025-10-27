@@ -39,10 +39,10 @@ class DeviceEnrollmentPlatformRestriction
             $this->osMinimumVersion = $data['osMinimumVersion'];
         }
         if (isset($data['personalDeviceEnrollmentBlocked'])) {
-            $this->personalDeviceEnrollmentBlocked = $data['personalDeviceEnrollmentBlocked'];
+            $this->personalDeviceEnrollmentBlocked = is_bool($data['personalDeviceEnrollmentBlocked']) ? $data['personalDeviceEnrollmentBlocked'] : (bool)$data['personalDeviceEnrollmentBlocked'];
         }
         if (isset($data['platformBlocked'])) {
-            $this->platformBlocked = $data['platformBlocked'];
+            $this->platformBlocked = is_bool($data['platformBlocked']) ? $data['platformBlocked'] : (bool)$data['platformBlocked'];
         }
     }
 

@@ -39,22 +39,22 @@ class TeamMemberSettings
     {
         $this->rawData = $data;
         if (isset($data['allowAddRemoveApps'])) {
-            $this->allowAddRemoveApps = $data['allowAddRemoveApps'];
+            $this->allowAddRemoveApps = is_bool($data['allowAddRemoveApps']) ? $data['allowAddRemoveApps'] : (bool)$data['allowAddRemoveApps'];
         }
         if (isset($data['allowCreatePrivateChannels'])) {
-            $this->allowCreatePrivateChannels = $data['allowCreatePrivateChannels'];
+            $this->allowCreatePrivateChannels = is_bool($data['allowCreatePrivateChannels']) ? $data['allowCreatePrivateChannels'] : (bool)$data['allowCreatePrivateChannels'];
         }
         if (isset($data['allowCreateUpdateChannels'])) {
-            $this->allowCreateUpdateChannels = $data['allowCreateUpdateChannels'];
+            $this->allowCreateUpdateChannels = is_bool($data['allowCreateUpdateChannels']) ? $data['allowCreateUpdateChannels'] : (bool)$data['allowCreateUpdateChannels'];
         }
         if (isset($data['allowCreateUpdateRemoveConnectors'])) {
-            $this->allowCreateUpdateRemoveConnectors = $data['allowCreateUpdateRemoveConnectors'];
+            $this->allowCreateUpdateRemoveConnectors = is_bool($data['allowCreateUpdateRemoveConnectors']) ? $data['allowCreateUpdateRemoveConnectors'] : (bool)$data['allowCreateUpdateRemoveConnectors'];
         }
         if (isset($data['allowCreateUpdateRemoveTabs'])) {
-            $this->allowCreateUpdateRemoveTabs = $data['allowCreateUpdateRemoveTabs'];
+            $this->allowCreateUpdateRemoveTabs = is_bool($data['allowCreateUpdateRemoveTabs']) ? $data['allowCreateUpdateRemoveTabs'] : (bool)$data['allowCreateUpdateRemoveTabs'];
         }
         if (isset($data['allowDeleteChannels'])) {
-            $this->allowDeleteChannels = $data['allowDeleteChannels'];
+            $this->allowDeleteChannels = is_bool($data['allowDeleteChannels']) ? $data['allowDeleteChannels'] : (bool)$data['allowDeleteChannels'];
         }
     }
 

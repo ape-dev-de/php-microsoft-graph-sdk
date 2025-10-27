@@ -48,7 +48,7 @@ class AttachmentBase
             $this->name = $data['name'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
     }
 

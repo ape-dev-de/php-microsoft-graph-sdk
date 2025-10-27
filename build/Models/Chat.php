@@ -108,7 +108,7 @@ class Chat
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isHiddenForAllMembers'])) {
-            $this->isHiddenForAllMembers = $data['isHiddenForAllMembers'];
+            $this->isHiddenForAllMembers = is_bool($data['isHiddenForAllMembers']) ? $data['isHiddenForAllMembers'] : (bool)$data['isHiddenForAllMembers'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];

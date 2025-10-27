@@ -51,7 +51,7 @@ class UserTrainingContentEventInfo
             $this->osPlatformDeviceDetails = $data['osPlatformDeviceDetails'];
         }
         if (isset($data['potentialScoreImpact'])) {
-            $this->potentialScoreImpact = $data['potentialScoreImpact'];
+            $this->potentialScoreImpact = is_numeric($data['potentialScoreImpact']) ? (float)$data['potentialScoreImpact'] : $data['potentialScoreImpact'];
         }
     }
 

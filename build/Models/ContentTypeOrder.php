@@ -27,10 +27,10 @@ class ContentTypeOrder
     {
         $this->rawData = $data;
         if (isset($data['default'])) {
-            $this->default = $data['default'];
+            $this->default = is_bool($data['default']) ? $data['default'] : (bool)$data['default'];
         }
         if (isset($data['position'])) {
-            $this->position = $data['position'];
+            $this->position = is_numeric($data['position']) ? (float)$data['position'] : $data['position'];
         }
     }
 

@@ -717,7 +717,7 @@ class Windows10GeneralConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -738,64 +738,64 @@ class Windows10GeneralConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['accountsBlockAddingNonMicrosoftAccountEmail'])) {
-            $this->accountsBlockAddingNonMicrosoftAccountEmail = $data['accountsBlockAddingNonMicrosoftAccountEmail'];
+            $this->accountsBlockAddingNonMicrosoftAccountEmail = is_bool($data['accountsBlockAddingNonMicrosoftAccountEmail']) ? $data['accountsBlockAddingNonMicrosoftAccountEmail'] : (bool)$data['accountsBlockAddingNonMicrosoftAccountEmail'];
         }
         if (isset($data['antiTheftModeBlocked'])) {
-            $this->antiTheftModeBlocked = $data['antiTheftModeBlocked'];
+            $this->antiTheftModeBlocked = is_bool($data['antiTheftModeBlocked']) ? $data['antiTheftModeBlocked'] : (bool)$data['antiTheftModeBlocked'];
         }
         if (isset($data['appsAllowTrustedAppsSideloading'])) {
             $this->appsAllowTrustedAppsSideloading = is_array($data['appsAllowTrustedAppsSideloading']) ? new StateManagementSetting($data['appsAllowTrustedAppsSideloading']) : $data['appsAllowTrustedAppsSideloading'];
         }
         if (isset($data['appsBlockWindowsStoreOriginatedApps'])) {
-            $this->appsBlockWindowsStoreOriginatedApps = $data['appsBlockWindowsStoreOriginatedApps'];
+            $this->appsBlockWindowsStoreOriginatedApps = is_bool($data['appsBlockWindowsStoreOriginatedApps']) ? $data['appsBlockWindowsStoreOriginatedApps'] : (bool)$data['appsBlockWindowsStoreOriginatedApps'];
         }
         if (isset($data['bluetoothAllowedServices'])) {
             $this->bluetoothAllowedServices = $data['bluetoothAllowedServices'];
         }
         if (isset($data['bluetoothBlockAdvertising'])) {
-            $this->bluetoothBlockAdvertising = $data['bluetoothBlockAdvertising'];
+            $this->bluetoothBlockAdvertising = is_bool($data['bluetoothBlockAdvertising']) ? $data['bluetoothBlockAdvertising'] : (bool)$data['bluetoothBlockAdvertising'];
         }
         if (isset($data['bluetoothBlockDiscoverableMode'])) {
-            $this->bluetoothBlockDiscoverableMode = $data['bluetoothBlockDiscoverableMode'];
+            $this->bluetoothBlockDiscoverableMode = is_bool($data['bluetoothBlockDiscoverableMode']) ? $data['bluetoothBlockDiscoverableMode'] : (bool)$data['bluetoothBlockDiscoverableMode'];
         }
         if (isset($data['bluetoothBlocked'])) {
-            $this->bluetoothBlocked = $data['bluetoothBlocked'];
+            $this->bluetoothBlocked = is_bool($data['bluetoothBlocked']) ? $data['bluetoothBlocked'] : (bool)$data['bluetoothBlocked'];
         }
         if (isset($data['bluetoothBlockPrePairing'])) {
-            $this->bluetoothBlockPrePairing = $data['bluetoothBlockPrePairing'];
+            $this->bluetoothBlockPrePairing = is_bool($data['bluetoothBlockPrePairing']) ? $data['bluetoothBlockPrePairing'] : (bool)$data['bluetoothBlockPrePairing'];
         }
         if (isset($data['cameraBlocked'])) {
-            $this->cameraBlocked = $data['cameraBlocked'];
+            $this->cameraBlocked = is_bool($data['cameraBlocked']) ? $data['cameraBlocked'] : (bool)$data['cameraBlocked'];
         }
         if (isset($data['cellularBlockDataWhenRoaming'])) {
-            $this->cellularBlockDataWhenRoaming = $data['cellularBlockDataWhenRoaming'];
+            $this->cellularBlockDataWhenRoaming = is_bool($data['cellularBlockDataWhenRoaming']) ? $data['cellularBlockDataWhenRoaming'] : (bool)$data['cellularBlockDataWhenRoaming'];
         }
         if (isset($data['cellularBlockVpn'])) {
-            $this->cellularBlockVpn = $data['cellularBlockVpn'];
+            $this->cellularBlockVpn = is_bool($data['cellularBlockVpn']) ? $data['cellularBlockVpn'] : (bool)$data['cellularBlockVpn'];
         }
         if (isset($data['cellularBlockVpnWhenRoaming'])) {
-            $this->cellularBlockVpnWhenRoaming = $data['cellularBlockVpnWhenRoaming'];
+            $this->cellularBlockVpnWhenRoaming = is_bool($data['cellularBlockVpnWhenRoaming']) ? $data['cellularBlockVpnWhenRoaming'] : (bool)$data['cellularBlockVpnWhenRoaming'];
         }
         if (isset($data['certificatesBlockManualRootCertificateInstallation'])) {
-            $this->certificatesBlockManualRootCertificateInstallation = $data['certificatesBlockManualRootCertificateInstallation'];
+            $this->certificatesBlockManualRootCertificateInstallation = is_bool($data['certificatesBlockManualRootCertificateInstallation']) ? $data['certificatesBlockManualRootCertificateInstallation'] : (bool)$data['certificatesBlockManualRootCertificateInstallation'];
         }
         if (isset($data['connectedDevicesServiceBlocked'])) {
-            $this->connectedDevicesServiceBlocked = $data['connectedDevicesServiceBlocked'];
+            $this->connectedDevicesServiceBlocked = is_bool($data['connectedDevicesServiceBlocked']) ? $data['connectedDevicesServiceBlocked'] : (bool)$data['connectedDevicesServiceBlocked'];
         }
         if (isset($data['copyPasteBlocked'])) {
-            $this->copyPasteBlocked = $data['copyPasteBlocked'];
+            $this->copyPasteBlocked = is_bool($data['copyPasteBlocked']) ? $data['copyPasteBlocked'] : (bool)$data['copyPasteBlocked'];
         }
         if (isset($data['cortanaBlocked'])) {
-            $this->cortanaBlocked = $data['cortanaBlocked'];
+            $this->cortanaBlocked = is_bool($data['cortanaBlocked']) ? $data['cortanaBlocked'] : (bool)$data['cortanaBlocked'];
         }
         if (isset($data['defenderBlockEndUserAccess'])) {
-            $this->defenderBlockEndUserAccess = $data['defenderBlockEndUserAccess'];
+            $this->defenderBlockEndUserAccess = is_bool($data['defenderBlockEndUserAccess']) ? $data['defenderBlockEndUserAccess'] : (bool)$data['defenderBlockEndUserAccess'];
         }
         if (isset($data['defenderCloudBlockLevel'])) {
             $this->defenderCloudBlockLevel = is_array($data['defenderCloudBlockLevel']) ? new DefenderCloudBlockLevelType($data['defenderCloudBlockLevel']) : $data['defenderCloudBlockLevel'];
         }
         if (isset($data['defenderDaysBeforeDeletingQuarantinedMalware'])) {
-            $this->defenderDaysBeforeDeletingQuarantinedMalware = $data['defenderDaysBeforeDeletingQuarantinedMalware'];
+            $this->defenderDaysBeforeDeletingQuarantinedMalware = is_numeric($data['defenderDaysBeforeDeletingQuarantinedMalware']) ? (float)$data['defenderDaysBeforeDeletingQuarantinedMalware'] : $data['defenderDaysBeforeDeletingQuarantinedMalware'];
         }
         if (isset($data['defenderDetectedMalwareActions'])) {
             $this->defenderDetectedMalwareActions = is_array($data['defenderDetectedMalwareActions']) ? new DefenderDetectedMalwareActions($data['defenderDetectedMalwareActions']) : $data['defenderDetectedMalwareActions'];
@@ -816,40 +816,40 @@ class Windows10GeneralConfiguration
             $this->defenderPromptForSampleSubmission = is_array($data['defenderPromptForSampleSubmission']) ? new DefenderPromptForSampleSubmission($data['defenderPromptForSampleSubmission']) : $data['defenderPromptForSampleSubmission'];
         }
         if (isset($data['defenderRequireBehaviorMonitoring'])) {
-            $this->defenderRequireBehaviorMonitoring = $data['defenderRequireBehaviorMonitoring'];
+            $this->defenderRequireBehaviorMonitoring = is_bool($data['defenderRequireBehaviorMonitoring']) ? $data['defenderRequireBehaviorMonitoring'] : (bool)$data['defenderRequireBehaviorMonitoring'];
         }
         if (isset($data['defenderRequireCloudProtection'])) {
-            $this->defenderRequireCloudProtection = $data['defenderRequireCloudProtection'];
+            $this->defenderRequireCloudProtection = is_bool($data['defenderRequireCloudProtection']) ? $data['defenderRequireCloudProtection'] : (bool)$data['defenderRequireCloudProtection'];
         }
         if (isset($data['defenderRequireNetworkInspectionSystem'])) {
-            $this->defenderRequireNetworkInspectionSystem = $data['defenderRequireNetworkInspectionSystem'];
+            $this->defenderRequireNetworkInspectionSystem = is_bool($data['defenderRequireNetworkInspectionSystem']) ? $data['defenderRequireNetworkInspectionSystem'] : (bool)$data['defenderRequireNetworkInspectionSystem'];
         }
         if (isset($data['defenderRequireRealTimeMonitoring'])) {
-            $this->defenderRequireRealTimeMonitoring = $data['defenderRequireRealTimeMonitoring'];
+            $this->defenderRequireRealTimeMonitoring = is_bool($data['defenderRequireRealTimeMonitoring']) ? $data['defenderRequireRealTimeMonitoring'] : (bool)$data['defenderRequireRealTimeMonitoring'];
         }
         if (isset($data['defenderScanArchiveFiles'])) {
-            $this->defenderScanArchiveFiles = $data['defenderScanArchiveFiles'];
+            $this->defenderScanArchiveFiles = is_bool($data['defenderScanArchiveFiles']) ? $data['defenderScanArchiveFiles'] : (bool)$data['defenderScanArchiveFiles'];
         }
         if (isset($data['defenderScanDownloads'])) {
-            $this->defenderScanDownloads = $data['defenderScanDownloads'];
+            $this->defenderScanDownloads = is_bool($data['defenderScanDownloads']) ? $data['defenderScanDownloads'] : (bool)$data['defenderScanDownloads'];
         }
         if (isset($data['defenderScanIncomingMail'])) {
-            $this->defenderScanIncomingMail = $data['defenderScanIncomingMail'];
+            $this->defenderScanIncomingMail = is_bool($data['defenderScanIncomingMail']) ? $data['defenderScanIncomingMail'] : (bool)$data['defenderScanIncomingMail'];
         }
         if (isset($data['defenderScanMappedNetworkDrivesDuringFullScan'])) {
-            $this->defenderScanMappedNetworkDrivesDuringFullScan = $data['defenderScanMappedNetworkDrivesDuringFullScan'];
+            $this->defenderScanMappedNetworkDrivesDuringFullScan = is_bool($data['defenderScanMappedNetworkDrivesDuringFullScan']) ? $data['defenderScanMappedNetworkDrivesDuringFullScan'] : (bool)$data['defenderScanMappedNetworkDrivesDuringFullScan'];
         }
         if (isset($data['defenderScanMaxCpu'])) {
-            $this->defenderScanMaxCpu = $data['defenderScanMaxCpu'];
+            $this->defenderScanMaxCpu = is_numeric($data['defenderScanMaxCpu']) ? (float)$data['defenderScanMaxCpu'] : $data['defenderScanMaxCpu'];
         }
         if (isset($data['defenderScanNetworkFiles'])) {
-            $this->defenderScanNetworkFiles = $data['defenderScanNetworkFiles'];
+            $this->defenderScanNetworkFiles = is_bool($data['defenderScanNetworkFiles']) ? $data['defenderScanNetworkFiles'] : (bool)$data['defenderScanNetworkFiles'];
         }
         if (isset($data['defenderScanRemovableDrivesDuringFullScan'])) {
-            $this->defenderScanRemovableDrivesDuringFullScan = $data['defenderScanRemovableDrivesDuringFullScan'];
+            $this->defenderScanRemovableDrivesDuringFullScan = is_bool($data['defenderScanRemovableDrivesDuringFullScan']) ? $data['defenderScanRemovableDrivesDuringFullScan'] : (bool)$data['defenderScanRemovableDrivesDuringFullScan'];
         }
         if (isset($data['defenderScanScriptsLoadedInInternetExplorer'])) {
-            $this->defenderScanScriptsLoadedInInternetExplorer = $data['defenderScanScriptsLoadedInInternetExplorer'];
+            $this->defenderScanScriptsLoadedInInternetExplorer = is_bool($data['defenderScanScriptsLoadedInInternetExplorer']) ? $data['defenderScanScriptsLoadedInInternetExplorer'] : (bool)$data['defenderScanScriptsLoadedInInternetExplorer'];
         }
         if (isset($data['defenderScanType'])) {
             $this->defenderScanType = is_array($data['defenderScanType']) ? new DefenderScanType($data['defenderScanType']) : $data['defenderScanType'];
@@ -861,7 +861,7 @@ class Windows10GeneralConfiguration
             $this->defenderScheduledScanTime = $data['defenderScheduledScanTime'];
         }
         if (isset($data['defenderSignatureUpdateIntervalInHours'])) {
-            $this->defenderSignatureUpdateIntervalInHours = $data['defenderSignatureUpdateIntervalInHours'];
+            $this->defenderSignatureUpdateIntervalInHours = is_numeric($data['defenderSignatureUpdateIntervalInHours']) ? (float)$data['defenderSignatureUpdateIntervalInHours'] : $data['defenderSignatureUpdateIntervalInHours'];
         }
         if (isset($data['defenderSystemScanSchedule'])) {
             $this->defenderSystemScanSchedule = is_array($data['defenderSystemScanSchedule']) ? new WeeklySchedule($data['defenderSystemScanSchedule']) : $data['defenderSystemScanSchedule'];
@@ -870,70 +870,70 @@ class Windows10GeneralConfiguration
             $this->developerUnlockSetting = is_array($data['developerUnlockSetting']) ? new StateManagementSetting($data['developerUnlockSetting']) : $data['developerUnlockSetting'];
         }
         if (isset($data['deviceManagementBlockFactoryResetOnMobile'])) {
-            $this->deviceManagementBlockFactoryResetOnMobile = $data['deviceManagementBlockFactoryResetOnMobile'];
+            $this->deviceManagementBlockFactoryResetOnMobile = is_bool($data['deviceManagementBlockFactoryResetOnMobile']) ? $data['deviceManagementBlockFactoryResetOnMobile'] : (bool)$data['deviceManagementBlockFactoryResetOnMobile'];
         }
         if (isset($data['deviceManagementBlockManualUnenroll'])) {
-            $this->deviceManagementBlockManualUnenroll = $data['deviceManagementBlockManualUnenroll'];
+            $this->deviceManagementBlockManualUnenroll = is_bool($data['deviceManagementBlockManualUnenroll']) ? $data['deviceManagementBlockManualUnenroll'] : (bool)$data['deviceManagementBlockManualUnenroll'];
         }
         if (isset($data['diagnosticsDataSubmissionMode'])) {
             $this->diagnosticsDataSubmissionMode = is_array($data['diagnosticsDataSubmissionMode']) ? new DiagnosticDataSubmissionMode($data['diagnosticsDataSubmissionMode']) : $data['diagnosticsDataSubmissionMode'];
         }
         if (isset($data['edgeAllowStartPagesModification'])) {
-            $this->edgeAllowStartPagesModification = $data['edgeAllowStartPagesModification'];
+            $this->edgeAllowStartPagesModification = is_bool($data['edgeAllowStartPagesModification']) ? $data['edgeAllowStartPagesModification'] : (bool)$data['edgeAllowStartPagesModification'];
         }
         if (isset($data['edgeBlockAccessToAboutFlags'])) {
-            $this->edgeBlockAccessToAboutFlags = $data['edgeBlockAccessToAboutFlags'];
+            $this->edgeBlockAccessToAboutFlags = is_bool($data['edgeBlockAccessToAboutFlags']) ? $data['edgeBlockAccessToAboutFlags'] : (bool)$data['edgeBlockAccessToAboutFlags'];
         }
         if (isset($data['edgeBlockAddressBarDropdown'])) {
-            $this->edgeBlockAddressBarDropdown = $data['edgeBlockAddressBarDropdown'];
+            $this->edgeBlockAddressBarDropdown = is_bool($data['edgeBlockAddressBarDropdown']) ? $data['edgeBlockAddressBarDropdown'] : (bool)$data['edgeBlockAddressBarDropdown'];
         }
         if (isset($data['edgeBlockAutofill'])) {
-            $this->edgeBlockAutofill = $data['edgeBlockAutofill'];
+            $this->edgeBlockAutofill = is_bool($data['edgeBlockAutofill']) ? $data['edgeBlockAutofill'] : (bool)$data['edgeBlockAutofill'];
         }
         if (isset($data['edgeBlockCompatibilityList'])) {
-            $this->edgeBlockCompatibilityList = $data['edgeBlockCompatibilityList'];
+            $this->edgeBlockCompatibilityList = is_bool($data['edgeBlockCompatibilityList']) ? $data['edgeBlockCompatibilityList'] : (bool)$data['edgeBlockCompatibilityList'];
         }
         if (isset($data['edgeBlockDeveloperTools'])) {
-            $this->edgeBlockDeveloperTools = $data['edgeBlockDeveloperTools'];
+            $this->edgeBlockDeveloperTools = is_bool($data['edgeBlockDeveloperTools']) ? $data['edgeBlockDeveloperTools'] : (bool)$data['edgeBlockDeveloperTools'];
         }
         if (isset($data['edgeBlocked'])) {
-            $this->edgeBlocked = $data['edgeBlocked'];
+            $this->edgeBlocked = is_bool($data['edgeBlocked']) ? $data['edgeBlocked'] : (bool)$data['edgeBlocked'];
         }
         if (isset($data['edgeBlockExtensions'])) {
-            $this->edgeBlockExtensions = $data['edgeBlockExtensions'];
+            $this->edgeBlockExtensions = is_bool($data['edgeBlockExtensions']) ? $data['edgeBlockExtensions'] : (bool)$data['edgeBlockExtensions'];
         }
         if (isset($data['edgeBlockInPrivateBrowsing'])) {
-            $this->edgeBlockInPrivateBrowsing = $data['edgeBlockInPrivateBrowsing'];
+            $this->edgeBlockInPrivateBrowsing = is_bool($data['edgeBlockInPrivateBrowsing']) ? $data['edgeBlockInPrivateBrowsing'] : (bool)$data['edgeBlockInPrivateBrowsing'];
         }
         if (isset($data['edgeBlockJavaScript'])) {
-            $this->edgeBlockJavaScript = $data['edgeBlockJavaScript'];
+            $this->edgeBlockJavaScript = is_bool($data['edgeBlockJavaScript']) ? $data['edgeBlockJavaScript'] : (bool)$data['edgeBlockJavaScript'];
         }
         if (isset($data['edgeBlockLiveTileDataCollection'])) {
-            $this->edgeBlockLiveTileDataCollection = $data['edgeBlockLiveTileDataCollection'];
+            $this->edgeBlockLiveTileDataCollection = is_bool($data['edgeBlockLiveTileDataCollection']) ? $data['edgeBlockLiveTileDataCollection'] : (bool)$data['edgeBlockLiveTileDataCollection'];
         }
         if (isset($data['edgeBlockPasswordManager'])) {
-            $this->edgeBlockPasswordManager = $data['edgeBlockPasswordManager'];
+            $this->edgeBlockPasswordManager = is_bool($data['edgeBlockPasswordManager']) ? $data['edgeBlockPasswordManager'] : (bool)$data['edgeBlockPasswordManager'];
         }
         if (isset($data['edgeBlockPopups'])) {
-            $this->edgeBlockPopups = $data['edgeBlockPopups'];
+            $this->edgeBlockPopups = is_bool($data['edgeBlockPopups']) ? $data['edgeBlockPopups'] : (bool)$data['edgeBlockPopups'];
         }
         if (isset($data['edgeBlockSearchSuggestions'])) {
-            $this->edgeBlockSearchSuggestions = $data['edgeBlockSearchSuggestions'];
+            $this->edgeBlockSearchSuggestions = is_bool($data['edgeBlockSearchSuggestions']) ? $data['edgeBlockSearchSuggestions'] : (bool)$data['edgeBlockSearchSuggestions'];
         }
         if (isset($data['edgeBlockSendingDoNotTrackHeader'])) {
-            $this->edgeBlockSendingDoNotTrackHeader = $data['edgeBlockSendingDoNotTrackHeader'];
+            $this->edgeBlockSendingDoNotTrackHeader = is_bool($data['edgeBlockSendingDoNotTrackHeader']) ? $data['edgeBlockSendingDoNotTrackHeader'] : (bool)$data['edgeBlockSendingDoNotTrackHeader'];
         }
         if (isset($data['edgeBlockSendingIntranetTrafficToInternetExplorer'])) {
-            $this->edgeBlockSendingIntranetTrafficToInternetExplorer = $data['edgeBlockSendingIntranetTrafficToInternetExplorer'];
+            $this->edgeBlockSendingIntranetTrafficToInternetExplorer = is_bool($data['edgeBlockSendingIntranetTrafficToInternetExplorer']) ? $data['edgeBlockSendingIntranetTrafficToInternetExplorer'] : (bool)$data['edgeBlockSendingIntranetTrafficToInternetExplorer'];
         }
         if (isset($data['edgeClearBrowsingDataOnExit'])) {
-            $this->edgeClearBrowsingDataOnExit = $data['edgeClearBrowsingDataOnExit'];
+            $this->edgeClearBrowsingDataOnExit = is_bool($data['edgeClearBrowsingDataOnExit']) ? $data['edgeClearBrowsingDataOnExit'] : (bool)$data['edgeClearBrowsingDataOnExit'];
         }
         if (isset($data['edgeCookiePolicy'])) {
             $this->edgeCookiePolicy = is_array($data['edgeCookiePolicy']) ? new EdgeCookiePolicy($data['edgeCookiePolicy']) : $data['edgeCookiePolicy'];
         }
         if (isset($data['edgeDisableFirstRunPage'])) {
-            $this->edgeDisableFirstRunPage = $data['edgeDisableFirstRunPage'];
+            $this->edgeDisableFirstRunPage = is_bool($data['edgeDisableFirstRunPage']) ? $data['edgeDisableFirstRunPage'] : (bool)$data['edgeDisableFirstRunPage'];
         }
         if (isset($data['edgeEnterpriseModeSiteListLocation'])) {
             $this->edgeEnterpriseModeSiteListLocation = $data['edgeEnterpriseModeSiteListLocation'];
@@ -945,22 +945,22 @@ class Windows10GeneralConfiguration
             $this->edgeHomepageUrls = $data['edgeHomepageUrls'];
         }
         if (isset($data['edgeRequireSmartScreen'])) {
-            $this->edgeRequireSmartScreen = $data['edgeRequireSmartScreen'];
+            $this->edgeRequireSmartScreen = is_bool($data['edgeRequireSmartScreen']) ? $data['edgeRequireSmartScreen'] : (bool)$data['edgeRequireSmartScreen'];
         }
         if (isset($data['edgeSearchEngine'])) {
             $this->edgeSearchEngine = is_array($data['edgeSearchEngine']) ? new EdgeSearchEngineBase($data['edgeSearchEngine']) : $data['edgeSearchEngine'];
         }
         if (isset($data['edgeSendIntranetTrafficToInternetExplorer'])) {
-            $this->edgeSendIntranetTrafficToInternetExplorer = $data['edgeSendIntranetTrafficToInternetExplorer'];
+            $this->edgeSendIntranetTrafficToInternetExplorer = is_bool($data['edgeSendIntranetTrafficToInternetExplorer']) ? $data['edgeSendIntranetTrafficToInternetExplorer'] : (bool)$data['edgeSendIntranetTrafficToInternetExplorer'];
         }
         if (isset($data['edgeSyncFavoritesWithInternetExplorer'])) {
-            $this->edgeSyncFavoritesWithInternetExplorer = $data['edgeSyncFavoritesWithInternetExplorer'];
+            $this->edgeSyncFavoritesWithInternetExplorer = is_bool($data['edgeSyncFavoritesWithInternetExplorer']) ? $data['edgeSyncFavoritesWithInternetExplorer'] : (bool)$data['edgeSyncFavoritesWithInternetExplorer'];
         }
         if (isset($data['enterpriseCloudPrintDiscoveryEndPoint'])) {
             $this->enterpriseCloudPrintDiscoveryEndPoint = $data['enterpriseCloudPrintDiscoveryEndPoint'];
         }
         if (isset($data['enterpriseCloudPrintDiscoveryMaxLimit'])) {
-            $this->enterpriseCloudPrintDiscoveryMaxLimit = $data['enterpriseCloudPrintDiscoveryMaxLimit'];
+            $this->enterpriseCloudPrintDiscoveryMaxLimit = is_numeric($data['enterpriseCloudPrintDiscoveryMaxLimit']) ? (float)$data['enterpriseCloudPrintDiscoveryMaxLimit'] : $data['enterpriseCloudPrintDiscoveryMaxLimit'];
         }
         if (isset($data['enterpriseCloudPrintMopriaDiscoveryResourceIdentifier'])) {
             $this->enterpriseCloudPrintMopriaDiscoveryResourceIdentifier = $data['enterpriseCloudPrintMopriaDiscoveryResourceIdentifier'];
@@ -975,94 +975,94 @@ class Windows10GeneralConfiguration
             $this->enterpriseCloudPrintResourceIdentifier = $data['enterpriseCloudPrintResourceIdentifier'];
         }
         if (isset($data['experienceBlockDeviceDiscovery'])) {
-            $this->experienceBlockDeviceDiscovery = $data['experienceBlockDeviceDiscovery'];
+            $this->experienceBlockDeviceDiscovery = is_bool($data['experienceBlockDeviceDiscovery']) ? $data['experienceBlockDeviceDiscovery'] : (bool)$data['experienceBlockDeviceDiscovery'];
         }
         if (isset($data['experienceBlockErrorDialogWhenNoSIM'])) {
-            $this->experienceBlockErrorDialogWhenNoSIM = $data['experienceBlockErrorDialogWhenNoSIM'];
+            $this->experienceBlockErrorDialogWhenNoSIM = is_bool($data['experienceBlockErrorDialogWhenNoSIM']) ? $data['experienceBlockErrorDialogWhenNoSIM'] : (bool)$data['experienceBlockErrorDialogWhenNoSIM'];
         }
         if (isset($data['experienceBlockTaskSwitcher'])) {
-            $this->experienceBlockTaskSwitcher = $data['experienceBlockTaskSwitcher'];
+            $this->experienceBlockTaskSwitcher = is_bool($data['experienceBlockTaskSwitcher']) ? $data['experienceBlockTaskSwitcher'] : (bool)$data['experienceBlockTaskSwitcher'];
         }
         if (isset($data['gameDvrBlocked'])) {
-            $this->gameDvrBlocked = $data['gameDvrBlocked'];
+            $this->gameDvrBlocked = is_bool($data['gameDvrBlocked']) ? $data['gameDvrBlocked'] : (bool)$data['gameDvrBlocked'];
         }
         if (isset($data['internetSharingBlocked'])) {
-            $this->internetSharingBlocked = $data['internetSharingBlocked'];
+            $this->internetSharingBlocked = is_bool($data['internetSharingBlocked']) ? $data['internetSharingBlocked'] : (bool)$data['internetSharingBlocked'];
         }
         if (isset($data['locationServicesBlocked'])) {
-            $this->locationServicesBlocked = $data['locationServicesBlocked'];
+            $this->locationServicesBlocked = is_bool($data['locationServicesBlocked']) ? $data['locationServicesBlocked'] : (bool)$data['locationServicesBlocked'];
         }
         if (isset($data['lockScreenAllowTimeoutConfiguration'])) {
-            $this->lockScreenAllowTimeoutConfiguration = $data['lockScreenAllowTimeoutConfiguration'];
+            $this->lockScreenAllowTimeoutConfiguration = is_bool($data['lockScreenAllowTimeoutConfiguration']) ? $data['lockScreenAllowTimeoutConfiguration'] : (bool)$data['lockScreenAllowTimeoutConfiguration'];
         }
         if (isset($data['lockScreenBlockActionCenterNotifications'])) {
-            $this->lockScreenBlockActionCenterNotifications = $data['lockScreenBlockActionCenterNotifications'];
+            $this->lockScreenBlockActionCenterNotifications = is_bool($data['lockScreenBlockActionCenterNotifications']) ? $data['lockScreenBlockActionCenterNotifications'] : (bool)$data['lockScreenBlockActionCenterNotifications'];
         }
         if (isset($data['lockScreenBlockCortana'])) {
-            $this->lockScreenBlockCortana = $data['lockScreenBlockCortana'];
+            $this->lockScreenBlockCortana = is_bool($data['lockScreenBlockCortana']) ? $data['lockScreenBlockCortana'] : (bool)$data['lockScreenBlockCortana'];
         }
         if (isset($data['lockScreenBlockToastNotifications'])) {
-            $this->lockScreenBlockToastNotifications = $data['lockScreenBlockToastNotifications'];
+            $this->lockScreenBlockToastNotifications = is_bool($data['lockScreenBlockToastNotifications']) ? $data['lockScreenBlockToastNotifications'] : (bool)$data['lockScreenBlockToastNotifications'];
         }
         if (isset($data['lockScreenTimeoutInSeconds'])) {
-            $this->lockScreenTimeoutInSeconds = $data['lockScreenTimeoutInSeconds'];
+            $this->lockScreenTimeoutInSeconds = is_numeric($data['lockScreenTimeoutInSeconds']) ? (float)$data['lockScreenTimeoutInSeconds'] : $data['lockScreenTimeoutInSeconds'];
         }
         if (isset($data['logonBlockFastUserSwitching'])) {
-            $this->logonBlockFastUserSwitching = $data['logonBlockFastUserSwitching'];
+            $this->logonBlockFastUserSwitching = is_bool($data['logonBlockFastUserSwitching']) ? $data['logonBlockFastUserSwitching'] : (bool)$data['logonBlockFastUserSwitching'];
         }
         if (isset($data['microsoftAccountBlocked'])) {
-            $this->microsoftAccountBlocked = $data['microsoftAccountBlocked'];
+            $this->microsoftAccountBlocked = is_bool($data['microsoftAccountBlocked']) ? $data['microsoftAccountBlocked'] : (bool)$data['microsoftAccountBlocked'];
         }
         if (isset($data['microsoftAccountBlockSettingsSync'])) {
-            $this->microsoftAccountBlockSettingsSync = $data['microsoftAccountBlockSettingsSync'];
+            $this->microsoftAccountBlockSettingsSync = is_bool($data['microsoftAccountBlockSettingsSync']) ? $data['microsoftAccountBlockSettingsSync'] : (bool)$data['microsoftAccountBlockSettingsSync'];
         }
         if (isset($data['networkProxyApplySettingsDeviceWide'])) {
-            $this->networkProxyApplySettingsDeviceWide = $data['networkProxyApplySettingsDeviceWide'];
+            $this->networkProxyApplySettingsDeviceWide = is_bool($data['networkProxyApplySettingsDeviceWide']) ? $data['networkProxyApplySettingsDeviceWide'] : (bool)$data['networkProxyApplySettingsDeviceWide'];
         }
         if (isset($data['networkProxyAutomaticConfigurationUrl'])) {
             $this->networkProxyAutomaticConfigurationUrl = $data['networkProxyAutomaticConfigurationUrl'];
         }
         if (isset($data['networkProxyDisableAutoDetect'])) {
-            $this->networkProxyDisableAutoDetect = $data['networkProxyDisableAutoDetect'];
+            $this->networkProxyDisableAutoDetect = is_bool($data['networkProxyDisableAutoDetect']) ? $data['networkProxyDisableAutoDetect'] : (bool)$data['networkProxyDisableAutoDetect'];
         }
         if (isset($data['networkProxyServer'])) {
             $this->networkProxyServer = is_array($data['networkProxyServer']) ? new Windows10NetworkProxyServer($data['networkProxyServer']) : $data['networkProxyServer'];
         }
         if (isset($data['nfcBlocked'])) {
-            $this->nfcBlocked = $data['nfcBlocked'];
+            $this->nfcBlocked = is_bool($data['nfcBlocked']) ? $data['nfcBlocked'] : (bool)$data['nfcBlocked'];
         }
         if (isset($data['oneDriveDisableFileSync'])) {
-            $this->oneDriveDisableFileSync = $data['oneDriveDisableFileSync'];
+            $this->oneDriveDisableFileSync = is_bool($data['oneDriveDisableFileSync']) ? $data['oneDriveDisableFileSync'] : (bool)$data['oneDriveDisableFileSync'];
         }
         if (isset($data['passwordBlockSimple'])) {
-            $this->passwordBlockSimple = $data['passwordBlockSimple'];
+            $this->passwordBlockSimple = is_bool($data['passwordBlockSimple']) ? $data['passwordBlockSimple'] : (bool)$data['passwordBlockSimple'];
         }
         if (isset($data['passwordExpirationDays'])) {
-            $this->passwordExpirationDays = $data['passwordExpirationDays'];
+            $this->passwordExpirationDays = is_numeric($data['passwordExpirationDays']) ? (float)$data['passwordExpirationDays'] : $data['passwordExpirationDays'];
         }
         if (isset($data['passwordMinimumCharacterSetCount'])) {
-            $this->passwordMinimumCharacterSetCount = $data['passwordMinimumCharacterSetCount'];
+            $this->passwordMinimumCharacterSetCount = is_numeric($data['passwordMinimumCharacterSetCount']) ? (float)$data['passwordMinimumCharacterSetCount'] : $data['passwordMinimumCharacterSetCount'];
         }
         if (isset($data['passwordMinimumLength'])) {
-            $this->passwordMinimumLength = $data['passwordMinimumLength'];
+            $this->passwordMinimumLength = is_numeric($data['passwordMinimumLength']) ? (float)$data['passwordMinimumLength'] : $data['passwordMinimumLength'];
         }
         if (isset($data['passwordMinutesOfInactivityBeforeScreenTimeout'])) {
-            $this->passwordMinutesOfInactivityBeforeScreenTimeout = $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
+            $this->passwordMinutesOfInactivityBeforeScreenTimeout = is_numeric($data['passwordMinutesOfInactivityBeforeScreenTimeout']) ? (float)$data['passwordMinutesOfInactivityBeforeScreenTimeout'] : $data['passwordMinutesOfInactivityBeforeScreenTimeout'];
         }
         if (isset($data['passwordPreviousPasswordBlockCount'])) {
-            $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
+            $this->passwordPreviousPasswordBlockCount = is_numeric($data['passwordPreviousPasswordBlockCount']) ? (float)$data['passwordPreviousPasswordBlockCount'] : $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequired'])) {
-            $this->passwordRequired = $data['passwordRequired'];
+            $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
             $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new RequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['passwordRequireWhenResumeFromIdleState'])) {
-            $this->passwordRequireWhenResumeFromIdleState = $data['passwordRequireWhenResumeFromIdleState'];
+            $this->passwordRequireWhenResumeFromIdleState = is_bool($data['passwordRequireWhenResumeFromIdleState']) ? $data['passwordRequireWhenResumeFromIdleState'] : (bool)$data['passwordRequireWhenResumeFromIdleState'];
         }
         if (isset($data['passwordSignInFailureCountBeforeFactoryReset'])) {
-            $this->passwordSignInFailureCountBeforeFactoryReset = $data['passwordSignInFailureCountBeforeFactoryReset'];
+            $this->passwordSignInFailureCountBeforeFactoryReset = is_numeric($data['passwordSignInFailureCountBeforeFactoryReset']) ? (float)$data['passwordSignInFailureCountBeforeFactoryReset'] : $data['passwordSignInFailureCountBeforeFactoryReset'];
         }
         if (isset($data['personalizationDesktopImageUrl'])) {
             $this->personalizationDesktopImageUrl = $data['personalizationDesktopImageUrl'];
@@ -1074,154 +1074,154 @@ class Windows10GeneralConfiguration
             $this->privacyAdvertisingId = is_array($data['privacyAdvertisingId']) ? new StateManagementSetting($data['privacyAdvertisingId']) : $data['privacyAdvertisingId'];
         }
         if (isset($data['privacyAutoAcceptPairingAndConsentPrompts'])) {
-            $this->privacyAutoAcceptPairingAndConsentPrompts = $data['privacyAutoAcceptPairingAndConsentPrompts'];
+            $this->privacyAutoAcceptPairingAndConsentPrompts = is_bool($data['privacyAutoAcceptPairingAndConsentPrompts']) ? $data['privacyAutoAcceptPairingAndConsentPrompts'] : (bool)$data['privacyAutoAcceptPairingAndConsentPrompts'];
         }
         if (isset($data['privacyBlockInputPersonalization'])) {
-            $this->privacyBlockInputPersonalization = $data['privacyBlockInputPersonalization'];
+            $this->privacyBlockInputPersonalization = is_bool($data['privacyBlockInputPersonalization']) ? $data['privacyBlockInputPersonalization'] : (bool)$data['privacyBlockInputPersonalization'];
         }
         if (isset($data['resetProtectionModeBlocked'])) {
-            $this->resetProtectionModeBlocked = $data['resetProtectionModeBlocked'];
+            $this->resetProtectionModeBlocked = is_bool($data['resetProtectionModeBlocked']) ? $data['resetProtectionModeBlocked'] : (bool)$data['resetProtectionModeBlocked'];
         }
         if (isset($data['safeSearchFilter'])) {
             $this->safeSearchFilter = is_array($data['safeSearchFilter']) ? new SafeSearchFilterType($data['safeSearchFilter']) : $data['safeSearchFilter'];
         }
         if (isset($data['screenCaptureBlocked'])) {
-            $this->screenCaptureBlocked = $data['screenCaptureBlocked'];
+            $this->screenCaptureBlocked = is_bool($data['screenCaptureBlocked']) ? $data['screenCaptureBlocked'] : (bool)$data['screenCaptureBlocked'];
         }
         if (isset($data['searchBlockDiacritics'])) {
-            $this->searchBlockDiacritics = $data['searchBlockDiacritics'];
+            $this->searchBlockDiacritics = is_bool($data['searchBlockDiacritics']) ? $data['searchBlockDiacritics'] : (bool)$data['searchBlockDiacritics'];
         }
         if (isset($data['searchDisableAutoLanguageDetection'])) {
-            $this->searchDisableAutoLanguageDetection = $data['searchDisableAutoLanguageDetection'];
+            $this->searchDisableAutoLanguageDetection = is_bool($data['searchDisableAutoLanguageDetection']) ? $data['searchDisableAutoLanguageDetection'] : (bool)$data['searchDisableAutoLanguageDetection'];
         }
         if (isset($data['searchDisableIndexerBackoff'])) {
-            $this->searchDisableIndexerBackoff = $data['searchDisableIndexerBackoff'];
+            $this->searchDisableIndexerBackoff = is_bool($data['searchDisableIndexerBackoff']) ? $data['searchDisableIndexerBackoff'] : (bool)$data['searchDisableIndexerBackoff'];
         }
         if (isset($data['searchDisableIndexingEncryptedItems'])) {
-            $this->searchDisableIndexingEncryptedItems = $data['searchDisableIndexingEncryptedItems'];
+            $this->searchDisableIndexingEncryptedItems = is_bool($data['searchDisableIndexingEncryptedItems']) ? $data['searchDisableIndexingEncryptedItems'] : (bool)$data['searchDisableIndexingEncryptedItems'];
         }
         if (isset($data['searchDisableIndexingRemovableDrive'])) {
-            $this->searchDisableIndexingRemovableDrive = $data['searchDisableIndexingRemovableDrive'];
+            $this->searchDisableIndexingRemovableDrive = is_bool($data['searchDisableIndexingRemovableDrive']) ? $data['searchDisableIndexingRemovableDrive'] : (bool)$data['searchDisableIndexingRemovableDrive'];
         }
         if (isset($data['searchEnableAutomaticIndexSizeManangement'])) {
-            $this->searchEnableAutomaticIndexSizeManangement = $data['searchEnableAutomaticIndexSizeManangement'];
+            $this->searchEnableAutomaticIndexSizeManangement = is_bool($data['searchEnableAutomaticIndexSizeManangement']) ? $data['searchEnableAutomaticIndexSizeManangement'] : (bool)$data['searchEnableAutomaticIndexSizeManangement'];
         }
         if (isset($data['searchEnableRemoteQueries'])) {
-            $this->searchEnableRemoteQueries = $data['searchEnableRemoteQueries'];
+            $this->searchEnableRemoteQueries = is_bool($data['searchEnableRemoteQueries']) ? $data['searchEnableRemoteQueries'] : (bool)$data['searchEnableRemoteQueries'];
         }
         if (isset($data['settingsBlockAccountsPage'])) {
-            $this->settingsBlockAccountsPage = $data['settingsBlockAccountsPage'];
+            $this->settingsBlockAccountsPage = is_bool($data['settingsBlockAccountsPage']) ? $data['settingsBlockAccountsPage'] : (bool)$data['settingsBlockAccountsPage'];
         }
         if (isset($data['settingsBlockAddProvisioningPackage'])) {
-            $this->settingsBlockAddProvisioningPackage = $data['settingsBlockAddProvisioningPackage'];
+            $this->settingsBlockAddProvisioningPackage = is_bool($data['settingsBlockAddProvisioningPackage']) ? $data['settingsBlockAddProvisioningPackage'] : (bool)$data['settingsBlockAddProvisioningPackage'];
         }
         if (isset($data['settingsBlockAppsPage'])) {
-            $this->settingsBlockAppsPage = $data['settingsBlockAppsPage'];
+            $this->settingsBlockAppsPage = is_bool($data['settingsBlockAppsPage']) ? $data['settingsBlockAppsPage'] : (bool)$data['settingsBlockAppsPage'];
         }
         if (isset($data['settingsBlockChangeLanguage'])) {
-            $this->settingsBlockChangeLanguage = $data['settingsBlockChangeLanguage'];
+            $this->settingsBlockChangeLanguage = is_bool($data['settingsBlockChangeLanguage']) ? $data['settingsBlockChangeLanguage'] : (bool)$data['settingsBlockChangeLanguage'];
         }
         if (isset($data['settingsBlockChangePowerSleep'])) {
-            $this->settingsBlockChangePowerSleep = $data['settingsBlockChangePowerSleep'];
+            $this->settingsBlockChangePowerSleep = is_bool($data['settingsBlockChangePowerSleep']) ? $data['settingsBlockChangePowerSleep'] : (bool)$data['settingsBlockChangePowerSleep'];
         }
         if (isset($data['settingsBlockChangeRegion'])) {
-            $this->settingsBlockChangeRegion = $data['settingsBlockChangeRegion'];
+            $this->settingsBlockChangeRegion = is_bool($data['settingsBlockChangeRegion']) ? $data['settingsBlockChangeRegion'] : (bool)$data['settingsBlockChangeRegion'];
         }
         if (isset($data['settingsBlockChangeSystemTime'])) {
-            $this->settingsBlockChangeSystemTime = $data['settingsBlockChangeSystemTime'];
+            $this->settingsBlockChangeSystemTime = is_bool($data['settingsBlockChangeSystemTime']) ? $data['settingsBlockChangeSystemTime'] : (bool)$data['settingsBlockChangeSystemTime'];
         }
         if (isset($data['settingsBlockDevicesPage'])) {
-            $this->settingsBlockDevicesPage = $data['settingsBlockDevicesPage'];
+            $this->settingsBlockDevicesPage = is_bool($data['settingsBlockDevicesPage']) ? $data['settingsBlockDevicesPage'] : (bool)$data['settingsBlockDevicesPage'];
         }
         if (isset($data['settingsBlockEaseOfAccessPage'])) {
-            $this->settingsBlockEaseOfAccessPage = $data['settingsBlockEaseOfAccessPage'];
+            $this->settingsBlockEaseOfAccessPage = is_bool($data['settingsBlockEaseOfAccessPage']) ? $data['settingsBlockEaseOfAccessPage'] : (bool)$data['settingsBlockEaseOfAccessPage'];
         }
         if (isset($data['settingsBlockEditDeviceName'])) {
-            $this->settingsBlockEditDeviceName = $data['settingsBlockEditDeviceName'];
+            $this->settingsBlockEditDeviceName = is_bool($data['settingsBlockEditDeviceName']) ? $data['settingsBlockEditDeviceName'] : (bool)$data['settingsBlockEditDeviceName'];
         }
         if (isset($data['settingsBlockGamingPage'])) {
-            $this->settingsBlockGamingPage = $data['settingsBlockGamingPage'];
+            $this->settingsBlockGamingPage = is_bool($data['settingsBlockGamingPage']) ? $data['settingsBlockGamingPage'] : (bool)$data['settingsBlockGamingPage'];
         }
         if (isset($data['settingsBlockNetworkInternetPage'])) {
-            $this->settingsBlockNetworkInternetPage = $data['settingsBlockNetworkInternetPage'];
+            $this->settingsBlockNetworkInternetPage = is_bool($data['settingsBlockNetworkInternetPage']) ? $data['settingsBlockNetworkInternetPage'] : (bool)$data['settingsBlockNetworkInternetPage'];
         }
         if (isset($data['settingsBlockPersonalizationPage'])) {
-            $this->settingsBlockPersonalizationPage = $data['settingsBlockPersonalizationPage'];
+            $this->settingsBlockPersonalizationPage = is_bool($data['settingsBlockPersonalizationPage']) ? $data['settingsBlockPersonalizationPage'] : (bool)$data['settingsBlockPersonalizationPage'];
         }
         if (isset($data['settingsBlockPrivacyPage'])) {
-            $this->settingsBlockPrivacyPage = $data['settingsBlockPrivacyPage'];
+            $this->settingsBlockPrivacyPage = is_bool($data['settingsBlockPrivacyPage']) ? $data['settingsBlockPrivacyPage'] : (bool)$data['settingsBlockPrivacyPage'];
         }
         if (isset($data['settingsBlockRemoveProvisioningPackage'])) {
-            $this->settingsBlockRemoveProvisioningPackage = $data['settingsBlockRemoveProvisioningPackage'];
+            $this->settingsBlockRemoveProvisioningPackage = is_bool($data['settingsBlockRemoveProvisioningPackage']) ? $data['settingsBlockRemoveProvisioningPackage'] : (bool)$data['settingsBlockRemoveProvisioningPackage'];
         }
         if (isset($data['settingsBlockSettingsApp'])) {
-            $this->settingsBlockSettingsApp = $data['settingsBlockSettingsApp'];
+            $this->settingsBlockSettingsApp = is_bool($data['settingsBlockSettingsApp']) ? $data['settingsBlockSettingsApp'] : (bool)$data['settingsBlockSettingsApp'];
         }
         if (isset($data['settingsBlockSystemPage'])) {
-            $this->settingsBlockSystemPage = $data['settingsBlockSystemPage'];
+            $this->settingsBlockSystemPage = is_bool($data['settingsBlockSystemPage']) ? $data['settingsBlockSystemPage'] : (bool)$data['settingsBlockSystemPage'];
         }
         if (isset($data['settingsBlockTimeLanguagePage'])) {
-            $this->settingsBlockTimeLanguagePage = $data['settingsBlockTimeLanguagePage'];
+            $this->settingsBlockTimeLanguagePage = is_bool($data['settingsBlockTimeLanguagePage']) ? $data['settingsBlockTimeLanguagePage'] : (bool)$data['settingsBlockTimeLanguagePage'];
         }
         if (isset($data['settingsBlockUpdateSecurityPage'])) {
-            $this->settingsBlockUpdateSecurityPage = $data['settingsBlockUpdateSecurityPage'];
+            $this->settingsBlockUpdateSecurityPage = is_bool($data['settingsBlockUpdateSecurityPage']) ? $data['settingsBlockUpdateSecurityPage'] : (bool)$data['settingsBlockUpdateSecurityPage'];
         }
         if (isset($data['sharedUserAppDataAllowed'])) {
-            $this->sharedUserAppDataAllowed = $data['sharedUserAppDataAllowed'];
+            $this->sharedUserAppDataAllowed = is_bool($data['sharedUserAppDataAllowed']) ? $data['sharedUserAppDataAllowed'] : (bool)$data['sharedUserAppDataAllowed'];
         }
         if (isset($data['smartScreenBlockPromptOverride'])) {
-            $this->smartScreenBlockPromptOverride = $data['smartScreenBlockPromptOverride'];
+            $this->smartScreenBlockPromptOverride = is_bool($data['smartScreenBlockPromptOverride']) ? $data['smartScreenBlockPromptOverride'] : (bool)$data['smartScreenBlockPromptOverride'];
         }
         if (isset($data['smartScreenBlockPromptOverrideForFiles'])) {
-            $this->smartScreenBlockPromptOverrideForFiles = $data['smartScreenBlockPromptOverrideForFiles'];
+            $this->smartScreenBlockPromptOverrideForFiles = is_bool($data['smartScreenBlockPromptOverrideForFiles']) ? $data['smartScreenBlockPromptOverrideForFiles'] : (bool)$data['smartScreenBlockPromptOverrideForFiles'];
         }
         if (isset($data['smartScreenEnableAppInstallControl'])) {
-            $this->smartScreenEnableAppInstallControl = $data['smartScreenEnableAppInstallControl'];
+            $this->smartScreenEnableAppInstallControl = is_bool($data['smartScreenEnableAppInstallControl']) ? $data['smartScreenEnableAppInstallControl'] : (bool)$data['smartScreenEnableAppInstallControl'];
         }
         if (isset($data['startBlockUnpinningAppsFromTaskbar'])) {
-            $this->startBlockUnpinningAppsFromTaskbar = $data['startBlockUnpinningAppsFromTaskbar'];
+            $this->startBlockUnpinningAppsFromTaskbar = is_bool($data['startBlockUnpinningAppsFromTaskbar']) ? $data['startBlockUnpinningAppsFromTaskbar'] : (bool)$data['startBlockUnpinningAppsFromTaskbar'];
         }
         if (isset($data['startMenuAppListVisibility'])) {
             $this->startMenuAppListVisibility = is_array($data['startMenuAppListVisibility']) ? new WindowsStartMenuAppListVisibilityType($data['startMenuAppListVisibility']) : $data['startMenuAppListVisibility'];
         }
         if (isset($data['startMenuHideChangeAccountSettings'])) {
-            $this->startMenuHideChangeAccountSettings = $data['startMenuHideChangeAccountSettings'];
+            $this->startMenuHideChangeAccountSettings = is_bool($data['startMenuHideChangeAccountSettings']) ? $data['startMenuHideChangeAccountSettings'] : (bool)$data['startMenuHideChangeAccountSettings'];
         }
         if (isset($data['startMenuHideFrequentlyUsedApps'])) {
-            $this->startMenuHideFrequentlyUsedApps = $data['startMenuHideFrequentlyUsedApps'];
+            $this->startMenuHideFrequentlyUsedApps = is_bool($data['startMenuHideFrequentlyUsedApps']) ? $data['startMenuHideFrequentlyUsedApps'] : (bool)$data['startMenuHideFrequentlyUsedApps'];
         }
         if (isset($data['startMenuHideHibernate'])) {
-            $this->startMenuHideHibernate = $data['startMenuHideHibernate'];
+            $this->startMenuHideHibernate = is_bool($data['startMenuHideHibernate']) ? $data['startMenuHideHibernate'] : (bool)$data['startMenuHideHibernate'];
         }
         if (isset($data['startMenuHideLock'])) {
-            $this->startMenuHideLock = $data['startMenuHideLock'];
+            $this->startMenuHideLock = is_bool($data['startMenuHideLock']) ? $data['startMenuHideLock'] : (bool)$data['startMenuHideLock'];
         }
         if (isset($data['startMenuHidePowerButton'])) {
-            $this->startMenuHidePowerButton = $data['startMenuHidePowerButton'];
+            $this->startMenuHidePowerButton = is_bool($data['startMenuHidePowerButton']) ? $data['startMenuHidePowerButton'] : (bool)$data['startMenuHidePowerButton'];
         }
         if (isset($data['startMenuHideRecentJumpLists'])) {
-            $this->startMenuHideRecentJumpLists = $data['startMenuHideRecentJumpLists'];
+            $this->startMenuHideRecentJumpLists = is_bool($data['startMenuHideRecentJumpLists']) ? $data['startMenuHideRecentJumpLists'] : (bool)$data['startMenuHideRecentJumpLists'];
         }
         if (isset($data['startMenuHideRecentlyAddedApps'])) {
-            $this->startMenuHideRecentlyAddedApps = $data['startMenuHideRecentlyAddedApps'];
+            $this->startMenuHideRecentlyAddedApps = is_bool($data['startMenuHideRecentlyAddedApps']) ? $data['startMenuHideRecentlyAddedApps'] : (bool)$data['startMenuHideRecentlyAddedApps'];
         }
         if (isset($data['startMenuHideRestartOptions'])) {
-            $this->startMenuHideRestartOptions = $data['startMenuHideRestartOptions'];
+            $this->startMenuHideRestartOptions = is_bool($data['startMenuHideRestartOptions']) ? $data['startMenuHideRestartOptions'] : (bool)$data['startMenuHideRestartOptions'];
         }
         if (isset($data['startMenuHideShutDown'])) {
-            $this->startMenuHideShutDown = $data['startMenuHideShutDown'];
+            $this->startMenuHideShutDown = is_bool($data['startMenuHideShutDown']) ? $data['startMenuHideShutDown'] : (bool)$data['startMenuHideShutDown'];
         }
         if (isset($data['startMenuHideSignOut'])) {
-            $this->startMenuHideSignOut = $data['startMenuHideSignOut'];
+            $this->startMenuHideSignOut = is_bool($data['startMenuHideSignOut']) ? $data['startMenuHideSignOut'] : (bool)$data['startMenuHideSignOut'];
         }
         if (isset($data['startMenuHideSleep'])) {
-            $this->startMenuHideSleep = $data['startMenuHideSleep'];
+            $this->startMenuHideSleep = is_bool($data['startMenuHideSleep']) ? $data['startMenuHideSleep'] : (bool)$data['startMenuHideSleep'];
         }
         if (isset($data['startMenuHideSwitchAccount'])) {
-            $this->startMenuHideSwitchAccount = $data['startMenuHideSwitchAccount'];
+            $this->startMenuHideSwitchAccount = is_bool($data['startMenuHideSwitchAccount']) ? $data['startMenuHideSwitchAccount'] : (bool)$data['startMenuHideSwitchAccount'];
         }
         if (isset($data['startMenuHideUserTile'])) {
-            $this->startMenuHideUserTile = $data['startMenuHideUserTile'];
+            $this->startMenuHideUserTile = is_bool($data['startMenuHideUserTile']) ? $data['startMenuHideUserTile'] : (bool)$data['startMenuHideUserTile'];
         }
         if (isset($data['startMenuLayoutEdgeAssetsXml'])) {
             $this->startMenuLayoutEdgeAssetsXml = $data['startMenuLayoutEdgeAssetsXml'];
@@ -1263,82 +1263,82 @@ class Windows10GeneralConfiguration
             $this->startMenuPinnedFolderVideos = is_array($data['startMenuPinnedFolderVideos']) ? new VisibilitySetting($data['startMenuPinnedFolderVideos']) : $data['startMenuPinnedFolderVideos'];
         }
         if (isset($data['storageBlockRemovableStorage'])) {
-            $this->storageBlockRemovableStorage = $data['storageBlockRemovableStorage'];
+            $this->storageBlockRemovableStorage = is_bool($data['storageBlockRemovableStorage']) ? $data['storageBlockRemovableStorage'] : (bool)$data['storageBlockRemovableStorage'];
         }
         if (isset($data['storageRequireMobileDeviceEncryption'])) {
-            $this->storageRequireMobileDeviceEncryption = $data['storageRequireMobileDeviceEncryption'];
+            $this->storageRequireMobileDeviceEncryption = is_bool($data['storageRequireMobileDeviceEncryption']) ? $data['storageRequireMobileDeviceEncryption'] : (bool)$data['storageRequireMobileDeviceEncryption'];
         }
         if (isset($data['storageRestrictAppDataToSystemVolume'])) {
-            $this->storageRestrictAppDataToSystemVolume = $data['storageRestrictAppDataToSystemVolume'];
+            $this->storageRestrictAppDataToSystemVolume = is_bool($data['storageRestrictAppDataToSystemVolume']) ? $data['storageRestrictAppDataToSystemVolume'] : (bool)$data['storageRestrictAppDataToSystemVolume'];
         }
         if (isset($data['storageRestrictAppInstallToSystemVolume'])) {
-            $this->storageRestrictAppInstallToSystemVolume = $data['storageRestrictAppInstallToSystemVolume'];
+            $this->storageRestrictAppInstallToSystemVolume = is_bool($data['storageRestrictAppInstallToSystemVolume']) ? $data['storageRestrictAppInstallToSystemVolume'] : (bool)$data['storageRestrictAppInstallToSystemVolume'];
         }
         if (isset($data['tenantLockdownRequireNetworkDuringOutOfBoxExperience'])) {
-            $this->tenantLockdownRequireNetworkDuringOutOfBoxExperience = $data['tenantLockdownRequireNetworkDuringOutOfBoxExperience'];
+            $this->tenantLockdownRequireNetworkDuringOutOfBoxExperience = is_bool($data['tenantLockdownRequireNetworkDuringOutOfBoxExperience']) ? $data['tenantLockdownRequireNetworkDuringOutOfBoxExperience'] : (bool)$data['tenantLockdownRequireNetworkDuringOutOfBoxExperience'];
         }
         if (isset($data['usbBlocked'])) {
-            $this->usbBlocked = $data['usbBlocked'];
+            $this->usbBlocked = is_bool($data['usbBlocked']) ? $data['usbBlocked'] : (bool)$data['usbBlocked'];
         }
         if (isset($data['voiceRecordingBlocked'])) {
-            $this->voiceRecordingBlocked = $data['voiceRecordingBlocked'];
+            $this->voiceRecordingBlocked = is_bool($data['voiceRecordingBlocked']) ? $data['voiceRecordingBlocked'] : (bool)$data['voiceRecordingBlocked'];
         }
         if (isset($data['webRtcBlockLocalhostIpAddress'])) {
-            $this->webRtcBlockLocalhostIpAddress = $data['webRtcBlockLocalhostIpAddress'];
+            $this->webRtcBlockLocalhostIpAddress = is_bool($data['webRtcBlockLocalhostIpAddress']) ? $data['webRtcBlockLocalhostIpAddress'] : (bool)$data['webRtcBlockLocalhostIpAddress'];
         }
         if (isset($data['wiFiBlockAutomaticConnectHotspots'])) {
-            $this->wiFiBlockAutomaticConnectHotspots = $data['wiFiBlockAutomaticConnectHotspots'];
+            $this->wiFiBlockAutomaticConnectHotspots = is_bool($data['wiFiBlockAutomaticConnectHotspots']) ? $data['wiFiBlockAutomaticConnectHotspots'] : (bool)$data['wiFiBlockAutomaticConnectHotspots'];
         }
         if (isset($data['wiFiBlocked'])) {
-            $this->wiFiBlocked = $data['wiFiBlocked'];
+            $this->wiFiBlocked = is_bool($data['wiFiBlocked']) ? $data['wiFiBlocked'] : (bool)$data['wiFiBlocked'];
         }
         if (isset($data['wiFiBlockManualConfiguration'])) {
-            $this->wiFiBlockManualConfiguration = $data['wiFiBlockManualConfiguration'];
+            $this->wiFiBlockManualConfiguration = is_bool($data['wiFiBlockManualConfiguration']) ? $data['wiFiBlockManualConfiguration'] : (bool)$data['wiFiBlockManualConfiguration'];
         }
         if (isset($data['wiFiScanInterval'])) {
-            $this->wiFiScanInterval = $data['wiFiScanInterval'];
+            $this->wiFiScanInterval = is_numeric($data['wiFiScanInterval']) ? (float)$data['wiFiScanInterval'] : $data['wiFiScanInterval'];
         }
         if (isset($data['windowsSpotlightBlockConsumerSpecificFeatures'])) {
-            $this->windowsSpotlightBlockConsumerSpecificFeatures = $data['windowsSpotlightBlockConsumerSpecificFeatures'];
+            $this->windowsSpotlightBlockConsumerSpecificFeatures = is_bool($data['windowsSpotlightBlockConsumerSpecificFeatures']) ? $data['windowsSpotlightBlockConsumerSpecificFeatures'] : (bool)$data['windowsSpotlightBlockConsumerSpecificFeatures'];
         }
         if (isset($data['windowsSpotlightBlocked'])) {
-            $this->windowsSpotlightBlocked = $data['windowsSpotlightBlocked'];
+            $this->windowsSpotlightBlocked = is_bool($data['windowsSpotlightBlocked']) ? $data['windowsSpotlightBlocked'] : (bool)$data['windowsSpotlightBlocked'];
         }
         if (isset($data['windowsSpotlightBlockOnActionCenter'])) {
-            $this->windowsSpotlightBlockOnActionCenter = $data['windowsSpotlightBlockOnActionCenter'];
+            $this->windowsSpotlightBlockOnActionCenter = is_bool($data['windowsSpotlightBlockOnActionCenter']) ? $data['windowsSpotlightBlockOnActionCenter'] : (bool)$data['windowsSpotlightBlockOnActionCenter'];
         }
         if (isset($data['windowsSpotlightBlockTailoredExperiences'])) {
-            $this->windowsSpotlightBlockTailoredExperiences = $data['windowsSpotlightBlockTailoredExperiences'];
+            $this->windowsSpotlightBlockTailoredExperiences = is_bool($data['windowsSpotlightBlockTailoredExperiences']) ? $data['windowsSpotlightBlockTailoredExperiences'] : (bool)$data['windowsSpotlightBlockTailoredExperiences'];
         }
         if (isset($data['windowsSpotlightBlockThirdPartyNotifications'])) {
-            $this->windowsSpotlightBlockThirdPartyNotifications = $data['windowsSpotlightBlockThirdPartyNotifications'];
+            $this->windowsSpotlightBlockThirdPartyNotifications = is_bool($data['windowsSpotlightBlockThirdPartyNotifications']) ? $data['windowsSpotlightBlockThirdPartyNotifications'] : (bool)$data['windowsSpotlightBlockThirdPartyNotifications'];
         }
         if (isset($data['windowsSpotlightBlockWelcomeExperience'])) {
-            $this->windowsSpotlightBlockWelcomeExperience = $data['windowsSpotlightBlockWelcomeExperience'];
+            $this->windowsSpotlightBlockWelcomeExperience = is_bool($data['windowsSpotlightBlockWelcomeExperience']) ? $data['windowsSpotlightBlockWelcomeExperience'] : (bool)$data['windowsSpotlightBlockWelcomeExperience'];
         }
         if (isset($data['windowsSpotlightBlockWindowsTips'])) {
-            $this->windowsSpotlightBlockWindowsTips = $data['windowsSpotlightBlockWindowsTips'];
+            $this->windowsSpotlightBlockWindowsTips = is_bool($data['windowsSpotlightBlockWindowsTips']) ? $data['windowsSpotlightBlockWindowsTips'] : (bool)$data['windowsSpotlightBlockWindowsTips'];
         }
         if (isset($data['windowsSpotlightConfigureOnLockScreen'])) {
             $this->windowsSpotlightConfigureOnLockScreen = is_array($data['windowsSpotlightConfigureOnLockScreen']) ? new WindowsSpotlightEnablementSettings($data['windowsSpotlightConfigureOnLockScreen']) : $data['windowsSpotlightConfigureOnLockScreen'];
         }
         if (isset($data['windowsStoreBlockAutoUpdate'])) {
-            $this->windowsStoreBlockAutoUpdate = $data['windowsStoreBlockAutoUpdate'];
+            $this->windowsStoreBlockAutoUpdate = is_bool($data['windowsStoreBlockAutoUpdate']) ? $data['windowsStoreBlockAutoUpdate'] : (bool)$data['windowsStoreBlockAutoUpdate'];
         }
         if (isset($data['windowsStoreBlocked'])) {
-            $this->windowsStoreBlocked = $data['windowsStoreBlocked'];
+            $this->windowsStoreBlocked = is_bool($data['windowsStoreBlocked']) ? $data['windowsStoreBlocked'] : (bool)$data['windowsStoreBlocked'];
         }
         if (isset($data['windowsStoreEnablePrivateStoreOnly'])) {
-            $this->windowsStoreEnablePrivateStoreOnly = $data['windowsStoreEnablePrivateStoreOnly'];
+            $this->windowsStoreEnablePrivateStoreOnly = is_bool($data['windowsStoreEnablePrivateStoreOnly']) ? $data['windowsStoreEnablePrivateStoreOnly'] : (bool)$data['windowsStoreEnablePrivateStoreOnly'];
         }
         if (isset($data['wirelessDisplayBlockProjectionToThisDevice'])) {
-            $this->wirelessDisplayBlockProjectionToThisDevice = $data['wirelessDisplayBlockProjectionToThisDevice'];
+            $this->wirelessDisplayBlockProjectionToThisDevice = is_bool($data['wirelessDisplayBlockProjectionToThisDevice']) ? $data['wirelessDisplayBlockProjectionToThisDevice'] : (bool)$data['wirelessDisplayBlockProjectionToThisDevice'];
         }
         if (isset($data['wirelessDisplayBlockUserInputFromReceiver'])) {
-            $this->wirelessDisplayBlockUserInputFromReceiver = $data['wirelessDisplayBlockUserInputFromReceiver'];
+            $this->wirelessDisplayBlockUserInputFromReceiver = is_bool($data['wirelessDisplayBlockUserInputFromReceiver']) ? $data['wirelessDisplayBlockUserInputFromReceiver'] : (bool)$data['wirelessDisplayBlockUserInputFromReceiver'];
         }
         if (isset($data['wirelessDisplayRequirePinForPairing'])) {
-            $this->wirelessDisplayRequirePinForPairing = $data['wirelessDisplayRequirePinForPairing'];
+            $this->wirelessDisplayRequirePinForPairing = is_bool($data['wirelessDisplayRequirePinForPairing']) ? $data['wirelessDisplayRequirePinForPairing'] : (bool)$data['wirelessDisplayRequirePinForPairing'];
         }
     }
 

@@ -54,7 +54,7 @@ class UnifiedRoleManagementPolicyNotificationRule
             $this->target = is_array($data['target']) ? new UnifiedRoleManagementPolicyRuleTarget($data['target']) : $data['target'];
         }
         if (isset($data['isDefaultRecipientsEnabled'])) {
-            $this->isDefaultRecipientsEnabled = $data['isDefaultRecipientsEnabled'];
+            $this->isDefaultRecipientsEnabled = is_bool($data['isDefaultRecipientsEnabled']) ? $data['isDefaultRecipientsEnabled'] : (bool)$data['isDefaultRecipientsEnabled'];
         }
         if (isset($data['notificationLevel'])) {
             $this->notificationLevel = $data['notificationLevel'];

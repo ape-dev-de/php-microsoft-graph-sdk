@@ -78,7 +78,7 @@ class TimeOff
             $this->draftTimeOff = is_array($data['draftTimeOff']) ? new TimeOffItem($data['draftTimeOff']) : $data['draftTimeOff'];
         }
         if (isset($data['isStagedForDeletion'])) {
-            $this->isStagedForDeletion = $data['isStagedForDeletion'];
+            $this->isStagedForDeletion = is_bool($data['isStagedForDeletion']) ? $data['isStagedForDeletion'] : (bool)$data['isStagedForDeletion'];
         }
         if (isset($data['sharedTimeOff'])) {
             $this->sharedTimeOff = is_array($data['sharedTimeOff']) ? new TimeOffItem($data['sharedTimeOff']) : $data['sharedTimeOff'];

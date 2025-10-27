@@ -48,25 +48,25 @@ class AccessPackageAssignmentRequestorSettings
     {
         $this->rawData = $data;
         if (isset($data['allowCustomAssignmentSchedule'])) {
-            $this->allowCustomAssignmentSchedule = $data['allowCustomAssignmentSchedule'];
+            $this->allowCustomAssignmentSchedule = is_bool($data['allowCustomAssignmentSchedule']) ? $data['allowCustomAssignmentSchedule'] : (bool)$data['allowCustomAssignmentSchedule'];
         }
         if (isset($data['enableOnBehalfRequestorsToAddAccess'])) {
-            $this->enableOnBehalfRequestorsToAddAccess = $data['enableOnBehalfRequestorsToAddAccess'];
+            $this->enableOnBehalfRequestorsToAddAccess = is_bool($data['enableOnBehalfRequestorsToAddAccess']) ? $data['enableOnBehalfRequestorsToAddAccess'] : (bool)$data['enableOnBehalfRequestorsToAddAccess'];
         }
         if (isset($data['enableOnBehalfRequestorsToRemoveAccess'])) {
-            $this->enableOnBehalfRequestorsToRemoveAccess = $data['enableOnBehalfRequestorsToRemoveAccess'];
+            $this->enableOnBehalfRequestorsToRemoveAccess = is_bool($data['enableOnBehalfRequestorsToRemoveAccess']) ? $data['enableOnBehalfRequestorsToRemoveAccess'] : (bool)$data['enableOnBehalfRequestorsToRemoveAccess'];
         }
         if (isset($data['enableOnBehalfRequestorsToUpdateAccess'])) {
-            $this->enableOnBehalfRequestorsToUpdateAccess = $data['enableOnBehalfRequestorsToUpdateAccess'];
+            $this->enableOnBehalfRequestorsToUpdateAccess = is_bool($data['enableOnBehalfRequestorsToUpdateAccess']) ? $data['enableOnBehalfRequestorsToUpdateAccess'] : (bool)$data['enableOnBehalfRequestorsToUpdateAccess'];
         }
         if (isset($data['enableTargetsToSelfAddAccess'])) {
-            $this->enableTargetsToSelfAddAccess = $data['enableTargetsToSelfAddAccess'];
+            $this->enableTargetsToSelfAddAccess = is_bool($data['enableTargetsToSelfAddAccess']) ? $data['enableTargetsToSelfAddAccess'] : (bool)$data['enableTargetsToSelfAddAccess'];
         }
         if (isset($data['enableTargetsToSelfRemoveAccess'])) {
-            $this->enableTargetsToSelfRemoveAccess = $data['enableTargetsToSelfRemoveAccess'];
+            $this->enableTargetsToSelfRemoveAccess = is_bool($data['enableTargetsToSelfRemoveAccess']) ? $data['enableTargetsToSelfRemoveAccess'] : (bool)$data['enableTargetsToSelfRemoveAccess'];
         }
         if (isset($data['enableTargetsToSelfUpdateAccess'])) {
-            $this->enableTargetsToSelfUpdateAccess = $data['enableTargetsToSelfUpdateAccess'];
+            $this->enableTargetsToSelfUpdateAccess = is_bool($data['enableTargetsToSelfUpdateAccess']) ? $data['enableTargetsToSelfUpdateAccess'] : (bool)$data['enableTargetsToSelfUpdateAccess'];
         }
         if (isset($data['onBehalfRequestors'])) {
             $this->onBehalfRequestors = $data['onBehalfRequestors'];

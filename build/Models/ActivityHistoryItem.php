@@ -57,7 +57,7 @@ class ActivityHistoryItem
             $this->id = $data['id'];
         }
         if (isset($data['activeDurationSeconds'])) {
-            $this->activeDurationSeconds = $data['activeDurationSeconds'];
+            $this->activeDurationSeconds = is_numeric($data['activeDurationSeconds']) ? (float)$data['activeDurationSeconds'] : $data['activeDurationSeconds'];
         }
         if (isset($data['createdDateTime'])) {
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];

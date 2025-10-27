@@ -39,10 +39,10 @@ class VerifiedDomain
             $this->capabilities = $data['capabilities'];
         }
         if (isset($data['isDefault'])) {
-            $this->isDefault = $data['isDefault'];
+            $this->isDefault = is_bool($data['isDefault']) ? $data['isDefault'] : (bool)$data['isDefault'];
         }
         if (isset($data['isInitial'])) {
-            $this->isInitial = $data['isInitial'];
+            $this->isInitial = is_bool($data['isInitial']) ? $data['isInitial'] : (bool)$data['isInitial'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

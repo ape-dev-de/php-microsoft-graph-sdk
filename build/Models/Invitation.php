@@ -87,10 +87,10 @@ class Invitation
             $this->inviteRedirectUrl = $data['inviteRedirectUrl'];
         }
         if (isset($data['resetRedemption'])) {
-            $this->resetRedemption = $data['resetRedemption'];
+            $this->resetRedemption = is_bool($data['resetRedemption']) ? $data['resetRedemption'] : (bool)$data['resetRedemption'];
         }
         if (isset($data['sendInvitationMessage'])) {
-            $this->sendInvitationMessage = $data['sendInvitationMessage'];
+            $this->sendInvitationMessage = is_bool($data['sendInvitationMessage']) ? $data['sendInvitationMessage'] : (bool)$data['sendInvitationMessage'];
         }
         if (isset($data['status'])) {
             $this->status = $data['status'];

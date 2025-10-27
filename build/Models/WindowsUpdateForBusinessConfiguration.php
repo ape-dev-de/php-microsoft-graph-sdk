@@ -204,7 +204,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -225,7 +225,7 @@ class WindowsUpdateForBusinessConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['allowWindows11Upgrade'])) {
-            $this->allowWindows11Upgrade = $data['allowWindows11Upgrade'];
+            $this->allowWindows11Upgrade = is_bool($data['allowWindows11Upgrade']) ? $data['allowWindows11Upgrade'] : (bool)$data['allowWindows11Upgrade'];
         }
         if (isset($data['automaticUpdateMode'])) {
             $this->automaticUpdateMode = is_array($data['automaticUpdateMode']) ? new AutomaticUpdateMode($data['automaticUpdateMode']) : $data['automaticUpdateMode'];
@@ -237,34 +237,34 @@ class WindowsUpdateForBusinessConfiguration
             $this->businessReadyUpdatesOnly = is_array($data['businessReadyUpdatesOnly']) ? new WindowsUpdateType($data['businessReadyUpdatesOnly']) : $data['businessReadyUpdatesOnly'];
         }
         if (isset($data['deadlineForFeatureUpdatesInDays'])) {
-            $this->deadlineForFeatureUpdatesInDays = $data['deadlineForFeatureUpdatesInDays'];
+            $this->deadlineForFeatureUpdatesInDays = is_numeric($data['deadlineForFeatureUpdatesInDays']) ? (float)$data['deadlineForFeatureUpdatesInDays'] : $data['deadlineForFeatureUpdatesInDays'];
         }
         if (isset($data['deadlineForQualityUpdatesInDays'])) {
-            $this->deadlineForQualityUpdatesInDays = $data['deadlineForQualityUpdatesInDays'];
+            $this->deadlineForQualityUpdatesInDays = is_numeric($data['deadlineForQualityUpdatesInDays']) ? (float)$data['deadlineForQualityUpdatesInDays'] : $data['deadlineForQualityUpdatesInDays'];
         }
         if (isset($data['deadlineGracePeriodInDays'])) {
-            $this->deadlineGracePeriodInDays = $data['deadlineGracePeriodInDays'];
+            $this->deadlineGracePeriodInDays = is_numeric($data['deadlineGracePeriodInDays']) ? (float)$data['deadlineGracePeriodInDays'] : $data['deadlineGracePeriodInDays'];
         }
         if (isset($data['deliveryOptimizationMode'])) {
             $this->deliveryOptimizationMode = is_array($data['deliveryOptimizationMode']) ? new WindowsDeliveryOptimizationMode($data['deliveryOptimizationMode']) : $data['deliveryOptimizationMode'];
         }
         if (isset($data['driversExcluded'])) {
-            $this->driversExcluded = $data['driversExcluded'];
+            $this->driversExcluded = is_bool($data['driversExcluded']) ? $data['driversExcluded'] : (bool)$data['driversExcluded'];
         }
         if (isset($data['engagedRestartDeadlineInDays'])) {
-            $this->engagedRestartDeadlineInDays = $data['engagedRestartDeadlineInDays'];
+            $this->engagedRestartDeadlineInDays = is_numeric($data['engagedRestartDeadlineInDays']) ? (float)$data['engagedRestartDeadlineInDays'] : $data['engagedRestartDeadlineInDays'];
         }
         if (isset($data['engagedRestartSnoozeScheduleInDays'])) {
-            $this->engagedRestartSnoozeScheduleInDays = $data['engagedRestartSnoozeScheduleInDays'];
+            $this->engagedRestartSnoozeScheduleInDays = is_numeric($data['engagedRestartSnoozeScheduleInDays']) ? (float)$data['engagedRestartSnoozeScheduleInDays'] : $data['engagedRestartSnoozeScheduleInDays'];
         }
         if (isset($data['engagedRestartTransitionScheduleInDays'])) {
-            $this->engagedRestartTransitionScheduleInDays = $data['engagedRestartTransitionScheduleInDays'];
+            $this->engagedRestartTransitionScheduleInDays = is_numeric($data['engagedRestartTransitionScheduleInDays']) ? (float)$data['engagedRestartTransitionScheduleInDays'] : $data['engagedRestartTransitionScheduleInDays'];
         }
         if (isset($data['featureUpdatesDeferralPeriodInDays'])) {
-            $this->featureUpdatesDeferralPeriodInDays = $data['featureUpdatesDeferralPeriodInDays'];
+            $this->featureUpdatesDeferralPeriodInDays = is_numeric($data['featureUpdatesDeferralPeriodInDays']) ? (float)$data['featureUpdatesDeferralPeriodInDays'] : $data['featureUpdatesDeferralPeriodInDays'];
         }
         if (isset($data['featureUpdatesPaused'])) {
-            $this->featureUpdatesPaused = $data['featureUpdatesPaused'];
+            $this->featureUpdatesPaused = is_bool($data['featureUpdatesPaused']) ? $data['featureUpdatesPaused'] : (bool)$data['featureUpdatesPaused'];
         }
         if (isset($data['featureUpdatesPauseExpiryDateTime'])) {
             $this->featureUpdatesPauseExpiryDateTime = is_string($data['featureUpdatesPauseExpiryDateTime']) ? new \DateTimeImmutable($data['featureUpdatesPauseExpiryDateTime']) : $data['featureUpdatesPauseExpiryDateTime'];
@@ -276,28 +276,28 @@ class WindowsUpdateForBusinessConfiguration
             $this->featureUpdatesRollbackStartDateTime = is_string($data['featureUpdatesRollbackStartDateTime']) ? new \DateTimeImmutable($data['featureUpdatesRollbackStartDateTime']) : $data['featureUpdatesRollbackStartDateTime'];
         }
         if (isset($data['featureUpdatesRollbackWindowInDays'])) {
-            $this->featureUpdatesRollbackWindowInDays = $data['featureUpdatesRollbackWindowInDays'];
+            $this->featureUpdatesRollbackWindowInDays = is_numeric($data['featureUpdatesRollbackWindowInDays']) ? (float)$data['featureUpdatesRollbackWindowInDays'] : $data['featureUpdatesRollbackWindowInDays'];
         }
         if (isset($data['featureUpdatesWillBeRolledBack'])) {
-            $this->featureUpdatesWillBeRolledBack = $data['featureUpdatesWillBeRolledBack'];
+            $this->featureUpdatesWillBeRolledBack = is_bool($data['featureUpdatesWillBeRolledBack']) ? $data['featureUpdatesWillBeRolledBack'] : (bool)$data['featureUpdatesWillBeRolledBack'];
         }
         if (isset($data['installationSchedule'])) {
             $this->installationSchedule = is_array($data['installationSchedule']) ? new WindowsUpdateInstallScheduleType($data['installationSchedule']) : $data['installationSchedule'];
         }
         if (isset($data['microsoftUpdateServiceAllowed'])) {
-            $this->microsoftUpdateServiceAllowed = $data['microsoftUpdateServiceAllowed'];
+            $this->microsoftUpdateServiceAllowed = is_bool($data['microsoftUpdateServiceAllowed']) ? $data['microsoftUpdateServiceAllowed'] : (bool)$data['microsoftUpdateServiceAllowed'];
         }
         if (isset($data['postponeRebootUntilAfterDeadline'])) {
-            $this->postponeRebootUntilAfterDeadline = $data['postponeRebootUntilAfterDeadline'];
+            $this->postponeRebootUntilAfterDeadline = is_bool($data['postponeRebootUntilAfterDeadline']) ? $data['postponeRebootUntilAfterDeadline'] : (bool)$data['postponeRebootUntilAfterDeadline'];
         }
         if (isset($data['prereleaseFeatures'])) {
             $this->prereleaseFeatures = is_array($data['prereleaseFeatures']) ? new PrereleaseFeatures($data['prereleaseFeatures']) : $data['prereleaseFeatures'];
         }
         if (isset($data['qualityUpdatesDeferralPeriodInDays'])) {
-            $this->qualityUpdatesDeferralPeriodInDays = $data['qualityUpdatesDeferralPeriodInDays'];
+            $this->qualityUpdatesDeferralPeriodInDays = is_numeric($data['qualityUpdatesDeferralPeriodInDays']) ? (float)$data['qualityUpdatesDeferralPeriodInDays'] : $data['qualityUpdatesDeferralPeriodInDays'];
         }
         if (isset($data['qualityUpdatesPaused'])) {
-            $this->qualityUpdatesPaused = $data['qualityUpdatesPaused'];
+            $this->qualityUpdatesPaused = is_bool($data['qualityUpdatesPaused']) ? $data['qualityUpdatesPaused'] : (bool)$data['qualityUpdatesPaused'];
         }
         if (isset($data['qualityUpdatesPauseExpiryDateTime'])) {
             $this->qualityUpdatesPauseExpiryDateTime = is_string($data['qualityUpdatesPauseExpiryDateTime']) ? new \DateTimeImmutable($data['qualityUpdatesPauseExpiryDateTime']) : $data['qualityUpdatesPauseExpiryDateTime'];
@@ -309,16 +309,16 @@ class WindowsUpdateForBusinessConfiguration
             $this->qualityUpdatesRollbackStartDateTime = is_string($data['qualityUpdatesRollbackStartDateTime']) ? new \DateTimeImmutable($data['qualityUpdatesRollbackStartDateTime']) : $data['qualityUpdatesRollbackStartDateTime'];
         }
         if (isset($data['qualityUpdatesWillBeRolledBack'])) {
-            $this->qualityUpdatesWillBeRolledBack = $data['qualityUpdatesWillBeRolledBack'];
+            $this->qualityUpdatesWillBeRolledBack = is_bool($data['qualityUpdatesWillBeRolledBack']) ? $data['qualityUpdatesWillBeRolledBack'] : (bool)$data['qualityUpdatesWillBeRolledBack'];
         }
         if (isset($data['scheduleImminentRestartWarningInMinutes'])) {
-            $this->scheduleImminentRestartWarningInMinutes = $data['scheduleImminentRestartWarningInMinutes'];
+            $this->scheduleImminentRestartWarningInMinutes = is_numeric($data['scheduleImminentRestartWarningInMinutes']) ? (float)$data['scheduleImminentRestartWarningInMinutes'] : $data['scheduleImminentRestartWarningInMinutes'];
         }
         if (isset($data['scheduleRestartWarningInHours'])) {
-            $this->scheduleRestartWarningInHours = $data['scheduleRestartWarningInHours'];
+            $this->scheduleRestartWarningInHours = is_numeric($data['scheduleRestartWarningInHours']) ? (float)$data['scheduleRestartWarningInHours'] : $data['scheduleRestartWarningInHours'];
         }
         if (isset($data['skipChecksBeforeRestart'])) {
-            $this->skipChecksBeforeRestart = $data['skipChecksBeforeRestart'];
+            $this->skipChecksBeforeRestart = is_bool($data['skipChecksBeforeRestart']) ? $data['skipChecksBeforeRestart'] : (bool)$data['skipChecksBeforeRestart'];
         }
         if (isset($data['updateNotificationLevel'])) {
             $this->updateNotificationLevel = is_array($data['updateNotificationLevel']) ? new WindowsUpdateNotificationDisplayOption($data['updateNotificationLevel']) : $data['updateNotificationLevel'];

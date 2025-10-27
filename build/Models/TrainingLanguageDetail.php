@@ -75,7 +75,7 @@ class TrainingLanguageDetail
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isDefaultLangauge'])) {
-            $this->isDefaultLangauge = $data['isDefaultLangauge'];
+            $this->isDefaultLangauge = is_bool($data['isDefaultLangauge']) ? $data['isDefaultLangauge'] : (bool)$data['isDefaultLangauge'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new EmailIdentity($data['lastModifiedBy']) : $data['lastModifiedBy'];

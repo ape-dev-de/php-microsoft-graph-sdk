@@ -45,10 +45,10 @@ class NumberColumn
             $this->displayAs = $data['displayAs'];
         }
         if (isset($data['maximum'])) {
-            $this->maximum = $data['maximum'];
+            $this->maximum = is_numeric($data['maximum']) ? (float)$data['maximum'] : $data['maximum'];
         }
         if (isset($data['minimum'])) {
-            $this->minimum = $data['minimum'];
+            $this->minimum = is_numeric($data['minimum']) ? (float)$data['minimum'] : $data['minimum'];
         }
     }
 

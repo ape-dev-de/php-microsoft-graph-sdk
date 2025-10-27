@@ -30,13 +30,13 @@ class AuthenticationBehaviors
     {
         $this->rawData = $data;
         if (isset($data['blockAzureADGraphAccess'])) {
-            $this->blockAzureADGraphAccess = $data['blockAzureADGraphAccess'];
+            $this->blockAzureADGraphAccess = is_bool($data['blockAzureADGraphAccess']) ? $data['blockAzureADGraphAccess'] : (bool)$data['blockAzureADGraphAccess'];
         }
         if (isset($data['removeUnverifiedEmailClaim'])) {
-            $this->removeUnverifiedEmailClaim = $data['removeUnverifiedEmailClaim'];
+            $this->removeUnverifiedEmailClaim = is_bool($data['removeUnverifiedEmailClaim']) ? $data['removeUnverifiedEmailClaim'] : (bool)$data['removeUnverifiedEmailClaim'];
         }
         if (isset($data['requireClientServicePrincipal'])) {
-            $this->requireClientServicePrincipal = $data['requireClientServicePrincipal'];
+            $this->requireClientServicePrincipal = is_bool($data['requireClientServicePrincipal']) ? $data['requireClientServicePrincipal'] : (bool)$data['requireClientServicePrincipal'];
         }
     }
 

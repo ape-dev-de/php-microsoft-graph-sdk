@@ -33,7 +33,7 @@ class ChoiceColumn
     {
         $this->rawData = $data;
         if (isset($data['allowTextEntry'])) {
-            $this->allowTextEntry = $data['allowTextEntry'];
+            $this->allowTextEntry = is_bool($data['allowTextEntry']) ? $data['allowTextEntry'] : (bool)$data['allowTextEntry'];
         }
         if (isset($data['choices'])) {
             $this->choices = $data['choices'];

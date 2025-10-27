@@ -96,10 +96,10 @@ class GranularMailboxRestoreArtifact
             $this->restoredFolderName = $data['restoredFolderName'];
         }
         if (isset($data['restoredItemCount'])) {
-            $this->restoredItemCount = $data['restoredItemCount'];
+            $this->restoredItemCount = is_numeric($data['restoredItemCount']) ? (float)$data['restoredItemCount'] : $data['restoredItemCount'];
         }
         if (isset($data['artifactCount'])) {
-            $this->artifactCount = $data['artifactCount'];
+            $this->artifactCount = is_numeric($data['artifactCount']) ? (float)$data['artifactCount'] : $data['artifactCount'];
         }
         if (isset($data['searchResponseId'])) {
             $this->searchResponseId = $data['searchResponseId'];

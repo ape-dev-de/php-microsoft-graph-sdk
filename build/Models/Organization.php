@@ -186,7 +186,7 @@ class Organization
             $this->onPremisesLastSyncDateTime = is_string($data['onPremisesLastSyncDateTime']) ? new \DateTimeImmutable($data['onPremisesLastSyncDateTime']) : $data['onPremisesLastSyncDateTime'];
         }
         if (isset($data['onPremisesSyncEnabled'])) {
-            $this->onPremisesSyncEnabled = $data['onPremisesSyncEnabled'];
+            $this->onPremisesSyncEnabled = is_bool($data['onPremisesSyncEnabled']) ? $data['onPremisesSyncEnabled'] : (bool)$data['onPremisesSyncEnabled'];
         }
         if (isset($data['partnerTenantType'])) {
             $this->partnerTenantType = is_array($data['partnerTenantType']) ? new PartnerTenantType($data['partnerTenantType']) : $data['partnerTenantType'];

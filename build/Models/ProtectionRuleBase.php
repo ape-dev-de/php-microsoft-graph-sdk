@@ -69,7 +69,7 @@ class ProtectionRuleBase
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['isAutoApplyEnabled'])) {
-            $this->isAutoApplyEnabled = $data['isAutoApplyEnabled'];
+            $this->isAutoApplyEnabled = is_bool($data['isAutoApplyEnabled']) ? $data['isAutoApplyEnabled'] : (bool)$data['isAutoApplyEnabled'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];

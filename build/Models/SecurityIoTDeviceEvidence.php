@@ -198,13 +198,13 @@ class SecurityIoTDeviceEvidence
             $this->ipAddress = is_array($data['ipAddress']) ? new SecurityIpEvidence($data['ipAddress']) : $data['ipAddress'];
         }
         if (isset($data['isAuthorized'])) {
-            $this->isAuthorized = $data['isAuthorized'];
+            $this->isAuthorized = is_bool($data['isAuthorized']) ? $data['isAuthorized'] : (bool)$data['isAuthorized'];
         }
         if (isset($data['isProgramming'])) {
-            $this->isProgramming = $data['isProgramming'];
+            $this->isProgramming = is_bool($data['isProgramming']) ? $data['isProgramming'] : (bool)$data['isProgramming'];
         }
         if (isset($data['isScanner'])) {
-            $this->isScanner = $data['isScanner'];
+            $this->isScanner = is_bool($data['isScanner']) ? $data['isScanner'] : (bool)$data['isScanner'];
         }
         if (isset($data['macAddress'])) {
             $this->macAddress = $data['macAddress'];

@@ -63,7 +63,7 @@ class TenantAppManagementPolicy
             $this->applicationRestrictions = is_array($data['applicationRestrictions']) ? new AppManagementApplicationConfiguration($data['applicationRestrictions']) : $data['applicationRestrictions'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['servicePrincipalRestrictions'])) {
             $this->servicePrincipalRestrictions = is_array($data['servicePrincipalRestrictions']) ? new AppManagementServicePrincipalConfiguration($data['servicePrincipalRestrictions']) : $data['servicePrincipalRestrictions'];

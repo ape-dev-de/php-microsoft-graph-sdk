@@ -72,22 +72,22 @@ class AuthorizationPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['allowedToSignUpEmailBasedSubscriptions'])) {
-            $this->allowedToSignUpEmailBasedSubscriptions = $data['allowedToSignUpEmailBasedSubscriptions'];
+            $this->allowedToSignUpEmailBasedSubscriptions = is_bool($data['allowedToSignUpEmailBasedSubscriptions']) ? $data['allowedToSignUpEmailBasedSubscriptions'] : (bool)$data['allowedToSignUpEmailBasedSubscriptions'];
         }
         if (isset($data['allowedToUseSSPR'])) {
-            $this->allowedToUseSSPR = $data['allowedToUseSSPR'];
+            $this->allowedToUseSSPR = is_bool($data['allowedToUseSSPR']) ? $data['allowedToUseSSPR'] : (bool)$data['allowedToUseSSPR'];
         }
         if (isset($data['allowEmailVerifiedUsersToJoinOrganization'])) {
-            $this->allowEmailVerifiedUsersToJoinOrganization = $data['allowEmailVerifiedUsersToJoinOrganization'];
+            $this->allowEmailVerifiedUsersToJoinOrganization = is_bool($data['allowEmailVerifiedUsersToJoinOrganization']) ? $data['allowEmailVerifiedUsersToJoinOrganization'] : (bool)$data['allowEmailVerifiedUsersToJoinOrganization'];
         }
         if (isset($data['allowInvitesFrom'])) {
             $this->allowInvitesFrom = is_array($data['allowInvitesFrom']) ? new AllowInvitesFrom($data['allowInvitesFrom']) : $data['allowInvitesFrom'];
         }
         if (isset($data['allowUserConsentForRiskyApps'])) {
-            $this->allowUserConsentForRiskyApps = $data['allowUserConsentForRiskyApps'];
+            $this->allowUserConsentForRiskyApps = is_bool($data['allowUserConsentForRiskyApps']) ? $data['allowUserConsentForRiskyApps'] : (bool)$data['allowUserConsentForRiskyApps'];
         }
         if (isset($data['blockMsolPowerShell'])) {
-            $this->blockMsolPowerShell = $data['blockMsolPowerShell'];
+            $this->blockMsolPowerShell = is_bool($data['blockMsolPowerShell']) ? $data['blockMsolPowerShell'] : (bool)$data['blockMsolPowerShell'];
         }
         if (isset($data['defaultUserRolePermissions'])) {
             $this->defaultUserRolePermissions = is_array($data['defaultUserRolePermissions']) ? new DefaultUserRolePermissions($data['defaultUserRolePermissions']) : $data['defaultUserRolePermissions'];

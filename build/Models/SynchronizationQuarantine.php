@@ -57,7 +57,7 @@ class SynchronizationQuarantine
             $this->seriesBegan = is_string($data['seriesBegan']) ? new \DateTimeImmutable($data['seriesBegan']) : $data['seriesBegan'];
         }
         if (isset($data['seriesCount'])) {
-            $this->seriesCount = $data['seriesCount'];
+            $this->seriesCount = is_numeric($data['seriesCount']) ? (float)$data['seriesCount'] : $data['seriesCount'];
         }
     }
 

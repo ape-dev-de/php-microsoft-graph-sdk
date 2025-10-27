@@ -69,13 +69,13 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance
             $this->id = $data['id'];
         }
         if (isset($data['cloudIdentityScore'])) {
-            $this->cloudIdentityScore = $data['cloudIdentityScore'];
+            $this->cloudIdentityScore = is_numeric($data['cloudIdentityScore']) ? (float)$data['cloudIdentityScore'] : $data['cloudIdentityScore'];
         }
         if (isset($data['cloudManagementScore'])) {
-            $this->cloudManagementScore = $data['cloudManagementScore'];
+            $this->cloudManagementScore = is_numeric($data['cloudManagementScore']) ? (float)$data['cloudManagementScore'] : $data['cloudManagementScore'];
         }
         if (isset($data['cloudProvisioningScore'])) {
-            $this->cloudProvisioningScore = $data['cloudProvisioningScore'];
+            $this->cloudProvisioningScore = is_numeric($data['cloudProvisioningScore']) ? (float)$data['cloudProvisioningScore'] : $data['cloudProvisioningScore'];
         }
         if (isset($data['healthStatus'])) {
             $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
@@ -87,13 +87,13 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance
             $this->model = $data['model'];
         }
         if (isset($data['modelDeviceCount'])) {
-            $this->modelDeviceCount = $data['modelDeviceCount'];
+            $this->modelDeviceCount = is_numeric($data['modelDeviceCount']) ? (float)$data['modelDeviceCount'] : $data['modelDeviceCount'];
         }
         if (isset($data['windowsScore'])) {
-            $this->windowsScore = $data['windowsScore'];
+            $this->windowsScore = is_numeric($data['windowsScore']) ? (float)$data['windowsScore'] : $data['windowsScore'];
         }
         if (isset($data['workFromAnywhereScore'])) {
-            $this->workFromAnywhereScore = $data['workFromAnywhereScore'];
+            $this->workFromAnywhereScore = is_numeric($data['workFromAnywhereScore']) ? (float)$data['workFromAnywhereScore'] : $data['workFromAnywhereScore'];
         }
     }
 

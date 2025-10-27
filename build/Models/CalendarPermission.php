@@ -57,10 +57,10 @@ class CalendarPermission
             $this->emailAddress = is_array($data['emailAddress']) ? new EmailAddress($data['emailAddress']) : $data['emailAddress'];
         }
         if (isset($data['isInsideOrganization'])) {
-            $this->isInsideOrganization = $data['isInsideOrganization'];
+            $this->isInsideOrganization = is_bool($data['isInsideOrganization']) ? $data['isInsideOrganization'] : (bool)$data['isInsideOrganization'];
         }
         if (isset($data['isRemovable'])) {
-            $this->isRemovable = $data['isRemovable'];
+            $this->isRemovable = is_bool($data['isRemovable']) ? $data['isRemovable'] : (bool)$data['isRemovable'];
         }
         if (isset($data['role'])) {
             $this->role = is_array($data['role']) ? new CalendarRoleType($data['role']) : $data['role'];

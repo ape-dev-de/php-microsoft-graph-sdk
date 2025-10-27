@@ -36,7 +36,7 @@ class X509CertificateUserBinding
     {
         $this->rawData = $data;
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['trustAffinityLevel'])) {
             $this->trustAffinityLevel = is_array($data['trustAffinityLevel']) ? new X509CertificateAffinityLevel($data['trustAffinityLevel']) : $data['trustAffinityLevel'];

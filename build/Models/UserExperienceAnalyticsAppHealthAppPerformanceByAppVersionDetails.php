@@ -51,7 +51,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
             $this->id = $data['id'];
         }
         if (isset($data['appCrashCount'])) {
-            $this->appCrashCount = $data['appCrashCount'];
+            $this->appCrashCount = is_numeric($data['appCrashCount']) ? (float)$data['appCrashCount'] : $data['appCrashCount'];
         }
         if (isset($data['appDisplayName'])) {
             $this->appDisplayName = $data['appDisplayName'];
@@ -66,13 +66,13 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
             $this->appVersion = $data['appVersion'];
         }
         if (isset($data['deviceCountWithCrashes'])) {
-            $this->deviceCountWithCrashes = $data['deviceCountWithCrashes'];
+            $this->deviceCountWithCrashes = is_numeric($data['deviceCountWithCrashes']) ? (float)$data['deviceCountWithCrashes'] : $data['deviceCountWithCrashes'];
         }
         if (isset($data['isLatestUsedVersion'])) {
-            $this->isLatestUsedVersion = $data['isLatestUsedVersion'];
+            $this->isLatestUsedVersion = is_bool($data['isLatestUsedVersion']) ? $data['isLatestUsedVersion'] : (bool)$data['isLatestUsedVersion'];
         }
         if (isset($data['isMostUsedVersion'])) {
-            $this->isMostUsedVersion = $data['isMostUsedVersion'];
+            $this->isMostUsedVersion = is_bool($data['isMostUsedVersion']) ? $data['isMostUsedVersion'] : (bool)$data['isMostUsedVersion'];
         }
     }
 

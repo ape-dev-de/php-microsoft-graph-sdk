@@ -33,7 +33,7 @@ class AzureADRegistrationPolicy
             $this->allowedToRegister = is_array($data['allowedToRegister']) ? new DeviceRegistrationMembership($data['allowedToRegister']) : $data['allowedToRegister'];
         }
         if (isset($data['isAdminConfigurable'])) {
-            $this->isAdminConfigurable = $data['isAdminConfigurable'];
+            $this->isAdminConfigurable = is_bool($data['isAdminConfigurable']) ? $data['isAdminConfigurable'] : (bool)$data['isAdminConfigurable'];
         }
     }
 

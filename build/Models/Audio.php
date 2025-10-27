@@ -78,7 +78,7 @@ class Audio
             $this->artist = $data['artist'];
         }
         if (isset($data['bitrate'])) {
-            $this->bitrate = $data['bitrate'];
+            $this->bitrate = is_numeric($data['bitrate']) ? (float)$data['bitrate'] : $data['bitrate'];
         }
         if (isset($data['composers'])) {
             $this->composers = $data['composers'];
@@ -87,34 +87,34 @@ class Audio
             $this->copyright = $data['copyright'];
         }
         if (isset($data['disc'])) {
-            $this->disc = $data['disc'];
+            $this->disc = is_numeric($data['disc']) ? (float)$data['disc'] : $data['disc'];
         }
         if (isset($data['discCount'])) {
-            $this->discCount = $data['discCount'];
+            $this->discCount = is_numeric($data['discCount']) ? (float)$data['discCount'] : $data['discCount'];
         }
         if (isset($data['duration'])) {
-            $this->duration = $data['duration'];
+            $this->duration = is_numeric($data['duration']) ? (float)$data['duration'] : $data['duration'];
         }
         if (isset($data['genre'])) {
             $this->genre = $data['genre'];
         }
         if (isset($data['hasDrm'])) {
-            $this->hasDrm = $data['hasDrm'];
+            $this->hasDrm = is_bool($data['hasDrm']) ? $data['hasDrm'] : (bool)$data['hasDrm'];
         }
         if (isset($data['isVariableBitrate'])) {
-            $this->isVariableBitrate = $data['isVariableBitrate'];
+            $this->isVariableBitrate = is_bool($data['isVariableBitrate']) ? $data['isVariableBitrate'] : (bool)$data['isVariableBitrate'];
         }
         if (isset($data['title'])) {
             $this->title = $data['title'];
         }
         if (isset($data['track'])) {
-            $this->track = $data['track'];
+            $this->track = is_numeric($data['track']) ? (float)$data['track'] : $data['track'];
         }
         if (isset($data['trackCount'])) {
-            $this->trackCount = $data['trackCount'];
+            $this->trackCount = is_numeric($data['trackCount']) ? (float)$data['trackCount'] : $data['trackCount'];
         }
         if (isset($data['year'])) {
-            $this->year = $data['year'];
+            $this->year = is_numeric($data['year']) ? (float)$data['year'] : $data['year'];
         }
     }
 

@@ -51,16 +51,16 @@ class BroadcastMeetingSettings
             $this->captions = is_array($data['captions']) ? new BroadcastMeetingCaptionSettings($data['captions']) : $data['captions'];
         }
         if (isset($data['isAttendeeReportEnabled'])) {
-            $this->isAttendeeReportEnabled = $data['isAttendeeReportEnabled'];
+            $this->isAttendeeReportEnabled = is_bool($data['isAttendeeReportEnabled']) ? $data['isAttendeeReportEnabled'] : (bool)$data['isAttendeeReportEnabled'];
         }
         if (isset($data['isQuestionAndAnswerEnabled'])) {
-            $this->isQuestionAndAnswerEnabled = $data['isQuestionAndAnswerEnabled'];
+            $this->isQuestionAndAnswerEnabled = is_bool($data['isQuestionAndAnswerEnabled']) ? $data['isQuestionAndAnswerEnabled'] : (bool)$data['isQuestionAndAnswerEnabled'];
         }
         if (isset($data['isRecordingEnabled'])) {
-            $this->isRecordingEnabled = $data['isRecordingEnabled'];
+            $this->isRecordingEnabled = is_bool($data['isRecordingEnabled']) ? $data['isRecordingEnabled'] : (bool)$data['isRecordingEnabled'];
         }
         if (isset($data['isVideoOnDemandEnabled'])) {
-            $this->isVideoOnDemandEnabled = $data['isVideoOnDemandEnabled'];
+            $this->isVideoOnDemandEnabled = is_bool($data['isVideoOnDemandEnabled']) ? $data['isVideoOnDemandEnabled'] : (bool)$data['isVideoOnDemandEnabled'];
         }
     }
 

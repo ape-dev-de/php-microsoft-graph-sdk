@@ -36,7 +36,7 @@ class HorizontalSectionColumn
             $this->id = $data['id'];
         }
         if (isset($data['width'])) {
-            $this->width = $data['width'];
+            $this->width = is_numeric($data['width']) ? (float)$data['width'] : $data['width'];
         }
         if (isset($data['webparts'])) {
             $this->webparts = $data['webparts'];

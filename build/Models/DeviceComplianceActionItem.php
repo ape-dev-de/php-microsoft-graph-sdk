@@ -45,7 +45,7 @@ class DeviceComplianceActionItem
             $this->actionType = is_array($data['actionType']) ? new DeviceComplianceActionType($data['actionType']) : $data['actionType'];
         }
         if (isset($data['gracePeriodHours'])) {
-            $this->gracePeriodHours = $data['gracePeriodHours'];
+            $this->gracePeriodHours = is_numeric($data['gracePeriodHours']) ? (float)$data['gracePeriodHours'] : $data['gracePeriodHours'];
         }
         if (isset($data['notificationMessageCCList'])) {
             $this->notificationMessageCCList = $data['notificationMessageCCList'];

@@ -51,7 +51,7 @@ class PayloadCoachmark
             $this->indicator = $data['indicator'];
         }
         if (isset($data['isValid'])) {
-            $this->isValid = $data['isValid'];
+            $this->isValid = is_bool($data['isValid']) ? $data['isValid'] : (bool)$data['isValid'];
         }
         if (isset($data['language'])) {
             $this->language = $data['language'];

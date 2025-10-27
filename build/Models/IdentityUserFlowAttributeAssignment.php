@@ -54,10 +54,10 @@ class IdentityUserFlowAttributeAssignment
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isOptional'])) {
-            $this->isOptional = $data['isOptional'];
+            $this->isOptional = is_bool($data['isOptional']) ? $data['isOptional'] : (bool)$data['isOptional'];
         }
         if (isset($data['requiresVerification'])) {
-            $this->requiresVerification = $data['requiresVerification'];
+            $this->requiresVerification = is_bool($data['requiresVerification']) ? $data['requiresVerification'] : (bool)$data['requiresVerification'];
         }
         if (isset($data['userAttributeValues'])) {
             $this->userAttributeValues = $data['userAttributeValues'];

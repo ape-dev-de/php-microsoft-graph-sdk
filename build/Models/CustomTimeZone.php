@@ -42,7 +42,7 @@ class CustomTimeZone
             $this->name = $data['name'];
         }
         if (isset($data['bias'])) {
-            $this->bias = $data['bias'];
+            $this->bias = is_numeric($data['bias']) ? (float)$data['bias'] : $data['bias'];
         }
         if (isset($data['daylightOffset'])) {
             $this->daylightOffset = is_array($data['daylightOffset']) ? new DaylightTimeZoneOffset($data['daylightOffset']) : $data['daylightOffset'];

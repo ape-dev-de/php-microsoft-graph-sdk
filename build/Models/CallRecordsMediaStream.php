@@ -156,13 +156,13 @@ class CallRecordsMediaStream
             $this->audioCodec = is_array($data['audioCodec']) ? new CallRecordsAudioCodec($data['audioCodec']) : $data['audioCodec'];
         }
         if (isset($data['averageAudioDegradation'])) {
-            $this->averageAudioDegradation = $data['averageAudioDegradation'];
+            $this->averageAudioDegradation = is_numeric($data['averageAudioDegradation']) ? (float)$data['averageAudioDegradation'] : $data['averageAudioDegradation'];
         }
         if (isset($data['averageAudioNetworkJitter'])) {
             $this->averageAudioNetworkJitter = $data['averageAudioNetworkJitter'];
         }
         if (isset($data['averageBandwidthEstimate'])) {
-            $this->averageBandwidthEstimate = $data['averageBandwidthEstimate'];
+            $this->averageBandwidthEstimate = is_numeric($data['averageBandwidthEstimate']) ? (float)$data['averageBandwidthEstimate'] : $data['averageBandwidthEstimate'];
         }
         if (isset($data['averageFreezeDuration'])) {
             $this->averageFreezeDuration = $data['averageFreezeDuration'];
@@ -171,37 +171,37 @@ class CallRecordsMediaStream
             $this->averageJitter = $data['averageJitter'];
         }
         if (isset($data['averagePacketLossRate'])) {
-            $this->averagePacketLossRate = $data['averagePacketLossRate'];
+            $this->averagePacketLossRate = is_numeric($data['averagePacketLossRate']) ? (float)$data['averagePacketLossRate'] : $data['averagePacketLossRate'];
         }
         if (isset($data['averageRatioOfConcealedSamples'])) {
-            $this->averageRatioOfConcealedSamples = $data['averageRatioOfConcealedSamples'];
+            $this->averageRatioOfConcealedSamples = is_numeric($data['averageRatioOfConcealedSamples']) ? (float)$data['averageRatioOfConcealedSamples'] : $data['averageRatioOfConcealedSamples'];
         }
         if (isset($data['averageReceivedFrameRate'])) {
-            $this->averageReceivedFrameRate = $data['averageReceivedFrameRate'];
+            $this->averageReceivedFrameRate = is_numeric($data['averageReceivedFrameRate']) ? (float)$data['averageReceivedFrameRate'] : $data['averageReceivedFrameRate'];
         }
         if (isset($data['averageRoundTripTime'])) {
             $this->averageRoundTripTime = $data['averageRoundTripTime'];
         }
         if (isset($data['averageVideoFrameLossPercentage'])) {
-            $this->averageVideoFrameLossPercentage = $data['averageVideoFrameLossPercentage'];
+            $this->averageVideoFrameLossPercentage = is_numeric($data['averageVideoFrameLossPercentage']) ? (float)$data['averageVideoFrameLossPercentage'] : $data['averageVideoFrameLossPercentage'];
         }
         if (isset($data['averageVideoFrameRate'])) {
-            $this->averageVideoFrameRate = $data['averageVideoFrameRate'];
+            $this->averageVideoFrameRate = is_numeric($data['averageVideoFrameRate']) ? (float)$data['averageVideoFrameRate'] : $data['averageVideoFrameRate'];
         }
         if (isset($data['averageVideoPacketLossRate'])) {
-            $this->averageVideoPacketLossRate = $data['averageVideoPacketLossRate'];
+            $this->averageVideoPacketLossRate = is_numeric($data['averageVideoPacketLossRate']) ? (float)$data['averageVideoPacketLossRate'] : $data['averageVideoPacketLossRate'];
         }
         if (isset($data['endDateTime'])) {
             $this->endDateTime = is_string($data['endDateTime']) ? new \DateTimeImmutable($data['endDateTime']) : $data['endDateTime'];
         }
         if (isset($data['isAudioForwardErrorCorrectionUsed'])) {
-            $this->isAudioForwardErrorCorrectionUsed = $data['isAudioForwardErrorCorrectionUsed'];
+            $this->isAudioForwardErrorCorrectionUsed = is_bool($data['isAudioForwardErrorCorrectionUsed']) ? $data['isAudioForwardErrorCorrectionUsed'] : (bool)$data['isAudioForwardErrorCorrectionUsed'];
         }
         if (isset($data['lowFrameRateRatio'])) {
-            $this->lowFrameRateRatio = $data['lowFrameRateRatio'];
+            $this->lowFrameRateRatio = is_numeric($data['lowFrameRateRatio']) ? (float)$data['lowFrameRateRatio'] : $data['lowFrameRateRatio'];
         }
         if (isset($data['lowVideoProcessingCapabilityRatio'])) {
-            $this->lowVideoProcessingCapabilityRatio = $data['lowVideoProcessingCapabilityRatio'];
+            $this->lowVideoProcessingCapabilityRatio = is_numeric($data['lowVideoProcessingCapabilityRatio']) ? (float)$data['lowVideoProcessingCapabilityRatio'] : $data['lowVideoProcessingCapabilityRatio'];
         }
         if (isset($data['maxAudioNetworkJitter'])) {
             $this->maxAudioNetworkJitter = $data['maxAudioNetworkJitter'];
@@ -210,19 +210,19 @@ class CallRecordsMediaStream
             $this->maxJitter = $data['maxJitter'];
         }
         if (isset($data['maxPacketLossRate'])) {
-            $this->maxPacketLossRate = $data['maxPacketLossRate'];
+            $this->maxPacketLossRate = is_numeric($data['maxPacketLossRate']) ? (float)$data['maxPacketLossRate'] : $data['maxPacketLossRate'];
         }
         if (isset($data['maxRatioOfConcealedSamples'])) {
-            $this->maxRatioOfConcealedSamples = $data['maxRatioOfConcealedSamples'];
+            $this->maxRatioOfConcealedSamples = is_numeric($data['maxRatioOfConcealedSamples']) ? (float)$data['maxRatioOfConcealedSamples'] : $data['maxRatioOfConcealedSamples'];
         }
         if (isset($data['maxRoundTripTime'])) {
             $this->maxRoundTripTime = $data['maxRoundTripTime'];
         }
         if (isset($data['packetUtilization'])) {
-            $this->packetUtilization = $data['packetUtilization'];
+            $this->packetUtilization = is_numeric($data['packetUtilization']) ? (float)$data['packetUtilization'] : $data['packetUtilization'];
         }
         if (isset($data['postForwardErrorCorrectionPacketLossRate'])) {
-            $this->postForwardErrorCorrectionPacketLossRate = $data['postForwardErrorCorrectionPacketLossRate'];
+            $this->postForwardErrorCorrectionPacketLossRate = is_numeric($data['postForwardErrorCorrectionPacketLossRate']) ? (float)$data['postForwardErrorCorrectionPacketLossRate'] : $data['postForwardErrorCorrectionPacketLossRate'];
         }
         if (isset($data['rmsFreezeDuration'])) {
             $this->rmsFreezeDuration = $data['rmsFreezeDuration'];
@@ -240,7 +240,7 @@ class CallRecordsMediaStream
             $this->videoCodec = is_array($data['videoCodec']) ? new CallRecordsVideoCodec($data['videoCodec']) : $data['videoCodec'];
         }
         if (isset($data['wasMediaBypassed'])) {
-            $this->wasMediaBypassed = $data['wasMediaBypassed'];
+            $this->wasMediaBypassed = is_bool($data['wasMediaBypassed']) ? $data['wasMediaBypassed'] : (bool)$data['wasMediaBypassed'];
         }
     }
 

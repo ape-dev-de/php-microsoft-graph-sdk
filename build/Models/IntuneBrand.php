@@ -102,13 +102,13 @@ class IntuneBrand
             $this->privacyUrl = $data['privacyUrl'];
         }
         if (isset($data['showDisplayNameNextToLogo'])) {
-            $this->showDisplayNameNextToLogo = $data['showDisplayNameNextToLogo'];
+            $this->showDisplayNameNextToLogo = is_bool($data['showDisplayNameNextToLogo']) ? $data['showDisplayNameNextToLogo'] : (bool)$data['showDisplayNameNextToLogo'];
         }
         if (isset($data['showLogo'])) {
-            $this->showLogo = $data['showLogo'];
+            $this->showLogo = is_bool($data['showLogo']) ? $data['showLogo'] : (bool)$data['showLogo'];
         }
         if (isset($data['showNameNextToLogo'])) {
-            $this->showNameNextToLogo = $data['showNameNextToLogo'];
+            $this->showNameNextToLogo = is_bool($data['showNameNextToLogo']) ? $data['showNameNextToLogo'] : (bool)$data['showNameNextToLogo'];
         }
         if (isset($data['themeColor'])) {
             $this->themeColor = is_array($data['themeColor']) ? new RgbColor($data['themeColor']) : $data['themeColor'];

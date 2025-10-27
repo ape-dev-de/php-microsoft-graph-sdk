@@ -36,7 +36,7 @@ class SynchronizationError
             $this->message = $data['message'];
         }
         if (isset($data['tenantActionable'])) {
-            $this->tenantActionable = $data['tenantActionable'];
+            $this->tenantActionable = is_bool($data['tenantActionable']) ? $data['tenantActionable'] : (bool)$data['tenantActionable'];
         }
     }
 

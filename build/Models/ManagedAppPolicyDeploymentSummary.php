@@ -45,7 +45,7 @@ class ManagedAppPolicyDeploymentSummary
             $this->id = $data['id'];
         }
         if (isset($data['configurationDeployedUserCount'])) {
-            $this->configurationDeployedUserCount = $data['configurationDeployedUserCount'];
+            $this->configurationDeployedUserCount = is_numeric($data['configurationDeployedUserCount']) ? (float)$data['configurationDeployedUserCount'] : $data['configurationDeployedUserCount'];
         }
         if (isset($data['configurationDeploymentSummaryPerApp'])) {
             $this->configurationDeploymentSummaryPerApp = $data['configurationDeploymentSummaryPerApp'];

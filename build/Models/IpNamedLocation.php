@@ -57,7 +57,7 @@ class IpNamedLocation
             $this->ipRanges = $data['ipRanges'];
         }
         if (isset($data['isTrusted'])) {
-            $this->isTrusted = $data['isTrusted'];
+            $this->isTrusted = is_bool($data['isTrusted']) ? $data['isTrusted'] : (bool)$data['isTrusted'];
         }
     }
 

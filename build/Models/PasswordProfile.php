@@ -30,10 +30,10 @@ class PasswordProfile
     {
         $this->rawData = $data;
         if (isset($data['forceChangePasswordNextSignIn'])) {
-            $this->forceChangePasswordNextSignIn = $data['forceChangePasswordNextSignIn'];
+            $this->forceChangePasswordNextSignIn = is_bool($data['forceChangePasswordNextSignIn']) ? $data['forceChangePasswordNextSignIn'] : (bool)$data['forceChangePasswordNextSignIn'];
         }
         if (isset($data['forceChangePasswordNextSignInWithMfa'])) {
-            $this->forceChangePasswordNextSignInWithMfa = $data['forceChangePasswordNextSignInWithMfa'];
+            $this->forceChangePasswordNextSignInWithMfa = is_bool($data['forceChangePasswordNextSignInWithMfa']) ? $data['forceChangePasswordNextSignInWithMfa'] : (bool)$data['forceChangePasswordNextSignInWithMfa'];
         }
         if (isset($data['password'])) {
             $this->password = $data['password'];

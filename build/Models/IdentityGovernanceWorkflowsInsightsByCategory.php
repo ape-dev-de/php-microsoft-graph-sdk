@@ -48,31 +48,31 @@ class IdentityGovernanceWorkflowsInsightsByCategory
     {
         $this->rawData = $data;
         if (isset($data['failedJoinerRuns'])) {
-            $this->failedJoinerRuns = $data['failedJoinerRuns'];
+            $this->failedJoinerRuns = is_numeric($data['failedJoinerRuns']) ? (float)$data['failedJoinerRuns'] : $data['failedJoinerRuns'];
         }
         if (isset($data['failedLeaverRuns'])) {
-            $this->failedLeaverRuns = $data['failedLeaverRuns'];
+            $this->failedLeaverRuns = is_numeric($data['failedLeaverRuns']) ? (float)$data['failedLeaverRuns'] : $data['failedLeaverRuns'];
         }
         if (isset($data['failedMoverRuns'])) {
-            $this->failedMoverRuns = $data['failedMoverRuns'];
+            $this->failedMoverRuns = is_numeric($data['failedMoverRuns']) ? (float)$data['failedMoverRuns'] : $data['failedMoverRuns'];
         }
         if (isset($data['successfulJoinerRuns'])) {
-            $this->successfulJoinerRuns = $data['successfulJoinerRuns'];
+            $this->successfulJoinerRuns = is_numeric($data['successfulJoinerRuns']) ? (float)$data['successfulJoinerRuns'] : $data['successfulJoinerRuns'];
         }
         if (isset($data['successfulLeaverRuns'])) {
-            $this->successfulLeaverRuns = $data['successfulLeaverRuns'];
+            $this->successfulLeaverRuns = is_numeric($data['successfulLeaverRuns']) ? (float)$data['successfulLeaverRuns'] : $data['successfulLeaverRuns'];
         }
         if (isset($data['successfulMoverRuns'])) {
-            $this->successfulMoverRuns = $data['successfulMoverRuns'];
+            $this->successfulMoverRuns = is_numeric($data['successfulMoverRuns']) ? (float)$data['successfulMoverRuns'] : $data['successfulMoverRuns'];
         }
         if (isset($data['totalJoinerRuns'])) {
-            $this->totalJoinerRuns = $data['totalJoinerRuns'];
+            $this->totalJoinerRuns = is_numeric($data['totalJoinerRuns']) ? (float)$data['totalJoinerRuns'] : $data['totalJoinerRuns'];
         }
         if (isset($data['totalLeaverRuns'])) {
-            $this->totalLeaverRuns = $data['totalLeaverRuns'];
+            $this->totalLeaverRuns = is_numeric($data['totalLeaverRuns']) ? (float)$data['totalLeaverRuns'] : $data['totalLeaverRuns'];
         }
         if (isset($data['totalMoverRuns'])) {
-            $this->totalMoverRuns = $data['totalMoverRuns'];
+            $this->totalMoverRuns = is_numeric($data['totalMoverRuns']) ? (float)$data['totalMoverRuns'] : $data['totalMoverRuns'];
         }
     }
 

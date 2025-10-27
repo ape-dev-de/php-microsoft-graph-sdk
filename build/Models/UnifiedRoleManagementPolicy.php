@@ -69,7 +69,7 @@ class UnifiedRoleManagementPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isOrganizationDefault'])) {
-            $this->isOrganizationDefault = $data['isOrganizationDefault'];
+            $this->isOrganizationDefault = is_bool($data['isOrganizationDefault']) ? $data['isOrganizationDefault'] : (bool)$data['isOrganizationDefault'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new Identity($data['lastModifiedBy']) : $data['lastModifiedBy'];

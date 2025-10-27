@@ -75,10 +75,10 @@ class RiskyServicePrincipal
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['isProcessing'])) {
-            $this->isProcessing = $data['isProcessing'];
+            $this->isProcessing = is_bool($data['isProcessing']) ? $data['isProcessing'] : (bool)$data['isProcessing'];
         }
         if (isset($data['riskDetail'])) {
             $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];

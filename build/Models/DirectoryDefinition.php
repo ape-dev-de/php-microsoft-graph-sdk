@@ -60,7 +60,7 @@ class DirectoryDefinition
             $this->objects = $data['objects'];
         }
         if (isset($data['readOnly'])) {
-            $this->readOnly = $data['readOnly'];
+            $this->readOnly = is_bool($data['readOnly']) ? $data['readOnly'] : (bool)$data['readOnly'];
         }
         if (isset($data['version'])) {
             $this->version = $data['version'];

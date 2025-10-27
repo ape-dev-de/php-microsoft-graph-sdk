@@ -30,7 +30,7 @@ class ManagedAppPolicyDeploymentSummaryPerApp
     {
         $this->rawData = $data;
         if (isset($data['configurationAppliedUserCount'])) {
-            $this->configurationAppliedUserCount = $data['configurationAppliedUserCount'];
+            $this->configurationAppliedUserCount = is_numeric($data['configurationAppliedUserCount']) ? (float)$data['configurationAppliedUserCount'] : $data['configurationAppliedUserCount'];
         }
         if (isset($data['mobileAppIdentifier'])) {
             $this->mobileAppIdentifier = is_array($data['mobileAppIdentifier']) ? new MobileAppIdentifier($data['mobileAppIdentifier']) : $data['mobileAppIdentifier'];

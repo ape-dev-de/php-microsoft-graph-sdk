@@ -63,7 +63,7 @@ class OpenShiftItem
             $this->notes = $data['notes'];
         }
         if (isset($data['openSlotCount'])) {
-            $this->openSlotCount = $data['openSlotCount'];
+            $this->openSlotCount = is_numeric($data['openSlotCount']) ? (float)$data['openSlotCount'] : $data['openSlotCount'];
         }
     }
 

@@ -36,19 +36,19 @@ class TeamMessagingSettings
     {
         $this->rawData = $data;
         if (isset($data['allowChannelMentions'])) {
-            $this->allowChannelMentions = $data['allowChannelMentions'];
+            $this->allowChannelMentions = is_bool($data['allowChannelMentions']) ? $data['allowChannelMentions'] : (bool)$data['allowChannelMentions'];
         }
         if (isset($data['allowOwnerDeleteMessages'])) {
-            $this->allowOwnerDeleteMessages = $data['allowOwnerDeleteMessages'];
+            $this->allowOwnerDeleteMessages = is_bool($data['allowOwnerDeleteMessages']) ? $data['allowOwnerDeleteMessages'] : (bool)$data['allowOwnerDeleteMessages'];
         }
         if (isset($data['allowTeamMentions'])) {
-            $this->allowTeamMentions = $data['allowTeamMentions'];
+            $this->allowTeamMentions = is_bool($data['allowTeamMentions']) ? $data['allowTeamMentions'] : (bool)$data['allowTeamMentions'];
         }
         if (isset($data['allowUserDeleteMessages'])) {
-            $this->allowUserDeleteMessages = $data['allowUserDeleteMessages'];
+            $this->allowUserDeleteMessages = is_bool($data['allowUserDeleteMessages']) ? $data['allowUserDeleteMessages'] : (bool)$data['allowUserDeleteMessages'];
         }
         if (isset($data['allowUserEditMessages'])) {
-            $this->allowUserEditMessages = $data['allowUserEditMessages'];
+            $this->allowUserEditMessages = is_bool($data['allowUserEditMessages']) ? $data['allowUserEditMessages'] : (bool)$data['allowUserEditMessages'];
         }
     }
 

@@ -156,13 +156,13 @@ class Payload
             $this->industry = is_array($data['industry']) ? new PayloadIndustry($data['industry']) : $data['industry'];
         }
         if (isset($data['isAutomated'])) {
-            $this->isAutomated = $data['isAutomated'];
+            $this->isAutomated = is_bool($data['isAutomated']) ? $data['isAutomated'] : (bool)$data['isAutomated'];
         }
         if (isset($data['isControversial'])) {
-            $this->isControversial = $data['isControversial'];
+            $this->isControversial = is_bool($data['isControversial']) ? $data['isControversial'] : (bool)$data['isControversial'];
         }
         if (isset($data['isCurrentEvent'])) {
-            $this->isCurrentEvent = $data['isCurrentEvent'];
+            $this->isCurrentEvent = is_bool($data['isCurrentEvent']) ? $data['isCurrentEvent'] : (bool)$data['isCurrentEvent'];
         }
         if (isset($data['language'])) {
             $this->language = $data['language'];
@@ -180,7 +180,7 @@ class Payload
             $this->platform = is_array($data['platform']) ? new PayloadDeliveryPlatform($data['platform']) : $data['platform'];
         }
         if (isset($data['predictedCompromiseRate'])) {
-            $this->predictedCompromiseRate = $data['predictedCompromiseRate'];
+            $this->predictedCompromiseRate = is_numeric($data['predictedCompromiseRate']) ? (float)$data['predictedCompromiseRate'] : $data['predictedCompromiseRate'];
         }
         if (isset($data['simulationAttackType'])) {
             $this->simulationAttackType = is_array($data['simulationAttackType']) ? new SimulationAttackType($data['simulationAttackType']) : $data['simulationAttackType'];

@@ -27,10 +27,10 @@ class ImplicitGrantSettings
     {
         $this->rawData = $data;
         if (isset($data['enableAccessTokenIssuance'])) {
-            $this->enableAccessTokenIssuance = $data['enableAccessTokenIssuance'];
+            $this->enableAccessTokenIssuance = is_bool($data['enableAccessTokenIssuance']) ? $data['enableAccessTokenIssuance'] : (bool)$data['enableAccessTokenIssuance'];
         }
         if (isset($data['enableIdTokenIssuance'])) {
-            $this->enableIdTokenIssuance = $data['enableIdTokenIssuance'];
+            $this->enableIdTokenIssuance = is_bool($data['enableIdTokenIssuance']) ? $data['enableIdTokenIssuance'] : (bool)$data['enableIdTokenIssuance'];
         }
     }
 

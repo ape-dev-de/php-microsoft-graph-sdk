@@ -309,10 +309,10 @@ class Application
             $this->info = is_array($data['info']) ? new InformationalUrl($data['info']) : $data['info'];
         }
         if (isset($data['isDeviceOnlyAuthSupported'])) {
-            $this->isDeviceOnlyAuthSupported = $data['isDeviceOnlyAuthSupported'];
+            $this->isDeviceOnlyAuthSupported = is_bool($data['isDeviceOnlyAuthSupported']) ? $data['isDeviceOnlyAuthSupported'] : (bool)$data['isDeviceOnlyAuthSupported'];
         }
         if (isset($data['isFallbackPublicClient'])) {
-            $this->isFallbackPublicClient = $data['isFallbackPublicClient'];
+            $this->isFallbackPublicClient = is_bool($data['isFallbackPublicClient']) ? $data['isFallbackPublicClient'] : (bool)$data['isFallbackPublicClient'];
         }
         if (isset($data['keyCredentials'])) {
             $this->keyCredentials = $data['keyCredentials'];
@@ -327,7 +327,7 @@ class Application
             $this->notes = $data['notes'];
         }
         if (isset($data['oauth2RequirePostResponse'])) {
-            $this->oauth2RequirePostResponse = $data['oauth2RequirePostResponse'];
+            $this->oauth2RequirePostResponse = is_bool($data['oauth2RequirePostResponse']) ? $data['oauth2RequirePostResponse'] : (bool)$data['oauth2RequirePostResponse'];
         }
         if (isset($data['optionalClaims'])) {
             $this->optionalClaims = is_array($data['optionalClaims']) ? new OptionalClaims($data['optionalClaims']) : $data['optionalClaims'];

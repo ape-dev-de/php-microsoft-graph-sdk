@@ -63,7 +63,7 @@ class Trending
             $this->resourceVisualization = is_array($data['resourceVisualization']) ? new ResourceVisualization($data['resourceVisualization']) : $data['resourceVisualization'];
         }
         if (isset($data['weight'])) {
-            $this->weight = $data['weight'];
+            $this->weight = is_numeric($data['weight']) ? (float)$data['weight'] : $data['weight'];
         }
         if (isset($data['resource'])) {
             $this->resource = is_array($data['resource']) ? new Entity($data['resource']) : $data['resource'];

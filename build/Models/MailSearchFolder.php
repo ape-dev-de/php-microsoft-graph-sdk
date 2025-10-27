@@ -90,22 +90,22 @@ class MailSearchFolder
             $this->id = $data['id'];
         }
         if (isset($data['childFolderCount'])) {
-            $this->childFolderCount = $data['childFolderCount'];
+            $this->childFolderCount = is_numeric($data['childFolderCount']) ? (float)$data['childFolderCount'] : $data['childFolderCount'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isHidden'])) {
-            $this->isHidden = $data['isHidden'];
+            $this->isHidden = is_bool($data['isHidden']) ? $data['isHidden'] : (bool)$data['isHidden'];
         }
         if (isset($data['parentFolderId'])) {
             $this->parentFolderId = $data['parentFolderId'];
         }
         if (isset($data['totalItemCount'])) {
-            $this->totalItemCount = $data['totalItemCount'];
+            $this->totalItemCount = is_numeric($data['totalItemCount']) ? (float)$data['totalItemCount'] : $data['totalItemCount'];
         }
         if (isset($data['unreadItemCount'])) {
-            $this->unreadItemCount = $data['unreadItemCount'];
+            $this->unreadItemCount = is_numeric($data['unreadItemCount']) ? (float)$data['unreadItemCount'] : $data['unreadItemCount'];
         }
         if (isset($data['childFolders'])) {
             $this->childFolders = $data['childFolders'];
@@ -126,10 +126,10 @@ class MailSearchFolder
             $this->filterQuery = $data['filterQuery'];
         }
         if (isset($data['includeNestedFolders'])) {
-            $this->includeNestedFolders = $data['includeNestedFolders'];
+            $this->includeNestedFolders = is_bool($data['includeNestedFolders']) ? $data['includeNestedFolders'] : (bool)$data['includeNestedFolders'];
         }
         if (isset($data['isSupported'])) {
-            $this->isSupported = $data['isSupported'];
+            $this->isSupported = is_bool($data['isSupported']) ? $data['isSupported'] : (bool)$data['isSupported'];
         }
         if (isset($data['sourceFolderIds'])) {
             $this->sourceFolderIds = $data['sourceFolderIds'];

@@ -33,7 +33,7 @@ class ImportedWindowsAutopilotDeviceIdentityState
     {
         $this->rawData = $data;
         if (isset($data['deviceErrorCode'])) {
-            $this->deviceErrorCode = $data['deviceErrorCode'];
+            $this->deviceErrorCode = is_numeric($data['deviceErrorCode']) ? (float)$data['deviceErrorCode'] : $data['deviceErrorCode'];
         }
         if (isset($data['deviceErrorName'])) {
             $this->deviceErrorName = $data['deviceErrorName'];

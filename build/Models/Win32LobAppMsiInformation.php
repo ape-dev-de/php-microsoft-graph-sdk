@@ -57,7 +57,7 @@ class Win32LobAppMsiInformation
             $this->publisher = $data['publisher'];
         }
         if (isset($data['requiresReboot'])) {
-            $this->requiresReboot = $data['requiresReboot'];
+            $this->requiresReboot = is_bool($data['requiresReboot']) ? $data['requiresReboot'] : (bool)$data['requiresReboot'];
         }
         if (isset($data['upgradeCode'])) {
             $this->upgradeCode = $data['upgradeCode'];

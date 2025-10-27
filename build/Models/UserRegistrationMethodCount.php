@@ -30,7 +30,7 @@ class UserRegistrationMethodCount
             $this->authenticationMethod = $data['authenticationMethod'];
         }
         if (isset($data['userCount'])) {
-            $this->userCount = $data['userCount'];
+            $this->userCount = is_numeric($data['userCount']) ? (float)$data['userCount'] : $data['userCount'];
         }
     }
 

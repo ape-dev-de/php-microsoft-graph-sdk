@@ -36,7 +36,7 @@ class SecurityHostSslCertificatePort
             $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];
         }
         if (isset($data['port'])) {
-            $this->port = $data['port'];
+            $this->port = is_numeric($data['port']) ? (float)$data['port'] : $data['port'];
         }
     }
 

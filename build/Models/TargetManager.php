@@ -24,7 +24,7 @@ class TargetManager
     {
         $this->rawData = $data;
         if (isset($data['managerLevel'])) {
-            $this->managerLevel = $data['managerLevel'];
+            $this->managerLevel = is_numeric($data['managerLevel']) ? (float)$data['managerLevel'] : $data['managerLevel'];
         }
     }
 

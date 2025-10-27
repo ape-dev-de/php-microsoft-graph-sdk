@@ -30,7 +30,7 @@ class AdminReportSettings
             $this->id = $data['id'];
         }
         if (isset($data['displayConcealedNames'])) {
-            $this->displayConcealedNames = $data['displayConcealedNames'];
+            $this->displayConcealedNames = is_bool($data['displayConcealedNames']) ? $data['displayConcealedNames'] : (bool)$data['displayConcealedNames'];
         }
     }
 

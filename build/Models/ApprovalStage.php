@@ -51,7 +51,7 @@ class ApprovalStage
             $this->id = $data['id'];
         }
         if (isset($data['assignedToMe'])) {
-            $this->assignedToMe = $data['assignedToMe'];
+            $this->assignedToMe = is_bool($data['assignedToMe']) ? $data['assignedToMe'] : (bool)$data['assignedToMe'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

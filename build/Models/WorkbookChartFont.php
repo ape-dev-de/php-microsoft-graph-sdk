@@ -48,19 +48,19 @@ class WorkbookChartFont
             $this->id = $data['id'];
         }
         if (isset($data['bold'])) {
-            $this->bold = $data['bold'];
+            $this->bold = is_bool($data['bold']) ? $data['bold'] : (bool)$data['bold'];
         }
         if (isset($data['color'])) {
             $this->color = $data['color'];
         }
         if (isset($data['italic'])) {
-            $this->italic = $data['italic'];
+            $this->italic = is_bool($data['italic']) ? $data['italic'] : (bool)$data['italic'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['underline'])) {
             $this->underline = $data['underline'];

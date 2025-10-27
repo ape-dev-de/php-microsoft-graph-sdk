@@ -48,25 +48,25 @@ class SubjectRightsRequestDetail
     {
         $this->rawData = $data;
         if (isset($data['excludedItemCount'])) {
-            $this->excludedItemCount = $data['excludedItemCount'];
+            $this->excludedItemCount = is_numeric($data['excludedItemCount']) ? (float)$data['excludedItemCount'] : $data['excludedItemCount'];
         }
         if (isset($data['insightCounts'])) {
             $this->insightCounts = $data['insightCounts'];
         }
         if (isset($data['itemCount'])) {
-            $this->itemCount = $data['itemCount'];
+            $this->itemCount = is_numeric($data['itemCount']) ? (float)$data['itemCount'] : $data['itemCount'];
         }
         if (isset($data['itemNeedReview'])) {
-            $this->itemNeedReview = $data['itemNeedReview'];
+            $this->itemNeedReview = is_numeric($data['itemNeedReview']) ? (float)$data['itemNeedReview'] : $data['itemNeedReview'];
         }
         if (isset($data['productItemCounts'])) {
             $this->productItemCounts = $data['productItemCounts'];
         }
         if (isset($data['signedOffItemCount'])) {
-            $this->signedOffItemCount = $data['signedOffItemCount'];
+            $this->signedOffItemCount = is_numeric($data['signedOffItemCount']) ? (float)$data['signedOffItemCount'] : $data['signedOffItemCount'];
         }
         if (isset($data['totalItemSize'])) {
-            $this->totalItemSize = $data['totalItemSize'];
+            $this->totalItemSize = is_numeric($data['totalItemSize']) ? (float)$data['totalItemSize'] : $data['totalItemSize'];
         }
     }
 

@@ -33,7 +33,7 @@ class ExternalConnectorsItemIdResolver
     {
         $this->rawData = $data;
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['itemId'])) {
             $this->itemId = $data['itemId'];

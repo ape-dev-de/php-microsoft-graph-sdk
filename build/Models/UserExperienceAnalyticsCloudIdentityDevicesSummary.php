@@ -24,7 +24,7 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary
     {
         $this->rawData = $data;
         if (isset($data['deviceWithoutCloudIdentityCount'])) {
-            $this->deviceWithoutCloudIdentityCount = $data['deviceWithoutCloudIdentityCount'];
+            $this->deviceWithoutCloudIdentityCount = is_numeric($data['deviceWithoutCloudIdentityCount']) ? (float)$data['deviceWithoutCloudIdentityCount'] : $data['deviceWithoutCloudIdentityCount'];
         }
     }
 

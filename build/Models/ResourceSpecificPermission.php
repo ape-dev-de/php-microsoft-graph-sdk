@@ -45,7 +45,7 @@ class ResourceSpecificPermission
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

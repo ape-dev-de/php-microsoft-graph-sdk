@@ -36,7 +36,7 @@ class EducationGradingCategory
             $this->displayName = $data['displayName'];
         }
         if (isset($data['percentageWeight'])) {
-            $this->percentageWeight = $data['percentageWeight'];
+            $this->percentageWeight = is_numeric($data['percentageWeight']) ? (float)$data['percentageWeight'] : $data['percentageWeight'];
         }
     }
 

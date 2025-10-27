@@ -36,19 +36,19 @@ class ServicePrincipalLockConfiguration
     {
         $this->rawData = $data;
         if (isset($data['allProperties'])) {
-            $this->allProperties = $data['allProperties'];
+            $this->allProperties = is_bool($data['allProperties']) ? $data['allProperties'] : (bool)$data['allProperties'];
         }
         if (isset($data['credentialsWithUsageSign'])) {
-            $this->credentialsWithUsageSign = $data['credentialsWithUsageSign'];
+            $this->credentialsWithUsageSign = is_bool($data['credentialsWithUsageSign']) ? $data['credentialsWithUsageSign'] : (bool)$data['credentialsWithUsageSign'];
         }
         if (isset($data['credentialsWithUsageVerify'])) {
-            $this->credentialsWithUsageVerify = $data['credentialsWithUsageVerify'];
+            $this->credentialsWithUsageVerify = is_bool($data['credentialsWithUsageVerify']) ? $data['credentialsWithUsageVerify'] : (bool)$data['credentialsWithUsageVerify'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['tokenEncryptionKeyId'])) {
-            $this->tokenEncryptionKeyId = $data['tokenEncryptionKeyId'];
+            $this->tokenEncryptionKeyId = is_bool($data['tokenEncryptionKeyId']) ? $data['tokenEncryptionKeyId'] : (bool)$data['tokenEncryptionKeyId'];
         }
     }
 

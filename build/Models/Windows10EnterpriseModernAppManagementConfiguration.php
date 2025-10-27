@@ -93,7 +93,7 @@ class Windows10EnterpriseModernAppManagementConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -114,7 +114,7 @@ class Windows10EnterpriseModernAppManagementConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['uninstallBuiltInApps'])) {
-            $this->uninstallBuiltInApps = $data['uninstallBuiltInApps'];
+            $this->uninstallBuiltInApps = is_bool($data['uninstallBuiltInApps']) ? $data['uninstallBuiltInApps'] : (bool)$data['uninstallBuiltInApps'];
         }
     }
 

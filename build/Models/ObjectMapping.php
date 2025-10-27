@@ -57,7 +57,7 @@ class ObjectMapping
             $this->attributeMappings = $data['attributeMappings'];
         }
         if (isset($data['enabled'])) {
-            $this->enabled = $data['enabled'];
+            $this->enabled = is_bool($data['enabled']) ? $data['enabled'] : (bool)$data['enabled'];
         }
         if (isset($data['flowTypes'])) {
             $this->flowTypes = is_array($data['flowTypes']) ? new ObjectFlowTypes($data['flowTypes']) : $data['flowTypes'];

@@ -159,7 +159,7 @@ class AndroidCompliancePolicy
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -183,7 +183,7 @@ class AndroidCompliancePolicy
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceComplianceUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['deviceThreatProtectionEnabled'])) {
-            $this->deviceThreatProtectionEnabled = $data['deviceThreatProtectionEnabled'];
+            $this->deviceThreatProtectionEnabled = is_bool($data['deviceThreatProtectionEnabled']) ? $data['deviceThreatProtectionEnabled'] : (bool)$data['deviceThreatProtectionEnabled'];
         }
         if (isset($data['deviceThreatProtectionRequiredSecurityLevel'])) {
             $this->deviceThreatProtectionRequiredSecurityLevel = is_array($data['deviceThreatProtectionRequiredSecurityLevel']) ? new DeviceThreatProtectionLevel($data['deviceThreatProtectionRequiredSecurityLevel']) : $data['deviceThreatProtectionRequiredSecurityLevel'];
@@ -198,52 +198,52 @@ class AndroidCompliancePolicy
             $this->osMinimumVersion = $data['osMinimumVersion'];
         }
         if (isset($data['passwordExpirationDays'])) {
-            $this->passwordExpirationDays = $data['passwordExpirationDays'];
+            $this->passwordExpirationDays = is_numeric($data['passwordExpirationDays']) ? (float)$data['passwordExpirationDays'] : $data['passwordExpirationDays'];
         }
         if (isset($data['passwordMinimumLength'])) {
-            $this->passwordMinimumLength = $data['passwordMinimumLength'];
+            $this->passwordMinimumLength = is_numeric($data['passwordMinimumLength']) ? (float)$data['passwordMinimumLength'] : $data['passwordMinimumLength'];
         }
         if (isset($data['passwordMinutesOfInactivityBeforeLock'])) {
-            $this->passwordMinutesOfInactivityBeforeLock = $data['passwordMinutesOfInactivityBeforeLock'];
+            $this->passwordMinutesOfInactivityBeforeLock = is_numeric($data['passwordMinutesOfInactivityBeforeLock']) ? (float)$data['passwordMinutesOfInactivityBeforeLock'] : $data['passwordMinutesOfInactivityBeforeLock'];
         }
         if (isset($data['passwordPreviousPasswordBlockCount'])) {
-            $this->passwordPreviousPasswordBlockCount = $data['passwordPreviousPasswordBlockCount'];
+            $this->passwordPreviousPasswordBlockCount = is_numeric($data['passwordPreviousPasswordBlockCount']) ? (float)$data['passwordPreviousPasswordBlockCount'] : $data['passwordPreviousPasswordBlockCount'];
         }
         if (isset($data['passwordRequired'])) {
-            $this->passwordRequired = $data['passwordRequired'];
+            $this->passwordRequired = is_bool($data['passwordRequired']) ? $data['passwordRequired'] : (bool)$data['passwordRequired'];
         }
         if (isset($data['passwordRequiredType'])) {
             $this->passwordRequiredType = is_array($data['passwordRequiredType']) ? new AndroidRequiredPasswordType($data['passwordRequiredType']) : $data['passwordRequiredType'];
         }
         if (isset($data['securityBlockJailbrokenDevices'])) {
-            $this->securityBlockJailbrokenDevices = $data['securityBlockJailbrokenDevices'];
+            $this->securityBlockJailbrokenDevices = is_bool($data['securityBlockJailbrokenDevices']) ? $data['securityBlockJailbrokenDevices'] : (bool)$data['securityBlockJailbrokenDevices'];
         }
         if (isset($data['securityDisableUsbDebugging'])) {
-            $this->securityDisableUsbDebugging = $data['securityDisableUsbDebugging'];
+            $this->securityDisableUsbDebugging = is_bool($data['securityDisableUsbDebugging']) ? $data['securityDisableUsbDebugging'] : (bool)$data['securityDisableUsbDebugging'];
         }
         if (isset($data['securityPreventInstallAppsFromUnknownSources'])) {
-            $this->securityPreventInstallAppsFromUnknownSources = $data['securityPreventInstallAppsFromUnknownSources'];
+            $this->securityPreventInstallAppsFromUnknownSources = is_bool($data['securityPreventInstallAppsFromUnknownSources']) ? $data['securityPreventInstallAppsFromUnknownSources'] : (bool)$data['securityPreventInstallAppsFromUnknownSources'];
         }
         if (isset($data['securityRequireCompanyPortalAppIntegrity'])) {
-            $this->securityRequireCompanyPortalAppIntegrity = $data['securityRequireCompanyPortalAppIntegrity'];
+            $this->securityRequireCompanyPortalAppIntegrity = is_bool($data['securityRequireCompanyPortalAppIntegrity']) ? $data['securityRequireCompanyPortalAppIntegrity'] : (bool)$data['securityRequireCompanyPortalAppIntegrity'];
         }
         if (isset($data['securityRequireGooglePlayServices'])) {
-            $this->securityRequireGooglePlayServices = $data['securityRequireGooglePlayServices'];
+            $this->securityRequireGooglePlayServices = is_bool($data['securityRequireGooglePlayServices']) ? $data['securityRequireGooglePlayServices'] : (bool)$data['securityRequireGooglePlayServices'];
         }
         if (isset($data['securityRequireSafetyNetAttestationBasicIntegrity'])) {
-            $this->securityRequireSafetyNetAttestationBasicIntegrity = $data['securityRequireSafetyNetAttestationBasicIntegrity'];
+            $this->securityRequireSafetyNetAttestationBasicIntegrity = is_bool($data['securityRequireSafetyNetAttestationBasicIntegrity']) ? $data['securityRequireSafetyNetAttestationBasicIntegrity'] : (bool)$data['securityRequireSafetyNetAttestationBasicIntegrity'];
         }
         if (isset($data['securityRequireSafetyNetAttestationCertifiedDevice'])) {
-            $this->securityRequireSafetyNetAttestationCertifiedDevice = $data['securityRequireSafetyNetAttestationCertifiedDevice'];
+            $this->securityRequireSafetyNetAttestationCertifiedDevice = is_bool($data['securityRequireSafetyNetAttestationCertifiedDevice']) ? $data['securityRequireSafetyNetAttestationCertifiedDevice'] : (bool)$data['securityRequireSafetyNetAttestationCertifiedDevice'];
         }
         if (isset($data['securityRequireUpToDateSecurityProviders'])) {
-            $this->securityRequireUpToDateSecurityProviders = $data['securityRequireUpToDateSecurityProviders'];
+            $this->securityRequireUpToDateSecurityProviders = is_bool($data['securityRequireUpToDateSecurityProviders']) ? $data['securityRequireUpToDateSecurityProviders'] : (bool)$data['securityRequireUpToDateSecurityProviders'];
         }
         if (isset($data['securityRequireVerifyApps'])) {
-            $this->securityRequireVerifyApps = $data['securityRequireVerifyApps'];
+            $this->securityRequireVerifyApps = is_bool($data['securityRequireVerifyApps']) ? $data['securityRequireVerifyApps'] : (bool)$data['securityRequireVerifyApps'];
         }
         if (isset($data['storageRequireEncryption'])) {
-            $this->storageRequireEncryption = $data['storageRequireEncryption'];
+            $this->storageRequireEncryption = is_bool($data['storageRequireEncryption']) ? $data['storageRequireEncryption'] : (bool)$data['storageRequireEncryption'];
         }
     }
 

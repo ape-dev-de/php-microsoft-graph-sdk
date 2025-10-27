@@ -72,7 +72,7 @@ class SecurityEdiscoveryPurgeDataOperation
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['percentProgress'])) {
-            $this->percentProgress = $data['percentProgress'];
+            $this->percentProgress = is_numeric($data['percentProgress']) ? (float)$data['percentProgress'] : $data['percentProgress'];
         }
         if (isset($data['resultInfo'])) {
             $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];

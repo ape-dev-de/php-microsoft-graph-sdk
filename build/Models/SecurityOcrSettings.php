@@ -30,10 +30,10 @@ class SecurityOcrSettings
     {
         $this->rawData = $data;
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['maxImageSize'])) {
-            $this->maxImageSize = $data['maxImageSize'];
+            $this->maxImageSize = is_numeric($data['maxImageSize']) ? (float)$data['maxImageSize'] : $data['maxImageSize'];
         }
         if (isset($data['timeout'])) {
             $this->timeout = $data['timeout'];

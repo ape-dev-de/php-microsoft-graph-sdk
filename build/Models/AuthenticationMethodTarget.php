@@ -33,7 +33,7 @@ class AuthenticationMethodTarget
             $this->id = $data['id'];
         }
         if (isset($data['isRegistrationRequired'])) {
-            $this->isRegistrationRequired = $data['isRegistrationRequired'];
+            $this->isRegistrationRequired = is_bool($data['isRegistrationRequired']) ? $data['isRegistrationRequired'] : (bool)$data['isRegistrationRequired'];
         }
         if (isset($data['targetType'])) {
             $this->targetType = is_array($data['targetType']) ? new AuthenticationMethodTargetType($data['targetType']) : $data['targetType'];

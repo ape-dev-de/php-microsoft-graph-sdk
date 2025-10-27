@@ -129,7 +129,7 @@ class SharedPCConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -156,25 +156,25 @@ class SharedPCConfiguration
             $this->allowedAccounts = is_array($data['allowedAccounts']) ? new SharedPCAllowedAccountType($data['allowedAccounts']) : $data['allowedAccounts'];
         }
         if (isset($data['allowLocalStorage'])) {
-            $this->allowLocalStorage = $data['allowLocalStorage'];
+            $this->allowLocalStorage = is_bool($data['allowLocalStorage']) ? $data['allowLocalStorage'] : (bool)$data['allowLocalStorage'];
         }
         if (isset($data['disableAccountManager'])) {
-            $this->disableAccountManager = $data['disableAccountManager'];
+            $this->disableAccountManager = is_bool($data['disableAccountManager']) ? $data['disableAccountManager'] : (bool)$data['disableAccountManager'];
         }
         if (isset($data['disableEduPolicies'])) {
-            $this->disableEduPolicies = $data['disableEduPolicies'];
+            $this->disableEduPolicies = is_bool($data['disableEduPolicies']) ? $data['disableEduPolicies'] : (bool)$data['disableEduPolicies'];
         }
         if (isset($data['disablePowerPolicies'])) {
-            $this->disablePowerPolicies = $data['disablePowerPolicies'];
+            $this->disablePowerPolicies = is_bool($data['disablePowerPolicies']) ? $data['disablePowerPolicies'] : (bool)$data['disablePowerPolicies'];
         }
         if (isset($data['disableSignInOnResume'])) {
-            $this->disableSignInOnResume = $data['disableSignInOnResume'];
+            $this->disableSignInOnResume = is_bool($data['disableSignInOnResume']) ? $data['disableSignInOnResume'] : (bool)$data['disableSignInOnResume'];
         }
         if (isset($data['enabled'])) {
-            $this->enabled = $data['enabled'];
+            $this->enabled = is_bool($data['enabled']) ? $data['enabled'] : (bool)$data['enabled'];
         }
         if (isset($data['idleTimeBeforeSleepInSeconds'])) {
-            $this->idleTimeBeforeSleepInSeconds = $data['idleTimeBeforeSleepInSeconds'];
+            $this->idleTimeBeforeSleepInSeconds = is_numeric($data['idleTimeBeforeSleepInSeconds']) ? (float)$data['idleTimeBeforeSleepInSeconds'] : $data['idleTimeBeforeSleepInSeconds'];
         }
         if (isset($data['kioskAppDisplayName'])) {
             $this->kioskAppDisplayName = $data['kioskAppDisplayName'];

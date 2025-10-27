@@ -51,7 +51,7 @@ class BookingSchedulingPolicy
     {
         $this->rawData = $data;
         if (isset($data['allowStaffSelection'])) {
-            $this->allowStaffSelection = $data['allowStaffSelection'];
+            $this->allowStaffSelection = is_bool($data['allowStaffSelection']) ? $data['allowStaffSelection'] : (bool)$data['allowStaffSelection'];
         }
         if (isset($data['customAvailabilities'])) {
             $this->customAvailabilities = $data['customAvailabilities'];
@@ -60,7 +60,7 @@ class BookingSchedulingPolicy
             $this->generalAvailability = is_array($data['generalAvailability']) ? new BookingsAvailability($data['generalAvailability']) : $data['generalAvailability'];
         }
         if (isset($data['isMeetingInviteToCustomersEnabled'])) {
-            $this->isMeetingInviteToCustomersEnabled = $data['isMeetingInviteToCustomersEnabled'];
+            $this->isMeetingInviteToCustomersEnabled = is_bool($data['isMeetingInviteToCustomersEnabled']) ? $data['isMeetingInviteToCustomersEnabled'] : (bool)$data['isMeetingInviteToCustomersEnabled'];
         }
         if (isset($data['maximumAdvance'])) {
             $this->maximumAdvance = $data['maximumAdvance'];
@@ -69,7 +69,7 @@ class BookingSchedulingPolicy
             $this->minimumLeadTime = $data['minimumLeadTime'];
         }
         if (isset($data['sendConfirmationsToOwner'])) {
-            $this->sendConfirmationsToOwner = $data['sendConfirmationsToOwner'];
+            $this->sendConfirmationsToOwner = is_bool($data['sendConfirmationsToOwner']) ? $data['sendConfirmationsToOwner'] : (bool)$data['sendConfirmationsToOwner'];
         }
         if (isset($data['timeSlotInterval'])) {
             $this->timeSlotInterval = $data['timeSlotInterval'];

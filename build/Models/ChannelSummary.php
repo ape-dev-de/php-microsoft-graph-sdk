@@ -33,16 +33,16 @@ class ChannelSummary
     {
         $this->rawData = $data;
         if (isset($data['guestsCount'])) {
-            $this->guestsCount = $data['guestsCount'];
+            $this->guestsCount = is_numeric($data['guestsCount']) ? (float)$data['guestsCount'] : $data['guestsCount'];
         }
         if (isset($data['hasMembersFromOtherTenants'])) {
-            $this->hasMembersFromOtherTenants = $data['hasMembersFromOtherTenants'];
+            $this->hasMembersFromOtherTenants = is_bool($data['hasMembersFromOtherTenants']) ? $data['hasMembersFromOtherTenants'] : (bool)$data['hasMembersFromOtherTenants'];
         }
         if (isset($data['membersCount'])) {
-            $this->membersCount = $data['membersCount'];
+            $this->membersCount = is_numeric($data['membersCount']) ? (float)$data['membersCount'] : $data['membersCount'];
         }
         if (isset($data['ownersCount'])) {
-            $this->ownersCount = $data['ownersCount'];
+            $this->ownersCount = is_numeric($data['ownersCount']) ? (float)$data['ownersCount'] : $data['ownersCount'];
         }
     }
 

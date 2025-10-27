@@ -42,7 +42,7 @@ class AuthenticationContextClassReference
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isAvailable'])) {
-            $this->isAvailable = $data['isAvailable'];
+            $this->isAvailable = is_bool($data['isAvailable']) ? $data['isAvailable'] : (bool)$data['isAvailable'];
         }
     }
 

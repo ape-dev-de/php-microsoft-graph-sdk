@@ -111,7 +111,7 @@ class Room
             $this->building = $data['building'];
         }
         if (isset($data['capacity'])) {
-            $this->capacity = $data['capacity'];
+            $this->capacity = is_numeric($data['capacity']) ? (float)$data['capacity'] : $data['capacity'];
         }
         if (isset($data['displayDeviceName'])) {
             $this->displayDeviceName = $data['displayDeviceName'];
@@ -123,10 +123,10 @@ class Room
             $this->floorLabel = $data['floorLabel'];
         }
         if (isset($data['floorNumber'])) {
-            $this->floorNumber = $data['floorNumber'];
+            $this->floorNumber = is_numeric($data['floorNumber']) ? (float)$data['floorNumber'] : $data['floorNumber'];
         }
         if (isset($data['isWheelChairAccessible'])) {
-            $this->isWheelChairAccessible = $data['isWheelChairAccessible'];
+            $this->isWheelChairAccessible = is_bool($data['isWheelChairAccessible']) ? $data['isWheelChairAccessible'] : (bool)$data['isWheelChairAccessible'];
         }
         if (isset($data['label'])) {
             $this->label = $data['label'];

@@ -27,10 +27,10 @@ class IntegerRange
     {
         $this->rawData = $data;
         if (isset($data['end'])) {
-            $this->end = $data['end'];
+            $this->end = is_numeric($data['end']) ? (float)$data['end'] : $data['end'];
         }
         if (isset($data['start'])) {
-            $this->start = $data['start'];
+            $this->start = is_numeric($data['start']) ? (float)$data['start'] : $data['start'];
         }
     }
 

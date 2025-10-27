@@ -195,10 +195,10 @@ class SubjectRightsRequest
             $this->history = $data['history'];
         }
         if (isset($data['includeAllVersions'])) {
-            $this->includeAllVersions = $data['includeAllVersions'];
+            $this->includeAllVersions = is_bool($data['includeAllVersions']) ? $data['includeAllVersions'] : (bool)$data['includeAllVersions'];
         }
         if (isset($data['includeAuthoredContent'])) {
-            $this->includeAuthoredContent = $data['includeAuthoredContent'];
+            $this->includeAuthoredContent = is_bool($data['includeAuthoredContent']) ? $data['includeAuthoredContent'] : (bool)$data['includeAuthoredContent'];
         }
         if (isset($data['insight'])) {
             $this->insight = is_array($data['insight']) ? new SubjectRightsRequestDetail($data['insight']) : $data['insight'];
@@ -216,7 +216,7 @@ class SubjectRightsRequest
             $this->mailboxLocations = is_array($data['mailboxLocations']) ? new SubjectRightsRequestMailboxLocation($data['mailboxLocations']) : $data['mailboxLocations'];
         }
         if (isset($data['pauseAfterEstimate'])) {
-            $this->pauseAfterEstimate = $data['pauseAfterEstimate'];
+            $this->pauseAfterEstimate = is_bool($data['pauseAfterEstimate']) ? $data['pauseAfterEstimate'] : (bool)$data['pauseAfterEstimate'];
         }
         if (isset($data['regulations'])) {
             $this->regulations = $data['regulations'];

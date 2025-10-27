@@ -51,7 +51,7 @@ class PrintDocument
             $this->downloadedDateTime = is_string($data['downloadedDateTime']) ? new \DateTimeImmutable($data['downloadedDateTime']) : $data['downloadedDateTime'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['uploadedDateTime'])) {
             $this->uploadedDateTime = is_string($data['uploadedDateTime']) ? new \DateTimeImmutable($data['uploadedDateTime']) : $data['uploadedDateTime'];

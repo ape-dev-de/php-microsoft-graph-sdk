@@ -66,7 +66,7 @@ class IdentityGovernanceTask
             $this->category = is_array($data['category']) ? new IdentityGovernanceLifecycleTaskCategory($data['category']) : $data['category'];
         }
         if (isset($data['continueOnError'])) {
-            $this->continueOnError = $data['continueOnError'];
+            $this->continueOnError = is_bool($data['continueOnError']) ? $data['continueOnError'] : (bool)$data['continueOnError'];
         }
         if (isset($data['description'])) {
             $this->description = $data['description'];
@@ -75,10 +75,10 @@ class IdentityGovernanceTask
             $this->displayName = $data['displayName'];
         }
         if (isset($data['executionSequence'])) {
-            $this->executionSequence = $data['executionSequence'];
+            $this->executionSequence = is_numeric($data['executionSequence']) ? (float)$data['executionSequence'] : $data['executionSequence'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['taskDefinitionId'])) {
             $this->taskDefinitionId = $data['taskDefinitionId'];

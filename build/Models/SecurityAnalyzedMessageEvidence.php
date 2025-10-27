@@ -144,7 +144,7 @@ class SecurityAnalyzedMessageEvidence
             $this->antiSpamDirection = $data['antiSpamDirection'];
         }
         if (isset($data['attachmentsCount'])) {
-            $this->attachmentsCount = $data['attachmentsCount'];
+            $this->attachmentsCount = is_numeric($data['attachmentsCount']) ? (float)$data['attachmentsCount'] : $data['attachmentsCount'];
         }
         if (isset($data['deliveryAction'])) {
             $this->deliveryAction = $data['deliveryAction'];
@@ -186,7 +186,7 @@ class SecurityAnalyzedMessageEvidence
             $this->threats = $data['threats'];
         }
         if (isset($data['urlCount'])) {
-            $this->urlCount = $data['urlCount'];
+            $this->urlCount = is_numeric($data['urlCount']) ? (float)$data['urlCount'] : $data['urlCount'];
         }
         if (isset($data['urls'])) {
             $this->urls = $data['urls'];

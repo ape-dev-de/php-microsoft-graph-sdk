@@ -57,7 +57,7 @@ class CustomTrainingSetting
             $this->displayName = $data['displayName'];
         }
         if (isset($data['durationInMinutes'])) {
-            $this->durationInMinutes = $data['durationInMinutes'];
+            $this->durationInMinutes = is_numeric($data['durationInMinutes']) ? (float)$data['durationInMinutes'] : $data['durationInMinutes'];
         }
         if (isset($data['url'])) {
             $this->url = $data['url'];

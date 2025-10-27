@@ -27,10 +27,10 @@ class InboundOutboundPolicyConfiguration
     {
         $this->rawData = $data;
         if (isset($data['inboundAllowed'])) {
-            $this->inboundAllowed = $data['inboundAllowed'];
+            $this->inboundAllowed = is_bool($data['inboundAllowed']) ? $data['inboundAllowed'] : (bool)$data['inboundAllowed'];
         }
         if (isset($data['outboundAllowed'])) {
-            $this->outboundAllowed = $data['outboundAllowed'];
+            $this->outboundAllowed = is_bool($data['outboundAllowed']) ? $data['outboundAllowed'] : (bool)$data['outboundAllowed'];
         }
     }
 

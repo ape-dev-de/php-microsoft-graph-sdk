@@ -24,7 +24,7 @@ class VirtualEventSettings
     {
         $this->rawData = $data;
         if (isset($data['isAttendeeEmailNotificationEnabled'])) {
-            $this->isAttendeeEmailNotificationEnabled = $data['isAttendeeEmailNotificationEnabled'];
+            $this->isAttendeeEmailNotificationEnabled = is_bool($data['isAttendeeEmailNotificationEnabled']) ? $data['isAttendeeEmailNotificationEnabled'] : (bool)$data['isAttendeeEmailNotificationEnabled'];
         }
     }
 

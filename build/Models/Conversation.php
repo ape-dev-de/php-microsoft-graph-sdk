@@ -51,7 +51,7 @@ class Conversation
             $this->id = $data['id'];
         }
         if (isset($data['hasAttachments'])) {
-            $this->hasAttachments = $data['hasAttachments'];
+            $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['lastDeliveredDateTime'])) {
             $this->lastDeliveredDateTime = is_string($data['lastDeliveredDateTime']) ? new \DateTimeImmutable($data['lastDeliveredDateTime']) : $data['lastDeliveredDateTime'];

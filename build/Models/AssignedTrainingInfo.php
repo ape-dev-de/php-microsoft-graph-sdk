@@ -30,10 +30,10 @@ class AssignedTrainingInfo
     {
         $this->rawData = $data;
         if (isset($data['assignedUserCount'])) {
-            $this->assignedUserCount = $data['assignedUserCount'];
+            $this->assignedUserCount = is_numeric($data['assignedUserCount']) ? (float)$data['assignedUserCount'] : $data['assignedUserCount'];
         }
         if (isset($data['completedUserCount'])) {
-            $this->completedUserCount = $data['completedUserCount'];
+            $this->completedUserCount = is_numeric($data['completedUserCount']) ? (float)$data['completedUserCount'] : $data['completedUserCount'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];

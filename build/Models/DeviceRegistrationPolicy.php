@@ -75,7 +75,7 @@ class DeviceRegistrationPolicy
             $this->multiFactorAuthConfiguration = is_array($data['multiFactorAuthConfiguration']) ? new MultiFactorAuthConfiguration($data['multiFactorAuthConfiguration']) : $data['multiFactorAuthConfiguration'];
         }
         if (isset($data['userDeviceQuota'])) {
-            $this->userDeviceQuota = $data['userDeviceQuota'];
+            $this->userDeviceQuota = is_numeric($data['userDeviceQuota']) ? (float)$data['userDeviceQuota'] : $data['userDeviceQuota'];
         }
     }
 

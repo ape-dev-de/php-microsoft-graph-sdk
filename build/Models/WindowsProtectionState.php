@@ -108,13 +108,13 @@ class WindowsProtectionState
             $this->engineVersion = $data['engineVersion'];
         }
         if (isset($data['fullScanOverdue'])) {
-            $this->fullScanOverdue = $data['fullScanOverdue'];
+            $this->fullScanOverdue = is_bool($data['fullScanOverdue']) ? $data['fullScanOverdue'] : (bool)$data['fullScanOverdue'];
         }
         if (isset($data['fullScanRequired'])) {
-            $this->fullScanRequired = $data['fullScanRequired'];
+            $this->fullScanRequired = is_bool($data['fullScanRequired']) ? $data['fullScanRequired'] : (bool)$data['fullScanRequired'];
         }
         if (isset($data['isVirtualMachine'])) {
-            $this->isVirtualMachine = $data['isVirtualMachine'];
+            $this->isVirtualMachine = is_bool($data['isVirtualMachine']) ? $data['isVirtualMachine'] : (bool)$data['isVirtualMachine'];
         }
         if (isset($data['lastFullScanDateTime'])) {
             $this->lastFullScanDateTime = is_string($data['lastFullScanDateTime']) ? new \DateTimeImmutable($data['lastFullScanDateTime']) : $data['lastFullScanDateTime'];
@@ -132,31 +132,31 @@ class WindowsProtectionState
             $this->lastReportedDateTime = is_string($data['lastReportedDateTime']) ? new \DateTimeImmutable($data['lastReportedDateTime']) : $data['lastReportedDateTime'];
         }
         if (isset($data['malwareProtectionEnabled'])) {
-            $this->malwareProtectionEnabled = $data['malwareProtectionEnabled'];
+            $this->malwareProtectionEnabled = is_bool($data['malwareProtectionEnabled']) ? $data['malwareProtectionEnabled'] : (bool)$data['malwareProtectionEnabled'];
         }
         if (isset($data['networkInspectionSystemEnabled'])) {
-            $this->networkInspectionSystemEnabled = $data['networkInspectionSystemEnabled'];
+            $this->networkInspectionSystemEnabled = is_bool($data['networkInspectionSystemEnabled']) ? $data['networkInspectionSystemEnabled'] : (bool)$data['networkInspectionSystemEnabled'];
         }
         if (isset($data['productStatus'])) {
             $this->productStatus = is_array($data['productStatus']) ? new WindowsDefenderProductStatus($data['productStatus']) : $data['productStatus'];
         }
         if (isset($data['quickScanOverdue'])) {
-            $this->quickScanOverdue = $data['quickScanOverdue'];
+            $this->quickScanOverdue = is_bool($data['quickScanOverdue']) ? $data['quickScanOverdue'] : (bool)$data['quickScanOverdue'];
         }
         if (isset($data['realTimeProtectionEnabled'])) {
-            $this->realTimeProtectionEnabled = $data['realTimeProtectionEnabled'];
+            $this->realTimeProtectionEnabled = is_bool($data['realTimeProtectionEnabled']) ? $data['realTimeProtectionEnabled'] : (bool)$data['realTimeProtectionEnabled'];
         }
         if (isset($data['rebootRequired'])) {
-            $this->rebootRequired = $data['rebootRequired'];
+            $this->rebootRequired = is_bool($data['rebootRequired']) ? $data['rebootRequired'] : (bool)$data['rebootRequired'];
         }
         if (isset($data['signatureUpdateOverdue'])) {
-            $this->signatureUpdateOverdue = $data['signatureUpdateOverdue'];
+            $this->signatureUpdateOverdue = is_bool($data['signatureUpdateOverdue']) ? $data['signatureUpdateOverdue'] : (bool)$data['signatureUpdateOverdue'];
         }
         if (isset($data['signatureVersion'])) {
             $this->signatureVersion = $data['signatureVersion'];
         }
         if (isset($data['tamperProtectionEnabled'])) {
-            $this->tamperProtectionEnabled = $data['tamperProtectionEnabled'];
+            $this->tamperProtectionEnabled = is_bool($data['tamperProtectionEnabled']) ? $data['tamperProtectionEnabled'] : (bool)$data['tamperProtectionEnabled'];
         }
         if (isset($data['detectedMalwareState'])) {
             $this->detectedMalwareState = $data['detectedMalwareState'];

@@ -30,13 +30,13 @@ class DeviceManagementSettings
     {
         $this->rawData = $data;
         if (isset($data['deviceComplianceCheckinThresholdDays'])) {
-            $this->deviceComplianceCheckinThresholdDays = $data['deviceComplianceCheckinThresholdDays'];
+            $this->deviceComplianceCheckinThresholdDays = is_numeric($data['deviceComplianceCheckinThresholdDays']) ? (float)$data['deviceComplianceCheckinThresholdDays'] : $data['deviceComplianceCheckinThresholdDays'];
         }
         if (isset($data['isScheduledActionEnabled'])) {
-            $this->isScheduledActionEnabled = $data['isScheduledActionEnabled'];
+            $this->isScheduledActionEnabled = is_bool($data['isScheduledActionEnabled']) ? $data['isScheduledActionEnabled'] : (bool)$data['isScheduledActionEnabled'];
         }
         if (isset($data['secureByDefault'])) {
-            $this->secureByDefault = $data['secureByDefault'];
+            $this->secureByDefault = is_bool($data['secureByDefault']) ? $data['secureByDefault'] : (bool)$data['secureByDefault'];
         }
     }
 

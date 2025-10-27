@@ -33,13 +33,13 @@ class LocationConstraint
     {
         $this->rawData = $data;
         if (isset($data['isRequired'])) {
-            $this->isRequired = $data['isRequired'];
+            $this->isRequired = is_bool($data['isRequired']) ? $data['isRequired'] : (bool)$data['isRequired'];
         }
         if (isset($data['locations'])) {
             $this->locations = $data['locations'];
         }
         if (isset($data['suggestLocation'])) {
-            $this->suggestLocation = $data['suggestLocation'];
+            $this->suggestLocation = is_bool($data['suggestLocation']) ? $data['suggestLocation'] : (bool)$data['suggestLocation'];
         }
     }
 

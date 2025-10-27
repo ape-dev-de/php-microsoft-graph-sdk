@@ -48,7 +48,7 @@ class IdentitySecurityDefaultsEnforcementPolicy
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
     }
 

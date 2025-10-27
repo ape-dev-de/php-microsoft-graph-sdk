@@ -84,7 +84,7 @@ class LocationConstraintItem
             $this->uniqueIdType = is_array($data['uniqueIdType']) ? new LocationUniqueIdType($data['uniqueIdType']) : $data['uniqueIdType'];
         }
         if (isset($data['resolveAvailability'])) {
-            $this->resolveAvailability = $data['resolveAvailability'];
+            $this->resolveAvailability = is_bool($data['resolveAvailability']) ? $data['resolveAvailability'] : (bool)$data['resolveAvailability'];
         }
     }
 

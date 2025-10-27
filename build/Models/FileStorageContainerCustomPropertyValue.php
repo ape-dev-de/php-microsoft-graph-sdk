@@ -27,7 +27,7 @@ class FileStorageContainerCustomPropertyValue
     {
         $this->rawData = $data;
         if (isset($data['isSearchable'])) {
-            $this->isSearchable = $data['isSearchable'];
+            $this->isSearchable = is_bool($data['isSearchable']) ? $data['isSearchable'] : (bool)$data['isSearchable'];
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];

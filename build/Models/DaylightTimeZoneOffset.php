@@ -42,22 +42,22 @@ class DaylightTimeZoneOffset
     {
         $this->rawData = $data;
         if (isset($data['dayOccurrence'])) {
-            $this->dayOccurrence = $data['dayOccurrence'];
+            $this->dayOccurrence = is_numeric($data['dayOccurrence']) ? (float)$data['dayOccurrence'] : $data['dayOccurrence'];
         }
         if (isset($data['dayOfWeek'])) {
             $this->dayOfWeek = is_array($data['dayOfWeek']) ? new DayOfWeek($data['dayOfWeek']) : $data['dayOfWeek'];
         }
         if (isset($data['month'])) {
-            $this->month = $data['month'];
+            $this->month = is_numeric($data['month']) ? (float)$data['month'] : $data['month'];
         }
         if (isset($data['time'])) {
             $this->time = $data['time'];
         }
         if (isset($data['year'])) {
-            $this->year = $data['year'];
+            $this->year = is_numeric($data['year']) ? (float)$data['year'] : $data['year'];
         }
         if (isset($data['daylightBias'])) {
-            $this->daylightBias = $data['daylightBias'];
+            $this->daylightBias = is_numeric($data['daylightBias']) ? (float)$data['daylightBias'] : $data['daylightBias'];
         }
     }
 

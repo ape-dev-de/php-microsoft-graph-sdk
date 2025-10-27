@@ -54,7 +54,7 @@ class DataPolicyOperation
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['progress'])) {
-            $this->progress = $data['progress'];
+            $this->progress = is_numeric($data['progress']) ? (float)$data['progress'] : $data['progress'];
         }
         if (isset($data['status'])) {
             $this->status = is_array($data['status']) ? new DataPolicyOperationStatus($data['status']) : $data['status'];

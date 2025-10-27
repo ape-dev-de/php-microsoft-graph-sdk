@@ -57,40 +57,40 @@ class MacOSMinimumOperatingSystem
     {
         $this->rawData = $data;
         if (isset($data['v10_10'])) {
-            $this->v10_10 = $data['v10_10'];
+            $this->v10_10 = is_bool($data['v10_10']) ? $data['v10_10'] : (bool)$data['v10_10'];
         }
         if (isset($data['v10_11'])) {
-            $this->v10_11 = $data['v10_11'];
+            $this->v10_11 = is_bool($data['v10_11']) ? $data['v10_11'] : (bool)$data['v10_11'];
         }
         if (isset($data['v10_12'])) {
-            $this->v10_12 = $data['v10_12'];
+            $this->v10_12 = is_bool($data['v10_12']) ? $data['v10_12'] : (bool)$data['v10_12'];
         }
         if (isset($data['v10_13'])) {
-            $this->v10_13 = $data['v10_13'];
+            $this->v10_13 = is_bool($data['v10_13']) ? $data['v10_13'] : (bool)$data['v10_13'];
         }
         if (isset($data['v10_14'])) {
-            $this->v10_14 = $data['v10_14'];
+            $this->v10_14 = is_bool($data['v10_14']) ? $data['v10_14'] : (bool)$data['v10_14'];
         }
         if (isset($data['v10_15'])) {
-            $this->v10_15 = $data['v10_15'];
+            $this->v10_15 = is_bool($data['v10_15']) ? $data['v10_15'] : (bool)$data['v10_15'];
         }
         if (isset($data['v10_7'])) {
-            $this->v10_7 = $data['v10_7'];
+            $this->v10_7 = is_bool($data['v10_7']) ? $data['v10_7'] : (bool)$data['v10_7'];
         }
         if (isset($data['v10_8'])) {
-            $this->v10_8 = $data['v10_8'];
+            $this->v10_8 = is_bool($data['v10_8']) ? $data['v10_8'] : (bool)$data['v10_8'];
         }
         if (isset($data['v10_9'])) {
-            $this->v10_9 = $data['v10_9'];
+            $this->v10_9 = is_bool($data['v10_9']) ? $data['v10_9'] : (bool)$data['v10_9'];
         }
         if (isset($data['v11_0'])) {
-            $this->v11_0 = $data['v11_0'];
+            $this->v11_0 = is_bool($data['v11_0']) ? $data['v11_0'] : (bool)$data['v11_0'];
         }
         if (isset($data['v12_0'])) {
-            $this->v12_0 = $data['v12_0'];
+            $this->v12_0 = is_bool($data['v12_0']) ? $data['v12_0'] : (bool)$data['v12_0'];
         }
         if (isset($data['v13_0'])) {
-            $this->v13_0 = $data['v13_0'];
+            $this->v13_0 = is_bool($data['v13_0']) ? $data['v13_0'] : (bool)$data['v13_0'];
         }
     }
 

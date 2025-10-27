@@ -27,7 +27,7 @@ class WorkbookIcon
     {
         $this->rawData = $data;
         if (isset($data['index'])) {
-            $this->index = $data['index'];
+            $this->index = is_numeric($data['index']) ? (float)$data['index'] : $data['index'];
         }
         if (isset($data['set'])) {
             $this->set = $data['set'];

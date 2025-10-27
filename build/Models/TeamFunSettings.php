@@ -36,13 +36,13 @@ class TeamFunSettings
     {
         $this->rawData = $data;
         if (isset($data['allowCustomMemes'])) {
-            $this->allowCustomMemes = $data['allowCustomMemes'];
+            $this->allowCustomMemes = is_bool($data['allowCustomMemes']) ? $data['allowCustomMemes'] : (bool)$data['allowCustomMemes'];
         }
         if (isset($data['allowGiphy'])) {
-            $this->allowGiphy = $data['allowGiphy'];
+            $this->allowGiphy = is_bool($data['allowGiphy']) ? $data['allowGiphy'] : (bool)$data['allowGiphy'];
         }
         if (isset($data['allowStickersAndMemes'])) {
-            $this->allowStickersAndMemes = $data['allowStickersAndMemes'];
+            $this->allowStickersAndMemes = is_bool($data['allowStickersAndMemes']) ? $data['allowStickersAndMemes'] : (bool)$data['allowStickersAndMemes'];
         }
         if (isset($data['giphyContentRating'])) {
             $this->giphyContentRating = is_array($data['giphyContentRating']) ? new GiphyRatingType($data['giphyContentRating']) : $data['giphyContentRating'];

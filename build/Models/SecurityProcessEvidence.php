@@ -126,7 +126,7 @@ class SecurityProcessEvidence
             $this->parentProcessCreationDateTime = is_string($data['parentProcessCreationDateTime']) ? new \DateTimeImmutable($data['parentProcessCreationDateTime']) : $data['parentProcessCreationDateTime'];
         }
         if (isset($data['parentProcessId'])) {
-            $this->parentProcessId = $data['parentProcessId'];
+            $this->parentProcessId = is_numeric($data['parentProcessId']) ? (float)$data['parentProcessId'] : $data['parentProcessId'];
         }
         if (isset($data['parentProcessImageFile'])) {
             $this->parentProcessImageFile = is_array($data['parentProcessImageFile']) ? new SecurityFileDetails($data['parentProcessImageFile']) : $data['parentProcessImageFile'];
@@ -138,7 +138,7 @@ class SecurityProcessEvidence
             $this->processCreationDateTime = is_string($data['processCreationDateTime']) ? new \DateTimeImmutable($data['processCreationDateTime']) : $data['processCreationDateTime'];
         }
         if (isset($data['processId'])) {
-            $this->processId = $data['processId'];
+            $this->processId = is_numeric($data['processId']) ? (float)$data['processId'] : $data['processId'];
         }
         if (isset($data['userAccount'])) {
             $this->userAccount = is_array($data['userAccount']) ? new SecurityUserAccount($data['userAccount']) : $data['userAccount'];

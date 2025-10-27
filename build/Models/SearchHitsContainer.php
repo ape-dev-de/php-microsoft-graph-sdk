@@ -45,10 +45,10 @@ class SearchHitsContainer
             $this->hits = $data['hits'];
         }
         if (isset($data['moreResultsAvailable'])) {
-            $this->moreResultsAvailable = $data['moreResultsAvailable'];
+            $this->moreResultsAvailable = is_bool($data['moreResultsAvailable']) ? $data['moreResultsAvailable'] : (bool)$data['moreResultsAvailable'];
         }
         if (isset($data['total'])) {
-            $this->total = $data['total'];
+            $this->total = is_numeric($data['total']) ? (float)$data['total'] : $data['total'];
         }
     }
 

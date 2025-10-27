@@ -45,13 +45,13 @@ class UserInstallStateSummary
             $this->id = $data['id'];
         }
         if (isset($data['failedDeviceCount'])) {
-            $this->failedDeviceCount = $data['failedDeviceCount'];
+            $this->failedDeviceCount = is_numeric($data['failedDeviceCount']) ? (float)$data['failedDeviceCount'] : $data['failedDeviceCount'];
         }
         if (isset($data['installedDeviceCount'])) {
-            $this->installedDeviceCount = $data['installedDeviceCount'];
+            $this->installedDeviceCount = is_numeric($data['installedDeviceCount']) ? (float)$data['installedDeviceCount'] : $data['installedDeviceCount'];
         }
         if (isset($data['notInstalledDeviceCount'])) {
-            $this->notInstalledDeviceCount = $data['notInstalledDeviceCount'];
+            $this->notInstalledDeviceCount = is_numeric($data['notInstalledDeviceCount']) ? (float)$data['notInstalledDeviceCount'] : $data['notInstalledDeviceCount'];
         }
         if (isset($data['userName'])) {
             $this->userName = $data['userName'];

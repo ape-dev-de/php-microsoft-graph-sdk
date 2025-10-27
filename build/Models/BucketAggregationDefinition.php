@@ -39,10 +39,10 @@ class BucketAggregationDefinition
     {
         $this->rawData = $data;
         if (isset($data['isDescending'])) {
-            $this->isDescending = $data['isDescending'];
+            $this->isDescending = is_bool($data['isDescending']) ? $data['isDescending'] : (bool)$data['isDescending'];
         }
         if (isset($data['minimumCount'])) {
-            $this->minimumCount = $data['minimumCount'];
+            $this->minimumCount = is_numeric($data['minimumCount']) ? (float)$data['minimumCount'] : $data['minimumCount'];
         }
         if (isset($data['prefixFilter'])) {
             $this->prefixFilter = $data['prefixFilter'];

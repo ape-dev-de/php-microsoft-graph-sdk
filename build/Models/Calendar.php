@@ -111,13 +111,13 @@ class Calendar
             $this->allowedOnlineMeetingProviders = $data['allowedOnlineMeetingProviders'];
         }
         if (isset($data['canEdit'])) {
-            $this->canEdit = $data['canEdit'];
+            $this->canEdit = is_bool($data['canEdit']) ? $data['canEdit'] : (bool)$data['canEdit'];
         }
         if (isset($data['canShare'])) {
-            $this->canShare = $data['canShare'];
+            $this->canShare = is_bool($data['canShare']) ? $data['canShare'] : (bool)$data['canShare'];
         }
         if (isset($data['canViewPrivateItems'])) {
-            $this->canViewPrivateItems = $data['canViewPrivateItems'];
+            $this->canViewPrivateItems = is_bool($data['canViewPrivateItems']) ? $data['canViewPrivateItems'] : (bool)$data['canViewPrivateItems'];
         }
         if (isset($data['changeKey'])) {
             $this->changeKey = $data['changeKey'];
@@ -132,13 +132,13 @@ class Calendar
             $this->hexColor = $data['hexColor'];
         }
         if (isset($data['isDefaultCalendar'])) {
-            $this->isDefaultCalendar = $data['isDefaultCalendar'];
+            $this->isDefaultCalendar = is_bool($data['isDefaultCalendar']) ? $data['isDefaultCalendar'] : (bool)$data['isDefaultCalendar'];
         }
         if (isset($data['isRemovable'])) {
-            $this->isRemovable = $data['isRemovable'];
+            $this->isRemovable = is_bool($data['isRemovable']) ? $data['isRemovable'] : (bool)$data['isRemovable'];
         }
         if (isset($data['isTallyingResponses'])) {
-            $this->isTallyingResponses = $data['isTallyingResponses'];
+            $this->isTallyingResponses = is_bool($data['isTallyingResponses']) ? $data['isTallyingResponses'] : (bool)$data['isTallyingResponses'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

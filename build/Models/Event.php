@@ -255,7 +255,7 @@ class Event
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['allowNewTimeProposals'])) {
-            $this->allowNewTimeProposals = $data['allowNewTimeProposals'];
+            $this->allowNewTimeProposals = is_bool($data['allowNewTimeProposals']) ? $data['allowNewTimeProposals'] : (bool)$data['allowNewTimeProposals'];
         }
         if (isset($data['attendees'])) {
             $this->attendees = $data['attendees'];
@@ -273,10 +273,10 @@ class Event
             $this->end = is_array($data['end']) ? new DateTimeTimeZone($data['end']) : $data['end'];
         }
         if (isset($data['hasAttachments'])) {
-            $this->hasAttachments = $data['hasAttachments'];
+            $this->hasAttachments = is_bool($data['hasAttachments']) ? $data['hasAttachments'] : (bool)$data['hasAttachments'];
         }
         if (isset($data['hideAttendees'])) {
-            $this->hideAttendees = $data['hideAttendees'];
+            $this->hideAttendees = is_bool($data['hideAttendees']) ? $data['hideAttendees'] : (bool)$data['hideAttendees'];
         }
         if (isset($data['iCalUId'])) {
             $this->iCalUId = $data['iCalUId'];
@@ -285,22 +285,22 @@ class Event
             $this->importance = is_array($data['importance']) ? new Importance($data['importance']) : $data['importance'];
         }
         if (isset($data['isAllDay'])) {
-            $this->isAllDay = $data['isAllDay'];
+            $this->isAllDay = is_bool($data['isAllDay']) ? $data['isAllDay'] : (bool)$data['isAllDay'];
         }
         if (isset($data['isCancelled'])) {
-            $this->isCancelled = $data['isCancelled'];
+            $this->isCancelled = is_bool($data['isCancelled']) ? $data['isCancelled'] : (bool)$data['isCancelled'];
         }
         if (isset($data['isDraft'])) {
-            $this->isDraft = $data['isDraft'];
+            $this->isDraft = is_bool($data['isDraft']) ? $data['isDraft'] : (bool)$data['isDraft'];
         }
         if (isset($data['isOnlineMeeting'])) {
-            $this->isOnlineMeeting = $data['isOnlineMeeting'];
+            $this->isOnlineMeeting = is_bool($data['isOnlineMeeting']) ? $data['isOnlineMeeting'] : (bool)$data['isOnlineMeeting'];
         }
         if (isset($data['isOrganizer'])) {
-            $this->isOrganizer = $data['isOrganizer'];
+            $this->isOrganizer = is_bool($data['isOrganizer']) ? $data['isOrganizer'] : (bool)$data['isOrganizer'];
         }
         if (isset($data['isReminderOn'])) {
-            $this->isReminderOn = $data['isReminderOn'];
+            $this->isReminderOn = is_bool($data['isReminderOn']) ? $data['isReminderOn'] : (bool)$data['isReminderOn'];
         }
         if (isset($data['location'])) {
             $this->location = is_array($data['location']) ? new Location($data['location']) : $data['location'];
@@ -333,10 +333,10 @@ class Event
             $this->recurrence = is_array($data['recurrence']) ? new PatternedRecurrence($data['recurrence']) : $data['recurrence'];
         }
         if (isset($data['reminderMinutesBeforeStart'])) {
-            $this->reminderMinutesBeforeStart = $data['reminderMinutesBeforeStart'];
+            $this->reminderMinutesBeforeStart = is_numeric($data['reminderMinutesBeforeStart']) ? (float)$data['reminderMinutesBeforeStart'] : $data['reminderMinutesBeforeStart'];
         }
         if (isset($data['responseRequested'])) {
-            $this->responseRequested = $data['responseRequested'];
+            $this->responseRequested = is_bool($data['responseRequested']) ? $data['responseRequested'] : (bool)$data['responseRequested'];
         }
         if (isset($data['responseStatus'])) {
             $this->responseStatus = is_array($data['responseStatus']) ? new ResponseStatus($data['responseStatus']) : $data['responseStatus'];

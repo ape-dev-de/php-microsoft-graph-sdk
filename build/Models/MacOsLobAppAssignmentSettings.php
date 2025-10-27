@@ -24,7 +24,7 @@ class MacOsLobAppAssignmentSettings
     {
         $this->rawData = $data;
         if (isset($data['uninstallOnDeviceRemoval'])) {
-            $this->uninstallOnDeviceRemoval = $data['uninstallOnDeviceRemoval'];
+            $this->uninstallOnDeviceRemoval = is_bool($data['uninstallOnDeviceRemoval']) ? $data['uninstallOnDeviceRemoval'] : (bool)$data['uninstallOnDeviceRemoval'];
         }
     }
 

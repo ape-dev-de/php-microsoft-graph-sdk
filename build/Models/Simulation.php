@@ -168,7 +168,7 @@ class Simulation
             $this->displayName = $data['displayName'];
         }
         if (isset($data['durationInDays'])) {
-            $this->durationInDays = $data['durationInDays'];
+            $this->durationInDays = is_numeric($data['durationInDays']) ? (float)$data['durationInDays'] : $data['durationInDays'];
         }
         if (isset($data['endUserNotificationSetting'])) {
             $this->endUserNotificationSetting = is_array($data['endUserNotificationSetting']) ? new EndUserNotificationSetting($data['endUserNotificationSetting']) : $data['endUserNotificationSetting'];
@@ -180,7 +180,7 @@ class Simulation
             $this->includedAccountTarget = is_array($data['includedAccountTarget']) ? new AccountTargetContent($data['includedAccountTarget']) : $data['includedAccountTarget'];
         }
         if (isset($data['isAutomated'])) {
-            $this->isAutomated = $data['isAutomated'];
+            $this->isAutomated = is_bool($data['isAutomated']) ? $data['isAutomated'] : (bool)$data['isAutomated'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new EmailIdentity($data['lastModifiedBy']) : $data['lastModifiedBy'];

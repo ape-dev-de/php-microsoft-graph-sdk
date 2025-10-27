@@ -36,10 +36,10 @@ class LookupColumn
     {
         $this->rawData = $data;
         if (isset($data['allowMultipleValues'])) {
-            $this->allowMultipleValues = $data['allowMultipleValues'];
+            $this->allowMultipleValues = is_bool($data['allowMultipleValues']) ? $data['allowMultipleValues'] : (bool)$data['allowMultipleValues'];
         }
         if (isset($data['allowUnlimitedLength'])) {
-            $this->allowUnlimitedLength = $data['allowUnlimitedLength'];
+            $this->allowUnlimitedLength = is_bool($data['allowUnlimitedLength']) ? $data['allowUnlimitedLength'] : (bool)$data['allowUnlimitedLength'];
         }
         if (isset($data['columnName'])) {
             $this->columnName = $data['columnName'];

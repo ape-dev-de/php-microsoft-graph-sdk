@@ -36,7 +36,7 @@ class AttributeSet
             $this->description = $data['description'];
         }
         if (isset($data['maxAttributesPerSet'])) {
-            $this->maxAttributesPerSet = $data['maxAttributesPerSet'];
+            $this->maxAttributesPerSet = is_numeric($data['maxAttributesPerSet']) ? (float)$data['maxAttributesPerSet'] : $data['maxAttributesPerSet'];
         }
     }
 

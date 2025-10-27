@@ -69,7 +69,7 @@ class WorkbookWorksheet
             $this->name = $data['name'];
         }
         if (isset($data['position'])) {
-            $this->position = $data['position'];
+            $this->position = is_numeric($data['position']) ? (float)$data['position'] : $data['position'];
         }
         if (isset($data['visibility'])) {
             $this->visibility = $data['visibility'];

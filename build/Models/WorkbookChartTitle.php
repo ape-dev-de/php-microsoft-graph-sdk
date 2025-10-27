@@ -42,13 +42,13 @@ class WorkbookChartTitle
             $this->id = $data['id'];
         }
         if (isset($data['overlay'])) {
-            $this->overlay = $data['overlay'];
+            $this->overlay = is_bool($data['overlay']) ? $data['overlay'] : (bool)$data['overlay'];
         }
         if (isset($data['text'])) {
             $this->text = $data['text'];
         }
         if (isset($data['visible'])) {
-            $this->visible = $data['visible'];
+            $this->visible = is_bool($data['visible']) ? $data['visible'] : (bool)$data['visible'];
         }
         if (isset($data['format'])) {
             $this->format = is_array($data['format']) ? new WorkbookChartTitleFormat($data['format']) : $data['format'];

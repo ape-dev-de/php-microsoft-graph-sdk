@@ -39,7 +39,7 @@ class Windows10NetworkProxyServer
             $this->exceptions = $data['exceptions'];
         }
         if (isset($data['useForLocalAddresses'])) {
-            $this->useForLocalAddresses = $data['useForLocalAddresses'];
+            $this->useForLocalAddresses = is_bool($data['useForLocalAddresses']) ? $data['useForLocalAddresses'] : (bool)$data['useForLocalAddresses'];
         }
     }
 

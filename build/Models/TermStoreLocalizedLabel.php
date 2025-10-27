@@ -30,7 +30,7 @@ class TermStoreLocalizedLabel
     {
         $this->rawData = $data;
         if (isset($data['isDefault'])) {
-            $this->isDefault = $data['isDefault'];
+            $this->isDefault = is_bool($data['isDefault']) ? $data['isDefault'] : (bool)$data['isDefault'];
         }
         if (isset($data['languageTag'])) {
             $this->languageTag = $data['languageTag'];

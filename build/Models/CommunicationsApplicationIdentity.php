@@ -42,7 +42,7 @@ class CommunicationsApplicationIdentity
             $this->applicationType = $data['applicationType'];
         }
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
     }
 

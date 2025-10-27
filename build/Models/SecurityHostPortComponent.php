@@ -39,7 +39,7 @@ class SecurityHostPortComponent
             $this->firstSeenDateTime = is_string($data['firstSeenDateTime']) ? new \DateTimeImmutable($data['firstSeenDateTime']) : $data['firstSeenDateTime'];
         }
         if (isset($data['isRecent'])) {
-            $this->isRecent = $data['isRecent'];
+            $this->isRecent = is_bool($data['isRecent']) ? $data['isRecent'] : (bool)$data['isRecent'];
         }
         if (isset($data['lastSeenDateTime'])) {
             $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];

@@ -39,7 +39,7 @@ class LandingPageDetail
             $this->content = $data['content'];
         }
         if (isset($data['isDefaultLangauge'])) {
-            $this->isDefaultLangauge = $data['isDefaultLangauge'];
+            $this->isDefaultLangauge = is_bool($data['isDefaultLangauge']) ? $data['isDefaultLangauge'] : (bool)$data['isDefaultLangauge'];
         }
         if (isset($data['language'])) {
             $this->language = $data['language'];

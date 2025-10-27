@@ -132,7 +132,7 @@ class SecurityRetentionLabel
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isInUse'])) {
-            $this->isInUse = $data['isInUse'];
+            $this->isInUse = is_bool($data['isInUse']) ? $data['isInUse'] : (bool)$data['isInUse'];
         }
         if (isset($data['labelToBeApplied'])) {
             $this->labelToBeApplied = $data['labelToBeApplied'];

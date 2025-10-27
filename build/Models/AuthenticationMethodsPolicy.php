@@ -75,7 +75,7 @@ class AuthenticationMethodsPolicy
             $this->policyVersion = $data['policyVersion'];
         }
         if (isset($data['reconfirmationInDays'])) {
-            $this->reconfirmationInDays = $data['reconfirmationInDays'];
+            $this->reconfirmationInDays = is_numeric($data['reconfirmationInDays']) ? (float)$data['reconfirmationInDays'] : $data['reconfirmationInDays'];
         }
         if (isset($data['registrationEnforcement'])) {
             $this->registrationEnforcement = is_array($data['registrationEnforcement']) ? new RegistrationEnforcement($data['registrationEnforcement']) : $data['registrationEnforcement'];

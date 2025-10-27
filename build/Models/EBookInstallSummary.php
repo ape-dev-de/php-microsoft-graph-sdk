@@ -45,22 +45,22 @@ class EBookInstallSummary
             $this->id = $data['id'];
         }
         if (isset($data['failedDeviceCount'])) {
-            $this->failedDeviceCount = $data['failedDeviceCount'];
+            $this->failedDeviceCount = is_numeric($data['failedDeviceCount']) ? (float)$data['failedDeviceCount'] : $data['failedDeviceCount'];
         }
         if (isset($data['failedUserCount'])) {
-            $this->failedUserCount = $data['failedUserCount'];
+            $this->failedUserCount = is_numeric($data['failedUserCount']) ? (float)$data['failedUserCount'] : $data['failedUserCount'];
         }
         if (isset($data['installedDeviceCount'])) {
-            $this->installedDeviceCount = $data['installedDeviceCount'];
+            $this->installedDeviceCount = is_numeric($data['installedDeviceCount']) ? (float)$data['installedDeviceCount'] : $data['installedDeviceCount'];
         }
         if (isset($data['installedUserCount'])) {
-            $this->installedUserCount = $data['installedUserCount'];
+            $this->installedUserCount = is_numeric($data['installedUserCount']) ? (float)$data['installedUserCount'] : $data['installedUserCount'];
         }
         if (isset($data['notInstalledDeviceCount'])) {
-            $this->notInstalledDeviceCount = $data['notInstalledDeviceCount'];
+            $this->notInstalledDeviceCount = is_numeric($data['notInstalledDeviceCount']) ? (float)$data['notInstalledDeviceCount'] : $data['notInstalledDeviceCount'];
         }
         if (isset($data['notInstalledUserCount'])) {
-            $this->notInstalledUserCount = $data['notInstalledUserCount'];
+            $this->notInstalledUserCount = is_numeric($data['notInstalledUserCount']) ? (float)$data['notInstalledUserCount'] : $data['notInstalledUserCount'];
         }
     }
 

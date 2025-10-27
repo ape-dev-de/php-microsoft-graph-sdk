@@ -24,7 +24,7 @@ class ExternalConnectorsUrlToItemResolverBase
     {
         $this->rawData = $data;
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
     }
 

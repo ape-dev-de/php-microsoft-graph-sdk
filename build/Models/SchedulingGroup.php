@@ -78,7 +78,7 @@ class SchedulingGroup
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isActive'])) {
-            $this->isActive = $data['isActive'];
+            $this->isActive = is_bool($data['isActive']) ? $data['isActive'] : (bool)$data['isActive'];
         }
         if (isset($data['userIds'])) {
             $this->userIds = $data['userIds'];

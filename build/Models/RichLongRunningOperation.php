@@ -78,7 +78,7 @@ class RichLongRunningOperation
             $this->error = is_array($data['error']) ? new PublicError($data['error']) : $data['error'];
         }
         if (isset($data['percentageComplete'])) {
-            $this->percentageComplete = $data['percentageComplete'];
+            $this->percentageComplete = is_numeric($data['percentageComplete']) ? (float)$data['percentageComplete'] : $data['percentageComplete'];
         }
         if (isset($data['resourceId'])) {
             $this->resourceId = $data['resourceId'];

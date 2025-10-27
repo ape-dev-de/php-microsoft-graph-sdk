@@ -54,34 +54,34 @@ class Video
     {
         $this->rawData = $data;
         if (isset($data['audioBitsPerSample'])) {
-            $this->audioBitsPerSample = $data['audioBitsPerSample'];
+            $this->audioBitsPerSample = is_numeric($data['audioBitsPerSample']) ? (float)$data['audioBitsPerSample'] : $data['audioBitsPerSample'];
         }
         if (isset($data['audioChannels'])) {
-            $this->audioChannels = $data['audioChannels'];
+            $this->audioChannels = is_numeric($data['audioChannels']) ? (float)$data['audioChannels'] : $data['audioChannels'];
         }
         if (isset($data['audioFormat'])) {
             $this->audioFormat = $data['audioFormat'];
         }
         if (isset($data['audioSamplesPerSecond'])) {
-            $this->audioSamplesPerSecond = $data['audioSamplesPerSecond'];
+            $this->audioSamplesPerSecond = is_numeric($data['audioSamplesPerSecond']) ? (float)$data['audioSamplesPerSecond'] : $data['audioSamplesPerSecond'];
         }
         if (isset($data['bitrate'])) {
-            $this->bitrate = $data['bitrate'];
+            $this->bitrate = is_numeric($data['bitrate']) ? (float)$data['bitrate'] : $data['bitrate'];
         }
         if (isset($data['duration'])) {
-            $this->duration = $data['duration'];
+            $this->duration = is_numeric($data['duration']) ? (float)$data['duration'] : $data['duration'];
         }
         if (isset($data['fourCC'])) {
             $this->fourCC = $data['fourCC'];
         }
         if (isset($data['frameRate'])) {
-            $this->frameRate = $data['frameRate'];
+            $this->frameRate = is_numeric($data['frameRate']) ? (float)$data['frameRate'] : $data['frameRate'];
         }
         if (isset($data['height'])) {
-            $this->height = $data['height'];
+            $this->height = is_numeric($data['height']) ? (float)$data['height'] : $data['height'];
         }
         if (isset($data['width'])) {
-            $this->width = $data['width'];
+            $this->width = is_numeric($data['width']) ? (float)$data['width'] : $data['width'];
         }
     }
 

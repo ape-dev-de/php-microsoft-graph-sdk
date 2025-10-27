@@ -60,7 +60,7 @@ class EmailPayloadDetail
             $this->fromName = $data['fromName'];
         }
         if (isset($data['isExternalSender'])) {
-            $this->isExternalSender = $data['isExternalSender'];
+            $this->isExternalSender = is_bool($data['isExternalSender']) ? $data['isExternalSender'] : (bool)$data['isExternalSender'];
         }
         if (isset($data['subject'])) {
             $this->subject = $data['subject'];

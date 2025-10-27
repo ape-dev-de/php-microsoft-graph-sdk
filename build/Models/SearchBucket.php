@@ -33,7 +33,7 @@ class SearchBucket
             $this->aggregationFilterToken = $data['aggregationFilterToken'];
         }
         if (isset($data['count'])) {
-            $this->count = $data['count'];
+            $this->count = is_numeric($data['count']) ? (float)$data['count'] : $data['count'];
         }
         if (isset($data['key'])) {
             $this->key = $data['key'];

@@ -39,13 +39,13 @@ class GeoCoordinates
     {
         $this->rawData = $data;
         if (isset($data['altitude'])) {
-            $this->altitude = $data['altitude'];
+            $this->altitude = is_numeric($data['altitude']) ? (float)$data['altitude'] : $data['altitude'];
         }
         if (isset($data['latitude'])) {
-            $this->latitude = $data['latitude'];
+            $this->latitude = is_numeric($data['latitude']) ? (float)$data['latitude'] : $data['latitude'];
         }
         if (isset($data['longitude'])) {
-            $this->longitude = $data['longitude'];
+            $this->longitude = is_numeric($data['longitude']) ? (float)$data['longitude'] : $data['longitude'];
         }
     }
 

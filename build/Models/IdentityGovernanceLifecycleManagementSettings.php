@@ -36,7 +36,7 @@ class IdentityGovernanceLifecycleManagementSettings
             $this->emailSettings = is_array($data['emailSettings']) ? new EmailSettings($data['emailSettings']) : $data['emailSettings'];
         }
         if (isset($data['workflowScheduleIntervalInHours'])) {
-            $this->workflowScheduleIntervalInHours = $data['workflowScheduleIntervalInHours'];
+            $this->workflowScheduleIntervalInHours = is_numeric($data['workflowScheduleIntervalInHours']) ? (float)$data['workflowScheduleIntervalInHours'] : $data['workflowScheduleIntervalInHours'];
         }
     }
 

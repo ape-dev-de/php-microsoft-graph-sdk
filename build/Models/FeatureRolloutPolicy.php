@@ -57,10 +57,10 @@ class FeatureRolloutPolicy
             $this->feature = is_array($data['feature']) ? new StagedFeatureName($data['feature']) : $data['feature'];
         }
         if (isset($data['isAppliedToOrganization'])) {
-            $this->isAppliedToOrganization = $data['isAppliedToOrganization'];
+            $this->isAppliedToOrganization = is_bool($data['isAppliedToOrganization']) ? $data['isAppliedToOrganization'] : (bool)$data['isAppliedToOrganization'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['appliesTo'])) {
             $this->appliesTo = $data['appliesTo'];

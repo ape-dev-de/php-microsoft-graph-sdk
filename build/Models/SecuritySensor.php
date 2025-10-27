@@ -75,7 +75,7 @@ class SecuritySensor
             $this->healthStatus = is_array($data['healthStatus']) ? new SecuritySensorHealthStatus($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['openHealthIssuesCount'])) {
-            $this->openHealthIssuesCount = $data['openHealthIssuesCount'];
+            $this->openHealthIssuesCount = is_numeric($data['openHealthIssuesCount']) ? (float)$data['openHealthIssuesCount'] : $data['openHealthIssuesCount'];
         }
         if (isset($data['sensorType'])) {
             $this->sensorType = is_array($data['sensorType']) ? new SecuritySensorType($data['sensorType']) : $data['sensorType'];

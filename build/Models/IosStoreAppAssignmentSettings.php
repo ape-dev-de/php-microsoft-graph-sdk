@@ -30,10 +30,10 @@ class IosStoreAppAssignmentSettings
     {
         $this->rawData = $data;
         if (isset($data['isRemovable'])) {
-            $this->isRemovable = $data['isRemovable'];
+            $this->isRemovable = is_bool($data['isRemovable']) ? $data['isRemovable'] : (bool)$data['isRemovable'];
         }
         if (isset($data['uninstallOnDeviceRemoval'])) {
-            $this->uninstallOnDeviceRemoval = $data['uninstallOnDeviceRemoval'];
+            $this->uninstallOnDeviceRemoval = is_bool($data['uninstallOnDeviceRemoval']) ? $data['uninstallOnDeviceRemoval'] : (bool)$data['uninstallOnDeviceRemoval'];
         }
         if (isset($data['vpnConfigurationId'])) {
             $this->vpnConfigurationId = $data['vpnConfigurationId'];

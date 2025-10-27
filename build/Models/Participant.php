@@ -69,10 +69,10 @@ class Participant
             $this->info = is_array($data['info']) ? new ParticipantInfo($data['info']) : $data['info'];
         }
         if (isset($data['isInLobby'])) {
-            $this->isInLobby = $data['isInLobby'];
+            $this->isInLobby = is_bool($data['isInLobby']) ? $data['isInLobby'] : (bool)$data['isInLobby'];
         }
         if (isset($data['isMuted'])) {
-            $this->isMuted = $data['isMuted'];
+            $this->isMuted = is_bool($data['isMuted']) ? $data['isMuted'] : (bool)$data['isMuted'];
         }
         if (isset($data['mediaStreams'])) {
             $this->mediaStreams = $data['mediaStreams'];
@@ -90,7 +90,7 @@ class Participant
             $this->restrictedExperience = is_array($data['restrictedExperience']) ? new OnlineMeetingRestricted($data['restrictedExperience']) : $data['restrictedExperience'];
         }
         if (isset($data['rosterSequenceNumber'])) {
-            $this->rosterSequenceNumber = $data['rosterSequenceNumber'];
+            $this->rosterSequenceNumber = is_numeric($data['rosterSequenceNumber']) ? (float)$data['rosterSequenceNumber'] : $data['rosterSequenceNumber'];
         }
     }
 

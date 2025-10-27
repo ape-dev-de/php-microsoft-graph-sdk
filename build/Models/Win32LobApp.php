@@ -168,7 +168,7 @@ class Win32LobApp
             $this->informationUrl = $data['informationUrl'];
         }
         if (isset($data['isFeatured'])) {
-            $this->isFeatured = $data['isFeatured'];
+            $this->isFeatured = is_bool($data['isFeatured']) ? $data['isFeatured'] : (bool)$data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
             $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
@@ -204,7 +204,7 @@ class Win32LobApp
             $this->fileName = $data['fileName'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['contentVersions'])) {
             $this->contentVersions = $data['contentVersions'];
@@ -222,16 +222,16 @@ class Win32LobApp
             $this->installExperience = is_array($data['installExperience']) ? new Win32LobAppInstallExperience($data['installExperience']) : $data['installExperience'];
         }
         if (isset($data['minimumCpuSpeedInMHz'])) {
-            $this->minimumCpuSpeedInMHz = $data['minimumCpuSpeedInMHz'];
+            $this->minimumCpuSpeedInMHz = is_numeric($data['minimumCpuSpeedInMHz']) ? (float)$data['minimumCpuSpeedInMHz'] : $data['minimumCpuSpeedInMHz'];
         }
         if (isset($data['minimumFreeDiskSpaceInMB'])) {
-            $this->minimumFreeDiskSpaceInMB = $data['minimumFreeDiskSpaceInMB'];
+            $this->minimumFreeDiskSpaceInMB = is_numeric($data['minimumFreeDiskSpaceInMB']) ? (float)$data['minimumFreeDiskSpaceInMB'] : $data['minimumFreeDiskSpaceInMB'];
         }
         if (isset($data['minimumMemoryInMB'])) {
-            $this->minimumMemoryInMB = $data['minimumMemoryInMB'];
+            $this->minimumMemoryInMB = is_numeric($data['minimumMemoryInMB']) ? (float)$data['minimumMemoryInMB'] : $data['minimumMemoryInMB'];
         }
         if (isset($data['minimumNumberOfProcessors'])) {
-            $this->minimumNumberOfProcessors = $data['minimumNumberOfProcessors'];
+            $this->minimumNumberOfProcessors = is_numeric($data['minimumNumberOfProcessors']) ? (float)$data['minimumNumberOfProcessors'] : $data['minimumNumberOfProcessors'];
         }
         if (isset($data['minimumSupportedWindowsRelease'])) {
             $this->minimumSupportedWindowsRelease = $data['minimumSupportedWindowsRelease'];

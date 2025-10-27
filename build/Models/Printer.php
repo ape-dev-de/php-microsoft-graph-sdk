@@ -105,7 +105,7 @@ class Printer
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isAcceptingJobs'])) {
-            $this->isAcceptingJobs = $data['isAcceptingJobs'];
+            $this->isAcceptingJobs = is_bool($data['isAcceptingJobs']) ? $data['isAcceptingJobs'] : (bool)$data['isAcceptingJobs'];
         }
         if (isset($data['location'])) {
             $this->location = is_array($data['location']) ? new PrinterLocation($data['location']) : $data['location'];
@@ -123,10 +123,10 @@ class Printer
             $this->jobs = $data['jobs'];
         }
         if (isset($data['hasPhysicalDevice'])) {
-            $this->hasPhysicalDevice = $data['hasPhysicalDevice'];
+            $this->hasPhysicalDevice = is_bool($data['hasPhysicalDevice']) ? $data['hasPhysicalDevice'] : (bool)$data['hasPhysicalDevice'];
         }
         if (isset($data['isShared'])) {
-            $this->isShared = $data['isShared'];
+            $this->isShared = is_bool($data['isShared']) ? $data['isShared'] : (bool)$data['isShared'];
         }
         if (isset($data['lastSeenDateTime'])) {
             $this->lastSeenDateTime = is_string($data['lastSeenDateTime']) ? new \DateTimeImmutable($data['lastSeenDateTime']) : $data['lastSeenDateTime'];

@@ -27,10 +27,10 @@ class TeamGuestSettings
     {
         $this->rawData = $data;
         if (isset($data['allowCreateUpdateChannels'])) {
-            $this->allowCreateUpdateChannels = $data['allowCreateUpdateChannels'];
+            $this->allowCreateUpdateChannels = is_bool($data['allowCreateUpdateChannels']) ? $data['allowCreateUpdateChannels'] : (bool)$data['allowCreateUpdateChannels'];
         }
         if (isset($data['allowDeleteChannels'])) {
-            $this->allowDeleteChannels = $data['allowDeleteChannels'];
+            $this->allowDeleteChannels = is_bool($data['allowDeleteChannels']) ? $data['allowDeleteChannels'] : (bool)$data['allowDeleteChannels'];
         }
     }
 

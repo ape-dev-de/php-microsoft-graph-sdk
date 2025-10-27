@@ -108,16 +108,16 @@ class PrintJobConfiguration
     {
         $this->rawData = $data;
         if (isset($data['collate'])) {
-            $this->collate = $data['collate'];
+            $this->collate = is_bool($data['collate']) ? $data['collate'] : (bool)$data['collate'];
         }
         if (isset($data['colorMode'])) {
             $this->colorMode = is_array($data['colorMode']) ? new PrintColorMode($data['colorMode']) : $data['colorMode'];
         }
         if (isset($data['copies'])) {
-            $this->copies = $data['copies'];
+            $this->copies = is_numeric($data['copies']) ? (float)$data['copies'] : $data['copies'];
         }
         if (isset($data['dpi'])) {
-            $this->dpi = $data['dpi'];
+            $this->dpi = is_numeric($data['dpi']) ? (float)$data['dpi'] : $data['dpi'];
         }
         if (isset($data['duplexMode'])) {
             $this->duplexMode = is_array($data['duplexMode']) ? new PrintDuplexMode($data['duplexMode']) : $data['duplexMode'];
@@ -129,7 +129,7 @@ class PrintJobConfiguration
             $this->finishings = $data['finishings'];
         }
         if (isset($data['fitPdfToPage'])) {
-            $this->fitPdfToPage = $data['fitPdfToPage'];
+            $this->fitPdfToPage = is_bool($data['fitPdfToPage']) ? $data['fitPdfToPage'] : (bool)$data['fitPdfToPage'];
         }
         if (isset($data['inputBin'])) {
             $this->inputBin = $data['inputBin'];
@@ -156,7 +156,7 @@ class PrintJobConfiguration
             $this->pageRanges = $data['pageRanges'];
         }
         if (isset($data['pagesPerSheet'])) {
-            $this->pagesPerSheet = $data['pagesPerSheet'];
+            $this->pagesPerSheet = is_numeric($data['pagesPerSheet']) ? (float)$data['pagesPerSheet'] : $data['pagesPerSheet'];
         }
         if (isset($data['quality'])) {
             $this->quality = is_array($data['quality']) ? new PrintQuality($data['quality']) : $data['quality'];

@@ -99,7 +99,7 @@ class TeleconferenceDeviceAudioQuality
             $this->averageInboundJitter = $data['averageInboundJitter'];
         }
         if (isset($data['averageInboundPacketLossRateInPercentage'])) {
-            $this->averageInboundPacketLossRateInPercentage = $data['averageInboundPacketLossRateInPercentage'];
+            $this->averageInboundPacketLossRateInPercentage = is_numeric($data['averageInboundPacketLossRateInPercentage']) ? (float)$data['averageInboundPacketLossRateInPercentage'] : $data['averageInboundPacketLossRateInPercentage'];
         }
         if (isset($data['averageInboundRoundTripDelay'])) {
             $this->averageInboundRoundTripDelay = $data['averageInboundRoundTripDelay'];
@@ -108,28 +108,28 @@ class TeleconferenceDeviceAudioQuality
             $this->averageOutboundJitter = $data['averageOutboundJitter'];
         }
         if (isset($data['averageOutboundPacketLossRateInPercentage'])) {
-            $this->averageOutboundPacketLossRateInPercentage = $data['averageOutboundPacketLossRateInPercentage'];
+            $this->averageOutboundPacketLossRateInPercentage = is_numeric($data['averageOutboundPacketLossRateInPercentage']) ? (float)$data['averageOutboundPacketLossRateInPercentage'] : $data['averageOutboundPacketLossRateInPercentage'];
         }
         if (isset($data['averageOutboundRoundTripDelay'])) {
             $this->averageOutboundRoundTripDelay = $data['averageOutboundRoundTripDelay'];
         }
         if (isset($data['channelIndex'])) {
-            $this->channelIndex = $data['channelIndex'];
+            $this->channelIndex = is_numeric($data['channelIndex']) ? (float)$data['channelIndex'] : $data['channelIndex'];
         }
         if (isset($data['inboundPackets'])) {
-            $this->inboundPackets = $data['inboundPackets'];
+            $this->inboundPackets = is_numeric($data['inboundPackets']) ? (float)$data['inboundPackets'] : $data['inboundPackets'];
         }
         if (isset($data['localIPAddress'])) {
             $this->localIPAddress = $data['localIPAddress'];
         }
         if (isset($data['localPort'])) {
-            $this->localPort = $data['localPort'];
+            $this->localPort = is_numeric($data['localPort']) ? (float)$data['localPort'] : $data['localPort'];
         }
         if (isset($data['maximumInboundJitter'])) {
             $this->maximumInboundJitter = $data['maximumInboundJitter'];
         }
         if (isset($data['maximumInboundPacketLossRateInPercentage'])) {
-            $this->maximumInboundPacketLossRateInPercentage = $data['maximumInboundPacketLossRateInPercentage'];
+            $this->maximumInboundPacketLossRateInPercentage = is_numeric($data['maximumInboundPacketLossRateInPercentage']) ? (float)$data['maximumInboundPacketLossRateInPercentage'] : $data['maximumInboundPacketLossRateInPercentage'];
         }
         if (isset($data['maximumInboundRoundTripDelay'])) {
             $this->maximumInboundRoundTripDelay = $data['maximumInboundRoundTripDelay'];
@@ -138,7 +138,7 @@ class TeleconferenceDeviceAudioQuality
             $this->maximumOutboundJitter = $data['maximumOutboundJitter'];
         }
         if (isset($data['maximumOutboundPacketLossRateInPercentage'])) {
-            $this->maximumOutboundPacketLossRateInPercentage = $data['maximumOutboundPacketLossRateInPercentage'];
+            $this->maximumOutboundPacketLossRateInPercentage = is_numeric($data['maximumOutboundPacketLossRateInPercentage']) ? (float)$data['maximumOutboundPacketLossRateInPercentage'] : $data['maximumOutboundPacketLossRateInPercentage'];
         }
         if (isset($data['maximumOutboundRoundTripDelay'])) {
             $this->maximumOutboundRoundTripDelay = $data['maximumOutboundRoundTripDelay'];
@@ -147,16 +147,16 @@ class TeleconferenceDeviceAudioQuality
             $this->mediaDuration = $data['mediaDuration'];
         }
         if (isset($data['networkLinkSpeedInBytes'])) {
-            $this->networkLinkSpeedInBytes = $data['networkLinkSpeedInBytes'];
+            $this->networkLinkSpeedInBytes = is_numeric($data['networkLinkSpeedInBytes']) ? (float)$data['networkLinkSpeedInBytes'] : $data['networkLinkSpeedInBytes'];
         }
         if (isset($data['outboundPackets'])) {
-            $this->outboundPackets = $data['outboundPackets'];
+            $this->outboundPackets = is_numeric($data['outboundPackets']) ? (float)$data['outboundPackets'] : $data['outboundPackets'];
         }
         if (isset($data['remoteIPAddress'])) {
             $this->remoteIPAddress = $data['remoteIPAddress'];
         }
         if (isset($data['remotePort'])) {
-            $this->remotePort = $data['remotePort'];
+            $this->remotePort = is_numeric($data['remotePort']) ? (float)$data['remotePort'] : $data['remotePort'];
         }
     }
 

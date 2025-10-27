@@ -57,7 +57,7 @@ class PermissionScope
             $this->adminConsentDisplayName = $data['adminConsentDisplayName'];
         }
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['origin'])) {
             $this->origin = $data['origin'];

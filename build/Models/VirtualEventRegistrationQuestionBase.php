@@ -36,7 +36,7 @@ class VirtualEventRegistrationQuestionBase
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isRequired'])) {
-            $this->isRequired = $data['isRequired'];
+            $this->isRequired = is_bool($data['isRequired']) ? $data['isRequired'] : (bool)$data['isRequired'];
         }
     }
 

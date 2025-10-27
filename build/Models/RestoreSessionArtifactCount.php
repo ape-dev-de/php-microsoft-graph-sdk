@@ -33,16 +33,16 @@ class RestoreSessionArtifactCount
     {
         $this->rawData = $data;
         if (isset($data['completed'])) {
-            $this->completed = $data['completed'];
+            $this->completed = is_numeric($data['completed']) ? (float)$data['completed'] : $data['completed'];
         }
         if (isset($data['failed'])) {
-            $this->failed = $data['failed'];
+            $this->failed = is_numeric($data['failed']) ? (float)$data['failed'] : $data['failed'];
         }
         if (isset($data['inProgress'])) {
-            $this->inProgress = $data['inProgress'];
+            $this->inProgress = is_numeric($data['inProgress']) ? (float)$data['inProgress'] : $data['inProgress'];
         }
         if (isset($data['total'])) {
-            $this->total = $data['total'];
+            $this->total = is_numeric($data['total']) ? (float)$data['total'] : $data['total'];
         }
     }
 

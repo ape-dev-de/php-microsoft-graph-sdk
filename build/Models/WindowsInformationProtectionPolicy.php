@@ -210,7 +210,7 @@ class WindowsInformationProtectionPolicy
             $this->version = $data['version'];
         }
         if (isset($data['azureRightsManagementServicesAllowed'])) {
-            $this->azureRightsManagementServicesAllowed = $data['azureRightsManagementServicesAllowed'];
+            $this->azureRightsManagementServicesAllowed = is_bool($data['azureRightsManagementServicesAllowed']) ? $data['azureRightsManagementServicesAllowed'] : (bool)$data['azureRightsManagementServicesAllowed'];
         }
         if (isset($data['dataRecoveryCertificate'])) {
             $this->dataRecoveryCertificate = is_array($data['dataRecoveryCertificate']) ? new WindowsInformationProtectionDataRecoveryCertificate($data['dataRecoveryCertificate']) : $data['dataRecoveryCertificate'];
@@ -228,7 +228,7 @@ class WindowsInformationProtectionPolicy
             $this->enterpriseIPRanges = $data['enterpriseIPRanges'];
         }
         if (isset($data['enterpriseIPRangesAreAuthoritative'])) {
-            $this->enterpriseIPRangesAreAuthoritative = $data['enterpriseIPRangesAreAuthoritative'];
+            $this->enterpriseIPRangesAreAuthoritative = is_bool($data['enterpriseIPRangesAreAuthoritative']) ? $data['enterpriseIPRangesAreAuthoritative'] : (bool)$data['enterpriseIPRangesAreAuthoritative'];
         }
         if (isset($data['enterpriseNetworkDomainNames'])) {
             $this->enterpriseNetworkDomainNames = $data['enterpriseNetworkDomainNames'];
@@ -243,19 +243,19 @@ class WindowsInformationProtectionPolicy
             $this->enterpriseProxyServers = $data['enterpriseProxyServers'];
         }
         if (isset($data['enterpriseProxyServersAreAuthoritative'])) {
-            $this->enterpriseProxyServersAreAuthoritative = $data['enterpriseProxyServersAreAuthoritative'];
+            $this->enterpriseProxyServersAreAuthoritative = is_bool($data['enterpriseProxyServersAreAuthoritative']) ? $data['enterpriseProxyServersAreAuthoritative'] : (bool)$data['enterpriseProxyServersAreAuthoritative'];
         }
         if (isset($data['exemptApps'])) {
             $this->exemptApps = $data['exemptApps'];
         }
         if (isset($data['iconsVisible'])) {
-            $this->iconsVisible = $data['iconsVisible'];
+            $this->iconsVisible = is_bool($data['iconsVisible']) ? $data['iconsVisible'] : (bool)$data['iconsVisible'];
         }
         if (isset($data['indexingEncryptedStoresOrItemsBlocked'])) {
-            $this->indexingEncryptedStoresOrItemsBlocked = $data['indexingEncryptedStoresOrItemsBlocked'];
+            $this->indexingEncryptedStoresOrItemsBlocked = is_bool($data['indexingEncryptedStoresOrItemsBlocked']) ? $data['indexingEncryptedStoresOrItemsBlocked'] : (bool)$data['indexingEncryptedStoresOrItemsBlocked'];
         }
         if (isset($data['isAssigned'])) {
-            $this->isAssigned = $data['isAssigned'];
+            $this->isAssigned = is_bool($data['isAssigned']) ? $data['isAssigned'] : (bool)$data['isAssigned'];
         }
         if (isset($data['neutralDomainResources'])) {
             $this->neutralDomainResources = $data['neutralDomainResources'];
@@ -264,10 +264,10 @@ class WindowsInformationProtectionPolicy
             $this->protectedApps = $data['protectedApps'];
         }
         if (isset($data['protectionUnderLockConfigRequired'])) {
-            $this->protectionUnderLockConfigRequired = $data['protectionUnderLockConfigRequired'];
+            $this->protectionUnderLockConfigRequired = is_bool($data['protectionUnderLockConfigRequired']) ? $data['protectionUnderLockConfigRequired'] : (bool)$data['protectionUnderLockConfigRequired'];
         }
         if (isset($data['revokeOnUnenrollDisabled'])) {
-            $this->revokeOnUnenrollDisabled = $data['revokeOnUnenrollDisabled'];
+            $this->revokeOnUnenrollDisabled = is_bool($data['revokeOnUnenrollDisabled']) ? $data['revokeOnUnenrollDisabled'] : (bool)$data['revokeOnUnenrollDisabled'];
         }
         if (isset($data['rightsManagementServicesTemplateId'])) {
             $this->rightsManagementServicesTemplateId = $data['rightsManagementServicesTemplateId'];
@@ -285,28 +285,28 @@ class WindowsInformationProtectionPolicy
             $this->protectedAppLockerFiles = $data['protectedAppLockerFiles'];
         }
         if (isset($data['daysWithoutContactBeforeUnenroll'])) {
-            $this->daysWithoutContactBeforeUnenroll = $data['daysWithoutContactBeforeUnenroll'];
+            $this->daysWithoutContactBeforeUnenroll = is_numeric($data['daysWithoutContactBeforeUnenroll']) ? (float)$data['daysWithoutContactBeforeUnenroll'] : $data['daysWithoutContactBeforeUnenroll'];
         }
         if (isset($data['mdmEnrollmentUrl'])) {
             $this->mdmEnrollmentUrl = $data['mdmEnrollmentUrl'];
         }
         if (isset($data['minutesOfInactivityBeforeDeviceLock'])) {
-            $this->minutesOfInactivityBeforeDeviceLock = $data['minutesOfInactivityBeforeDeviceLock'];
+            $this->minutesOfInactivityBeforeDeviceLock = is_numeric($data['minutesOfInactivityBeforeDeviceLock']) ? (float)$data['minutesOfInactivityBeforeDeviceLock'] : $data['minutesOfInactivityBeforeDeviceLock'];
         }
         if (isset($data['numberOfPastPinsRemembered'])) {
-            $this->numberOfPastPinsRemembered = $data['numberOfPastPinsRemembered'];
+            $this->numberOfPastPinsRemembered = is_numeric($data['numberOfPastPinsRemembered']) ? (float)$data['numberOfPastPinsRemembered'] : $data['numberOfPastPinsRemembered'];
         }
         if (isset($data['passwordMaximumAttemptCount'])) {
-            $this->passwordMaximumAttemptCount = $data['passwordMaximumAttemptCount'];
+            $this->passwordMaximumAttemptCount = is_numeric($data['passwordMaximumAttemptCount']) ? (float)$data['passwordMaximumAttemptCount'] : $data['passwordMaximumAttemptCount'];
         }
         if (isset($data['pinExpirationDays'])) {
-            $this->pinExpirationDays = $data['pinExpirationDays'];
+            $this->pinExpirationDays = is_numeric($data['pinExpirationDays']) ? (float)$data['pinExpirationDays'] : $data['pinExpirationDays'];
         }
         if (isset($data['pinLowercaseLetters'])) {
             $this->pinLowercaseLetters = is_array($data['pinLowercaseLetters']) ? new WindowsInformationProtectionPinCharacterRequirements($data['pinLowercaseLetters']) : $data['pinLowercaseLetters'];
         }
         if (isset($data['pinMinimumLength'])) {
-            $this->pinMinimumLength = $data['pinMinimumLength'];
+            $this->pinMinimumLength = is_numeric($data['pinMinimumLength']) ? (float)$data['pinMinimumLength'] : $data['pinMinimumLength'];
         }
         if (isset($data['pinSpecialCharacters'])) {
             $this->pinSpecialCharacters = is_array($data['pinSpecialCharacters']) ? new WindowsInformationProtectionPinCharacterRequirements($data['pinSpecialCharacters']) : $data['pinSpecialCharacters'];
@@ -315,10 +315,10 @@ class WindowsInformationProtectionPolicy
             $this->pinUppercaseLetters = is_array($data['pinUppercaseLetters']) ? new WindowsInformationProtectionPinCharacterRequirements($data['pinUppercaseLetters']) : $data['pinUppercaseLetters'];
         }
         if (isset($data['revokeOnMdmHandoffDisabled'])) {
-            $this->revokeOnMdmHandoffDisabled = $data['revokeOnMdmHandoffDisabled'];
+            $this->revokeOnMdmHandoffDisabled = is_bool($data['revokeOnMdmHandoffDisabled']) ? $data['revokeOnMdmHandoffDisabled'] : (bool)$data['revokeOnMdmHandoffDisabled'];
         }
         if (isset($data['windowsHelloForBusinessBlocked'])) {
-            $this->windowsHelloForBusinessBlocked = $data['windowsHelloForBusinessBlocked'];
+            $this->windowsHelloForBusinessBlocked = is_bool($data['windowsHelloForBusinessBlocked']) ? $data['windowsHelloForBusinessBlocked'] : (bool)$data['windowsHelloForBusinessBlocked'];
         }
     }
 

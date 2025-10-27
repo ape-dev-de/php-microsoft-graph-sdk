@@ -33,10 +33,10 @@ class WorkbookFormatProtection
             $this->id = $data['id'];
         }
         if (isset($data['formulaHidden'])) {
-            $this->formulaHidden = $data['formulaHidden'];
+            $this->formulaHidden = is_bool($data['formulaHidden']) ? $data['formulaHidden'] : (bool)$data['formulaHidden'];
         }
         if (isset($data['locked'])) {
-            $this->locked = $data['locked'];
+            $this->locked = is_bool($data['locked']) ? $data['locked'] : (bool)$data['locked'];
         }
     }
 

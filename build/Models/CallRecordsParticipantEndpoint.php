@@ -63,13 +63,13 @@ class CallRecordsParticipantEndpoint
             $this->associatedIdentity = is_array($data['associatedIdentity']) ? new Identity($data['associatedIdentity']) : $data['associatedIdentity'];
         }
         if (isset($data['cpuCoresCount'])) {
-            $this->cpuCoresCount = $data['cpuCoresCount'];
+            $this->cpuCoresCount = is_numeric($data['cpuCoresCount']) ? (float)$data['cpuCoresCount'] : $data['cpuCoresCount'];
         }
         if (isset($data['cpuName'])) {
             $this->cpuName = $data['cpuName'];
         }
         if (isset($data['cpuProcessorSpeedInMhz'])) {
-            $this->cpuProcessorSpeedInMhz = $data['cpuProcessorSpeedInMhz'];
+            $this->cpuProcessorSpeedInMhz = is_numeric($data['cpuProcessorSpeedInMhz']) ? (float)$data['cpuProcessorSpeedInMhz'] : $data['cpuProcessorSpeedInMhz'];
         }
         if (isset($data['feedback'])) {
             $this->feedback = is_array($data['feedback']) ? new CallRecordsUserFeedback($data['feedback']) : $data['feedback'];

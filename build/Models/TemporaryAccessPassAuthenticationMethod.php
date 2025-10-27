@@ -51,13 +51,13 @@ class TemporaryAccessPassAuthenticationMethod
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isUsable'])) {
-            $this->isUsable = $data['isUsable'];
+            $this->isUsable = is_bool($data['isUsable']) ? $data['isUsable'] : (bool)$data['isUsable'];
         }
         if (isset($data['isUsableOnce'])) {
-            $this->isUsableOnce = $data['isUsableOnce'];
+            $this->isUsableOnce = is_bool($data['isUsableOnce']) ? $data['isUsableOnce'] : (bool)$data['isUsableOnce'];
         }
         if (isset($data['lifetimeInMinutes'])) {
-            $this->lifetimeInMinutes = $data['lifetimeInMinutes'];
+            $this->lifetimeInMinutes = is_numeric($data['lifetimeInMinutes']) ? (float)$data['lifetimeInMinutes'] : $data['lifetimeInMinutes'];
         }
         if (isset($data['methodUsabilityReason'])) {
             $this->methodUsabilityReason = $data['methodUsabilityReason'];

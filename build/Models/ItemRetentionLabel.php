@@ -48,7 +48,7 @@ class ItemRetentionLabel
             $this->id = $data['id'];
         }
         if (isset($data['isLabelAppliedExplicitly'])) {
-            $this->isLabelAppliedExplicitly = $data['isLabelAppliedExplicitly'];
+            $this->isLabelAppliedExplicitly = is_bool($data['isLabelAppliedExplicitly']) ? $data['isLabelAppliedExplicitly'] : (bool)$data['isLabelAppliedExplicitly'];
         }
         if (isset($data['labelAppliedBy'])) {
             $this->labelAppliedBy = is_array($data['labelAppliedBy']) ? new IdentitySet($data['labelAppliedBy']) : $data['labelAppliedBy'];

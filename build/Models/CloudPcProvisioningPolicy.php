@@ -117,10 +117,10 @@ class CloudPcProvisioningPolicy
             $this->domainJoinConfigurations = $data['domainJoinConfigurations'];
         }
         if (isset($data['enableSingleSignOn'])) {
-            $this->enableSingleSignOn = $data['enableSingleSignOn'];
+            $this->enableSingleSignOn = is_bool($data['enableSingleSignOn']) ? $data['enableSingleSignOn'] : (bool)$data['enableSingleSignOn'];
         }
         if (isset($data['gracePeriodInHours'])) {
-            $this->gracePeriodInHours = $data['gracePeriodInHours'];
+            $this->gracePeriodInHours = is_numeric($data['gracePeriodInHours']) ? (float)$data['gracePeriodInHours'] : $data['gracePeriodInHours'];
         }
         if (isset($data['imageDisplayName'])) {
             $this->imageDisplayName = $data['imageDisplayName'];
@@ -132,7 +132,7 @@ class CloudPcProvisioningPolicy
             $this->imageType = is_array($data['imageType']) ? new CloudPcProvisioningPolicyImageType($data['imageType']) : $data['imageType'];
         }
         if (isset($data['localAdminEnabled'])) {
-            $this->localAdminEnabled = $data['localAdminEnabled'];
+            $this->localAdminEnabled = is_bool($data['localAdminEnabled']) ? $data['localAdminEnabled'] : (bool)$data['localAdminEnabled'];
         }
         if (isset($data['microsoftManagedDesktop'])) {
             $this->microsoftManagedDesktop = is_array($data['microsoftManagedDesktop']) ? new MicrosoftManagedDesktop($data['microsoftManagedDesktop']) : $data['microsoftManagedDesktop'];

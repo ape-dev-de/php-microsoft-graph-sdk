@@ -45,16 +45,16 @@ class IdentityGovernanceTopTasksInsightsSummary
     {
         $this->rawData = $data;
         if (isset($data['failedTasks'])) {
-            $this->failedTasks = $data['failedTasks'];
+            $this->failedTasks = is_numeric($data['failedTasks']) ? (float)$data['failedTasks'] : $data['failedTasks'];
         }
         if (isset($data['failedUsers'])) {
-            $this->failedUsers = $data['failedUsers'];
+            $this->failedUsers = is_numeric($data['failedUsers']) ? (float)$data['failedUsers'] : $data['failedUsers'];
         }
         if (isset($data['successfulTasks'])) {
-            $this->successfulTasks = $data['successfulTasks'];
+            $this->successfulTasks = is_numeric($data['successfulTasks']) ? (float)$data['successfulTasks'] : $data['successfulTasks'];
         }
         if (isset($data['successfulUsers'])) {
-            $this->successfulUsers = $data['successfulUsers'];
+            $this->successfulUsers = is_numeric($data['successfulUsers']) ? (float)$data['successfulUsers'] : $data['successfulUsers'];
         }
         if (isset($data['taskDefinitionDisplayName'])) {
             $this->taskDefinitionDisplayName = $data['taskDefinitionDisplayName'];
@@ -63,10 +63,10 @@ class IdentityGovernanceTopTasksInsightsSummary
             $this->taskDefinitionId = $data['taskDefinitionId'];
         }
         if (isset($data['totalTasks'])) {
-            $this->totalTasks = $data['totalTasks'];
+            $this->totalTasks = is_numeric($data['totalTasks']) ? (float)$data['totalTasks'] : $data['totalTasks'];
         }
         if (isset($data['totalUsers'])) {
-            $this->totalUsers = $data['totalUsers'];
+            $this->totalUsers = is_numeric($data['totalUsers']) ? (float)$data['totalUsers'] : $data['totalUsers'];
         }
     }
 

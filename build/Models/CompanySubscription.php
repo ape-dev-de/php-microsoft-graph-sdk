@@ -72,7 +72,7 @@ class CompanySubscription
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isTrial'])) {
-            $this->isTrial = $data['isTrial'];
+            $this->isTrial = is_bool($data['isTrial']) ? $data['isTrial'] : (bool)$data['isTrial'];
         }
         if (isset($data['nextLifecycleDateTime'])) {
             $this->nextLifecycleDateTime = is_string($data['nextLifecycleDateTime']) ? new \DateTimeImmutable($data['nextLifecycleDateTime']) : $data['nextLifecycleDateTime'];
@@ -99,7 +99,7 @@ class CompanySubscription
             $this->status = $data['status'];
         }
         if (isset($data['totalLicenses'])) {
-            $this->totalLicenses = $data['totalLicenses'];
+            $this->totalLicenses = is_numeric($data['totalLicenses']) ? (float)$data['totalLicenses'] : $data['totalLicenses'];
         }
     }
 

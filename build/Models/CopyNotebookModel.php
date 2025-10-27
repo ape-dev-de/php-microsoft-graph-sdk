@@ -90,10 +90,10 @@ class CopyNotebookModel
             $this->createdTime = is_string($data['createdTime']) ? new \DateTimeImmutable($data['createdTime']) : $data['createdTime'];
         }
         if (isset($data['isDefault'])) {
-            $this->isDefault = $data['isDefault'];
+            $this->isDefault = is_bool($data['isDefault']) ? $data['isDefault'] : (bool)$data['isDefault'];
         }
         if (isset($data['isShared'])) {
-            $this->isShared = $data['isShared'];
+            $this->isShared = is_bool($data['isShared']) ? $data['isShared'] : (bool)$data['isShared'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = $data['lastModifiedBy'];

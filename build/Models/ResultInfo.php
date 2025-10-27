@@ -30,13 +30,13 @@ class ResultInfo
     {
         $this->rawData = $data;
         if (isset($data['code'])) {
-            $this->code = $data['code'];
+            $this->code = is_numeric($data['code']) ? (float)$data['code'] : $data['code'];
         }
         if (isset($data['message'])) {
             $this->message = $data['message'];
         }
         if (isset($data['subcode'])) {
-            $this->subcode = $data['subcode'];
+            $this->subcode = is_numeric($data['subcode']) ? (float)$data['subcode'] : $data['subcode'];
         }
     }
 

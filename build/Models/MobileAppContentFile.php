@@ -66,10 +66,10 @@ class MobileAppContentFile
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['isCommitted'])) {
-            $this->isCommitted = $data['isCommitted'];
+            $this->isCommitted = is_bool($data['isCommitted']) ? $data['isCommitted'] : (bool)$data['isCommitted'];
         }
         if (isset($data['isDependency'])) {
-            $this->isDependency = $data['isDependency'];
+            $this->isDependency = is_bool($data['isDependency']) ? $data['isDependency'] : (bool)$data['isDependency'];
         }
         if (isset($data['manifest'])) {
             $this->manifest = $data['manifest'];
@@ -78,10 +78,10 @@ class MobileAppContentFile
             $this->name = $data['name'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['sizeEncrypted'])) {
-            $this->sizeEncrypted = $data['sizeEncrypted'];
+            $this->sizeEncrypted = is_numeric($data['sizeEncrypted']) ? (float)$data['sizeEncrypted'] : $data['sizeEncrypted'];
         }
         if (isset($data['uploadState'])) {
             $this->uploadState = is_array($data['uploadState']) ? new MobileAppContentFileUploadState($data['uploadState']) : $data['uploadState'];

@@ -51,13 +51,13 @@ class ParseExpressionResponse
             $this->evaluationResult = $data['evaluationResult'];
         }
         if (isset($data['evaluationSucceeded'])) {
-            $this->evaluationSucceeded = $data['evaluationSucceeded'];
+            $this->evaluationSucceeded = is_bool($data['evaluationSucceeded']) ? $data['evaluationSucceeded'] : (bool)$data['evaluationSucceeded'];
         }
         if (isset($data['parsedExpression'])) {
             $this->parsedExpression = is_array($data['parsedExpression']) ? new AttributeMappingSource($data['parsedExpression']) : $data['parsedExpression'];
         }
         if (isset($data['parsingSucceeded'])) {
-            $this->parsingSucceeded = $data['parsingSucceeded'];
+            $this->parsingSucceeded = is_bool($data['parsingSucceeded']) ? $data['parsingSucceeded'] : (bool)$data['parsingSucceeded'];
         }
     }
 

@@ -69,7 +69,7 @@ class SecurityArticle
             $this->imageUrl = $data['imageUrl'];
         }
         if (isset($data['isFeatured'])) {
-            $this->isFeatured = $data['isFeatured'];
+            $this->isFeatured = is_bool($data['isFeatured']) ? $data['isFeatured'] : (bool)$data['isFeatured'];
         }
         if (isset($data['lastUpdatedDateTime'])) {
             $this->lastUpdatedDateTime = is_string($data['lastUpdatedDateTime']) ? new \DateTimeImmutable($data['lastUpdatedDateTime']) : $data['lastUpdatedDateTime'];

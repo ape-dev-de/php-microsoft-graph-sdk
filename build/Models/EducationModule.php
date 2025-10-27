@@ -81,7 +81,7 @@ class EducationModule
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isPinned'])) {
-            $this->isPinned = $data['isPinned'];
+            $this->isPinned = is_bool($data['isPinned']) ? $data['isPinned'] : (bool)$data['isPinned'];
         }
         if (isset($data['lastModifiedBy'])) {
             $this->lastModifiedBy = is_array($data['lastModifiedBy']) ? new IdentitySet($data['lastModifiedBy']) : $data['lastModifiedBy'];

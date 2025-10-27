@@ -654,7 +654,7 @@ class User
             $this->aboutMe = $data['aboutMe'];
         }
         if (isset($data['accountEnabled'])) {
-            $this->accountEnabled = $data['accountEnabled'];
+            $this->accountEnabled = is_bool($data['accountEnabled']) ? $data['accountEnabled'] : (bool)$data['accountEnabled'];
         }
         if (isset($data['ageGroup'])) {
             $this->ageGroup = $data['ageGroup'];
@@ -699,7 +699,7 @@ class User
             $this->department = $data['department'];
         }
         if (isset($data['deviceEnrollmentLimit'])) {
-            $this->deviceEnrollmentLimit = $data['deviceEnrollmentLimit'];
+            $this->deviceEnrollmentLimit = is_numeric($data['deviceEnrollmentLimit']) ? (float)$data['deviceEnrollmentLimit'] : $data['deviceEnrollmentLimit'];
         }
         if (isset($data['displayName'])) {
             $this->displayName = $data['displayName'];
@@ -744,10 +744,10 @@ class User
             $this->interests = $data['interests'];
         }
         if (isset($data['isManagementRestricted'])) {
-            $this->isManagementRestricted = $data['isManagementRestricted'];
+            $this->isManagementRestricted = is_bool($data['isManagementRestricted']) ? $data['isManagementRestricted'] : (bool)$data['isManagementRestricted'];
         }
         if (isset($data['isResourceAccount'])) {
-            $this->isResourceAccount = $data['isResourceAccount'];
+            $this->isResourceAccount = is_bool($data['isResourceAccount']) ? $data['isResourceAccount'] : (bool)$data['isResourceAccount'];
         }
         if (isset($data['jobTitle'])) {
             $this->jobTitle = $data['jobTitle'];
@@ -804,7 +804,7 @@ class User
             $this->onPremisesSecurityIdentifier = $data['onPremisesSecurityIdentifier'];
         }
         if (isset($data['onPremisesSyncEnabled'])) {
-            $this->onPremisesSyncEnabled = $data['onPremisesSyncEnabled'];
+            $this->onPremisesSyncEnabled = is_bool($data['onPremisesSyncEnabled']) ? $data['onPremisesSyncEnabled'] : (bool)$data['onPremisesSyncEnabled'];
         }
         if (isset($data['onPremisesUserPrincipalName'])) {
             $this->onPremisesUserPrincipalName = $data['onPremisesUserPrincipalName'];
@@ -855,7 +855,7 @@ class User
             $this->serviceProvisioningErrors = $data['serviceProvisioningErrors'];
         }
         if (isset($data['showInAddressList'])) {
-            $this->showInAddressList = $data['showInAddressList'];
+            $this->showInAddressList = is_bool($data['showInAddressList']) ? $data['showInAddressList'] : (bool)$data['showInAddressList'];
         }
         if (isset($data['signInActivity'])) {
             $this->signInActivity = is_array($data['signInActivity']) ? new SignInActivity($data['signInActivity']) : $data['signInActivity'];

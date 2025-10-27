@@ -108,7 +108,7 @@ class SearchRequest
             $this->contentSources = $data['contentSources'];
         }
         if (isset($data['enableTopResults'])) {
-            $this->enableTopResults = $data['enableTopResults'];
+            $this->enableTopResults = is_bool($data['enableTopResults']) ? $data['enableTopResults'] : (bool)$data['enableTopResults'];
         }
         if (isset($data['entityTypes'])) {
             $this->entityTypes = $data['entityTypes'];
@@ -117,7 +117,7 @@ class SearchRequest
             $this->fields = $data['fields'];
         }
         if (isset($data['from'])) {
-            $this->from = $data['from'];
+            $this->from = is_numeric($data['from']) ? (float)$data['from'] : $data['from'];
         }
         if (isset($data['query'])) {
             $this->query = is_array($data['query']) ? new SearchQuery($data['query']) : $data['query'];
@@ -135,7 +135,7 @@ class SearchRequest
             $this->sharePointOneDriveOptions = is_array($data['sharePointOneDriveOptions']) ? new SharePointOneDriveOptions($data['sharePointOneDriveOptions']) : $data['sharePointOneDriveOptions'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['sortProperties'])) {
             $this->sortProperties = $data['sortProperties'];

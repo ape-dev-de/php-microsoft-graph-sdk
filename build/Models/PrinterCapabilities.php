@@ -162,7 +162,7 @@ class PrinterCapabilities
             $this->bottomMargins = $data['bottomMargins'];
         }
         if (isset($data['collation'])) {
-            $this->collation = $data['collation'];
+            $this->collation = is_bool($data['collation']) ? $data['collation'] : (bool)$data['collation'];
         }
         if (isset($data['colorModes'])) {
             $this->colorModes = $data['colorModes'];
@@ -189,10 +189,10 @@ class PrinterCapabilities
             $this->inputBins = $data['inputBins'];
         }
         if (isset($data['isColorPrintingSupported'])) {
-            $this->isColorPrintingSupported = $data['isColorPrintingSupported'];
+            $this->isColorPrintingSupported = is_bool($data['isColorPrintingSupported']) ? $data['isColorPrintingSupported'] : (bool)$data['isColorPrintingSupported'];
         }
         if (isset($data['isPageRangeSupported'])) {
-            $this->isPageRangeSupported = $data['isPageRangeSupported'];
+            $this->isPageRangeSupported = is_bool($data['isPageRangeSupported']) ? $data['isPageRangeSupported'] : (bool)$data['isPageRangeSupported'];
         }
         if (isset($data['leftMargins'])) {
             $this->leftMargins = $data['leftMargins'];
@@ -228,7 +228,7 @@ class PrinterCapabilities
             $this->scalings = $data['scalings'];
         }
         if (isset($data['supportsFitPdfToPage'])) {
-            $this->supportsFitPdfToPage = $data['supportsFitPdfToPage'];
+            $this->supportsFitPdfToPage = is_bool($data['supportsFitPdfToPage']) ? $data['supportsFitPdfToPage'] : (bool)$data['supportsFitPdfToPage'];
         }
         if (isset($data['topMargins'])) {
             $this->topMargins = $data['topMargins'];

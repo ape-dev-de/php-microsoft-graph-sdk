@@ -54,10 +54,10 @@ class TodoTaskList
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isOwner'])) {
-            $this->isOwner = $data['isOwner'];
+            $this->isOwner = is_bool($data['isOwner']) ? $data['isOwner'] : (bool)$data['isOwner'];
         }
         if (isset($data['isShared'])) {
-            $this->isShared = $data['isShared'];
+            $this->isShared = is_bool($data['isShared']) ? $data['isShared'] : (bool)$data['isShared'];
         }
         if (isset($data['wellknownListName'])) {
             $this->wellknownListName = is_array($data['wellknownListName']) ? new WellknownListName($data['wellknownListName']) : $data['wellknownListName'];

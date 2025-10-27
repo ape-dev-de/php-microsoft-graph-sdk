@@ -78,7 +78,7 @@ class SubscribedSku
             $this->capabilityStatus = $data['capabilityStatus'];
         }
         if (isset($data['consumedUnits'])) {
-            $this->consumedUnits = $data['consumedUnits'];
+            $this->consumedUnits = is_numeric($data['consumedUnits']) ? (float)$data['consumedUnits'] : $data['consumedUnits'];
         }
         if (isset($data['prepaidUnits'])) {
             $this->prepaidUnits = is_array($data['prepaidUnits']) ? new LicenseUnitsDetail($data['prepaidUnits']) : $data['prepaidUnits'];

@@ -48,7 +48,7 @@ class SecurityHostPortBanner
             $this->scanProtocol = $data['scanProtocol'];
         }
         if (isset($data['timesObserved'])) {
-            $this->timesObserved = $data['timesObserved'];
+            $this->timesObserved = is_numeric($data['timesObserved']) ? (float)$data['timesObserved'] : $data['timesObserved'];
         }
     }
 

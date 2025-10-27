@@ -30,7 +30,7 @@ class AttendanceInterval
     {
         $this->rawData = $data;
         if (isset($data['durationInSeconds'])) {
-            $this->durationInSeconds = $data['durationInSeconds'];
+            $this->durationInSeconds = is_numeric($data['durationInSeconds']) ? (float)$data['durationInSeconds'] : $data['durationInSeconds'];
         }
         if (isset($data['joinDateTime'])) {
             $this->joinDateTime = is_string($data['joinDateTime']) ? new \DateTimeImmutable($data['joinDateTime']) : $data['joinDateTime'];

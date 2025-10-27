@@ -57,7 +57,7 @@ class MeetingAttendanceReport
             $this->meetingStartDateTime = is_string($data['meetingStartDateTime']) ? new \DateTimeImmutable($data['meetingStartDateTime']) : $data['meetingStartDateTime'];
         }
         if (isset($data['totalParticipantCount'])) {
-            $this->totalParticipantCount = $data['totalParticipantCount'];
+            $this->totalParticipantCount = is_numeric($data['totalParticipantCount']) ? (float)$data['totalParticipantCount'] : $data['totalParticipantCount'];
         }
         if (isset($data['attendanceRecords'])) {
             $this->attendanceRecords = $data['attendanceRecords'];

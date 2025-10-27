@@ -27,10 +27,10 @@ class SizeRange
     {
         $this->rawData = $data;
         if (isset($data['maximumSize'])) {
-            $this->maximumSize = $data['maximumSize'];
+            $this->maximumSize = is_numeric($data['maximumSize']) ? (float)$data['maximumSize'] : $data['maximumSize'];
         }
         if (isset($data['minimumSize'])) {
-            $this->minimumSize = $data['minimumSize'];
+            $this->minimumSize = is_numeric($data['minimumSize']) ? (float)$data['minimumSize'] : $data['minimumSize'];
         }
     }
 

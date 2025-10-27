@@ -27,10 +27,10 @@ class ItemActionStat
     {
         $this->rawData = $data;
         if (isset($data['actionCount'])) {
-            $this->actionCount = $data['actionCount'];
+            $this->actionCount = is_numeric($data['actionCount']) ? (float)$data['actionCount'] : $data['actionCount'];
         }
         if (isset($data['actorCount'])) {
-            $this->actorCount = $data['actorCount'];
+            $this->actorCount = is_numeric($data['actorCount']) ? (float)$data['actorCount'] : $data['actorCount'];
         }
     }
 

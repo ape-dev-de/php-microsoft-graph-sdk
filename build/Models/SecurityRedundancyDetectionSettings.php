@@ -33,16 +33,16 @@ class SecurityRedundancyDetectionSettings
     {
         $this->rawData = $data;
         if (isset($data['isEnabled'])) {
-            $this->isEnabled = $data['isEnabled'];
+            $this->isEnabled = is_bool($data['isEnabled']) ? $data['isEnabled'] : (bool)$data['isEnabled'];
         }
         if (isset($data['maxWords'])) {
-            $this->maxWords = $data['maxWords'];
+            $this->maxWords = is_numeric($data['maxWords']) ? (float)$data['maxWords'] : $data['maxWords'];
         }
         if (isset($data['minWords'])) {
-            $this->minWords = $data['minWords'];
+            $this->minWords = is_numeric($data['minWords']) ? (float)$data['minWords'] : $data['minWords'];
         }
         if (isset($data['similarityThreshold'])) {
-            $this->similarityThreshold = $data['similarityThreshold'];
+            $this->similarityThreshold = is_numeric($data['similarityThreshold']) ? (float)$data['similarityThreshold'] : $data['similarityThreshold'];
         }
     }
 

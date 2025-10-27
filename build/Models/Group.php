@@ -339,7 +339,7 @@ class Group
             $this->deletedDateTime = is_string($data['deletedDateTime']) ? new \DateTimeImmutable($data['deletedDateTime']) : $data['deletedDateTime'];
         }
         if (isset($data['allowExternalSenders'])) {
-            $this->allowExternalSenders = $data['allowExternalSenders'];
+            $this->allowExternalSenders = is_bool($data['allowExternalSenders']) ? $data['allowExternalSenders'] : (bool)$data['allowExternalSenders'];
         }
         if (isset($data['assignedLabels'])) {
             $this->assignedLabels = $data['assignedLabels'];
@@ -348,7 +348,7 @@ class Group
             $this->assignedLicenses = $data['assignedLicenses'];
         }
         if (isset($data['autoSubscribeNewMembers'])) {
-            $this->autoSubscribeNewMembers = $data['autoSubscribeNewMembers'];
+            $this->autoSubscribeNewMembers = is_bool($data['autoSubscribeNewMembers']) ? $data['autoSubscribeNewMembers'] : (bool)$data['autoSubscribeNewMembers'];
         }
         if (isset($data['classification'])) {
             $this->classification = $data['classification'];
@@ -369,25 +369,25 @@ class Group
             $this->groupTypes = $data['groupTypes'];
         }
         if (isset($data['hasMembersWithLicenseErrors'])) {
-            $this->hasMembersWithLicenseErrors = $data['hasMembersWithLicenseErrors'];
+            $this->hasMembersWithLicenseErrors = is_bool($data['hasMembersWithLicenseErrors']) ? $data['hasMembersWithLicenseErrors'] : (bool)$data['hasMembersWithLicenseErrors'];
         }
         if (isset($data['hideFromAddressLists'])) {
-            $this->hideFromAddressLists = $data['hideFromAddressLists'];
+            $this->hideFromAddressLists = is_bool($data['hideFromAddressLists']) ? $data['hideFromAddressLists'] : (bool)$data['hideFromAddressLists'];
         }
         if (isset($data['hideFromOutlookClients'])) {
-            $this->hideFromOutlookClients = $data['hideFromOutlookClients'];
+            $this->hideFromOutlookClients = is_bool($data['hideFromOutlookClients']) ? $data['hideFromOutlookClients'] : (bool)$data['hideFromOutlookClients'];
         }
         if (isset($data['isArchived'])) {
-            $this->isArchived = $data['isArchived'];
+            $this->isArchived = is_bool($data['isArchived']) ? $data['isArchived'] : (bool)$data['isArchived'];
         }
         if (isset($data['isAssignableToRole'])) {
-            $this->isAssignableToRole = $data['isAssignableToRole'];
+            $this->isAssignableToRole = is_bool($data['isAssignableToRole']) ? $data['isAssignableToRole'] : (bool)$data['isAssignableToRole'];
         }
         if (isset($data['isManagementRestricted'])) {
-            $this->isManagementRestricted = $data['isManagementRestricted'];
+            $this->isManagementRestricted = is_bool($data['isManagementRestricted']) ? $data['isManagementRestricted'] : (bool)$data['isManagementRestricted'];
         }
         if (isset($data['isSubscribedByMail'])) {
-            $this->isSubscribedByMail = $data['isSubscribedByMail'];
+            $this->isSubscribedByMail = is_bool($data['isSubscribedByMail']) ? $data['isSubscribedByMail'] : (bool)$data['isSubscribedByMail'];
         }
         if (isset($data['licenseProcessingState'])) {
             $this->licenseProcessingState = is_array($data['licenseProcessingState']) ? new LicenseProcessingState($data['licenseProcessingState']) : $data['licenseProcessingState'];
@@ -396,7 +396,7 @@ class Group
             $this->mail = $data['mail'];
         }
         if (isset($data['mailEnabled'])) {
-            $this->mailEnabled = $data['mailEnabled'];
+            $this->mailEnabled = is_bool($data['mailEnabled']) ? $data['mailEnabled'] : (bool)$data['mailEnabled'];
         }
         if (isset($data['mailNickname'])) {
             $this->mailNickname = $data['mailNickname'];
@@ -426,7 +426,7 @@ class Group
             $this->onPremisesSecurityIdentifier = $data['onPremisesSecurityIdentifier'];
         }
         if (isset($data['onPremisesSyncEnabled'])) {
-            $this->onPremisesSyncEnabled = $data['onPremisesSyncEnabled'];
+            $this->onPremisesSyncEnabled = is_bool($data['onPremisesSyncEnabled']) ? $data['onPremisesSyncEnabled'] : (bool)$data['onPremisesSyncEnabled'];
         }
         if (isset($data['preferredDataLocation'])) {
             $this->preferredDataLocation = $data['preferredDataLocation'];
@@ -441,7 +441,7 @@ class Group
             $this->renewedDateTime = is_string($data['renewedDateTime']) ? new \DateTimeImmutable($data['renewedDateTime']) : $data['renewedDateTime'];
         }
         if (isset($data['securityEnabled'])) {
-            $this->securityEnabled = $data['securityEnabled'];
+            $this->securityEnabled = is_bool($data['securityEnabled']) ? $data['securityEnabled'] : (bool)$data['securityEnabled'];
         }
         if (isset($data['securityIdentifier'])) {
             $this->securityIdentifier = $data['securityIdentifier'];
@@ -456,7 +456,7 @@ class Group
             $this->uniqueName = $data['uniqueName'];
         }
         if (isset($data['unseenCount'])) {
-            $this->unseenCount = $data['unseenCount'];
+            $this->unseenCount = is_numeric($data['unseenCount']) ? (float)$data['unseenCount'] : $data['unseenCount'];
         }
         if (isset($data['visibility'])) {
             $this->visibility = $data['visibility'];

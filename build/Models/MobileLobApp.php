@@ -111,7 +111,7 @@ class MobileLobApp
             $this->informationUrl = $data['informationUrl'];
         }
         if (isset($data['isFeatured'])) {
-            $this->isFeatured = $data['isFeatured'];
+            $this->isFeatured = is_bool($data['isFeatured']) ? $data['isFeatured'] : (bool)$data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
             $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
@@ -147,7 +147,7 @@ class MobileLobApp
             $this->fileName = $data['fileName'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['contentVersions'])) {
             $this->contentVersions = $data['contentVersions'];

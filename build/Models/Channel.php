@@ -111,10 +111,10 @@ class Channel
             $this->email = $data['email'];
         }
         if (isset($data['isArchived'])) {
-            $this->isArchived = $data['isArchived'];
+            $this->isArchived = is_bool($data['isArchived']) ? $data['isArchived'] : (bool)$data['isArchived'];
         }
         if (isset($data['isFavoriteByDefault'])) {
-            $this->isFavoriteByDefault = $data['isFavoriteByDefault'];
+            $this->isFavoriteByDefault = is_bool($data['isFavoriteByDefault']) ? $data['isFavoriteByDefault'] : (bool)$data['isFavoriteByDefault'];
         }
         if (isset($data['membershipType'])) {
             $this->membershipType = is_array($data['membershipType']) ? new ChannelMembershipType($data['membershipType']) : $data['membershipType'];

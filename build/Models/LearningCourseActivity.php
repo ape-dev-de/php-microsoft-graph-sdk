@@ -54,7 +54,7 @@ class LearningCourseActivity
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['completionPercentage'])) {
-            $this->completionPercentage = $data['completionPercentage'];
+            $this->completionPercentage = is_numeric($data['completionPercentage']) ? (float)$data['completionPercentage'] : $data['completionPercentage'];
         }
         if (isset($data['externalcourseActivityId'])) {
             $this->externalcourseActivityId = $data['externalcourseActivityId'];

@@ -198,7 +198,7 @@ class EducationUser
             $this->id = $data['id'];
         }
         if (isset($data['accountEnabled'])) {
-            $this->accountEnabled = $data['accountEnabled'];
+            $this->accountEnabled = is_bool($data['accountEnabled']) ? $data['accountEnabled'] : (bool)$data['accountEnabled'];
         }
         if (isset($data['assignedLicenses'])) {
             $this->assignedLicenses = $data['assignedLicenses'];
@@ -273,7 +273,7 @@ class EducationUser
             $this->residenceAddress = is_array($data['residenceAddress']) ? new PhysicalAddress($data['residenceAddress']) : $data['residenceAddress'];
         }
         if (isset($data['showInAddressList'])) {
-            $this->showInAddressList = $data['showInAddressList'];
+            $this->showInAddressList = is_bool($data['showInAddressList']) ? $data['showInAddressList'] : (bool)$data['showInAddressList'];
         }
         if (isset($data['student'])) {
             $this->student = is_array($data['student']) ? new EducationStudent($data['student']) : $data['student'];

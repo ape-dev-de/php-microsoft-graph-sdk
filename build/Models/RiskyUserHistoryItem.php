@@ -78,10 +78,10 @@ class RiskyUserHistoryItem
             $this->id = $data['id'];
         }
         if (isset($data['isDeleted'])) {
-            $this->isDeleted = $data['isDeleted'];
+            $this->isDeleted = is_bool($data['isDeleted']) ? $data['isDeleted'] : (bool)$data['isDeleted'];
         }
         if (isset($data['isProcessing'])) {
-            $this->isProcessing = $data['isProcessing'];
+            $this->isProcessing = is_bool($data['isProcessing']) ? $data['isProcessing'] : (bool)$data['isProcessing'];
         }
         if (isset($data['riskDetail'])) {
             $this->riskDetail = is_array($data['riskDetail']) ? new RiskDetail($data['riskDetail']) : $data['riskDetail'];

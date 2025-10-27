@@ -63,7 +63,7 @@ class TitleArea
             $this->alternativeText = $data['alternativeText'];
         }
         if (isset($data['enableGradientEffect'])) {
-            $this->enableGradientEffect = $data['enableGradientEffect'];
+            $this->enableGradientEffect = is_bool($data['enableGradientEffect']) ? $data['enableGradientEffect'] : (bool)$data['enableGradientEffect'];
         }
         if (isset($data['imageWebUrl'])) {
             $this->imageWebUrl = $data['imageWebUrl'];
@@ -75,13 +75,13 @@ class TitleArea
             $this->serverProcessedContent = is_array($data['serverProcessedContent']) ? new ServerProcessedContent($data['serverProcessedContent']) : $data['serverProcessedContent'];
         }
         if (isset($data['showAuthor'])) {
-            $this->showAuthor = $data['showAuthor'];
+            $this->showAuthor = is_bool($data['showAuthor']) ? $data['showAuthor'] : (bool)$data['showAuthor'];
         }
         if (isset($data['showPublishedDate'])) {
-            $this->showPublishedDate = $data['showPublishedDate'];
+            $this->showPublishedDate = is_bool($data['showPublishedDate']) ? $data['showPublishedDate'] : (bool)$data['showPublishedDate'];
         }
         if (isset($data['showTextBlockAboveTitle'])) {
-            $this->showTextBlockAboveTitle = $data['showTextBlockAboveTitle'];
+            $this->showTextBlockAboveTitle = is_bool($data['showTextBlockAboveTitle']) ? $data['showTextBlockAboveTitle'] : (bool)$data['showTextBlockAboveTitle'];
         }
         if (isset($data['textAboveTitle'])) {
             $this->textAboveTitle = $data['textAboveTitle'];

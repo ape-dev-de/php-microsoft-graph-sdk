@@ -102,7 +102,7 @@ class ServiceHealthIssue
             $this->impactDescription = $data['impactDescription'];
         }
         if (isset($data['isResolved'])) {
-            $this->isResolved = $data['isResolved'];
+            $this->isResolved = is_bool($data['isResolved']) ? $data['isResolved'] : (bool)$data['isResolved'];
         }
         if (isset($data['origin'])) {
             $this->origin = is_array($data['origin']) ? new ServiceHealthOrigin($data['origin']) : $data['origin'];

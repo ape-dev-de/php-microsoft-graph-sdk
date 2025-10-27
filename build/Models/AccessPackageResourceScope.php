@@ -54,7 +54,7 @@ class AccessPackageResourceScope
             $this->displayName = $data['displayName'];
         }
         if (isset($data['isRootScope'])) {
-            $this->isRootScope = $data['isRootScope'];
+            $this->isRootScope = is_bool($data['isRootScope']) ? $data['isRootScope'] : (bool)$data['isRootScope'];
         }
         if (isset($data['originId'])) {
             $this->originId = $data['originId'];

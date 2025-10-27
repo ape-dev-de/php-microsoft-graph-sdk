@@ -63,7 +63,7 @@ class MicrosoftAuthenticatorAuthenticationMethodConfiguration
             $this->featureSettings = is_array($data['featureSettings']) ? new MicrosoftAuthenticatorFeatureSettings($data['featureSettings']) : $data['featureSettings'];
         }
         if (isset($data['isSoftwareOathEnabled'])) {
-            $this->isSoftwareOathEnabled = $data['isSoftwareOathEnabled'];
+            $this->isSoftwareOathEnabled = is_bool($data['isSoftwareOathEnabled']) ? $data['isSoftwareOathEnabled'] : (bool)$data['isSoftwareOathEnabled'];
         }
         if (isset($data['includeTargets'])) {
             $this->includeTargets = $data['includeTargets'];

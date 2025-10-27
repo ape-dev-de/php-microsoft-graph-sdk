@@ -69,7 +69,7 @@ class SynchronizationRule
             $this->containerFilter = is_array($data['containerFilter']) ? new ContainerFilter($data['containerFilter']) : $data['containerFilter'];
         }
         if (isset($data['editable'])) {
-            $this->editable = $data['editable'];
+            $this->editable = is_bool($data['editable']) ? $data['editable'] : (bool)$data['editable'];
         }
         if (isset($data['groupFilter'])) {
             $this->groupFilter = is_array($data['groupFilter']) ? new GroupFilter($data['groupFilter']) : $data['groupFilter'];
@@ -84,7 +84,7 @@ class SynchronizationRule
             $this->objectMappings = $data['objectMappings'];
         }
         if (isset($data['priority'])) {
-            $this->priority = $data['priority'];
+            $this->priority = is_numeric($data['priority']) ? (float)$data['priority'] : $data['priority'];
         }
         if (isset($data['sourceDirectoryName'])) {
             $this->sourceDirectoryName = $data['sourceDirectoryName'];

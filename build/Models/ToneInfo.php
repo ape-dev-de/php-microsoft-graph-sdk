@@ -27,7 +27,7 @@ class ToneInfo
     {
         $this->rawData = $data;
         if (isset($data['sequenceId'])) {
-            $this->sequenceId = $data['sequenceId'];
+            $this->sequenceId = is_numeric($data['sequenceId']) ? (float)$data['sequenceId'] : $data['sequenceId'];
         }
         if (isset($data['tone'])) {
             $this->tone = is_array($data['tone']) ? new Tone($data['tone']) : $data['tone'];

@@ -141,7 +141,7 @@ class WindowsUniversalAppX
             $this->informationUrl = $data['informationUrl'];
         }
         if (isset($data['isFeatured'])) {
-            $this->isFeatured = $data['isFeatured'];
+            $this->isFeatured = is_bool($data['isFeatured']) ? $data['isFeatured'] : (bool)$data['isFeatured'];
         }
         if (isset($data['largeIcon'])) {
             $this->largeIcon = is_array($data['largeIcon']) ? new MimeContent($data['largeIcon']) : $data['largeIcon'];
@@ -177,7 +177,7 @@ class WindowsUniversalAppX
             $this->fileName = $data['fileName'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
         if (isset($data['contentVersions'])) {
             $this->contentVersions = $data['contentVersions'];
@@ -201,7 +201,7 @@ class WindowsUniversalAppX
             $this->identityVersion = $data['identityVersion'];
         }
         if (isset($data['isBundle'])) {
-            $this->isBundle = $data['isBundle'];
+            $this->isBundle = is_bool($data['isBundle']) ? $data['isBundle'] : (bool)$data['isBundle'];
         }
         if (isset($data['minimumSupportedOperatingSystem'])) {
             $this->minimumSupportedOperatingSystem = is_array($data['minimumSupportedOperatingSystem']) ? new WindowsMinimumOperatingSystem($data['minimumSupportedOperatingSystem']) : $data['minimumSupportedOperatingSystem'];

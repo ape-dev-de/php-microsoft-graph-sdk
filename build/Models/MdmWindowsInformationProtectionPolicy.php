@@ -174,7 +174,7 @@ class MdmWindowsInformationProtectionPolicy
             $this->version = $data['version'];
         }
         if (isset($data['azureRightsManagementServicesAllowed'])) {
-            $this->azureRightsManagementServicesAllowed = $data['azureRightsManagementServicesAllowed'];
+            $this->azureRightsManagementServicesAllowed = is_bool($data['azureRightsManagementServicesAllowed']) ? $data['azureRightsManagementServicesAllowed'] : (bool)$data['azureRightsManagementServicesAllowed'];
         }
         if (isset($data['dataRecoveryCertificate'])) {
             $this->dataRecoveryCertificate = is_array($data['dataRecoveryCertificate']) ? new WindowsInformationProtectionDataRecoveryCertificate($data['dataRecoveryCertificate']) : $data['dataRecoveryCertificate'];
@@ -192,7 +192,7 @@ class MdmWindowsInformationProtectionPolicy
             $this->enterpriseIPRanges = $data['enterpriseIPRanges'];
         }
         if (isset($data['enterpriseIPRangesAreAuthoritative'])) {
-            $this->enterpriseIPRangesAreAuthoritative = $data['enterpriseIPRangesAreAuthoritative'];
+            $this->enterpriseIPRangesAreAuthoritative = is_bool($data['enterpriseIPRangesAreAuthoritative']) ? $data['enterpriseIPRangesAreAuthoritative'] : (bool)$data['enterpriseIPRangesAreAuthoritative'];
         }
         if (isset($data['enterpriseNetworkDomainNames'])) {
             $this->enterpriseNetworkDomainNames = $data['enterpriseNetworkDomainNames'];
@@ -207,19 +207,19 @@ class MdmWindowsInformationProtectionPolicy
             $this->enterpriseProxyServers = $data['enterpriseProxyServers'];
         }
         if (isset($data['enterpriseProxyServersAreAuthoritative'])) {
-            $this->enterpriseProxyServersAreAuthoritative = $data['enterpriseProxyServersAreAuthoritative'];
+            $this->enterpriseProxyServersAreAuthoritative = is_bool($data['enterpriseProxyServersAreAuthoritative']) ? $data['enterpriseProxyServersAreAuthoritative'] : (bool)$data['enterpriseProxyServersAreAuthoritative'];
         }
         if (isset($data['exemptApps'])) {
             $this->exemptApps = $data['exemptApps'];
         }
         if (isset($data['iconsVisible'])) {
-            $this->iconsVisible = $data['iconsVisible'];
+            $this->iconsVisible = is_bool($data['iconsVisible']) ? $data['iconsVisible'] : (bool)$data['iconsVisible'];
         }
         if (isset($data['indexingEncryptedStoresOrItemsBlocked'])) {
-            $this->indexingEncryptedStoresOrItemsBlocked = $data['indexingEncryptedStoresOrItemsBlocked'];
+            $this->indexingEncryptedStoresOrItemsBlocked = is_bool($data['indexingEncryptedStoresOrItemsBlocked']) ? $data['indexingEncryptedStoresOrItemsBlocked'] : (bool)$data['indexingEncryptedStoresOrItemsBlocked'];
         }
         if (isset($data['isAssigned'])) {
-            $this->isAssigned = $data['isAssigned'];
+            $this->isAssigned = is_bool($data['isAssigned']) ? $data['isAssigned'] : (bool)$data['isAssigned'];
         }
         if (isset($data['neutralDomainResources'])) {
             $this->neutralDomainResources = $data['neutralDomainResources'];
@@ -228,10 +228,10 @@ class MdmWindowsInformationProtectionPolicy
             $this->protectedApps = $data['protectedApps'];
         }
         if (isset($data['protectionUnderLockConfigRequired'])) {
-            $this->protectionUnderLockConfigRequired = $data['protectionUnderLockConfigRequired'];
+            $this->protectionUnderLockConfigRequired = is_bool($data['protectionUnderLockConfigRequired']) ? $data['protectionUnderLockConfigRequired'] : (bool)$data['protectionUnderLockConfigRequired'];
         }
         if (isset($data['revokeOnUnenrollDisabled'])) {
-            $this->revokeOnUnenrollDisabled = $data['revokeOnUnenrollDisabled'];
+            $this->revokeOnUnenrollDisabled = is_bool($data['revokeOnUnenrollDisabled']) ? $data['revokeOnUnenrollDisabled'] : (bool)$data['revokeOnUnenrollDisabled'];
         }
         if (isset($data['rightsManagementServicesTemplateId'])) {
             $this->rightsManagementServicesTemplateId = $data['rightsManagementServicesTemplateId'];

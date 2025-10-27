@@ -42,7 +42,7 @@ class UpdateWindowsDeviceAccountActionParameter
     {
         $this->rawData = $data;
         if (isset($data['calendarSyncEnabled'])) {
-            $this->calendarSyncEnabled = $data['calendarSyncEnabled'];
+            $this->calendarSyncEnabled = is_bool($data['calendarSyncEnabled']) ? $data['calendarSyncEnabled'] : (bool)$data['calendarSyncEnabled'];
         }
         if (isset($data['deviceAccount'])) {
             $this->deviceAccount = is_array($data['deviceAccount']) ? new WindowsDeviceAccount($data['deviceAccount']) : $data['deviceAccount'];
@@ -54,7 +54,7 @@ class UpdateWindowsDeviceAccountActionParameter
             $this->exchangeServer = $data['exchangeServer'];
         }
         if (isset($data['passwordRotationEnabled'])) {
-            $this->passwordRotationEnabled = $data['passwordRotationEnabled'];
+            $this->passwordRotationEnabled = is_bool($data['passwordRotationEnabled']) ? $data['passwordRotationEnabled'] : (bool)$data['passwordRotationEnabled'];
         }
         if (isset($data['sessionInitiationProtocalAddress'])) {
             $this->sessionInitiationProtocalAddress = $data['sessionInitiationProtocalAddress'];

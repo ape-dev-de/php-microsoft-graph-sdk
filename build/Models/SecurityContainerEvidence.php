@@ -117,7 +117,7 @@ class SecurityContainerEvidence
             $this->image = is_array($data['image']) ? new SecurityContainerImageEvidence($data['image']) : $data['image'];
         }
         if (isset($data['isPrivileged'])) {
-            $this->isPrivileged = $data['isPrivileged'];
+            $this->isPrivileged = is_bool($data['isPrivileged']) ? $data['isPrivileged'] : (bool)$data['isPrivileged'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];

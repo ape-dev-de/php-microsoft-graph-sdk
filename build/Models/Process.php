@@ -78,7 +78,7 @@ class Process
             $this->integrityLevel = is_array($data['integrityLevel']) ? new ProcessIntegrityLevel($data['integrityLevel']) : $data['integrityLevel'];
         }
         if (isset($data['isElevated'])) {
-            $this->isElevated = $data['isElevated'];
+            $this->isElevated = is_bool($data['isElevated']) ? $data['isElevated'] : (bool)$data['isElevated'];
         }
         if (isset($data['name'])) {
             $this->name = $data['name'];
@@ -87,7 +87,7 @@ class Process
             $this->parentProcessCreatedDateTime = is_string($data['parentProcessCreatedDateTime']) ? new \DateTimeImmutable($data['parentProcessCreatedDateTime']) : $data['parentProcessCreatedDateTime'];
         }
         if (isset($data['parentProcessId'])) {
-            $this->parentProcessId = $data['parentProcessId'];
+            $this->parentProcessId = is_numeric($data['parentProcessId']) ? (float)$data['parentProcessId'] : $data['parentProcessId'];
         }
         if (isset($data['parentProcessName'])) {
             $this->parentProcessName = $data['parentProcessName'];
@@ -96,7 +96,7 @@ class Process
             $this->path = $data['path'];
         }
         if (isset($data['processId'])) {
-            $this->processId = $data['processId'];
+            $this->processId = is_numeric($data['processId']) ? (float)$data['processId'] : $data['processId'];
         }
     }
 

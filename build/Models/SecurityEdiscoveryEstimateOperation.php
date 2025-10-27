@@ -108,7 +108,7 @@ class SecurityEdiscoveryEstimateOperation
             $this->createdDateTime = is_string($data['createdDateTime']) ? new \DateTimeImmutable($data['createdDateTime']) : $data['createdDateTime'];
         }
         if (isset($data['percentProgress'])) {
-            $this->percentProgress = $data['percentProgress'];
+            $this->percentProgress = is_numeric($data['percentProgress']) ? (float)$data['percentProgress'] : $data['percentProgress'];
         }
         if (isset($data['resultInfo'])) {
             $this->resultInfo = is_array($data['resultInfo']) ? new ResultInfo($data['resultInfo']) : $data['resultInfo'];
@@ -117,28 +117,28 @@ class SecurityEdiscoveryEstimateOperation
             $this->status = is_array($data['status']) ? new SecurityCaseOperationStatus($data['status']) : $data['status'];
         }
         if (isset($data['indexedItemCount'])) {
-            $this->indexedItemCount = $data['indexedItemCount'];
+            $this->indexedItemCount = is_numeric($data['indexedItemCount']) ? (float)$data['indexedItemCount'] : $data['indexedItemCount'];
         }
         if (isset($data['indexedItemsSize'])) {
-            $this->indexedItemsSize = $data['indexedItemsSize'];
+            $this->indexedItemsSize = is_numeric($data['indexedItemsSize']) ? (float)$data['indexedItemsSize'] : $data['indexedItemsSize'];
         }
         if (isset($data['mailboxCount'])) {
-            $this->mailboxCount = $data['mailboxCount'];
+            $this->mailboxCount = is_numeric($data['mailboxCount']) ? (float)$data['mailboxCount'] : $data['mailboxCount'];
         }
         if (isset($data['reportFileMetadata'])) {
             $this->reportFileMetadata = $data['reportFileMetadata'];
         }
         if (isset($data['siteCount'])) {
-            $this->siteCount = $data['siteCount'];
+            $this->siteCount = is_numeric($data['siteCount']) ? (float)$data['siteCount'] : $data['siteCount'];
         }
         if (isset($data['statisticsOptions'])) {
             $this->statisticsOptions = is_array($data['statisticsOptions']) ? new SecurityStatisticsOptions($data['statisticsOptions']) : $data['statisticsOptions'];
         }
         if (isset($data['unindexedItemCount'])) {
-            $this->unindexedItemCount = $data['unindexedItemCount'];
+            $this->unindexedItemCount = is_numeric($data['unindexedItemCount']) ? (float)$data['unindexedItemCount'] : $data['unindexedItemCount'];
         }
         if (isset($data['unindexedItemsSize'])) {
-            $this->unindexedItemsSize = $data['unindexedItemsSize'];
+            $this->unindexedItemsSize = is_numeric($data['unindexedItemsSize']) ? (float)$data['unindexedItemsSize'] : $data['unindexedItemsSize'];
         }
         if (isset($data['search'])) {
             $this->search = is_array($data['search']) ? new SecurityEdiscoverySearch($data['search']) : $data['search'];

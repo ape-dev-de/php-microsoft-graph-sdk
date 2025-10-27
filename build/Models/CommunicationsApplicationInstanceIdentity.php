@@ -39,7 +39,7 @@ class CommunicationsApplicationInstanceIdentity
             $this->displayName = $data['displayName'];
         }
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['tenantId'])) {
             $this->tenantId = $data['tenantId'];

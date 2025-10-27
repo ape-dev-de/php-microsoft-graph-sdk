@@ -87,7 +87,7 @@ class PrinterLocation
     {
         $this->rawData = $data;
         if (isset($data['altitudeInMeters'])) {
-            $this->altitudeInMeters = $data['altitudeInMeters'];
+            $this->altitudeInMeters = is_numeric($data['altitudeInMeters']) ? (float)$data['altitudeInMeters'] : $data['altitudeInMeters'];
         }
         if (isset($data['building'])) {
             $this->building = $data['building'];
@@ -105,10 +105,10 @@ class PrinterLocation
             $this->floorDescription = $data['floorDescription'];
         }
         if (isset($data['latitude'])) {
-            $this->latitude = $data['latitude'];
+            $this->latitude = is_numeric($data['latitude']) ? (float)$data['latitude'] : $data['latitude'];
         }
         if (isset($data['longitude'])) {
-            $this->longitude = $data['longitude'];
+            $this->longitude = is_numeric($data['longitude']) ? (float)$data['longitude'] : $data['longitude'];
         }
         if (isset($data['organization'])) {
             $this->organization = $data['organization'];

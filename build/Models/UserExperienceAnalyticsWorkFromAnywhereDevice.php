@@ -144,10 +144,10 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->id = $data['id'];
         }
         if (isset($data['autoPilotProfileAssigned'])) {
-            $this->autoPilotProfileAssigned = $data['autoPilotProfileAssigned'];
+            $this->autoPilotProfileAssigned = is_bool($data['autoPilotProfileAssigned']) ? $data['autoPilotProfileAssigned'] : (bool)$data['autoPilotProfileAssigned'];
         }
         if (isset($data['autoPilotRegistered'])) {
-            $this->autoPilotRegistered = $data['autoPilotRegistered'];
+            $this->autoPilotRegistered = is_bool($data['autoPilotRegistered']) ? $data['autoPilotRegistered'] : (bool)$data['autoPilotRegistered'];
         }
         if (isset($data['azureAdDeviceId'])) {
             $this->azureAdDeviceId = $data['azureAdDeviceId'];
@@ -156,19 +156,19 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->azureAdJoinType = $data['azureAdJoinType'];
         }
         if (isset($data['azureAdRegistered'])) {
-            $this->azureAdRegistered = $data['azureAdRegistered'];
+            $this->azureAdRegistered = is_bool($data['azureAdRegistered']) ? $data['azureAdRegistered'] : (bool)$data['azureAdRegistered'];
         }
         if (isset($data['cloudIdentityScore'])) {
-            $this->cloudIdentityScore = $data['cloudIdentityScore'];
+            $this->cloudIdentityScore = is_numeric($data['cloudIdentityScore']) ? (float)$data['cloudIdentityScore'] : $data['cloudIdentityScore'];
         }
         if (isset($data['cloudManagementScore'])) {
-            $this->cloudManagementScore = $data['cloudManagementScore'];
+            $this->cloudManagementScore = is_numeric($data['cloudManagementScore']) ? (float)$data['cloudManagementScore'] : $data['cloudManagementScore'];
         }
         if (isset($data['cloudProvisioningScore'])) {
-            $this->cloudProvisioningScore = $data['cloudProvisioningScore'];
+            $this->cloudProvisioningScore = is_numeric($data['cloudProvisioningScore']) ? (float)$data['cloudProvisioningScore'] : $data['cloudProvisioningScore'];
         }
         if (isset($data['compliancePolicySetToIntune'])) {
-            $this->compliancePolicySetToIntune = $data['compliancePolicySetToIntune'];
+            $this->compliancePolicySetToIntune = is_bool($data['compliancePolicySetToIntune']) ? $data['compliancePolicySetToIntune'] : (bool)$data['compliancePolicySetToIntune'];
         }
         if (isset($data['deviceId'])) {
             $this->deviceId = $data['deviceId'];
@@ -180,7 +180,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->healthStatus = is_array($data['healthStatus']) ? new UserExperienceAnalyticsHealthState($data['healthStatus']) : $data['healthStatus'];
         }
         if (isset($data['isCloudManagedGatewayEnabled'])) {
-            $this->isCloudManagedGatewayEnabled = $data['isCloudManagedGatewayEnabled'];
+            $this->isCloudManagedGatewayEnabled = is_bool($data['isCloudManagedGatewayEnabled']) ? $data['isCloudManagedGatewayEnabled'] : (bool)$data['isCloudManagedGatewayEnabled'];
         }
         if (isset($data['managedBy'])) {
             $this->managedBy = $data['managedBy'];
@@ -192,7 +192,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->model = $data['model'];
         }
         if (isset($data['osCheckFailed'])) {
-            $this->osCheckFailed = $data['osCheckFailed'];
+            $this->osCheckFailed = is_bool($data['osCheckFailed']) ? $data['osCheckFailed'] : (bool)$data['osCheckFailed'];
         }
         if (isset($data['osDescription'])) {
             $this->osDescription = $data['osDescription'];
@@ -201,49 +201,49 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice
             $this->osVersion = $data['osVersion'];
         }
         if (isset($data['otherWorkloadsSetToIntune'])) {
-            $this->otherWorkloadsSetToIntune = $data['otherWorkloadsSetToIntune'];
+            $this->otherWorkloadsSetToIntune = is_bool($data['otherWorkloadsSetToIntune']) ? $data['otherWorkloadsSetToIntune'] : (bool)$data['otherWorkloadsSetToIntune'];
         }
         if (isset($data['ownership'])) {
             $this->ownership = $data['ownership'];
         }
         if (isset($data['processor64BitCheckFailed'])) {
-            $this->processor64BitCheckFailed = $data['processor64BitCheckFailed'];
+            $this->processor64BitCheckFailed = is_bool($data['processor64BitCheckFailed']) ? $data['processor64BitCheckFailed'] : (bool)$data['processor64BitCheckFailed'];
         }
         if (isset($data['processorCoreCountCheckFailed'])) {
-            $this->processorCoreCountCheckFailed = $data['processorCoreCountCheckFailed'];
+            $this->processorCoreCountCheckFailed = is_bool($data['processorCoreCountCheckFailed']) ? $data['processorCoreCountCheckFailed'] : (bool)$data['processorCoreCountCheckFailed'];
         }
         if (isset($data['processorFamilyCheckFailed'])) {
-            $this->processorFamilyCheckFailed = $data['processorFamilyCheckFailed'];
+            $this->processorFamilyCheckFailed = is_bool($data['processorFamilyCheckFailed']) ? $data['processorFamilyCheckFailed'] : (bool)$data['processorFamilyCheckFailed'];
         }
         if (isset($data['processorSpeedCheckFailed'])) {
-            $this->processorSpeedCheckFailed = $data['processorSpeedCheckFailed'];
+            $this->processorSpeedCheckFailed = is_bool($data['processorSpeedCheckFailed']) ? $data['processorSpeedCheckFailed'] : (bool)$data['processorSpeedCheckFailed'];
         }
         if (isset($data['ramCheckFailed'])) {
-            $this->ramCheckFailed = $data['ramCheckFailed'];
+            $this->ramCheckFailed = is_bool($data['ramCheckFailed']) ? $data['ramCheckFailed'] : (bool)$data['ramCheckFailed'];
         }
         if (isset($data['secureBootCheckFailed'])) {
-            $this->secureBootCheckFailed = $data['secureBootCheckFailed'];
+            $this->secureBootCheckFailed = is_bool($data['secureBootCheckFailed']) ? $data['secureBootCheckFailed'] : (bool)$data['secureBootCheckFailed'];
         }
         if (isset($data['serialNumber'])) {
             $this->serialNumber = $data['serialNumber'];
         }
         if (isset($data['storageCheckFailed'])) {
-            $this->storageCheckFailed = $data['storageCheckFailed'];
+            $this->storageCheckFailed = is_bool($data['storageCheckFailed']) ? $data['storageCheckFailed'] : (bool)$data['storageCheckFailed'];
         }
         if (isset($data['tenantAttached'])) {
-            $this->tenantAttached = $data['tenantAttached'];
+            $this->tenantAttached = is_bool($data['tenantAttached']) ? $data['tenantAttached'] : (bool)$data['tenantAttached'];
         }
         if (isset($data['tpmCheckFailed'])) {
-            $this->tpmCheckFailed = $data['tpmCheckFailed'];
+            $this->tpmCheckFailed = is_bool($data['tpmCheckFailed']) ? $data['tpmCheckFailed'] : (bool)$data['tpmCheckFailed'];
         }
         if (isset($data['upgradeEligibility'])) {
             $this->upgradeEligibility = is_array($data['upgradeEligibility']) ? new OperatingSystemUpgradeEligibility($data['upgradeEligibility']) : $data['upgradeEligibility'];
         }
         if (isset($data['windowsScore'])) {
-            $this->windowsScore = $data['windowsScore'];
+            $this->windowsScore = is_numeric($data['windowsScore']) ? (float)$data['windowsScore'] : $data['windowsScore'];
         }
         if (isset($data['workFromAnywhereScore'])) {
-            $this->workFromAnywhereScore = $data['workFromAnywhereScore'];
+            $this->workFromAnywhereScore = is_numeric($data['workFromAnywhereScore']) ? (float)$data['workFromAnywhereScore'] : $data['workFromAnywhereScore'];
         }
     }
 

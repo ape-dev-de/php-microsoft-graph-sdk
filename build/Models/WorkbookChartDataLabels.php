@@ -63,22 +63,22 @@ class WorkbookChartDataLabels
             $this->separator = $data['separator'];
         }
         if (isset($data['showBubbleSize'])) {
-            $this->showBubbleSize = $data['showBubbleSize'];
+            $this->showBubbleSize = is_bool($data['showBubbleSize']) ? $data['showBubbleSize'] : (bool)$data['showBubbleSize'];
         }
         if (isset($data['showCategoryName'])) {
-            $this->showCategoryName = $data['showCategoryName'];
+            $this->showCategoryName = is_bool($data['showCategoryName']) ? $data['showCategoryName'] : (bool)$data['showCategoryName'];
         }
         if (isset($data['showLegendKey'])) {
-            $this->showLegendKey = $data['showLegendKey'];
+            $this->showLegendKey = is_bool($data['showLegendKey']) ? $data['showLegendKey'] : (bool)$data['showLegendKey'];
         }
         if (isset($data['showPercentage'])) {
-            $this->showPercentage = $data['showPercentage'];
+            $this->showPercentage = is_bool($data['showPercentage']) ? $data['showPercentage'] : (bool)$data['showPercentage'];
         }
         if (isset($data['showSeriesName'])) {
-            $this->showSeriesName = $data['showSeriesName'];
+            $this->showSeriesName = is_bool($data['showSeriesName']) ? $data['showSeriesName'] : (bool)$data['showSeriesName'];
         }
         if (isset($data['showValue'])) {
-            $this->showValue = $data['showValue'];
+            $this->showValue = is_bool($data['showValue']) ? $data['showValue'] : (bool)$data['showValue'];
         }
         if (isset($data['format'])) {
             $this->format = is_array($data['format']) ? new WorkbookChartDataLabelFormat($data['format']) : $data['format'];

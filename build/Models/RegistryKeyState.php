@@ -78,7 +78,7 @@ class RegistryKeyState
             $this->operation = is_array($data['operation']) ? new RegistryOperation($data['operation']) : $data['operation'];
         }
         if (isset($data['processId'])) {
-            $this->processId = $data['processId'];
+            $this->processId = is_numeric($data['processId']) ? (float)$data['processId'] : $data['processId'];
         }
         if (isset($data['valueData'])) {
             $this->valueData = $data['valueData'];

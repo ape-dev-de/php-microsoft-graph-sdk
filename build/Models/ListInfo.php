@@ -30,10 +30,10 @@ class ListInfo
     {
         $this->rawData = $data;
         if (isset($data['contentTypesEnabled'])) {
-            $this->contentTypesEnabled = $data['contentTypesEnabled'];
+            $this->contentTypesEnabled = is_bool($data['contentTypesEnabled']) ? $data['contentTypesEnabled'] : (bool)$data['contentTypesEnabled'];
         }
         if (isset($data['hidden'])) {
-            $this->hidden = $data['hidden'];
+            $this->hidden = is_bool($data['hidden']) ? $data['hidden'] : (bool)$data['hidden'];
         }
         if (isset($data['template'])) {
             $this->template = $data['template'];

@@ -42,16 +42,16 @@ class OutOfBoxExperienceSetting
             $this->deviceUsageType = is_array($data['deviceUsageType']) ? new WindowsDeviceUsageType($data['deviceUsageType']) : $data['deviceUsageType'];
         }
         if (isset($data['escapeLinkHidden'])) {
-            $this->escapeLinkHidden = $data['escapeLinkHidden'];
+            $this->escapeLinkHidden = is_bool($data['escapeLinkHidden']) ? $data['escapeLinkHidden'] : (bool)$data['escapeLinkHidden'];
         }
         if (isset($data['eulaHidden'])) {
-            $this->eulaHidden = $data['eulaHidden'];
+            $this->eulaHidden = is_bool($data['eulaHidden']) ? $data['eulaHidden'] : (bool)$data['eulaHidden'];
         }
         if (isset($data['keyboardSelectionPageSkipped'])) {
-            $this->keyboardSelectionPageSkipped = $data['keyboardSelectionPageSkipped'];
+            $this->keyboardSelectionPageSkipped = is_bool($data['keyboardSelectionPageSkipped']) ? $data['keyboardSelectionPageSkipped'] : (bool)$data['keyboardSelectionPageSkipped'];
         }
         if (isset($data['privacySettingsHidden'])) {
-            $this->privacySettingsHidden = $data['privacySettingsHidden'];
+            $this->privacySettingsHidden = is_bool($data['privacySettingsHidden']) ? $data['privacySettingsHidden'] : (bool)$data['privacySettingsHidden'];
         }
         if (isset($data['userType'])) {
             $this->userType = is_array($data['userType']) ? new WindowsUserType($data['userType']) : $data['userType'];

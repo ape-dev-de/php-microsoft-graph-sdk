@@ -144,7 +144,7 @@ class VirtualEventTownhall
             $this->invitedAttendees = $data['invitedAttendees'];
         }
         if (isset($data['isInviteOnly'])) {
-            $this->isInviteOnly = $data['isInviteOnly'];
+            $this->isInviteOnly = is_bool($data['isInviteOnly']) ? $data['isInviteOnly'] : (bool)$data['isInviteOnly'];
         }
     }
 

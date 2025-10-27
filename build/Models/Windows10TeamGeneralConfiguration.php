@@ -150,7 +150,7 @@ class Windows10TeamGeneralConfiguration
             $this->lastModifiedDateTime = is_string($data['lastModifiedDateTime']) ? new \DateTimeImmutable($data['lastModifiedDateTime']) : $data['lastModifiedDateTime'];
         }
         if (isset($data['version'])) {
-            $this->version = $data['version'];
+            $this->version = is_numeric($data['version']) ? (float)$data['version'] : $data['version'];
         }
         if (isset($data['assignments'])) {
             $this->assignments = $data['assignments'];
@@ -171,7 +171,7 @@ class Windows10TeamGeneralConfiguration
             $this->userStatusOverview = is_array($data['userStatusOverview']) ? new DeviceConfigurationUserOverview($data['userStatusOverview']) : $data['userStatusOverview'];
         }
         if (isset($data['azureOperationalInsightsBlockTelemetry'])) {
-            $this->azureOperationalInsightsBlockTelemetry = $data['azureOperationalInsightsBlockTelemetry'];
+            $this->azureOperationalInsightsBlockTelemetry = is_bool($data['azureOperationalInsightsBlockTelemetry']) ? $data['azureOperationalInsightsBlockTelemetry'] : (bool)$data['azureOperationalInsightsBlockTelemetry'];
         }
         if (isset($data['azureOperationalInsightsWorkspaceId'])) {
             $this->azureOperationalInsightsWorkspaceId = $data['azureOperationalInsightsWorkspaceId'];
@@ -180,52 +180,52 @@ class Windows10TeamGeneralConfiguration
             $this->azureOperationalInsightsWorkspaceKey = $data['azureOperationalInsightsWorkspaceKey'];
         }
         if (isset($data['connectAppBlockAutoLaunch'])) {
-            $this->connectAppBlockAutoLaunch = $data['connectAppBlockAutoLaunch'];
+            $this->connectAppBlockAutoLaunch = is_bool($data['connectAppBlockAutoLaunch']) ? $data['connectAppBlockAutoLaunch'] : (bool)$data['connectAppBlockAutoLaunch'];
         }
         if (isset($data['maintenanceWindowBlocked'])) {
-            $this->maintenanceWindowBlocked = $data['maintenanceWindowBlocked'];
+            $this->maintenanceWindowBlocked = is_bool($data['maintenanceWindowBlocked']) ? $data['maintenanceWindowBlocked'] : (bool)$data['maintenanceWindowBlocked'];
         }
         if (isset($data['maintenanceWindowDurationInHours'])) {
-            $this->maintenanceWindowDurationInHours = $data['maintenanceWindowDurationInHours'];
+            $this->maintenanceWindowDurationInHours = is_numeric($data['maintenanceWindowDurationInHours']) ? (float)$data['maintenanceWindowDurationInHours'] : $data['maintenanceWindowDurationInHours'];
         }
         if (isset($data['maintenanceWindowStartTime'])) {
             $this->maintenanceWindowStartTime = $data['maintenanceWindowStartTime'];
         }
         if (isset($data['miracastBlocked'])) {
-            $this->miracastBlocked = $data['miracastBlocked'];
+            $this->miracastBlocked = is_bool($data['miracastBlocked']) ? $data['miracastBlocked'] : (bool)$data['miracastBlocked'];
         }
         if (isset($data['miracastChannel'])) {
             $this->miracastChannel = is_array($data['miracastChannel']) ? new MiracastChannel($data['miracastChannel']) : $data['miracastChannel'];
         }
         if (isset($data['miracastRequirePin'])) {
-            $this->miracastRequirePin = $data['miracastRequirePin'];
+            $this->miracastRequirePin = is_bool($data['miracastRequirePin']) ? $data['miracastRequirePin'] : (bool)$data['miracastRequirePin'];
         }
         if (isset($data['settingsBlockMyMeetingsAndFiles'])) {
-            $this->settingsBlockMyMeetingsAndFiles = $data['settingsBlockMyMeetingsAndFiles'];
+            $this->settingsBlockMyMeetingsAndFiles = is_bool($data['settingsBlockMyMeetingsAndFiles']) ? $data['settingsBlockMyMeetingsAndFiles'] : (bool)$data['settingsBlockMyMeetingsAndFiles'];
         }
         if (isset($data['settingsBlockSessionResume'])) {
-            $this->settingsBlockSessionResume = $data['settingsBlockSessionResume'];
+            $this->settingsBlockSessionResume = is_bool($data['settingsBlockSessionResume']) ? $data['settingsBlockSessionResume'] : (bool)$data['settingsBlockSessionResume'];
         }
         if (isset($data['settingsBlockSigninSuggestions'])) {
-            $this->settingsBlockSigninSuggestions = $data['settingsBlockSigninSuggestions'];
+            $this->settingsBlockSigninSuggestions = is_bool($data['settingsBlockSigninSuggestions']) ? $data['settingsBlockSigninSuggestions'] : (bool)$data['settingsBlockSigninSuggestions'];
         }
         if (isset($data['settingsDefaultVolume'])) {
-            $this->settingsDefaultVolume = $data['settingsDefaultVolume'];
+            $this->settingsDefaultVolume = is_numeric($data['settingsDefaultVolume']) ? (float)$data['settingsDefaultVolume'] : $data['settingsDefaultVolume'];
         }
         if (isset($data['settingsScreenTimeoutInMinutes'])) {
-            $this->settingsScreenTimeoutInMinutes = $data['settingsScreenTimeoutInMinutes'];
+            $this->settingsScreenTimeoutInMinutes = is_numeric($data['settingsScreenTimeoutInMinutes']) ? (float)$data['settingsScreenTimeoutInMinutes'] : $data['settingsScreenTimeoutInMinutes'];
         }
         if (isset($data['settingsSessionTimeoutInMinutes'])) {
-            $this->settingsSessionTimeoutInMinutes = $data['settingsSessionTimeoutInMinutes'];
+            $this->settingsSessionTimeoutInMinutes = is_numeric($data['settingsSessionTimeoutInMinutes']) ? (float)$data['settingsSessionTimeoutInMinutes'] : $data['settingsSessionTimeoutInMinutes'];
         }
         if (isset($data['settingsSleepTimeoutInMinutes'])) {
-            $this->settingsSleepTimeoutInMinutes = $data['settingsSleepTimeoutInMinutes'];
+            $this->settingsSleepTimeoutInMinutes = is_numeric($data['settingsSleepTimeoutInMinutes']) ? (float)$data['settingsSleepTimeoutInMinutes'] : $data['settingsSleepTimeoutInMinutes'];
         }
         if (isset($data['welcomeScreenBackgroundImageUrl'])) {
             $this->welcomeScreenBackgroundImageUrl = $data['welcomeScreenBackgroundImageUrl'];
         }
         if (isset($data['welcomeScreenBlockAutomaticWakeUp'])) {
-            $this->welcomeScreenBlockAutomaticWakeUp = $data['welcomeScreenBlockAutomaticWakeUp'];
+            $this->welcomeScreenBlockAutomaticWakeUp = is_bool($data['welcomeScreenBlockAutomaticWakeUp']) ? $data['welcomeScreenBlockAutomaticWakeUp'] : (bool)$data['welcomeScreenBlockAutomaticWakeUp'];
         }
         if (isset($data['welcomeScreenMeetingInformation'])) {
             $this->welcomeScreenMeetingInformation = is_array($data['welcomeScreenMeetingInformation']) ? new WelcomeScreenMeetingInformation($data['welcomeScreenMeetingInformation']) : $data['welcomeScreenMeetingInformation'];

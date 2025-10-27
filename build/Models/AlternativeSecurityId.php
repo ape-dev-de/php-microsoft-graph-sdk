@@ -36,7 +36,7 @@ class AlternativeSecurityId
             $this->key = $data['key'];
         }
         if (isset($data['type'])) {
-            $this->type = $data['type'];
+            $this->type = is_numeric($data['type']) ? (float)$data['type'] : $data['type'];
         }
     }
 

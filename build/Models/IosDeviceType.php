@@ -27,10 +27,10 @@ class IosDeviceType
     {
         $this->rawData = $data;
         if (isset($data['iPad'])) {
-            $this->iPad = $data['iPad'];
+            $this->iPad = is_bool($data['iPad']) ? $data['iPad'] : (bool)$data['iPad'];
         }
         if (isset($data['iPhoneAndIPod'])) {
-            $this->iPhoneAndIPod = $data['iPhoneAndIPod'];
+            $this->iPhoneAndIPod = is_bool($data['iPhoneAndIPod']) ? $data['iPhoneAndIPod'] : (bool)$data['iPhoneAndIPod'];
         }
     }
 

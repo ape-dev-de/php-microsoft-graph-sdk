@@ -51,7 +51,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId
             $this->id = $data['id'];
         }
         if (isset($data['appCrashCount'])) {
-            $this->appCrashCount = $data['appCrashCount'];
+            $this->appCrashCount = is_numeric($data['appCrashCount']) ? (float)$data['appCrashCount'] : $data['appCrashCount'];
         }
         if (isset($data['appDisplayName'])) {
             $this->appDisplayName = $data['appDisplayName'];

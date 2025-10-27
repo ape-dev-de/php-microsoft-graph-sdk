@@ -75,34 +75,34 @@ class UserExperienceAnalyticsDeviceStartupHistory
             $this->id = $data['id'];
         }
         if (isset($data['coreBootTimeInMs'])) {
-            $this->coreBootTimeInMs = $data['coreBootTimeInMs'];
+            $this->coreBootTimeInMs = is_numeric($data['coreBootTimeInMs']) ? (float)$data['coreBootTimeInMs'] : $data['coreBootTimeInMs'];
         }
         if (isset($data['coreLoginTimeInMs'])) {
-            $this->coreLoginTimeInMs = $data['coreLoginTimeInMs'];
+            $this->coreLoginTimeInMs = is_numeric($data['coreLoginTimeInMs']) ? (float)$data['coreLoginTimeInMs'] : $data['coreLoginTimeInMs'];
         }
         if (isset($data['deviceId'])) {
             $this->deviceId = $data['deviceId'];
         }
         if (isset($data['featureUpdateBootTimeInMs'])) {
-            $this->featureUpdateBootTimeInMs = $data['featureUpdateBootTimeInMs'];
+            $this->featureUpdateBootTimeInMs = is_numeric($data['featureUpdateBootTimeInMs']) ? (float)$data['featureUpdateBootTimeInMs'] : $data['featureUpdateBootTimeInMs'];
         }
         if (isset($data['groupPolicyBootTimeInMs'])) {
-            $this->groupPolicyBootTimeInMs = $data['groupPolicyBootTimeInMs'];
+            $this->groupPolicyBootTimeInMs = is_numeric($data['groupPolicyBootTimeInMs']) ? (float)$data['groupPolicyBootTimeInMs'] : $data['groupPolicyBootTimeInMs'];
         }
         if (isset($data['groupPolicyLoginTimeInMs'])) {
-            $this->groupPolicyLoginTimeInMs = $data['groupPolicyLoginTimeInMs'];
+            $this->groupPolicyLoginTimeInMs = is_numeric($data['groupPolicyLoginTimeInMs']) ? (float)$data['groupPolicyLoginTimeInMs'] : $data['groupPolicyLoginTimeInMs'];
         }
         if (isset($data['isFeatureUpdate'])) {
-            $this->isFeatureUpdate = $data['isFeatureUpdate'];
+            $this->isFeatureUpdate = is_bool($data['isFeatureUpdate']) ? $data['isFeatureUpdate'] : (bool)$data['isFeatureUpdate'];
         }
         if (isset($data['isFirstLogin'])) {
-            $this->isFirstLogin = $data['isFirstLogin'];
+            $this->isFirstLogin = is_bool($data['isFirstLogin']) ? $data['isFirstLogin'] : (bool)$data['isFirstLogin'];
         }
         if (isset($data['operatingSystemVersion'])) {
             $this->operatingSystemVersion = $data['operatingSystemVersion'];
         }
         if (isset($data['responsiveDesktopTimeInMs'])) {
-            $this->responsiveDesktopTimeInMs = $data['responsiveDesktopTimeInMs'];
+            $this->responsiveDesktopTimeInMs = is_numeric($data['responsiveDesktopTimeInMs']) ? (float)$data['responsiveDesktopTimeInMs'] : $data['responsiveDesktopTimeInMs'];
         }
         if (isset($data['restartCategory'])) {
             $this->restartCategory = is_array($data['restartCategory']) ? new UserExperienceAnalyticsOperatingSystemRestartCategory($data['restartCategory']) : $data['restartCategory'];
@@ -117,10 +117,10 @@ class UserExperienceAnalyticsDeviceStartupHistory
             $this->startTime = is_string($data['startTime']) ? new \DateTimeImmutable($data['startTime']) : $data['startTime'];
         }
         if (isset($data['totalBootTimeInMs'])) {
-            $this->totalBootTimeInMs = $data['totalBootTimeInMs'];
+            $this->totalBootTimeInMs = is_numeric($data['totalBootTimeInMs']) ? (float)$data['totalBootTimeInMs'] : $data['totalBootTimeInMs'];
         }
         if (isset($data['totalLoginTimeInMs'])) {
-            $this->totalLoginTimeInMs = $data['totalLoginTimeInMs'];
+            $this->totalLoginTimeInMs = is_numeric($data['totalLoginTimeInMs']) ? (float)$data['totalLoginTimeInMs'] : $data['totalLoginTimeInMs'];
         }
     }
 

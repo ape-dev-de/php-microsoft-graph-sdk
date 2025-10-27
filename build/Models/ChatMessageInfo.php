@@ -66,7 +66,7 @@ class ChatMessageInfo
             $this->from = is_array($data['from']) ? new ChatMessageFromIdentitySet($data['from']) : $data['from'];
         }
         if (isset($data['isDeleted'])) {
-            $this->isDeleted = $data['isDeleted'];
+            $this->isDeleted = is_bool($data['isDeleted']) ? $data['isDeleted'] : (bool)$data['isDeleted'];
         }
         if (isset($data['messageType'])) {
             $this->messageType = is_array($data['messageType']) ? new ChatMessageType($data['messageType']) : $data['messageType'];

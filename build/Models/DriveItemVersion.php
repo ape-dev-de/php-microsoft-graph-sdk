@@ -60,7 +60,7 @@ class DriveItemVersion
             $this->content = $data['content'];
         }
         if (isset($data['size'])) {
-            $this->size = $data['size'];
+            $this->size = is_numeric($data['size']) ? (float)$data['size'] : $data['size'];
         }
     }
 

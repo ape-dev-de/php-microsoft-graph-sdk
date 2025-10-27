@@ -66,7 +66,7 @@ class IdentityGovernanceUserProcessingResult
             $this->completedDateTime = is_string($data['completedDateTime']) ? new \DateTimeImmutable($data['completedDateTime']) : $data['completedDateTime'];
         }
         if (isset($data['failedTasksCount'])) {
-            $this->failedTasksCount = $data['failedTasksCount'];
+            $this->failedTasksCount = is_numeric($data['failedTasksCount']) ? (float)$data['failedTasksCount'] : $data['failedTasksCount'];
         }
         if (isset($data['processingStatus'])) {
             $this->processingStatus = is_array($data['processingStatus']) ? new IdentityGovernanceLifecycleWorkflowProcessingStatus($data['processingStatus']) : $data['processingStatus'];
@@ -78,16 +78,16 @@ class IdentityGovernanceUserProcessingResult
             $this->startedDateTime = is_string($data['startedDateTime']) ? new \DateTimeImmutable($data['startedDateTime']) : $data['startedDateTime'];
         }
         if (isset($data['totalTasksCount'])) {
-            $this->totalTasksCount = $data['totalTasksCount'];
+            $this->totalTasksCount = is_numeric($data['totalTasksCount']) ? (float)$data['totalTasksCount'] : $data['totalTasksCount'];
         }
         if (isset($data['totalUnprocessedTasksCount'])) {
-            $this->totalUnprocessedTasksCount = $data['totalUnprocessedTasksCount'];
+            $this->totalUnprocessedTasksCount = is_numeric($data['totalUnprocessedTasksCount']) ? (float)$data['totalUnprocessedTasksCount'] : $data['totalUnprocessedTasksCount'];
         }
         if (isset($data['workflowExecutionType'])) {
             $this->workflowExecutionType = is_array($data['workflowExecutionType']) ? new IdentityGovernanceWorkflowExecutionType($data['workflowExecutionType']) : $data['workflowExecutionType'];
         }
         if (isset($data['workflowVersion'])) {
-            $this->workflowVersion = $data['workflowVersion'];
+            $this->workflowVersion = is_numeric($data['workflowVersion']) ? (float)$data['workflowVersion'] : $data['workflowVersion'];
         }
         if (isset($data['subject'])) {
             $this->subject = is_array($data['subject']) ? new User($data['subject']) : $data['subject'];

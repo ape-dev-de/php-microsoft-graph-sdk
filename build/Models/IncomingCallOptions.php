@@ -33,16 +33,16 @@ class IncomingCallOptions
     {
         $this->rawData = $data;
         if (isset($data['hideBotAfterEscalation'])) {
-            $this->hideBotAfterEscalation = $data['hideBotAfterEscalation'];
+            $this->hideBotAfterEscalation = is_bool($data['hideBotAfterEscalation']) ? $data['hideBotAfterEscalation'] : (bool)$data['hideBotAfterEscalation'];
         }
         if (isset($data['isContentSharingNotificationEnabled'])) {
-            $this->isContentSharingNotificationEnabled = $data['isContentSharingNotificationEnabled'];
+            $this->isContentSharingNotificationEnabled = is_bool($data['isContentSharingNotificationEnabled']) ? $data['isContentSharingNotificationEnabled'] : (bool)$data['isContentSharingNotificationEnabled'];
         }
         if (isset($data['isDeltaRosterEnabled'])) {
-            $this->isDeltaRosterEnabled = $data['isDeltaRosterEnabled'];
+            $this->isDeltaRosterEnabled = is_bool($data['isDeltaRosterEnabled']) ? $data['isDeltaRosterEnabled'] : (bool)$data['isDeltaRosterEnabled'];
         }
         if (isset($data['isInteractiveRosterEnabled'])) {
-            $this->isInteractiveRosterEnabled = $data['isInteractiveRosterEnabled'];
+            $this->isInteractiveRosterEnabled = is_bool($data['isInteractiveRosterEnabled']) ? $data['isInteractiveRosterEnabled'] : (bool)$data['isInteractiveRosterEnabled'];
         }
     }
 
