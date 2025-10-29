@@ -64,8 +64,8 @@ class DeviceEnrollmentConfigurationRequestBuilder extends RootBaseRequestBuilder
      */
     public function patch(DeviceEnrollmentConfiguration $body): DeviceEnrollmentConfiguration
     {
-        // Convert model to array
-        $bodyData = (array)$body;
+        // Get raw data from model
+        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
         $response = $this->client->patch($this->requestUrl, $bodyData);
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();

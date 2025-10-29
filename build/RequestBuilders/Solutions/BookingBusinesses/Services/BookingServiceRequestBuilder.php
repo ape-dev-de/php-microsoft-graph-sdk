@@ -61,8 +61,8 @@ class BookingServiceRequestBuilder extends RootBaseRequestBuilder
      */
     public function patch(BookingService $body): BookingService
     {
-        // Convert model to array
-        $bodyData = (array)$body;
+        // Get raw data from model
+        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
         $response = $this->client->patch($this->requestUrl, $bodyData);
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();

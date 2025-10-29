@@ -96,8 +96,8 @@ class CategoriesRequestBuilder extends RootBaseRequestBuilder
      */
     public function post(EducationCategory $body): EducationCategory
     {
-        // Convert model to array
-        $bodyData = (array)$body;
+        // Get raw data from model
+        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
         $response = $this->client->post($this->requestUrl, $bodyData);
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();

@@ -51,8 +51,8 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
      */
     public function put(DriveItemVersion $body): DriveItemVersion
     {
-        // Convert model to array
-        $bodyData = (array)$body;
+        // Get raw data from model
+        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
         $response = $this->client->put($this->requestUrl, $bodyData);
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
