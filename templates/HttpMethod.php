@@ -50,8 +50,8 @@
 <?php if ($bodyType === 'array'): ?>
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $body);
 <?php else: ?>
-        // Convert model to array
-        $bodyData = (array)$body;
+        // Get raw data from model
+        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $bodyData);
 <?php endif; ?>
 <?php else: ?>
@@ -62,8 +62,8 @@
 <?php if ($bodyType === 'array'): ?>
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $body);
 <?php else: ?>
-        // Convert model to array
-        $bodyData = (array)$body;
+        // Get raw data from model
+        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $bodyData);
 <?php endif; ?>
 <?php elseif (strtoupper($httpMethod) === 'DELETE'): ?>
