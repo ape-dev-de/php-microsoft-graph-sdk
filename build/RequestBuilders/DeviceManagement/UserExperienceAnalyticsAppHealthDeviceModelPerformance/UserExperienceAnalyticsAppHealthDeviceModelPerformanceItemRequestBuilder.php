@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\LicenseDetails;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDeviceModelPerformance;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\LicenseDetails;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDeviceModelPerformance;
 
 /**
- * Request builder for /me/licenseDetails/{licenseDetails-id}
+ * Request builder for /deviceManagement/userExperienceAnalyticsAppHealthDeviceModelPerformance/{userExperienceAnalyticsAppHealthDeviceModelPerformance-id}
  */
-class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get licenseDetails from me
+     * Get userExperienceAnalyticsAppHealthDeviceModelPerformance from deviceManagement
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return LicenseDetails
+     * @return UserExperienceAnalyticsAppHealthDeviceModelPerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): LicenseDetails
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsAppHealthDeviceModelPerformance
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to LicenseDetails
+     * Deserialize response to UserExperienceAnalyticsAppHealthDeviceModelPerformance
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +51,15 @@ class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new LicenseDetails($data);
+        return new UserExperienceAnalyticsAppHealthDeviceModelPerformance($data);
     }
     /**
-     * Update the navigation property licenseDetails in me
-     * @param LicenseDetails $body Request body
-     * @return LicenseDetails
+     * Update the navigation property userExperienceAnalyticsAppHealthDeviceModelPerformance in deviceManagement
+     * @param UserExperienceAnalyticsAppHealthDeviceModelPerformance $body Request body
+     * @return UserExperienceAnalyticsAppHealthDeviceModelPerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(LicenseDetails $body): LicenseDetails
+    public function patch(UserExperienceAnalyticsAppHealthDeviceModelPerformance $body): UserExperienceAnalyticsAppHealthDeviceModelPerformance
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +70,7 @@ class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to LicenseDetails
+     * Deserialize response to UserExperienceAnalyticsAppHealthDeviceModelPerformance
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +84,10 @@ class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new LicenseDetails($data);
+        return new UserExperienceAnalyticsAppHealthDeviceModelPerformance($data);
     }
     /**
-     * Delete navigation property licenseDetails for me
+     * Delete navigation property userExperienceAnalyticsAppHealthDeviceModelPerformance for deviceManagement
      *
      * @param string|null $ifMatch ETag
      * @return mixed

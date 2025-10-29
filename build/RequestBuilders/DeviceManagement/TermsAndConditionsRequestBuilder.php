@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\TermsAndConditionsCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\TermsAndConditions;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions\TermsAndConditionsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions\TermsAndConditionsItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class TermsAndConditionsRequestBuilder extends RootBaseRequestBuilder
      * Get request builder for specific item by ID
      *
      * @param string $termsAndConditionsId The item ID
-     * @return TermsAndConditionsRequestBuilder
+     * @return TermsAndConditionsItemRequestBuilder
      */
-    public function byId(string $termsAndConditionsId): TermsAndConditionsRequestBuilder
+    public function byId(string $termsAndConditionsId): TermsAndConditionsItemRequestBuilder
     {
-        return new TermsAndConditionsRequestBuilder($this->client, $this->requestUrl . '/' . $termsAndConditionsId);
+        return new TermsAndConditionsItemRequestBuilder($this->client, $this->requestUrl . '/' . $termsAndConditionsId);
     }
     /**
      * Navigate to $count

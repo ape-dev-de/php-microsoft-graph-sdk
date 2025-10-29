@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDevicePerformanceCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDevicePerformance;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDevicePerformance\UserExperienceAnalyticsDevicePerformanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDevicePerformance\UserExperienceAnalyticsDevicePerformanceItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDevicePerformance\CountRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDevicePerformance\SummarizeDevicePerformanceDevicesRequestBuilder;
 
@@ -124,11 +124,11 @@ class UserExperienceAnalyticsDevicePerformanceRequestBuilder extends RootBaseReq
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsDevicePerformanceId The item ID
-     * @return UserExperienceAnalyticsDevicePerformanceRequestBuilder
+     * @return UserExperienceAnalyticsDevicePerformanceItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsDevicePerformanceId): UserExperienceAnalyticsDevicePerformanceRequestBuilder
+    public function byId(string $userExperienceAnalyticsDevicePerformanceId): UserExperienceAnalyticsDevicePerformanceItemRequestBuilder
     {
-        return new UserExperienceAnalyticsDevicePerformanceRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsDevicePerformanceId);
+        return new UserExperienceAnalyticsDevicePerformanceItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsDevicePerformanceId);
     }
     /**
      * Navigate to $count

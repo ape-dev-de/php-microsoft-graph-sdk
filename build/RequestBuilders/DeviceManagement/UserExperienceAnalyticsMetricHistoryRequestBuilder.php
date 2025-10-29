@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsMetricHistoryCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsMetricHistory;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsMetricHistory\UserExperienceAnalyticsMetricHistoryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsMetricHistory\UserExperienceAnalyticsMetricHistoryItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsMetricHistory\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsMetricHistoryRequestBuilder extends RootBaseRequest
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsMetricHistoryId The item ID
-     * @return UserExperienceAnalyticsMetricHistoryRequestBuilder
+     * @return UserExperienceAnalyticsMetricHistoryItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsMetricHistoryId): UserExperienceAnalyticsMetricHistoryRequestBuilder
+    public function byId(string $userExperienceAnalyticsMetricHistoryId): UserExperienceAnalyticsMetricHistoryItemRequestBuilder
     {
-        return new UserExperienceAnalyticsMetricHistoryRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsMetricHistoryId);
+        return new UserExperienceAnalyticsMetricHistoryItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsMetricHistoryId);
     }
     /**
      * Navigate to $count

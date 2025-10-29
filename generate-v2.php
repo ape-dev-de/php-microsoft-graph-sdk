@@ -1235,13 +1235,14 @@ function generateObjectCreation(string $className, string $dataVar): string
 /**
  * Generate child path navigation method using template
  */
-function generateChildPathMethodFromTemplate(string $childPath): string
+function generateChildPathMethodFromTemplate(string $childPath, array $childNode = []): string
 {
     // Check if this is a path parameter
     if (isPathParameter($childPath)) {
         $normalized = normalizePathParameter($childPath);
         $methodName = $normalized['methodName'];
-        $className = $normalized['className'] . 'RequestBuilder';
+        // Use renamed class name if it exists
+        $className = (isset($childNode['renamedClassName']) ? $childNode['renamedClassName'] : $normalized['className']) . 'RequestBuilder';
         $paramName = $normalized['paramName'];
         
         return renderTemplate('ByIdMethod.php', [
@@ -1260,7 +1261,8 @@ function generateChildPathMethodFromTemplate(string $childPath): string
         
         $normalized = normalizeSpecialPath($childPath);
         $methodName = $normalized['methodName'];
-        $className = $normalized['className'] . 'RequestBuilder';
+        // Use renamed class name if it exists
+        $className = (isset($childNode['renamedClassName']) ? $childNode['renamedClassName'] : $normalized['className']) . 'RequestBuilder';
         $originalSegment = $normalized['originalSegment'];
         
         return renderTemplate('ChildPathMethod.php', [
@@ -1272,7 +1274,8 @@ function generateChildPathMethodFromTemplate(string $childPath): string
     
     // Regular child path
     $methodName = lcfirst(normalizeModelName($childPath));
-    $className = normalizeModelName($childPath) . 'RequestBuilder';
+    // Use renamed class name if it exists
+    $className = (isset($childNode['renamedClassName']) ? $childNode['renamedClassName'] : normalizeModelName($childPath)) . 'RequestBuilder';
     
     return renderTemplate('ChildPathMethod.php', [
         'childPath' => $childPath,
@@ -3451,7 +3454,40 @@ function buildCompletePathTree(string $namespace, array $allResponses, array $al
         }
     }
     
+    // Post-process tree to detect and rename conflicting parameter nodes
+    resolveParameterNodeConflicts($tree);
+    
     return $tree;
+}
+
+/**
+ * Resolve naming conflicts between collection nodes and parameter nodes
+ * If a node has a parameter child with the same className as the node itself,
+ * rename the parameter child to avoid conflicts
+ */
+function resolveParameterNodeConflicts(array &$tree): void
+{
+    foreach ($tree as $segment => &$node) {
+        // Check if this node has children
+        if (!empty($node['children'])) {
+            // Check if any parameter children have the same className as this node
+            foreach ($node['children'] as $childSegment => &$childNode) {
+                if ($childNode['isParameter']) {
+                    $childClassName = $childNode['className'];
+                    $parentClassName = $node['className'];
+                    
+                    // If parameter child has same className as parent, rename it
+                    if ($childClassName === $parentClassName) {
+                        $childNode['renamedClassName'] = $childClassName . 'Item';
+                    }
+                }
+            }
+            unset($childNode); // Break reference
+            
+            // Recursively process children
+            resolveParameterNodeConflicts($node['children']);
+        }
+    }
 }
 
 /**
@@ -3486,7 +3522,9 @@ function generateRequestBuildersFromCompleteTree(string $namespace, array $tree,
 function generateRequestBuilderFromNode(string $namespace, array $node, array $schemas, $output, string $parentNamespace = ''): void
 {
     $segment = $node['segment'];
-    $className = $node['className'] . 'RequestBuilder';
+    // Use renamed class name if it exists (for parameter nodes that conflict with collection nodes)
+    $baseClassName = isset($node['renamedClassName']) ? $node['renamedClassName'] : $node['className'];
+    $className = $baseClassName . 'RequestBuilder';
     $isParameter = $node['isParameter'];
     $isSpecial = $node['isSpecial'];
     
@@ -3517,13 +3555,34 @@ function generateRequestBuilderFromNode(string $namespace, array $node, array $s
     if (!empty($node['methods']) || !empty($node['children'])) {
         $childCount = count($node['children']);
         
-        // Only generate if:
-        // 1. File doesn't exist yet, OR
-        // 2. This version has more children than the existing one
-        if (!isset($generatedFiles[$fileKey]) || $childCount > $generatedFiles[$fileKey]) {
+        // Prioritize collection builders over parameter builders
+        $isCollectionBuilder = !$isParameter && isset($node['methods']['get']);
+        $shouldGenerate = false;
+        
+        if (!isset($generatedFiles[$fileKey])) {
+            // File doesn't exist yet - generate it
+            $shouldGenerate = true;
+        } else {
+            // File exists - only overwrite if this version is better
+            $existingInfo = $generatedFiles[$fileKey];
+            
+            // Collection builders always win over parameter builders
+            if ($isCollectionBuilder && !$existingInfo['isCollection']) {
+                $shouldGenerate = true;
+            }
+            // If both are collections or both are parameters, prefer more children
+            else if ($isCollectionBuilder == $existingInfo['isCollection'] && $childCount > $existingInfo['childCount']) {
+                $shouldGenerate = true;
+            }
+        }
+        
+        if ($shouldGenerate) {
             $code = generateRequestBuilderCodeFromNode($fullNamespace, $className, $node, $schemas);
             file_put_contents($filePath, $code);
-            $generatedFiles[$fileKey] = $childCount;
+            $generatedFiles[$fileKey] = [
+                'childCount' => $childCount,
+                'isCollection' => $isCollectionBuilder
+            ];
         }
     }
     
@@ -3580,7 +3639,8 @@ function generateRequestBuilderCodeFromNode(string $namespace, string $className
     // Collect child builder imports
     $childBuilderImports = [];
     foreach ($node['children'] as $childSegment => $childNode) {
-        $childClassName = $childNode['className'] . 'RequestBuilder';
+        // Use renamed class name if it exists (for parameter nodes that conflict with collection nodes)
+        $childClassName = (isset($childNode['renamedClassName']) ? $childNode['renamedClassName'] : $childNode['className']) . 'RequestBuilder';
         
         // Determine child's relative namespace
         // Don't add sub-namespace if current segment matches root namespace (avoid duplication)
@@ -3609,7 +3669,7 @@ function generateRequestBuilderCodeFromNode(string $namespace, string $className
     
     // Generate child path methods (includes byId for parameter children)
     foreach ($node['children'] as $childSegment => $childNode) {
-        $methods .= generateChildPathMethodFromTemplate($childSegment);
+        $methods .= generateChildPathMethodFromTemplate($childSegment, $childNode);
     }
     
     // Use template to generate class

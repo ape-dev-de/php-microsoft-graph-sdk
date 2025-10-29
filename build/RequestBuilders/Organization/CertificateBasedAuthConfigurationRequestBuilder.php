@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\CertificateBasedAuthConfigurationCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\CertificateBasedAuthConfiguration;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CertificateBasedAuthConfiguration\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class CertificateBasedAuthConfigurationRequestBuilder extends RootBaseRequestBui
      * Get request builder for specific item by ID
      *
      * @param string $certificateBasedAuthConfigurationId The item ID
-     * @return CertificateBasedAuthConfigurationRequestBuilder
+     * @return CertificateBasedAuthConfigurationItemRequestBuilder
      */
-    public function byId(string $certificateBasedAuthConfigurationId): CertificateBasedAuthConfigurationRequestBuilder
+    public function byId(string $certificateBasedAuthConfigurationId): CertificateBasedAuthConfigurationItemRequestBuilder
     {
-        return new CertificateBasedAuthConfigurationRequestBuilder($this->client, $this->requestUrl . '/' . $certificateBasedAuthConfigurationId);
+        return new CertificateBasedAuthConfigurationItemRequestBuilder($this->client, $this->requestUrl . '/' . $certificateBasedAuthConfigurationId);
     }
     /**
      * Navigate to $count

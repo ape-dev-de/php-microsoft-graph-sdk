@@ -2,26 +2,27 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Insights\Trending;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceStartupHistory;
+use ApeDevDe\MicrosoftGraphSdk\Models\Trending;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Insights\Trending\ResourceRequestBuilder;
 
 /**
- * Request builder for /deviceManagement/userExperienceAnalyticsDeviceStartupHistory/{userExperienceAnalyticsDeviceStartupHistory-id}
+ * Request builder for /me/insights/trending/{trending-id}
  */
-class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends RootBaseRequestBuilder
+class TrendingItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userExperienceAnalyticsDeviceStartupHistory from deviceManagement
+     * Get trending from me
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsDeviceStartupHistory
+     * @return Trending
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupHistory
+    public function get(?array $select = null, ?array $expand = null): Trending
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +38,7 @@ class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends RootBase
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory
+     * Deserialize response to Trending
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +52,15 @@ class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends RootBase
         }
         
         // Single object
-        return new UserExperienceAnalyticsDeviceStartupHistory($data);
+        return new Trending($data);
     }
     /**
-     * Update the navigation property userExperienceAnalyticsDeviceStartupHistory in deviceManagement
-     * @param UserExperienceAnalyticsDeviceStartupHistory $body Request body
-     * @return UserExperienceAnalyticsDeviceStartupHistory
+     * Update the navigation property trending in me
+     * @param Trending $body Request body
+     * @return Trending
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsDeviceStartupHistory $body): UserExperienceAnalyticsDeviceStartupHistory
+    public function patch(Trending $body): Trending
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +71,7 @@ class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends RootBase
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory
+     * Deserialize response to Trending
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +85,10 @@ class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends RootBase
         }
         
         // Single object
-        return new UserExperienceAnalyticsDeviceStartupHistory($data);
+        return new Trending($data);
     }
     /**
-     * Delete navigation property userExperienceAnalyticsDeviceStartupHistory for deviceManagement
+     * Delete navigation property trending for me
      *
      * @param string|null $ifMatch ETag
      * @return mixed
@@ -121,5 +122,14 @@ class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends RootBase
         
         // Single object
         return $data;
+    }
+    /**
+     * Navigate to resource
+     *
+     * @return ResourceRequestBuilder
+     */
+    public function resource(): ResourceRequestBuilder
+    {
+        return new ResourceRequestBuilder($this->client, $this->requestUrl . '/resource');
     }
 }

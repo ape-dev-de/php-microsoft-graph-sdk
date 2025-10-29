@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Reports\AuthenticationMethods\UserRegistrationDetails;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserRegistrationDetails;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceStartupHistory;
 
 /**
- * Request builder for /reports/authenticationMethods/userRegistrationDetails/{userRegistrationDetails-id}
+ * Request builder for /deviceManagement/userExperienceAnalyticsDeviceStartupHistory/{userExperienceAnalyticsDeviceStartupHistory-id}
  */
-class UserRegistrationDetailsRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userRegistrationDetails
+     * Get userExperienceAnalyticsDeviceStartupHistory from deviceManagement
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserRegistrationDetails
+     * @return UserExperienceAnalyticsDeviceStartupHistory
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserRegistrationDetails
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupHistory
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class UserRegistrationDetailsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserRegistrationDetails
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +51,15 @@ class UserRegistrationDetailsRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new UserRegistrationDetails($data);
+        return new UserExperienceAnalyticsDeviceStartupHistory($data);
     }
     /**
-     * Update the navigation property userRegistrationDetails in reports
-     * @param UserRegistrationDetails $body Request body
-     * @return UserRegistrationDetails
+     * Update the navigation property userExperienceAnalyticsDeviceStartupHistory in deviceManagement
+     * @param UserExperienceAnalyticsDeviceStartupHistory $body Request body
+     * @return UserExperienceAnalyticsDeviceStartupHistory
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserRegistrationDetails $body): UserRegistrationDetails
+    public function patch(UserExperienceAnalyticsDeviceStartupHistory $body): UserExperienceAnalyticsDeviceStartupHistory
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +70,7 @@ class UserRegistrationDetailsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserRegistrationDetails
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +84,10 @@ class UserRegistrationDetailsRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new UserRegistrationDetails($data);
+        return new UserExperienceAnalyticsDeviceStartupHistory($data);
     }
     /**
-     * Delete navigation property userRegistrationDetails for reports
+     * Delete navigation property userExperienceAnalyticsDeviceStartupHistory for deviceManagement
      *
      * @param string|null $ifMatch ETag
      * @return mixed

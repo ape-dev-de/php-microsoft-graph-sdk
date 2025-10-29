@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDevicePerformanceDetails;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformanceDetails\UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformanceDetails\UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformanceDetails\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder ext
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsAppHealthDevicePerformanceDetailsId The item ID
-     * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder
+     * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsAppHealthDevicePerformanceDetailsId): UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder
+    public function byId(string $userExperienceAnalyticsAppHealthDevicePerformanceDetailsId): UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder
     {
-        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthDevicePerformanceDetailsId);
+        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthDevicePerformanceDetailsId);
     }
     /**
      * Navigate to $count

@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceScores;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformance;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceScores;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDevicePerformance;
 
 /**
- * Request builder for /deviceManagement/userExperienceAnalyticsDeviceScores/{userExperienceAnalyticsDeviceScores-id}
+ * Request builder for /deviceManagement/userExperienceAnalyticsAppHealthDevicePerformance/{userExperienceAnalyticsAppHealthDevicePerformance-id}
  */
-class UserExperienceAnalyticsDeviceScoresRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userExperienceAnalyticsDeviceScores from deviceManagement
+     * Get userExperienceAnalyticsAppHealthDevicePerformance from deviceManagement
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsDeviceScores
+     * @return UserExperienceAnalyticsAppHealthDevicePerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceScores
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsAppHealthDevicePerformance
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class UserExperienceAnalyticsDeviceScoresRequestBuilder extends RootBaseRequestB
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceScores
+     * Deserialize response to UserExperienceAnalyticsAppHealthDevicePerformance
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +51,15 @@ class UserExperienceAnalyticsDeviceScoresRequestBuilder extends RootBaseRequestB
         }
         
         // Single object
-        return new UserExperienceAnalyticsDeviceScores($data);
+        return new UserExperienceAnalyticsAppHealthDevicePerformance($data);
     }
     /**
-     * Update the navigation property userExperienceAnalyticsDeviceScores in deviceManagement
-     * @param UserExperienceAnalyticsDeviceScores $body Request body
-     * @return UserExperienceAnalyticsDeviceScores
+     * Update the navigation property userExperienceAnalyticsAppHealthDevicePerformance in deviceManagement
+     * @param UserExperienceAnalyticsAppHealthDevicePerformance $body Request body
+     * @return UserExperienceAnalyticsAppHealthDevicePerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsDeviceScores $body): UserExperienceAnalyticsDeviceScores
+    public function patch(UserExperienceAnalyticsAppHealthDevicePerformance $body): UserExperienceAnalyticsAppHealthDevicePerformance
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsDeviceScoresRequestBuilder extends RootBaseRequestB
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceScores
+     * Deserialize response to UserExperienceAnalyticsAppHealthDevicePerformance
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +84,10 @@ class UserExperienceAnalyticsDeviceScoresRequestBuilder extends RootBaseRequestB
         }
         
         // Single object
-        return new UserExperienceAnalyticsDeviceScores($data);
+        return new UserExperienceAnalyticsAppHealthDevicePerformance($data);
     }
     /**
-     * Delete navigation property userExperienceAnalyticsDeviceScores for deviceManagement
+     * Delete navigation property userExperienceAnalyticsAppHealthDevicePerformance for deviceManagement
      *
      * @param string|null $ifMatch ETag
      * @return mixed

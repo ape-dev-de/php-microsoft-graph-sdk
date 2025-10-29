@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceStartupProcessPerformance;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Reports\AuthenticationMethods\UserRegistrationDetails;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceStartupProcessPerformance;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserRegistrationDetails;
 
 /**
- * Request builder for /deviceManagement/userExperienceAnalyticsDeviceStartupProcessPerformance/{userExperienceAnalyticsDeviceStartupProcessPerformance-id}
+ * Request builder for /reports/authenticationMethods/userRegistrationDetails/{userRegistrationDetails-id}
  */
-class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder extends RootBaseRequestBuilder
+class UserRegistrationDetailsItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userExperienceAnalyticsDeviceStartupProcessPerformance from deviceManagement
+     * Get userRegistrationDetails
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * @return UserRegistrationDetails
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupProcessPerformance
+    public function get(?array $select = null, ?array $expand = null): UserRegistrationDetails
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * Deserialize response to UserRegistrationDetails
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +51,15 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
         }
         
         // Single object
-        return new UserExperienceAnalyticsDeviceStartupProcessPerformance($data);
+        return new UserRegistrationDetails($data);
     }
     /**
-     * Update the navigation property userExperienceAnalyticsDeviceStartupProcessPerformance in deviceManagement
-     * @param UserExperienceAnalyticsDeviceStartupProcessPerformance $body Request body
-     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * Update the navigation property userRegistrationDetails in reports
+     * @param UserRegistrationDetails $body Request body
+     * @return UserRegistrationDetails
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsDeviceStartupProcessPerformance $body): UserExperienceAnalyticsDeviceStartupProcessPerformance
+    public function patch(UserRegistrationDetails $body): UserRegistrationDetails
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * Deserialize response to UserRegistrationDetails
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +84,10 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
         }
         
         // Single object
-        return new UserExperienceAnalyticsDeviceStartupProcessPerformance($data);
+        return new UserRegistrationDetails($data);
     }
     /**
-     * Delete navigation property userExperienceAnalyticsDeviceStartupProcessPerformance for deviceManagement
+     * Delete navigation property userRegistrationDetails for reports
      *
      * @param string|null $ifMatch ETag
      * @return mixed

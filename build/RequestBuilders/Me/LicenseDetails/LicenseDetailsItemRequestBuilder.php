@@ -2,27 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\WindowsMalwareInformation;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\LicenseDetails;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\WindowsMalwareInformation;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\WindowsMalwareInformation\DeviceMalwareStatesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\LicenseDetails;
 
 /**
- * Request builder for /deviceManagement/windowsMalwareInformation/{windowsMalwareInformation-id}
+ * Request builder for /me/licenseDetails/{licenseDetails-id}
  */
-class WindowsMalwareInformationRequestBuilder extends RootBaseRequestBuilder
+class LicenseDetailsItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get windowsMalwareInformation
+     * Get licenseDetails from me
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WindowsMalwareInformation
+     * @return LicenseDetails
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WindowsMalwareInformation
+    public function get(?array $select = null, ?array $expand = null): LicenseDetails
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,7 +37,7 @@ class WindowsMalwareInformationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WindowsMalwareInformation
+     * Deserialize response to LicenseDetails
      */
     private function deserializeGet(string $body): mixed
     {
@@ -52,15 +51,15 @@ class WindowsMalwareInformationRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new WindowsMalwareInformation($data);
+        return new LicenseDetails($data);
     }
     /**
-     * Update windowsMalwareInformation
-     * @param WindowsMalwareInformation $body Request body
-     * @return WindowsMalwareInformation
+     * Update the navigation property licenseDetails in me
+     * @param LicenseDetails $body Request body
+     * @return LicenseDetails
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WindowsMalwareInformation $body): WindowsMalwareInformation
+    public function patch(LicenseDetails $body): LicenseDetails
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -71,7 +70,7 @@ class WindowsMalwareInformationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WindowsMalwareInformation
+     * Deserialize response to LicenseDetails
      */
     private function deserializePatch(string $body): mixed
     {
@@ -85,10 +84,10 @@ class WindowsMalwareInformationRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new WindowsMalwareInformation($data);
+        return new LicenseDetails($data);
     }
     /**
-     * Delete windowsMalwareInformation
+     * Delete navigation property licenseDetails for me
      *
      * @param string|null $ifMatch ETag
      * @return mixed
@@ -122,14 +121,5 @@ class WindowsMalwareInformationRequestBuilder extends RootBaseRequestBuilder
         
         // Single object
         return $data;
-    }
-    /**
-     * Navigate to deviceMalwareStates
-     *
-     * @return DeviceMalwareStatesRequestBuilder
-     */
-    public function deviceMalwareStates(): DeviceMalwareStatesRequestBuilder
-    {
-        return new DeviceMalwareStatesRequestBuilder($this->client, $this->requestUrl . '/deviceMalwareStates');
     }
 }

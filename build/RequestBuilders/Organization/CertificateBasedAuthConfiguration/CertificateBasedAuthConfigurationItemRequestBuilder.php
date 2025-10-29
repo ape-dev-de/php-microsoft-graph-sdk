@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\LicenseDetails;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CertificateBasedAuthConfiguration;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\LicenseDetails;
+use ApeDevDe\MicrosoftGraphSdk\Models\CertificateBasedAuthConfiguration;
 
 /**
- * Request builder for /users/{user-id}/licenseDetails/{licenseDetails-id}
+ * Request builder for /organization/{organization-id}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration-id}
  */
-class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
+class CertificateBasedAuthConfigurationItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get licenseDetails from users
+     * Get certificateBasedAuthConfiguration
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return LicenseDetails
+     * @return CertificateBasedAuthConfiguration
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): LicenseDetails
+    public function get(?array $select = null, ?array $expand = null): CertificateBasedAuthConfiguration
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to LicenseDetails
+     * Deserialize response to CertificateBasedAuthConfiguration
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,43 +51,10 @@ class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new LicenseDetails($data);
+        return new CertificateBasedAuthConfiguration($data);
     }
     /**
-     * Update the navigation property licenseDetails in users
-     * @param LicenseDetails $body Request body
-     * @return LicenseDetails
-     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
-     */
-    public function patch(LicenseDetails $body): LicenseDetails
-    {
-        // Convert model to array
-        $bodyData = (array)$body;
-        $response = $this->client->patch($this->requestUrl, $bodyData);
-        $this->client->checkResponse($response);
-        $responseBody = (string)$response->getBody();
-        return $this->deserializePatch($responseBody);
-    }
-
-    /**
-     * Deserialize response to LicenseDetails
-     */
-    private function deserializePatch(string $body): mixed
-    {
-        if (empty($body)) {
-            return null;
-        }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Single object
-        return new LicenseDetails($data);
-    }
-    /**
-     * Delete navigation property licenseDetails for users
+     * Delete certificateBasedAuthConfiguration
      *
      * @param string|null $ifMatch ETag
      * @return mixed

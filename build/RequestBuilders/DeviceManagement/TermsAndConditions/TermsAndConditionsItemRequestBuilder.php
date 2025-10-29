@@ -2,26 +2,28 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformanceDetails;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDevicePerformanceDetails;
+use ApeDevDe\MicrosoftGraphSdk\Models\TermsAndConditions;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions\AcceptanceStatusesRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions\AssignmentsRequestBuilder;
 
 /**
- * Request builder for /deviceManagement/userExperienceAnalyticsAppHealthDevicePerformanceDetails/{userExperienceAnalyticsAppHealthDevicePerformanceDetails-id}
+ * Request builder for /deviceManagement/termsAndConditions/{termsAndConditions-id}
  */
-class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder extends RootBaseRequestBuilder
+class TermsAndConditionsItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userExperienceAnalyticsAppHealthDevicePerformanceDetails from deviceManagement
+     * Get termsAndConditions
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+     * @return TermsAndConditions
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+    public function get(?array $select = null, ?array $expand = null): TermsAndConditions
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +39,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder ext
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+     * Deserialize response to TermsAndConditions
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +53,15 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder ext
         }
         
         // Single object
-        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetails($data);
+        return new TermsAndConditions($data);
     }
     /**
-     * Update the navigation property userExperienceAnalyticsAppHealthDevicePerformanceDetails in deviceManagement
-     * @param UserExperienceAnalyticsAppHealthDevicePerformanceDetails $body Request body
-     * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+     * Update termsAndConditions
+     * @param TermsAndConditions $body Request body
+     * @return TermsAndConditions
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsAppHealthDevicePerformanceDetails $body): UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+    public function patch(TermsAndConditions $body): TermsAndConditions
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +72,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder ext
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+     * Deserialize response to TermsAndConditions
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +86,10 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder ext
         }
         
         // Single object
-        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetails($data);
+        return new TermsAndConditions($data);
     }
     /**
-     * Delete navigation property userExperienceAnalyticsAppHealthDevicePerformanceDetails for deviceManagement
+     * Delete termsAndConditions
      *
      * @param string|null $ifMatch ETag
      * @return mixed
@@ -121,5 +123,23 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder ext
         
         // Single object
         return $data;
+    }
+    /**
+     * Navigate to acceptanceStatuses
+     *
+     * @return AcceptanceStatusesRequestBuilder
+     */
+    public function acceptanceStatuses(): AcceptanceStatusesRequestBuilder
+    {
+        return new AcceptanceStatusesRequestBuilder($this->client, $this->requestUrl . '/acceptanceStatuses');
+    }
+    /**
+     * Navigate to assignments
+     *
+     * @return AssignmentsRequestBuilder
+     */
+    public function assignments(): AssignmentsRequestBuilder
+    {
+        return new AssignmentsRequestBuilder($this->client, $this->requestUrl . '/assignments');
     }
 }

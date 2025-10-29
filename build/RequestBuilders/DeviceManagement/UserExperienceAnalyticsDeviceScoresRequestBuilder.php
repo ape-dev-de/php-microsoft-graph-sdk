@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceScoresCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceScores;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceScores\UserExperienceAnalyticsDeviceScoresRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceScores\UserExperienceAnalyticsDeviceScoresItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceScores\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsDeviceScoresRequestBuilder extends RootBaseRequestB
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsDeviceScoresId The item ID
-     * @return UserExperienceAnalyticsDeviceScoresRequestBuilder
+     * @return UserExperienceAnalyticsDeviceScoresItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsDeviceScoresId): UserExperienceAnalyticsDeviceScoresRequestBuilder
+    public function byId(string $userExperienceAnalyticsDeviceScoresId): UserExperienceAnalyticsDeviceScoresItemRequestBuilder
     {
-        return new UserExperienceAnalyticsDeviceScoresRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsDeviceScoresId);
+        return new UserExperienceAnalyticsDeviceScoresItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsDeviceScoresId);
     }
     /**
      * Navigate to $count

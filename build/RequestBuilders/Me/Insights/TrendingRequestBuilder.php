@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\TrendingCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\Trending;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Insights\Trending\TrendingRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Insights\Trending\TrendingItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Insights\Trending\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class TrendingRequestBuilder extends RootBaseRequestBuilder
      * Get request builder for specific item by ID
      *
      * @param string $trendingId The item ID
-     * @return TrendingRequestBuilder
+     * @return TrendingItemRequestBuilder
      */
-    public function byId(string $trendingId): TrendingRequestBuilder
+    public function byId(string $trendingId): TrendingItemRequestBuilder
     {
-        return new TrendingRequestBuilder($this->client, $this->requestUrl . '/' . $trendingId);
+        return new TrendingItemRequestBuilder($this->client, $this->requestUrl . '/' . $trendingId);
     }
     /**
      * Navigate to $count

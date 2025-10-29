@@ -11,7 +11,7 @@ use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsWorkFromAnywhereMod
 /**
  * Request builder for /deviceManagement/userExperienceAnalyticsWorkFromAnywhereModelPerformance/{userExperienceAnalyticsWorkFromAnywhereModelPerformance-id}
  */
-class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Get userExperienceAnalyticsWorkFromAnywhereModelPerformance from deviceManagement

@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsScoreHistoryCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsScoreHistory;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsScoreHistory\UserExperienceAnalyticsScoreHistoryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsScoreHistory\UserExperienceAnalyticsScoreHistoryItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsScoreHistory\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsScoreHistoryRequestBuilder extends RootBaseRequestB
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsScoreHistoryId The item ID
-     * @return UserExperienceAnalyticsScoreHistoryRequestBuilder
+     * @return UserExperienceAnalyticsScoreHistoryItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsScoreHistoryId): UserExperienceAnalyticsScoreHistoryRequestBuilder
+    public function byId(string $userExperienceAnalyticsScoreHistoryId): UserExperienceAnalyticsScoreHistoryItemRequestBuilder
     {
-        return new UserExperienceAnalyticsScoreHistoryRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsScoreHistoryId);
+        return new UserExperienceAnalyticsScoreHistoryItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsScoreHistoryId);
     }
     /**
      * Navigate to $count

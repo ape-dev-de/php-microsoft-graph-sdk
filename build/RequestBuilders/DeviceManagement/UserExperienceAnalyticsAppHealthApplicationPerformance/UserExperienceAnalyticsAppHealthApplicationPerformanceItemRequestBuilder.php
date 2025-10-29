@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformance;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDevicePerformance;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthApplicationPerformance;
 
 /**
- * Request builder for /deviceManagement/userExperienceAnalyticsAppHealthDevicePerformance/{userExperienceAnalyticsAppHealthDevicePerformance-id}
+ * Request builder for /deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformance/{userExperienceAnalyticsAppHealthApplicationPerformance-id}
  */
-class UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userExperienceAnalyticsAppHealthDevicePerformance from deviceManagement
+     * Get userExperienceAnalyticsAppHealthApplicationPerformance from deviceManagement
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsAppHealthDevicePerformance
+     * @return UserExperienceAnalyticsAppHealthApplicationPerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsAppHealthDevicePerformance
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsAppHealthApplicationPerformance
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder extends Ro
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsAppHealthDevicePerformance
+     * Deserialize response to UserExperienceAnalyticsAppHealthApplicationPerformance
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +51,15 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder extends Ro
         }
         
         // Single object
-        return new UserExperienceAnalyticsAppHealthDevicePerformance($data);
+        return new UserExperienceAnalyticsAppHealthApplicationPerformance($data);
     }
     /**
-     * Update the navigation property userExperienceAnalyticsAppHealthDevicePerformance in deviceManagement
-     * @param UserExperienceAnalyticsAppHealthDevicePerformance $body Request body
-     * @return UserExperienceAnalyticsAppHealthDevicePerformance
+     * Update the navigation property userExperienceAnalyticsAppHealthApplicationPerformance in deviceManagement
+     * @param UserExperienceAnalyticsAppHealthApplicationPerformance $body Request body
+     * @return UserExperienceAnalyticsAppHealthApplicationPerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsAppHealthDevicePerformance $body): UserExperienceAnalyticsAppHealthDevicePerformance
+    public function patch(UserExperienceAnalyticsAppHealthApplicationPerformance $body): UserExperienceAnalyticsAppHealthApplicationPerformance
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder extends Ro
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsAppHealthDevicePerformance
+     * Deserialize response to UserExperienceAnalyticsAppHealthApplicationPerformance
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +84,10 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder extends Ro
         }
         
         // Single object
-        return new UserExperienceAnalyticsAppHealthDevicePerformance($data);
+        return new UserExperienceAnalyticsAppHealthApplicationPerformance($data);
     }
     /**
-     * Delete navigation property userExperienceAnalyticsAppHealthDevicePerformance for deviceManagement
+     * Delete navigation property userExperienceAnalyticsAppHealthApplicationPerformance for deviceManagement
      *
      * @param string|null $ifMatch ETag
      * @return mixed

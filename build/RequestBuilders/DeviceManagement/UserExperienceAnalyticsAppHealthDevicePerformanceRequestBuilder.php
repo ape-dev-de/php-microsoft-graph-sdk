@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthDevicePerformance;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformance\UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformance\UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformance\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder extends Ro
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsAppHealthDevicePerformanceId The item ID
-     * @return UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder
+     * @return UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsAppHealthDevicePerformanceId): UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder
+    public function byId(string $userExperienceAnalyticsAppHealthDevicePerformanceId): UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder
     {
-        return new UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthDevicePerformanceId);
+        return new UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthDevicePerformanceId);
     }
     /**
      * Navigate to $count

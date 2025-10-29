@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserRegistrationDetailsCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserRegistrationDetails;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Reports\AuthenticationMethods\UserRegistrationDetails\UserRegistrationDetailsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Reports\AuthenticationMethods\UserRegistrationDetails\UserRegistrationDetailsItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Reports\AuthenticationMethods\UserRegistrationDetails\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserRegistrationDetailsRequestBuilder extends RootBaseRequestBuilder
      * Get request builder for specific item by ID
      *
      * @param string $userRegistrationDetailsId The item ID
-     * @return UserRegistrationDetailsRequestBuilder
+     * @return UserRegistrationDetailsItemRequestBuilder
      */
-    public function byId(string $userRegistrationDetailsId): UserRegistrationDetailsRequestBuilder
+    public function byId(string $userRegistrationDetailsId): UserRegistrationDetailsItemRequestBuilder
     {
-        return new UserRegistrationDetailsRequestBuilder($this->client, $this->requestUrl . '/' . $userRegistrationDetailsId);
+        return new UserRegistrationDetailsItemRequestBuilder($this->client, $this->requestUrl . '/' . $userRegistrationDetailsId);
     }
     /**
      * Navigate to $count

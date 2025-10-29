@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsModelScores;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsScoreHistory;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsModelScores;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsScoreHistory;
 
 /**
- * Request builder for /deviceManagement/userExperienceAnalyticsModelScores/{userExperienceAnalyticsModelScores-id}
+ * Request builder for /deviceManagement/userExperienceAnalyticsScoreHistory/{userExperienceAnalyticsScoreHistory-id}
  */
-class UserExperienceAnalyticsModelScoresRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsScoreHistoryItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userExperienceAnalyticsModelScores from deviceManagement
+     * Get userExperienceAnalyticsScoreHistory from deviceManagement
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsModelScores
+     * @return UserExperienceAnalyticsScoreHistory
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsModelScores
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsScoreHistory
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class UserExperienceAnalyticsModelScoresRequestBuilder extends RootBaseRequestBu
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsModelScores
+     * Deserialize response to UserExperienceAnalyticsScoreHistory
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +51,15 @@ class UserExperienceAnalyticsModelScoresRequestBuilder extends RootBaseRequestBu
         }
         
         // Single object
-        return new UserExperienceAnalyticsModelScores($data);
+        return new UserExperienceAnalyticsScoreHistory($data);
     }
     /**
-     * Update the navigation property userExperienceAnalyticsModelScores in deviceManagement
-     * @param UserExperienceAnalyticsModelScores $body Request body
-     * @return UserExperienceAnalyticsModelScores
+     * Update the navigation property userExperienceAnalyticsScoreHistory in deviceManagement
+     * @param UserExperienceAnalyticsScoreHistory $body Request body
+     * @return UserExperienceAnalyticsScoreHistory
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsModelScores $body): UserExperienceAnalyticsModelScores
+    public function patch(UserExperienceAnalyticsScoreHistory $body): UserExperienceAnalyticsScoreHistory
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsModelScoresRequestBuilder extends RootBaseRequestBu
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsModelScores
+     * Deserialize response to UserExperienceAnalyticsScoreHistory
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +84,10 @@ class UserExperienceAnalyticsModelScoresRequestBuilder extends RootBaseRequestBu
         }
         
         // Single object
-        return new UserExperienceAnalyticsModelScores($data);
+        return new UserExperienceAnalyticsScoreHistory($data);
     }
     /**
-     * Delete navigation property userExperienceAnalyticsModelScores for deviceManagement
+     * Delete navigation property userExperienceAnalyticsScoreHistory for deviceManagement
      *
      * @param string|null $ifMatch ETag
      * @return mixed

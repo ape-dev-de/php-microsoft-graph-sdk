@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\LicenseDetailsCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\LicenseDetails;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\LicenseDetails\LicenseDetailsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\LicenseDetails\LicenseDetailsItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\LicenseDetails\CountRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\LicenseDetails\GetTeamsLicensingDetailsRequestBuilder;
 
@@ -124,11 +124,11 @@ class LicenseDetailsRequestBuilder extends RootBaseRequestBuilder
      * Get request builder for specific item by ID
      *
      * @param string $licenseDetailsId The item ID
-     * @return LicenseDetailsRequestBuilder
+     * @return LicenseDetailsItemRequestBuilder
      */
-    public function byId(string $licenseDetailsId): LicenseDetailsRequestBuilder
+    public function byId(string $licenseDetailsId): LicenseDetailsItemRequestBuilder
     {
-        return new LicenseDetailsRequestBuilder($this->client, $this->requestUrl . '/' . $licenseDetailsId);
+        return new LicenseDetailsItemRequestBuilder($this->client, $this->requestUrl . '/' . $licenseDetailsId);
     }
     /**
      * Navigate to $count

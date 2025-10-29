@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsWorkFromAnywhereModelPerformance;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder exte
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId The item ID
-     * @return UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder
+     * @return UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder
+    public function byId(string $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder
     {
-        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId);
+        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsWorkFromAnywhereModelPerformanceId);
     }
     /**
      * Navigate to $count

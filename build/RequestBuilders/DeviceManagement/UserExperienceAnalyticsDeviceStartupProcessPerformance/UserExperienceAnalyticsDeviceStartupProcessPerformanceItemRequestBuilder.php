@@ -2,28 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceStartupProcessPerformance;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\TermsAndConditions;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions\AcceptanceStatusesRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\TermsAndConditions\AssignmentsRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceStartupProcessPerformance;
 
 /**
- * Request builder for /deviceManagement/termsAndConditions/{termsAndConditions-id}
+ * Request builder for /deviceManagement/userExperienceAnalyticsDeviceStartupProcessPerformance/{userExperienceAnalyticsDeviceStartupProcessPerformance-id}
  */
-class TermsAndConditionsRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get termsAndConditions
+     * Get userExperienceAnalyticsDeviceStartupProcessPerformance from deviceManagement
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TermsAndConditions
+     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TermsAndConditions
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupProcessPerformance
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,7 +37,7 @@ class TermsAndConditionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TermsAndConditions
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance
      */
     private function deserializeGet(string $body): mixed
     {
@@ -53,15 +51,15 @@ class TermsAndConditionsRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new TermsAndConditions($data);
+        return new UserExperienceAnalyticsDeviceStartupProcessPerformance($data);
     }
     /**
-     * Update termsAndConditions
-     * @param TermsAndConditions $body Request body
-     * @return TermsAndConditions
+     * Update the navigation property userExperienceAnalyticsDeviceStartupProcessPerformance in deviceManagement
+     * @param UserExperienceAnalyticsDeviceStartupProcessPerformance $body Request body
+     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TermsAndConditions $body): TermsAndConditions
+    public function patch(UserExperienceAnalyticsDeviceStartupProcessPerformance $body): UserExperienceAnalyticsDeviceStartupProcessPerformance
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -72,7 +70,7 @@ class TermsAndConditionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TermsAndConditions
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance
      */
     private function deserializePatch(string $body): mixed
     {
@@ -86,10 +84,10 @@ class TermsAndConditionsRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new TermsAndConditions($data);
+        return new UserExperienceAnalyticsDeviceStartupProcessPerformance($data);
     }
     /**
-     * Delete termsAndConditions
+     * Delete navigation property userExperienceAnalyticsDeviceStartupProcessPerformance for deviceManagement
      *
      * @param string|null $ifMatch ETag
      * @return mixed
@@ -123,23 +121,5 @@ class TermsAndConditionsRequestBuilder extends RootBaseRequestBuilder
         
         // Single object
         return $data;
-    }
-    /**
-     * Navigate to acceptanceStatuses
-     *
-     * @return AcceptanceStatusesRequestBuilder
-     */
-    public function acceptanceStatuses(): AcceptanceStatusesRequestBuilder
-    {
-        return new AcceptanceStatusesRequestBuilder($this->client, $this->requestUrl . '/acceptanceStatuses');
-    }
-    /**
-     * Navigate to assignments
-     *
-     * @return AssignmentsRequestBuilder
-     */
-    public function assignments(): AssignmentsRequestBuilder
-    {
-        return new AssignmentsRequestBuilder($this->client, $this->requestUrl . '/assignments');
     }
 }

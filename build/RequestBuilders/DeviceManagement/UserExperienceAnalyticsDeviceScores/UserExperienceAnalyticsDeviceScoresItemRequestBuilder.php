@@ -2,27 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Insights\Trending;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceScores;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\Trending;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Insights\Trending\ResourceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceScores;
 
 /**
- * Request builder for /users/{user-id}/insights/trending/{trending-id}
+ * Request builder for /deviceManagement/userExperienceAnalyticsDeviceScores/{userExperienceAnalyticsDeviceScores-id}
  */
-class TrendingRequestBuilder extends RootBaseRequestBuilder
+class UserExperienceAnalyticsDeviceScoresItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get trending from users
+     * Get userExperienceAnalyticsDeviceScores from deviceManagement
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Trending
+     * @return UserExperienceAnalyticsDeviceScores
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Trending
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceScores
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,7 +37,7 @@ class TrendingRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Trending
+     * Deserialize response to UserExperienceAnalyticsDeviceScores
      */
     private function deserializeGet(string $body): mixed
     {
@@ -52,15 +51,15 @@ class TrendingRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new Trending($data);
+        return new UserExperienceAnalyticsDeviceScores($data);
     }
     /**
-     * Update the navigation property trending in users
-     * @param Trending $body Request body
-     * @return Trending
+     * Update the navigation property userExperienceAnalyticsDeviceScores in deviceManagement
+     * @param UserExperienceAnalyticsDeviceScores $body Request body
+     * @return UserExperienceAnalyticsDeviceScores
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Trending $body): Trending
+    public function patch(UserExperienceAnalyticsDeviceScores $body): UserExperienceAnalyticsDeviceScores
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -71,7 +70,7 @@ class TrendingRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Trending
+     * Deserialize response to UserExperienceAnalyticsDeviceScores
      */
     private function deserializePatch(string $body): mixed
     {
@@ -85,10 +84,10 @@ class TrendingRequestBuilder extends RootBaseRequestBuilder
         }
         
         // Single object
-        return new Trending($data);
+        return new UserExperienceAnalyticsDeviceScores($data);
     }
     /**
-     * Delete navigation property trending for users
+     * Delete navigation property userExperienceAnalyticsDeviceScores for deviceManagement
      *
      * @param string|null $ifMatch ETag
      * @return mixed
@@ -122,14 +121,5 @@ class TrendingRequestBuilder extends RootBaseRequestBuilder
         
         // Single object
         return $data;
-    }
-    /**
-     * Navigate to resource
-     *
-     * @return ResourceRequestBuilder
-     */
-    public function resource(): ResourceRequestBuilder
-    {
-        return new ResourceRequestBuilder($this->client, $this->requestUrl . '/resource');
     }
 }

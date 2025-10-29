@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsMetricHistory;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\LicenseDetails;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsMetricHistory;
+use ApeDevDe\MicrosoftGraphSdk\Models\LicenseDetails;
 
 /**
- * Request builder for /deviceManagement/userExperienceAnalyticsMetricHistory/{userExperienceAnalyticsMetricHistory-id}
+ * Request builder for /users/{user-id}/licenseDetails/{licenseDetails-id}
  */
-class UserExperienceAnalyticsMetricHistoryRequestBuilder extends RootBaseRequestBuilder
+class LicenseDetailsItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get userExperienceAnalyticsMetricHistory from deviceManagement
+     * Get licenseDetails from users
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsMetricHistory
+     * @return LicenseDetails
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsMetricHistory
+    public function get(?array $select = null, ?array $expand = null): LicenseDetails
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +37,7 @@ class UserExperienceAnalyticsMetricHistoryRequestBuilder extends RootBaseRequest
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsMetricHistory
+     * Deserialize response to LicenseDetails
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,15 +51,15 @@ class UserExperienceAnalyticsMetricHistoryRequestBuilder extends RootBaseRequest
         }
         
         // Single object
-        return new UserExperienceAnalyticsMetricHistory($data);
+        return new LicenseDetails($data);
     }
     /**
-     * Update the navigation property userExperienceAnalyticsMetricHistory in deviceManagement
-     * @param UserExperienceAnalyticsMetricHistory $body Request body
-     * @return UserExperienceAnalyticsMetricHistory
+     * Update the navigation property licenseDetails in users
+     * @param LicenseDetails $body Request body
+     * @return LicenseDetails
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsMetricHistory $body): UserExperienceAnalyticsMetricHistory
+    public function patch(LicenseDetails $body): LicenseDetails
     {
         // Convert model to array
         $bodyData = (array)$body;
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsMetricHistoryRequestBuilder extends RootBaseRequest
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsMetricHistory
+     * Deserialize response to LicenseDetails
      */
     private function deserializePatch(string $body): mixed
     {
@@ -84,10 +84,10 @@ class UserExperienceAnalyticsMetricHistoryRequestBuilder extends RootBaseRequest
         }
         
         // Single object
-        return new UserExperienceAnalyticsMetricHistory($data);
+        return new LicenseDetails($data);
     }
     /**
-     * Delete navigation property userExperienceAnalyticsMetricHistory for deviceManagement
+     * Delete navigation property licenseDetails for users
      *
      * @param string|null $ifMatch ETag
      * @return mixed

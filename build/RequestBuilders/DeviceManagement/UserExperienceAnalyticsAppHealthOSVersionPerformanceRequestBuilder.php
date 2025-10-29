@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthOSVersionPerformance;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthOSVersionPerformance\UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthOSVersionPerformance\UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthOSVersionPerformance\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder extends
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsAppHealthOSVersionPerformanceId The item ID
-     * @return UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder
+     * @return UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsAppHealthOSVersionPerformanceId): UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder
+    public function byId(string $userExperienceAnalyticsAppHealthOSVersionPerformanceId): UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder
     {
-        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthOSVersionPerformanceId);
+        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthOSVersionPerformanceId);
     }
     /**
      * Navigate to $count

@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthApplicationPerformanceCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsAppHealthApplicationPerformance;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder exten
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsAppHealthApplicationPerformanceId The item ID
-     * @return UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder
+     * @return UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsAppHealthApplicationPerformanceId): UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder
+    public function byId(string $userExperienceAnalyticsAppHealthApplicationPerformanceId): UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder
     {
-        return new UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthApplicationPerformanceId);
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsAppHealthApplicationPerformanceId);
     }
     /**
      * Navigate to $count

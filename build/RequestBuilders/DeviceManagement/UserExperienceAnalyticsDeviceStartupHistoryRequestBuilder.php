@@ -8,7 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\UserExperienceAnalyticsDeviceStartupHistory;
-use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory\UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory\UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory\CountRequestBuilder;
 
 /**
@@ -123,11 +123,11 @@ class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends RootBase
      * Get request builder for specific item by ID
      *
      * @param string $userExperienceAnalyticsDeviceStartupHistoryId The item ID
-     * @return UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder
+     * @return UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder
      */
-    public function byId(string $userExperienceAnalyticsDeviceStartupHistoryId): UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder
+    public function byId(string $userExperienceAnalyticsDeviceStartupHistoryId): UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder
     {
-        return new UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsDeviceStartupHistoryId);
+        return new UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder($this->client, $this->requestUrl . '/' . $userExperienceAnalyticsDeviceStartupHistoryId);
     }
     /**
      * Navigate to $count

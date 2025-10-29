@@ -2,26 +2,27 @@
 
 declare(strict_types=1);
 
-namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Organization\CertificateBasedAuthConfiguration;
+namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Insights\Trending;
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\CertificateBasedAuthConfiguration;
+use ApeDevDe\MicrosoftGraphSdk\Models\Trending;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Users\Insights\Trending\ResourceRequestBuilder;
 
 /**
- * Request builder for /organization/{organization-id}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration-id}
+ * Request builder for /users/{user-id}/insights/trending/{trending-id}
  */
-class CertificateBasedAuthConfigurationRequestBuilder extends RootBaseRequestBuilder
+class TrendingItemRequestBuilder extends RootBaseRequestBuilder
 {
     /**
-     * Get certificateBasedAuthConfiguration
+     * Get trending from users
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CertificateBasedAuthConfiguration
+     * @return Trending
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CertificateBasedAuthConfiguration
+    public function get(?array $select = null, ?array $expand = null): Trending
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,7 +38,7 @@ class CertificateBasedAuthConfigurationRequestBuilder extends RootBaseRequestBui
     }
 
     /**
-     * Deserialize response to CertificateBasedAuthConfiguration
+     * Deserialize response to Trending
      */
     private function deserializeGet(string $body): mixed
     {
@@ -51,10 +52,43 @@ class CertificateBasedAuthConfigurationRequestBuilder extends RootBaseRequestBui
         }
         
         // Single object
-        return new CertificateBasedAuthConfiguration($data);
+        return new Trending($data);
     }
     /**
-     * Delete certificateBasedAuthConfiguration
+     * Update the navigation property trending in users
+     * @param Trending $body Request body
+     * @return Trending
+     * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
+     */
+    public function patch(Trending $body): Trending
+    {
+        // Convert model to array
+        $bodyData = (array)$body;
+        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $this->client->checkResponse($response);
+        $responseBody = (string)$response->getBody();
+        return $this->deserializePatch($responseBody);
+    }
+
+    /**
+     * Deserialize response to Trending
+     */
+    private function deserializePatch(string $body): mixed
+    {
+        if (empty($body)) {
+            return null;
+        }
+        
+        $data = json_decode($body, true);
+        if ($data === null) {
+            return null;
+        }
+        
+        // Single object
+        return new Trending($data);
+    }
+    /**
+     * Delete navigation property trending for users
      *
      * @param string|null $ifMatch ETag
      * @return mixed
@@ -88,5 +122,14 @@ class CertificateBasedAuthConfigurationRequestBuilder extends RootBaseRequestBui
         
         // Single object
         return $data;
+    }
+    /**
+     * Navigate to resource
+     *
+     * @return ResourceRequestBuilder
+     */
+    public function resource(): ResourceRequestBuilder
+    {
+        return new ResourceRequestBuilder($this->client, $this->requestUrl . '/resource');
     }
 }
