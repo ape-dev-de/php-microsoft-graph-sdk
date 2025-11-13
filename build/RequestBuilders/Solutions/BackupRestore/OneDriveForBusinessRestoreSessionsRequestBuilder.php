@@ -27,10 +27,10 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends RootBaseRequestBu
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return OneDriveForBusinessRestoreSessionCollectionResponse
+     * @return OneDriveForBusinessRestoreSessionCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): OneDriveForBusinessRestoreSessionCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): OneDriveForBusinessRestoreSessionCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends RootBaseRequestBu
     }
 
     /**
-     * Deserialize response to OneDriveForBusinessRestoreSessionCollectionResponse
+     * Deserialize response to OneDriveForBusinessRestoreSessionCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): OneDriveForBusinessRestoreSessionCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends RootBaseRequestBu
     /**
      * Create oneDriveForBusinessRestoreSession
      * @param OneDriveForBusinessRestoreSession $body Request body
-     * @return OneDriveForBusinessRestoreSession
+     * @return OneDriveForBusinessRestoreSession|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(OneDriveForBusinessRestoreSession $body): OneDriveForBusinessRestoreSession
+    public function post(OneDriveForBusinessRestoreSession $body): OneDriveForBusinessRestoreSession|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to OneDriveForBusinessRestoreSession
+     * Deserialize response to OneDriveForBusinessRestoreSession|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): OneDriveForBusinessRestoreSession|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new OneDriveForBusinessRestoreSession($data);
     }

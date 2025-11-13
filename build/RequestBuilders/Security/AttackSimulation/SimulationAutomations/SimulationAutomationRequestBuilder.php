@@ -19,10 +19,10 @@ class SimulationAutomationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SimulationAutomation
+     * @return SimulationAutomation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SimulationAutomation
+    public function get(?array $select = null, ?array $expand = null): SimulationAutomation|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class SimulationAutomationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SimulationAutomation
+     * Deserialize response to SimulationAutomation|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SimulationAutomation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SimulationAutomation($data);
     }
     /**
      * Update the navigation property simulationAutomations in security
      * @param SimulationAutomation $body Request body
-     * @return SimulationAutomation
+     * @return SimulationAutomation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SimulationAutomation $body): SimulationAutomation
+    public function patch(SimulationAutomation $body): SimulationAutomation|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SimulationAutomation
+     * Deserialize response to SimulationAutomation|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SimulationAutomation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SimulationAutomation($data);
     }
@@ -109,17 +107,17 @@ class SimulationAutomationRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

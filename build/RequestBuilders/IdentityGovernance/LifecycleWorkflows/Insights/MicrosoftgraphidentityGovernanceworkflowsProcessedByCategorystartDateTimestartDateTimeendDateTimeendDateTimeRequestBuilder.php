@@ -15,10 +15,10 @@ class MicrosoftgraphidentityGovernanceworkflowsProcessedByCategorystartDateTimes
 {
     /**
      * Invoke function workflowsProcessedByCategory
-     * @return IdentityGovernanceWorkflowsInsightsByCategory|\stdClass
+     * @return IdentityGovernanceWorkflowsInsightsByCategory|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): IdentityGovernanceWorkflowsInsightsByCategory|\stdClass
+    public function get(): IdentityGovernanceWorkflowsInsightsByCategory|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class MicrosoftgraphidentityGovernanceworkflowsProcessedByCategorystartDateTimes
     }
 
     /**
-     * Deserialize response to IdentityGovernanceWorkflowsInsightsByCategory|\stdClass
+     * Deserialize response to IdentityGovernanceWorkflowsInsightsByCategory|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityGovernanceWorkflowsInsightsByCategory|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityGovernanceWorkflowsInsightsByCategory($data);
     }

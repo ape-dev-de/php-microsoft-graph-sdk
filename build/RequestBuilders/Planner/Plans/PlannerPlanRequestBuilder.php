@@ -21,10 +21,10 @@ class PlannerPlanRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PlannerPlan
+     * @return PlannerPlan|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PlannerPlan
+    public function get(?array $select = null, ?array $expand = null): PlannerPlan|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class PlannerPlanRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PlannerPlan
+     * Deserialize response to PlannerPlan|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PlannerPlan|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PlannerPlan($data);
     }
     /**
      * Update plannerPlan
      * @param PlannerPlan $body Request body
-     * @return PlannerPlan
+     * @return PlannerPlan|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PlannerPlan $body): PlannerPlan
+    public function patch(PlannerPlan $body): PlannerPlan|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PlannerPlan
+     * Deserialize response to PlannerPlan|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PlannerPlan|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PlannerPlan($data);
     }
@@ -111,17 +109,17 @@ class PlannerPlanRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

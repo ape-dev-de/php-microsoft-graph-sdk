@@ -20,10 +20,10 @@ class PostFederationSignupRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentityApiConnector
+     * @return IdentityApiConnector|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentityApiConnector
+    public function get(?array $select = null, ?array $expand = null): IdentityApiConnector|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class PostFederationSignupRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityApiConnector
+     * Deserialize response to IdentityApiConnector|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityApiConnector|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityApiConnector($data);
     }
     /**
      * Update the navigation property postFederationSignup in identity
      * @param IdentityApiConnector $body Request body
-     * @return IdentityApiConnector
+     * @return IdentityApiConnector|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(IdentityApiConnector $body): IdentityApiConnector
+    public function patch(IdentityApiConnector $body): IdentityApiConnector|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to IdentityApiConnector
+     * Deserialize response to IdentityApiConnector|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): IdentityApiConnector|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityApiConnector($data);
     }
@@ -110,17 +108,17 @@ class PostFederationSignupRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

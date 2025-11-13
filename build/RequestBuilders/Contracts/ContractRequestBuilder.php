@@ -23,10 +23,10 @@ class ContractRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Contract
+     * @return Contract|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Contract
+    public function get(?array $select = null, ?array $expand = null): Contract|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -42,52 +42,50 @@ class ContractRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Contract
+     * Deserialize response to Contract|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Contract|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Contract($data);
     }
     /**
      * Update entity in contracts
      * @param Contract $body Request body
-     * @return Contract
+     * @return Contract|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Contract $body): Contract
+    public function patch(Contract $body): Contract|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to Contract
+     * Deserialize response to Contract|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): Contract|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Contract($data);
     }
@@ -113,17 +111,17 @@ class ContractRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -19,10 +19,10 @@ class PrivacyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Privacy
+     * @return Privacy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Privacy
+    public function get(?array $select = null, ?array $expand = null): Privacy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class PrivacyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Privacy
+     * Deserialize response to Privacy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Privacy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Privacy($data);
     }
     /**
      * Update privacy
      * @param Privacy $body Request body
-     * @return Privacy
+     * @return Privacy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Privacy $body): Privacy
+    public function patch(Privacy $body): Privacy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to Privacy
+     * Deserialize response to Privacy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): Privacy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Privacy($data);
     }

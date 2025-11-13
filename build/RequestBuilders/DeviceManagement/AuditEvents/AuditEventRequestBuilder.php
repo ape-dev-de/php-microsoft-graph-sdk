@@ -18,10 +18,10 @@ class AuditEventRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AuditEvent
+     * @return AuditEvent|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AuditEvent
+    public function get(?array $select = null, ?array $expand = null): AuditEvent|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class AuditEventRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AuditEvent
+     * Deserialize response to AuditEvent|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AuditEvent|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuditEvent($data);
     }
     /**
      * Update auditEvent
      * @param AuditEvent $body Request body
-     * @return AuditEvent
+     * @return AuditEvent|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AuditEvent $body): AuditEvent
+    public function patch(AuditEvent $body): AuditEvent|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AuditEvent
+     * Deserialize response to AuditEvent|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AuditEvent|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuditEvent($data);
     }
@@ -108,17 +106,17 @@ class AuditEventRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

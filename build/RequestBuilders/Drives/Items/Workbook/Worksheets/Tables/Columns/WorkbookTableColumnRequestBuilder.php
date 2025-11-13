@@ -23,10 +23,10 @@ class WorkbookTableColumnRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WorkbookTableColumn
+     * @return WorkbookTableColumn|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WorkbookTableColumn
+    public function get(?array $select = null, ?array $expand = null): WorkbookTableColumn|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -42,52 +42,50 @@ class WorkbookTableColumnRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookTableColumn
+     * Deserialize response to WorkbookTableColumn|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookTableColumn|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookTableColumn($data);
     }
     /**
      * Update the navigation property columns in drives
      * @param WorkbookTableColumn $body Request body
-     * @return WorkbookTableColumn
+     * @return WorkbookTableColumn|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WorkbookTableColumn $body): WorkbookTableColumn
+    public function patch(WorkbookTableColumn $body): WorkbookTableColumn|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookTableColumn
+     * Deserialize response to WorkbookTableColumn|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WorkbookTableColumn|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookTableColumn($data);
     }
@@ -113,17 +111,17 @@ class WorkbookTableColumnRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

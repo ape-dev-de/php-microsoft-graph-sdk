@@ -18,10 +18,10 @@ class ParentGroupRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TermStoreGroup
+     * @return TermStoreGroup|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TermStoreGroup
+    public function get(?array $select = null, ?array $expand = null): TermStoreGroup|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ParentGroupRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TermStoreGroup
+     * Deserialize response to TermStoreGroup|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TermStoreGroup|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermStoreGroup($data);
     }
     /**
      * Update the navigation property parentGroup in sites
      * @param TermStoreGroup $body Request body
-     * @return TermStoreGroup
+     * @return TermStoreGroup|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TermStoreGroup $body): TermStoreGroup
+    public function patch(TermStoreGroup $body): TermStoreGroup|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TermStoreGroup
+     * Deserialize response to TermStoreGroup|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TermStoreGroup|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermStoreGroup($data);
     }
@@ -108,17 +106,17 @@ class ParentGroupRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

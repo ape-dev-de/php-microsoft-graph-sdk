@@ -21,10 +21,10 @@ class CallRecordRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CallRecordsCallRecord
+     * @return CallRecordsCallRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CallRecordsCallRecord
+    public function get(?array $select = null, ?array $expand = null): CallRecordsCallRecord|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class CallRecordRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to CallRecordsCallRecord
+     * Deserialize response to CallRecordsCallRecord|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CallRecordsCallRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CallRecordsCallRecord($data);
     }
     /**
      * Update the navigation property callRecords in communications
      * @param CallRecordsCallRecord $body Request body
-     * @return CallRecordsCallRecord
+     * @return CallRecordsCallRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(CallRecordsCallRecord $body): CallRecordsCallRecord
+    public function patch(CallRecordsCallRecord $body): CallRecordsCallRecord|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to CallRecordsCallRecord
+     * Deserialize response to CallRecordsCallRecord|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): CallRecordsCallRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CallRecordsCallRecord($data);
     }
@@ -111,17 +109,17 @@ class CallRecordRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

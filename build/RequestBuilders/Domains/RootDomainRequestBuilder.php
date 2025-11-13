@@ -18,10 +18,10 @@ class RootDomainRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Domain
+     * @return Domain|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Domain
+    public function get(?array $select = null, ?array $expand = null): Domain|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class RootDomainRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Domain
+     * Deserialize response to Domain|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Domain|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Domain($data);
     }

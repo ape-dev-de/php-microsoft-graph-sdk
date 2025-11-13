@@ -19,10 +19,10 @@ class ScopeRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AccessPackageResourceScope
+     * @return AccessPackageResourceScope|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AccessPackageResourceScope
+    public function get(?array $select = null, ?array $expand = null): AccessPackageResourceScope|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class ScopeRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AccessPackageResourceScope
+     * Deserialize response to AccessPackageResourceScope|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AccessPackageResourceScope|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessPackageResourceScope($data);
     }
     /**
      * Update the navigation property scope in identityGovernance
      * @param AccessPackageResourceScope $body Request body
-     * @return AccessPackageResourceScope
+     * @return AccessPackageResourceScope|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AccessPackageResourceScope $body): AccessPackageResourceScope
+    public function patch(AccessPackageResourceScope $body): AccessPackageResourceScope|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AccessPackageResourceScope
+     * Deserialize response to AccessPackageResourceScope|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AccessPackageResourceScope|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessPackageResourceScope($data);
     }
@@ -109,17 +107,17 @@ class ScopeRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

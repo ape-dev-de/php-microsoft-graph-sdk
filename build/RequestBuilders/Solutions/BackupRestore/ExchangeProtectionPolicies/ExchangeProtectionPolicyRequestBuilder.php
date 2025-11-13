@@ -21,10 +21,10 @@ class ExchangeProtectionPolicyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ExchangeProtectionPolicy
+     * @return ExchangeProtectionPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ExchangeProtectionPolicy
+    public function get(?array $select = null, ?array $expand = null): ExchangeProtectionPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class ExchangeProtectionPolicyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ExchangeProtectionPolicy
+     * Deserialize response to ExchangeProtectionPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ExchangeProtectionPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExchangeProtectionPolicy($data);
     }
     /**
      * Update exchangeProtectionPolicy
      * @param ExchangeProtectionPolicy $body Request body
-     * @return ExchangeProtectionPolicy
+     * @return ExchangeProtectionPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ExchangeProtectionPolicy $body): ExchangeProtectionPolicy
+    public function patch(ExchangeProtectionPolicy $body): ExchangeProtectionPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ExchangeProtectionPolicy
+     * Deserialize response to ExchangeProtectionPolicy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ExchangeProtectionPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExchangeProtectionPolicy($data);
     }
@@ -111,17 +109,17 @@ class ExchangeProtectionPolicyRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

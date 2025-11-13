@@ -27,10 +27,10 @@ class PasswordMethodsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return PasswordAuthenticationMethodCollectionResponse
+     * @return PasswordAuthenticationMethodCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PasswordAuthenticationMethodCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PasswordAuthenticationMethodCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class PasswordMethodsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PasswordAuthenticationMethodCollectionResponse
+     * Deserialize response to PasswordAuthenticationMethodCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PasswordAuthenticationMethodCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class PasswordMethodsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to passwordMethods for users
      * @param PasswordAuthenticationMethod $body Request body
-     * @return PasswordAuthenticationMethod
+     * @return PasswordAuthenticationMethod|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(PasswordAuthenticationMethod $body): PasswordAuthenticationMethod
+    public function post(PasswordAuthenticationMethod $body): PasswordAuthenticationMethod|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to PasswordAuthenticationMethod
+     * Deserialize response to PasswordAuthenticationMethod|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): PasswordAuthenticationMethod|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PasswordAuthenticationMethod($data);
     }

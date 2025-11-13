@@ -18,10 +18,10 @@ class FilePlanReferenceTemplateRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityFilePlanReferenceTemplate
+     * @return SecurityFilePlanReferenceTemplate|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityFilePlanReferenceTemplate
+    public function get(?array $select = null, ?array $expand = null): SecurityFilePlanReferenceTemplate|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class FilePlanReferenceTemplateRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityFilePlanReferenceTemplate
+     * Deserialize response to SecurityFilePlanReferenceTemplate|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityFilePlanReferenceTemplate|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityFilePlanReferenceTemplate($data);
     }

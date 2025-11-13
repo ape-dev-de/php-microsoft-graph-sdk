@@ -18,10 +18,10 @@ class SiteProtectionUnitsBulkAdditionJobRequestBuilder extends RootBaseRequestBu
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SiteProtectionUnitsBulkAdditionJob
+     * @return SiteProtectionUnitsBulkAdditionJob|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SiteProtectionUnitsBulkAdditionJob
+    public function get(?array $select = null, ?array $expand = null): SiteProtectionUnitsBulkAdditionJob|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class SiteProtectionUnitsBulkAdditionJobRequestBuilder extends RootBaseRequestBu
     }
 
     /**
-     * Deserialize response to SiteProtectionUnitsBulkAdditionJob
+     * Deserialize response to SiteProtectionUnitsBulkAdditionJob|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SiteProtectionUnitsBulkAdditionJob|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SiteProtectionUnitsBulkAdditionJob($data);
     }

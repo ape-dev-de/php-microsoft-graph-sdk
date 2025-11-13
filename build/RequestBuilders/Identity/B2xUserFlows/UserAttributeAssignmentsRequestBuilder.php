@@ -29,10 +29,10 @@ class UserAttributeAssignmentsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return IdentityUserFlowAttributeAssignmentCollectionResponse
+     * @return IdentityUserFlowAttributeAssignmentCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): IdentityUserFlowAttributeAssignmentCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): IdentityUserFlowAttributeAssignmentCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -66,19 +66,19 @@ class UserAttributeAssignmentsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityUserFlowAttributeAssignmentCollectionResponse
+     * Deserialize response to IdentityUserFlowAttributeAssignmentCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityUserFlowAttributeAssignmentCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -91,33 +91,31 @@ class UserAttributeAssignmentsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create userAttributeAssignments
      * @param IdentityUserFlowAttributeAssignment $body Request body
-     * @return IdentityUserFlowAttributeAssignment
+     * @return IdentityUserFlowAttributeAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(IdentityUserFlowAttributeAssignment $body): IdentityUserFlowAttributeAssignment
+    public function post(IdentityUserFlowAttributeAssignment $body): IdentityUserFlowAttributeAssignment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to IdentityUserFlowAttributeAssignment
+     * Deserialize response to IdentityUserFlowAttributeAssignment|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): IdentityUserFlowAttributeAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityUserFlowAttributeAssignment($data);
     }

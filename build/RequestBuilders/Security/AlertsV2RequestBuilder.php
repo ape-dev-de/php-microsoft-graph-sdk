@@ -27,10 +27,10 @@ class AlertsV2RequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return SecurityAlertCollectionResponse
+     * @return SecurityAlertCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SecurityAlertCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SecurityAlertCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class AlertsV2RequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityAlertCollectionResponse
+     * Deserialize response to SecurityAlertCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityAlertCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class AlertsV2RequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to alerts_v2 for security
      * @param SecurityAlert $body Request body
-     * @return SecurityAlert
+     * @return SecurityAlert|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(SecurityAlert $body): SecurityAlert
+    public function post(SecurityAlert $body): SecurityAlert|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to SecurityAlert
+     * Deserialize response to SecurityAlert|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): SecurityAlert|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityAlert($data);
     }

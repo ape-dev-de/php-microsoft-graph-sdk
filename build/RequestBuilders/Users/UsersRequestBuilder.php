@@ -31,10 +31,10 @@ class UsersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UserCollectionResponse
+     * @return UserCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null, ?int $top = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null, ?int $top = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -68,19 +68,19 @@ class UsersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserCollectionResponse
+     * Deserialize response to UserCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -93,33 +93,31 @@ class UsersRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create User
      * @param User $body Request body
-     * @return User
+     * @return User|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(User $body): User
+    public function post(User $body): User|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to User
+     * Deserialize response to User|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): User|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new User($data);
     }

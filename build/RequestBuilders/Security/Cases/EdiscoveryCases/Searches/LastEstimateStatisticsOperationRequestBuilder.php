@@ -18,10 +18,10 @@ class LastEstimateStatisticsOperationRequestBuilder extends RootBaseRequestBuild
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityEdiscoveryEstimateOperation
+     * @return SecurityEdiscoveryEstimateOperation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryEstimateOperation
+    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryEstimateOperation|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class LastEstimateStatisticsOperationRequestBuilder extends RootBaseRequestBuild
     }
 
     /**
-     * Deserialize response to SecurityEdiscoveryEstimateOperation
+     * Deserialize response to SecurityEdiscoveryEstimateOperation|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityEdiscoveryEstimateOperation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityEdiscoveryEstimateOperation($data);
     }

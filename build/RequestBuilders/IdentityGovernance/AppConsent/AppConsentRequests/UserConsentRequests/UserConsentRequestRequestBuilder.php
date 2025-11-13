@@ -19,10 +19,10 @@ class UserConsentRequestRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserConsentRequest
+     * @return UserConsentRequest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserConsentRequest
+    public function get(?array $select = null, ?array $expand = null): UserConsentRequest|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class UserConsentRequestRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserConsentRequest
+     * Deserialize response to UserConsentRequest|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserConsentRequest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserConsentRequest($data);
     }
     /**
      * Update the navigation property userConsentRequests in identityGovernance
      * @param UserConsentRequest $body Request body
-     * @return UserConsentRequest
+     * @return UserConsentRequest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserConsentRequest $body): UserConsentRequest
+    public function patch(UserConsentRequest $body): UserConsentRequest|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to UserConsentRequest
+     * Deserialize response to UserConsentRequest|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): UserConsentRequest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserConsentRequest($data);
     }
@@ -109,17 +107,17 @@ class UserConsentRequestRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

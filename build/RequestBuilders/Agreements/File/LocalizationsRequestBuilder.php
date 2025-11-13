@@ -27,10 +27,10 @@ class LocalizationsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AgreementFileLocalizationCollectionResponse
+     * @return AgreementFileLocalizationCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AgreementFileLocalizationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AgreementFileLocalizationCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class LocalizationsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AgreementFileLocalizationCollectionResponse
+     * Deserialize response to AgreementFileLocalizationCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AgreementFileLocalizationCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class LocalizationsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to localizations for agreements
      * @param AgreementFileLocalization $body Request body
-     * @return AgreementFileLocalization
+     * @return AgreementFileLocalization|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AgreementFileLocalization $body): AgreementFileLocalization
+    public function post(AgreementFileLocalization $body): AgreementFileLocalization|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AgreementFileLocalization
+     * Deserialize response to AgreementFileLocalization|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AgreementFileLocalization|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AgreementFileLocalization($data);
     }

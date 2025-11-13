@@ -24,10 +24,10 @@ class PrintModelRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PrintModel
+     * @return PrintModel|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PrintModel
+    public function get(?array $select = null, ?array $expand = null): PrintModel|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -43,52 +43,50 @@ class PrintModelRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrintModel
+     * Deserialize response to PrintModel|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrintModel|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintModel($data);
     }
     /**
      * Update print
      * @param PrintModel $body Request body
-     * @return PrintModel
+     * @return PrintModel|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PrintModel $body): PrintModel
+    public function patch(PrintModel $body): PrintModel|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PrintModel
+     * Deserialize response to PrintModel|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PrintModel|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintModel($data);
     }

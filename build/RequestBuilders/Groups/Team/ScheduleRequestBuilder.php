@@ -30,10 +30,10 @@ class ScheduleRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Schedule
+     * @return Schedule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Schedule
+    public function get(?array $select = null, ?array $expand = null): Schedule|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -49,52 +49,50 @@ class ScheduleRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Schedule
+     * Deserialize response to Schedule|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Schedule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Schedule($data);
     }
     /**
      * Update the navigation property schedule in groups
      * @param Schedule $body Request body
-     * @return Schedule
+     * @return Schedule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(Schedule $body): Schedule
+    public function put(Schedule $body): Schedule|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->put($this->requestUrl, $bodyData);
+        $response = $this->client->put($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePut($responseBody);
     }
 
     /**
-     * Deserialize response to Schedule
+     * Deserialize response to Schedule|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): Schedule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Schedule($data);
     }
@@ -120,17 +118,17 @@ class ScheduleRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -18,10 +18,10 @@ class HostTrackerRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityHostTracker
+     * @return SecurityHostTracker|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityHostTracker
+    public function get(?array $select = null, ?array $expand = null): SecurityHostTracker|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class HostTrackerRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityHostTracker
+     * Deserialize response to SecurityHostTracker|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityHostTracker|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityHostTracker($data);
     }

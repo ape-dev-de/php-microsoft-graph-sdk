@@ -27,10 +27,10 @@ class ReflectCheckInResponsesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ReflectCheckInResponseCollectionResponse
+     * @return ReflectCheckInResponseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ReflectCheckInResponseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ReflectCheckInResponseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ReflectCheckInResponsesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ReflectCheckInResponseCollectionResponse
+     * Deserialize response to ReflectCheckInResponseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ReflectCheckInResponseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ReflectCheckInResponsesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to reflectCheckInResponses for education
      * @param ReflectCheckInResponse $body Request body
-     * @return ReflectCheckInResponse
+     * @return ReflectCheckInResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ReflectCheckInResponse $body): ReflectCheckInResponse
+    public function post(ReflectCheckInResponse $body): ReflectCheckInResponse|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ReflectCheckInResponse
+     * Deserialize response to ReflectCheckInResponse|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ReflectCheckInResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ReflectCheckInResponse($data);
     }

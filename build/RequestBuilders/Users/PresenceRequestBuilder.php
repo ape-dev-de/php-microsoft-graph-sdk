@@ -23,10 +23,10 @@ class PresenceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Presence
+     * @return Presence|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Presence
+    public function get(?array $select = null, ?array $expand = null): Presence|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -42,52 +42,50 @@ class PresenceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Presence
+     * Deserialize response to Presence|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Presence|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Presence($data);
     }
     /**
      * Update the navigation property presence in users
      * @param Presence $body Request body
-     * @return Presence
+     * @return Presence|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Presence $body): Presence
+    public function patch(Presence $body): Presence|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to Presence
+     * Deserialize response to Presence|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): Presence|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Presence($data);
     }
@@ -113,17 +111,17 @@ class PresenceRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

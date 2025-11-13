@@ -18,10 +18,10 @@ class TargetScheduleRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UnifiedRoleAssignmentSchedule
+     * @return UnifiedRoleAssignmentSchedule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UnifiedRoleAssignmentSchedule
+    public function get(?array $select = null, ?array $expand = null): UnifiedRoleAssignmentSchedule|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class TargetScheduleRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UnifiedRoleAssignmentSchedule
+     * Deserialize response to UnifiedRoleAssignmentSchedule|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UnifiedRoleAssignmentSchedule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleAssignmentSchedule($data);
     }

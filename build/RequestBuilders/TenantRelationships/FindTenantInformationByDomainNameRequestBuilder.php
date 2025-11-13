@@ -15,10 +15,10 @@ class FindTenantInformationByDomainNameRequestBuilder extends RootBaseRequestBui
 {
     /**
      * Invoke function findTenantInformationByDomainName
-     * @return TenantInformation|\stdClass
+     * @return TenantInformation|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): TenantInformation|\stdClass
+    public function get(): TenantInformation|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class FindTenantInformationByDomainNameRequestBuilder extends RootBaseRequestBui
     }
 
     /**
-     * Deserialize response to TenantInformation|\stdClass
+     * Deserialize response to TenantInformation|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TenantInformation|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TenantInformation($data);
     }

@@ -18,10 +18,10 @@ class ResourceSpecificPermissionGrantRequestBuilder extends RootBaseRequestBuild
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ResourceSpecificPermissionGrant
+     * @return ResourceSpecificPermissionGrant|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ResourceSpecificPermissionGrant
+    public function get(?array $select = null, ?array $expand = null): ResourceSpecificPermissionGrant|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ResourceSpecificPermissionGrantRequestBuilder extends RootBaseRequestBuild
     }
 
     /**
-     * Deserialize response to ResourceSpecificPermissionGrant
+     * Deserialize response to ResourceSpecificPermissionGrant|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ResourceSpecificPermissionGrant|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ResourceSpecificPermissionGrant($data);
     }
     /**
      * Update the navigation property permissionGrants in groups
      * @param ResourceSpecificPermissionGrant $body Request body
-     * @return ResourceSpecificPermissionGrant
+     * @return ResourceSpecificPermissionGrant|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ResourceSpecificPermissionGrant $body): ResourceSpecificPermissionGrant
+    public function patch(ResourceSpecificPermissionGrant $body): ResourceSpecificPermissionGrant|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ResourceSpecificPermissionGrant
+     * Deserialize response to ResourceSpecificPermissionGrant|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ResourceSpecificPermissionGrant|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ResourceSpecificPermissionGrant($data);
     }
@@ -108,17 +106,17 @@ class ResourceSpecificPermissionGrantRequestBuilder extends RootBaseRequestBuild
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

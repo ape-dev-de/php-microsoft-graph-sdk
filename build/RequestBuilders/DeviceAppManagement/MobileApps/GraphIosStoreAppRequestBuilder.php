@@ -20,10 +20,10 @@ class GraphIosStoreAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IosStoreApp
+     * @return IosStoreApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IosStoreApp
+    public function get(?array $select = null, ?array $expand = null): IosStoreApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,19 +39,19 @@ class GraphIosStoreAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IosStoreApp
+     * Deserialize response to IosStoreApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IosStoreApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IosStoreApp($data);
     }

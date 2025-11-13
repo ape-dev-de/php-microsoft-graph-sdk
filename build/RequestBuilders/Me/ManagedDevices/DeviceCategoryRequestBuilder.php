@@ -19,10 +19,10 @@ class DeviceCategoryRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DeviceCategory
+     * @return DeviceCategory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DeviceCategory
+    public function get(?array $select = null, ?array $expand = null): DeviceCategory|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class DeviceCategoryRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DeviceCategory
+     * Deserialize response to DeviceCategory|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceCategory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceCategory($data);
     }
     /**
      * Update the navigation property deviceCategory in me
      * @param DeviceCategory $body Request body
-     * @return DeviceCategory
+     * @return DeviceCategory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DeviceCategory $body): DeviceCategory
+    public function patch(DeviceCategory $body): DeviceCategory|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceCategory
+     * Deserialize response to DeviceCategory|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DeviceCategory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceCategory($data);
     }
@@ -109,17 +107,17 @@ class DeviceCategoryRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

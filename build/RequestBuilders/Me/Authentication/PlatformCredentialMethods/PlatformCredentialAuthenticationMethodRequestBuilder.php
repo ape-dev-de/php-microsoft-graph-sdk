@@ -19,10 +19,10 @@ class PlatformCredentialAuthenticationMethodRequestBuilder extends RootBaseReque
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PlatformCredentialAuthenticationMethod
+     * @return PlatformCredentialAuthenticationMethod|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PlatformCredentialAuthenticationMethod
+    public function get(?array $select = null, ?array $expand = null): PlatformCredentialAuthenticationMethod|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class PlatformCredentialAuthenticationMethodRequestBuilder extends RootBaseReque
     }
 
     /**
-     * Deserialize response to PlatformCredentialAuthenticationMethod
+     * Deserialize response to PlatformCredentialAuthenticationMethod|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PlatformCredentialAuthenticationMethod|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PlatformCredentialAuthenticationMethod($data);
     }
@@ -76,17 +76,17 @@ class PlatformCredentialAuthenticationMethodRequestBuilder extends RootBaseReque
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

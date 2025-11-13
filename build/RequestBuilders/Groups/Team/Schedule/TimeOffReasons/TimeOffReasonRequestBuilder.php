@@ -18,10 +18,10 @@ class TimeOffReasonRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TimeOffReason
+     * @return TimeOffReason|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TimeOffReason
+    public function get(?array $select = null, ?array $expand = null): TimeOffReason|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class TimeOffReasonRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TimeOffReason
+     * Deserialize response to TimeOffReason|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TimeOffReason|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TimeOffReason($data);
     }
     /**
      * Update the navigation property timeOffReasons in groups
      * @param TimeOffReason $body Request body
-     * @return TimeOffReason
+     * @return TimeOffReason|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TimeOffReason $body): TimeOffReason
+    public function patch(TimeOffReason $body): TimeOffReason|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TimeOffReason
+     * Deserialize response to TimeOffReason|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TimeOffReason|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TimeOffReason($data);
     }
@@ -108,17 +106,17 @@ class TimeOffReasonRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

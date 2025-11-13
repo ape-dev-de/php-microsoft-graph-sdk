@@ -27,10 +27,10 @@ class MdmWindowsInformationProtectionPoliciesRequestBuilder extends RootBaseRequ
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return MdmWindowsInformationProtectionPolicyCollectionResponse
+     * @return MdmWindowsInformationProtectionPolicyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MdmWindowsInformationProtectionPolicyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MdmWindowsInformationProtectionPolicyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class MdmWindowsInformationProtectionPoliciesRequestBuilder extends RootBaseRequ
     }
 
     /**
-     * Deserialize response to MdmWindowsInformationProtectionPolicyCollectionResponse
+     * Deserialize response to MdmWindowsInformationProtectionPolicyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MdmWindowsInformationProtectionPolicyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class MdmWindowsInformationProtectionPoliciesRequestBuilder extends RootBaseRequ
     /**
      * Create mdmWindowsInformationProtectionPolicy
      * @param MdmWindowsInformationProtectionPolicy $body Request body
-     * @return MdmWindowsInformationProtectionPolicy
+     * @return MdmWindowsInformationProtectionPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(MdmWindowsInformationProtectionPolicy $body): MdmWindowsInformationProtectionPolicy
+    public function post(MdmWindowsInformationProtectionPolicy $body): MdmWindowsInformationProtectionPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to MdmWindowsInformationProtectionPolicy
+     * Deserialize response to MdmWindowsInformationProtectionPolicy|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): MdmWindowsInformationProtectionPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MdmWindowsInformationProtectionPolicy($data);
     }

@@ -14,10 +14,10 @@ class GetM365AppPlatformUserCountsRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function getM365AppPlatformUserCounts
-     * @return \stdClass
+     * @return \stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): \stdClass
+    public function get(): \stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -26,19 +26,19 @@ class GetM365AppPlatformUserCountsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to \stdClass
+     * Deserialize response to \stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): \stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         return (object)$data;
     }
 }

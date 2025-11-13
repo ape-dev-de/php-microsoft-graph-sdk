@@ -21,10 +21,10 @@ class WindowsInformationProtectionPolicyRequestBuilder extends RootBaseRequestBu
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WindowsInformationProtectionPolicy
+     * @return WindowsInformationProtectionPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WindowsInformationProtectionPolicy
+    public function get(?array $select = null, ?array $expand = null): WindowsInformationProtectionPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class WindowsInformationProtectionPolicyRequestBuilder extends RootBaseRequestBu
     }
 
     /**
-     * Deserialize response to WindowsInformationProtectionPolicy
+     * Deserialize response to WindowsInformationProtectionPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WindowsInformationProtectionPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WindowsInformationProtectionPolicy($data);
     }
     /**
      * Update windowsInformationProtectionPolicy
      * @param WindowsInformationProtectionPolicy $body Request body
-     * @return WindowsInformationProtectionPolicy
+     * @return WindowsInformationProtectionPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WindowsInformationProtectionPolicy $body): WindowsInformationProtectionPolicy
+    public function patch(WindowsInformationProtectionPolicy $body): WindowsInformationProtectionPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WindowsInformationProtectionPolicy
+     * Deserialize response to WindowsInformationProtectionPolicy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WindowsInformationProtectionPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WindowsInformationProtectionPolicy($data);
     }
@@ -111,17 +109,17 @@ class WindowsInformationProtectionPolicyRequestBuilder extends RootBaseRequestBu
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -18,10 +18,10 @@ class EndUserNotificationDetailRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return EndUserNotificationDetail
+     * @return EndUserNotificationDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): EndUserNotificationDetail
+    public function get(?array $select = null, ?array $expand = null): EndUserNotificationDetail|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class EndUserNotificationDetailRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to EndUserNotificationDetail
+     * Deserialize response to EndUserNotificationDetail|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): EndUserNotificationDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EndUserNotificationDetail($data);
     }
     /**
      * Update the navigation property details in security
      * @param EndUserNotificationDetail $body Request body
-     * @return EndUserNotificationDetail
+     * @return EndUserNotificationDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(EndUserNotificationDetail $body): EndUserNotificationDetail
+    public function patch(EndUserNotificationDetail $body): EndUserNotificationDetail|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to EndUserNotificationDetail
+     * Deserialize response to EndUserNotificationDetail|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): EndUserNotificationDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EndUserNotificationDetail($data);
     }
@@ -108,17 +106,17 @@ class EndUserNotificationDetailRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

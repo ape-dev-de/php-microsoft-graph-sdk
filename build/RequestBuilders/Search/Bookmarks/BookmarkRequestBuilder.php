@@ -18,10 +18,10 @@ class BookmarkRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SearchBookmark
+     * @return SearchBookmark|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SearchBookmark
+    public function get(?array $select = null, ?array $expand = null): SearchBookmark|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class BookmarkRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SearchBookmark
+     * Deserialize response to SearchBookmark|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SearchBookmark|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SearchBookmark($data);
     }
     /**
      * Update bookmark
      * @param SearchBookmark $body Request body
-     * @return SearchBookmark
+     * @return SearchBookmark|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SearchBookmark $body): SearchBookmark
+    public function patch(SearchBookmark $body): SearchBookmark|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SearchBookmark
+     * Deserialize response to SearchBookmark|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SearchBookmark|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SearchBookmark($data);
     }
@@ -108,17 +106,17 @@ class BookmarkRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

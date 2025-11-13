@@ -19,10 +19,10 @@ class ConversationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Conversation
+     * @return Conversation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Conversation
+    public function get(?array $select = null, ?array $expand = null): Conversation|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class ConversationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Conversation
+     * Deserialize response to Conversation|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Conversation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Conversation($data);
     }
@@ -76,17 +76,17 @@ class ConversationRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -18,10 +18,10 @@ class MailboxProtectionRuleRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MailboxProtectionRule
+     * @return MailboxProtectionRule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MailboxProtectionRule
+    public function get(?array $select = null, ?array $expand = null): MailboxProtectionRule|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class MailboxProtectionRuleRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MailboxProtectionRule
+     * Deserialize response to MailboxProtectionRule|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MailboxProtectionRule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MailboxProtectionRule($data);
     }

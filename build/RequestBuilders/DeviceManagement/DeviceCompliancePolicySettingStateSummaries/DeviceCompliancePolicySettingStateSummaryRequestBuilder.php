@@ -19,10 +19,10 @@ class DeviceCompliancePolicySettingStateSummaryRequestBuilder extends RootBaseRe
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DeviceCompliancePolicySettingStateSummary
+     * @return DeviceCompliancePolicySettingStateSummary|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DeviceCompliancePolicySettingStateSummary
+    public function get(?array $select = null, ?array $expand = null): DeviceCompliancePolicySettingStateSummary|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class DeviceCompliancePolicySettingStateSummaryRequestBuilder extends RootBaseRe
     }
 
     /**
-     * Deserialize response to DeviceCompliancePolicySettingStateSummary
+     * Deserialize response to DeviceCompliancePolicySettingStateSummary|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceCompliancePolicySettingStateSummary|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceCompliancePolicySettingStateSummary($data);
     }
     /**
      * Update deviceCompliancePolicySettingStateSummary
      * @param DeviceCompliancePolicySettingStateSummary $body Request body
-     * @return DeviceCompliancePolicySettingStateSummary
+     * @return DeviceCompliancePolicySettingStateSummary|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DeviceCompliancePolicySettingStateSummary $body): DeviceCompliancePolicySettingStateSummary
+    public function patch(DeviceCompliancePolicySettingStateSummary $body): DeviceCompliancePolicySettingStateSummary|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceCompliancePolicySettingStateSummary
+     * Deserialize response to DeviceCompliancePolicySettingStateSummary|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DeviceCompliancePolicySettingStateSummary|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceCompliancePolicySettingStateSummary($data);
     }
@@ -109,17 +107,17 @@ class DeviceCompliancePolicySettingStateSummaryRequestBuilder extends RootBaseRe
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

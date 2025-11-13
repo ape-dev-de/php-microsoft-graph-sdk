@@ -36,10 +36,10 @@ class TeamRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Team
+     * @return Team|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Team
+    public function get(?array $select = null, ?array $expand = null): Team|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -55,52 +55,50 @@ class TeamRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Team
+     * Deserialize response to Team|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Team|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Team($data);
     }
     /**
      * Create team from group
      * @param Team $body Request body
-     * @return Team
+     * @return Team|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(Team $body): Team
+    public function put(Team $body): Team|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->put($this->requestUrl, $bodyData);
+        $response = $this->client->put($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePut($responseBody);
     }
 
     /**
-     * Deserialize response to Team
+     * Deserialize response to Team|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): Team|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Team($data);
     }
@@ -126,17 +124,17 @@ class TeamRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

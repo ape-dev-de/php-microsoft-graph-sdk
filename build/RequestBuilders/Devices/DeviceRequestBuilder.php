@@ -28,10 +28,10 @@ class DeviceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Device
+     * @return Device|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Device
+    public function get(?array $select = null, ?array $expand = null): Device|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -47,52 +47,50 @@ class DeviceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Device
+     * Deserialize response to Device|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Device|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Device($data);
     }
     /**
      * Update device
      * @param Device $body Request body
-     * @return Device
+     * @return Device|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Device $body): Device
+    public function patch(Device $body): Device|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to Device
+     * Deserialize response to Device|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): Device|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Device($data);
     }
@@ -118,17 +116,17 @@ class DeviceRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

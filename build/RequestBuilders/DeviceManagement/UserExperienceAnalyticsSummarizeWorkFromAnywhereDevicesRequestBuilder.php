@@ -15,10 +15,10 @@ class UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder exte
 {
     /**
      * Invoke function userExperienceAnalyticsSummarizeWorkFromAnywhereDevices
-     * @return UserExperienceAnalyticsWorkFromAnywhereDevicesSummary|\stdClass
+     * @return UserExperienceAnalyticsWorkFromAnywhereDevicesSummary|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): UserExperienceAnalyticsWorkFromAnywhereDevicesSummary|\stdClass
+    public function get(): UserExperienceAnalyticsWorkFromAnywhereDevicesSummary|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder exte
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsWorkFromAnywhereDevicesSummary|\stdClass
+     * Deserialize response to UserExperienceAnalyticsWorkFromAnywhereDevicesSummary|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserExperienceAnalyticsWorkFromAnywhereDevicesSummary|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsWorkFromAnywhereDevicesSummary($data);
     }

@@ -17,10 +17,10 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
      * Get content for the navigation property bundles from drives
      *
      * @param string|null $format Format of the content
-     * @return string
+     * @return string|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?string $format = null): string
+    public function get(?string $format = null): string|null
     {
         $queryParams = [];
         if ($format !== null && $format !== '') {
@@ -33,52 +33,43 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to string
+     * Deserialize response to string|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): string|null    {
         if (empty($body)) {
             return null;
         }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Single object
-        return $data;
+
+        return $body;
     }
     /**
      * Update content for the navigation property bundles in drives
      * @param DriveItem $body Request body
-     * @return DriveItem
+     * @return DriveItem|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(DriveItem $body): DriveItem
+    public function put(DriveItem $body): DriveItem|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->put($this->requestUrl, $bodyData);
+        $response = $this->client->put($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePut($responseBody);
     }
 
     /**
-     * Deserialize response to DriveItem
+     * Deserialize response to DriveItem|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): DriveItem|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DriveItem($data);
     }
@@ -104,17 +95,17 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

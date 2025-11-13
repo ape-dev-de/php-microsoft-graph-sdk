@@ -27,10 +27,10 @@ class AttendanceReportsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return MeetingAttendanceReportCollectionResponse
+     * @return MeetingAttendanceReportCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MeetingAttendanceReportCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MeetingAttendanceReportCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class AttendanceReportsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MeetingAttendanceReportCollectionResponse
+     * Deserialize response to MeetingAttendanceReportCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MeetingAttendanceReportCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class AttendanceReportsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to attendanceReports for communications
      * @param MeetingAttendanceReport $body Request body
-     * @return MeetingAttendanceReport
+     * @return MeetingAttendanceReport|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(MeetingAttendanceReport $body): MeetingAttendanceReport
+    public function post(MeetingAttendanceReport $body): MeetingAttendanceReport|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to MeetingAttendanceReport
+     * Deserialize response to MeetingAttendanceReport|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): MeetingAttendanceReport|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MeetingAttendanceReport($data);
     }

@@ -18,10 +18,10 @@ class IntelligenceProfileIndicatorRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityIntelligenceProfileIndicator
+     * @return SecurityIntelligenceProfileIndicator|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityIntelligenceProfileIndicator
+    public function get(?array $select = null, ?array $expand = null): SecurityIntelligenceProfileIndicator|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class IntelligenceProfileIndicatorRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityIntelligenceProfileIndicator
+     * Deserialize response to SecurityIntelligenceProfileIndicator|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityIntelligenceProfileIndicator|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityIntelligenceProfileIndicator($data);
     }

@@ -30,10 +30,10 @@ class RiskyUsersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return RiskyUserCollectionResponse
+     * @return RiskyUserCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): RiskyUserCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): RiskyUserCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -67,19 +67,19 @@ class RiskyUsersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to RiskyUserCollectionResponse
+     * Deserialize response to RiskyUserCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): RiskyUserCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -92,33 +92,31 @@ class RiskyUsersRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to riskyUsers for identityProtection
      * @param RiskyUser $body Request body
-     * @return RiskyUser
+     * @return RiskyUser|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(RiskyUser $body): RiskyUser
+    public function post(RiskyUser $body): RiskyUser|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to RiskyUser
+     * Deserialize response to RiskyUser|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): RiskyUser|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RiskyUser($data);
     }

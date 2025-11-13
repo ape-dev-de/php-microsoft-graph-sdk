@@ -22,10 +22,10 @@ class UnifiedRoleEligibilityScheduleRequestBuilder extends RootBaseRequestBuilde
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UnifiedRoleEligibilitySchedule
+     * @return UnifiedRoleEligibilitySchedule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UnifiedRoleEligibilitySchedule
+    public function get(?array $select = null, ?array $expand = null): UnifiedRoleEligibilitySchedule|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -41,52 +41,50 @@ class UnifiedRoleEligibilityScheduleRequestBuilder extends RootBaseRequestBuilde
     }
 
     /**
-     * Deserialize response to UnifiedRoleEligibilitySchedule
+     * Deserialize response to UnifiedRoleEligibilitySchedule|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UnifiedRoleEligibilitySchedule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleEligibilitySchedule($data);
     }
     /**
      * Update the navigation property roleEligibilitySchedules in roleManagement
      * @param UnifiedRoleEligibilitySchedule $body Request body
-     * @return UnifiedRoleEligibilitySchedule
+     * @return UnifiedRoleEligibilitySchedule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UnifiedRoleEligibilitySchedule $body): UnifiedRoleEligibilitySchedule
+    public function patch(UnifiedRoleEligibilitySchedule $body): UnifiedRoleEligibilitySchedule|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to UnifiedRoleEligibilitySchedule
+     * Deserialize response to UnifiedRoleEligibilitySchedule|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): UnifiedRoleEligibilitySchedule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleEligibilitySchedule($data);
     }
@@ -112,17 +110,17 @@ class UnifiedRoleEligibilityScheduleRequestBuilder extends RootBaseRequestBuilde
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

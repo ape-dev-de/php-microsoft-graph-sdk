@@ -34,10 +34,10 @@ class GetByPathRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function getByPath
-     * @return Site|\stdClass
+     * @return Site|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): Site|\stdClass
+    public function get(): Site|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -46,19 +46,19 @@ class GetByPathRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Site|\stdClass
+     * Deserialize response to Site|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Site|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Site($data);
     }

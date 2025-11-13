@@ -18,10 +18,10 @@ class MailboxProtectionUnitRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MailboxProtectionUnit
+     * @return MailboxProtectionUnit|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MailboxProtectionUnit
+    public function get(?array $select = null, ?array $expand = null): MailboxProtectionUnit|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class MailboxProtectionUnitRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MailboxProtectionUnit
+     * Deserialize response to MailboxProtectionUnit|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MailboxProtectionUnit|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MailboxProtectionUnit($data);
     }
     /**
      * Update the navigation property mailboxProtectionUnits in solutions
      * @param MailboxProtectionUnit $body Request body
-     * @return MailboxProtectionUnit
+     * @return MailboxProtectionUnit|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(MailboxProtectionUnit $body): MailboxProtectionUnit
+    public function patch(MailboxProtectionUnit $body): MailboxProtectionUnit|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to MailboxProtectionUnit
+     * Deserialize response to MailboxProtectionUnit|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): MailboxProtectionUnit|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MailboxProtectionUnit($data);
     }
@@ -108,17 +106,17 @@ class MailboxProtectionUnitRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

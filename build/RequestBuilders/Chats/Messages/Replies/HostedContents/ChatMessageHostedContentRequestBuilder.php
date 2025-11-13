@@ -19,10 +19,10 @@ class ChatMessageHostedContentRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ChatMessageHostedContent
+     * @return ChatMessageHostedContent|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ChatMessageHostedContent
+    public function get(?array $select = null, ?array $expand = null): ChatMessageHostedContent|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class ChatMessageHostedContentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ChatMessageHostedContent
+     * Deserialize response to ChatMessageHostedContent|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ChatMessageHostedContent|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ChatMessageHostedContent($data);
     }
     /**
      * Update the navigation property hostedContents in chats
      * @param ChatMessageHostedContent $body Request body
-     * @return ChatMessageHostedContent
+     * @return ChatMessageHostedContent|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ChatMessageHostedContent $body): ChatMessageHostedContent
+    public function patch(ChatMessageHostedContent $body): ChatMessageHostedContent|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ChatMessageHostedContent
+     * Deserialize response to ChatMessageHostedContent|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ChatMessageHostedContent|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ChatMessageHostedContent($data);
     }
@@ -109,17 +107,17 @@ class ChatMessageHostedContentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

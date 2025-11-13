@@ -15,10 +15,10 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Get content for the navigation property attachmentSessions from users
-     * @return string
+     * @return string|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): string
+    public function get(): string|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,52 +27,43 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to string
+     * Deserialize response to string|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): string|null    {
         if (empty($body)) {
             return null;
         }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Single object
-        return $data;
+
+        return $body;
     }
     /**
      * Update content for the navigation property attachmentSessions in users
      * @param AttachmentSession $body Request body
-     * @return AttachmentSession
+     * @return AttachmentSession|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(AttachmentSession $body): AttachmentSession
+    public function put(AttachmentSession $body): AttachmentSession|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->put($this->requestUrl, $bodyData);
+        $response = $this->client->put($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePut($responseBody);
     }
 
     /**
-     * Deserialize response to AttachmentSession
+     * Deserialize response to AttachmentSession|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): AttachmentSession|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AttachmentSession($data);
     }
@@ -98,17 +89,17 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

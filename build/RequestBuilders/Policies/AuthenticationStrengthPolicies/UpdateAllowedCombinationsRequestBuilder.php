@@ -16,33 +16,31 @@ class UpdateAllowedCombinationsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action updateAllowedCombinations
      * @param UpdateAllowedCombinationsResult|\stdClass $body Request body
-     * @return UpdateAllowedCombinationsResult|\stdClass
+     * @return UpdateAllowedCombinationsResult|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UpdateAllowedCombinationsResult|\stdClass $body): UpdateAllowedCombinationsResult|\stdClass
+    public function post(UpdateAllowedCombinationsResult|\stdClass $body): UpdateAllowedCombinationsResult|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UpdateAllowedCombinationsResult|\stdClass
+     * Deserialize response to UpdateAllowedCombinationsResult|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UpdateAllowedCombinationsResult|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UpdateAllowedCombinationsResult($data);
     }

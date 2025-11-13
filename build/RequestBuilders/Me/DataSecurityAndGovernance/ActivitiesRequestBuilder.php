@@ -19,10 +19,10 @@ class ActivitiesRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ActivitiesContainer
+     * @return ActivitiesContainer|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ActivitiesContainer
+    public function get(?array $select = null, ?array $expand = null): ActivitiesContainer|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class ActivitiesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ActivitiesContainer
+     * Deserialize response to ActivitiesContainer|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ActivitiesContainer|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ActivitiesContainer($data);
     }
     /**
      * Update the navigation property activities in me
      * @param ActivitiesContainer $body Request body
-     * @return ActivitiesContainer
+     * @return ActivitiesContainer|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ActivitiesContainer $body): ActivitiesContainer
+    public function patch(ActivitiesContainer $body): ActivitiesContainer|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ActivitiesContainer
+     * Deserialize response to ActivitiesContainer|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ActivitiesContainer|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ActivitiesContainer($data);
     }
@@ -109,17 +107,17 @@ class ActivitiesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

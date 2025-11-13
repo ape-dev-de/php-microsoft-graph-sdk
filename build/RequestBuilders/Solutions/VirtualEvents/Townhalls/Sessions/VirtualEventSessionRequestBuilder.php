@@ -19,10 +19,10 @@ class VirtualEventSessionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return VirtualEventSession
+     * @return VirtualEventSession|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): VirtualEventSession
+    public function get(?array $select = null, ?array $expand = null): VirtualEventSession|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class VirtualEventSessionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to VirtualEventSession
+     * Deserialize response to VirtualEventSession|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): VirtualEventSession|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventSession($data);
     }
     /**
      * Update the navigation property sessions in solutions
      * @param VirtualEventSession $body Request body
-     * @return VirtualEventSession
+     * @return VirtualEventSession|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(VirtualEventSession $body): VirtualEventSession
+    public function patch(VirtualEventSession $body): VirtualEventSession|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to VirtualEventSession
+     * Deserialize response to VirtualEventSession|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): VirtualEventSession|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventSession($data);
     }
@@ -109,17 +107,17 @@ class VirtualEventSessionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

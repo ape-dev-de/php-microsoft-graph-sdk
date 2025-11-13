@@ -20,10 +20,10 @@ class PrintTaskRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PrintTask
+     * @return PrintTask|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PrintTask
+    public function get(?array $select = null, ?array $expand = null): PrintTask|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class PrintTaskRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrintTask
+     * Deserialize response to PrintTask|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrintTask|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintTask($data);
     }
     /**
      * Update printTask
      * @param PrintTask $body Request body
-     * @return PrintTask
+     * @return PrintTask|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PrintTask $body): PrintTask
+    public function patch(PrintTask $body): PrintTask|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PrintTask
+     * Deserialize response to PrintTask|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PrintTask|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintTask($data);
     }
@@ -110,17 +108,17 @@ class PrintTaskRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

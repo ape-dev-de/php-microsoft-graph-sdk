@@ -18,10 +18,10 @@ class TaskRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentityGovernanceTask
+     * @return IdentityGovernanceTask|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceTask
+    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceTask|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class TaskRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityGovernanceTask
+     * Deserialize response to IdentityGovernanceTask|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityGovernanceTask|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityGovernanceTask($data);
     }

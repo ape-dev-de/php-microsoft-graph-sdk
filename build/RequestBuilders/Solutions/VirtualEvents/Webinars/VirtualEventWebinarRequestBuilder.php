@@ -22,10 +22,10 @@ class VirtualEventWebinarRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return VirtualEventWebinar
+     * @return VirtualEventWebinar|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): VirtualEventWebinar
+    public function get(?array $select = null, ?array $expand = null): VirtualEventWebinar|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -41,52 +41,50 @@ class VirtualEventWebinarRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to VirtualEventWebinar
+     * Deserialize response to VirtualEventWebinar|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): VirtualEventWebinar|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventWebinar($data);
     }
     /**
      * Update virtualEventWebinar
      * @param VirtualEventWebinar $body Request body
-     * @return VirtualEventWebinar
+     * @return VirtualEventWebinar|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(VirtualEventWebinar $body): VirtualEventWebinar
+    public function patch(VirtualEventWebinar $body): VirtualEventWebinar|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to VirtualEventWebinar
+     * Deserialize response to VirtualEventWebinar|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): VirtualEventWebinar|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventWebinar($data);
     }
@@ -112,17 +110,17 @@ class VirtualEventWebinarRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

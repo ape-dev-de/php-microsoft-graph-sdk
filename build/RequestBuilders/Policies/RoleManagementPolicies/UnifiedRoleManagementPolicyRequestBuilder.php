@@ -20,10 +20,10 @@ class UnifiedRoleManagementPolicyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UnifiedRoleManagementPolicy
+     * @return UnifiedRoleManagementPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UnifiedRoleManagementPolicy
+    public function get(?array $select = null, ?array $expand = null): UnifiedRoleManagementPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class UnifiedRoleManagementPolicyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UnifiedRoleManagementPolicy
+     * Deserialize response to UnifiedRoleManagementPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UnifiedRoleManagementPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleManagementPolicy($data);
     }
     /**
      * Update the navigation property roleManagementPolicies in policies
      * @param UnifiedRoleManagementPolicy $body Request body
-     * @return UnifiedRoleManagementPolicy
+     * @return UnifiedRoleManagementPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UnifiedRoleManagementPolicy $body): UnifiedRoleManagementPolicy
+    public function patch(UnifiedRoleManagementPolicy $body): UnifiedRoleManagementPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to UnifiedRoleManagementPolicy
+     * Deserialize response to UnifiedRoleManagementPolicy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): UnifiedRoleManagementPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleManagementPolicy($data);
     }
@@ -110,17 +108,17 @@ class UnifiedRoleManagementPolicyRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

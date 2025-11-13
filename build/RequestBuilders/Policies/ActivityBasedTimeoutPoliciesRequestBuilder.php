@@ -27,10 +27,10 @@ class ActivityBasedTimeoutPoliciesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ActivityBasedTimeoutPolicyCollectionResponse
+     * @return ActivityBasedTimeoutPolicyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ActivityBasedTimeoutPolicyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ActivityBasedTimeoutPolicyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ActivityBasedTimeoutPoliciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ActivityBasedTimeoutPolicyCollectionResponse
+     * Deserialize response to ActivityBasedTimeoutPolicyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ActivityBasedTimeoutPolicyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ActivityBasedTimeoutPoliciesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create activityBasedTimeoutPolicy
      * @param ActivityBasedTimeoutPolicy $body Request body
-     * @return ActivityBasedTimeoutPolicy
+     * @return ActivityBasedTimeoutPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ActivityBasedTimeoutPolicy $body): ActivityBasedTimeoutPolicy
+    public function post(ActivityBasedTimeoutPolicy $body): ActivityBasedTimeoutPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ActivityBasedTimeoutPolicy
+     * Deserialize response to ActivityBasedTimeoutPolicy|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ActivityBasedTimeoutPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ActivityBasedTimeoutPolicy($data);
     }

@@ -8,6 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\AttachmentBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\AttachmentBase;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Todo\Lists\Tasks\Attachments\AttachmentBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Todo\Lists\Tasks\Attachments\CountRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Me\Todo\Lists\Tasks\Attachments\CreateUploadSessionRequestBuilder;
 
@@ -27,10 +28,10 @@ class AttachmentsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AttachmentBaseCollectionResponse
+     * @return AttachmentBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AttachmentBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AttachmentBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +65,19 @@ class AttachmentsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AttachmentBaseCollectionResponse
+     * Deserialize response to AttachmentBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AttachmentBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +90,31 @@ class AttachmentsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create taskFileAttachment
      * @param AttachmentBase $body Request body
-     * @return AttachmentBase
+     * @return AttachmentBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AttachmentBase $body): AttachmentBase
+    public function post(AttachmentBase $body): AttachmentBase|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AttachmentBase
+     * Deserialize response to AttachmentBase|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AttachmentBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AttachmentBase($data);
     }

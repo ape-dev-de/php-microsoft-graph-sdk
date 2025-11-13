@@ -19,10 +19,10 @@ class DetectedAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DetectedApp
+     * @return DetectedApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DetectedApp
+    public function get(?array $select = null, ?array $expand = null): DetectedApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class DetectedAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DetectedApp
+     * Deserialize response to DetectedApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DetectedApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DetectedApp($data);
     }
     /**
      * Update detectedApp
      * @param DetectedApp $body Request body
-     * @return DetectedApp
+     * @return DetectedApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DetectedApp $body): DetectedApp
+    public function patch(DetectedApp $body): DetectedApp|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DetectedApp
+     * Deserialize response to DetectedApp|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DetectedApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DetectedApp($data);
     }
@@ -109,17 +107,17 @@ class DetectedAppRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

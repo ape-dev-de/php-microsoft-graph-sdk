@@ -18,10 +18,10 @@ class PrintUsageByPrinterRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PrintUsageByPrinter
+     * @return PrintUsageByPrinter|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PrintUsageByPrinter
+    public function get(?array $select = null, ?array $expand = null): PrintUsageByPrinter|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class PrintUsageByPrinterRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrintUsageByPrinter
+     * Deserialize response to PrintUsageByPrinter|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrintUsageByPrinter|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintUsageByPrinter($data);
     }
     /**
      * Update the navigation property dailyPrintUsageByPrinter in reports
      * @param PrintUsageByPrinter $body Request body
-     * @return PrintUsageByPrinter
+     * @return PrintUsageByPrinter|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PrintUsageByPrinter $body): PrintUsageByPrinter
+    public function patch(PrintUsageByPrinter $body): PrintUsageByPrinter|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PrintUsageByPrinter
+     * Deserialize response to PrintUsageByPrinter|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PrintUsageByPrinter|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintUsageByPrinter($data);
     }
@@ -108,17 +106,17 @@ class PrintUsageByPrinterRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

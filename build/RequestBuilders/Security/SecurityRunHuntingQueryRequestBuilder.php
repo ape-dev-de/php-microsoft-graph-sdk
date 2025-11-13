@@ -16,33 +16,31 @@ class SecurityRunHuntingQueryRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action runHuntingQuery
      * @param SecurityHuntingQueryResults|\stdClass $body Request body
-     * @return SecurityHuntingQueryResults|\stdClass
+     * @return SecurityHuntingQueryResults|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(SecurityHuntingQueryResults|\stdClass $body): SecurityHuntingQueryResults|\stdClass
+    public function post(SecurityHuntingQueryResults|\stdClass $body): SecurityHuntingQueryResults|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to SecurityHuntingQueryResults|\stdClass
+     * Deserialize response to SecurityHuntingQueryResults|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): SecurityHuntingQueryResults|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityHuntingQueryResults($data);
     }

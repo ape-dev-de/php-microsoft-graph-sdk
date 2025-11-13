@@ -18,10 +18,10 @@ class DeviceComplianceUserStatusRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DeviceComplianceUserStatus
+     * @return DeviceComplianceUserStatus|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DeviceComplianceUserStatus
+    public function get(?array $select = null, ?array $expand = null): DeviceComplianceUserStatus|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class DeviceComplianceUserStatusRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DeviceComplianceUserStatus
+     * Deserialize response to DeviceComplianceUserStatus|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceComplianceUserStatus|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceComplianceUserStatus($data);
     }
     /**
      * Update deviceComplianceUserStatus
      * @param DeviceComplianceUserStatus $body Request body
-     * @return DeviceComplianceUserStatus
+     * @return DeviceComplianceUserStatus|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DeviceComplianceUserStatus $body): DeviceComplianceUserStatus
+    public function patch(DeviceComplianceUserStatus $body): DeviceComplianceUserStatus|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceComplianceUserStatus
+     * Deserialize response to DeviceComplianceUserStatus|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DeviceComplianceUserStatus|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceComplianceUserStatus($data);
     }
@@ -108,17 +106,17 @@ class DeviceComplianceUserStatusRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -15,10 +15,10 @@ class ExportDeviceAndAppManagementDataRequestBuilder extends RootBaseRequestBuil
 {
     /**
      * Invoke function exportDeviceAndAppManagementData
-     * @return DeviceAndAppManagementData|\stdClass
+     * @return DeviceAndAppManagementData|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): DeviceAndAppManagementData|\stdClass
+    public function get(): DeviceAndAppManagementData|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class ExportDeviceAndAppManagementDataRequestBuilder extends RootBaseRequestBuil
     }
 
     /**
-     * Deserialize response to DeviceAndAppManagementData|\stdClass
+     * Deserialize response to DeviceAndAppManagementData|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceAndAppManagementData|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceAndAppManagementData($data);
     }

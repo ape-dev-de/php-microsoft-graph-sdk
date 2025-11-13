@@ -16,33 +16,31 @@ class GetNotebookFromWebUrlRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action getNotebookFromWebUrl
      * @param CopyNotebookModel|\stdClass $body Request body
-     * @return CopyNotebookModel|\stdClass
+     * @return CopyNotebookModel|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(CopyNotebookModel|\stdClass $body): CopyNotebookModel|\stdClass
+    public function post(CopyNotebookModel|\stdClass $body): CopyNotebookModel|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to CopyNotebookModel|\stdClass
+     * Deserialize response to CopyNotebookModel|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): CopyNotebookModel|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CopyNotebookModel($data);
     }

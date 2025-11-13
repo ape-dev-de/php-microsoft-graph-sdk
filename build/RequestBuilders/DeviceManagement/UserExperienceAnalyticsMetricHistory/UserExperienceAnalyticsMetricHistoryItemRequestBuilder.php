@@ -18,10 +18,10 @@ class UserExperienceAnalyticsMetricHistoryItemRequestBuilder extends RootBaseReq
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsMetricHistory
+     * @return UserExperienceAnalyticsMetricHistory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsMetricHistory
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsMetricHistory|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class UserExperienceAnalyticsMetricHistoryItemRequestBuilder extends RootBaseReq
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsMetricHistory
+     * Deserialize response to UserExperienceAnalyticsMetricHistory|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserExperienceAnalyticsMetricHistory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsMetricHistory($data);
     }
     /**
      * Update the navigation property userExperienceAnalyticsMetricHistory in deviceManagement
      * @param UserExperienceAnalyticsMetricHistory $body Request body
-     * @return UserExperienceAnalyticsMetricHistory
+     * @return UserExperienceAnalyticsMetricHistory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsMetricHistory $body): UserExperienceAnalyticsMetricHistory
+    public function patch(UserExperienceAnalyticsMetricHistory $body): UserExperienceAnalyticsMetricHistory|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsMetricHistory
+     * Deserialize response to UserExperienceAnalyticsMetricHistory|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): UserExperienceAnalyticsMetricHistory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsMetricHistory($data);
     }
@@ -108,17 +106,17 @@ class UserExperienceAnalyticsMetricHistoryItemRequestBuilder extends RootBaseReq
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

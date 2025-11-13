@@ -19,10 +19,10 @@ class CustomExtensionStageSettingRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CustomExtensionStageSetting
+     * @return CustomExtensionStageSetting|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CustomExtensionStageSetting
+    public function get(?array $select = null, ?array $expand = null): CustomExtensionStageSetting|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class CustomExtensionStageSettingRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to CustomExtensionStageSetting
+     * Deserialize response to CustomExtensionStageSetting|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CustomExtensionStageSetting|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CustomExtensionStageSetting($data);
     }
     /**
      * Update the navigation property customExtensionStageSettings in identityGovernance
      * @param CustomExtensionStageSetting $body Request body
-     * @return CustomExtensionStageSetting
+     * @return CustomExtensionStageSetting|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(CustomExtensionStageSetting $body): CustomExtensionStageSetting
+    public function patch(CustomExtensionStageSetting $body): CustomExtensionStageSetting|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to CustomExtensionStageSetting
+     * Deserialize response to CustomExtensionStageSetting|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): CustomExtensionStageSetting|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CustomExtensionStageSetting($data);
     }
@@ -109,17 +107,17 @@ class CustomExtensionStageSettingRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -27,10 +27,10 @@ class UserSettingsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return CloudPcUserSettingCollectionResponse
+     * @return CloudPcUserSettingCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): CloudPcUserSettingCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): CloudPcUserSettingCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class UserSettingsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to CloudPcUserSettingCollectionResponse
+     * Deserialize response to CloudPcUserSettingCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CloudPcUserSettingCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class UserSettingsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create cloudPcUserSetting
      * @param CloudPcUserSetting $body Request body
-     * @return CloudPcUserSetting
+     * @return CloudPcUserSetting|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(CloudPcUserSetting $body): CloudPcUserSetting
+    public function post(CloudPcUserSetting $body): CloudPcUserSetting|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to CloudPcUserSetting
+     * Deserialize response to CloudPcUserSetting|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): CloudPcUserSetting|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CloudPcUserSetting($data);
     }

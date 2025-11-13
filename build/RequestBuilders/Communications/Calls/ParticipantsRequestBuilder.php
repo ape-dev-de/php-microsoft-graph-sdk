@@ -28,10 +28,10 @@ class ParticipantsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ParticipantCollectionResponse
+     * @return ParticipantCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ParticipantCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ParticipantCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class ParticipantsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ParticipantCollectionResponse
+     * Deserialize response to ParticipantCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ParticipantCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class ParticipantsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to participants for communications
      * @param Participant $body Request body
-     * @return Participant
+     * @return Participant|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(Participant $body): Participant
+    public function post(Participant $body): Participant|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to Participant
+     * Deserialize response to Participant|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): Participant|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Participant($data);
     }

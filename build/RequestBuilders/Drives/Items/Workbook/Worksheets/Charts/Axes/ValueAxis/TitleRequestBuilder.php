@@ -19,10 +19,10 @@ class TitleRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WorkbookChartAxisTitle
+     * @return WorkbookChartAxisTitle|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WorkbookChartAxisTitle
+    public function get(?array $select = null, ?array $expand = null): WorkbookChartAxisTitle|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class TitleRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookChartAxisTitle
+     * Deserialize response to WorkbookChartAxisTitle|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookChartAxisTitle|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookChartAxisTitle($data);
     }
     /**
      * Update the navigation property title in drives
      * @param WorkbookChartAxisTitle $body Request body
-     * @return WorkbookChartAxisTitle
+     * @return WorkbookChartAxisTitle|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WorkbookChartAxisTitle $body): WorkbookChartAxisTitle
+    public function patch(WorkbookChartAxisTitle $body): WorkbookChartAxisTitle|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookChartAxisTitle
+     * Deserialize response to WorkbookChartAxisTitle|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WorkbookChartAxisTitle|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookChartAxisTitle($data);
     }
@@ -109,17 +107,17 @@ class TitleRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

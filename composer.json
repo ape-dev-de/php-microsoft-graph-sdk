@@ -33,7 +33,8 @@
         "guzzlehttp/psr7": "^2.6",
         "symfony/console": "^6.0|^7.0",
         "symfony/yaml": "^6.0|^7.0",
-        "phpstan/phpstan": "^2.1"
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.89"
     },
     "autoload-dev": {
         "psr-4": {

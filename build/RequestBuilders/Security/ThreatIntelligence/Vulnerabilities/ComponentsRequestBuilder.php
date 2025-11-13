@@ -27,10 +27,10 @@ class ComponentsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return SecurityVulnerabilityComponentCollectionResponse
+     * @return SecurityVulnerabilityComponentCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SecurityVulnerabilityComponentCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SecurityVulnerabilityComponentCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ComponentsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityVulnerabilityComponentCollectionResponse
+     * Deserialize response to SecurityVulnerabilityComponentCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityVulnerabilityComponentCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ComponentsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to components for security
      * @param SecurityVulnerabilityComponent $body Request body
-     * @return SecurityVulnerabilityComponent
+     * @return SecurityVulnerabilityComponent|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(SecurityVulnerabilityComponent $body): SecurityVulnerabilityComponent
+    public function post(SecurityVulnerabilityComponent $body): SecurityVulnerabilityComponent|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to SecurityVulnerabilityComponent
+     * Deserialize response to SecurityVulnerabilityComponent|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): SecurityVulnerabilityComponent|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityVulnerabilityComponent($data);
     }

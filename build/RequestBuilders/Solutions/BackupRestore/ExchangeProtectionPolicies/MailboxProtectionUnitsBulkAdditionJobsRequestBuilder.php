@@ -27,10 +27,10 @@ class MailboxProtectionUnitsBulkAdditionJobsRequestBuilder extends RootBaseReque
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return MailboxProtectionUnitsBulkAdditionJobCollectionResponse
+     * @return MailboxProtectionUnitsBulkAdditionJobCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MailboxProtectionUnitsBulkAdditionJobCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MailboxProtectionUnitsBulkAdditionJobCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class MailboxProtectionUnitsBulkAdditionJobsRequestBuilder extends RootBaseReque
     }
 
     /**
-     * Deserialize response to MailboxProtectionUnitsBulkAdditionJobCollectionResponse
+     * Deserialize response to MailboxProtectionUnitsBulkAdditionJobCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MailboxProtectionUnitsBulkAdditionJobCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {

@@ -28,10 +28,10 @@ class TokenIssuancePoliciesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return TokenIssuancePolicyCollectionResponse
+     * @return TokenIssuancePolicyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TokenIssuancePolicyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TokenIssuancePolicyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class TokenIssuancePoliciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TokenIssuancePolicyCollectionResponse
+     * Deserialize response to TokenIssuancePolicyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TokenIssuancePolicyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {

@@ -19,10 +19,10 @@ class GraphRoomListRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return RoomList
+     * @return RoomList|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): RoomList
+    public function get(?array $select = null, ?array $expand = null): RoomList|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class GraphRoomListRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to RoomList
+     * Deserialize response to RoomList|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): RoomList|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RoomList($data);
     }

@@ -28,10 +28,10 @@ class UserConsentRequestsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UserConsentRequestCollectionResponse
+     * @return UserConsentRequestCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserConsentRequestCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserConsentRequestCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class UserConsentRequestsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserConsentRequestCollectionResponse
+     * Deserialize response to UserConsentRequestCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserConsentRequestCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class UserConsentRequestsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to userConsentRequests for identityGovernance
      * @param UserConsentRequest $body Request body
-     * @return UserConsentRequest
+     * @return UserConsentRequest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UserConsentRequest $body): UserConsentRequest
+    public function post(UserConsentRequest $body): UserConsentRequest|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UserConsentRequest
+     * Deserialize response to UserConsentRequest|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UserConsentRequest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserConsentRequest($data);
     }

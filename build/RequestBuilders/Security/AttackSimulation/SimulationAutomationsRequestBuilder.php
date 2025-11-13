@@ -27,10 +27,10 @@ class SimulationAutomationsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return SimulationAutomationCollectionResponse
+     * @return SimulationAutomationCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SimulationAutomationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SimulationAutomationCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class SimulationAutomationsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SimulationAutomationCollectionResponse
+     * Deserialize response to SimulationAutomationCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SimulationAutomationCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class SimulationAutomationsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to simulationAutomations for security
      * @param SimulationAutomation $body Request body
-     * @return SimulationAutomation
+     * @return SimulationAutomation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(SimulationAutomation $body): SimulationAutomation
+    public function post(SimulationAutomation $body): SimulationAutomation|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to SimulationAutomation
+     * Deserialize response to SimulationAutomation|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): SimulationAutomation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SimulationAutomation($data);
     }

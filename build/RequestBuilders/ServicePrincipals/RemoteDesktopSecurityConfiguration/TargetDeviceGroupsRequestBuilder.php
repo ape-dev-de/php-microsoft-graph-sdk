@@ -27,10 +27,10 @@ class TargetDeviceGroupsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return TargetDeviceGroupCollectionResponse
+     * @return TargetDeviceGroupCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TargetDeviceGroupCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TargetDeviceGroupCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class TargetDeviceGroupsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TargetDeviceGroupCollectionResponse
+     * Deserialize response to TargetDeviceGroupCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TargetDeviceGroupCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class TargetDeviceGroupsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create targetDeviceGroup
      * @param TargetDeviceGroup $body Request body
-     * @return TargetDeviceGroup
+     * @return TargetDeviceGroup|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(TargetDeviceGroup $body): TargetDeviceGroup
+    public function post(TargetDeviceGroup $body): TargetDeviceGroup|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to TargetDeviceGroup
+     * Deserialize response to TargetDeviceGroup|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): TargetDeviceGroup|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TargetDeviceGroup($data);
     }

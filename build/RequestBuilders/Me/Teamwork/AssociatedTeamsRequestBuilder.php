@@ -27,10 +27,10 @@ class AssociatedTeamsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AssociatedTeamInfoCollectionResponse
+     * @return AssociatedTeamInfoCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AssociatedTeamInfoCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AssociatedTeamInfoCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class AssociatedTeamsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AssociatedTeamInfoCollectionResponse
+     * Deserialize response to AssociatedTeamInfoCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AssociatedTeamInfoCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class AssociatedTeamsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to associatedTeams for me
      * @param AssociatedTeamInfo $body Request body
-     * @return AssociatedTeamInfo
+     * @return AssociatedTeamInfo|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AssociatedTeamInfo $body): AssociatedTeamInfo
+    public function post(AssociatedTeamInfo $body): AssociatedTeamInfo|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AssociatedTeamInfo
+     * Deserialize response to AssociatedTeamInfo|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AssociatedTeamInfo|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AssociatedTeamInfo($data);
     }

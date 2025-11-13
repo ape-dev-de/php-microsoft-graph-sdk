@@ -18,10 +18,10 @@ class ConditionalAccessTemplateRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ConditionalAccessTemplate
+     * @return ConditionalAccessTemplate|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ConditionalAccessTemplate
+    public function get(?array $select = null, ?array $expand = null): ConditionalAccessTemplate|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class ConditionalAccessTemplateRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ConditionalAccessTemplate
+     * Deserialize response to ConditionalAccessTemplate|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ConditionalAccessTemplate|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ConditionalAccessTemplate($data);
     }

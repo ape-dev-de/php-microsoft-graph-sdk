@@ -27,10 +27,10 @@ class DeviceCompliancePoliciesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DeviceCompliancePolicyCollectionResponse
+     * @return DeviceCompliancePolicyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DeviceCompliancePolicyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DeviceCompliancePolicyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class DeviceCompliancePoliciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DeviceCompliancePolicyCollectionResponse
+     * Deserialize response to DeviceCompliancePolicyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceCompliancePolicyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class DeviceCompliancePoliciesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create windowsPhone81CompliancePolicy
      * @param DeviceCompliancePolicy $body Request body
-     * @return DeviceCompliancePolicy
+     * @return DeviceCompliancePolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DeviceCompliancePolicy $body): DeviceCompliancePolicy
+    public function post(DeviceCompliancePolicy $body): DeviceCompliancePolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceCompliancePolicy
+     * Deserialize response to DeviceCompliancePolicy|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DeviceCompliancePolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceCompliancePolicy($data);
     }

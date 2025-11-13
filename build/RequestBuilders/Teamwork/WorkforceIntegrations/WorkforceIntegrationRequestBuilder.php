@@ -18,10 +18,10 @@ class WorkforceIntegrationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WorkforceIntegration
+     * @return WorkforceIntegration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WorkforceIntegration
+    public function get(?array $select = null, ?array $expand = null): WorkforceIntegration|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class WorkforceIntegrationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkforceIntegration
+     * Deserialize response to WorkforceIntegration|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkforceIntegration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkforceIntegration($data);
     }
     /**
      * Update workforceIntegration
      * @param WorkforceIntegration $body Request body
-     * @return WorkforceIntegration
+     * @return WorkforceIntegration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WorkforceIntegration $body): WorkforceIntegration
+    public function patch(WorkforceIntegration $body): WorkforceIntegration|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WorkforceIntegration
+     * Deserialize response to WorkforceIntegration|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WorkforceIntegration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkforceIntegration($data);
     }
@@ -108,17 +106,17 @@ class WorkforceIntegrationRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -27,10 +27,10 @@ class ResourceScopesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AccessPackageResourceScopeCollectionResponse
+     * @return AccessPackageResourceScopeCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AccessPackageResourceScopeCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AccessPackageResourceScopeCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ResourceScopesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AccessPackageResourceScopeCollectionResponse
+     * Deserialize response to AccessPackageResourceScopeCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AccessPackageResourceScopeCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ResourceScopesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to resourceScopes for identityGovernance
      * @param AccessPackageResourceScope $body Request body
-     * @return AccessPackageResourceScope
+     * @return AccessPackageResourceScope|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AccessPackageResourceScope $body): AccessPackageResourceScope
+    public function post(AccessPackageResourceScope $body): AccessPackageResourceScope|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AccessPackageResourceScope
+     * Deserialize response to AccessPackageResourceScope|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AccessPackageResourceScope|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessPackageResourceScope($data);
     }

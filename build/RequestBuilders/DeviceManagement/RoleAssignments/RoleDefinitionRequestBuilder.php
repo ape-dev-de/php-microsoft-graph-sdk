@@ -18,10 +18,10 @@ class RoleDefinitionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return RoleDefinition
+     * @return RoleDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): RoleDefinition
+    public function get(?array $select = null, ?array $expand = null): RoleDefinition|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class RoleDefinitionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to RoleDefinition
+     * Deserialize response to RoleDefinition|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): RoleDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RoleDefinition($data);
     }

@@ -27,10 +27,10 @@ class ConnectedOrganizationsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ConnectedOrganizationCollectionResponse
+     * @return ConnectedOrganizationCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ConnectedOrganizationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ConnectedOrganizationCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ConnectedOrganizationsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ConnectedOrganizationCollectionResponse
+     * Deserialize response to ConnectedOrganizationCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ConnectedOrganizationCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ConnectedOrganizationsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create connectedOrganization
      * @param ConnectedOrganization $body Request body
-     * @return ConnectedOrganization
+     * @return ConnectedOrganization|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ConnectedOrganization $body): ConnectedOrganization
+    public function post(ConnectedOrganization $body): ConnectedOrganization|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ConnectedOrganization
+     * Deserialize response to ConnectedOrganization|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ConnectedOrganization|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ConnectedOrganization($data);
     }

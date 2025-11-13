@@ -21,10 +21,10 @@ class GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder extends RootBa
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ExternalUsersSelfServiceSignUpEventsFlow
+     * @return ExternalUsersSelfServiceSignUpEventsFlow|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ExternalUsersSelfServiceSignUpEventsFlow
+    public function get(?array $select = null, ?array $expand = null): ExternalUsersSelfServiceSignUpEventsFlow|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,19 +40,19 @@ class GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder extends RootBa
     }
 
     /**
-     * Deserialize response to ExternalUsersSelfServiceSignUpEventsFlow
+     * Deserialize response to ExternalUsersSelfServiceSignUpEventsFlow|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ExternalUsersSelfServiceSignUpEventsFlow|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExternalUsersSelfServiceSignUpEventsFlow($data);
     }

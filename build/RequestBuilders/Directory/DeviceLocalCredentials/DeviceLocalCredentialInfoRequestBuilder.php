@@ -18,10 +18,10 @@ class DeviceLocalCredentialInfoRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DeviceLocalCredentialInfo
+     * @return DeviceLocalCredentialInfo|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DeviceLocalCredentialInfo
+    public function get(?array $select = null, ?array $expand = null): DeviceLocalCredentialInfo|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class DeviceLocalCredentialInfoRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DeviceLocalCredentialInfo
+     * Deserialize response to DeviceLocalCredentialInfo|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceLocalCredentialInfo|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceLocalCredentialInfo($data);
     }
     /**
      * Update the navigation property deviceLocalCredentials in directory
      * @param DeviceLocalCredentialInfo $body Request body
-     * @return DeviceLocalCredentialInfo
+     * @return DeviceLocalCredentialInfo|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DeviceLocalCredentialInfo $body): DeviceLocalCredentialInfo
+    public function patch(DeviceLocalCredentialInfo $body): DeviceLocalCredentialInfo|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceLocalCredentialInfo
+     * Deserialize response to DeviceLocalCredentialInfo|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DeviceLocalCredentialInfo|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceLocalCredentialInfo($data);
     }
@@ -108,17 +106,17 @@ class DeviceLocalCredentialInfoRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

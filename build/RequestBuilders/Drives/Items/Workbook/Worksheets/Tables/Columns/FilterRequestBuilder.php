@@ -30,10 +30,10 @@ class FilterRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WorkbookFilter
+     * @return WorkbookFilter|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WorkbookFilter
+    public function get(?array $select = null, ?array $expand = null): WorkbookFilter|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -49,52 +49,50 @@ class FilterRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookFilter
+     * Deserialize response to WorkbookFilter|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookFilter|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookFilter($data);
     }
     /**
      * Update the navigation property filter in drives
      * @param WorkbookFilter $body Request body
-     * @return WorkbookFilter
+     * @return WorkbookFilter|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WorkbookFilter $body): WorkbookFilter
+    public function patch(WorkbookFilter $body): WorkbookFilter|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookFilter
+     * Deserialize response to WorkbookFilter|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WorkbookFilter|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookFilter($data);
     }
@@ -120,17 +118,17 @@ class FilterRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

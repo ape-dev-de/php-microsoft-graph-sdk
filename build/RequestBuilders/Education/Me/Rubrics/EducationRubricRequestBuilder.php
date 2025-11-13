@@ -18,10 +18,10 @@ class EducationRubricRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return EducationRubric
+     * @return EducationRubric|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): EducationRubric
+    public function get(?array $select = null, ?array $expand = null): EducationRubric|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class EducationRubricRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to EducationRubric
+     * Deserialize response to EducationRubric|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): EducationRubric|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EducationRubric($data);
     }
     /**
      * Update educationRubric
      * @param EducationRubric $body Request body
-     * @return EducationRubric
+     * @return EducationRubric|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(EducationRubric $body): EducationRubric
+    public function patch(EducationRubric $body): EducationRubric|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to EducationRubric
+     * Deserialize response to EducationRubric|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): EducationRubric|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EducationRubric($data);
     }
@@ -108,17 +106,17 @@ class EducationRubricRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

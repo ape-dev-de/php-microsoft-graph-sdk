@@ -17,10 +17,10 @@ class SubscribedSkuRequestBuilder extends RootBaseRequestBuilder
      * Get subscribedSku
      *
      * @param array<int, string>|null $select Select properties to be returned
-     * @return SubscribedSku
+     * @return SubscribedSku|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null): SubscribedSku
+    public function get(?array $select = null): SubscribedSku|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -33,52 +33,50 @@ class SubscribedSkuRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SubscribedSku
+     * Deserialize response to SubscribedSku|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SubscribedSku|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SubscribedSku($data);
     }
     /**
      * Update entity in subscribedSkus
      * @param SubscribedSku $body Request body
-     * @return SubscribedSku
+     * @return SubscribedSku|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SubscribedSku $body): SubscribedSku
+    public function patch(SubscribedSku $body): SubscribedSku|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SubscribedSku
+     * Deserialize response to SubscribedSku|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SubscribedSku|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SubscribedSku($data);
     }
@@ -104,17 +102,17 @@ class SubscribedSkuRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

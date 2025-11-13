@@ -18,10 +18,10 @@ class EdiscoveryNoncustodialDataSourceRequestBuilder extends RootBaseRequestBuil
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityEdiscoveryNoncustodialDataSource
+     * @return SecurityEdiscoveryNoncustodialDataSource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryNoncustodialDataSource
+    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryNoncustodialDataSource|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class EdiscoveryNoncustodialDataSourceRequestBuilder extends RootBaseRequestBuil
     }
 
     /**
-     * Deserialize response to SecurityEdiscoveryNoncustodialDataSource
+     * Deserialize response to SecurityEdiscoveryNoncustodialDataSource|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityEdiscoveryNoncustodialDataSource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityEdiscoveryNoncustodialDataSource($data);
     }

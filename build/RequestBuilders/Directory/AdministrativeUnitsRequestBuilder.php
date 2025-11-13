@@ -28,10 +28,10 @@ class AdministrativeUnitsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AdministrativeUnitCollectionResponse
+     * @return AdministrativeUnitCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AdministrativeUnitCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AdministrativeUnitCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class AdministrativeUnitsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AdministrativeUnitCollectionResponse
+     * Deserialize response to AdministrativeUnitCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AdministrativeUnitCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class AdministrativeUnitsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create administrativeUnit
      * @param AdministrativeUnit $body Request body
-     * @return AdministrativeUnit
+     * @return AdministrativeUnit|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AdministrativeUnit $body): AdministrativeUnit
+    public function post(AdministrativeUnit $body): AdministrativeUnit|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AdministrativeUnit
+     * Deserialize response to AdministrativeUnit|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AdministrativeUnit|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AdministrativeUnit($data);
     }

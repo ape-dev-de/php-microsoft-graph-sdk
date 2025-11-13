@@ -27,10 +27,10 @@ class GroupLifecyclePoliciesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return GroupLifecyclePolicyCollectionResponse
+     * @return GroupLifecyclePolicyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): GroupLifecyclePolicyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): GroupLifecyclePolicyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class GroupLifecyclePoliciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to GroupLifecyclePolicyCollectionResponse
+     * Deserialize response to GroupLifecyclePolicyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): GroupLifecyclePolicyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class GroupLifecyclePoliciesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to groupLifecyclePolicies for groups
      * @param GroupLifecyclePolicy $body Request body
-     * @return GroupLifecyclePolicy
+     * @return GroupLifecyclePolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(GroupLifecyclePolicy $body): GroupLifecyclePolicy
+    public function post(GroupLifecyclePolicy $body): GroupLifecyclePolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to GroupLifecyclePolicy
+     * Deserialize response to GroupLifecyclePolicy|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): GroupLifecyclePolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new GroupLifecyclePolicy($data);
     }

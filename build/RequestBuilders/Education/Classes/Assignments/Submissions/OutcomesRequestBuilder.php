@@ -27,10 +27,10 @@ class OutcomesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return EducationOutcomeCollectionResponse
+     * @return EducationOutcomeCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): EducationOutcomeCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): EducationOutcomeCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class OutcomesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to EducationOutcomeCollectionResponse
+     * Deserialize response to EducationOutcomeCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): EducationOutcomeCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class OutcomesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create educationFeedbackResourceOutcome
      * @param EducationOutcome $body Request body
-     * @return EducationOutcome
+     * @return EducationOutcome|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(EducationOutcome $body): EducationOutcome
+    public function post(EducationOutcome $body): EducationOutcome|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to EducationOutcome
+     * Deserialize response to EducationOutcome|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): EducationOutcome|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EducationOutcome($data);
     }

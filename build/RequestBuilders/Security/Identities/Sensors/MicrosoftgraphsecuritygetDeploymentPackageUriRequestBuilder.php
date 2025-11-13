@@ -15,10 +15,10 @@ class MicrosoftgraphsecuritygetDeploymentPackageUriRequestBuilder extends RootBa
 {
     /**
      * Invoke function getDeploymentPackageUri
-     * @return SecuritySensorDeploymentPackage|\stdClass
+     * @return SecuritySensorDeploymentPackage|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): SecuritySensorDeploymentPackage|\stdClass
+    public function get(): SecuritySensorDeploymentPackage|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class MicrosoftgraphsecuritygetDeploymentPackageUriRequestBuilder extends RootBa
     }
 
     /**
-     * Deserialize response to SecuritySensorDeploymentPackage|\stdClass
+     * Deserialize response to SecuritySensorDeploymentPackage|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecuritySensorDeploymentPackage|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecuritySensorDeploymentPackage($data);
     }

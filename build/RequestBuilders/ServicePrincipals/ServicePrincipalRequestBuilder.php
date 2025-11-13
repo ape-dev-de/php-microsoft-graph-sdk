@@ -46,10 +46,10 @@ class ServicePrincipalRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ServicePrincipal
+     * @return ServicePrincipal|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ServicePrincipal
+    public function get(?array $select = null, ?array $expand = null): ServicePrincipal|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,52 +65,50 @@ class ServicePrincipalRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ServicePrincipal
+     * Deserialize response to ServicePrincipal|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ServicePrincipal|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServicePrincipal($data);
     }
     /**
      * Upsert servicePrincipal
      * @param ServicePrincipal $body Request body
-     * @return ServicePrincipal
+     * @return ServicePrincipal|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ServicePrincipal $body): ServicePrincipal
+    public function patch(ServicePrincipal $body): ServicePrincipal|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ServicePrincipal
+     * Deserialize response to ServicePrincipal|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ServicePrincipal|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServicePrincipal($data);
     }
@@ -136,17 +134,17 @@ class ServicePrincipalRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

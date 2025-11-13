@@ -15,10 +15,10 @@ class BoundingRectRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function boundingRect
-     * @return WorkbookRange|\stdClass
+     * @return WorkbookRange|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): WorkbookRange|\stdClass
+    public function get(): WorkbookRange|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class BoundingRectRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookRange|\stdClass
+     * Deserialize response to WorkbookRange|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookRange|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookRange($data);
     }

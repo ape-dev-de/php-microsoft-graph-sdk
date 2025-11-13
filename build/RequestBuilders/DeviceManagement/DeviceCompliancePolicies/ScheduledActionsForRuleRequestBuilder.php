@@ -27,10 +27,10 @@ class ScheduledActionsForRuleRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DeviceComplianceScheduledActionForRuleCollectionResponse
+     * @return DeviceComplianceScheduledActionForRuleCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DeviceComplianceScheduledActionForRuleCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DeviceComplianceScheduledActionForRuleCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ScheduledActionsForRuleRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DeviceComplianceScheduledActionForRuleCollectionResponse
+     * Deserialize response to DeviceComplianceScheduledActionForRuleCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceComplianceScheduledActionForRuleCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ScheduledActionsForRuleRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create deviceComplianceScheduledActionForRule
      * @param DeviceComplianceScheduledActionForRule $body Request body
-     * @return DeviceComplianceScheduledActionForRule
+     * @return DeviceComplianceScheduledActionForRule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DeviceComplianceScheduledActionForRule $body): DeviceComplianceScheduledActionForRule
+    public function post(DeviceComplianceScheduledActionForRule $body): DeviceComplianceScheduledActionForRule|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceComplianceScheduledActionForRule
+     * Deserialize response to DeviceComplianceScheduledActionForRule|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DeviceComplianceScheduledActionForRule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceComplianceScheduledActionForRule($data);
     }

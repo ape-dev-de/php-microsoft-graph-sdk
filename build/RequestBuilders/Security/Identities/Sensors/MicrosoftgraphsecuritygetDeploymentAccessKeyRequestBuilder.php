@@ -15,10 +15,10 @@ class MicrosoftgraphsecuritygetDeploymentAccessKeyRequestBuilder extends RootBas
 {
     /**
      * Invoke function getDeploymentAccessKey
-     * @return SecurityDeploymentAccessKeyType|\stdClass
+     * @return SecurityDeploymentAccessKeyType|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): SecurityDeploymentAccessKeyType|\stdClass
+    public function get(): SecurityDeploymentAccessKeyType|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class MicrosoftgraphsecuritygetDeploymentAccessKeyRequestBuilder extends RootBas
     }
 
     /**
-     * Deserialize response to SecurityDeploymentAccessKeyType|\stdClass
+     * Deserialize response to SecurityDeploymentAccessKeyType|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityDeploymentAccessKeyType|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityDeploymentAccessKeyType($data);
     }

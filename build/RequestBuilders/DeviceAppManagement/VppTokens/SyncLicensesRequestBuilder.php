@@ -16,33 +16,31 @@ class SyncLicensesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action syncLicenses
      * @param VppToken|\stdClass $body Request body
-     * @return VppToken|\stdClass
+     * @return VppToken|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(VppToken|\stdClass $body): VppToken|\stdClass
+    public function post(VppToken|\stdClass $body): VppToken|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to VppToken|\stdClass
+     * Deserialize response to VppToken|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): VppToken|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VppToken($data);
     }

@@ -18,10 +18,10 @@ class DriveProtectionRuleRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DriveProtectionRule
+     * @return DriveProtectionRule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DriveProtectionRule
+    public function get(?array $select = null, ?array $expand = null): DriveProtectionRule|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class DriveProtectionRuleRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DriveProtectionRule
+     * Deserialize response to DriveProtectionRule|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DriveProtectionRule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DriveProtectionRule($data);
     }
     /**
      * Update the navigation property driveInclusionRules in solutions
      * @param DriveProtectionRule $body Request body
-     * @return DriveProtectionRule
+     * @return DriveProtectionRule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DriveProtectionRule $body): DriveProtectionRule
+    public function patch(DriveProtectionRule $body): DriveProtectionRule|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DriveProtectionRule
+     * Deserialize response to DriveProtectionRule|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DriveProtectionRule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DriveProtectionRule($data);
     }
@@ -108,17 +106,17 @@ class DriveProtectionRuleRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

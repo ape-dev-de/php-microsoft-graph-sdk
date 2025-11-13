@@ -16,33 +16,31 @@ class FindMeetingTimesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action findMeetingTimes
      * @param MeetingTimeSuggestionsResult|\stdClass $body Request body
-     * @return MeetingTimeSuggestionsResult|\stdClass
+     * @return MeetingTimeSuggestionsResult|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(MeetingTimeSuggestionsResult|\stdClass $body): MeetingTimeSuggestionsResult|\stdClass
+    public function post(MeetingTimeSuggestionsResult|\stdClass $body): MeetingTimeSuggestionsResult|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to MeetingTimeSuggestionsResult|\stdClass
+     * Deserialize response to MeetingTimeSuggestionsResult|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): MeetingTimeSuggestionsResult|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MeetingTimeSuggestionsResult($data);
     }

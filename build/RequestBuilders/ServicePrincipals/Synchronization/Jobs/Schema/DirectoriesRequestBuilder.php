@@ -27,10 +27,10 @@ class DirectoriesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DirectoryDefinitionCollectionResponse
+     * @return DirectoryDefinitionCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DirectoryDefinitionCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DirectoryDefinitionCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class DirectoriesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DirectoryDefinitionCollectionResponse
+     * Deserialize response to DirectoryDefinitionCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DirectoryDefinitionCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class DirectoriesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to directories for servicePrincipals
      * @param DirectoryDefinition $body Request body
-     * @return DirectoryDefinition
+     * @return DirectoryDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DirectoryDefinition $body): DirectoryDefinition
+    public function post(DirectoryDefinition $body): DirectoryDefinition|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DirectoryDefinition
+     * Deserialize response to DirectoryDefinition|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DirectoryDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DirectoryDefinition($data);
     }

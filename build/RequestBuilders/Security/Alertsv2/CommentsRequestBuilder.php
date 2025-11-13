@@ -18,10 +18,10 @@ class CommentsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param string|null $ifMatch ETag
      * @param array<string, mixed> $body Request body
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(?string $ifMatch = null, array $body): array
+    public function post(?string $ifMatch = null, array $body): array|null
     {
         $queryParams = [];
         if ($ifMatch !== null && $ifMatch !== '') {
@@ -34,19 +34,19 @@ class CommentsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to array
+     * Deserialize response to array|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): array|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

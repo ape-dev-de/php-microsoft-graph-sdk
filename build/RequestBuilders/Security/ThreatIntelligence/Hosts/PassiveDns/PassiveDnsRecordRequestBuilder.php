@@ -18,10 +18,10 @@ class PassiveDnsRecordRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityPassiveDnsRecord
+     * @return SecurityPassiveDnsRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityPassiveDnsRecord
+    public function get(?array $select = null, ?array $expand = null): SecurityPassiveDnsRecord|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class PassiveDnsRecordRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityPassiveDnsRecord
+     * Deserialize response to SecurityPassiveDnsRecord|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityPassiveDnsRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityPassiveDnsRecord($data);
     }

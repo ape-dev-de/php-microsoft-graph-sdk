@@ -6,7 +6,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Security\AttackSimulation\O
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\ODataCountResponse;
 
 /**
  * Request builder for /security/attackSimulation/operations/$count
@@ -18,10 +17,10 @@ class CountRequestBuilder extends RootBaseRequestBuilder
      *
      * @param string|null $search Search items by search phrases
      * @param string|null $filter Filter items by property values
-     * @return ODataCountResponse
+     * @return int|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?string $search = null, ?string $filter = null): ODataCountResponse
+    public function get(?string $search = null, ?string $filter = null): int|null
     {
         $queryParams = [];
         if ($search !== null && $search !== '') {
@@ -37,20 +36,13 @@ class CountRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ODataCountResponse
+     * Deserialize response to int|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): int|null    {
         if (empty($body)) {
             return null;
         }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Single object
-        return (object)$data;
+
+        return (int)$body;
     }
 }

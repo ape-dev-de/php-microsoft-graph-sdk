@@ -16,33 +16,31 @@ class ActivateRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action activate
      * @param RestoreSessionBase|\stdClass $body Request body
-     * @return RestoreSessionBase|\stdClass
+     * @return RestoreSessionBase|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(RestoreSessionBase|\stdClass $body): RestoreSessionBase|\stdClass
+    public function post(RestoreSessionBase|\stdClass $body): RestoreSessionBase|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to RestoreSessionBase|\stdClass
+     * Deserialize response to RestoreSessionBase|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): RestoreSessionBase|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RestoreSessionBase($data);
     }

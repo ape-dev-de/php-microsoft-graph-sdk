@@ -21,10 +21,10 @@ class ResourceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AccessPackageResource
+     * @return AccessPackageResource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AccessPackageResource
+    public function get(?array $select = null, ?array $expand = null): AccessPackageResource|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class ResourceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AccessPackageResource
+     * Deserialize response to AccessPackageResource|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AccessPackageResource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessPackageResource($data);
     }
     /**
      * Update the navigation property resource in identityGovernance
      * @param AccessPackageResource $body Request body
-     * @return AccessPackageResource
+     * @return AccessPackageResource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AccessPackageResource $body): AccessPackageResource
+    public function patch(AccessPackageResource $body): AccessPackageResource|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AccessPackageResource
+     * Deserialize response to AccessPackageResource|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AccessPackageResource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessPackageResource($data);
     }
@@ -111,17 +109,17 @@ class ResourceRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

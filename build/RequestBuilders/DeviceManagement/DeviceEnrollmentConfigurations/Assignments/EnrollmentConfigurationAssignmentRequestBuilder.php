@@ -18,10 +18,10 @@ class EnrollmentConfigurationAssignmentRequestBuilder extends RootBaseRequestBui
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return EnrollmentConfigurationAssignment
+     * @return EnrollmentConfigurationAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): EnrollmentConfigurationAssignment
+    public function get(?array $select = null, ?array $expand = null): EnrollmentConfigurationAssignment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class EnrollmentConfigurationAssignmentRequestBuilder extends RootBaseRequestBui
     }
 
     /**
-     * Deserialize response to EnrollmentConfigurationAssignment
+     * Deserialize response to EnrollmentConfigurationAssignment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): EnrollmentConfigurationAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EnrollmentConfigurationAssignment($data);
     }
     /**
      * Update enrollmentConfigurationAssignment
      * @param EnrollmentConfigurationAssignment $body Request body
-     * @return EnrollmentConfigurationAssignment
+     * @return EnrollmentConfigurationAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(EnrollmentConfigurationAssignment $body): EnrollmentConfigurationAssignment
+    public function patch(EnrollmentConfigurationAssignment $body): EnrollmentConfigurationAssignment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to EnrollmentConfigurationAssignment
+     * Deserialize response to EnrollmentConfigurationAssignment|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): EnrollmentConfigurationAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EnrollmentConfigurationAssignment($data);
     }
@@ -108,17 +106,17 @@ class EnrollmentConfigurationAssignmentRequestBuilder extends RootBaseRequestBui
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

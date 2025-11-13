@@ -21,10 +21,10 @@ class GraphWindowsMobileMSIRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WindowsMobileMSI
+     * @return WindowsMobileMSI|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WindowsMobileMSI
+    public function get(?array $select = null, ?array $expand = null): WindowsMobileMSI|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,19 +40,19 @@ class GraphWindowsMobileMSIRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WindowsMobileMSI
+     * Deserialize response to WindowsMobileMSI|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WindowsMobileMSI|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WindowsMobileMSI($data);
     }

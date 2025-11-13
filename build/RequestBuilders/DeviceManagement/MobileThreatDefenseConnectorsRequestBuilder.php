@@ -27,10 +27,10 @@ class MobileThreatDefenseConnectorsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return MobileThreatDefenseConnectorCollectionResponse
+     * @return MobileThreatDefenseConnectorCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MobileThreatDefenseConnectorCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MobileThreatDefenseConnectorCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class MobileThreatDefenseConnectorsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MobileThreatDefenseConnectorCollectionResponse
+     * Deserialize response to MobileThreatDefenseConnectorCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MobileThreatDefenseConnectorCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class MobileThreatDefenseConnectorsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create mobileThreatDefenseConnector
      * @param MobileThreatDefenseConnector $body Request body
-     * @return MobileThreatDefenseConnector
+     * @return MobileThreatDefenseConnector|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(MobileThreatDefenseConnector $body): MobileThreatDefenseConnector
+    public function post(MobileThreatDefenseConnector $body): MobileThreatDefenseConnector|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to MobileThreatDefenseConnector
+     * Deserialize response to MobileThreatDefenseConnector|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): MobileThreatDefenseConnector|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MobileThreatDefenseConnector($data);
     }

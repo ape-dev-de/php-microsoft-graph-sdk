@@ -26,10 +26,10 @@ class ItemAtRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function itemAt
-     * @return WorkbookTable|\stdClass
+     * @return WorkbookTable|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): WorkbookTable|\stdClass
+    public function get(): WorkbookTable|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -38,19 +38,19 @@ class ItemAtRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookTable|\stdClass
+     * Deserialize response to WorkbookTable|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookTable|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookTable($data);
     }

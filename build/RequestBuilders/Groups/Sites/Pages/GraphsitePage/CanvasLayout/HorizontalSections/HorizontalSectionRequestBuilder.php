@@ -19,10 +19,10 @@ class HorizontalSectionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return HorizontalSection
+     * @return HorizontalSection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): HorizontalSection
+    public function get(?array $select = null, ?array $expand = null): HorizontalSection|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class HorizontalSectionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to HorizontalSection
+     * Deserialize response to HorizontalSection|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): HorizontalSection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new HorizontalSection($data);
     }
     /**
      * Update the navigation property horizontalSections in groups
      * @param HorizontalSection $body Request body
-     * @return HorizontalSection
+     * @return HorizontalSection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(HorizontalSection $body): HorizontalSection
+    public function patch(HorizontalSection $body): HorizontalSection|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to HorizontalSection
+     * Deserialize response to HorizontalSection|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): HorizontalSection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new HorizontalSection($data);
     }
@@ -109,17 +107,17 @@ class HorizontalSectionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

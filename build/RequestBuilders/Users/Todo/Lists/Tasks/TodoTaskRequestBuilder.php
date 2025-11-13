@@ -23,10 +23,10 @@ class TodoTaskRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TodoTask
+     * @return TodoTask|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TodoTask
+    public function get(?array $select = null, ?array $expand = null): TodoTask|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -42,52 +42,50 @@ class TodoTaskRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TodoTask
+     * Deserialize response to TodoTask|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TodoTask|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TodoTask($data);
     }
     /**
      * Update the navigation property tasks in users
      * @param TodoTask $body Request body
-     * @return TodoTask
+     * @return TodoTask|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TodoTask $body): TodoTask
+    public function patch(TodoTask $body): TodoTask|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TodoTask
+     * Deserialize response to TodoTask|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TodoTask|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TodoTask($data);
     }
@@ -113,17 +111,17 @@ class TodoTaskRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

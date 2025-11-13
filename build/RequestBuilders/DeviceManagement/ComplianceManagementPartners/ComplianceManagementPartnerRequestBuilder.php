@@ -18,10 +18,10 @@ class ComplianceManagementPartnerRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ComplianceManagementPartner
+     * @return ComplianceManagementPartner|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ComplianceManagementPartner
+    public function get(?array $select = null, ?array $expand = null): ComplianceManagementPartner|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ComplianceManagementPartnerRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ComplianceManagementPartner
+     * Deserialize response to ComplianceManagementPartner|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ComplianceManagementPartner|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ComplianceManagementPartner($data);
     }
     /**
      * Update complianceManagementPartner
      * @param ComplianceManagementPartner $body Request body
-     * @return ComplianceManagementPartner
+     * @return ComplianceManagementPartner|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ComplianceManagementPartner $body): ComplianceManagementPartner
+    public function patch(ComplianceManagementPartner $body): ComplianceManagementPartner|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ComplianceManagementPartner
+     * Deserialize response to ComplianceManagementPartner|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ComplianceManagementPartner|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ComplianceManagementPartner($data);
     }
@@ -108,17 +106,17 @@ class ComplianceManagementPartnerRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

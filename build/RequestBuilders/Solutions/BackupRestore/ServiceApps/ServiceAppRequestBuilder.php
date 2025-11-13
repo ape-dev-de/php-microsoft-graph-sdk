@@ -20,10 +20,10 @@ class ServiceAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ServiceApp
+     * @return ServiceApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ServiceApp
+    public function get(?array $select = null, ?array $expand = null): ServiceApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class ServiceAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ServiceApp
+     * Deserialize response to ServiceApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ServiceApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServiceApp($data);
     }
     /**
      * Update the navigation property serviceApps in solutions
      * @param ServiceApp $body Request body
-     * @return ServiceApp
+     * @return ServiceApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ServiceApp $body): ServiceApp
+    public function patch(ServiceApp $body): ServiceApp|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ServiceApp
+     * Deserialize response to ServiceApp|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ServiceApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServiceApp($data);
     }
@@ -110,17 +108,17 @@ class ServiceAppRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

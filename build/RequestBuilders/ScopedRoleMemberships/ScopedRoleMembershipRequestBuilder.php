@@ -18,10 +18,10 @@ class ScopedRoleMembershipRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ScopedRoleMembership
+     * @return ScopedRoleMembership|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ScopedRoleMembership
+    public function get(?array $select = null, ?array $expand = null): ScopedRoleMembership|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ScopedRoleMembershipRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ScopedRoleMembership
+     * Deserialize response to ScopedRoleMembership|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ScopedRoleMembership|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ScopedRoleMembership($data);
     }
     /**
      * Update entity in scopedRoleMemberships
      * @param ScopedRoleMembership $body Request body
-     * @return ScopedRoleMembership
+     * @return ScopedRoleMembership|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ScopedRoleMembership $body): ScopedRoleMembership
+    public function patch(ScopedRoleMembership $body): ScopedRoleMembership|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ScopedRoleMembership
+     * Deserialize response to ScopedRoleMembership|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ScopedRoleMembership|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ScopedRoleMembership($data);
     }
@@ -108,17 +106,17 @@ class ScopedRoleMembershipRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

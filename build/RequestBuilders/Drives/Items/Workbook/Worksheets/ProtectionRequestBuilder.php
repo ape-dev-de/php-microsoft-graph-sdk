@@ -20,10 +20,10 @@ class ProtectionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WorkbookWorksheetProtection
+     * @return WorkbookWorksheetProtection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WorkbookWorksheetProtection
+    public function get(?array $select = null, ?array $expand = null): WorkbookWorksheetProtection|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class ProtectionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookWorksheetProtection
+     * Deserialize response to WorkbookWorksheetProtection|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookWorksheetProtection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookWorksheetProtection($data);
     }
     /**
      * Update the navigation property protection in drives
      * @param WorkbookWorksheetProtection $body Request body
-     * @return WorkbookWorksheetProtection
+     * @return WorkbookWorksheetProtection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WorkbookWorksheetProtection $body): WorkbookWorksheetProtection
+    public function patch(WorkbookWorksheetProtection $body): WorkbookWorksheetProtection|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookWorksheetProtection
+     * Deserialize response to WorkbookWorksheetProtection|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WorkbookWorksheetProtection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookWorksheetProtection($data);
     }
@@ -110,17 +108,17 @@ class ProtectionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

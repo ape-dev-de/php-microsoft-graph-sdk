@@ -16,10 +16,10 @@ class GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestB
 {
     /**
      * Get the item of type microsoft.graph.onAuthenticationMethodLoadStartHandler as microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp
-     * @return OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp
+     * @return OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp
+    public function get(): OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -28,19 +28,19 @@ class GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestB
     }
 
     /**
-     * Deserialize response to OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp
+     * Deserialize response to OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp($data);
     }

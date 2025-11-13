@@ -20,10 +20,10 @@ class AccessReviewScheduleDefinitionRequestBuilder extends RootBaseRequestBuilde
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AccessReviewScheduleDefinition
+     * @return AccessReviewScheduleDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AccessReviewScheduleDefinition
+    public function get(?array $select = null, ?array $expand = null): AccessReviewScheduleDefinition|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class AccessReviewScheduleDefinitionRequestBuilder extends RootBaseRequestBuilde
     }
 
     /**
-     * Deserialize response to AccessReviewScheduleDefinition
+     * Deserialize response to AccessReviewScheduleDefinition|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AccessReviewScheduleDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessReviewScheduleDefinition($data);
     }
     /**
      * Update accessReviewScheduleDefinition
      * @param AccessReviewScheduleDefinition $body Request body
-     * @return AccessReviewScheduleDefinition
+     * @return AccessReviewScheduleDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(AccessReviewScheduleDefinition $body): AccessReviewScheduleDefinition
+    public function put(AccessReviewScheduleDefinition $body): AccessReviewScheduleDefinition|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->put($this->requestUrl, $bodyData);
+        $response = $this->client->put($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePut($responseBody);
     }
 
     /**
-     * Deserialize response to AccessReviewScheduleDefinition
+     * Deserialize response to AccessReviewScheduleDefinition|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): AccessReviewScheduleDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessReviewScheduleDefinition($data);
     }
@@ -110,17 +108,17 @@ class AccessReviewScheduleDefinitionRequestBuilder extends RootBaseRequestBuilde
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

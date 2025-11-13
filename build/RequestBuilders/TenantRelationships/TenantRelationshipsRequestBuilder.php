@@ -23,10 +23,10 @@ class TenantRelationshipsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TenantRelationship
+     * @return TenantRelationship|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TenantRelationship
+    public function get(?array $select = null, ?array $expand = null): TenantRelationship|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -42,52 +42,50 @@ class TenantRelationshipsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TenantRelationship
+     * Deserialize response to TenantRelationship|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TenantRelationship|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TenantRelationship($data);
     }
     /**
      * Update tenantRelationships
      * @param TenantRelationship $body Request body
-     * @return TenantRelationship
+     * @return TenantRelationship|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TenantRelationship $body): TenantRelationship
+    public function patch(TenantRelationship $body): TenantRelationship|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TenantRelationship
+     * Deserialize response to TenantRelationship|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TenantRelationship|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TenantRelationship($data);
     }

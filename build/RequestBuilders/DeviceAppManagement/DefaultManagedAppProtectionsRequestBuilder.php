@@ -27,10 +27,10 @@ class DefaultManagedAppProtectionsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DefaultManagedAppProtectionCollectionResponse
+     * @return DefaultManagedAppProtectionCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DefaultManagedAppProtectionCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DefaultManagedAppProtectionCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class DefaultManagedAppProtectionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DefaultManagedAppProtectionCollectionResponse
+     * Deserialize response to DefaultManagedAppProtectionCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DefaultManagedAppProtectionCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class DefaultManagedAppProtectionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create defaultManagedAppProtection
      * @param DefaultManagedAppProtection $body Request body
-     * @return DefaultManagedAppProtection
+     * @return DefaultManagedAppProtection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DefaultManagedAppProtection $body): DefaultManagedAppProtection
+    public function post(DefaultManagedAppProtection $body): DefaultManagedAppProtection|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DefaultManagedAppProtection
+     * Deserialize response to DefaultManagedAppProtection|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DefaultManagedAppProtection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DefaultManagedAppProtection($data);
     }

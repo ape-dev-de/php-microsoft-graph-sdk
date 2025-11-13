@@ -22,10 +22,10 @@ class PrinterShareRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PrinterShare
+     * @return PrinterShare|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PrinterShare
+    public function get(?array $select = null, ?array $expand = null): PrinterShare|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -41,52 +41,50 @@ class PrinterShareRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrinterShare
+     * Deserialize response to PrinterShare|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrinterShare|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrinterShare($data);
     }
     /**
      * Update printerShare
      * @param PrinterShare $body Request body
-     * @return PrinterShare
+     * @return PrinterShare|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PrinterShare $body): PrinterShare
+    public function patch(PrinterShare $body): PrinterShare|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PrinterShare
+     * Deserialize response to PrinterShare|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PrinterShare|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrinterShare($data);
     }
@@ -112,17 +110,17 @@ class PrinterShareRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

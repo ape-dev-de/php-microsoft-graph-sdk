@@ -24,10 +24,10 @@ class AdminRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Admin
+     * @return Admin|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Admin
+    public function get(?array $select = null, ?array $expand = null): Admin|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -43,52 +43,50 @@ class AdminRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Admin
+     * Deserialize response to Admin|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Admin|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Admin($data);
     }
     /**
      * Update admin
      * @param Admin $body Request body
-     * @return Admin
+     * @return Admin|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Admin $body): Admin
+    public function patch(Admin $body): Admin|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to Admin
+     * Deserialize response to Admin|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): Admin|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Admin($data);
     }

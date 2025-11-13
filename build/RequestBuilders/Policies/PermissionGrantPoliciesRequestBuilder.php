@@ -27,10 +27,10 @@ class PermissionGrantPoliciesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return PermissionGrantPolicyCollectionResponse
+     * @return PermissionGrantPolicyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PermissionGrantPolicyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PermissionGrantPolicyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class PermissionGrantPoliciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PermissionGrantPolicyCollectionResponse
+     * Deserialize response to PermissionGrantPolicyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PermissionGrantPolicyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class PermissionGrantPoliciesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create permissionGrantPolicy
      * @param PermissionGrantPolicy $body Request body
-     * @return PermissionGrantPolicy
+     * @return PermissionGrantPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(PermissionGrantPolicy $body): PermissionGrantPolicy
+    public function post(PermissionGrantPolicy $body): PermissionGrantPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to PermissionGrantPolicy
+     * Deserialize response to PermissionGrantPolicy|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): PermissionGrantPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PermissionGrantPolicy($data);
     }

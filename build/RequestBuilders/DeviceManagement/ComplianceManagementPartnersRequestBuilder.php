@@ -27,10 +27,10 @@ class ComplianceManagementPartnersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ComplianceManagementPartnerCollectionResponse
+     * @return ComplianceManagementPartnerCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ComplianceManagementPartnerCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ComplianceManagementPartnerCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ComplianceManagementPartnersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ComplianceManagementPartnerCollectionResponse
+     * Deserialize response to ComplianceManagementPartnerCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ComplianceManagementPartnerCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ComplianceManagementPartnersRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create complianceManagementPartner
      * @param ComplianceManagementPartner $body Request body
-     * @return ComplianceManagementPartner
+     * @return ComplianceManagementPartner|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ComplianceManagementPartner $body): ComplianceManagementPartner
+    public function post(ComplianceManagementPartner $body): ComplianceManagementPartner|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ComplianceManagementPartner
+     * Deserialize response to ComplianceManagementPartner|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ComplianceManagementPartner|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ComplianceManagementPartner($data);
     }

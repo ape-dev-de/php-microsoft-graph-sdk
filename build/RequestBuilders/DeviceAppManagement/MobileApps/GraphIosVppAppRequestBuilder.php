@@ -20,10 +20,10 @@ class GraphIosVppAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IosVppApp
+     * @return IosVppApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IosVppApp
+    public function get(?array $select = null, ?array $expand = null): IosVppApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,19 +39,19 @@ class GraphIosVppAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IosVppApp
+     * Deserialize response to IosVppApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IosVppApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IosVppApp($data);
     }

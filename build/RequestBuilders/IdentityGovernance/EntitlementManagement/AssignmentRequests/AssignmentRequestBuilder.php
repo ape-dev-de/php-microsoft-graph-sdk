@@ -18,10 +18,10 @@ class AssignmentRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AccessPackageAssignment
+     * @return AccessPackageAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AccessPackageAssignment
+    public function get(?array $select = null, ?array $expand = null): AccessPackageAssignment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class AssignmentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AccessPackageAssignment
+     * Deserialize response to AccessPackageAssignment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AccessPackageAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AccessPackageAssignment($data);
     }

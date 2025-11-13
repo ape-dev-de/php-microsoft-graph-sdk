@@ -27,10 +27,10 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsR
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse
+     * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsR
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse
+     * Deserialize response to UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsR
     /**
      * Create new navigation property to userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails for deviceManagement
      * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails $body Request body
-     * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
+     * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails $body): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
+    public function post(UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails $body): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails
+     * Deserialize response to UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails($data);
     }

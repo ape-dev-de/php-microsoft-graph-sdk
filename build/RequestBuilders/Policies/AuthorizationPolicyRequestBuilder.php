@@ -18,10 +18,10 @@ class AuthorizationPolicyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AuthorizationPolicy
+     * @return AuthorizationPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AuthorizationPolicy
+    public function get(?array $select = null, ?array $expand = null): AuthorizationPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class AuthorizationPolicyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AuthorizationPolicy
+     * Deserialize response to AuthorizationPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AuthorizationPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthorizationPolicy($data);
     }
     /**
      * Update authorizationPolicy
      * @param AuthorizationPolicy $body Request body
-     * @return AuthorizationPolicy
+     * @return AuthorizationPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AuthorizationPolicy $body): AuthorizationPolicy
+    public function patch(AuthorizationPolicy $body): AuthorizationPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AuthorizationPolicy
+     * Deserialize response to AuthorizationPolicy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AuthorizationPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthorizationPolicy($data);
     }
@@ -108,17 +106,17 @@ class AuthorizationPolicyRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -15,10 +15,10 @@ class GetOrderRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function getOrder
-     * @return AssignmentOrder|\stdClass
+     * @return AssignmentOrder|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): AssignmentOrder|\stdClass
+    public function get(): AssignmentOrder|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class GetOrderRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AssignmentOrder|\stdClass
+     * Deserialize response to AssignmentOrder|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AssignmentOrder|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AssignmentOrder($data);
     }

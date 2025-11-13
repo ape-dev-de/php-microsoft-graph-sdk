@@ -18,10 +18,10 @@ class FilePlanReferenceTemplateRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityFilePlanReferenceTemplate
+     * @return SecurityFilePlanReferenceTemplate|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityFilePlanReferenceTemplate
+    public function get(?array $select = null, ?array $expand = null): SecurityFilePlanReferenceTemplate|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class FilePlanReferenceTemplateRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityFilePlanReferenceTemplate
+     * Deserialize response to SecurityFilePlanReferenceTemplate|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityFilePlanReferenceTemplate|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityFilePlanReferenceTemplate($data);
     }
     /**
      * Update the navigation property filePlanReferences in security
      * @param SecurityFilePlanReferenceTemplate $body Request body
-     * @return SecurityFilePlanReferenceTemplate
+     * @return SecurityFilePlanReferenceTemplate|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SecurityFilePlanReferenceTemplate $body): SecurityFilePlanReferenceTemplate
+    public function patch(SecurityFilePlanReferenceTemplate $body): SecurityFilePlanReferenceTemplate|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SecurityFilePlanReferenceTemplate
+     * Deserialize response to SecurityFilePlanReferenceTemplate|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SecurityFilePlanReferenceTemplate|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityFilePlanReferenceTemplate($data);
     }
@@ -108,17 +106,17 @@ class FilePlanReferenceTemplateRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -18,10 +18,10 @@ class SoftwareOathAuthenticationMethodRequestBuilder extends RootBaseRequestBuil
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SoftwareOathAuthenticationMethod
+     * @return SoftwareOathAuthenticationMethod|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SoftwareOathAuthenticationMethod
+    public function get(?array $select = null, ?array $expand = null): SoftwareOathAuthenticationMethod|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class SoftwareOathAuthenticationMethodRequestBuilder extends RootBaseRequestBuil
     }
 
     /**
-     * Deserialize response to SoftwareOathAuthenticationMethod
+     * Deserialize response to SoftwareOathAuthenticationMethod|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SoftwareOathAuthenticationMethod|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SoftwareOathAuthenticationMethod($data);
     }
@@ -75,17 +75,17 @@ class SoftwareOathAuthenticationMethodRequestBuilder extends RootBaseRequestBuil
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

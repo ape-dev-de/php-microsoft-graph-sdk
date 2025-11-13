@@ -28,10 +28,10 @@ class JoinedTeamsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return TeamCollectionResponse
+     * @return TeamCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TeamCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TeamCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class JoinedTeamsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TeamCollectionResponse
+     * Deserialize response to TeamCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TeamCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class JoinedTeamsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to joinedTeams for users
      * @param Team $body Request body
-     * @return Team
+     * @return Team|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(Team $body): Team
+    public function post(Team $body): Team|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to Team
+     * Deserialize response to Team|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): Team|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Team($data);
     }

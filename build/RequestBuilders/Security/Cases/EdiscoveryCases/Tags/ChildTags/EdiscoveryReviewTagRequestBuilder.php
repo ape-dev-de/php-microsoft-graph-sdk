@@ -18,10 +18,10 @@ class EdiscoveryReviewTagRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityEdiscoveryReviewTag
+     * @return SecurityEdiscoveryReviewTag|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryReviewTag
+    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryReviewTag|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class EdiscoveryReviewTagRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityEdiscoveryReviewTag
+     * Deserialize response to SecurityEdiscoveryReviewTag|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityEdiscoveryReviewTag|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityEdiscoveryReviewTag($data);
     }

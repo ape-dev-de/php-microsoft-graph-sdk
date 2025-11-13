@@ -21,10 +21,10 @@ class GraphWin32LobAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Win32LobApp
+     * @return Win32LobApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Win32LobApp
+    public function get(?array $select = null, ?array $expand = null): Win32LobApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,19 +40,19 @@ class GraphWin32LobAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Win32LobApp
+     * Deserialize response to Win32LobApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Win32LobApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Win32LobApp($data);
     }

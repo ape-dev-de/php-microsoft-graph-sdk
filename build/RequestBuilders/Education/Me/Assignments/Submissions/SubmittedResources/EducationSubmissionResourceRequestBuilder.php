@@ -18,10 +18,10 @@ class EducationSubmissionResourceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return EducationSubmissionResource
+     * @return EducationSubmissionResource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): EducationSubmissionResource
+    public function get(?array $select = null, ?array $expand = null): EducationSubmissionResource|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class EducationSubmissionResourceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to EducationSubmissionResource
+     * Deserialize response to EducationSubmissionResource|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): EducationSubmissionResource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EducationSubmissionResource($data);
     }
     /**
      * Update the navigation property submittedResources in education
      * @param EducationSubmissionResource $body Request body
-     * @return EducationSubmissionResource
+     * @return EducationSubmissionResource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(EducationSubmissionResource $body): EducationSubmissionResource
+    public function patch(EducationSubmissionResource $body): EducationSubmissionResource|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to EducationSubmissionResource
+     * Deserialize response to EducationSubmissionResource|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): EducationSubmissionResource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EducationSubmissionResource($data);
     }
@@ -108,17 +106,17 @@ class EducationSubmissionResourceRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

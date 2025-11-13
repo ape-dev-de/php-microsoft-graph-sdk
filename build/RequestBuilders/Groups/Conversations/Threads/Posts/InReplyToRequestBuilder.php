@@ -22,10 +22,10 @@ class InReplyToRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Post
+     * @return Post|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Post
+    public function get(?array $select = null, ?array $expand = null): Post|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -41,19 +41,19 @@ class InReplyToRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Post
+     * Deserialize response to Post|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Post|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Post($data);
     }

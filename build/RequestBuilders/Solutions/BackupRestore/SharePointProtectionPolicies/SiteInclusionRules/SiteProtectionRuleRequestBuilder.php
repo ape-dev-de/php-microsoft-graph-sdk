@@ -18,10 +18,10 @@ class SiteProtectionRuleRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SiteProtectionRule
+     * @return SiteProtectionRule|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SiteProtectionRule
+    public function get(?array $select = null, ?array $expand = null): SiteProtectionRule|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class SiteProtectionRuleRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SiteProtectionRule
+     * Deserialize response to SiteProtectionRule|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SiteProtectionRule|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SiteProtectionRule($data);
     }

@@ -20,10 +20,10 @@ class AuthenticationEventsFlowRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AuthenticationEventsFlow
+     * @return AuthenticationEventsFlow|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AuthenticationEventsFlow
+    public function get(?array $select = null, ?array $expand = null): AuthenticationEventsFlow|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class AuthenticationEventsFlowRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AuthenticationEventsFlow
+     * Deserialize response to AuthenticationEventsFlow|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AuthenticationEventsFlow|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthenticationEventsFlow($data);
     }
     /**
      * Update authenticationEventsFlow
      * @param AuthenticationEventsFlow $body Request body
-     * @return AuthenticationEventsFlow
+     * @return AuthenticationEventsFlow|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AuthenticationEventsFlow $body): AuthenticationEventsFlow
+    public function patch(AuthenticationEventsFlow $body): AuthenticationEventsFlow|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AuthenticationEventsFlow
+     * Deserialize response to AuthenticationEventsFlow|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AuthenticationEventsFlow|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthenticationEventsFlow($data);
     }
@@ -110,17 +108,17 @@ class AuthenticationEventsFlowRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

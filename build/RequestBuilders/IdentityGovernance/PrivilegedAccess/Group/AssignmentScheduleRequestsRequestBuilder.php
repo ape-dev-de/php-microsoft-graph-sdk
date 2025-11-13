@@ -28,10 +28,10 @@ class AssignmentScheduleRequestsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse
+     * @return PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class AssignmentScheduleRequestsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse
+     * Deserialize response to PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class AssignmentScheduleRequestsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create assignmentScheduleRequest
      * @param PrivilegedAccessGroupAssignmentScheduleRequest $body Request body
-     * @return PrivilegedAccessGroupAssignmentScheduleRequest
+     * @return PrivilegedAccessGroupAssignmentScheduleRequest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(PrivilegedAccessGroupAssignmentScheduleRequest $body): PrivilegedAccessGroupAssignmentScheduleRequest
+    public function post(PrivilegedAccessGroupAssignmentScheduleRequest $body): PrivilegedAccessGroupAssignmentScheduleRequest|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to PrivilegedAccessGroupAssignmentScheduleRequest
+     * Deserialize response to PrivilegedAccessGroupAssignmentScheduleRequest|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): PrivilegedAccessGroupAssignmentScheduleRequest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrivilegedAccessGroupAssignmentScheduleRequest($data);
     }

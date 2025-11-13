@@ -9,10 +9,15 @@ use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseReq
 <?php foreach ($imports as $import): ?>
 use ApeDevDe\MicrosoftGraphSdk\Models\<?= $import ?>;
 <?php endforeach; ?>
-<?php 
-// Filter out any BaseRequestBuilder imports to prevent conflicts
+<?php
+// Filter out any BaseRequestBuilder imports to prevent conflicts with the root BaseRequestBuilder
+// Only filter exact "BaseRequestBuilder" class, not classes that contain it (like "AttachmentBaseRequestBuilder")
 $filteredImports = array_filter($childBuilderImports, function($import) {
-    return strpos($import, 'BaseRequestBuilder') === false;
+    // Extract the class name from the import path
+    $parts = explode('\\', $import);
+    $className = end($parts);
+    // Only filter out the exact "BaseRequestBuilder" class, not subclasses
+    return $className !== 'BaseRequestBuilder';
 });
 
 // Track imported class names to detect duplicates

@@ -23,10 +23,10 @@ class TargetedManagedAppConfigurationRequestBuilder extends RootBaseRequestBuild
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TargetedManagedAppConfiguration
+     * @return TargetedManagedAppConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TargetedManagedAppConfiguration
+    public function get(?array $select = null, ?array $expand = null): TargetedManagedAppConfiguration|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -42,52 +42,50 @@ class TargetedManagedAppConfigurationRequestBuilder extends RootBaseRequestBuild
     }
 
     /**
-     * Deserialize response to TargetedManagedAppConfiguration
+     * Deserialize response to TargetedManagedAppConfiguration|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TargetedManagedAppConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TargetedManagedAppConfiguration($data);
     }
     /**
      * Update targetedManagedAppConfiguration
      * @param TargetedManagedAppConfiguration $body Request body
-     * @return TargetedManagedAppConfiguration
+     * @return TargetedManagedAppConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TargetedManagedAppConfiguration $body): TargetedManagedAppConfiguration
+    public function patch(TargetedManagedAppConfiguration $body): TargetedManagedAppConfiguration|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TargetedManagedAppConfiguration
+     * Deserialize response to TargetedManagedAppConfiguration|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TargetedManagedAppConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TargetedManagedAppConfiguration($data);
     }
@@ -113,17 +111,17 @@ class TargetedManagedAppConfigurationRequestBuilder extends RootBaseRequestBuild
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -18,10 +18,10 @@ class IdentityProviderBaseRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentityProviderBase
+     * @return IdentityProviderBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentityProviderBase
+    public function get(?array $select = null, ?array $expand = null): IdentityProviderBase|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class IdentityProviderBaseRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityProviderBase
+     * Deserialize response to IdentityProviderBase|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityProviderBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityProviderBase($data);
     }
     /**
      * Update identityProvider
      * @param IdentityProviderBase $body Request body
-     * @return IdentityProviderBase
+     * @return IdentityProviderBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(IdentityProviderBase $body): IdentityProviderBase
+    public function patch(IdentityProviderBase $body): IdentityProviderBase|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to IdentityProviderBase
+     * Deserialize response to IdentityProviderBase|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): IdentityProviderBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityProviderBase($data);
     }
@@ -108,17 +106,17 @@ class IdentityProviderBaseRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -17,10 +17,10 @@ class AgreementAcceptanceRequestBuilder extends RootBaseRequestBuilder
      * Get entity from agreementAcceptances by key
      *
      * @param array<int, string>|null $select Select properties to be returned
-     * @return AgreementAcceptance
+     * @return AgreementAcceptance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null): AgreementAcceptance
+    public function get(?array $select = null): AgreementAcceptance|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -33,52 +33,50 @@ class AgreementAcceptanceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AgreementAcceptance
+     * Deserialize response to AgreementAcceptance|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AgreementAcceptance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AgreementAcceptance($data);
     }
     /**
      * Update entity in agreementAcceptances
      * @param AgreementAcceptance $body Request body
-     * @return AgreementAcceptance
+     * @return AgreementAcceptance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AgreementAcceptance $body): AgreementAcceptance
+    public function patch(AgreementAcceptance $body): AgreementAcceptance|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AgreementAcceptance
+     * Deserialize response to AgreementAcceptance|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AgreementAcceptance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AgreementAcceptance($data);
     }
@@ -104,17 +102,17 @@ class AgreementAcceptanceRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

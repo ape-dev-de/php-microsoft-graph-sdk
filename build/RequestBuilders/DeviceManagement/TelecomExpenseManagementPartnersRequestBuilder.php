@@ -27,10 +27,10 @@ class TelecomExpenseManagementPartnersRequestBuilder extends RootBaseRequestBuil
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return TelecomExpenseManagementPartnerCollectionResponse
+     * @return TelecomExpenseManagementPartnerCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TelecomExpenseManagementPartnerCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TelecomExpenseManagementPartnerCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class TelecomExpenseManagementPartnersRequestBuilder extends RootBaseRequestBuil
     }
 
     /**
-     * Deserialize response to TelecomExpenseManagementPartnerCollectionResponse
+     * Deserialize response to TelecomExpenseManagementPartnerCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TelecomExpenseManagementPartnerCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class TelecomExpenseManagementPartnersRequestBuilder extends RootBaseRequestBuil
     /**
      * Create telecomExpenseManagementPartner
      * @param TelecomExpenseManagementPartner $body Request body
-     * @return TelecomExpenseManagementPartner
+     * @return TelecomExpenseManagementPartner|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(TelecomExpenseManagementPartner $body): TelecomExpenseManagementPartner
+    public function post(TelecomExpenseManagementPartner $body): TelecomExpenseManagementPartner|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to TelecomExpenseManagementPartner
+     * Deserialize response to TelecomExpenseManagementPartner|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): TelecomExpenseManagementPartner|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TelecomExpenseManagementPartner($data);
     }

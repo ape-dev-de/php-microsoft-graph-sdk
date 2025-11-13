@@ -27,10 +27,10 @@ class ThumbnailsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ThumbnailSetCollectionResponse
+     * @return ThumbnailSetCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ThumbnailSetCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ThumbnailSetCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ThumbnailsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ThumbnailSetCollectionResponse
+     * Deserialize response to ThumbnailSetCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ThumbnailSetCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ThumbnailsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to thumbnails for drives
      * @param ThumbnailSet $body Request body
-     * @return ThumbnailSet
+     * @return ThumbnailSet|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ThumbnailSet $body): ThumbnailSet
+    public function post(ThumbnailSet $body): ThumbnailSet|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ThumbnailSet
+     * Deserialize response to ThumbnailSet|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ThumbnailSet|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ThumbnailSet($data);
     }

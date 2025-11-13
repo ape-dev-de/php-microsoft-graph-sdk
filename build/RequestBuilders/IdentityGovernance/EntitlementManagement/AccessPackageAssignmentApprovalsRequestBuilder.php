@@ -28,10 +28,10 @@ class AccessPackageAssignmentApprovalsRequestBuilder extends RootBaseRequestBuil
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ApprovalCollectionResponse
+     * @return ApprovalCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ApprovalCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ApprovalCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class AccessPackageAssignmentApprovalsRequestBuilder extends RootBaseRequestBuil
     }
 
     /**
-     * Deserialize response to ApprovalCollectionResponse
+     * Deserialize response to ApprovalCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ApprovalCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class AccessPackageAssignmentApprovalsRequestBuilder extends RootBaseRequestBuil
     /**
      * Create new navigation property to accessPackageAssignmentApprovals for identityGovernance
      * @param Approval $body Request body
-     * @return Approval
+     * @return Approval|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(Approval $body): Approval
+    public function post(Approval $body): Approval|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to Approval
+     * Deserialize response to Approval|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): Approval|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Approval($data);
     }

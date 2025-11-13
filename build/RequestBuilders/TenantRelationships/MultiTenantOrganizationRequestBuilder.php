@@ -20,10 +20,10 @@ class MultiTenantOrganizationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MultiTenantOrganization
+     * @return MultiTenantOrganization|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MultiTenantOrganization
+    public function get(?array $select = null, ?array $expand = null): MultiTenantOrganization|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class MultiTenantOrganizationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MultiTenantOrganization
+     * Deserialize response to MultiTenantOrganization|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MultiTenantOrganization|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MultiTenantOrganization($data);
     }
     /**
      * Update multiTenantOrganization
      * @param MultiTenantOrganization $body Request body
-     * @return MultiTenantOrganization
+     * @return MultiTenantOrganization|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(MultiTenantOrganization $body): MultiTenantOrganization
+    public function patch(MultiTenantOrganization $body): MultiTenantOrganization|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to MultiTenantOrganization
+     * Deserialize response to MultiTenantOrganization|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): MultiTenantOrganization|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MultiTenantOrganization($data);
     }

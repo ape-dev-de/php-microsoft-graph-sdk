@@ -15,10 +15,10 @@ class UsageRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function usage
-     * @return AuthenticationStrengthUsage|\stdClass
+     * @return AuthenticationStrengthUsage|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): AuthenticationStrengthUsage|\stdClass
+    public function get(): AuthenticationStrengthUsage|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class UsageRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AuthenticationStrengthUsage|\stdClass
+     * Deserialize response to AuthenticationStrengthUsage|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AuthenticationStrengthUsage|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthenticationStrengthUsage($data);
     }

@@ -20,10 +20,10 @@ class ExternalItemRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ExternalConnectorsExternalItem
+     * @return ExternalConnectorsExternalItem|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ExternalConnectorsExternalItem
+    public function get(?array $select = null, ?array $expand = null): ExternalConnectorsExternalItem|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class ExternalItemRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ExternalConnectorsExternalItem
+     * Deserialize response to ExternalConnectorsExternalItem|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ExternalConnectorsExternalItem|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExternalConnectorsExternalItem($data);
     }
     /**
      * Update the navigation property items in connections
      * @param ExternalConnectorsExternalItem $body Request body
-     * @return ExternalConnectorsExternalItem
+     * @return ExternalConnectorsExternalItem|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(ExternalConnectorsExternalItem $body): ExternalConnectorsExternalItem
+    public function put(ExternalConnectorsExternalItem $body): ExternalConnectorsExternalItem|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->put($this->requestUrl, $bodyData);
+        $response = $this->client->put($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePut($responseBody);
     }
 
     /**
-     * Deserialize response to ExternalConnectorsExternalItem
+     * Deserialize response to ExternalConnectorsExternalItem|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): ExternalConnectorsExternalItem|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExternalConnectorsExternalItem($data);
     }
@@ -110,17 +108,17 @@ class ExternalItemRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -18,10 +18,10 @@ class WindowsInformationProtectionAppLockerFileRequestBuilder extends RootBaseRe
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WindowsInformationProtectionAppLockerFile
+     * @return WindowsInformationProtectionAppLockerFile|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WindowsInformationProtectionAppLockerFile
+    public function get(?array $select = null, ?array $expand = null): WindowsInformationProtectionAppLockerFile|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class WindowsInformationProtectionAppLockerFileRequestBuilder extends RootBaseRe
     }
 
     /**
-     * Deserialize response to WindowsInformationProtectionAppLockerFile
+     * Deserialize response to WindowsInformationProtectionAppLockerFile|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WindowsInformationProtectionAppLockerFile|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WindowsInformationProtectionAppLockerFile($data);
     }
     /**
      * Update the navigation property exemptAppLockerFiles in deviceAppManagement
      * @param WindowsInformationProtectionAppLockerFile $body Request body
-     * @return WindowsInformationProtectionAppLockerFile
+     * @return WindowsInformationProtectionAppLockerFile|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WindowsInformationProtectionAppLockerFile $body): WindowsInformationProtectionAppLockerFile
+    public function patch(WindowsInformationProtectionAppLockerFile $body): WindowsInformationProtectionAppLockerFile|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WindowsInformationProtectionAppLockerFile
+     * Deserialize response to WindowsInformationProtectionAppLockerFile|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WindowsInformationProtectionAppLockerFile|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WindowsInformationProtectionAppLockerFile($data);
     }
@@ -108,17 +106,17 @@ class WindowsInformationProtectionAppLockerFileRequestBuilder extends RootBaseRe
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

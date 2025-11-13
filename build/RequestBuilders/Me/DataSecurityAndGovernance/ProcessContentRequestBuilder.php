@@ -16,33 +16,31 @@ class ProcessContentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action processContent
      * @param ProcessContentResponse|\stdClass $body Request body
-     * @return ProcessContentResponse|\stdClass
+     * @return ProcessContentResponse|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ProcessContentResponse|\stdClass $body): ProcessContentResponse|\stdClass
+    public function post(ProcessContentResponse|\stdClass $body): ProcessContentResponse|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ProcessContentResponse|\stdClass
+     * Deserialize response to ProcessContentResponse|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ProcessContentResponse|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ProcessContentResponse($data);
     }

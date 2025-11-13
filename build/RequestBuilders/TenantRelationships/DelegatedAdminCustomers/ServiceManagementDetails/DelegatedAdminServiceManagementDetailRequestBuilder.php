@@ -18,10 +18,10 @@ class DelegatedAdminServiceManagementDetailRequestBuilder extends RootBaseReques
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DelegatedAdminServiceManagementDetail
+     * @return DelegatedAdminServiceManagementDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DelegatedAdminServiceManagementDetail
+    public function get(?array $select = null, ?array $expand = null): DelegatedAdminServiceManagementDetail|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class DelegatedAdminServiceManagementDetailRequestBuilder extends RootBaseReques
     }
 
     /**
-     * Deserialize response to DelegatedAdminServiceManagementDetail
+     * Deserialize response to DelegatedAdminServiceManagementDetail|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DelegatedAdminServiceManagementDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DelegatedAdminServiceManagementDetail($data);
     }
     /**
      * Update the navigation property serviceManagementDetails in tenantRelationships
      * @param DelegatedAdminServiceManagementDetail $body Request body
-     * @return DelegatedAdminServiceManagementDetail
+     * @return DelegatedAdminServiceManagementDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DelegatedAdminServiceManagementDetail $body): DelegatedAdminServiceManagementDetail
+    public function patch(DelegatedAdminServiceManagementDetail $body): DelegatedAdminServiceManagementDetail|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DelegatedAdminServiceManagementDetail
+     * Deserialize response to DelegatedAdminServiceManagementDetail|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DelegatedAdminServiceManagementDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DelegatedAdminServiceManagementDetail($data);
     }
@@ -108,17 +106,17 @@ class DelegatedAdminServiceManagementDetailRequestBuilder extends RootBaseReques
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

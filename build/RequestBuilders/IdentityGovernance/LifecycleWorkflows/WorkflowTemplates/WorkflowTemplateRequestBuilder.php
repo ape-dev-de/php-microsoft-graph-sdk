@@ -19,10 +19,10 @@ class WorkflowTemplateRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentityGovernanceWorkflowTemplate
+     * @return IdentityGovernanceWorkflowTemplate|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceWorkflowTemplate
+    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceWorkflowTemplate|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class WorkflowTemplateRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityGovernanceWorkflowTemplate
+     * Deserialize response to IdentityGovernanceWorkflowTemplate|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityGovernanceWorkflowTemplate|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityGovernanceWorkflowTemplate($data);
     }

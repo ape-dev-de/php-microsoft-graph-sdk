@@ -16,33 +16,31 @@ class ValidateAuthenticationConfigurationRequestBuilder extends RootBaseRequestB
     /**
      * Invoke action validateAuthenticationConfiguration
      * @param AuthenticationConfigurationValidation|\stdClass $body Request body
-     * @return AuthenticationConfigurationValidation|\stdClass
+     * @return AuthenticationConfigurationValidation|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AuthenticationConfigurationValidation|\stdClass $body): AuthenticationConfigurationValidation|\stdClass
+    public function post(AuthenticationConfigurationValidation|\stdClass $body): AuthenticationConfigurationValidation|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AuthenticationConfigurationValidation|\stdClass
+     * Deserialize response to AuthenticationConfigurationValidation|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AuthenticationConfigurationValidation|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthenticationConfigurationValidation($data);
     }

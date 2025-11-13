@@ -19,10 +19,10 @@ class OnAuthenticationMethodLoadStartRequestBuilder extends RootBaseRequestBuild
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return OnAuthenticationMethodLoadStartHandler
+     * @return OnAuthenticationMethodLoadStartHandler|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): OnAuthenticationMethodLoadStartHandler
+    public function get(?array $select = null, ?array $expand = null): OnAuthenticationMethodLoadStartHandler|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class OnAuthenticationMethodLoadStartRequestBuilder extends RootBaseRequestBuild
     }
 
     /**
-     * Deserialize response to OnAuthenticationMethodLoadStartHandler
+     * Deserialize response to OnAuthenticationMethodLoadStartHandler|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): OnAuthenticationMethodLoadStartHandler|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return (object)$data;
     }

@@ -16,33 +16,31 @@ class DiscoverRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action discover
      * @param DirectoryDefinition|\stdClass $body Request body
-     * @return DirectoryDefinition|\stdClass
+     * @return DirectoryDefinition|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DirectoryDefinition|\stdClass $body): DirectoryDefinition|\stdClass
+    public function post(DirectoryDefinition|\stdClass $body): DirectoryDefinition|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DirectoryDefinition|\stdClass
+     * Deserialize response to DirectoryDefinition|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DirectoryDefinition|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DirectoryDefinition($data);
     }

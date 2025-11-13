@@ -18,10 +18,10 @@ class ActivityRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserActivity
+     * @return UserActivity|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserActivity
+    public function get(?array $select = null, ?array $expand = null): UserActivity|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class ActivityRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserActivity
+     * Deserialize response to UserActivity|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserActivity|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserActivity($data);
     }

@@ -21,10 +21,10 @@ class BookingAppointmentRequestBuilder extends RootBaseRequestBuilder
      * @param array<int, string>|null $expand Expand related entities
      * @param string $start The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00
      * @param string $end The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
-     * @return BookingAppointment
+     * @return BookingAppointment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, string $start, string $end): BookingAppointment
+    public function get(?array $select = null, ?array $expand = null, string $start, string $end): BookingAppointment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -46,52 +46,50 @@ class BookingAppointmentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to BookingAppointment
+     * Deserialize response to BookingAppointment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): BookingAppointment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BookingAppointment($data);
     }
     /**
      * Update the navigation property calendarView in solutions
      * @param BookingAppointment $body Request body
-     * @return BookingAppointment
+     * @return BookingAppointment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(BookingAppointment $body): BookingAppointment
+    public function patch(BookingAppointment $body): BookingAppointment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to BookingAppointment
+     * Deserialize response to BookingAppointment|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): BookingAppointment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BookingAppointment($data);
     }
@@ -117,17 +115,17 @@ class BookingAppointmentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

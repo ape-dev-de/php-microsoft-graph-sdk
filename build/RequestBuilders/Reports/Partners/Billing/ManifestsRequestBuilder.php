@@ -27,10 +27,10 @@ class ManifestsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return PartnersBillingManifestCollectionResponse
+     * @return PartnersBillingManifestCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PartnersBillingManifestCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PartnersBillingManifestCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ManifestsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PartnersBillingManifestCollectionResponse
+     * Deserialize response to PartnersBillingManifestCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PartnersBillingManifestCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ManifestsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to manifests for reports
      * @param PartnersBillingManifest $body Request body
-     * @return PartnersBillingManifest
+     * @return PartnersBillingManifest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(PartnersBillingManifest $body): PartnersBillingManifest
+    public function post(PartnersBillingManifest $body): PartnersBillingManifest|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to PartnersBillingManifest
+     * Deserialize response to PartnersBillingManifest|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): PartnersBillingManifest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PartnersBillingManifest($data);
     }

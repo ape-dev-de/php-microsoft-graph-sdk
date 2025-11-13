@@ -27,10 +27,10 @@ class FunctionsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AttributeMappingFunctionSchemaCollectionResponse
+     * @return AttributeMappingFunctionSchemaCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AttributeMappingFunctionSchemaCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AttributeMappingFunctionSchemaCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class FunctionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AttributeMappingFunctionSchemaCollectionResponse
+     * Deserialize response to AttributeMappingFunctionSchemaCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AttributeMappingFunctionSchemaCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class FunctionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Add new entity to functions
      * @param AttributeMappingFunctionSchema $body Request body
-     * @return AttributeMappingFunctionSchema
+     * @return AttributeMappingFunctionSchema|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AttributeMappingFunctionSchema $body): AttributeMappingFunctionSchema
+    public function post(AttributeMappingFunctionSchema $body): AttributeMappingFunctionSchema|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AttributeMappingFunctionSchema
+     * Deserialize response to AttributeMappingFunctionSchema|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AttributeMappingFunctionSchema|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AttributeMappingFunctionSchema($data);
     }

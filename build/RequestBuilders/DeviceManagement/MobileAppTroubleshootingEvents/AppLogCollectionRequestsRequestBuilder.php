@@ -27,10 +27,10 @@ class AppLogCollectionRequestsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AppLogCollectionRequestCollectionResponse
+     * @return AppLogCollectionRequestCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AppLogCollectionRequestCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AppLogCollectionRequestCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,52 +64,50 @@ class AppLogCollectionRequestsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AppLogCollectionRequestCollectionResponse
+     * Deserialize response to AppLogCollectionRequestCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AppLogCollectionRequestCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AppLogCollectionRequestCollectionResponse($data);
     }
     /**
      * Create appLogCollectionRequest
      * @param AppLogCollectionRequest $body Request body
-     * @return AppLogCollectionRequest
+     * @return AppLogCollectionRequest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AppLogCollectionRequest $body): AppLogCollectionRequest
+    public function post(AppLogCollectionRequest $body): AppLogCollectionRequest|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AppLogCollectionRequest
+     * Deserialize response to AppLogCollectionRequest|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AppLogCollectionRequest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AppLogCollectionRequest($data);
     }

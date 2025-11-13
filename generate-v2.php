@@ -434,12 +434,17 @@ function resolveSchemaReference(string $ref): ?string
         $schemaName = $matches[1];
         // Remove microsoft.graph. prefix
         $schemaName = preg_replace('/^microsoft\.graph\./', '', $schemaName);
-        
+
+        // ODataCountResponse is defined as integer in OpenAPI spec
+        if ($schemaName === 'ODataCountResponse') {
+            return 'int';
+        }
+
         // Keep CollectionResponse as-is (don't convert to Collection)
         // This ensures we use the proper CollectionResponse models
-        
+
         $normalized = normalizeModelName($schemaName);
-        
+
         // Escape reserved keywords
         return escapeReservedKeyword($normalized);
     }
@@ -1223,7 +1228,7 @@ function generateObjectCreation(string $className, string $dataVar): string
     }
     
     // For known empty models without constructors, return stdClass
-    $emptyModels = ['Compliance', 'ODataCountResponse', 'OnAttributeCollectionHandler', 'OnAuthenticationMethodLoadStartHandler'];
+    $emptyModels = ['Compliance', 'OnAttributeCollectionHandler', 'OnAuthenticationMethodLoadStartHandler'];
     if (in_array($className, $emptyModels)) {
         return "(object){$dataVar}";
     }

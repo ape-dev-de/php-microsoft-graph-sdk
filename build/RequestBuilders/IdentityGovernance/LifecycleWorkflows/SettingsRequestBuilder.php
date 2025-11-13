@@ -18,10 +18,10 @@ class SettingsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentityGovernanceLifecycleManagementSettings
+     * @return IdentityGovernanceLifecycleManagementSettings|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceLifecycleManagementSettings
+    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceLifecycleManagementSettings|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class SettingsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityGovernanceLifecycleManagementSettings
+     * Deserialize response to IdentityGovernanceLifecycleManagementSettings|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityGovernanceLifecycleManagementSettings|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityGovernanceLifecycleManagementSettings($data);
     }
     /**
      * Update lifecycleManagementSettings
      * @param IdentityGovernanceLifecycleManagementSettings $body Request body
-     * @return IdentityGovernanceLifecycleManagementSettings
+     * @return IdentityGovernanceLifecycleManagementSettings|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(IdentityGovernanceLifecycleManagementSettings $body): IdentityGovernanceLifecycleManagementSettings
+    public function patch(IdentityGovernanceLifecycleManagementSettings $body): IdentityGovernanceLifecycleManagementSettings|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to IdentityGovernanceLifecycleManagementSettings
+     * Deserialize response to IdentityGovernanceLifecycleManagementSettings|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): IdentityGovernanceLifecycleManagementSettings|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityGovernanceLifecycleManagementSettings($data);
     }

@@ -20,10 +20,10 @@ class SubjectRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return User
+     * @return User|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): User
+    public function get(?array $select = null, ?array $expand = null): User|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,19 +39,19 @@ class SubjectRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to User
+     * Deserialize response to User|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): User|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new User($data);
     }

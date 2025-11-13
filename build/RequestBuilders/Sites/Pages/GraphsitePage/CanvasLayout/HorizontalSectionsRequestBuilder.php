@@ -27,10 +27,10 @@ class HorizontalSectionsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return HorizontalSectionCollectionResponse
+     * @return HorizontalSectionCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): HorizontalSectionCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): HorizontalSectionCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class HorizontalSectionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to HorizontalSectionCollectionResponse
+     * Deserialize response to HorizontalSectionCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): HorizontalSectionCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class HorizontalSectionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to horizontalSections for sites
      * @param HorizontalSection $body Request body
-     * @return HorizontalSection
+     * @return HorizontalSection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(HorizontalSection $body): HorizontalSection
+    public function post(HorizontalSection $body): HorizontalSection|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to HorizontalSection
+     * Deserialize response to HorizontalSection|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): HorizontalSection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new HorizontalSection($data);
     }

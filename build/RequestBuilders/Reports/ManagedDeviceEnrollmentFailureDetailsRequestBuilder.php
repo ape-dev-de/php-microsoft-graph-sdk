@@ -15,10 +15,10 @@ class ManagedDeviceEnrollmentFailureDetailsRequestBuilder extends RootBaseReques
 {
     /**
      * Invoke function managedDeviceEnrollmentFailureDetails
-     * @return Report|\stdClass
+     * @return Report|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): Report|\stdClass
+    public function get(): Report|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class ManagedDeviceEnrollmentFailureDetailsRequestBuilder extends RootBaseReques
     }
 
     /**
-     * Deserialize response to Report|\stdClass
+     * Deserialize response to Report|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Report|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Report($data);
     }

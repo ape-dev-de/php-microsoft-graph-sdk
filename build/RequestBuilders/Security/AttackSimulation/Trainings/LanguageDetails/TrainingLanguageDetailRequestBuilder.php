@@ -18,10 +18,10 @@ class TrainingLanguageDetailRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TrainingLanguageDetail
+     * @return TrainingLanguageDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TrainingLanguageDetail
+    public function get(?array $select = null, ?array $expand = null): TrainingLanguageDetail|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class TrainingLanguageDetailRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TrainingLanguageDetail
+     * Deserialize response to TrainingLanguageDetail|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TrainingLanguageDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TrainingLanguageDetail($data);
     }
     /**
      * Update the navigation property languageDetails in security
      * @param TrainingLanguageDetail $body Request body
-     * @return TrainingLanguageDetail
+     * @return TrainingLanguageDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TrainingLanguageDetail $body): TrainingLanguageDetail
+    public function patch(TrainingLanguageDetail $body): TrainingLanguageDetail|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TrainingLanguageDetail
+     * Deserialize response to TrainingLanguageDetail|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TrainingLanguageDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TrainingLanguageDetail($data);
     }
@@ -108,17 +106,17 @@ class TrainingLanguageDetailRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

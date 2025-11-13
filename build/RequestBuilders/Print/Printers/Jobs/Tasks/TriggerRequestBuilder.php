@@ -18,10 +18,10 @@ class TriggerRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PrintTaskTrigger
+     * @return PrintTaskTrigger|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PrintTaskTrigger
+    public function get(?array $select = null, ?array $expand = null): PrintTaskTrigger|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class TriggerRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrintTaskTrigger
+     * Deserialize response to PrintTaskTrigger|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrintTaskTrigger|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintTaskTrigger($data);
     }

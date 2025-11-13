@@ -16,33 +16,31 @@ class RedirectRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action redirect
      * @param PrintJob|\stdClass $body Request body
-     * @return PrintJob|\stdClass
+     * @return PrintJob|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(PrintJob|\stdClass $body): PrintJob|\stdClass
+    public function post(PrintJob|\stdClass $body): PrintJob|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to PrintJob|\stdClass
+     * Deserialize response to PrintJob|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): PrintJob|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintJob($data);
     }

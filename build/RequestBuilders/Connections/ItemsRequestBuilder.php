@@ -27,10 +27,10 @@ class ItemsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ExternalConnectorsExternalItemCollectionResponse
+     * @return ExternalConnectorsExternalItemCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ExternalConnectorsExternalItemCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ExternalConnectorsExternalItemCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ItemsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ExternalConnectorsExternalItemCollectionResponse
+     * Deserialize response to ExternalConnectorsExternalItemCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ExternalConnectorsExternalItemCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ItemsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to items for connections
      * @param ExternalConnectorsExternalItem $body Request body
-     * @return ExternalConnectorsExternalItem
+     * @return ExternalConnectorsExternalItem|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ExternalConnectorsExternalItem $body): ExternalConnectorsExternalItem
+    public function post(ExternalConnectorsExternalItem $body): ExternalConnectorsExternalItem|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ExternalConnectorsExternalItem
+     * Deserialize response to ExternalConnectorsExternalItem|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ExternalConnectorsExternalItem|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExternalConnectorsExternalItem($data);
     }

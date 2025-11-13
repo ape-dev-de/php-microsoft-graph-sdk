@@ -18,10 +18,10 @@ class CertificateBasedAuthConfigurationItemRequestBuilder extends RootBaseReques
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CertificateBasedAuthConfiguration
+     * @return CertificateBasedAuthConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CertificateBasedAuthConfiguration
+    public function get(?array $select = null, ?array $expand = null): CertificateBasedAuthConfiguration|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class CertificateBasedAuthConfigurationItemRequestBuilder extends RootBaseReques
     }
 
     /**
-     * Deserialize response to CertificateBasedAuthConfiguration
+     * Deserialize response to CertificateBasedAuthConfiguration|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CertificateBasedAuthConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CertificateBasedAuthConfiguration($data);
     }
@@ -75,17 +75,17 @@ class CertificateBasedAuthConfigurationItemRequestBuilder extends RootBaseReques
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

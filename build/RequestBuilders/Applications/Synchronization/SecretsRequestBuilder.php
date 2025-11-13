@@ -16,10 +16,10 @@ class SecretsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Update property secrets value.
      * @param array<string, mixed> $body Request body
-     * @return \stdClass
+     * @return \stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(array $body): \stdClass
+    public function put(array $body): \stdClass|null
     {
         $response = $this->client->put($this->requestUrl, $body);
         $this->client->checkResponse($response);
@@ -28,19 +28,19 @@ class SecretsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to \stdClass
+     * Deserialize response to \stdClass|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): \stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         return (object)$data;
     }
     /**

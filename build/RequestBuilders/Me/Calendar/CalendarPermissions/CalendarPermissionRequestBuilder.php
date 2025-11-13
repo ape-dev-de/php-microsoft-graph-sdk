@@ -18,10 +18,10 @@ class CalendarPermissionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CalendarPermission
+     * @return CalendarPermission|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CalendarPermission
+    public function get(?array $select = null, ?array $expand = null): CalendarPermission|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class CalendarPermissionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to CalendarPermission
+     * Deserialize response to CalendarPermission|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CalendarPermission|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CalendarPermission($data);
     }
     /**
      * Update the navigation property calendarPermissions in me
      * @param CalendarPermission $body Request body
-     * @return CalendarPermission
+     * @return CalendarPermission|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(CalendarPermission $body): CalendarPermission
+    public function patch(CalendarPermission $body): CalendarPermission|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to CalendarPermission
+     * Deserialize response to CalendarPermission|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): CalendarPermission|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CalendarPermission($data);
     }
@@ -108,17 +106,17 @@ class CalendarPermissionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

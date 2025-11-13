@@ -20,10 +20,10 @@ class VirtualEventRegistrationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return VirtualEventRegistration
+     * @return VirtualEventRegistration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): VirtualEventRegistration
+    public function get(?array $select = null, ?array $expand = null): VirtualEventRegistration|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class VirtualEventRegistrationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to VirtualEventRegistration
+     * Deserialize response to VirtualEventRegistration|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): VirtualEventRegistration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventRegistration($data);
     }
     /**
      * Update the navigation property registrations in solutions
      * @param VirtualEventRegistration $body Request body
-     * @return VirtualEventRegistration
+     * @return VirtualEventRegistration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(VirtualEventRegistration $body): VirtualEventRegistration
+    public function patch(VirtualEventRegistration $body): VirtualEventRegistration|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to VirtualEventRegistration
+     * Deserialize response to VirtualEventRegistration|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): VirtualEventRegistration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventRegistration($data);
     }
@@ -110,17 +108,17 @@ class VirtualEventRegistrationRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

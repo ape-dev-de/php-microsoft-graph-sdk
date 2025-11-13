@@ -20,10 +20,10 @@ class VirtualEventTownhallRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return VirtualEventTownhall
+     * @return VirtualEventTownhall|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): VirtualEventTownhall
+    public function get(?array $select = null, ?array $expand = null): VirtualEventTownhall|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class VirtualEventTownhallRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to VirtualEventTownhall
+     * Deserialize response to VirtualEventTownhall|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): VirtualEventTownhall|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventTownhall($data);
     }
     /**
      * Update virtualEventTownhall
      * @param VirtualEventTownhall $body Request body
-     * @return VirtualEventTownhall
+     * @return VirtualEventTownhall|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(VirtualEventTownhall $body): VirtualEventTownhall
+    public function patch(VirtualEventTownhall $body): VirtualEventTownhall|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to VirtualEventTownhall
+     * Deserialize response to VirtualEventTownhall|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): VirtualEventTownhall|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventTownhall($data);
     }
@@ -110,17 +108,17 @@ class VirtualEventTownhallRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

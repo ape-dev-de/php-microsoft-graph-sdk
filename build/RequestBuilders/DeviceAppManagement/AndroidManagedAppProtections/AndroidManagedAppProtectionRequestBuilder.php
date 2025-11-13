@@ -21,10 +21,10 @@ class AndroidManagedAppProtectionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AndroidManagedAppProtection
+     * @return AndroidManagedAppProtection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AndroidManagedAppProtection
+    public function get(?array $select = null, ?array $expand = null): AndroidManagedAppProtection|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class AndroidManagedAppProtectionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AndroidManagedAppProtection
+     * Deserialize response to AndroidManagedAppProtection|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AndroidManagedAppProtection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AndroidManagedAppProtection($data);
     }
     /**
      * Update androidManagedAppProtection
      * @param AndroidManagedAppProtection $body Request body
-     * @return AndroidManagedAppProtection
+     * @return AndroidManagedAppProtection|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AndroidManagedAppProtection $body): AndroidManagedAppProtection
+    public function patch(AndroidManagedAppProtection $body): AndroidManagedAppProtection|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AndroidManagedAppProtection
+     * Deserialize response to AndroidManagedAppProtection|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AndroidManagedAppProtection|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AndroidManagedAppProtection($data);
     }
@@ -111,17 +109,17 @@ class AndroidManagedAppProtectionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

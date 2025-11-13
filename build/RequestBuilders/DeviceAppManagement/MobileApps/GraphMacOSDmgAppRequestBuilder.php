@@ -21,10 +21,10 @@ class GraphMacOSDmgAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MacOSDmgApp
+     * @return MacOSDmgApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MacOSDmgApp
+    public function get(?array $select = null, ?array $expand = null): MacOSDmgApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,19 +40,19 @@ class GraphMacOSDmgAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MacOSDmgApp
+     * Deserialize response to MacOSDmgApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MacOSDmgApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MacOSDmgApp($data);
     }

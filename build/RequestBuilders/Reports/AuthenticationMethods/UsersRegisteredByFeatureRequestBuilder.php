@@ -15,10 +15,10 @@ class UsersRegisteredByFeatureRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function usersRegisteredByFeature
-     * @return UserRegistrationFeatureSummary
+     * @return UserRegistrationFeatureSummary|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): UserRegistrationFeatureSummary
+    public function get(): UserRegistrationFeatureSummary|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class UsersRegisteredByFeatureRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserRegistrationFeatureSummary
+     * Deserialize response to UserRegistrationFeatureSummary|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserRegistrationFeatureSummary|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserRegistrationFeatureSummary($data);
     }

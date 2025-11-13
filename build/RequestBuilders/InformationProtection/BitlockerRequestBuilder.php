@@ -19,10 +19,10 @@ class BitlockerRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Bitlocker
+     * @return Bitlocker|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Bitlocker
+    public function get(?array $select = null, ?array $expand = null): Bitlocker|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class BitlockerRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Bitlocker
+     * Deserialize response to Bitlocker|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Bitlocker|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Bitlocker($data);
     }

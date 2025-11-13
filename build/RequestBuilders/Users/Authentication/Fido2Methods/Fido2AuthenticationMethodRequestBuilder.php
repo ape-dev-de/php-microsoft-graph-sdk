@@ -18,10 +18,10 @@ class Fido2AuthenticationMethodRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Fido2AuthenticationMethod
+     * @return Fido2AuthenticationMethod|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Fido2AuthenticationMethod
+    public function get(?array $select = null, ?array $expand = null): Fido2AuthenticationMethod|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class Fido2AuthenticationMethodRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Fido2AuthenticationMethod
+     * Deserialize response to Fido2AuthenticationMethod|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Fido2AuthenticationMethod|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Fido2AuthenticationMethod($data);
     }
@@ -75,17 +75,17 @@ class Fido2AuthenticationMethodRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

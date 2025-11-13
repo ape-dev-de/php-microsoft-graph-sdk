@@ -27,10 +27,10 @@ class AuthenticationMethodConfigurationsRequestBuilder extends RootBaseRequestBu
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return AuthenticationMethodConfigurationCollectionResponse
+     * @return AuthenticationMethodConfigurationCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AuthenticationMethodConfigurationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): AuthenticationMethodConfigurationCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class AuthenticationMethodConfigurationsRequestBuilder extends RootBaseRequestBu
     }
 
     /**
-     * Deserialize response to AuthenticationMethodConfigurationCollectionResponse
+     * Deserialize response to AuthenticationMethodConfigurationCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AuthenticationMethodConfigurationCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class AuthenticationMethodConfigurationsRequestBuilder extends RootBaseRequestBu
     /**
      * Create new navigation property to authenticationMethodConfigurations for authenticationMethodsPolicy
      * @param AuthenticationMethodConfiguration $body Request body
-     * @return AuthenticationMethodConfiguration
+     * @return AuthenticationMethodConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(AuthenticationMethodConfiguration $body): AuthenticationMethodConfiguration
+    public function post(AuthenticationMethodConfiguration $body): AuthenticationMethodConfiguration|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to AuthenticationMethodConfiguration
+     * Deserialize response to AuthenticationMethodConfiguration|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): AuthenticationMethodConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthenticationMethodConfiguration($data);
     }

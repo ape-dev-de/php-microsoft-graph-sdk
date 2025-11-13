@@ -16,33 +16,31 @@ class AddRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action add
      * @param WorkbookChart|\stdClass $body Request body
-     * @return WorkbookChart|\stdClass
+     * @return WorkbookChart|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(WorkbookChart|\stdClass $body): WorkbookChart|\stdClass
+    public function post(WorkbookChart|\stdClass $body): WorkbookChart|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookChart|\stdClass
+     * Deserialize response to WorkbookChart|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): WorkbookChart|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookChart($data);
     }

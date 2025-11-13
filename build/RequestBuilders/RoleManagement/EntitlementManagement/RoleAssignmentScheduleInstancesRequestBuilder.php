@@ -28,10 +28,10 @@ class RoleAssignmentScheduleInstancesRequestBuilder extends RootBaseRequestBuild
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UnifiedRoleAssignmentScheduleInstanceCollectionResponse
+     * @return UnifiedRoleAssignmentScheduleInstanceCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UnifiedRoleAssignmentScheduleInstanceCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UnifiedRoleAssignmentScheduleInstanceCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class RoleAssignmentScheduleInstancesRequestBuilder extends RootBaseRequestBuild
     }
 
     /**
-     * Deserialize response to UnifiedRoleAssignmentScheduleInstanceCollectionResponse
+     * Deserialize response to UnifiedRoleAssignmentScheduleInstanceCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UnifiedRoleAssignmentScheduleInstanceCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class RoleAssignmentScheduleInstancesRequestBuilder extends RootBaseRequestBuild
     /**
      * Create new navigation property to roleAssignmentScheduleInstances for roleManagement
      * @param UnifiedRoleAssignmentScheduleInstance $body Request body
-     * @return UnifiedRoleAssignmentScheduleInstance
+     * @return UnifiedRoleAssignmentScheduleInstance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UnifiedRoleAssignmentScheduleInstance $body): UnifiedRoleAssignmentScheduleInstance
+    public function post(UnifiedRoleAssignmentScheduleInstance $body): UnifiedRoleAssignmentScheduleInstance|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UnifiedRoleAssignmentScheduleInstance
+     * Deserialize response to UnifiedRoleAssignmentScheduleInstance|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UnifiedRoleAssignmentScheduleInstance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleAssignmentScheduleInstance($data);
     }

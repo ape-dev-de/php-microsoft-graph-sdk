@@ -26,10 +26,10 @@ class PhotosRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ProfilePhotoCollectionResponse
+     * @return ProfilePhotoCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ProfilePhotoCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ProfilePhotoCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -63,19 +63,19 @@ class PhotosRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ProfilePhotoCollectionResponse
+     * Deserialize response to ProfilePhotoCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ProfilePhotoCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {

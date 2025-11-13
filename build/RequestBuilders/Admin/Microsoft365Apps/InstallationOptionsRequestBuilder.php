@@ -18,10 +18,10 @@ class InstallationOptionsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return M365AppsInstallationOptions
+     * @return M365AppsInstallationOptions|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): M365AppsInstallationOptions
+    public function get(?array $select = null, ?array $expand = null): M365AppsInstallationOptions|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class InstallationOptionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to M365AppsInstallationOptions
+     * Deserialize response to M365AppsInstallationOptions|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): M365AppsInstallationOptions|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new M365AppsInstallationOptions($data);
     }
     /**
      * Update m365AppsInstallationOptions
      * @param M365AppsInstallationOptions $body Request body
-     * @return M365AppsInstallationOptions
+     * @return M365AppsInstallationOptions|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(M365AppsInstallationOptions $body): M365AppsInstallationOptions
+    public function patch(M365AppsInstallationOptions $body): M365AppsInstallationOptions|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to M365AppsInstallationOptions
+     * Deserialize response to M365AppsInstallationOptions|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): M365AppsInstallationOptions|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new M365AppsInstallationOptions($data);
     }
@@ -108,17 +106,17 @@ class InstallationOptionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

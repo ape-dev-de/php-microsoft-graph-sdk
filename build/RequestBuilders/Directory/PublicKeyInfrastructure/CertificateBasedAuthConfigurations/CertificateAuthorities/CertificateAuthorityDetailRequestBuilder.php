@@ -18,10 +18,10 @@ class CertificateAuthorityDetailRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CertificateAuthorityDetail
+     * @return CertificateAuthorityDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CertificateAuthorityDetail
+    public function get(?array $select = null, ?array $expand = null): CertificateAuthorityDetail|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class CertificateAuthorityDetailRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to CertificateAuthorityDetail
+     * Deserialize response to CertificateAuthorityDetail|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CertificateAuthorityDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CertificateAuthorityDetail($data);
     }
     /**
      * Update certificateAuthorityDetail
      * @param CertificateAuthorityDetail $body Request body
-     * @return CertificateAuthorityDetail
+     * @return CertificateAuthorityDetail|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(CertificateAuthorityDetail $body): CertificateAuthorityDetail
+    public function patch(CertificateAuthorityDetail $body): CertificateAuthorityDetail|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to CertificateAuthorityDetail
+     * Deserialize response to CertificateAuthorityDetail|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): CertificateAuthorityDetail|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CertificateAuthorityDetail($data);
     }
@@ -108,17 +106,17 @@ class CertificateAuthorityDetailRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

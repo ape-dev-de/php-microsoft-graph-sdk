@@ -20,10 +20,10 @@ class GraphWindowsWebAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WindowsWebApp
+     * @return WindowsWebApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WindowsWebApp
+    public function get(?array $select = null, ?array $expand = null): WindowsWebApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,19 +39,19 @@ class GraphWindowsWebAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WindowsWebApp
+     * Deserialize response to WindowsWebApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WindowsWebApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WindowsWebApp($data);
     }

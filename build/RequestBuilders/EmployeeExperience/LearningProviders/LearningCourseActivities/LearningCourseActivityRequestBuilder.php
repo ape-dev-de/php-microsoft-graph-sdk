@@ -18,10 +18,10 @@ class LearningCourseActivityRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return LearningCourseActivity
+     * @return LearningCourseActivity|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): LearningCourseActivity
+    public function get(?array $select = null, ?array $expand = null): LearningCourseActivity|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class LearningCourseActivityRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to LearningCourseActivity
+     * Deserialize response to LearningCourseActivity|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): LearningCourseActivity|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new LearningCourseActivity($data);
     }
     /**
      * Update learningCourseActivity
      * @param LearningCourseActivity $body Request body
-     * @return LearningCourseActivity
+     * @return LearningCourseActivity|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(LearningCourseActivity $body): LearningCourseActivity
+    public function patch(LearningCourseActivity $body): LearningCourseActivity|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to LearningCourseActivity
+     * Deserialize response to LearningCourseActivity|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): LearningCourseActivity|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new LearningCourseActivity($data);
     }
@@ -108,17 +106,17 @@ class LearningCourseActivityRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

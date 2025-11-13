@@ -35,10 +35,10 @@ class MembersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DirectoryObjectCollectionResponse
+     * @return DirectoryObjectCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DirectoryObjectCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DirectoryObjectCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -75,19 +75,19 @@ class MembersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DirectoryObjectCollectionResponse
+     * Deserialize response to DirectoryObjectCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DirectoryObjectCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -100,33 +100,31 @@ class MembersRequestBuilder extends RootBaseRequestBuilder
     /**
      * Add a member
      * @param DirectoryObject $body Request body
-     * @return DirectoryObject
+     * @return DirectoryObject|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DirectoryObject $body): DirectoryObject
+    public function post(DirectoryObject $body): DirectoryObject|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DirectoryObject
+     * Deserialize response to DirectoryObject|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DirectoryObject|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DirectoryObject($data);
     }

@@ -8,6 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ProtectionUnitBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\ProtectionUnitBase;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\ProtectionUnits\ProtectionUnitBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\ProtectionUnits\CountRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\ProtectionUnits\GraphDriveProtectionUnitRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\ProtectionUnits\GraphMailboxProtectionUnitRequestBuilder;
@@ -29,10 +30,10 @@ class ProtectionUnitsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ProtectionUnitBaseCollectionResponse
+     * @return ProtectionUnitBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ProtectionUnitBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ProtectionUnitBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -66,19 +67,19 @@ class ProtectionUnitsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ProtectionUnitBaseCollectionResponse
+     * Deserialize response to ProtectionUnitBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ProtectionUnitBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {

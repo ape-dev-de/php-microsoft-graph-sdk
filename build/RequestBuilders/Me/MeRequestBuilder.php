@@ -95,10 +95,10 @@ class MeRequestBuilder extends RootBaseRequestBuilder
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
      * @param string|null $consistencyLevel Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries
-     * @return User
+     * @return User|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): User
+    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): User|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -117,52 +117,50 @@ class MeRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to User
+     * Deserialize response to User|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): User|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new User($data);
     }
     /**
      * Update user
      * @param User $body Request body
-     * @return User
+     * @return User|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(User $body): User
+    public function patch(User $body): User|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to User
+     * Deserialize response to User|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): User|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new User($data);
     }

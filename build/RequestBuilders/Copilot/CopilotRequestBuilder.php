@@ -21,10 +21,10 @@ class CopilotRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CopilotRoot
+     * @return CopilotRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CopilotRoot
+    public function get(?array $select = null, ?array $expand = null): CopilotRoot|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class CopilotRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to CopilotRoot
+     * Deserialize response to CopilotRoot|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CopilotRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CopilotRoot($data);
     }
     /**
      * Update copilot
      * @param CopilotRoot $body Request body
-     * @return CopilotRoot
+     * @return CopilotRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(CopilotRoot $body): CopilotRoot
+    public function patch(CopilotRoot $body): CopilotRoot|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to CopilotRoot
+     * Deserialize response to CopilotRoot|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): CopilotRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CopilotRoot($data);
     }

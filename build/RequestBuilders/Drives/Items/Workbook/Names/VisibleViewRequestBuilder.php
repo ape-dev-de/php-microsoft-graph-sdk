@@ -15,10 +15,10 @@ class VisibleViewRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function visibleView
-     * @return WorkbookRangeView|\stdClass
+     * @return WorkbookRangeView|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): WorkbookRangeView|\stdClass
+    public function get(): WorkbookRangeView|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class VisibleViewRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookRangeView|\stdClass
+     * Deserialize response to WorkbookRangeView|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookRangeView|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookRangeView($data);
     }

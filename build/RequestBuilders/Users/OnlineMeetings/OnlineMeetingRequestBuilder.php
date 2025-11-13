@@ -25,10 +25,10 @@ class OnlineMeetingRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return OnlineMeeting
+     * @return OnlineMeeting|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): OnlineMeeting
+    public function get(?array $select = null, ?array $expand = null): OnlineMeeting|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -44,52 +44,50 @@ class OnlineMeetingRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to OnlineMeeting
+     * Deserialize response to OnlineMeeting|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): OnlineMeeting|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new OnlineMeeting($data);
     }
     /**
      * Update the navigation property onlineMeetings in users
      * @param OnlineMeeting $body Request body
-     * @return OnlineMeeting
+     * @return OnlineMeeting|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(OnlineMeeting $body): OnlineMeeting
+    public function patch(OnlineMeeting $body): OnlineMeeting|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to OnlineMeeting
+     * Deserialize response to OnlineMeeting|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): OnlineMeeting|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new OnlineMeeting($data);
     }
@@ -115,17 +113,17 @@ class OnlineMeetingRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

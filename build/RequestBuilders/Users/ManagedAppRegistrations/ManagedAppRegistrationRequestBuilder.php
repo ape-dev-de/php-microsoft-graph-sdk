@@ -18,10 +18,10 @@ class ManagedAppRegistrationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ManagedAppRegistration
+     * @return ManagedAppRegistration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ManagedAppRegistration
+    public function get(?array $select = null, ?array $expand = null): ManagedAppRegistration|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class ManagedAppRegistrationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ManagedAppRegistration
+     * Deserialize response to ManagedAppRegistration|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ManagedAppRegistration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ManagedAppRegistration($data);
     }

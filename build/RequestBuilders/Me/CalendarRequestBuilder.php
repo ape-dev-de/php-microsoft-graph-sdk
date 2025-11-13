@@ -24,10 +24,10 @@ class CalendarRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return Calendar
+     * @return Calendar|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): Calendar
+    public function get(?array $select = null, ?array $expand = null): Calendar|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -43,52 +43,50 @@ class CalendarRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Calendar
+     * Deserialize response to Calendar|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Calendar|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Calendar($data);
     }
     /**
      * Update calendar
      * @param Calendar $body Request body
-     * @return Calendar
+     * @return Calendar|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Calendar $body): Calendar
+    public function patch(Calendar $body): Calendar|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to Calendar
+     * Deserialize response to Calendar|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): Calendar|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Calendar($data);
     }

@@ -18,10 +18,10 @@ class ThumbnailSetRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ThumbnailSet
+     * @return ThumbnailSet|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ThumbnailSet
+    public function get(?array $select = null, ?array $expand = null): ThumbnailSet|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ThumbnailSetRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ThumbnailSet
+     * Deserialize response to ThumbnailSet|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ThumbnailSet|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ThumbnailSet($data);
     }
     /**
      * Update the navigation property thumbnails in drives
      * @param ThumbnailSet $body Request body
-     * @return ThumbnailSet
+     * @return ThumbnailSet|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ThumbnailSet $body): ThumbnailSet
+    public function patch(ThumbnailSet $body): ThumbnailSet|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ThumbnailSet
+     * Deserialize response to ThumbnailSet|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ThumbnailSet|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ThumbnailSet($data);
     }
@@ -108,17 +106,17 @@ class ThumbnailSetRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

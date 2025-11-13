@@ -16,33 +16,31 @@ class UpdateRecordingStatusRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action updateRecordingStatus
      * @param UpdateRecordingStatusOperation|\stdClass $body Request body
-     * @return UpdateRecordingStatusOperation|\stdClass
+     * @return UpdateRecordingStatusOperation|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UpdateRecordingStatusOperation|\stdClass $body): UpdateRecordingStatusOperation|\stdClass
+    public function post(UpdateRecordingStatusOperation|\stdClass $body): UpdateRecordingStatusOperation|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UpdateRecordingStatusOperation|\stdClass
+     * Deserialize response to UpdateRecordingStatusOperation|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UpdateRecordingStatusOperation|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UpdateRecordingStatusOperation($data);
     }

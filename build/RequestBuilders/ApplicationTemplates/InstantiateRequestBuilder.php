@@ -16,33 +16,31 @@ class InstantiateRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action instantiate
      * @param ApplicationServicePrincipal|\stdClass $body Request body
-     * @return ApplicationServicePrincipal|\stdClass
+     * @return ApplicationServicePrincipal|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ApplicationServicePrincipal|\stdClass $body): ApplicationServicePrincipal|\stdClass
+    public function post(ApplicationServicePrincipal|\stdClass $body): ApplicationServicePrincipal|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ApplicationServicePrincipal|\stdClass
+     * Deserialize response to ApplicationServicePrincipal|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ApplicationServicePrincipal|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ApplicationServicePrincipal($data);
     }

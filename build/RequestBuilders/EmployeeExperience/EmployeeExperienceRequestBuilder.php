@@ -21,10 +21,10 @@ class EmployeeExperienceRequestBuilder extends RootBaseRequestBuilder
      * Get employeeExperience
      *
      * @param array<int, string>|null $select Select properties to be returned
-     * @return EmployeeExperience
+     * @return EmployeeExperience|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null): EmployeeExperience
+    public function get(?array $select = null): EmployeeExperience|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class EmployeeExperienceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to EmployeeExperience
+     * Deserialize response to EmployeeExperience|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): EmployeeExperience|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EmployeeExperience($data);
     }
     /**
      * Update employeeExperience
      * @param EmployeeExperience $body Request body
-     * @return EmployeeExperience
+     * @return EmployeeExperience|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(EmployeeExperience $body): EmployeeExperience
+    public function patch(EmployeeExperience $body): EmployeeExperience|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to EmployeeExperience
+     * Deserialize response to EmployeeExperience|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): EmployeeExperience|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EmployeeExperience($data);
     }

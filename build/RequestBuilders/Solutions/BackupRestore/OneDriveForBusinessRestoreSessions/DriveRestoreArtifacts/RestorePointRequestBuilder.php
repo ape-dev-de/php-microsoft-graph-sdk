@@ -18,10 +18,10 @@ class RestorePointRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return RestorePoint
+     * @return RestorePoint|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): RestorePoint
+    public function get(?array $select = null, ?array $expand = null): RestorePoint|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class RestorePointRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to RestorePoint
+     * Deserialize response to RestorePoint|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): RestorePoint|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RestorePoint($data);
     }

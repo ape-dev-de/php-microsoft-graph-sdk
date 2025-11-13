@@ -18,10 +18,10 @@ class SourceColumnRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ColumnDefinition
+     * @return ColumnDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ColumnDefinition
+    public function get(?array $select = null, ?array $expand = null): ColumnDefinition|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class SourceColumnRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ColumnDefinition
+     * Deserialize response to ColumnDefinition|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ColumnDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ColumnDefinition($data);
     }

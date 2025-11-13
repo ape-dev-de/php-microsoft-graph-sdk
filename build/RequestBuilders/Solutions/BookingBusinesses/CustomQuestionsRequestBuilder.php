@@ -27,10 +27,10 @@ class CustomQuestionsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return BookingCustomQuestionCollectionResponse
+     * @return BookingCustomQuestionCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): BookingCustomQuestionCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): BookingCustomQuestionCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class CustomQuestionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to BookingCustomQuestionCollectionResponse
+     * Deserialize response to BookingCustomQuestionCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): BookingCustomQuestionCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class CustomQuestionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create bookingCustomQuestion
      * @param BookingCustomQuestion $body Request body
-     * @return BookingCustomQuestion
+     * @return BookingCustomQuestion|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(BookingCustomQuestion $body): BookingCustomQuestion
+    public function post(BookingCustomQuestion $body): BookingCustomQuestion|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to BookingCustomQuestion
+     * Deserialize response to BookingCustomQuestion|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): BookingCustomQuestion|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BookingCustomQuestion($data);
     }

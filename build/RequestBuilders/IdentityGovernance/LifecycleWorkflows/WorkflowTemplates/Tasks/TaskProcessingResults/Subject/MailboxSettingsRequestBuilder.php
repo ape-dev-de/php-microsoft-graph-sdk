@@ -18,10 +18,10 @@ class MailboxSettingsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MailboxSettings
+     * @return MailboxSettings|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MailboxSettings
+    public function get(?array $select = null, ?array $expand = null): MailboxSettings|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class MailboxSettingsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MailboxSettings
+     * Deserialize response to MailboxSettings|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MailboxSettings|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MailboxSettings($data);
     }
     /**
      * Update property mailboxSettings value.
      * @param MailboxSettings $body Request body
-     * @return MailboxSettings
+     * @return MailboxSettings|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(MailboxSettings $body): MailboxSettings
+    public function patch(MailboxSettings $body): MailboxSettings|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to MailboxSettings
+     * Deserialize response to MailboxSettings|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): MailboxSettings|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MailboxSettings($data);
     }

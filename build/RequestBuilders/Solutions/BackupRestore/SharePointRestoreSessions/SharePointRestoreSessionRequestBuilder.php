@@ -20,10 +20,10 @@ class SharePointRestoreSessionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SharePointRestoreSession
+     * @return SharePointRestoreSession|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SharePointRestoreSession
+    public function get(?array $select = null, ?array $expand = null): SharePointRestoreSession|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class SharePointRestoreSessionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SharePointRestoreSession
+     * Deserialize response to SharePointRestoreSession|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SharePointRestoreSession|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SharePointRestoreSession($data);
     }
     /**
      * Update the navigation property sharePointRestoreSessions in solutions
      * @param SharePointRestoreSession $body Request body
-     * @return SharePointRestoreSession
+     * @return SharePointRestoreSession|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SharePointRestoreSession $body): SharePointRestoreSession
+    public function patch(SharePointRestoreSession $body): SharePointRestoreSession|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SharePointRestoreSession
+     * Deserialize response to SharePointRestoreSession|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SharePointRestoreSession|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SharePointRestoreSession($data);
     }
@@ -110,17 +108,17 @@ class SharePointRestoreSessionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

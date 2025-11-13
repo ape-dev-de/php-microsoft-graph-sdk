@@ -18,10 +18,10 @@ class ProvisioningObjectSummaryRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ProvisioningObjectSummary
+     * @return ProvisioningObjectSummary|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ProvisioningObjectSummary
+    public function get(?array $select = null, ?array $expand = null): ProvisioningObjectSummary|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ProvisioningObjectSummaryRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ProvisioningObjectSummary
+     * Deserialize response to ProvisioningObjectSummary|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ProvisioningObjectSummary|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ProvisioningObjectSummary($data);
     }
     /**
      * Update the navigation property provisioning in auditLogs
      * @param ProvisioningObjectSummary $body Request body
-     * @return ProvisioningObjectSummary
+     * @return ProvisioningObjectSummary|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ProvisioningObjectSummary $body): ProvisioningObjectSummary
+    public function patch(ProvisioningObjectSummary $body): ProvisioningObjectSummary|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ProvisioningObjectSummary
+     * Deserialize response to ProvisioningObjectSummary|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ProvisioningObjectSummary|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ProvisioningObjectSummary($data);
     }
@@ -108,17 +106,17 @@ class ProvisioningObjectSummaryRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

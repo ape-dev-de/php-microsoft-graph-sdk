@@ -10,6 +10,7 @@ use ApeDevDe\MicrosoftGraphSdk\Models\IdentityProviderBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityProviderBase;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\B2xUserFlows\UserFlowIdentityProviders\CountRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\B2xUserFlows\UserFlowIdentityProviders\RefRequestBuilder;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\B2xUserFlows\UserFlowIdentityProviders\IdentityProviderBaseRequestBuilder;
 
 /**
  * Request builder for /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/userFlowIdentityProviders
@@ -27,10 +28,10 @@ class UserFlowIdentityProvidersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return IdentityProviderBaseCollectionResponse
+     * @return IdentityProviderBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): IdentityProviderBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): IdentityProviderBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +65,19 @@ class UserFlowIdentityProvidersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityProviderBaseCollectionResponse
+     * Deserialize response to IdentityProviderBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityProviderBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {

@@ -28,10 +28,10 @@ class EligibilityScheduleInstancesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse
+     * @return PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class EligibilityScheduleInstancesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse
+     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrivilegedAccessGroupEligibilityScheduleInstanceCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class EligibilityScheduleInstancesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to eligibilityScheduleInstances for identityGovernance
      * @param PrivilegedAccessGroupEligibilityScheduleInstance $body Request body
-     * @return PrivilegedAccessGroupEligibilityScheduleInstance
+     * @return PrivilegedAccessGroupEligibilityScheduleInstance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(PrivilegedAccessGroupEligibilityScheduleInstance $body): PrivilegedAccessGroupEligibilityScheduleInstance
+    public function post(PrivilegedAccessGroupEligibilityScheduleInstance $body): PrivilegedAccessGroupEligibilityScheduleInstance|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleInstance
+     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleInstance|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): PrivilegedAccessGroupEligibilityScheduleInstance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrivilegedAccessGroupEligibilityScheduleInstance($data);
     }

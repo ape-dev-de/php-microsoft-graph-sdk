@@ -18,10 +18,10 @@ class MobileAppCategoryRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MobileAppCategory
+     * @return MobileAppCategory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MobileAppCategory
+    public function get(?array $select = null, ?array $expand = null): MobileAppCategory|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class MobileAppCategoryRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MobileAppCategory
+     * Deserialize response to MobileAppCategory|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MobileAppCategory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MobileAppCategory($data);
     }
     /**
      * Update mobileAppCategory
      * @param MobileAppCategory $body Request body
-     * @return MobileAppCategory
+     * @return MobileAppCategory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(MobileAppCategory $body): MobileAppCategory
+    public function patch(MobileAppCategory $body): MobileAppCategory|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to MobileAppCategory
+     * Deserialize response to MobileAppCategory|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): MobileAppCategory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MobileAppCategory($data);
     }
@@ -108,17 +106,17 @@ class MobileAppCategoryRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

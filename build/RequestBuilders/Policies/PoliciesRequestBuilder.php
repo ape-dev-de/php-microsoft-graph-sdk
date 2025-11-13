@@ -38,10 +38,10 @@ class PoliciesRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PolicyRoot
+     * @return PolicyRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PolicyRoot
+    public function get(?array $select = null, ?array $expand = null): PolicyRoot|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -57,52 +57,50 @@ class PoliciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PolicyRoot
+     * Deserialize response to PolicyRoot|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PolicyRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PolicyRoot($data);
     }
     /**
      * Update policies
      * @param PolicyRoot $body Request body
-     * @return PolicyRoot
+     * @return PolicyRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PolicyRoot $body): PolicyRoot
+    public function patch(PolicyRoot $body): PolicyRoot|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PolicyRoot
+     * Deserialize response to PolicyRoot|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PolicyRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PolicyRoot($data);
     }

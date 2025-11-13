@@ -18,10 +18,10 @@ class AddToReviewSetOperationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityEdiscoveryAddToReviewSetOperation
+     * @return SecurityEdiscoveryAddToReviewSetOperation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryAddToReviewSetOperation
+    public function get(?array $select = null, ?array $expand = null): SecurityEdiscoveryAddToReviewSetOperation|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class AddToReviewSetOperationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityEdiscoveryAddToReviewSetOperation
+     * Deserialize response to SecurityEdiscoveryAddToReviewSetOperation|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityEdiscoveryAddToReviewSetOperation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityEdiscoveryAddToReviewSetOperation($data);
     }

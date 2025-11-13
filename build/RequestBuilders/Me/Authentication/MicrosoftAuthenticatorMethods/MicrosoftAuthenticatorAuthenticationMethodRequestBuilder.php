@@ -19,10 +19,10 @@ class MicrosoftAuthenticatorAuthenticationMethodRequestBuilder extends RootBaseR
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MicrosoftAuthenticatorAuthenticationMethod
+     * @return MicrosoftAuthenticatorAuthenticationMethod|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MicrosoftAuthenticatorAuthenticationMethod
+    public function get(?array $select = null, ?array $expand = null): MicrosoftAuthenticatorAuthenticationMethod|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class MicrosoftAuthenticatorAuthenticationMethodRequestBuilder extends RootBaseR
     }
 
     /**
-     * Deserialize response to MicrosoftAuthenticatorAuthenticationMethod
+     * Deserialize response to MicrosoftAuthenticatorAuthenticationMethod|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MicrosoftAuthenticatorAuthenticationMethod|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MicrosoftAuthenticatorAuthenticationMethod($data);
     }
@@ -76,17 +76,17 @@ class MicrosoftAuthenticatorAuthenticationMethodRequestBuilder extends RootBaseR
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

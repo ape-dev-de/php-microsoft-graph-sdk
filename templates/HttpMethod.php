@@ -18,11 +18,11 @@
 <?php if (in_array(strtoupper($httpMethod), ['POST', 'PUT', 'PATCH'])): ?>
      * @param <?= ($bodyType === 'array') ? 'array<string, mixed>' : $bodyType ?> $body Request body
 <?php endif; ?>
-     * @return <?= ($returnTypeHint === 'array') ? 'array<string, mixed>' : $returnTypeHint ?>
+     * @return <?= ($returnTypeHint === 'array') ? 'array<string, mixed>' : $returnTypeHint ?><?= $returnTypeHint === 'mixed' ? '' : '|null' ?>
 
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function <?= $methodName ?>(<?= $parameterList ?>): <?= $returnTypeHint ?>
+    public function <?= $methodName ?>(<?= $parameterList ?>): <?= $returnTypeHint === 'mixed' ? 'mixed' : $returnTypeHint . '|null' ?>
 
     {
 <?php if (!empty($parameters)): ?>
@@ -50,9 +50,7 @@
 <?php if ($bodyType === 'array'): ?>
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $body);
 <?php else: ?>
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $bodyData);
+        $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $body->getRaw());
 <?php endif; ?>
 <?php else: ?>
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $queryParams);
@@ -62,9 +60,7 @@
 <?php if ($bodyType === 'array'): ?>
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $body);
 <?php else: ?>
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $bodyData);
+        $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, $body->getRaw());
 <?php endif; ?>
 <?php elseif (strtoupper($httpMethod) === 'DELETE'): ?>
         $response = $this->client-><?= strtolower($httpMethod) ?>($this->requestUrl, []);

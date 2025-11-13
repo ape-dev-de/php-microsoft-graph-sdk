@@ -16,33 +16,31 @@ class ConvertToRangeRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action convertToRange
      * @param WorkbookRange|\stdClass $body Request body
-     * @return WorkbookRange|\stdClass
+     * @return WorkbookRange|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(WorkbookRange|\stdClass $body): WorkbookRange|\stdClass
+    public function post(WorkbookRange|\stdClass $body): WorkbookRange|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookRange|\stdClass
+     * Deserialize response to WorkbookRange|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): WorkbookRange|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookRange($data);
     }

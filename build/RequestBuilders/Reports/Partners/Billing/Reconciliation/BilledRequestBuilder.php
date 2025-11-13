@@ -19,10 +19,10 @@ class BilledRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PartnersBillingBilledReconciliation
+     * @return PartnersBillingBilledReconciliation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PartnersBillingBilledReconciliation
+    public function get(?array $select = null, ?array $expand = null): PartnersBillingBilledReconciliation|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class BilledRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PartnersBillingBilledReconciliation
+     * Deserialize response to PartnersBillingBilledReconciliation|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PartnersBillingBilledReconciliation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PartnersBillingBilledReconciliation($data);
     }
     /**
      * Update the navigation property billed in reports
      * @param PartnersBillingBilledReconciliation $body Request body
-     * @return PartnersBillingBilledReconciliation
+     * @return PartnersBillingBilledReconciliation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PartnersBillingBilledReconciliation $body): PartnersBillingBilledReconciliation
+    public function patch(PartnersBillingBilledReconciliation $body): PartnersBillingBilledReconciliation|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PartnersBillingBilledReconciliation
+     * Deserialize response to PartnersBillingBilledReconciliation|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PartnersBillingBilledReconciliation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PartnersBillingBilledReconciliation($data);
     }
@@ -109,17 +107,17 @@ class BilledRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

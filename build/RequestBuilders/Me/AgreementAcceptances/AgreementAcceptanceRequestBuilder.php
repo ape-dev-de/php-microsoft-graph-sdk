@@ -18,10 +18,10 @@ class AgreementAcceptanceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AgreementAcceptance
+     * @return AgreementAcceptance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AgreementAcceptance
+    public function get(?array $select = null, ?array $expand = null): AgreementAcceptance|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class AgreementAcceptanceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AgreementAcceptance
+     * Deserialize response to AgreementAcceptance|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AgreementAcceptance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AgreementAcceptance($data);
     }

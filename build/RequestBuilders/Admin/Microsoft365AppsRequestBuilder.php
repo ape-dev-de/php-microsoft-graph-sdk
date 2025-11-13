@@ -19,10 +19,10 @@ class Microsoft365AppsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AdminMicrosoft365Apps
+     * @return AdminMicrosoft365Apps|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AdminMicrosoft365Apps
+    public function get(?array $select = null, ?array $expand = null): AdminMicrosoft365Apps|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class Microsoft365AppsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AdminMicrosoft365Apps
+     * Deserialize response to AdminMicrosoft365Apps|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AdminMicrosoft365Apps|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AdminMicrosoft365Apps($data);
     }
     /**
      * Update the navigation property microsoft365Apps in admin
      * @param AdminMicrosoft365Apps $body Request body
-     * @return AdminMicrosoft365Apps
+     * @return AdminMicrosoft365Apps|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AdminMicrosoft365Apps $body): AdminMicrosoft365Apps
+    public function patch(AdminMicrosoft365Apps $body): AdminMicrosoft365Apps|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AdminMicrosoft365Apps
+     * Deserialize response to AdminMicrosoft365Apps|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AdminMicrosoft365Apps|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AdminMicrosoft365Apps($data);
     }
@@ -109,17 +107,17 @@ class Microsoft365AppsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

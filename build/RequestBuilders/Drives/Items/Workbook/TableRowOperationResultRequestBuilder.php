@@ -15,10 +15,10 @@ class TableRowOperationResultRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function tableRowOperationResult
-     * @return WorkbookTableRow|\stdClass
+     * @return WorkbookTableRow|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): WorkbookTableRow|\stdClass
+    public function get(): WorkbookTableRow|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class TableRowOperationResultRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookTableRow|\stdClass
+     * Deserialize response to WorkbookTableRow|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookTableRow|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookTableRow($data);
     }

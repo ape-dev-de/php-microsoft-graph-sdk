@@ -18,10 +18,10 @@ class ContentTypeRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ContentType
+     * @return ContentType|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ContentType
+    public function get(?array $select = null, ?array $expand = null): ContentType|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class ContentTypeRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ContentType
+     * Deserialize response to ContentType|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ContentType|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ContentType($data);
     }

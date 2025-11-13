@@ -18,10 +18,10 @@ class TeamworkTagMemberRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TeamworkTagMember
+     * @return TeamworkTagMember|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TeamworkTagMember
+    public function get(?array $select = null, ?array $expand = null): TeamworkTagMember|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class TeamworkTagMemberRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TeamworkTagMember
+     * Deserialize response to TeamworkTagMember|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TeamworkTagMember|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TeamworkTagMember($data);
     }
     /**
      * Update the navigation property members in me
      * @param TeamworkTagMember $body Request body
-     * @return TeamworkTagMember
+     * @return TeamworkTagMember|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TeamworkTagMember $body): TeamworkTagMember
+    public function patch(TeamworkTagMember $body): TeamworkTagMember|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TeamworkTagMember
+     * Deserialize response to TeamworkTagMember|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TeamworkTagMember|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TeamworkTagMember($data);
     }
@@ -108,17 +106,17 @@ class TeamworkTagMemberRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

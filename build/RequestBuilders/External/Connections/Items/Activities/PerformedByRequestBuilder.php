@@ -18,10 +18,10 @@ class PerformedByRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ExternalConnectorsIdentity
+     * @return ExternalConnectorsIdentity|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ExternalConnectorsIdentity
+    public function get(?array $select = null, ?array $expand = null): ExternalConnectorsIdentity|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class PerformedByRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ExternalConnectorsIdentity
+     * Deserialize response to ExternalConnectorsIdentity|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ExternalConnectorsIdentity|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExternalConnectorsIdentity($data);
     }

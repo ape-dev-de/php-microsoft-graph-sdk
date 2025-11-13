@@ -27,10 +27,10 @@ class UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder extends RootBa
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UserExperienceAnalyticsDeviceStartupProcessCollectionResponse
+     * @return UserExperienceAnalyticsDeviceStartupProcessCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserExperienceAnalyticsDeviceStartupProcessCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserExperienceAnalyticsDeviceStartupProcessCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder extends RootBa
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessCollectionResponse
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserExperienceAnalyticsDeviceStartupProcessCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder extends RootBa
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceStartupProcesses for deviceManagement
      * @param UserExperienceAnalyticsDeviceStartupProcess $body Request body
-     * @return UserExperienceAnalyticsDeviceStartupProcess
+     * @return UserExperienceAnalyticsDeviceStartupProcess|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UserExperienceAnalyticsDeviceStartupProcess $body): UserExperienceAnalyticsDeviceStartupProcess
+    public function post(UserExperienceAnalyticsDeviceStartupProcess $body): UserExperienceAnalyticsDeviceStartupProcess|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcess
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcess|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UserExperienceAnalyticsDeviceStartupProcess|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsDeviceStartupProcess($data);
     }

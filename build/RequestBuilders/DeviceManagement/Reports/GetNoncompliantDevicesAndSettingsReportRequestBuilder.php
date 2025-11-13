@@ -15,10 +15,10 @@ class GetNoncompliantDevicesAndSettingsReportRequestBuilder extends RootBaseRequ
     /**
      * Invoke action getNoncompliantDevicesAndSettingsReport
      * @param array<string, mixed> $body Request body
-     * @return \stdClass
+     * @return \stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(array $body): \stdClass
+    public function post(array $body): \stdClass|null
     {
         $response = $this->client->post($this->requestUrl, $body);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class GetNoncompliantDevicesAndSettingsReportRequestBuilder extends RootBaseRequ
     }
 
     /**
-     * Deserialize response to \stdClass
+     * Deserialize response to \stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): \stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         return (object)$data;
     }
 }

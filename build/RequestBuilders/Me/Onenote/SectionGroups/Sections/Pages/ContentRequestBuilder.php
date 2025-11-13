@@ -15,10 +15,10 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Get content for the navigation property pages from me
-     * @return string
+     * @return string|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): string
+    public function get(): string|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,52 +27,43 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to string
+     * Deserialize response to string|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): string|null    {
         if (empty($body)) {
             return null;
         }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Single object
-        return $data;
+
+        return $body;
     }
     /**
      * Update content for the navigation property pages in me
      * @param OnenotePage $body Request body
-     * @return OnenotePage
+     * @return OnenotePage|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function put(OnenotePage $body): OnenotePage
+    public function put(OnenotePage $body): OnenotePage|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->put($this->requestUrl, $bodyData);
+        $response = $this->client->put($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePut($responseBody);
     }
 
     /**
-     * Deserialize response to OnenotePage
+     * Deserialize response to OnenotePage|null
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): OnenotePage|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new OnenotePage($data);
     }
@@ -98,17 +89,17 @@ class ContentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

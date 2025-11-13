@@ -18,10 +18,10 @@ class BitlockerRecoveryKeyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return BitlockerRecoveryKey
+     * @return BitlockerRecoveryKey|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): BitlockerRecoveryKey
+    public function get(?array $select = null, ?array $expand = null): BitlockerRecoveryKey|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class BitlockerRecoveryKeyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to BitlockerRecoveryKey
+     * Deserialize response to BitlockerRecoveryKey|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): BitlockerRecoveryKey|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BitlockerRecoveryKey($data);
     }

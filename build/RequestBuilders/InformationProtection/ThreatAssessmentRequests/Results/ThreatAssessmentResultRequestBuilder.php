@@ -18,10 +18,10 @@ class ThreatAssessmentResultRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ThreatAssessmentResult
+     * @return ThreatAssessmentResult|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ThreatAssessmentResult
+    public function get(?array $select = null, ?array $expand = null): ThreatAssessmentResult|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ThreatAssessmentResultRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ThreatAssessmentResult
+     * Deserialize response to ThreatAssessmentResult|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ThreatAssessmentResult|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ThreatAssessmentResult($data);
     }
     /**
      * Update the navigation property results in informationProtection
      * @param ThreatAssessmentResult $body Request body
-     * @return ThreatAssessmentResult
+     * @return ThreatAssessmentResult|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ThreatAssessmentResult $body): ThreatAssessmentResult
+    public function patch(ThreatAssessmentResult $body): ThreatAssessmentResult|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ThreatAssessmentResult
+     * Deserialize response to ThreatAssessmentResult|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ThreatAssessmentResult|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ThreatAssessmentResult($data);
     }
@@ -108,17 +106,17 @@ class ThreatAssessmentResultRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

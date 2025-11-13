@@ -19,10 +19,10 @@ class FeatureRolloutPolicyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return FeatureRolloutPolicy
+     * @return FeatureRolloutPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): FeatureRolloutPolicy
+    public function get(?array $select = null, ?array $expand = null): FeatureRolloutPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class FeatureRolloutPolicyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to FeatureRolloutPolicy
+     * Deserialize response to FeatureRolloutPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): FeatureRolloutPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new FeatureRolloutPolicy($data);
     }
     /**
      * Update featurerolloutpolicy
      * @param FeatureRolloutPolicy $body Request body
-     * @return FeatureRolloutPolicy
+     * @return FeatureRolloutPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(FeatureRolloutPolicy $body): FeatureRolloutPolicy
+    public function patch(FeatureRolloutPolicy $body): FeatureRolloutPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to FeatureRolloutPolicy
+     * Deserialize response to FeatureRolloutPolicy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): FeatureRolloutPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new FeatureRolloutPolicy($data);
     }
@@ -109,17 +107,17 @@ class FeatureRolloutPolicyRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

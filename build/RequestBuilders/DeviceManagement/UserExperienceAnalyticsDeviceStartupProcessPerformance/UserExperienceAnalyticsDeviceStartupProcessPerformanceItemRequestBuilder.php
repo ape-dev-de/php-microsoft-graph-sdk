@@ -18,10 +18,10 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder e
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupProcessPerformance
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupProcessPerformance|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder e
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserExperienceAnalyticsDeviceStartupProcessPerformance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsDeviceStartupProcessPerformance($data);
     }
     /**
      * Update the navigation property userExperienceAnalyticsDeviceStartupProcessPerformance in deviceManagement
      * @param UserExperienceAnalyticsDeviceStartupProcessPerformance $body Request body
-     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsDeviceStartupProcessPerformance $body): UserExperienceAnalyticsDeviceStartupProcessPerformance
+    public function patch(UserExperienceAnalyticsDeviceStartupProcessPerformance $body): UserExperienceAnalyticsDeviceStartupProcessPerformance|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): UserExperienceAnalyticsDeviceStartupProcessPerformance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsDeviceStartupProcessPerformance($data);
     }
@@ -108,17 +106,17 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder e
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

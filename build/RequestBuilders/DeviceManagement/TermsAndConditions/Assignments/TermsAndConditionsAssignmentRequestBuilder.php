@@ -18,10 +18,10 @@ class TermsAndConditionsAssignmentRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TermsAndConditionsAssignment
+     * @return TermsAndConditionsAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TermsAndConditionsAssignment
+    public function get(?array $select = null, ?array $expand = null): TermsAndConditionsAssignment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class TermsAndConditionsAssignmentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TermsAndConditionsAssignment
+     * Deserialize response to TermsAndConditionsAssignment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TermsAndConditionsAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermsAndConditionsAssignment($data);
     }
     /**
      * Update termsAndConditionsAssignment
      * @param TermsAndConditionsAssignment $body Request body
-     * @return TermsAndConditionsAssignment
+     * @return TermsAndConditionsAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TermsAndConditionsAssignment $body): TermsAndConditionsAssignment
+    public function patch(TermsAndConditionsAssignment $body): TermsAndConditionsAssignment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TermsAndConditionsAssignment
+     * Deserialize response to TermsAndConditionsAssignment|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TermsAndConditionsAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermsAndConditionsAssignment($data);
     }
@@ -108,17 +106,17 @@ class TermsAndConditionsAssignmentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

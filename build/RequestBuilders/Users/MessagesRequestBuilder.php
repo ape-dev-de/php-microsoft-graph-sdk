@@ -29,10 +29,10 @@ class MessagesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return MessageCollectionResponse
+     * @return MessageCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?string $includeHiddenMessages = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MessageCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?string $includeHiddenMessages = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MessageCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -69,19 +69,19 @@ class MessagesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MessageCollectionResponse
+     * Deserialize response to MessageCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MessageCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -94,33 +94,31 @@ class MessagesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to messages for users
      * @param Message $body Request body
-     * @return Message
+     * @return Message|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(Message $body): Message
+    public function post(Message $body): Message|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to Message
+     * Deserialize response to Message|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): Message|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Message($data);
     }

@@ -18,10 +18,10 @@ class SubscriptionRequestBuilder extends RootBaseRequestBuilder
      * Get subscription
      *
      * @param array<int, string>|null $select Select properties to be returned
-     * @return Subscription
+     * @return Subscription|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null): Subscription
+    public function get(?array $select = null): Subscription|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -34,52 +34,50 @@ class SubscriptionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to Subscription
+     * Deserialize response to Subscription|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): Subscription|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Subscription($data);
     }
     /**
      * Update subscription
      * @param Subscription $body Request body
-     * @return Subscription
+     * @return Subscription|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(Subscription $body): Subscription
+    public function patch(Subscription $body): Subscription|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to Subscription
+     * Deserialize response to Subscription|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): Subscription|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new Subscription($data);
     }
@@ -105,17 +103,17 @@ class SubscriptionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

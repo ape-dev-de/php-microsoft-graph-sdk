@@ -18,10 +18,10 @@ class ReflectCheckInResponseRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ReflectCheckInResponse
+     * @return ReflectCheckInResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ReflectCheckInResponse
+    public function get(?array $select = null, ?array $expand = null): ReflectCheckInResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class ReflectCheckInResponseRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ReflectCheckInResponse
+     * Deserialize response to ReflectCheckInResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ReflectCheckInResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ReflectCheckInResponse($data);
     }
     /**
      * Update the navigation property reflectCheckInResponses in education
      * @param ReflectCheckInResponse $body Request body
-     * @return ReflectCheckInResponse
+     * @return ReflectCheckInResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ReflectCheckInResponse $body): ReflectCheckInResponse
+    public function patch(ReflectCheckInResponse $body): ReflectCheckInResponse|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ReflectCheckInResponse
+     * Deserialize response to ReflectCheckInResponse|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ReflectCheckInResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ReflectCheckInResponse($data);
     }
@@ -108,17 +106,17 @@ class ReflectCheckInResponseRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

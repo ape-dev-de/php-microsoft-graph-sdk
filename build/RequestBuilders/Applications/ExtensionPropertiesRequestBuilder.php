@@ -27,10 +27,10 @@ class ExtensionPropertiesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ExtensionPropertyCollectionResponse
+     * @return ExtensionPropertyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ExtensionPropertyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ExtensionPropertyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class ExtensionPropertiesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ExtensionPropertyCollectionResponse
+     * Deserialize response to ExtensionPropertyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ExtensionPropertyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class ExtensionPropertiesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create extensionProperty (directory extension)
      * @param ExtensionProperty $body Request body
-     * @return ExtensionProperty
+     * @return ExtensionProperty|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ExtensionProperty $body): ExtensionProperty
+    public function post(ExtensionProperty $body): ExtensionProperty|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ExtensionProperty
+     * Deserialize response to ExtensionProperty|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ExtensionProperty|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ExtensionProperty($data);
     }

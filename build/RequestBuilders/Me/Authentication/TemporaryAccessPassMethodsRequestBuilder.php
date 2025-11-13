@@ -27,10 +27,10 @@ class TemporaryAccessPassMethodsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return TemporaryAccessPassAuthenticationMethodCollectionResponse
+     * @return TemporaryAccessPassAuthenticationMethodCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TemporaryAccessPassAuthenticationMethodCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TemporaryAccessPassAuthenticationMethodCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class TemporaryAccessPassMethodsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TemporaryAccessPassAuthenticationMethodCollectionResponse
+     * Deserialize response to TemporaryAccessPassAuthenticationMethodCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TemporaryAccessPassAuthenticationMethodCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class TemporaryAccessPassMethodsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to temporaryAccessPassMethods for me
      * @param TemporaryAccessPassAuthenticationMethod $body Request body
-     * @return TemporaryAccessPassAuthenticationMethod
+     * @return TemporaryAccessPassAuthenticationMethod|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(TemporaryAccessPassAuthenticationMethod $body): TemporaryAccessPassAuthenticationMethod
+    public function post(TemporaryAccessPassAuthenticationMethod $body): TemporaryAccessPassAuthenticationMethod|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to TemporaryAccessPassAuthenticationMethod
+     * Deserialize response to TemporaryAccessPassAuthenticationMethod|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): TemporaryAccessPassAuthenticationMethod|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TemporaryAccessPassAuthenticationMethod($data);
     }

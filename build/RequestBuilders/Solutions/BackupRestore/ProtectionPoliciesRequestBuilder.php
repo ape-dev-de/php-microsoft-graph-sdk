@@ -8,6 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\ProtectionPolicyBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\ProtectionPolicyBase;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\ProtectionPolicies\ProtectionPolicyBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\ProtectionPolicies\CountRequestBuilder;
 
 /**
@@ -26,10 +27,10 @@ class ProtectionPoliciesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ProtectionPolicyBaseCollectionResponse
+     * @return ProtectionPolicyBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ProtectionPolicyBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ProtectionPolicyBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -63,19 +64,19 @@ class ProtectionPoliciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ProtectionPolicyBaseCollectionResponse
+     * Deserialize response to ProtectionPolicyBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ProtectionPolicyBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -88,33 +89,31 @@ class ProtectionPoliciesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to protectionPolicies for solutions
      * @param ProtectionPolicyBase $body Request body
-     * @return ProtectionPolicyBase
+     * @return ProtectionPolicyBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ProtectionPolicyBase $body): ProtectionPolicyBase
+    public function post(ProtectionPolicyBase $body): ProtectionPolicyBase|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ProtectionPolicyBase
+     * Deserialize response to ProtectionPolicyBase|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ProtectionPolicyBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ProtectionPolicyBase($data);
     }

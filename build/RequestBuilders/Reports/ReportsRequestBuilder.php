@@ -108,10 +108,10 @@ class ReportsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ReportRoot
+     * @return ReportRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ReportRoot
+    public function get(?array $select = null, ?array $expand = null): ReportRoot|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -127,52 +127,50 @@ class ReportsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ReportRoot
+     * Deserialize response to ReportRoot|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ReportRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ReportRoot($data);
     }
     /**
      * Update reportRoot
      * @param ReportRoot $body Request body
-     * @return ReportRoot
+     * @return ReportRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ReportRoot $body): ReportRoot
+    public function patch(ReportRoot $body): ReportRoot|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ReportRoot
+     * Deserialize response to ReportRoot|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ReportRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ReportRoot($data);
     }

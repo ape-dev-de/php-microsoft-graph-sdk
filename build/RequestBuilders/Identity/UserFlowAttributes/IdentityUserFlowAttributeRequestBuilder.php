@@ -18,10 +18,10 @@ class IdentityUserFlowAttributeRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentityUserFlowAttribute
+     * @return IdentityUserFlowAttribute|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentityUserFlowAttribute
+    public function get(?array $select = null, ?array $expand = null): IdentityUserFlowAttribute|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class IdentityUserFlowAttributeRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityUserFlowAttribute
+     * Deserialize response to IdentityUserFlowAttribute|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityUserFlowAttribute|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityUserFlowAttribute($data);
     }
     /**
      * Update identityUserFlowAttribute
      * @param IdentityUserFlowAttribute $body Request body
-     * @return IdentityUserFlowAttribute
+     * @return IdentityUserFlowAttribute|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(IdentityUserFlowAttribute $body): IdentityUserFlowAttribute
+    public function patch(IdentityUserFlowAttribute $body): IdentityUserFlowAttribute|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to IdentityUserFlowAttribute
+     * Deserialize response to IdentityUserFlowAttribute|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): IdentityUserFlowAttribute|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityUserFlowAttribute($data);
     }
@@ -108,17 +106,17 @@ class IdentityUserFlowAttributeRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -19,10 +19,10 @@ class ClaimsMappingPolicyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ClaimsMappingPolicy
+     * @return ClaimsMappingPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ClaimsMappingPolicy
+    public function get(?array $select = null, ?array $expand = null): ClaimsMappingPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class ClaimsMappingPolicyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ClaimsMappingPolicy
+     * Deserialize response to ClaimsMappingPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ClaimsMappingPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ClaimsMappingPolicy($data);
     }
     /**
      * Update claimsmappingpolicy
      * @param ClaimsMappingPolicy $body Request body
-     * @return ClaimsMappingPolicy
+     * @return ClaimsMappingPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ClaimsMappingPolicy $body): ClaimsMappingPolicy
+    public function patch(ClaimsMappingPolicy $body): ClaimsMappingPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ClaimsMappingPolicy
+     * Deserialize response to ClaimsMappingPolicy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ClaimsMappingPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ClaimsMappingPolicy($data);
     }
@@ -109,17 +107,17 @@ class ClaimsMappingPolicyRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

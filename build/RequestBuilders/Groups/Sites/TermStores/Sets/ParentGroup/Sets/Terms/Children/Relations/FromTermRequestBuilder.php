@@ -18,10 +18,10 @@ class FromTermRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TermStoreTerm
+     * @return TermStoreTerm|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TermStoreTerm
+    public function get(?array $select = null, ?array $expand = null): TermStoreTerm|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class FromTermRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TermStoreTerm
+     * Deserialize response to TermStoreTerm|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TermStoreTerm|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermStoreTerm($data);
     }

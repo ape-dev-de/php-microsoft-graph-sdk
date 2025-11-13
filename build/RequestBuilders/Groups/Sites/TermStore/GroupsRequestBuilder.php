@@ -27,10 +27,10 @@ class GroupsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return TermStoreGroupCollectionResponse
+     * @return TermStoreGroupCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TermStoreGroupCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): TermStoreGroupCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class GroupsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TermStoreGroupCollectionResponse
+     * Deserialize response to TermStoreGroupCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TermStoreGroupCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class GroupsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to groups for groups
      * @param TermStoreGroup $body Request body
-     * @return TermStoreGroup
+     * @return TermStoreGroup|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(TermStoreGroup $body): TermStoreGroup
+    public function post(TermStoreGroup $body): TermStoreGroup|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to TermStoreGroup
+     * Deserialize response to TermStoreGroup|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): TermStoreGroup|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermStoreGroup($data);
     }

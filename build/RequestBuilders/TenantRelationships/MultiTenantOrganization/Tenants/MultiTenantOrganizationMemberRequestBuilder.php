@@ -18,10 +18,10 @@ class MultiTenantOrganizationMemberRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MultiTenantOrganizationMember
+     * @return MultiTenantOrganizationMember|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MultiTenantOrganizationMember
+    public function get(?array $select = null, ?array $expand = null): MultiTenantOrganizationMember|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class MultiTenantOrganizationMemberRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MultiTenantOrganizationMember
+     * Deserialize response to MultiTenantOrganizationMember|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MultiTenantOrganizationMember|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MultiTenantOrganizationMember($data);
     }
     /**
      * Update the navigation property tenants in tenantRelationships
      * @param MultiTenantOrganizationMember $body Request body
-     * @return MultiTenantOrganizationMember
+     * @return MultiTenantOrganizationMember|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(MultiTenantOrganizationMember $body): MultiTenantOrganizationMember
+    public function patch(MultiTenantOrganizationMember $body): MultiTenantOrganizationMember|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to MultiTenantOrganizationMember
+     * Deserialize response to MultiTenantOrganizationMember|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): MultiTenantOrganizationMember|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MultiTenantOrganizationMember($data);
     }
@@ -108,17 +106,17 @@ class MultiTenantOrganizationMemberRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

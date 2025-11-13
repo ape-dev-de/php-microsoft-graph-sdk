@@ -20,10 +20,10 @@ class RecycleBinItemRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return RecycleBinItem
+     * @return RecycleBinItem|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): RecycleBinItem
+    public function get(?array $select = null, ?array $expand = null): RecycleBinItem|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class RecycleBinItemRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to RecycleBinItem
+     * Deserialize response to RecycleBinItem|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): RecycleBinItem|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RecycleBinItem($data);
     }
     /**
      * Update the navigation property items in storage
      * @param RecycleBinItem $body Request body
-     * @return RecycleBinItem
+     * @return RecycleBinItem|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(RecycleBinItem $body): RecycleBinItem
+    public function patch(RecycleBinItem $body): RecycleBinItem|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to RecycleBinItem
+     * Deserialize response to RecycleBinItem|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): RecycleBinItem|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RecycleBinItem($data);
     }
@@ -110,17 +108,17 @@ class RecycleBinItemRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

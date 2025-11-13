@@ -25,10 +25,10 @@ class VirtualEndpointRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return VirtualEndpoint
+     * @return VirtualEndpoint|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): VirtualEndpoint
+    public function get(?array $select = null, ?array $expand = null): VirtualEndpoint|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -44,52 +44,50 @@ class VirtualEndpointRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to VirtualEndpoint
+     * Deserialize response to VirtualEndpoint|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): VirtualEndpoint|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEndpoint($data);
     }
     /**
      * Update the navigation property virtualEndpoint in deviceManagement
      * @param VirtualEndpoint $body Request body
-     * @return VirtualEndpoint
+     * @return VirtualEndpoint|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(VirtualEndpoint $body): VirtualEndpoint
+    public function patch(VirtualEndpoint $body): VirtualEndpoint|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to VirtualEndpoint
+     * Deserialize response to VirtualEndpoint|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): VirtualEndpoint|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEndpoint($data);
     }
@@ -115,17 +113,17 @@ class VirtualEndpointRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

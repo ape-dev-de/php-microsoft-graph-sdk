@@ -18,10 +18,10 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends RootBaseRe
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentitySecurityDefaultsEnforcementPolicy
+     * @return IdentitySecurityDefaultsEnforcementPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentitySecurityDefaultsEnforcementPolicy
+    public function get(?array $select = null, ?array $expand = null): IdentitySecurityDefaultsEnforcementPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends RootBaseRe
     }
 
     /**
-     * Deserialize response to IdentitySecurityDefaultsEnforcementPolicy
+     * Deserialize response to IdentitySecurityDefaultsEnforcementPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentitySecurityDefaultsEnforcementPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentitySecurityDefaultsEnforcementPolicy($data);
     }
     /**
      * Update identitySecurityDefaultsEnforcementPolicy
      * @param IdentitySecurityDefaultsEnforcementPolicy $body Request body
-     * @return IdentitySecurityDefaultsEnforcementPolicy
+     * @return IdentitySecurityDefaultsEnforcementPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(IdentitySecurityDefaultsEnforcementPolicy $body): IdentitySecurityDefaultsEnforcementPolicy
+    public function patch(IdentitySecurityDefaultsEnforcementPolicy $body): IdentitySecurityDefaultsEnforcementPolicy|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to IdentitySecurityDefaultsEnforcementPolicy
+     * Deserialize response to IdentitySecurityDefaultsEnforcementPolicy|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): IdentitySecurityDefaultsEnforcementPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentitySecurityDefaultsEnforcementPolicy($data);
     }
@@ -108,17 +106,17 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends RootBaseRe
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

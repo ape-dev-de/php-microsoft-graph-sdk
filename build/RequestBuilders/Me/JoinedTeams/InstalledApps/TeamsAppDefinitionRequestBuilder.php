@@ -18,10 +18,10 @@ class TeamsAppDefinitionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TeamsAppDefinition
+     * @return TeamsAppDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TeamsAppDefinition
+    public function get(?array $select = null, ?array $expand = null): TeamsAppDefinition|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class TeamsAppDefinitionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TeamsAppDefinition
+     * Deserialize response to TeamsAppDefinition|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TeamsAppDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TeamsAppDefinition($data);
     }

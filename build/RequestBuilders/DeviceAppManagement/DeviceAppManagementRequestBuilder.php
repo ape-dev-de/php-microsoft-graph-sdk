@@ -34,10 +34,10 @@ class DeviceAppManagementRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DeviceAppManagement
+     * @return DeviceAppManagement|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DeviceAppManagement
+    public function get(?array $select = null, ?array $expand = null): DeviceAppManagement|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -53,52 +53,50 @@ class DeviceAppManagementRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DeviceAppManagement
+     * Deserialize response to DeviceAppManagement|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceAppManagement|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceAppManagement($data);
     }
     /**
      * Update deviceAppManagement
      * @param DeviceAppManagement $body Request body
-     * @return DeviceAppManagement
+     * @return DeviceAppManagement|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DeviceAppManagement $body): DeviceAppManagement
+    public function patch(DeviceAppManagement $body): DeviceAppManagement|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceAppManagement
+     * Deserialize response to DeviceAppManagement|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DeviceAppManagement|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceAppManagement($data);
     }

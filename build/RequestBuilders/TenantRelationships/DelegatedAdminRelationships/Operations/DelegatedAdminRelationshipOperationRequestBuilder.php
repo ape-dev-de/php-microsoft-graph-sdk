@@ -18,10 +18,10 @@ class DelegatedAdminRelationshipOperationRequestBuilder extends RootBaseRequestB
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DelegatedAdminRelationshipOperation
+     * @return DelegatedAdminRelationshipOperation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DelegatedAdminRelationshipOperation
+    public function get(?array $select = null, ?array $expand = null): DelegatedAdminRelationshipOperation|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class DelegatedAdminRelationshipOperationRequestBuilder extends RootBaseRequestB
     }
 
     /**
-     * Deserialize response to DelegatedAdminRelationshipOperation
+     * Deserialize response to DelegatedAdminRelationshipOperation|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DelegatedAdminRelationshipOperation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DelegatedAdminRelationshipOperation($data);
     }
     /**
      * Update the navigation property operations in tenantRelationships
      * @param DelegatedAdminRelationshipOperation $body Request body
-     * @return DelegatedAdminRelationshipOperation
+     * @return DelegatedAdminRelationshipOperation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DelegatedAdminRelationshipOperation $body): DelegatedAdminRelationshipOperation
+    public function patch(DelegatedAdminRelationshipOperation $body): DelegatedAdminRelationshipOperation|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DelegatedAdminRelationshipOperation
+     * Deserialize response to DelegatedAdminRelationshipOperation|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DelegatedAdminRelationshipOperation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DelegatedAdminRelationshipOperation($data);
     }
@@ -108,17 +106,17 @@ class DelegatedAdminRelationshipOperationRequestBuilder extends RootBaseRequestB
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

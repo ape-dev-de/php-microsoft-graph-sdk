@@ -18,10 +18,10 @@ class DeviceCompliancePolicyAssignmentRequestBuilder extends RootBaseRequestBuil
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DeviceCompliancePolicyAssignment
+     * @return DeviceCompliancePolicyAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DeviceCompliancePolicyAssignment
+    public function get(?array $select = null, ?array $expand = null): DeviceCompliancePolicyAssignment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class DeviceCompliancePolicyAssignmentRequestBuilder extends RootBaseRequestBuil
     }
 
     /**
-     * Deserialize response to DeviceCompliancePolicyAssignment
+     * Deserialize response to DeviceCompliancePolicyAssignment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DeviceCompliancePolicyAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceCompliancePolicyAssignment($data);
     }
     /**
      * Update deviceCompliancePolicyAssignment
      * @param DeviceCompliancePolicyAssignment $body Request body
-     * @return DeviceCompliancePolicyAssignment
+     * @return DeviceCompliancePolicyAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DeviceCompliancePolicyAssignment $body): DeviceCompliancePolicyAssignment
+    public function patch(DeviceCompliancePolicyAssignment $body): DeviceCompliancePolicyAssignment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DeviceCompliancePolicyAssignment
+     * Deserialize response to DeviceCompliancePolicyAssignment|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DeviceCompliancePolicyAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DeviceCompliancePolicyAssignment($data);
     }
@@ -108,17 +106,17 @@ class DeviceCompliancePolicyAssignmentRequestBuilder extends RootBaseRequestBuil
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

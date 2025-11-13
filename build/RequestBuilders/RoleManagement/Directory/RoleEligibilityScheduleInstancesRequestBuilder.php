@@ -28,10 +28,10 @@ class RoleEligibilityScheduleInstancesRequestBuilder extends RootBaseRequestBuil
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UnifiedRoleEligibilityScheduleInstanceCollectionResponse
+     * @return UnifiedRoleEligibilityScheduleInstanceCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UnifiedRoleEligibilityScheduleInstanceCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UnifiedRoleEligibilityScheduleInstanceCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class RoleEligibilityScheduleInstancesRequestBuilder extends RootBaseRequestBuil
     }
 
     /**
-     * Deserialize response to UnifiedRoleEligibilityScheduleInstanceCollectionResponse
+     * Deserialize response to UnifiedRoleEligibilityScheduleInstanceCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UnifiedRoleEligibilityScheduleInstanceCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class RoleEligibilityScheduleInstancesRequestBuilder extends RootBaseRequestBuil
     /**
      * Create new navigation property to roleEligibilityScheduleInstances for roleManagement
      * @param UnifiedRoleEligibilityScheduleInstance $body Request body
-     * @return UnifiedRoleEligibilityScheduleInstance
+     * @return UnifiedRoleEligibilityScheduleInstance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UnifiedRoleEligibilityScheduleInstance $body): UnifiedRoleEligibilityScheduleInstance
+    public function post(UnifiedRoleEligibilityScheduleInstance $body): UnifiedRoleEligibilityScheduleInstance|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UnifiedRoleEligibilityScheduleInstance
+     * Deserialize response to UnifiedRoleEligibilityScheduleInstance|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UnifiedRoleEligibilityScheduleInstance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleEligibilityScheduleInstance($data);
     }

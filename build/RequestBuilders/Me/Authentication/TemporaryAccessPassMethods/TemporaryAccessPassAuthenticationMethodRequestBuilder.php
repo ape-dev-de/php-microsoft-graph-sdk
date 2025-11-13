@@ -18,10 +18,10 @@ class TemporaryAccessPassAuthenticationMethodRequestBuilder extends RootBaseRequ
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TemporaryAccessPassAuthenticationMethod
+     * @return TemporaryAccessPassAuthenticationMethod|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TemporaryAccessPassAuthenticationMethod
+    public function get(?array $select = null, ?array $expand = null): TemporaryAccessPassAuthenticationMethod|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class TemporaryAccessPassAuthenticationMethodRequestBuilder extends RootBaseRequ
     }
 
     /**
-     * Deserialize response to TemporaryAccessPassAuthenticationMethod
+     * Deserialize response to TemporaryAccessPassAuthenticationMethod|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TemporaryAccessPassAuthenticationMethod|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TemporaryAccessPassAuthenticationMethod($data);
     }
@@ -75,17 +75,17 @@ class TemporaryAccessPassAuthenticationMethodRequestBuilder extends RootBaseRequ
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

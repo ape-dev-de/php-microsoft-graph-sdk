@@ -19,10 +19,10 @@ class SiteSourceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecuritySiteSource
+     * @return SecuritySiteSource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecuritySiteSource
+    public function get(?array $select = null, ?array $expand = null): SecuritySiteSource|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class SiteSourceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecuritySiteSource
+     * Deserialize response to SecuritySiteSource|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecuritySiteSource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecuritySiteSource($data);
     }
     /**
      * Update the navigation property siteSources in security
      * @param SecuritySiteSource $body Request body
-     * @return SecuritySiteSource
+     * @return SecuritySiteSource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SecuritySiteSource $body): SecuritySiteSource
+    public function patch(SecuritySiteSource $body): SecuritySiteSource|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SecuritySiteSource
+     * Deserialize response to SecuritySiteSource|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SecuritySiteSource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecuritySiteSource($data);
     }
@@ -109,17 +107,17 @@ class SiteSourceRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

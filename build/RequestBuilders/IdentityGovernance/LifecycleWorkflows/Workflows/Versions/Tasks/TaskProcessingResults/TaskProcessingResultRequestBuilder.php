@@ -21,10 +21,10 @@ class TaskProcessingResultRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return IdentityGovernanceTaskProcessingResult
+     * @return IdentityGovernanceTaskProcessingResult|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceTaskProcessingResult
+    public function get(?array $select = null, ?array $expand = null): IdentityGovernanceTaskProcessingResult|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,19 +40,19 @@ class TaskProcessingResultRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityGovernanceTaskProcessingResult
+     * Deserialize response to IdentityGovernanceTaskProcessingResult|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityGovernanceTaskProcessingResult|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityGovernanceTaskProcessingResult($data);
     }

@@ -18,10 +18,10 @@ class BookingCustomQuestionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return BookingCustomQuestion
+     * @return BookingCustomQuestion|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): BookingCustomQuestion
+    public function get(?array $select = null, ?array $expand = null): BookingCustomQuestion|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class BookingCustomQuestionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to BookingCustomQuestion
+     * Deserialize response to BookingCustomQuestion|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): BookingCustomQuestion|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BookingCustomQuestion($data);
     }
     /**
      * Update bookingCustomQuestion
      * @param BookingCustomQuestion $body Request body
-     * @return BookingCustomQuestion
+     * @return BookingCustomQuestion|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(BookingCustomQuestion $body): BookingCustomQuestion
+    public function patch(BookingCustomQuestion $body): BookingCustomQuestion|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to BookingCustomQuestion
+     * Deserialize response to BookingCustomQuestion|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): BookingCustomQuestion|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BookingCustomQuestion($data);
     }
@@ -108,17 +106,17 @@ class BookingCustomQuestionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

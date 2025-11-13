@@ -19,10 +19,10 @@ class PublicKeyInfrastructureRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PublicKeyInfrastructureRoot
+     * @return PublicKeyInfrastructureRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PublicKeyInfrastructureRoot
+    public function get(?array $select = null, ?array $expand = null): PublicKeyInfrastructureRoot|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class PublicKeyInfrastructureRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PublicKeyInfrastructureRoot
+     * Deserialize response to PublicKeyInfrastructureRoot|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PublicKeyInfrastructureRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PublicKeyInfrastructureRoot($data);
     }
     /**
      * Update the navigation property publicKeyInfrastructure in directory
      * @param PublicKeyInfrastructureRoot $body Request body
-     * @return PublicKeyInfrastructureRoot
+     * @return PublicKeyInfrastructureRoot|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PublicKeyInfrastructureRoot $body): PublicKeyInfrastructureRoot
+    public function patch(PublicKeyInfrastructureRoot $body): PublicKeyInfrastructureRoot|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PublicKeyInfrastructureRoot
+     * Deserialize response to PublicKeyInfrastructureRoot|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PublicKeyInfrastructureRoot|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PublicKeyInfrastructureRoot($data);
     }
@@ -109,17 +107,17 @@ class PublicKeyInfrastructureRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

@@ -21,10 +21,10 @@ class ServiceAnnouncementRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ServiceAnnouncement
+     * @return ServiceAnnouncement|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ServiceAnnouncement
+    public function get(?array $select = null, ?array $expand = null): ServiceAnnouncement|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,52 +40,50 @@ class ServiceAnnouncementRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ServiceAnnouncement
+     * Deserialize response to ServiceAnnouncement|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ServiceAnnouncement|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServiceAnnouncement($data);
     }
     /**
      * Update the navigation property serviceAnnouncement in admin
      * @param ServiceAnnouncement $body Request body
-     * @return ServiceAnnouncement
+     * @return ServiceAnnouncement|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ServiceAnnouncement $body): ServiceAnnouncement
+    public function patch(ServiceAnnouncement $body): ServiceAnnouncement|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ServiceAnnouncement
+     * Deserialize response to ServiceAnnouncement|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ServiceAnnouncement|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServiceAnnouncement($data);
     }
@@ -111,17 +109,17 @@ class ServiceAnnouncementRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

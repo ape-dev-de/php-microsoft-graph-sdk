@@ -27,10 +27,10 @@ class DomainDnsRecordsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DomainDnsRecordCollectionResponse
+     * @return DomainDnsRecordCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DomainDnsRecordCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DomainDnsRecordCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class DomainDnsRecordsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DomainDnsRecordCollectionResponse
+     * Deserialize response to DomainDnsRecordCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DomainDnsRecordCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class DomainDnsRecordsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Add new entity to domainDnsRecords
      * @param DomainDnsRecord $body Request body
-     * @return DomainDnsRecord
+     * @return DomainDnsRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DomainDnsRecord $body): DomainDnsRecord
+    public function post(DomainDnsRecord $body): DomainDnsRecord|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DomainDnsRecord
+     * Deserialize response to DomainDnsRecord|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DomainDnsRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DomainDnsRecord($data);
     }

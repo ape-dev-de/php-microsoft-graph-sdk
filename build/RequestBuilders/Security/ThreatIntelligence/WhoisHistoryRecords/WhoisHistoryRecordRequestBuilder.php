@@ -19,10 +19,10 @@ class WhoisHistoryRecordRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityWhoisHistoryRecord
+     * @return SecurityWhoisHistoryRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityWhoisHistoryRecord
+    public function get(?array $select = null, ?array $expand = null): SecurityWhoisHistoryRecord|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class WhoisHistoryRecordRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityWhoisHistoryRecord
+     * Deserialize response to SecurityWhoisHistoryRecord|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityWhoisHistoryRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityWhoisHistoryRecord($data);
     }
     /**
      * Update the navigation property whoisHistoryRecords in security
      * @param SecurityWhoisHistoryRecord $body Request body
-     * @return SecurityWhoisHistoryRecord
+     * @return SecurityWhoisHistoryRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SecurityWhoisHistoryRecord $body): SecurityWhoisHistoryRecord
+    public function patch(SecurityWhoisHistoryRecord $body): SecurityWhoisHistoryRecord|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SecurityWhoisHistoryRecord
+     * Deserialize response to SecurityWhoisHistoryRecord|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SecurityWhoisHistoryRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityWhoisHistoryRecord($data);
     }
@@ -109,17 +107,17 @@ class WhoisHistoryRecordRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

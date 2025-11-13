@@ -8,6 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityProviderBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\IdentityProviderBase;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\IdentityProviders\IdentityProviderBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\IdentityProviders\CountRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Identity\IdentityProviders\AvailableProviderTypesRequestBuilder;
 
@@ -27,10 +28,10 @@ class IdentityProvidersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return IdentityProviderBaseCollectionResponse
+     * @return IdentityProviderBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): IdentityProviderBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): IdentityProviderBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +65,19 @@ class IdentityProvidersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to IdentityProviderBaseCollectionResponse
+     * Deserialize response to IdentityProviderBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityProviderBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +90,31 @@ class IdentityProvidersRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create identityProvider
      * @param IdentityProviderBase $body Request body
-     * @return IdentityProviderBase
+     * @return IdentityProviderBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(IdentityProviderBase $body): IdentityProviderBase
+    public function post(IdentityProviderBase $body): IdentityProviderBase|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to IdentityProviderBase
+     * Deserialize response to IdentityProviderBase|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): IdentityProviderBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityProviderBase($data);
     }

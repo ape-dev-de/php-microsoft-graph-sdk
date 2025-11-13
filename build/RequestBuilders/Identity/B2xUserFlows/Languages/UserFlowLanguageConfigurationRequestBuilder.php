@@ -20,10 +20,10 @@ class UserFlowLanguageConfigurationRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserFlowLanguageConfiguration
+     * @return UserFlowLanguageConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserFlowLanguageConfiguration
+    public function get(?array $select = null, ?array $expand = null): UserFlowLanguageConfiguration|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class UserFlowLanguageConfigurationRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UserFlowLanguageConfiguration
+     * Deserialize response to UserFlowLanguageConfiguration|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserFlowLanguageConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserFlowLanguageConfiguration($data);
     }
     /**
      * Update the navigation property languages in identity
      * @param UserFlowLanguageConfiguration $body Request body
-     * @return UserFlowLanguageConfiguration
+     * @return UserFlowLanguageConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserFlowLanguageConfiguration $body): UserFlowLanguageConfiguration
+    public function patch(UserFlowLanguageConfiguration $body): UserFlowLanguageConfiguration|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to UserFlowLanguageConfiguration
+     * Deserialize response to UserFlowLanguageConfiguration|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): UserFlowLanguageConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserFlowLanguageConfiguration($data);
     }
@@ -110,17 +108,17 @@ class UserFlowLanguageConfigurationRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

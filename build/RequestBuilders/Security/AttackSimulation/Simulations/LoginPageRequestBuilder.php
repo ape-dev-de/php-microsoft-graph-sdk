@@ -18,10 +18,10 @@ class LoginPageRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return LoginPage
+     * @return LoginPage|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): LoginPage
+    public function get(?array $select = null, ?array $expand = null): LoginPage|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class LoginPageRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to LoginPage
+     * Deserialize response to LoginPage|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): LoginPage|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new LoginPage($data);
     }

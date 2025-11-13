@@ -16,33 +16,31 @@ class CreateSessionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action createSession
      * @param WorkbookSessionInfo|\stdClass $body Request body
-     * @return WorkbookSessionInfo|\stdClass
+     * @return WorkbookSessionInfo|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(WorkbookSessionInfo|\stdClass $body): WorkbookSessionInfo|\stdClass
+    public function post(WorkbookSessionInfo|\stdClass $body): WorkbookSessionInfo|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookSessionInfo|\stdClass
+     * Deserialize response to WorkbookSessionInfo|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): WorkbookSessionInfo|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookSessionInfo($data);
     }

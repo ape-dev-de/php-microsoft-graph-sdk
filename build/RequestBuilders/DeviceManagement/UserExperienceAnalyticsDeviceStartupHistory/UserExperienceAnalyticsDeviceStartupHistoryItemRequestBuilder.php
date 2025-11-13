@@ -18,10 +18,10 @@ class UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder extends Root
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UserExperienceAnalyticsDeviceStartupHistory
+     * @return UserExperienceAnalyticsDeviceStartupHistory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupHistory
+    public function get(?array $select = null, ?array $expand = null): UserExperienceAnalyticsDeviceStartupHistory|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder extends Root
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserExperienceAnalyticsDeviceStartupHistory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsDeviceStartupHistory($data);
     }
     /**
      * Update the navigation property userExperienceAnalyticsDeviceStartupHistory in deviceManagement
      * @param UserExperienceAnalyticsDeviceStartupHistory $body Request body
-     * @return UserExperienceAnalyticsDeviceStartupHistory
+     * @return UserExperienceAnalyticsDeviceStartupHistory|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(UserExperienceAnalyticsDeviceStartupHistory $body): UserExperienceAnalyticsDeviceStartupHistory
+    public function patch(UserExperienceAnalyticsDeviceStartupHistory $body): UserExperienceAnalyticsDeviceStartupHistory|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupHistory|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): UserExperienceAnalyticsDeviceStartupHistory|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsDeviceStartupHistory($data);
     }
@@ -108,17 +106,17 @@ class UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder extends Root
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

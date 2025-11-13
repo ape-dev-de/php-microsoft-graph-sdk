@@ -27,10 +27,10 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse
+     * @return UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder exten
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceStartupProcessPerformance for deviceManagement
      * @param UserExperienceAnalyticsDeviceStartupProcessPerformance $body Request body
-     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * @return UserExperienceAnalyticsDeviceStartupProcessPerformance|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UserExperienceAnalyticsDeviceStartupProcessPerformance $body): UserExperienceAnalyticsDeviceStartupProcessPerformance
+    public function post(UserExperienceAnalyticsDeviceStartupProcessPerformance $body): UserExperienceAnalyticsDeviceStartupProcessPerformance|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance
+     * Deserialize response to UserExperienceAnalyticsDeviceStartupProcessPerformance|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UserExperienceAnalyticsDeviceStartupProcessPerformance|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UserExperienceAnalyticsDeviceStartupProcessPerformance($data);
     }

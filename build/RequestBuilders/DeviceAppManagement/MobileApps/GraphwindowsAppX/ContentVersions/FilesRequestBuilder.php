@@ -27,10 +27,10 @@ class FilesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return MobileAppContentFileCollectionResponse
+     * @return MobileAppContentFileCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MobileAppContentFileCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MobileAppContentFileCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class FilesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MobileAppContentFileCollectionResponse
+     * Deserialize response to MobileAppContentFileCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MobileAppContentFileCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class FilesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to files for deviceAppManagement
      * @param MobileAppContentFile $body Request body
-     * @return MobileAppContentFile
+     * @return MobileAppContentFile|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(MobileAppContentFile $body): MobileAppContentFile
+    public function post(MobileAppContentFile $body): MobileAppContentFile|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to MobileAppContentFile
+     * Deserialize response to MobileAppContentFile|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): MobileAppContentFile|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MobileAppContentFile($data);
     }

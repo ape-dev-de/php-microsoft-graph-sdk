@@ -18,10 +18,10 @@ class AuthenticationMethodConfigurationRequestBuilder extends RootBaseRequestBui
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AuthenticationMethodConfiguration
+     * @return AuthenticationMethodConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AuthenticationMethodConfiguration
+    public function get(?array $select = null, ?array $expand = null): AuthenticationMethodConfiguration|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class AuthenticationMethodConfigurationRequestBuilder extends RootBaseRequestBui
     }
 
     /**
-     * Deserialize response to AuthenticationMethodConfiguration
+     * Deserialize response to AuthenticationMethodConfiguration|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AuthenticationMethodConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthenticationMethodConfiguration($data);
     }
     /**
      * Update entity in authenticationMethodConfigurations
      * @param AuthenticationMethodConfiguration $body Request body
-     * @return AuthenticationMethodConfiguration
+     * @return AuthenticationMethodConfiguration|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AuthenticationMethodConfiguration $body): AuthenticationMethodConfiguration
+    public function patch(AuthenticationMethodConfiguration $body): AuthenticationMethodConfiguration|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AuthenticationMethodConfiguration
+     * Deserialize response to AuthenticationMethodConfiguration|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AuthenticationMethodConfiguration|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AuthenticationMethodConfiguration($data);
     }
@@ -108,17 +106,17 @@ class AuthenticationMethodConfigurationRequestBuilder extends RootBaseRequestBui
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

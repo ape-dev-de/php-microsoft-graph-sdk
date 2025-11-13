@@ -18,10 +18,10 @@ class ManagedDeviceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ManagedDevice
+     * @return ManagedDevice|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ManagedDevice
+    public function get(?array $select = null, ?array $expand = null): ManagedDevice|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class ManagedDeviceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ManagedDevice
+     * Deserialize response to ManagedDevice|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ManagedDevice|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ManagedDevice($data);
     }

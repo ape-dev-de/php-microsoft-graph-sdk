@@ -19,10 +19,10 @@ class ServiceAnnouncementAttachmentRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ServiceAnnouncementAttachment
+     * @return ServiceAnnouncementAttachment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ServiceAnnouncementAttachment
+    public function get(?array $select = null, ?array $expand = null): ServiceAnnouncementAttachment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class ServiceAnnouncementAttachmentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ServiceAnnouncementAttachment
+     * Deserialize response to ServiceAnnouncementAttachment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ServiceAnnouncementAttachment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServiceAnnouncementAttachment($data);
     }
     /**
      * Update the navigation property attachments in admin
      * @param ServiceAnnouncementAttachment $body Request body
-     * @return ServiceAnnouncementAttachment
+     * @return ServiceAnnouncementAttachment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(ServiceAnnouncementAttachment $body): ServiceAnnouncementAttachment
+    public function patch(ServiceAnnouncementAttachment $body): ServiceAnnouncementAttachment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to ServiceAnnouncementAttachment
+     * Deserialize response to ServiceAnnouncementAttachment|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): ServiceAnnouncementAttachment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ServiceAnnouncementAttachment($data);
     }
@@ -109,17 +107,17 @@ class ServiceAnnouncementAttachmentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

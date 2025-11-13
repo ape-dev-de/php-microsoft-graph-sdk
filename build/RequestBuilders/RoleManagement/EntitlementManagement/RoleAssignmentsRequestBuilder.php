@@ -27,10 +27,10 @@ class RoleAssignmentsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return UnifiedRoleAssignmentCollectionResponse
+     * @return UnifiedRoleAssignmentCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UnifiedRoleAssignmentCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): UnifiedRoleAssignmentCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class RoleAssignmentsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UnifiedRoleAssignmentCollectionResponse
+     * Deserialize response to UnifiedRoleAssignmentCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UnifiedRoleAssignmentCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class RoleAssignmentsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create unifiedRoleAssignment
      * @param UnifiedRoleAssignment $body Request body
-     * @return UnifiedRoleAssignment
+     * @return UnifiedRoleAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(UnifiedRoleAssignment $body): UnifiedRoleAssignment
+    public function post(UnifiedRoleAssignment $body): UnifiedRoleAssignment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to UnifiedRoleAssignment
+     * Deserialize response to UnifiedRoleAssignment|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): UnifiedRoleAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleAssignment($data);
     }

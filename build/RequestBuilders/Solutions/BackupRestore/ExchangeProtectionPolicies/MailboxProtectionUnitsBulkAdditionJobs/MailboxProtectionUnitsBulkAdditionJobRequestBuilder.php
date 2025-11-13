@@ -18,10 +18,10 @@ class MailboxProtectionUnitsBulkAdditionJobRequestBuilder extends RootBaseReques
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MailboxProtectionUnitsBulkAdditionJob
+     * @return MailboxProtectionUnitsBulkAdditionJob|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MailboxProtectionUnitsBulkAdditionJob
+    public function get(?array $select = null, ?array $expand = null): MailboxProtectionUnitsBulkAdditionJob|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class MailboxProtectionUnitsBulkAdditionJobRequestBuilder extends RootBaseReques
     }
 
     /**
-     * Deserialize response to MailboxProtectionUnitsBulkAdditionJob
+     * Deserialize response to MailboxProtectionUnitsBulkAdditionJob|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MailboxProtectionUnitsBulkAdditionJob|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MailboxProtectionUnitsBulkAdditionJob($data);
     }

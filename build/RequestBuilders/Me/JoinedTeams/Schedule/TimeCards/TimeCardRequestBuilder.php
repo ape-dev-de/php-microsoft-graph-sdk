@@ -22,10 +22,10 @@ class TimeCardRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TimeCard
+     * @return TimeCard|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TimeCard
+    public function get(?array $select = null, ?array $expand = null): TimeCard|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -41,52 +41,50 @@ class TimeCardRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TimeCard
+     * Deserialize response to TimeCard|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TimeCard|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TimeCard($data);
     }
     /**
      * Update the navigation property timeCards in me
      * @param TimeCard $body Request body
-     * @return TimeCard
+     * @return TimeCard|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TimeCard $body): TimeCard
+    public function patch(TimeCard $body): TimeCard|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TimeCard
+     * Deserialize response to TimeCard|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TimeCard|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TimeCard($data);
     }
@@ -112,17 +110,17 @@ class TimeCardRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

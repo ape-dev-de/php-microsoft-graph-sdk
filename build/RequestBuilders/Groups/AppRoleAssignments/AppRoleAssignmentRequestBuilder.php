@@ -19,10 +19,10 @@ class AppRoleAssignmentRequestBuilder extends RootBaseRequestBuilder
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
      * @param string|null $consistencyLevel Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries
-     * @return AppRoleAssignment
+     * @return AppRoleAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): AppRoleAssignment
+    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): AppRoleAssignment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -41,52 +41,50 @@ class AppRoleAssignmentRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AppRoleAssignment
+     * Deserialize response to AppRoleAssignment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AppRoleAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AppRoleAssignment($data);
     }
     /**
      * Update the navigation property appRoleAssignments in groups
      * @param AppRoleAssignment $body Request body
-     * @return AppRoleAssignment
+     * @return AppRoleAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(AppRoleAssignment $body): AppRoleAssignment
+    public function patch(AppRoleAssignment $body): AppRoleAssignment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to AppRoleAssignment
+     * Deserialize response to AppRoleAssignment|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): AppRoleAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AppRoleAssignment($data);
     }
@@ -112,17 +110,17 @@ class AppRoleAssignmentRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

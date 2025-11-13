@@ -15,10 +15,10 @@ class SessionInfoResourceRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function sessionInfoResource
-     * @return WorkbookSessionInfo|\stdClass
+     * @return WorkbookSessionInfo|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): WorkbookSessionInfo|\stdClass
+    public function get(): WorkbookSessionInfo|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class SessionInfoResourceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookSessionInfo|\stdClass
+     * Deserialize response to WorkbookSessionInfo|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookSessionInfo|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookSessionInfo($data);
     }

@@ -18,10 +18,10 @@ class PolicyRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return UnifiedRoleManagementPolicy
+     * @return UnifiedRoleManagementPolicy|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): UnifiedRoleManagementPolicy
+    public function get(?array $select = null, ?array $expand = null): UnifiedRoleManagementPolicy|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class PolicyRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to UnifiedRoleManagementPolicy
+     * Deserialize response to UnifiedRoleManagementPolicy|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): UnifiedRoleManagementPolicy|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new UnifiedRoleManagementPolicy($data);
     }

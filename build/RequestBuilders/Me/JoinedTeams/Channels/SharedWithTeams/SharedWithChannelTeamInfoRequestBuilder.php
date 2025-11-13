@@ -20,10 +20,10 @@ class SharedWithChannelTeamInfoRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SharedWithChannelTeamInfo
+     * @return SharedWithChannelTeamInfo|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SharedWithChannelTeamInfo
+    public function get(?array $select = null, ?array $expand = null): SharedWithChannelTeamInfo|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class SharedWithChannelTeamInfoRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SharedWithChannelTeamInfo
+     * Deserialize response to SharedWithChannelTeamInfo|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SharedWithChannelTeamInfo|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SharedWithChannelTeamInfo($data);
     }
     /**
      * Update the navigation property sharedWithTeams in me
      * @param SharedWithChannelTeamInfo $body Request body
-     * @return SharedWithChannelTeamInfo
+     * @return SharedWithChannelTeamInfo|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SharedWithChannelTeamInfo $body): SharedWithChannelTeamInfo
+    public function patch(SharedWithChannelTeamInfo $body): SharedWithChannelTeamInfo|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SharedWithChannelTeamInfo
+     * Deserialize response to SharedWithChannelTeamInfo|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SharedWithChannelTeamInfo|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SharedWithChannelTeamInfo($data);
     }
@@ -110,17 +108,17 @@ class SharedWithChannelTeamInfoRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

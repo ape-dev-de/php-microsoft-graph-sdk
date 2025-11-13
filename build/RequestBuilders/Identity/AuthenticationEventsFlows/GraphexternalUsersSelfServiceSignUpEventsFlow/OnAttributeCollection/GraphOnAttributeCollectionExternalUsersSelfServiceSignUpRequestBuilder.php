@@ -16,10 +16,10 @@ class GraphOnAttributeCollectionExternalUsersSelfServiceSignUpRequestBuilder ext
 {
     /**
      * Get the item of type microsoft.graph.onAttributeCollectionHandler as microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp
-     * @return OnAttributeCollectionExternalUsersSelfServiceSignUp
+     * @return OnAttributeCollectionExternalUsersSelfServiceSignUp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): OnAttributeCollectionExternalUsersSelfServiceSignUp
+    public function get(): OnAttributeCollectionExternalUsersSelfServiceSignUp|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -28,19 +28,19 @@ class GraphOnAttributeCollectionExternalUsersSelfServiceSignUpRequestBuilder ext
     }
 
     /**
-     * Deserialize response to OnAttributeCollectionExternalUsersSelfServiceSignUp
+     * Deserialize response to OnAttributeCollectionExternalUsersSelfServiceSignUp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): OnAttributeCollectionExternalUsersSelfServiceSignUp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new OnAttributeCollectionExternalUsersSelfServiceSignUp($data);
     }

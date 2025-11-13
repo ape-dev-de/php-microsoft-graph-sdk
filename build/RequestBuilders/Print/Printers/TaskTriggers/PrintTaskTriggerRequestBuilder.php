@@ -19,10 +19,10 @@ class PrintTaskTriggerRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PrintTaskTrigger
+     * @return PrintTaskTrigger|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PrintTaskTrigger
+    public function get(?array $select = null, ?array $expand = null): PrintTaskTrigger|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class PrintTaskTriggerRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PrintTaskTrigger
+     * Deserialize response to PrintTaskTrigger|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrintTaskTrigger|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintTaskTrigger($data);
     }
     /**
      * Update the navigation property taskTriggers in print
      * @param PrintTaskTrigger $body Request body
-     * @return PrintTaskTrigger
+     * @return PrintTaskTrigger|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PrintTaskTrigger $body): PrintTaskTrigger
+    public function patch(PrintTaskTrigger $body): PrintTaskTrigger|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PrintTaskTrigger
+     * Deserialize response to PrintTaskTrigger|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PrintTaskTrigger|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrintTaskTrigger($data);
     }
@@ -109,17 +107,17 @@ class PrintTaskTriggerRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

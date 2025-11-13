@@ -6,7 +6,6 @@ namespace ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BookingBusinesses
 
 use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
-use ApeDevDe\MicrosoftGraphSdk\Models\ODataCountResponse;
 
 /**
  * Request builder for /solutions/bookingBusinesses/{bookingBusiness-id}/calendarView/$count
@@ -20,10 +19,10 @@ class CountRequestBuilder extends RootBaseRequestBuilder
      * @param string $end The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
      * @param string|null $search Search items by search phrases
      * @param string|null $filter Filter items by property values
-     * @return ODataCountResponse
+     * @return int|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(string $start, string $end, ?string $search = null, ?string $filter = null): ODataCountResponse
+    public function get(string $start, string $end, ?string $search = null, ?string $filter = null): int|null
     {
         $queryParams = [];
         if ($start !== null && $start !== '') {
@@ -45,20 +44,13 @@ class CountRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ODataCountResponse
+     * Deserialize response to int|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): int|null    {
         if (empty($body)) {
             return null;
         }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Single object
-        return (object)$data;
+
+        return (int)$body;
     }
 }

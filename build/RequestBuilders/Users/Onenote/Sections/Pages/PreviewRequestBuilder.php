@@ -15,10 +15,10 @@ class PreviewRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function preview
-     * @return OnenotePagePreview|\stdClass
+     * @return OnenotePagePreview|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): OnenotePagePreview|\stdClass
+    public function get(): OnenotePagePreview|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class PreviewRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to OnenotePagePreview|\stdClass
+     * Deserialize response to OnenotePagePreview|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): OnenotePagePreview|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new OnenotePagePreview($data);
     }

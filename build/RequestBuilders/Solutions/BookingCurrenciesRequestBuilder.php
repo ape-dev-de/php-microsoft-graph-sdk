@@ -27,10 +27,10 @@ class BookingCurrenciesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return BookingCurrencyCollectionResponse
+     * @return BookingCurrencyCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): BookingCurrencyCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): BookingCurrencyCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class BookingCurrenciesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to BookingCurrencyCollectionResponse
+     * Deserialize response to BookingCurrencyCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): BookingCurrencyCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class BookingCurrenciesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to bookingCurrencies for solutions
      * @param BookingCurrency $body Request body
-     * @return BookingCurrency
+     * @return BookingCurrency|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(BookingCurrency $body): BookingCurrency
+    public function post(BookingCurrency $body): BookingCurrency|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to BookingCurrency
+     * Deserialize response to BookingCurrency|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): BookingCurrency|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BookingCurrency($data);
     }

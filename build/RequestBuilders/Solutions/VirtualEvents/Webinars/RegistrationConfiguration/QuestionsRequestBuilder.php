@@ -8,6 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\VirtualEventRegistrationQuestionBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\VirtualEventRegistrationQuestionBase;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\VirtualEvents\Webinars\RegistrationConfiguration\Questions\VirtualEventRegistrationQuestionBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\VirtualEvents\Webinars\RegistrationConfiguration\Questions\CountRequestBuilder;
 
 /**
@@ -26,10 +27,10 @@ class QuestionsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return VirtualEventRegistrationQuestionBaseCollectionResponse
+     * @return VirtualEventRegistrationQuestionBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): VirtualEventRegistrationQuestionBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): VirtualEventRegistrationQuestionBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -63,19 +64,19 @@ class QuestionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to VirtualEventRegistrationQuestionBaseCollectionResponse
+     * Deserialize response to VirtualEventRegistrationQuestionBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): VirtualEventRegistrationQuestionBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -88,33 +89,31 @@ class QuestionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create virtualEventRegistrationCustomQuestion
      * @param VirtualEventRegistrationQuestionBase $body Request body
-     * @return VirtualEventRegistrationQuestionBase
+     * @return VirtualEventRegistrationQuestionBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(VirtualEventRegistrationQuestionBase $body): VirtualEventRegistrationQuestionBase
+    public function post(VirtualEventRegistrationQuestionBase $body): VirtualEventRegistrationQuestionBase|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to VirtualEventRegistrationQuestionBase
+     * Deserialize response to VirtualEventRegistrationQuestionBase|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): VirtualEventRegistrationQuestionBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new VirtualEventRegistrationQuestionBase($data);
     }

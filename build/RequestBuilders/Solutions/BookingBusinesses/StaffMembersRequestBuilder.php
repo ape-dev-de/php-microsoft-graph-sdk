@@ -8,6 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\BookingStaffMemberBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\BookingStaffMemberBase;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BookingBusinesses\StaffMembers\BookingStaffMemberBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BookingBusinesses\StaffMembers\CountRequestBuilder;
 
 /**
@@ -26,10 +27,10 @@ class StaffMembersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return BookingStaffMemberBaseCollectionResponse
+     * @return BookingStaffMemberBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): BookingStaffMemberBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): BookingStaffMemberBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -63,19 +64,19 @@ class StaffMembersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to BookingStaffMemberBaseCollectionResponse
+     * Deserialize response to BookingStaffMemberBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): BookingStaffMemberBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -88,33 +89,31 @@ class StaffMembersRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create bookingStaffMember
      * @param BookingStaffMemberBase $body Request body
-     * @return BookingStaffMemberBase
+     * @return BookingStaffMemberBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(BookingStaffMemberBase $body): BookingStaffMemberBase
+    public function post(BookingStaffMemberBase $body): BookingStaffMemberBase|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to BookingStaffMemberBase
+     * Deserialize response to BookingStaffMemberBase|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): BookingStaffMemberBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new BookingStaffMemberBase($data);
     }

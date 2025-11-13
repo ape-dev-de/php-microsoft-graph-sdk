@@ -20,10 +20,10 @@ class TermsOfUseRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TermsOfUseContainer
+     * @return TermsOfUseContainer|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TermsOfUseContainer
+    public function get(?array $select = null, ?array $expand = null): TermsOfUseContainer|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,52 +39,50 @@ class TermsOfUseRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TermsOfUseContainer
+     * Deserialize response to TermsOfUseContainer|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TermsOfUseContainer|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermsOfUseContainer($data);
     }
     /**
      * Update the navigation property termsOfUse in identityGovernance
      * @param TermsOfUseContainer $body Request body
-     * @return TermsOfUseContainer
+     * @return TermsOfUseContainer|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TermsOfUseContainer $body): TermsOfUseContainer
+    public function patch(TermsOfUseContainer $body): TermsOfUseContainer|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TermsOfUseContainer
+     * Deserialize response to TermsOfUseContainer|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TermsOfUseContainer|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TermsOfUseContainer($data);
     }
@@ -110,17 +108,17 @@ class TermsOfUseRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

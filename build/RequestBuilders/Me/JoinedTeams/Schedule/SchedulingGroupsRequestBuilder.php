@@ -27,10 +27,10 @@ class SchedulingGroupsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return SchedulingGroupCollectionResponse
+     * @return SchedulingGroupCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SchedulingGroupCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SchedulingGroupCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class SchedulingGroupsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SchedulingGroupCollectionResponse
+     * Deserialize response to SchedulingGroupCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SchedulingGroupCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class SchedulingGroupsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to schedulingGroups for me
      * @param SchedulingGroup $body Request body
-     * @return SchedulingGroup
+     * @return SchedulingGroup|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(SchedulingGroup $body): SchedulingGroup
+    public function post(SchedulingGroup $body): SchedulingGroup|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to SchedulingGroup
+     * Deserialize response to SchedulingGroup|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): SchedulingGroup|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SchedulingGroup($data);
     }

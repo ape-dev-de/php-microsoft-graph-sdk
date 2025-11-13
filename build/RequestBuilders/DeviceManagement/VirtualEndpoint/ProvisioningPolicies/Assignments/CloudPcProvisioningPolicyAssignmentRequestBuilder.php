@@ -19,10 +19,10 @@ class CloudPcProvisioningPolicyAssignmentRequestBuilder extends RootBaseRequestB
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return CloudPcProvisioningPolicyAssignment
+     * @return CloudPcProvisioningPolicyAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): CloudPcProvisioningPolicyAssignment
+    public function get(?array $select = null, ?array $expand = null): CloudPcProvisioningPolicyAssignment|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class CloudPcProvisioningPolicyAssignmentRequestBuilder extends RootBaseRequestB
     }
 
     /**
-     * Deserialize response to CloudPcProvisioningPolicyAssignment
+     * Deserialize response to CloudPcProvisioningPolicyAssignment|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CloudPcProvisioningPolicyAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CloudPcProvisioningPolicyAssignment($data);
     }
     /**
      * Update the navigation property assignments in deviceManagement
      * @param CloudPcProvisioningPolicyAssignment $body Request body
-     * @return CloudPcProvisioningPolicyAssignment
+     * @return CloudPcProvisioningPolicyAssignment|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(CloudPcProvisioningPolicyAssignment $body): CloudPcProvisioningPolicyAssignment
+    public function patch(CloudPcProvisioningPolicyAssignment $body): CloudPcProvisioningPolicyAssignment|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to CloudPcProvisioningPolicyAssignment
+     * Deserialize response to CloudPcProvisioningPolicyAssignment|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): CloudPcProvisioningPolicyAssignment|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CloudPcProvisioningPolicyAssignment($data);
     }
@@ -109,17 +107,17 @@ class CloudPcProvisioningPolicyAssignmentRequestBuilder extends RootBaseRequestB
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

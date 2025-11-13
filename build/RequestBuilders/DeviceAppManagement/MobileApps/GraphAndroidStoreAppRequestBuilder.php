@@ -20,10 +20,10 @@ class GraphAndroidStoreAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return AndroidStoreApp
+     * @return AndroidStoreApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): AndroidStoreApp
+    public function get(?array $select = null, ?array $expand = null): AndroidStoreApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -39,19 +39,19 @@ class GraphAndroidStoreAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to AndroidStoreApp
+     * Deserialize response to AndroidStoreApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): AndroidStoreApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new AndroidStoreApp($data);
     }

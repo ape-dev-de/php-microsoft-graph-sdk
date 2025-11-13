@@ -16,10 +16,10 @@ class RefRequestBuilder extends RootBaseRequestBuilder
      * List manager
      *
      * @param string|null $consistencyLevel Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries
-     * @return string
+     * @return string|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?string $consistencyLevel = null): string
+    public function get(?string $consistencyLevel = null): string|null
     {
         $queryParams = [];
         if ($consistencyLevel !== null && $consistencyLevel !== '') {
@@ -32,21 +32,14 @@ class RefRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to string
+     * Deserialize response to string|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): string|null    {
         if (empty($body)) {
             return null;
         }
-        
-        $data = json_decode($body, true);
-        if ($data === null) {
-            return null;
-        }
-        
-        // Single object
-        return $data;
+
+        return $body;
     }
     /**
      * Assign manager
@@ -65,17 +58,17 @@ class RefRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializePut(string $body): mixed
-    {
+    private function deserializePut(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }
@@ -101,17 +94,17 @@ class RefRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

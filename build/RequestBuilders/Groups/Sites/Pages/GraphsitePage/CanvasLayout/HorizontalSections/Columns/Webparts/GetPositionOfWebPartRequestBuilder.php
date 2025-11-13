@@ -16,33 +16,31 @@ class GetPositionOfWebPartRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action getPositionOfWebPart
      * @param WebPartPosition|\stdClass $body Request body
-     * @return WebPartPosition|\stdClass
+     * @return WebPartPosition|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(WebPartPosition|\stdClass $body): WebPartPosition|\stdClass
+    public function post(WebPartPosition|\stdClass $body): WebPartPosition|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to WebPartPosition|\stdClass
+     * Deserialize response to WebPartPosition|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): WebPartPosition|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WebPartPosition($data);
     }

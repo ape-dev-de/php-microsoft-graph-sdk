@@ -27,10 +27,10 @@ class DirectoryRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return RbacApplication
+     * @return RbacApplication|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): RbacApplication
+    public function get(?array $select = null, ?array $expand = null): RbacApplication|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -46,52 +46,50 @@ class DirectoryRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to RbacApplication
+     * Deserialize response to RbacApplication|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): RbacApplication|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RbacApplication($data);
     }
     /**
      * Update the navigation property directory in roleManagement
      * @param RbacApplication $body Request body
-     * @return RbacApplication
+     * @return RbacApplication|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(RbacApplication $body): RbacApplication
+    public function patch(RbacApplication $body): RbacApplication|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to RbacApplication
+     * Deserialize response to RbacApplication|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): RbacApplication|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RbacApplication($data);
     }
@@ -117,17 +115,17 @@ class DirectoryRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

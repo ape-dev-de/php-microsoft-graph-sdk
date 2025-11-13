@@ -19,10 +19,10 @@ class TeamsAppDefinitionRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return TeamsAppDefinition
+     * @return TeamsAppDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): TeamsAppDefinition
+    public function get(?array $select = null, ?array $expand = null): TeamsAppDefinition|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class TeamsAppDefinitionRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to TeamsAppDefinition
+     * Deserialize response to TeamsAppDefinition|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): TeamsAppDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TeamsAppDefinition($data);
     }
     /**
      * Publish teamsApp
      * @param TeamsAppDefinition $body Request body
-     * @return TeamsAppDefinition
+     * @return TeamsAppDefinition|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(TeamsAppDefinition $body): TeamsAppDefinition
+    public function patch(TeamsAppDefinition $body): TeamsAppDefinition|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to TeamsAppDefinition
+     * Deserialize response to TeamsAppDefinition|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): TeamsAppDefinition|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new TeamsAppDefinition($data);
     }
@@ -109,17 +107,17 @@ class TeamsAppDefinitionRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

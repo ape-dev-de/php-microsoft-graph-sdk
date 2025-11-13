@@ -21,10 +21,10 @@ class DirectoryObjectRequestBuilder extends RootBaseRequestBuilder
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
      * @param string|null $consistencyLevel Indicates the requested consistency level. Documentation URL: https://docs.microsoft.com/graph/aad-advanced-queries
-     * @return DirectoryObject
+     * @return DirectoryObject|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): DirectoryObject
+    public function get(?array $select = null, ?array $expand = null, ?string $consistencyLevel = null): DirectoryObject|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -43,19 +43,19 @@ class DirectoryObjectRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DirectoryObject
+     * Deserialize response to DirectoryObject|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DirectoryObject|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DirectoryObject($data);
     }

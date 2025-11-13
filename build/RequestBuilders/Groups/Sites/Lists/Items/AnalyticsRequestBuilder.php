@@ -18,10 +18,10 @@ class AnalyticsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return ItemAnalytics
+     * @return ItemAnalytics|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): ItemAnalytics
+    public function get(?array $select = null, ?array $expand = null): ItemAnalytics|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class AnalyticsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ItemAnalytics
+     * Deserialize response to ItemAnalytics|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ItemAnalytics|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ItemAnalytics($data);
     }

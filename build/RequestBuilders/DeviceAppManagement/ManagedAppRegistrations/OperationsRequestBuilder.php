@@ -27,10 +27,10 @@ class OperationsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return ManagedAppOperationCollectionResponse
+     * @return ManagedAppOperationCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ManagedAppOperationCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): ManagedAppOperationCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class OperationsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to ManagedAppOperationCollectionResponse
+     * Deserialize response to ManagedAppOperationCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): ManagedAppOperationCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class OperationsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create managedAppOperation
      * @param ManagedAppOperation $body Request body
-     * @return ManagedAppOperation
+     * @return ManagedAppOperation|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(ManagedAppOperation $body): ManagedAppOperation
+    public function post(ManagedAppOperation $body): ManagedAppOperation|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to ManagedAppOperation
+     * Deserialize response to ManagedAppOperation|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): ManagedAppOperation|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new ManagedAppOperation($data);
     }

@@ -15,10 +15,10 @@ class ComputeInheritanceRequestBuilder extends RootBaseRequestBuilder
 {
     /**
      * Invoke function computeInheritance
-     * @return SensitivityLabel|\stdClass
+     * @return SensitivityLabel|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): SensitivityLabel|\stdClass
+    public function get(): SensitivityLabel|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class ComputeInheritanceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SensitivityLabel|\stdClass
+     * Deserialize response to SensitivityLabel|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SensitivityLabel|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SensitivityLabel($data);
     }

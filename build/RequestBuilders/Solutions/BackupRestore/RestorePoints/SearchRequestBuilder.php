@@ -16,33 +16,31 @@ class SearchRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action search
      * @param RestorePointSearchResponse|\stdClass $body Request body
-     * @return RestorePointSearchResponse|\stdClass
+     * @return RestorePointSearchResponse|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(RestorePointSearchResponse|\stdClass $body): RestorePointSearchResponse|\stdClass
+    public function post(RestorePointSearchResponse|\stdClass $body): RestorePointSearchResponse|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to RestorePointSearchResponse|\stdClass
+     * Deserialize response to RestorePointSearchResponse|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): RestorePointSearchResponse|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RestorePointSearchResponse($data);
     }

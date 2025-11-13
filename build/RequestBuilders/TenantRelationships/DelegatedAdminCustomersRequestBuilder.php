@@ -27,10 +27,10 @@ class DelegatedAdminCustomersRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DelegatedAdminCustomerCollectionResponse
+     * @return DelegatedAdminCustomerCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DelegatedAdminCustomerCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DelegatedAdminCustomerCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class DelegatedAdminCustomersRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DelegatedAdminCustomerCollectionResponse
+     * Deserialize response to DelegatedAdminCustomerCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DelegatedAdminCustomerCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class DelegatedAdminCustomersRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to delegatedAdminCustomers for tenantRelationships
      * @param DelegatedAdminCustomer $body Request body
-     * @return DelegatedAdminCustomer
+     * @return DelegatedAdminCustomer|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DelegatedAdminCustomer $body): DelegatedAdminCustomer
+    public function post(DelegatedAdminCustomer $body): DelegatedAdminCustomer|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DelegatedAdminCustomer
+     * Deserialize response to DelegatedAdminCustomer|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DelegatedAdminCustomer|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DelegatedAdminCustomer($data);
     }

@@ -18,10 +18,10 @@ class EducationSchoolRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return EducationSchool
+     * @return EducationSchool|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): EducationSchool
+    public function get(?array $select = null, ?array $expand = null): EducationSchool|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class EducationSchoolRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to EducationSchool
+     * Deserialize response to EducationSchool|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): EducationSchool|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EducationSchool($data);
     }

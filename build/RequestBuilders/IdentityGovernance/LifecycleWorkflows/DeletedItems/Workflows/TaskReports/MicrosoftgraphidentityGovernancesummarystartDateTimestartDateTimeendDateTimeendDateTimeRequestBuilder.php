@@ -15,10 +15,10 @@ class MicrosoftgraphidentityGovernancesummarystartDateTimestartDateTimeendDateTi
 {
     /**
      * Invoke function summary
-     * @return IdentityGovernanceTaskReportSummary|\stdClass
+     * @return IdentityGovernanceTaskReportSummary|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(): IdentityGovernanceTaskReportSummary|\stdClass
+    public function get(): IdentityGovernanceTaskReportSummary|\stdClass|null
     {
         $response = $this->client->get($this->requestUrl, []);
         $this->client->checkResponse($response);
@@ -27,19 +27,19 @@ class MicrosoftgraphidentityGovernancesummarystartDateTimestartDateTimeendDateTi
     }
 
     /**
-     * Deserialize response to IdentityGovernanceTaskReportSummary|\stdClass
+     * Deserialize response to IdentityGovernanceTaskReportSummary|\stdClass|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): IdentityGovernanceTaskReportSummary|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new IdentityGovernanceTaskReportSummary($data);
     }

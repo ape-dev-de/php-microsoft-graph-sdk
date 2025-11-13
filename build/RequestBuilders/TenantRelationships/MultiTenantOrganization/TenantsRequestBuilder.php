@@ -27,10 +27,10 @@ class TenantsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return MultiTenantOrganizationMemberCollectionResponse
+     * @return MultiTenantOrganizationMemberCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MultiTenantOrganizationMemberCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): MultiTenantOrganizationMemberCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class TenantsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MultiTenantOrganizationMemberCollectionResponse
+     * Deserialize response to MultiTenantOrganizationMemberCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MultiTenantOrganizationMemberCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class TenantsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Add multiTenantOrganizationMember
      * @param MultiTenantOrganizationMember $body Request body
-     * @return MultiTenantOrganizationMember
+     * @return MultiTenantOrganizationMember|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(MultiTenantOrganizationMember $body): MultiTenantOrganizationMember
+    public function post(MultiTenantOrganizationMember $body): MultiTenantOrganizationMember|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to MultiTenantOrganizationMember
+     * Deserialize response to MultiTenantOrganizationMember|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): MultiTenantOrganizationMember|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MultiTenantOrganizationMember($data);
     }

@@ -22,10 +22,10 @@ class PrivilegedAccessGroupEligibilityScheduleRequestRequestBuilder extends Root
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PrivilegedAccessGroupEligibilityScheduleRequest
+     * @return PrivilegedAccessGroupEligibilityScheduleRequest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PrivilegedAccessGroupEligibilityScheduleRequest
+    public function get(?array $select = null, ?array $expand = null): PrivilegedAccessGroupEligibilityScheduleRequest|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -41,52 +41,50 @@ class PrivilegedAccessGroupEligibilityScheduleRequestRequestBuilder extends Root
     }
 
     /**
-     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleRequest
+     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleRequest|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PrivilegedAccessGroupEligibilityScheduleRequest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrivilegedAccessGroupEligibilityScheduleRequest($data);
     }
     /**
      * Update the navigation property eligibilityScheduleRequests in identityGovernance
      * @param PrivilegedAccessGroupEligibilityScheduleRequest $body Request body
-     * @return PrivilegedAccessGroupEligibilityScheduleRequest
+     * @return PrivilegedAccessGroupEligibilityScheduleRequest|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(PrivilegedAccessGroupEligibilityScheduleRequest $body): PrivilegedAccessGroupEligibilityScheduleRequest
+    public function patch(PrivilegedAccessGroupEligibilityScheduleRequest $body): PrivilegedAccessGroupEligibilityScheduleRequest|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleRequest
+     * Deserialize response to PrivilegedAccessGroupEligibilityScheduleRequest|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PrivilegedAccessGroupEligibilityScheduleRequest|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PrivilegedAccessGroupEligibilityScheduleRequest($data);
     }
@@ -112,17 +110,17 @@ class PrivilegedAccessGroupEligibilityScheduleRequestRequestBuilder extends Root
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

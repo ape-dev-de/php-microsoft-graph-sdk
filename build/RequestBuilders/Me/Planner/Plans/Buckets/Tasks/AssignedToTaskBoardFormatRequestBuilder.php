@@ -18,10 +18,10 @@ class AssignedToTaskBoardFormatRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return PlannerAssignedToTaskBoardTaskFormat
+     * @return PlannerAssignedToTaskBoardTaskFormat|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): PlannerAssignedToTaskBoardTaskFormat
+    public function get(?array $select = null, ?array $expand = null): PlannerAssignedToTaskBoardTaskFormat|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,19 +37,19 @@ class AssignedToTaskBoardFormatRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to PlannerAssignedToTaskBoardTaskFormat
+     * Deserialize response to PlannerAssignedToTaskBoardTaskFormat|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): PlannerAssignedToTaskBoardTaskFormat|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PlannerAssignedToTaskBoardTaskFormat($data);
     }
@@ -58,37 +58,35 @@ class AssignedToTaskBoardFormatRequestBuilder extends RootBaseRequestBuilder
      *
      * @param string $ifMatch ETag value.
      * @param PlannerAssignedToTaskBoardTaskFormat $body Request body
-     * @return PlannerAssignedToTaskBoardTaskFormat
+     * @return PlannerAssignedToTaskBoardTaskFormat|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(string $ifMatch, PlannerAssignedToTaskBoardTaskFormat $body): PlannerAssignedToTaskBoardTaskFormat
+    public function patch(string $ifMatch, PlannerAssignedToTaskBoardTaskFormat $body): PlannerAssignedToTaskBoardTaskFormat|null
     {
         $queryParams = [];
         if ($ifMatch !== null && $ifMatch !== '') {
             $queryParams['If-Match'] = $ifMatch;
         }
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to PlannerAssignedToTaskBoardTaskFormat
+     * Deserialize response to PlannerAssignedToTaskBoardTaskFormat|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): PlannerAssignedToTaskBoardTaskFormat|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new PlannerAssignedToTaskBoardTaskFormat($data);
     }
@@ -114,17 +112,17 @@ class AssignedToTaskBoardFormatRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

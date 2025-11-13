@@ -8,6 +8,7 @@ use ApeDevDe\MicrosoftGraphSdk\Http\GraphClient;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\BaseRequestBuilder as RootBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\Models\RestoreSessionBaseCollectionResponse;
 use ApeDevDe\MicrosoftGraphSdk\Models\RestoreSessionBase;
+use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\RestoreSessions\RestoreSessionBaseRequestBuilder;
 use ApeDevDe\MicrosoftGraphSdk\RequestBuilders\Solutions\BackupRestore\RestoreSessions\CountRequestBuilder;
 
 /**
@@ -26,10 +27,10 @@ class RestoreSessionsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return RestoreSessionBaseCollectionResponse
+     * @return RestoreSessionBaseCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): RestoreSessionBaseCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): RestoreSessionBaseCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -63,19 +64,19 @@ class RestoreSessionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to RestoreSessionBaseCollectionResponse
+     * Deserialize response to RestoreSessionBaseCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): RestoreSessionBaseCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -88,33 +89,31 @@ class RestoreSessionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create new navigation property to restoreSessions for solutions
      * @param RestoreSessionBase $body Request body
-     * @return RestoreSessionBase
+     * @return RestoreSessionBase|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(RestoreSessionBase $body): RestoreSessionBase
+    public function post(RestoreSessionBase $body): RestoreSessionBase|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to RestoreSessionBase
+     * Deserialize response to RestoreSessionBase|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): RestoreSessionBase|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new RestoreSessionBase($data);
     }

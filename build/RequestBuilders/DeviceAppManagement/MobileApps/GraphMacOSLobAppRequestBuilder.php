@@ -21,10 +21,10 @@ class GraphMacOSLobAppRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return MacOSLobApp
+     * @return MacOSLobApp|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): MacOSLobApp
+    public function get(?array $select = null, ?array $expand = null): MacOSLobApp|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -40,19 +40,19 @@ class GraphMacOSLobAppRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to MacOSLobApp
+     * Deserialize response to MacOSLobApp|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): MacOSLobApp|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new MacOSLobApp($data);
     }

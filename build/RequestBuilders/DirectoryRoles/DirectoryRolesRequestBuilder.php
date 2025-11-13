@@ -31,10 +31,10 @@ class DirectoryRolesRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return DirectoryRoleCollectionResponse
+     * @return DirectoryRoleCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DirectoryRoleCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): DirectoryRoleCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -68,19 +68,19 @@ class DirectoryRolesRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DirectoryRoleCollectionResponse
+     * Deserialize response to DirectoryRoleCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DirectoryRoleCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -93,33 +93,31 @@ class DirectoryRolesRequestBuilder extends RootBaseRequestBuilder
     /**
      * Activate directoryRole
      * @param DirectoryRole $body Request body
-     * @return DirectoryRole
+     * @return DirectoryRole|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(DirectoryRole $body): DirectoryRole
+    public function post(DirectoryRole $body): DirectoryRole|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to DirectoryRole
+     * Deserialize response to DirectoryRole|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): DirectoryRole|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DirectoryRole($data);
     }

@@ -26,10 +26,10 @@ class WorkbookWorksheetRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return WorkbookWorksheet
+     * @return WorkbookWorksheet|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): WorkbookWorksheet
+    public function get(?array $select = null, ?array $expand = null): WorkbookWorksheet|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -45,52 +45,50 @@ class WorkbookWorksheetRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to WorkbookWorksheet
+     * Deserialize response to WorkbookWorksheet|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): WorkbookWorksheet|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookWorksheet($data);
     }
     /**
      * Update the navigation property worksheets in drives
      * @param WorkbookWorksheet $body Request body
-     * @return WorkbookWorksheet
+     * @return WorkbookWorksheet|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(WorkbookWorksheet $body): WorkbookWorksheet
+    public function patch(WorkbookWorksheet $body): WorkbookWorksheet|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to WorkbookWorksheet
+     * Deserialize response to WorkbookWorksheet|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): WorkbookWorksheet|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new WorkbookWorksheet($data);
     }
@@ -116,17 +114,17 @@ class WorkbookWorksheetRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

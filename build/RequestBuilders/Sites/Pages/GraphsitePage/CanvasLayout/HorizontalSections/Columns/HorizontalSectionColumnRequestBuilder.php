@@ -19,10 +19,10 @@ class HorizontalSectionColumnRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return HorizontalSectionColumn
+     * @return HorizontalSectionColumn|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): HorizontalSectionColumn
+    public function get(?array $select = null, ?array $expand = null): HorizontalSectionColumn|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class HorizontalSectionColumnRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to HorizontalSectionColumn
+     * Deserialize response to HorizontalSectionColumn|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): HorizontalSectionColumn|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new HorizontalSectionColumn($data);
     }
     /**
      * Update the navigation property columns in sites
      * @param HorizontalSectionColumn $body Request body
-     * @return HorizontalSectionColumn
+     * @return HorizontalSectionColumn|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(HorizontalSectionColumn $body): HorizontalSectionColumn
+    public function patch(HorizontalSectionColumn $body): HorizontalSectionColumn|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to HorizontalSectionColumn
+     * Deserialize response to HorizontalSectionColumn|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): HorizontalSectionColumn|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new HorizontalSectionColumn($data);
     }
@@ -109,17 +107,17 @@ class HorizontalSectionColumnRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

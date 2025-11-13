@@ -18,10 +18,10 @@ class DomainDnsRecordRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DomainDnsRecord
+     * @return DomainDnsRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DomainDnsRecord
+    public function get(?array $select = null, ?array $expand = null): DomainDnsRecord|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class DomainDnsRecordRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DomainDnsRecord
+     * Deserialize response to DomainDnsRecord|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DomainDnsRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DomainDnsRecord($data);
     }
     /**
      * Update the navigation property verificationDnsRecords in domains
      * @param DomainDnsRecord $body Request body
-     * @return DomainDnsRecord
+     * @return DomainDnsRecord|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(DomainDnsRecord $body): DomainDnsRecord
+    public function patch(DomainDnsRecord $body): DomainDnsRecord|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to DomainDnsRecord
+     * Deserialize response to DomainDnsRecord|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): DomainDnsRecord|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DomainDnsRecord($data);
     }
@@ -108,17 +106,17 @@ class DomainDnsRecordRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

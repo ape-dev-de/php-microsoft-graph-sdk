@@ -16,33 +16,31 @@ class PublishRequestBuilder extends RootBaseRequestBuilder
     /**
      * Invoke action publish
      * @param EducationModule|\stdClass $body Request body
-     * @return EducationModule|\stdClass
+     * @return EducationModule|\stdClass|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(EducationModule|\stdClass $body): EducationModule|\stdClass
+    public function post(EducationModule|\stdClass $body): EducationModule|\stdClass|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to EducationModule|\stdClass
+     * Deserialize response to EducationModule|\stdClass|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): EducationModule|\stdClass|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new EducationModule($data);
     }

@@ -27,10 +27,10 @@ class SharePointRestoreSessionsRequestBuilder extends RootBaseRequestBuilder
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return SharePointRestoreSessionCollectionResponse
+     * @return SharePointRestoreSessionCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SharePointRestoreSessionCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): SharePointRestoreSessionCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -64,19 +64,19 @@ class SharePointRestoreSessionsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SharePointRestoreSessionCollectionResponse
+     * Deserialize response to SharePointRestoreSessionCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SharePointRestoreSessionCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -89,33 +89,31 @@ class SharePointRestoreSessionsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Create sharePointRestoreSession
      * @param SharePointRestoreSession $body Request body
-     * @return SharePointRestoreSession
+     * @return SharePointRestoreSession|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(SharePointRestoreSession $body): SharePointRestoreSession
+    public function post(SharePointRestoreSession $body): SharePointRestoreSession|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to SharePointRestoreSession
+     * Deserialize response to SharePointRestoreSession|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): SharePointRestoreSession|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SharePointRestoreSession($data);
     }

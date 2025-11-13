@@ -19,10 +19,10 @@ class UnifiedGroupSourceRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return SecurityUnifiedGroupSource
+     * @return SecurityUnifiedGroupSource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): SecurityUnifiedGroupSource
+    public function get(?array $select = null, ?array $expand = null): SecurityUnifiedGroupSource|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,52 +38,50 @@ class UnifiedGroupSourceRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to SecurityUnifiedGroupSource
+     * Deserialize response to SecurityUnifiedGroupSource|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): SecurityUnifiedGroupSource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityUnifiedGroupSource($data);
     }
     /**
      * Update the navigation property unifiedGroupSources in security
      * @param SecurityUnifiedGroupSource $body Request body
-     * @return SecurityUnifiedGroupSource
+     * @return SecurityUnifiedGroupSource|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(SecurityUnifiedGroupSource $body): SecurityUnifiedGroupSource
+    public function patch(SecurityUnifiedGroupSource $body): SecurityUnifiedGroupSource|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to SecurityUnifiedGroupSource
+     * Deserialize response to SecurityUnifiedGroupSource|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): SecurityUnifiedGroupSource|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new SecurityUnifiedGroupSource($data);
     }
@@ -109,17 +107,17 @@ class UnifiedGroupSourceRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

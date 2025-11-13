@@ -18,10 +18,10 @@ class FieldsRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return FieldValueSet
+     * @return FieldValueSet|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): FieldValueSet
+    public function get(?array $select = null, ?array $expand = null): FieldValueSet|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -37,52 +37,50 @@ class FieldsRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to FieldValueSet
+     * Deserialize response to FieldValueSet|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): FieldValueSet|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new FieldValueSet($data);
     }
     /**
      * Update the navigation property fields in drives
      * @param FieldValueSet $body Request body
-     * @return FieldValueSet
+     * @return FieldValueSet|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function patch(FieldValueSet $body): FieldValueSet
+    public function patch(FieldValueSet $body): FieldValueSet|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->patch($this->requestUrl, $bodyData);
+        $response = $this->client->patch($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePatch($responseBody);
     }
 
     /**
-     * Deserialize response to FieldValueSet
+     * Deserialize response to FieldValueSet|null
      */
-    private function deserializePatch(string $body): mixed
-    {
+    private function deserializePatch(string $body): FieldValueSet|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new FieldValueSet($data);
     }
@@ -108,17 +106,17 @@ class FieldsRequestBuilder extends RootBaseRequestBuilder
     /**
      * Deserialize response to mixed
      */
-    private function deserializeDelete(string $body): mixed
-    {
+    private function deserializeDelete(string $body): mixed    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return $data;
     }

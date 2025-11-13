@@ -28,10 +28,10 @@ class CustomAuthenticationExtensionsRequestBuilder extends RootBaseRequestBuilde
      * @param string|null $filter Filter items by property values
      * @param bool|null $count Include count of items
      * @param array<int, string>|null $orderby Order items by property values
-     * @return CustomAuthenticationExtensionCollectionResponse
+     * @return CustomAuthenticationExtensionCollectionResponse|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): CustomAuthenticationExtensionCollectionResponse
+    public function get(?array $select = null, ?array $expand = null, ?int $top = null, ?int $skip = null, ?string $search = null, ?string $filter = null, ?bool $count = null, ?array $orderby = null): CustomAuthenticationExtensionCollectionResponse|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -65,19 +65,19 @@ class CustomAuthenticationExtensionsRequestBuilder extends RootBaseRequestBuilde
     }
 
     /**
-     * Deserialize response to CustomAuthenticationExtensionCollectionResponse
+     * Deserialize response to CustomAuthenticationExtensionCollectionResponse|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): CustomAuthenticationExtensionCollectionResponse|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Collection response
         $items = [];
         foreach ($data['value'] ?? [] as $item) {
@@ -90,33 +90,31 @@ class CustomAuthenticationExtensionsRequestBuilder extends RootBaseRequestBuilde
     /**
      * Create customAuthenticationExtension
      * @param CustomAuthenticationExtension $body Request body
-     * @return CustomAuthenticationExtension
+     * @return CustomAuthenticationExtension|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function post(CustomAuthenticationExtension $body): CustomAuthenticationExtension
+    public function post(CustomAuthenticationExtension $body): CustomAuthenticationExtension|null
     {
-        // Get raw data from model
-        $bodyData = method_exists($body, 'getRaw') ? $body->getRaw() : json_encode(json_decode($body, true));
-        $response = $this->client->post($this->requestUrl, $bodyData);
+        $response = $this->client->post($this->requestUrl, $body->getRaw());
         $this->client->checkResponse($response);
         $responseBody = (string)$response->getBody();
         return $this->deserializePost($responseBody);
     }
 
     /**
-     * Deserialize response to CustomAuthenticationExtension
+     * Deserialize response to CustomAuthenticationExtension|null
      */
-    private function deserializePost(string $body): mixed
-    {
+    private function deserializePost(string $body): CustomAuthenticationExtension|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new CustomAuthenticationExtension($data);
     }

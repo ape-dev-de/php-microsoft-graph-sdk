@@ -19,10 +19,10 @@ class RootRequestBuilder extends RootBaseRequestBuilder
      *
      * @param array<int, string>|null $select Select properties to be returned
      * @param array<int, string>|null $expand Expand related entities
-     * @return DriveItem
+     * @return DriveItem|null
      * @throws \ApeDevDe\MicrosoftGraphSdk\Exceptions\GraphException
      */
-    public function get(?array $select = null, ?array $expand = null): DriveItem
+    public function get(?array $select = null, ?array $expand = null): DriveItem|null
     {
         $queryParams = [];
         if ($select !== null && $select !== []) {
@@ -38,19 +38,19 @@ class RootRequestBuilder extends RootBaseRequestBuilder
     }
 
     /**
-     * Deserialize response to DriveItem
+     * Deserialize response to DriveItem|null
      */
-    private function deserializeGet(string $body): mixed
-    {
+    private function deserializeGet(string $body): DriveItem|null    {
         if (empty($body)) {
             return null;
         }
-        
+
+
         $data = json_decode($body, true);
         if ($data === null) {
             return null;
         }
-        
+
         // Single object
         return new DriveItem($data);
     }
