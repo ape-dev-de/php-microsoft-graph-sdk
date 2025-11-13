@@ -17,6 +17,7 @@ use Symfony\Component\Serializer\SerializerInterface;
  *
  * This class provides a factory method to create a fully configured
  * Graph API client with request builders, serialization, and authentication.
+ * @mixin GraphRequestBuilder
  */
 class GraphServiceClient
 {
